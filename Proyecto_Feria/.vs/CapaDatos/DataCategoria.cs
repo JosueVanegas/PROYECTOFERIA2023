@@ -1,10 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CapaDatos
 {
@@ -21,29 +16,30 @@ namespace CapaDatos
                 try
                 {
                     con.Open();
-                    using(var cmd = new SqlCommand(query, con))
+                    using (var cmd = new SqlCommand(query, con))
                     {
                         cmd.CommandType = CommandType.Text;
-                        using(var reader = cmd.ExecuteReader())
+                        using (var reader = cmd.ExecuteReader())
                         {
-                            while(reader.Read())
+                            while (reader.Read())
                             {
                                 lista.Add(new Categoria
                                 {
-                                   id = Convert.ToInt32(reader["Id"]),
-                                   nombre = reader["Nombre"].ToString()
+                                    id = Convert.ToInt32(reader["Id"]),
+                                    nombre = reader["Nombre"].ToString()
                                 });
                             }
                         }
                     }
-                    
-                }catch (Exception ex)
+
+                }
+                catch (Exception ex)
                 {
                     string x = ex.Message;
                     lista = new List<Categoria>();
                 }
             }
-           return lista;
+            return lista;
         }
 
         public string accionesCategoria(Categoria ca)
@@ -77,22 +73,23 @@ namespace CapaDatos
         public string eliminarCategoria(int id)
         {
             mensaje = "";
-            using(SqlConnection con = new conexion().conectar())
+            using (SqlConnection con = new conexion().conectar())
             {
                 try
                 {
                     con.Open();
-                    using(SqlCommand cmd = new SqlCommand("eliminarCategoria", con))
+                    using (SqlCommand cmd = new SqlCommand("eliminarCategoria", con))
                     {
-                        cmd.CommandType= CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@Id",id);
-                        cmd.Parameters.Add("mensaje",SqlDbType.VarChar,500).Direction = ParameterDirection.Output;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@Id", id);
+                        cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                         cmd.ExecuteNonQuery();
 
                         mensaje = cmd.Parameters["mensaje"].Value.ToString();
 
                     }
-                }catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
                     mensaje = "Lo sentimos a ocurrido un \nerror : " + ex.Message;
                 }

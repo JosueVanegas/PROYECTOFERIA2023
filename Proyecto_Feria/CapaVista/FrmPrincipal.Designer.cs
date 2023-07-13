@@ -1,0 +1,379 @@
+﻿using RJCodeAdvance;
+using ReaLTaiizor;
+namespace CapaVista
+{
+    partial class FrmPrincipal
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
+            panel1 = new Panel();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            btnContabilidad = new RJCodeAdvance.RJControls.RJButton();
+            btnCalculos = new RJCodeAdvance.RJControls.RJButton();
+            btnInventory = new RJCodeAdvance.RJControls.RJButton();
+            btnPlanilla = new RJCodeAdvance.RJControls.RJButton();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            btnInicio = new RJCodeAdvance.RJControls.RJButton();
+            btnHerramientas = new RJCodeAdvance.RJControls.RJButton();
+            btnUsuarios = new RJCodeAdvance.RJControls.RJButton();
+            tableLayoutPanel3 = new TableLayoutPanel();
+            panelOpen = new Panel();
+            rjButton5 = new RJCodeAdvance.RJControls.RJButton();
+            btnConfiguraciones = new RJCodeAdvance.RJControls.RJButton();
+            panel1.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
+            tableLayoutPanel3.SuspendLayout();
+            SuspendLayout();
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(53, 53, 60);
+            panel1.Controls.Add(tableLayoutPanel1);
+            panel1.Dock = DockStyle.Bottom;
+            panel1.Location = new Point(0, 514);
+            panel1.Margin = new Padding(3, 2, 3, 2);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1037, 94);
+            panel1.TabIndex = 1;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.Anchor = AnchorStyles.Bottom;
+            tableLayoutPanel1.ColumnCount = 4;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel1.Controls.Add(btnContabilidad, 0, 0);
+            tableLayoutPanel1.Controls.Add(btnCalculos, 0, 0);
+            tableLayoutPanel1.Controls.Add(btnInventory, 0, 0);
+            tableLayoutPanel1.Controls.Add(btnPlanilla, 0, 0);
+            tableLayoutPanel1.Location = new Point(318, 9);
+            tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 75F));
+            tableLayoutPanel1.Size = new Size(414, 75);
+            tableLayoutPanel1.TabIndex = 0;
+            // 
+            // btnContabilidad
+            // 
+            btnContabilidad.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnContabilidad.BackColor = Color.FromArgb(21, 24, 31);
+            btnContabilidad.BackgroundColor = Color.FromArgb(21, 24, 31);
+            btnContabilidad.BackgroundImage = (Image)resources.GetObject("btnContabilidad.BackgroundImage");
+            btnContabilidad.BackgroundImageLayout = ImageLayout.Center;
+            btnContabilidad.BorderColor = Color.PaleVioletRed;
+            btnContabilidad.BorderRadius = 10;
+            btnContabilidad.BorderSize = 0;
+            btnContabilidad.FlatAppearance.BorderSize = 0;
+            btnContabilidad.FlatStyle = FlatStyle.Flat;
+            btnContabilidad.ForeColor = Color.White;
+            btnContabilidad.Location = new Point(209, 2);
+            btnContabilidad.Margin = new Padding(3, 2, 3, 2);
+            btnContabilidad.Name = "btnContabilidad";
+            btnContabilidad.Size = new Size(97, 71);
+            btnContabilidad.TabIndex = 5;
+            btnContabilidad.Text = "Contabilidad";
+            btnContabilidad.TextAlign = ContentAlignment.BottomCenter;
+            btnContabilidad.TextColor = Color.White;
+            btnContabilidad.UseVisualStyleBackColor = false;
+            // 
+            // btnCalculos
+            // 
+            btnCalculos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnCalculos.BackColor = Color.FromArgb(21, 24, 31);
+            btnCalculos.BackgroundColor = Color.FromArgb(21, 24, 31);
+            btnCalculos.BackgroundImage = (Image)resources.GetObject("btnCalculos.BackgroundImage");
+            btnCalculos.BackgroundImageLayout = ImageLayout.Center;
+            btnCalculos.BorderColor = Color.PaleVioletRed;
+            btnCalculos.BorderRadius = 10;
+            btnCalculos.BorderSize = 0;
+            btnCalculos.FlatAppearance.BorderSize = 0;
+            btnCalculos.FlatStyle = FlatStyle.Flat;
+            btnCalculos.ForeColor = Color.White;
+            btnCalculos.Location = new Point(312, 2);
+            btnCalculos.Margin = new Padding(3, 2, 3, 2);
+            btnCalculos.Name = "btnCalculos";
+            btnCalculos.Size = new Size(99, 71);
+            btnCalculos.TabIndex = 4;
+            btnCalculos.Text = "Calculos";
+            btnCalculos.TextAlign = ContentAlignment.BottomCenter;
+            btnCalculos.TextColor = Color.White;
+            btnCalculos.UseVisualStyleBackColor = false;
+            // 
+            // btnInventory
+            // 
+            btnInventory.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnInventory.BackColor = Color.FromArgb(21, 24, 31);
+            btnInventory.BackgroundColor = Color.FromArgb(21, 24, 31);
+            btnInventory.BackgroundImage = (Image)resources.GetObject("btnInventory.BackgroundImage");
+            btnInventory.BackgroundImageLayout = ImageLayout.Center;
+            btnInventory.BorderColor = Color.PaleVioletRed;
+            btnInventory.BorderRadius = 10;
+            btnInventory.BorderSize = 0;
+            btnInventory.FlatAppearance.BorderSize = 0;
+            btnInventory.FlatStyle = FlatStyle.Flat;
+            btnInventory.ForeColor = Color.White;
+            btnInventory.Location = new Point(3, 2);
+            btnInventory.Margin = new Padding(3, 2, 3, 2);
+            btnInventory.Name = "btnInventory";
+            btnInventory.Size = new Size(97, 71);
+            btnInventory.TabIndex = 3;
+            btnInventory.Text = "Inventario";
+            btnInventory.TextAlign = ContentAlignment.BottomCenter;
+            btnInventory.TextColor = Color.White;
+            btnInventory.UseVisualStyleBackColor = false;
+            // 
+            // btnPlanilla
+            // 
+            btnPlanilla.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnPlanilla.BackColor = Color.FromArgb(21, 24, 31);
+            btnPlanilla.BackgroundColor = Color.FromArgb(21, 24, 31);
+            btnPlanilla.BackgroundImage = (Image)resources.GetObject("btnPlanilla.BackgroundImage");
+            btnPlanilla.BackgroundImageLayout = ImageLayout.Center;
+            btnPlanilla.BorderColor = Color.PaleVioletRed;
+            btnPlanilla.BorderRadius = 10;
+            btnPlanilla.BorderSize = 0;
+            btnPlanilla.FlatAppearance.BorderSize = 0;
+            btnPlanilla.FlatStyle = FlatStyle.Flat;
+            btnPlanilla.ForeColor = Color.White;
+            btnPlanilla.Location = new Point(106, 2);
+            btnPlanilla.Margin = new Padding(3, 2, 3, 2);
+            btnPlanilla.Name = "btnPlanilla";
+            btnPlanilla.Size = new Size(97, 71);
+            btnPlanilla.TabIndex = 2;
+            btnPlanilla.Text = "Planilla";
+            btnPlanilla.TextAlign = ContentAlignment.BottomCenter;
+            btnPlanilla.TextColor = Color.White;
+            btnPlanilla.UseVisualStyleBackColor = false;
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 1;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Controls.Add(btnInicio, 0, 2);
+            tableLayoutPanel2.Controls.Add(btnUsuarios, 0, 5);
+            tableLayoutPanel2.Controls.Add(rjButton5, 0, 1);
+            tableLayoutPanel2.Controls.Add(btnHerramientas, 0, 3);
+            tableLayoutPanel2.Controls.Add(btnConfiguraciones, 0, 4);
+            tableLayoutPanel2.Dock = DockStyle.Left;
+            tableLayoutPanel2.Location = new Point(0, 0);
+            tableLayoutPanel2.Margin = new Padding(3, 2, 3, 2);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 7;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+            tableLayoutPanel2.Size = new Size(61, 514);
+            tableLayoutPanel2.TabIndex = 2;
+            // 
+            // btnInicio
+            // 
+            btnInicio.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnInicio.BackColor = Color.FromArgb(63, 63, 70);
+            btnInicio.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnInicio.BackgroundImage = (Image)resources.GetObject("btnInicio.BackgroundImage");
+            btnInicio.BackgroundImageLayout = ImageLayout.Center;
+            btnInicio.BorderColor = Color.PaleVioletRed;
+            btnInicio.BorderRadius = 10;
+            btnInicio.BorderSize = 0;
+            btnInicio.FlatAppearance.BorderSize = 0;
+            btnInicio.FlatStyle = FlatStyle.Flat;
+            btnInicio.ForeColor = Color.White;
+            btnInicio.Location = new Point(3, 148);
+            btnInicio.Margin = new Padding(3, 2, 3, 2);
+            btnInicio.Name = "btnInicio";
+            btnInicio.Size = new Size(55, 69);
+            btnInicio.TabIndex = 5;
+            btnInicio.TextAlign = ContentAlignment.BottomCenter;
+            btnInicio.TextColor = Color.White;
+            btnInicio.UseVisualStyleBackColor = false;
+            // 
+            // btnHerramientas
+            // 
+            btnHerramientas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnHerramientas.BackColor = Color.FromArgb(63, 63, 70);
+            btnHerramientas.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnHerramientas.BackgroundImage = (Image)resources.GetObject("btnHerramientas.BackgroundImage");
+            btnHerramientas.BackgroundImageLayout = ImageLayout.Center;
+            btnHerramientas.BorderColor = Color.PaleVioletRed;
+            btnHerramientas.BorderRadius = 10;
+            btnHerramientas.BorderSize = 0;
+            btnHerramientas.FlatAppearance.BorderSize = 0;
+            btnHerramientas.FlatStyle = FlatStyle.Flat;
+            btnHerramientas.ForeColor = Color.White;
+            btnHerramientas.Location = new Point(3, 221);
+            btnHerramientas.Margin = new Padding(3, 2, 3, 2);
+            btnHerramientas.Name = "btnHerramientas";
+            btnHerramientas.Size = new Size(55, 69);
+            btnHerramientas.TabIndex = 6;
+            btnHerramientas.TextAlign = ContentAlignment.BottomCenter;
+            btnHerramientas.TextColor = Color.White;
+            btnHerramientas.UseVisualStyleBackColor = false;
+            // 
+            // btnUsuarios
+            // 
+            btnUsuarios.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnUsuarios.BackColor = Color.FromArgb(63, 63, 70);
+            btnUsuarios.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnUsuarios.BackgroundImage = (Image)resources.GetObject("btnUsuarios.BackgroundImage");
+            btnUsuarios.BackgroundImageLayout = ImageLayout.Center;
+            btnUsuarios.BorderColor = Color.PaleVioletRed;
+            btnUsuarios.BorderRadius = 10;
+            btnUsuarios.BorderSize = 0;
+            btnUsuarios.FlatAppearance.BorderSize = 0;
+            btnUsuarios.FlatStyle = FlatStyle.Flat;
+            btnUsuarios.ForeColor = Color.White;
+            btnUsuarios.Location = new Point(3, 367);
+            btnUsuarios.Margin = new Padding(3, 2, 3, 2);
+            btnUsuarios.Name = "btnUsuarios";
+            btnUsuarios.Size = new Size(55, 69);
+            btnUsuarios.TabIndex = 7;
+            btnUsuarios.TextAlign = ContentAlignment.BottomCenter;
+            btnUsuarios.TextColor = Color.White;
+            btnUsuarios.UseVisualStyleBackColor = false;
+            btnUsuarios.Click += rjButton9_Click;
+            // 
+            // tableLayoutPanel3
+            // 
+            tableLayoutPanel3.ColumnCount = 3;
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 4F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 92F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 4F));
+            tableLayoutPanel3.Controls.Add(panelOpen, 1, 1);
+            tableLayoutPanel3.Dock = DockStyle.Fill;
+            tableLayoutPanel3.Location = new Point(61, 0);
+            tableLayoutPanel3.Margin = new Padding(3, 2, 3, 2);
+            tableLayoutPanel3.Name = "tableLayoutPanel3";
+            tableLayoutPanel3.RowCount = 3;
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 1F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 98F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 1F));
+            tableLayoutPanel3.Size = new Size(976, 514);
+            tableLayoutPanel3.TabIndex = 3;
+            // 
+            // panelOpen
+            // 
+            panelOpen.BackColor = Color.FromArgb(21, 25, 31);
+            panelOpen.Dock = DockStyle.Fill;
+            panelOpen.Location = new Point(42, 7);
+            panelOpen.Margin = new Padding(3, 2, 3, 2);
+            panelOpen.MinimumSize = new Size(564, 272);
+            panelOpen.Name = "panelOpen";
+            panelOpen.Size = new Size(891, 499);
+            panelOpen.TabIndex = 0;
+            // 
+            // rjButton5
+            // 
+            rjButton5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            rjButton5.BackColor = Color.FromArgb(63, 63, 70);
+            rjButton5.BackgroundColor = Color.FromArgb(63, 63, 70);
+            rjButton5.BackgroundImage = (Image)resources.GetObject("rjButton5.BackgroundImage");
+            rjButton5.BackgroundImageLayout = ImageLayout.Center;
+            rjButton5.BorderColor = Color.PaleVioletRed;
+            rjButton5.BorderRadius = 10;
+            rjButton5.BorderSize = 0;
+            rjButton5.FlatAppearance.BorderSize = 0;
+            rjButton5.FlatStyle = FlatStyle.Flat;
+            rjButton5.ForeColor = Color.White;
+            rjButton5.Location = new Point(3, 75);
+            rjButton5.Margin = new Padding(3, 2, 3, 2);
+            rjButton5.Name = "rjButton5";
+            rjButton5.Size = new Size(55, 69);
+            rjButton5.TabIndex = 8;
+            rjButton5.TextAlign = ContentAlignment.BottomCenter;
+            rjButton5.TextColor = Color.White;
+            rjButton5.UseVisualStyleBackColor = false;
+            // 
+            // btnConfiguraciones
+            // 
+            btnConfiguraciones.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnConfiguraciones.BackColor = Color.FromArgb(63, 63, 70);
+            btnConfiguraciones.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnConfiguraciones.BackgroundImage = (Image)resources.GetObject("btnConfiguraciones.BackgroundImage");
+            btnConfiguraciones.BackgroundImageLayout = ImageLayout.Center;
+            btnConfiguraciones.BorderColor = Color.PaleVioletRed;
+            btnConfiguraciones.BorderRadius = 10;
+            btnConfiguraciones.BorderSize = 0;
+            btnConfiguraciones.FlatAppearance.BorderSize = 0;
+            btnConfiguraciones.FlatStyle = FlatStyle.Flat;
+            btnConfiguraciones.ForeColor = Color.White;
+            btnConfiguraciones.Location = new Point(3, 294);
+            btnConfiguraciones.Margin = new Padding(3, 2, 3, 2);
+            btnConfiguraciones.Name = "btnConfiguraciones";
+            btnConfiguraciones.Size = new Size(55, 69);
+            btnConfiguraciones.TabIndex = 9;
+            btnConfiguraciones.TextAlign = ContentAlignment.BottomCenter;
+            btnConfiguraciones.TextColor = Color.White;
+            btnConfiguraciones.UseVisualStyleBackColor = false;
+            // 
+            // FrmPrincipal
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(21, 25, 31);
+            ClientSize = new Size(1037, 608);
+            Controls.Add(tableLayoutPanel3);
+            Controls.Add(tableLayoutPanel2);
+            Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MinimumSize = new Size(1053, 647);
+            Name = "FrmPrincipal";
+            panel1.ResumeLayout(false);
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel3.ResumeLayout(false);
+            ResumeLayout(false);
+        }
+
+        #endregion
+
+        private Panel panel1;
+        private TableLayoutPanel tableLayoutPanel1;
+        private RJCodeAdvance.RJControls.RJButton btnContabilidad;
+        private RJCodeAdvance.RJControls.RJButton btnCalculos;
+        private RJCodeAdvance.RJControls.RJButton btnInventory;
+        private RJCodeAdvance.RJControls.RJButton btnPlanilla;
+        private TableLayoutPanel tableLayoutPanel2;
+        private RJCodeAdvance.RJControls.RJButton rjButton8;
+        private RJCodeAdvance.RJControls.RJButton btnInicio;
+        private RJCodeAdvance.RJControls.RJButton btnHerramientas;
+        private RJCodeAdvance.RJControls.RJButton btnUsuarios;
+        private TableLayoutPanel tableLayoutPanel3;
+        public Panel panelOpen;
+        private RJCodeAdvance.RJControls.RJButton rjButton5;
+        private RJCodeAdvance.RJControls.RJButton btnConfiguraciones;
+    }
+}

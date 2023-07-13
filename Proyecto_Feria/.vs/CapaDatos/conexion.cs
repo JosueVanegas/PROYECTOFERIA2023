@@ -1,10 +1,4 @@
-﻿using System.Data.SqlClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
 
 namespace CapaDatos
 {
@@ -13,24 +7,24 @@ namespace CapaDatos
         string cadenaConexion = "Data Source=(local)\\SQLEXPRESS;Initial Catalog=DBPUNTO_DE_VENTA;Integrated Security=true;TrustServerCertificate=true;";
 
         public conexion() { }
-         public string conexionExitosa()
+        public string conexionExitosa()
         {
             string mensaje = "";
-                using(SqlConnection con = conectar())
+            using (SqlConnection con = conectar())
+            {
+                try
                 {
-                    try
-                    {
-                        con.Open();
-                        mensaje = "conexion a base de datos establecida con exito";
-                    }
-                    catch(Exception ex)
-                    {
-                      mensaje = "lo sentimos no se a podido conectar a la base";
-                    }
+                    con.Open();
+                    mensaje = "conexion a base de datos establecida con exito";
                 }
+                catch (Exception ex)
+                {
+                    mensaje = "lo sentimos no se a podido conectar a la base";
+                }
+            }
             return mensaje;
         }
-         public SqlConnection conectar()
+        public SqlConnection conectar()
         {
             return new SqlConnection(cadenaConexion);
         }
@@ -41,6 +35,6 @@ namespace CapaDatos
             c.Open();
             c.Close();
         }
-        
+
     }
 }

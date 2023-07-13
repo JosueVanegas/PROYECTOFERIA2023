@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CapaDatos
+﻿namespace CapaDatos
 {
     public class Entidades
     {
@@ -60,7 +54,7 @@ namespace CapaDatos
         public Categoria oCategoria { get; set; }
         public int ProveedorId { get; set; }
         public decimal Precio { get; set; }
-        
+
         public Categoria Categoria { get; set; }
         public Proveedor Proveedor { get; set; }
     }

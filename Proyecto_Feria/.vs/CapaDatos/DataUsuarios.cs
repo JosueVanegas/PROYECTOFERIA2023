@@ -1,11 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
-using CapaDatos;
 
 namespace CapaDatos
 {
@@ -35,7 +29,7 @@ namespace CapaDatos
                                     id = Convert.ToInt32(reader["ID_USUARIO"]),
                                     usuario = reader["USUARIO"].ToString(),
                                     clave = reader["CLAVE"].ToString(),
-                                    oRol = new Rol { id = Convert.ToInt32(reader["ROL"]),descripcion = reader["DESCRIPCION"].ToString() }
+                                    oRol = new Rol { id = Convert.ToInt32(reader["ROL"]), descripcion = reader["DESCRIPCION"].ToString() }
                                 });
                             }
                         }
@@ -50,48 +44,49 @@ namespace CapaDatos
         }
         public string accionesUsuario(Usuario user)
         {
-              using (SqlConnection connection = new conexion().conectar())
-             {
-                 try
-                 {
+            using (SqlConnection connection = new conexion().conectar())
+            {
+                try
+                {
                     connection.Open();
 
                     SqlCommand comand = new SqlCommand("registroEdicionUsuario", connection);
                     comand.CommandType = CommandType.StoredProcedure;
                     comand.Parameters.AddWithValue("@Id", user.id);
-                    comand.Parameters.AddWithValue("@NombreCompleto", user.oEmpleado.nombres );
-                    comand.Parameters.AddWithValue("@Usuario",user.usuario);
+                    comand.Parameters.AddWithValue("@NombreCompleto", user.oEmpleado.nombres);
+                    comand.Parameters.AddWithValue("@Usuario", user.usuario);
                     comand.Parameters.AddWithValue("@Clave", user.clave);
                     //comand.Parameters.AddWithValue("@Rol", user.rol);
-                    comand.Parameters.Add("mensaje", SqlDbType.VarChar,500).Direction = ParameterDirection.Output;
+                    comand.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
                     comand.ExecuteNonQuery();
 
                     mensaje = comand.Parameters["mensaje"].Value.ToString();
-                 }
-                 catch (Exception ex)
-                 {
+                }
+                catch (Exception ex)
+                {
                     mensaje = "Lo sentimos a ocurrido un \nerror : " + ex.Message;
                 }
-              }
-              return mensaje;
+            }
+            return mensaje;
         }
         public string eliminarUsuario(int idU)
         {
-            
-            using( SqlConnection con = new conexion().conectar())
+
+            using (SqlConnection con = new conexion().conectar())
             {
                 try
                 {
                     con.Open();
                     SqlCommand comand = new SqlCommand("eliminarUsuario", con);
-                    comand.CommandType =CommandType.StoredProcedure;
+                    comand.CommandType = CommandType.StoredProcedure;
                     comand.Parameters.AddWithValue("@Id", idU);
                     comand.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
-                    comand.ExecuteNonQuery ();
+                    comand.ExecuteNonQuery();
 
                     mensaje = comand.Parameters["mensaje"].Value.ToString();
-                }catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
                     mensaje = "no se pudo eliminar el usuario. error: " + ex.Message;
                 }
