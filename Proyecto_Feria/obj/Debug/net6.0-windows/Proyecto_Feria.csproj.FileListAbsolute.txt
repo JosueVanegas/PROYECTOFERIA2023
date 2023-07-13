@@ -1,0 +1,59 @@
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\CapaVista.deps.json
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\CapaVista.runtimeconfig.json
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\CapaVista.exe
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\Proyecto_Feria.exe
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\Proyecto_Feria.deps.json
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\Proyecto_Feria.runtimeconfig.json
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\Proyecto_Feria.dll
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\Proyecto_Feria.pdb
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\Azure.Core.dll
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\Azure.Identity.dll
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\Microsoft.Data.SqlClient.dll
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\Microsoft.Identity.Client.dll
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\Microsoft.IdentityModel.Logging.dll
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\Microsoft.IdentityModel.Protocols.dll
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\Microsoft.IdentityModel.Tokens.dll
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\Microsoft.SqlServer.Server.dll
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\ReaLTaiizor.dll
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\RJCodeAdvance.RJControls.dll
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\System.Configuration.ConfigurationManager.dll
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\System.Memory.Data.dll
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\System.Runtime.Caching.dll
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\CapaControlador.dll
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\CapaDatos.dll
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\CapaVista.dll
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\CapaVista.pdb
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\CapaControlador.pdb
+C:\Users\arqva\source\repos\Proyecto_Feria\bin\Debug\net6.0-windows\CapaDatos.pdb
+C:\Users\arqva\source\repos\Proyecto_Feria\obj\Debug\net6.0-windows\Proyecto_Feria.csproj.AssemblyReference.cache
+C:\Users\arqva\source\repos\Proyecto_Feria\obj\Debug\net6.0-windows\Proyecto_Feria.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\arqva\source\repos\Proyecto_Feria\obj\Debug\net6.0-windows\Proyecto_Feria.AssemblyInfoInputs.cache
+C:\Users\arqva\source\repos\Proyecto_Feria\obj\Debug\net6.0-windows\Proyecto_Feria.AssemblyInfo.cs
+C:\Users\arqva\source\repos\Proyecto_Feria\obj\Debug\net6.0-windows\Proyecto_Feria.csproj.CoreCompileInputs.cache
+C:\Users\arqva\source\repos\Proyecto_Feria\obj\Debug\net6.0-windows\Proyecto_Feria.csproj.CopyComplete
+C:\Users\arqva\source\repos\Proyecto_Feria\obj\Debug\net6.0-windows\Proyecto_Feria.dll
+C:\Users\arqva\source\repos\Proyecto_Feria\obj\Debug\net6.0-windows\refint\Proyecto_Feria.dll
+C:\Users\arqva\source\repos\Proyecto_Feria\obj\Debug\net6.0-windows\Proyecto_Feria.pdb
+C:\Users\arqva\source\repos\Proyecto_Feria\obj\Debug\net6.0-windows\Proyecto_Feria.genruntimeconfig.cache
+C:\Users\arqva\source\repos\Proyecto_Feria\obj\Debug\net6.0-windows\ref\Proyecto_Feria.dll
+D:\ARCHIVOS JOSUE\Proyecto_Feria\obj\Debug\net6.0-windows\Proyecto_Feria.csproj.AssemblyReference.cache
+D:\ARCHIVOS JOSUE\Proyecto_Feria\obj\Debug\net6.0-windows\Proyecto_Feria.GeneratedMSBuildEditorConfig.editorconfig
+D:\ARCHIVOS JOSUE\Proyecto_Feria\obj\Debug\net6.0-windows\Proyecto_Feria.AssemblyInfoInputs.cache
+D:\ARCHIVOS JOSUE\Proyecto_Feria\obj\Debug\net6.0-windows\Proyecto_Feria.AssemblyInfo.cs
+D:\ARCHIVOS JOSUE\Proyecto_Feria\obj\Debug\net6.0-windows\Proyecto_Feria.csproj.CoreCompileInputs.cache
+D:\ARCHIVOS JOSUE\Proyecto_Feria\obj\Debug\net6.0-windows\Proyecto_Feria.dll
+D:\ARCHIVOS JOSUE\Proyecto_Feria\obj\Debug\net6.0-windows\refint\Proyecto_Feria.dll
+D:\ARCHIVOS JOSUE\Proyecto_Feria\obj\Debug\net6.0-windows\Proyecto_Feria.pdb

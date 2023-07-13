@@ -1,0 +1,15 @@
+D:\ARCHIVOS JOSUE\2023\pruebas\CapaControlador\obj\Debug\net6.0\CapaControlador.csproj.AssemblyReference.cache
+D:\ARCHIVOS JOSUE\2023\pruebas\CapaControlador\obj\Debug\net6.0\CapaControlador.GeneratedMSBuildEditorConfig.editorconfig
+D:\ARCHIVOS JOSUE\2023\pruebas\CapaControlador\obj\Debug\net6.0\CapaControlador.AssemblyInfoInputs.cache
+D:\ARCHIVOS JOSUE\2023\pruebas\CapaControlador\obj\Debug\net6.0\CapaControlador.AssemblyInfo.cs
+D:\ARCHIVOS JOSUE\2023\pruebas\CapaControlador\obj\Debug\net6.0\CapaControlador.csproj.CoreCompileInputs.cache
+D:\ARCHIVOS JOSUE\2023\pruebas\CapaControlador\bin\Debug\net6.0\CapaControlador.deps.json
+D:\ARCHIVOS JOSUE\2023\pruebas\CapaControlador\bin\Debug\net6.0\CapaControlador.dll
+D:\ARCHIVOS JOSUE\2023\pruebas\CapaControlador\bin\Debug\net6.0\CapaControlador.pdb
+D:\ARCHIVOS JOSUE\2023\pruebas\CapaControlador\bin\Debug\net6.0\CapaDatos.dll
+D:\ARCHIVOS JOSUE\2023\pruebas\CapaControlador\bin\Debug\net6.0\CapaDatos.pdb
+D:\ARCHIVOS JOSUE\2023\pruebas\CapaControlador\obj\Debug\net6.0\CapaControlador.csproj.CopyComplete
+D:\ARCHIVOS JOSUE\2023\pruebas\CapaControlador\obj\Debug\net6.0\CapaControlador.dll
+D:\ARCHIVOS JOSUE\2023\pruebas\CapaControlador\obj\Debug\net6.0\refint\CapaControlador.dll
+D:\ARCHIVOS JOSUE\2023\pruebas\CapaControlador\obj\Debug\net6.0\CapaControlador.pdb
+D:\ARCHIVOS JOSUE\2023\pruebas\CapaControlador\obj\Debug\net6.0\ref\CapaControlador.dll

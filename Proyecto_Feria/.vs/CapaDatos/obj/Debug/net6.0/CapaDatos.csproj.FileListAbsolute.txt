@@ -1,0 +1,12 @@
+D:\ARCHIVOS JOSUE\2023\pruebas\CapaDatos\obj\Debug\net6.0\CapaDatos.csproj.AssemblyReference.cache
+D:\ARCHIVOS JOSUE\2023\pruebas\CapaDatos\obj\Debug\net6.0\CapaDatos.GeneratedMSBuildEditorConfig.editorconfig
+D:\ARCHIVOS JOSUE\2023\pruebas\CapaDatos\obj\Debug\net6.0\CapaDatos.AssemblyInfoInputs.cache
+D:\ARCHIVOS JOSUE\2023\pruebas\CapaDatos\obj\Debug\net6.0\CapaDatos.AssemblyInfo.cs
+D:\ARCHIVOS JOSUE\2023\pruebas\CapaDatos\obj\Debug\net6.0\CapaDatos.csproj.CoreCompileInputs.cache
+D:\ARCHIVOS JOSUE\2023\pruebas\CapaDatos\bin\Debug\net6.0\CapaDatos.deps.json
+D:\ARCHIVOS JOSUE\2023\pruebas\CapaDatos\bin\Debug\net6.0\CapaDatos.dll
+D:\ARCHIVOS JOSUE\2023\pruebas\CapaDatos\bin\Debug\net6.0\CapaDatos.pdb
+D:\ARCHIVOS JOSUE\2023\pruebas\CapaDatos\obj\Debug\net6.0\CapaDatos.dll
+D:\ARCHIVOS JOSUE\2023\pruebas\CapaDatos\obj\Debug\net6.0\refint\CapaDatos.dll
+D:\ARCHIVOS JOSUE\2023\pruebas\CapaDatos\obj\Debug\net6.0\CapaDatos.pdb
+D:\ARCHIVOS JOSUE\2023\pruebas\CapaDatos\obj\Debug\net6.0\ref\CapaDatos.dll
