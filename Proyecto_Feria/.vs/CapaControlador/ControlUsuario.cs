@@ -10,6 +10,14 @@ namespace CapaControlador
         {
             return dUser.ListaUsuarios();
         }
+        public List<Rol> listarRoles()
+        {
+            return dUser.listaRoles();
+        }
+        public List<Empleado> listarEmpleados()
+        {
+            return dUser.listaEmpleados();
+        }
         public string registrar(Usuario u)
         {
             string mensaje = dUser.accionesUsuario(u);

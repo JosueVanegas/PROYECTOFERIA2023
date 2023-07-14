@@ -23,13 +23,21 @@ namespace CapaVista
 
         private void formUsuarios_Load(object sender, EventArgs e)
         {
+            mostarEmpleados();
+            mostrarRoles();
             mostrarUsuarios();
         }
-
+        public void mostrarRoles()
+        {
+            cbxRol.DataSource = controlUsuario.listarRoles();
+        }
+        public void mostarEmpleados()
+        {
+            cbxEmpleados.DataSource = controlUsuario.listarEmpleados();
+        }
         private void limpiarCampos()
         {
             txtUsuario.Text = "";
-            txtNombre.Text = "";
             txtClave.Text = "";
             txtIdUsuario.Text = "";
             txtBuscar.Text = "";
@@ -38,7 +46,7 @@ namespace CapaVista
         private bool validarCampos()
         {
             bool continuar = false;
-            if (txtNombre.Text != "" && txtUsuario.Text != "" && txtClave.Text != "")
+            if (txtUsuario.Text != "" && txtClave.Text != "")
             {
                 continuar = true;
             }
@@ -67,28 +75,20 @@ namespace CapaVista
             {
                 if (txtClave.Text == txtConfirmarClave.Text)
                 {
-                    if (cbxRol.SelectedIndex == 0)
-                    {
-                        rolU = 1;
-                    }
-                    else if (cbxRol.SelectedIndex == 1)
-                    {
-                        rolU = 2;
-                    }
                     if (txtIdUsuario.Text == "")
                         txtIdUsuario.Text = "1";
+                    Empleado emp = cbxEmpleados.SelectedItem as Empleado;
+                    Rol rol = cbxRol.SelectedItem as Rol;
                     MessageBox.Show(
                     controlUsuario.registrar(new Usuario
                     {
-                        /*
-                         * id = Convert.ToInt32(txtIdUsuario.Text),
-                        nombre = txtNombre.Text,
+                        id = Convert.ToInt32(txtIdUsuario.Text),
+                        oEmpleado = emp,
                         usuario = txtUsuario.Text,
                         clave = txtClave.Text,
-                        rol = rolU
-                         */
+                        oRol = rol,
                     })
-                    );
+                    ); ;
                     limpiarCampos();
                     mostrarUsuarios();
                 }

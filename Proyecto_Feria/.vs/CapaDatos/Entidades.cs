@@ -15,12 +15,21 @@
         public string correo { get; set; }
         public string fechaRegistro { get; set; }
 
+        public override string ToString()
+        {
+            return nombres +" "+ apellidos;
+        }
     }
     public class Rol
     {
         public int id { get; set; }
         public string descripcion { get; set; }
         public string fechaRegistro { get; set; }
+
+        public override string ToString()
+        {
+            return descripcion;
+        }
     }
     public class Usuario
     {
