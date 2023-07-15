@@ -1,14 +1,26 @@
 ﻿using CapaControlador;
 using CapaDatos;
+using ReaLTaiizor.Colors;
+using ReaLTaiizor.Forms;
+using ReaLTaiizor.Manager;
+using ReaLTaiizor.Util;
+using System.Windows.Forms;
 
 namespace CapaVista
 {
-    public partial class formCategorias : Form
+    public partial class formCategorias : MaterialForm
     {
         ControlCategoria cCategoria = new ControlCategoria();
+        private readonly MaterialSkinManager manager;
+
         public formCategorias()
         {
             InitializeComponent();
+            manager = MaterialSkinManager.Instance;
+            manager.AddFormToManage(this);
+            manager.Theme = MaterialSkinManager.Themes.DARK;
+            manager.EnforceBackcolorOnAllComponents = true;
+            manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.WHITE);
         }
         private void formCategorias_Load(object sender, EventArgs e)
         {
@@ -117,6 +129,16 @@ namespace CapaVista
             }
         }
 
+        private void pictureBox1_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            ToolTip toolTip = new ToolTip();
 
+            // Establecer el icono de información (puedes cambiar el icono si lo deseas)
+            toolTip.ToolTipIcon = ToolTipIcon.Info;
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(pictureBox1, "Descripción del PictureBox");
+        }
     }
 }
