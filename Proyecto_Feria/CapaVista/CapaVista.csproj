@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Azure.Core" Version="1.34.0" />
     <PackageReference Include="ReaLTaiizor" Version="3.7.9.4" />
     <PackageReference Include="RJCodeAdvance.RJControls" Version="1.0.0" />
   </ItemGroup>

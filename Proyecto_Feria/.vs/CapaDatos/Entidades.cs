@@ -7,6 +7,7 @@
     public class Empleado
     {
         public int id { get; set; }
+        public string cedula { get; set; }
         public string nombres { get; set; }
         public string apellidos { get; set; }
         public string sexo { get; set; }
@@ -17,7 +18,7 @@
 
         public override string ToString()
         {
-            return nombres +" "+ apellidos;
+            return nombres + " " + apellidos;
         }
     }
     public class Rol
@@ -25,6 +26,15 @@
         public int id { get; set; }
         public string descripcion { get; set; }
         public string fechaRegistro { get; set; }
+
+        public override string ToString()
+        {
+            return descripcion;
+        }
+    }
+    public class Estado{
+        public bool estado { get; set; }
+        public string descripcion { get; set; }
 
         public override string ToString()
         {
@@ -45,7 +55,7 @@
     {
         public int id { get; set; }
         public string nombre { get; set; }
-        public bool estado { get; set; }
+        public Estado oEstado { get; set; }
         public string fechaRegistro { get; set; }
     }
 
@@ -57,11 +67,11 @@
 
     public class Producto
     {
-        public int id { get; set; }
+        public string id { get; set; }
         public byte[] Imagen { get; set; }
         public string nombre { get; set; }
         public Categoria oCategoria { get; set; }
-        public int ProveedorId { get; set; }
+        public Proveedor oProveedor { get; set; }
         public decimal Precio { get; set; }
 
         public Categoria Categoria { get; set; }

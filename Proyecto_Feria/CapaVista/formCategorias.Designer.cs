@@ -36,6 +36,8 @@
             txtNombre = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtIdCategoria = new TextBox();
             panel1 = new Panel();
+            cbxEstado = new ReaLTaiizor.Controls.MaterialComboBox();
+            LblInf = new Label();
             pictureBox1 = new PictureBox();
             tableLayoutPanel1 = new TableLayoutPanel();
             btnGuardar = new RJCodeAdvance.RJControls.RJButton();
@@ -47,7 +49,8 @@
             btnEditar = new DataGridViewButtonColumn();
             id = new DataGridViewTextBoxColumn();
             nombre = new DataGridViewTextBoxColumn();
-            LblInf = new Label();
+            estado = new DataGridViewTextBoxColumn();
+            fecha = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
@@ -58,7 +61,7 @@
             // 
             lblTitulo.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             lblTitulo.ForeColor = SystemColors.ControlDarkDark;
-            lblTitulo.Location = new Point(28, 19);
+            lblTitulo.Location = new Point(14, 16);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(193, 48);
             lblTitulo.TabIndex = 7;
@@ -77,7 +80,7 @@
             txtNombre.HideSelection = true;
             txtNombre.Hint = "ingrese el nombre";
             txtNombre.LeadingIcon = null;
-            txtNombre.Location = new Point(28, 79);
+            txtNombre.Location = new Point(14, 79);
             txtNombre.MaxLength = 32767;
             txtNombre.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtNombre.Name = "txtNombre";
@@ -89,7 +92,7 @@
             txtNombre.SelectionLength = 0;
             txtNombre.SelectionStart = 0;
             txtNombre.ShortcutsEnabled = true;
-            txtNombre.Size = new Size(234, 48);
+            txtNombre.Size = new Size(248, 48);
             txtNombre.TabIndex = 10;
             txtNombre.TabStop = false;
             txtNombre.TextAlign = HorizontalAlignment.Center;
@@ -98,7 +101,7 @@
             // 
             // txtIdCategoria
             // 
-            txtIdCategoria.Location = new Point(227, 31);
+            txtIdCategoria.Location = new Point(227, 22);
             txtIdCategoria.Name = "txtIdCategoria";
             txtIdCategoria.Size = new Size(35, 23);
             txtIdCategoria.TabIndex = 8;
@@ -107,6 +110,7 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(cbxEstado);
             panel1.Controls.Add(LblInf);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(tableLayoutPanel1);
@@ -119,10 +123,44 @@
             panel1.Size = new Size(291, 489);
             panel1.TabIndex = 18;
             // 
+            // cbxEstado
+            // 
+            cbxEstado.Anchor = AnchorStyles.Left;
+            cbxEstado.AutoResize = false;
+            cbxEstado.BackColor = Color.FromArgb(255, 255, 255);
+            cbxEstado.Depth = 0;
+            cbxEstado.DrawMode = DrawMode.OwnerDrawVariable;
+            cbxEstado.DropDownHeight = 174;
+            cbxEstado.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxEstado.DropDownWidth = 121;
+            cbxEstado.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cbxEstado.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cbxEstado.FormattingEnabled = true;
+            cbxEstado.Hint = "seleccione el estado de la categoria";
+            cbxEstado.IntegralHeight = false;
+            cbxEstado.ItemHeight = 43;
+            cbxEstado.Location = new Point(14, 145);
+            cbxEstado.MaxDropDownItems = 4;
+            cbxEstado.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            cbxEstado.Name = "cbxEstado";
+            cbxEstado.Size = new Size(248, 49);
+            cbxEstado.StartIndex = 0;
+            cbxEstado.TabIndex = 33;
+            // 
+            // LblInf
+            // 
+            LblInf.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            LblInf.Location = new Point(95, 431);
+            LblInf.Name = "LblInf";
+            LblInf.Size = new Size(102, 48);
+            LblInf.TabIndex = 21;
+            LblInf.Text = "Categorias";
+            LblInf.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(58, 275);
+            pictureBox1.Location = new Point(58, 305);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(176, 135);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -140,7 +178,7 @@
             tableLayoutPanel1.Controls.Add(btnGuardar, 0, 0);
             tableLayoutPanel1.Controls.Add(rjButton6, 2, 0);
             tableLayoutPanel1.Controls.Add(rjButton2, 1, 0);
-            tableLayoutPanel1.Location = new Point(28, 163);
+            tableLayoutPanel1.Location = new Point(28, 210);
             tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
@@ -285,7 +323,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             tbCategorias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             tbCategorias.ColumnHeadersHeight = 40;
-            tbCategorias.Columns.AddRange(new DataGridViewColumn[] { btnEditar, id, nombre });
+            tbCategorias.Columns.AddRange(new DataGridViewColumn[] { btnEditar, id, nombre, estado, fecha });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 255, 255);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
@@ -336,17 +374,20 @@
             nombre.HeaderText = "Nombre";
             nombre.Name = "nombre";
             nombre.ReadOnly = true;
-            nombre.Width = 500;
+            nombre.Width = 250;
             // 
-            // LblInf
+            // estado
             // 
-            LblInf.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            LblInf.Location = new Point(96, 422);
-            LblInf.Name = "LblInf";
-            LblInf.Size = new Size(102, 48);
-            LblInf.TabIndex = 21;
-            LblInf.Text = "Categorias";
-            LblInf.TextAlign = ContentAlignment.MiddleLeft;
+            estado.HeaderText = "estado";
+            estado.Name = "estado";
+            estado.ReadOnly = true;
+            // 
+            // fecha
+            // 
+            fecha.HeaderText = "fecha de registro";
+            fecha.Name = "fecha";
+            fecha.ReadOnly = true;
+            fecha.Width = 200;
             // 
             // formCategorias
             // 
@@ -354,7 +395,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             BackgroundImageLayout = ImageLayout.None;
-            ClientSize = new Size(887, 492);
+            ClientSize = new Size(909, 492);
             Controls.Add(panel1);
             Controls.Add(txtBuscar);
             Controls.Add(lblEncabezado);
@@ -385,9 +426,12 @@
         private RJCodeAdvance.RJControls.RJButton rjButton6;
         private RJCodeAdvance.RJControls.RJButton rjButton2;
         private PictureBox pictureBox1;
+        private Label LblInf;
         private DataGridViewButtonColumn btnEditar;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn nombre;
-        private Label LblInf;
+        private DataGridViewTextBoxColumn estado;
+        private DataGridViewTextBoxColumn fecha;
+        private ReaLTaiizor.Controls.MaterialComboBox cbxEstado;
     }
 }

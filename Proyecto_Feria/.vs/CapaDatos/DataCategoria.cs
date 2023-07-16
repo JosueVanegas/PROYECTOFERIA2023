@@ -7,10 +7,18 @@ namespace CapaDatos
     {
         string mensaje = "";
         public DataCategoria() { }
+
+        public List<Estado> listarEstados()
+        {
+            List<Estado> estados = new List<Estado>();
+            estados.Add(new Estado {estado = true,descripcion = "ACTIVA" });
+            estados.Add(new Estado { estado = false, descripcion = "INACTIVA" });
+            return estados;
+        }
         public List<Categoria> listarCategorias()
         {
             List<Categoria> lista = new List<Categoria>();
-            string query = "SELECT * FROM CategoriaProducto";
+            string query = "SELECT * FROM CATEGORIA";
             using (var con = new conexion().conectar())
             {
                 try
@@ -23,10 +31,27 @@ namespace CapaDatos
                         {
                             while (reader.Read())
                             {
+                                string descrip = "";
+                                bool sta = Convert.ToBoolean(reader["ESTADO_CATEGORIA"]);
+                                if (sta == true)
+                                {
+                                    descrip = "ACTIVA";
+                                }
+                                else
+                                {
+                                    descrip = "INACTIVA";
+                                }
+                                Estado estado = new Estado
+                                {
+                                    estado = sta,
+                                    descripcion = descrip
+                                };
                                 lista.Add(new Categoria
                                 {
-                                    id = Convert.ToInt32(reader["Id"]),
-                                    nombre = reader["Nombre"].ToString()
+                                    id = Convert.ToInt32(reader["ID_CATEGORIA"]),
+                                    nombre = reader["NOMBRE_CATEGORIA"].ToString(),
+                                    oEstado = estado,
+                                    fechaRegistro = reader["FECHA_REGISTRO"].ToString()
                                 });
                             }
                         }
@@ -35,7 +60,6 @@ namespace CapaDatos
                 }
                 catch (Exception ex)
                 {
-                    string x = ex.Message;
                     lista = new List<Categoria>();
                 }
             }
@@ -44,14 +68,12 @@ namespace CapaDatos
 
         public string accionesCategoria(Categoria ca)
         {
-            mensaje = "";
-
             using (SqlConnection con = new conexion().conectar())
             {
                 try
                 {
                     con.Open();
-                    using (SqlCommand cmd = new SqlCommand("registrarEditarCategoria", con))
+                    using (SqlCommand cmd = new SqlCommand("PROC_REGISTRAR_CATEGORIA", con))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@Id", ca.id);

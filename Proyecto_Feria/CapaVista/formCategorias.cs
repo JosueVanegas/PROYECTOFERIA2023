@@ -25,11 +25,16 @@ namespace CapaVista
         private void formCategorias_Load(object sender, EventArgs e)
         {
             mostrarCategorias();
+            mostrarEstados();
         }
         private void limpiarCampos()
         {
             txtNombre.Text = string.Empty;
             txtIdCategoria.Text = string.Empty;
+        }
+        private void mostrarEstados()
+        {
+            cbxEstado.DataSource = cCategoria.listarEstados();
         }
         private void mostrarCategorias()
         {
@@ -37,7 +42,7 @@ namespace CapaVista
             tbCategorias.Rows.Clear();
             foreach (Categoria c in list)
             {
-                tbCategorias.Rows.Add("", c.id, c.nombre);
+                tbCategorias.Rows.Add("", c.id, c.nombre, c.oEstado.descripcion, c.fechaRegistro);
             }
 
         }
@@ -108,6 +113,7 @@ namespace CapaVista
                 {
                     txtIdCategoria.Text = tbCategorias.Rows[e.RowIndex].Cells["id"].Value.ToString();
                     txtNombre.Text = tbCategorias.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
+                    cbxEstado.Text = tbCategorias.Rows[e.RowIndex].Cells["estado"].Value.ToString();
                 }
             }
         }

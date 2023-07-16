@@ -10,6 +10,10 @@ namespace CapaControlador
         {
             return dCa.listarCategorias();
         }
+        public List <Estado> listarEstados()
+        {
+            return dCa.listarEstados();
+        }
         public string registraModificar(Categoria c)
         {
             return dCa.accionesCategoria(c);
