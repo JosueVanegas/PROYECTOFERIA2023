@@ -60,6 +60,7 @@ namespace CapaVista
                     id = Convert.ToInt32(txtIdCategoria.Text),
                     nombre = txtNombre.Text
                 }));
+
                 limpiarCampos();
                 mostrarCategorias();
             }
