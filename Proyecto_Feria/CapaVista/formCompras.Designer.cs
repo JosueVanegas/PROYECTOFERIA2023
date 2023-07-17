@@ -28,29 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formCompras));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formCompras));
             panel1 = new Panel();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            btnGuardar = new RJCodeAdvance.RJControls.RJButton();
+            btnEliminar = new RJCodeAdvance.RJControls.RJButton();
+            btnLimpiar = new RJCodeAdvance.RJControls.RJButton();
             lblcantidad = new Label();
             lblPrecioVenta = new Label();
             lblPrecioCompra = new Label();
             metroNumeric3 = new ReaLTaiizor.Controls.MetroNumeric();
             metroNumeric2 = new ReaLTaiizor.Controls.MetroNumeric();
             metroNumeric1 = new ReaLTaiizor.Controls.MetroNumeric();
-            materialComboBox1 = new ReaLTaiizor.Controls.MaterialComboBox();
+            cbxCategoria = new ReaLTaiizor.Controls.MaterialComboBox();
             cbxProveedor = new ReaLTaiizor.Controls.MaterialComboBox();
             lblTitulo = new Label();
             txtNombre = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtIdCategoria = new TextBox();
             tbUsuarios = new ReaLTaiizor.Controls.PoisonDataGridView();
-            tableLayoutPanel1 = new TableLayoutPanel();
-            btnGuardar = new RJCodeAdvance.RJControls.RJButton();
-            btnEliminar = new RJCodeAdvance.RJControls.RJButton();
-            btnLimpiar = new RJCodeAdvance.RJControls.RJButton();
-            txtBuscar = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            lblEncabezado = new Label();
             btnSeleccionar = new DataGridViewButtonColumn();
             id = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
@@ -59,9 +57,11 @@
             Cantidades = new DataGridViewTextBoxColumn();
             ProveedorID = new DataGridViewTextBoxColumn();
             CategoriaID = new DataGridViewTextBoxColumn();
+            txtBuscar = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            lblEncabezado = new Label();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)tbUsuarios).BeginInit();
             tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)tbUsuarios).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -74,7 +74,7 @@
             panel1.Controls.Add(metroNumeric3);
             panel1.Controls.Add(metroNumeric2);
             panel1.Controls.Add(metroNumeric1);
-            panel1.Controls.Add(materialComboBox1);
+            panel1.Controls.Add(cbxCategoria);
             panel1.Controls.Add(cbxProveedor);
             panel1.Controls.Add(lblTitulo);
             panel1.Controls.Add(txtNombre);
@@ -84,6 +84,99 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(291, 489);
             panel1.TabIndex = 20;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.Anchor = AnchorStyles.Left;
+            tableLayoutPanel1.ColumnCount = 3;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006237F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006275F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006275F));
+            tableLayoutPanel1.Controls.Add(btnGuardar, 0, 0);
+            tableLayoutPanel1.Controls.Add(btnEliminar, 2, 0);
+            tableLayoutPanel1.Controls.Add(btnLimpiar, 1, 0);
+            tableLayoutPanel1.Location = new Point(16, 380);
+            tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Size = new Size(234, 80);
+            tableLayoutPanel1.TabIndex = 32;
+            // 
+            // btnGuardar
+            // 
+            btnGuardar.Anchor = AnchorStyles.Left;
+            btnGuardar.BackColor = Color.FromArgb(63, 63, 70);
+            btnGuardar.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnGuardar.BackgroundImage = (Image)resources.GetObject("btnGuardar.BackgroundImage");
+            btnGuardar.BackgroundImageLayout = ImageLayout.Center;
+            btnGuardar.BorderColor = Color.PaleVioletRed;
+            btnGuardar.BorderRadius = 10;
+            btnGuardar.BorderSize = 0;
+            btnGuardar.FlatAppearance.BorderSize = 0;
+            btnGuardar.FlatStyle = FlatStyle.Flat;
+            btnGuardar.ForeColor = Color.White;
+            btnGuardar.ImageAlign = ContentAlignment.MiddleRight;
+            btnGuardar.Location = new Point(3, 2);
+            btnGuardar.Margin = new Padding(3, 2, 3, 2);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(71, 76);
+            btnGuardar.TabIndex = 11;
+            btnGuardar.Text = "Guardar";
+            btnGuardar.TextAlign = ContentAlignment.BottomCenter;
+            btnGuardar.TextColor = Color.White;
+            btnGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.Click += btnGuardar_Click;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.Anchor = AnchorStyles.Left;
+            btnEliminar.BackColor = Color.FromArgb(63, 63, 70);
+            btnEliminar.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnEliminar.BackgroundImage = (Image)resources.GetObject("btnEliminar.BackgroundImage");
+            btnEliminar.BackgroundImageLayout = ImageLayout.Center;
+            btnEliminar.BorderColor = Color.PaleVioletRed;
+            btnEliminar.BorderRadius = 10;
+            btnEliminar.BorderSize = 0;
+            btnEliminar.FlatAppearance.BorderSize = 0;
+            btnEliminar.FlatStyle = FlatStyle.Flat;
+            btnEliminar.ForeColor = Color.White;
+            btnEliminar.ImageAlign = ContentAlignment.MiddleRight;
+            btnEliminar.Location = new Point(158, 2);
+            btnEliminar.Margin = new Padding(3, 2, 3, 2);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(73, 76);
+            btnEliminar.TabIndex = 10;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.TextAlign = ContentAlignment.BottomCenter;
+            btnEliminar.TextColor = Color.White;
+            btnEliminar.UseVisualStyleBackColor = false;
+            btnEliminar.Click += btnEliminar_Click;
+            // 
+            // btnLimpiar
+            // 
+            btnLimpiar.Anchor = AnchorStyles.Left;
+            btnLimpiar.BackColor = Color.FromArgb(63, 63, 70);
+            btnLimpiar.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnLimpiar.BackgroundImage = (Image)resources.GetObject("btnLimpiar.BackgroundImage");
+            btnLimpiar.BackgroundImageLayout = ImageLayout.Center;
+            btnLimpiar.BorderColor = Color.PaleVioletRed;
+            btnLimpiar.BorderRadius = 10;
+            btnLimpiar.BorderSize = 0;
+            btnLimpiar.FlatAppearance.BorderSize = 0;
+            btnLimpiar.FlatStyle = FlatStyle.Flat;
+            btnLimpiar.ForeColor = Color.White;
+            btnLimpiar.ImageAlign = ContentAlignment.MiddleRight;
+            btnLimpiar.Location = new Point(80, 2);
+            btnLimpiar.Margin = new Padding(3, 2, 3, 2);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(72, 76);
+            btnLimpiar.TabIndex = 12;
+            btnLimpiar.Text = "Limpiar";
+            btnLimpiar.TextAlign = ContentAlignment.BottomCenter;
+            btnLimpiar.TextColor = Color.White;
+            btnLimpiar.UseVisualStyleBackColor = false;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // lblcantidad
             // 
@@ -199,29 +292,29 @@
             metroNumeric1.ThemeName = "MetroDark";
             metroNumeric1.Value = 0;
             // 
-            // materialComboBox1
+            // cbxCategoria
             // 
-            materialComboBox1.Anchor = AnchorStyles.Left;
-            materialComboBox1.AutoResize = false;
-            materialComboBox1.BackColor = Color.FromArgb(255, 255, 255);
-            materialComboBox1.Depth = 0;
-            materialComboBox1.DrawMode = DrawMode.OwnerDrawVariable;
-            materialComboBox1.DropDownHeight = 174;
-            materialComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            materialComboBox1.DropDownWidth = 121;
-            materialComboBox1.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            materialComboBox1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialComboBox1.FormattingEnabled = true;
-            materialComboBox1.Hint = "Categoria";
-            materialComboBox1.IntegralHeight = false;
-            materialComboBox1.ItemHeight = 43;
-            materialComboBox1.Location = new Point(12, 314);
-            materialComboBox1.MaxDropDownItems = 4;
-            materialComboBox1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            materialComboBox1.Name = "materialComboBox1";
-            materialComboBox1.Size = new Size(154, 49);
-            materialComboBox1.StartIndex = 0;
-            materialComboBox1.TabIndex = 12;
+            cbxCategoria.Anchor = AnchorStyles.Left;
+            cbxCategoria.AutoResize = false;
+            cbxCategoria.BackColor = Color.FromArgb(255, 255, 255);
+            cbxCategoria.Depth = 0;
+            cbxCategoria.DrawMode = DrawMode.OwnerDrawVariable;
+            cbxCategoria.DropDownHeight = 174;
+            cbxCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxCategoria.DropDownWidth = 121;
+            cbxCategoria.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cbxCategoria.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cbxCategoria.FormattingEnabled = true;
+            cbxCategoria.Hint = "Categoria";
+            cbxCategoria.IntegralHeight = false;
+            cbxCategoria.ItemHeight = 43;
+            cbxCategoria.Location = new Point(12, 314);
+            cbxCategoria.MaxDropDownItems = 4;
+            cbxCategoria.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            cbxCategoria.Name = "cbxCategoria";
+            cbxCategoria.Size = new Size(154, 49);
+            cbxCategoria.StartIndex = 0;
+            cbxCategoria.TabIndex = 12;
             // 
             // cbxProveedor
             // 
@@ -288,6 +381,7 @@
             txtNombre.TextAlign = HorizontalAlignment.Center;
             txtNombre.TrailingIcon = null;
             txtNombre.UseSystemPasswordChar = false;
+            txtNombre.KeyPress += txtNombre_KeyPress;
             // 
             // txtIdCategoria
             // 
@@ -348,137 +442,6 @@
             tbUsuarios.Size = new Size(581, 389);
             tbUsuarios.TabIndex = 21;
             // 
-            // tableLayoutPanel1
-            // 
-            tableLayoutPanel1.Anchor = AnchorStyles.Left;
-            tableLayoutPanel1.ColumnCount = 3;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006237F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006275F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006275F));
-            tableLayoutPanel1.Controls.Add(btnGuardar, 0, 0);
-            tableLayoutPanel1.Controls.Add(btnEliminar, 2, 0);
-            tableLayoutPanel1.Controls.Add(btnLimpiar, 1, 0);
-            tableLayoutPanel1.Location = new Point(16, 380);
-            tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 1;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(234, 80);
-            tableLayoutPanel1.TabIndex = 32;
-            // 
-            // btnGuardar
-            // 
-            btnGuardar.Anchor = AnchorStyles.Left;
-            btnGuardar.BackColor = Color.FromArgb(63, 63, 70);
-            btnGuardar.BackgroundColor = Color.FromArgb(63, 63, 70);
-            btnGuardar.BackgroundImage = (Image)resources.GetObject("btnGuardar.BackgroundImage");
-            btnGuardar.BackgroundImageLayout = ImageLayout.Center;
-            btnGuardar.BorderColor = Color.PaleVioletRed;
-            btnGuardar.BorderRadius = 10;
-            btnGuardar.BorderSize = 0;
-            btnGuardar.FlatAppearance.BorderSize = 0;
-            btnGuardar.FlatStyle = FlatStyle.Flat;
-            btnGuardar.ForeColor = Color.White;
-            btnGuardar.ImageAlign = ContentAlignment.MiddleRight;
-            btnGuardar.Location = new Point(3, 2);
-            btnGuardar.Margin = new Padding(3, 2, 3, 2);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(71, 76);
-            btnGuardar.TabIndex = 11;
-            btnGuardar.Text = "Guardar";
-            btnGuardar.TextAlign = ContentAlignment.BottomCenter;
-            btnGuardar.TextColor = Color.White;
-            btnGuardar.UseVisualStyleBackColor = false;
-            // 
-            // btnEliminar
-            // 
-            btnEliminar.Anchor = AnchorStyles.Left;
-            btnEliminar.BackColor = Color.FromArgb(63, 63, 70);
-            btnEliminar.BackgroundColor = Color.FromArgb(63, 63, 70);
-            btnEliminar.BackgroundImage = (Image)resources.GetObject("btnEliminar.BackgroundImage");
-            btnEliminar.BackgroundImageLayout = ImageLayout.Center;
-            btnEliminar.BorderColor = Color.PaleVioletRed;
-            btnEliminar.BorderRadius = 10;
-            btnEliminar.BorderSize = 0;
-            btnEliminar.FlatAppearance.BorderSize = 0;
-            btnEliminar.FlatStyle = FlatStyle.Flat;
-            btnEliminar.ForeColor = Color.White;
-            btnEliminar.ImageAlign = ContentAlignment.MiddleRight;
-            btnEliminar.Location = new Point(158, 2);
-            btnEliminar.Margin = new Padding(3, 2, 3, 2);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(73, 76);
-            btnEliminar.TabIndex = 10;
-            btnEliminar.Text = "Eliminar";
-            btnEliminar.TextAlign = ContentAlignment.BottomCenter;
-            btnEliminar.TextColor = Color.White;
-            btnEliminar.UseVisualStyleBackColor = false;
-            // 
-            // btnLimpiar
-            // 
-            btnLimpiar.Anchor = AnchorStyles.Left;
-            btnLimpiar.BackColor = Color.FromArgb(63, 63, 70);
-            btnLimpiar.BackgroundColor = Color.FromArgb(63, 63, 70);
-            btnLimpiar.BackgroundImage = (Image)resources.GetObject("btnLimpiar.BackgroundImage");
-            btnLimpiar.BackgroundImageLayout = ImageLayout.Center;
-            btnLimpiar.BorderColor = Color.PaleVioletRed;
-            btnLimpiar.BorderRadius = 10;
-            btnLimpiar.BorderSize = 0;
-            btnLimpiar.FlatAppearance.BorderSize = 0;
-            btnLimpiar.FlatStyle = FlatStyle.Flat;
-            btnLimpiar.ForeColor = Color.White;
-            btnLimpiar.ImageAlign = ContentAlignment.MiddleRight;
-            btnLimpiar.Location = new Point(80, 2);
-            btnLimpiar.Margin = new Padding(3, 2, 3, 2);
-            btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(72, 76);
-            btnLimpiar.TabIndex = 12;
-            btnLimpiar.Text = "Limpiar";
-            btnLimpiar.TextAlign = ContentAlignment.BottomCenter;
-            btnLimpiar.TextColor = Color.White;
-            btnLimpiar.UseVisualStyleBackColor = false;
-            // 
-            // txtBuscar
-            // 
-            txtBuscar.AnimateReadOnly = true;
-            txtBuscar.AutoCompleteMode = AutoCompleteMode.None;
-            txtBuscar.AutoCompleteSource = AutoCompleteSource.None;
-            txtBuscar.BackgroundImageLayout = ImageLayout.None;
-            txtBuscar.CharacterCasing = CharacterCasing.Normal;
-            txtBuscar.Depth = 0;
-            txtBuscar.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtBuscar.HideSelection = true;
-            txtBuscar.Hint = "Buscar";
-            txtBuscar.LeadingIcon = null;
-            txtBuscar.Location = new Point(548, 29);
-            txtBuscar.MaxLength = 32767;
-            txtBuscar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            txtBuscar.Name = "txtBuscar";
-            txtBuscar.PasswordChar = '\0';
-            txtBuscar.PrefixSuffixText = null;
-            txtBuscar.ReadOnly = false;
-            txtBuscar.RightToLeft = RightToLeft.No;
-            txtBuscar.SelectedText = "";
-            txtBuscar.SelectionLength = 0;
-            txtBuscar.SelectionStart = 0;
-            txtBuscar.ShortcutsEnabled = true;
-            txtBuscar.Size = new Size(299, 48);
-            txtBuscar.TabIndex = 25;
-            txtBuscar.TabStop = false;
-            txtBuscar.TextAlign = HorizontalAlignment.Center;
-            txtBuscar.TrailingIcon = null;
-            txtBuscar.UseSystemPasswordChar = false;
-            // 
-            // lblEncabezado
-            // 
-            lblEncabezado.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblEncabezado.Location = new Point(302, 29);
-            lblEncabezado.Name = "lblEncabezado";
-            lblEncabezado.Size = new Size(215, 48);
-            lblEncabezado.TabIndex = 24;
-            lblEncabezado.Text = "Productos registradas";
-            lblEncabezado.TextAlign = ContentAlignment.MiddleLeft;
-            // 
             // btnSeleccionar
             // 
             btnSeleccionar.HeaderText = "Editar";
@@ -527,6 +490,48 @@
             CategoriaID.HeaderText = "CategoriaID";
             CategoriaID.Name = "CategoriaID";
             // 
+            // txtBuscar
+            // 
+            txtBuscar.AnimateReadOnly = true;
+            txtBuscar.AutoCompleteMode = AutoCompleteMode.None;
+            txtBuscar.AutoCompleteSource = AutoCompleteSource.None;
+            txtBuscar.BackgroundImageLayout = ImageLayout.None;
+            txtBuscar.CharacterCasing = CharacterCasing.Normal;
+            txtBuscar.Depth = 0;
+            txtBuscar.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtBuscar.HideSelection = true;
+            txtBuscar.Hint = "Buscar";
+            txtBuscar.LeadingIcon = null;
+            txtBuscar.Location = new Point(548, 29);
+            txtBuscar.MaxLength = 32767;
+            txtBuscar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.PasswordChar = '\0';
+            txtBuscar.PrefixSuffixText = null;
+            txtBuscar.ReadOnly = false;
+            txtBuscar.RightToLeft = RightToLeft.No;
+            txtBuscar.SelectedText = "";
+            txtBuscar.SelectionLength = 0;
+            txtBuscar.SelectionStart = 0;
+            txtBuscar.ShortcutsEnabled = true;
+            txtBuscar.Size = new Size(299, 48);
+            txtBuscar.TabIndex = 25;
+            txtBuscar.TabStop = false;
+            txtBuscar.TextAlign = HorizontalAlignment.Center;
+            txtBuscar.TrailingIcon = null;
+            txtBuscar.UseSystemPasswordChar = false;
+            txtBuscar.KeyPress += txtBuscar_KeyPress;
+            // 
+            // lblEncabezado
+            // 
+            lblEncabezado.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblEncabezado.Location = new Point(302, 29);
+            lblEncabezado.Name = "lblEncabezado";
+            lblEncabezado.Size = new Size(215, 48);
+            lblEncabezado.TabIndex = 24;
+            lblEncabezado.Text = "Productos registradas";
+            lblEncabezado.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // formCompras
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -542,8 +547,8 @@
             Text = "formCompras";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)tbUsuarios).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)tbUsuarios).EndInit();
             ResumeLayout(false);
         }
 
@@ -553,10 +558,9 @@
         private Label lblTitulo;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtNombre;
         private TextBox txtIdCategoria;
-        private ReaLTaiizor.Controls.MaterialComboBox cbxProveedor;
         private ReaLTaiizor.Controls.MetroNumeric metroNumeric2;
         private ReaLTaiizor.Controls.MetroNumeric metroNumeric1;
-        private ReaLTaiizor.Controls.MaterialComboBox materialComboBox1;
+        private ReaLTaiizor.Controls.MaterialComboBox cbxCategoria;
         private ReaLTaiizor.Controls.MetroNumeric metroNumeric3;
         private ReaLTaiizor.Controls.PoisonDataGridView tbUsuarios;
         private Label lblcantidad;
@@ -576,5 +580,6 @@
         private DataGridViewTextBoxColumn Cantidades;
         private DataGridViewTextBoxColumn ProveedorID;
         private DataGridViewTextBoxColumn CategoriaID;
+        private ReaLTaiizor.Controls.MaterialComboBox cbxProveedor;
     }
 }

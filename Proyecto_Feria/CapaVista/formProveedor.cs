@@ -28,5 +28,45 @@ namespace CapaVista
             // Establecer el texto de la descripción
             toolTip.SetToolTip(pictureBox1, "Descripción del PictureBox");
         }
+
+        private void txtNombreEmpresa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Evita que se procese el carácter
+            }
+        }
+
+        private void txtNombreContacto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Evita que se procese el carácter
+            }
+        }
+
+        private void txtNumeroContacto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Evita que se procese el carácter
+            }
+        }
+
+        private void txtPais_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Evita que se procese el carácter
+            }
+        }
+
+        private void txtCiudad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Evita que se procese el carácter
+            }
+        }
     }
 }

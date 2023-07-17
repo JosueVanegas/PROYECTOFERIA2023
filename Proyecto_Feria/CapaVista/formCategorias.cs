@@ -147,5 +147,21 @@ namespace CapaVista
             // Establecer el texto de la descripción
             toolTip.SetToolTip(pictureBox1, "Descripción del PictureBox");
         }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Evita que se procese el carácter
+            }
+        }
+
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Evita que se procese el carácter
+            }
+        }
     }
 }
