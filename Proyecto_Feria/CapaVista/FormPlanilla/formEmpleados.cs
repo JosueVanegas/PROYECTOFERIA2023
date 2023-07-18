@@ -12,6 +12,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CapaVista
 {
@@ -84,7 +85,7 @@ namespace CapaVista
             }
 
             // Verificar la longitud de la entrada
-            TextBox textBox = sender as TextBox;
+            System.Windows.Forms.TextBox textBox = sender as System.Windows.Forms.TextBox;
             if (textBox != null && textBox.Text.Length >= 8 && e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true; // Evita que se procese el carácter
@@ -96,7 +97,7 @@ namespace CapaVista
             // Verificar la entrada solo al presionar la tecla de retorno
             if (e.KeyChar == (char)Keys.Enter)
             {
-                TextBox textBox = sender as TextBox;
+                System.Windows.Forms.TextBox textBox = sender as System.Windows.Forms.TextBox;
                 if (textBox != null)
                 {
                     string input = textBox.Text.Trim();
@@ -138,13 +139,76 @@ namespace CapaVista
         private void pictureBox1_MouseHover(object sender, EventArgs e)
         {
             // Crear un objeto ToolTip
-            ToolTip toolTip = new ToolTip();
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
 
             // Establecer el icono de información (puedes cambiar el icono si lo deseas)
             toolTip.ToolTipIcon = ToolTipIcon.Info;
 
             // Establecer el texto de la descripción
             toolTip.SetToolTip(pictureBox1, "Descripción del PictureBox");
+        }
+        private void btnGuardar_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(btnGuardar, "Guardar");
+        }
+
+        private void btnLimpiar_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(btnLimpiar, "Limpiar");
+        }
+
+        private void btnEliminar_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(btnEliminar, "Eliminar");
+        }
+
+        private void PictureBox1_MouseEnter(object sender, EventArgs e)
+        {
+            // Mostrar el MonthCalendar y ajustarlo a la posición del PictureBox
+            FechaNacimientoCalendario.Visible = true;
+
+        }
+
+
+        private void MonthCalendar1_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            // Ocultar el MonthCalendar cuando se selecciona una fecha
+            FechaNacimientoCalendario.Visible = false;
+            DateTime selectedDate = e.Start;
+            // Pasar la fecha seleccionada al TextBox
+            txtFechadeNacimiento.Text = selectedDate.ToString("dd/MM/yyyy");
+        }
+
+        private void FechaNacimientoCalendario_MouseLeave(object sender, EventArgs e)
+        {
+            FechaNacimientoCalendario.Visible = false;
+        }
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Obtener el valor de la tecla presionada
+            char keyPressed = e.KeyChar;
+
+            // Verificar si la tecla presionada es diferente de Eliminar o Suprimir
+            if (keyPressed != (char)Keys.Delete && keyPressed != (char)Keys.Back)
+            {
+                e.Handled = true; // Evitar que se procese el carácter
+            }
         }
     }
 }

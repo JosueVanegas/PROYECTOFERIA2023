@@ -33,16 +33,15 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
+            hopeNumeric1 = new ReaLTaiizor.Controls.HopeNumeric();
+            NumberPrecioCompra = new ReaLTaiizor.Controls.HopeNumeric();
             tableLayoutPanel1 = new TableLayoutPanel();
             btnGuardar = new RJCodeAdvance.RJControls.RJButton();
             btnEliminar = new RJCodeAdvance.RJControls.RJButton();
             btnLimpiar = new RJCodeAdvance.RJControls.RJButton();
-            lblcantidad = new Label();
             lblPrecioVenta = new Label();
             lblPrecioCompra = new Label();
-            metroNumeric3 = new ReaLTaiizor.Controls.MetroNumeric();
-            metroNumeric2 = new ReaLTaiizor.Controls.MetroNumeric();
-            metroNumeric1 = new ReaLTaiizor.Controls.MetroNumeric();
             cbxCategoria = new ReaLTaiizor.Controls.MaterialComboBox();
             cbxProveedor = new ReaLTaiizor.Controls.MaterialComboBox();
             lblTitulo = new Label();
@@ -60,6 +59,7 @@
             txtBuscar = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             lblEncabezado = new Label();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tbUsuarios).BeginInit();
             SuspendLayout();
@@ -67,13 +67,12 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(hopeNumeric1);
+            panel1.Controls.Add(NumberPrecioCompra);
             panel1.Controls.Add(tableLayoutPanel1);
-            panel1.Controls.Add(lblcantidad);
             panel1.Controls.Add(lblPrecioVenta);
             panel1.Controls.Add(lblPrecioCompra);
-            panel1.Controls.Add(metroNumeric3);
-            panel1.Controls.Add(metroNumeric2);
-            panel1.Controls.Add(metroNumeric1);
             panel1.Controls.Add(cbxCategoria);
             panel1.Controls.Add(cbxProveedor);
             panel1.Controls.Add(lblTitulo);
@@ -85,6 +84,69 @@
             panel1.Size = new Size(291, 489);
             panel1.TabIndex = 20;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(179, 228);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(112, 105);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 38;
+            pictureBox1.TabStop = false;
+            pictureBox1.MouseHover += pictureBox1_MouseHover;
+            // 
+            // hopeNumeric1
+            // 
+            hopeNumeric1.BackColor = Color.White;
+            hopeNumeric1.BaseColor = Color.FromArgb(50, 50, 50);
+            hopeNumeric1.BorderColorA = Color.FromArgb(192, 196, 204);
+            hopeNumeric1.BorderColorB = Color.FromArgb(192, 196, 204);
+            hopeNumeric1.BorderHoverColorA = Color.FromArgb(64, 158, 255);
+            hopeNumeric1.ButtonTextColorA = Color.FromArgb(144, 147, 153);
+            hopeNumeric1.ButtonTextColorB = Color.FromArgb(144, 147, 153);
+            hopeNumeric1.EnterKey = true;
+            hopeNumeric1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            hopeNumeric1.ForeColor = Color.Black;
+            hopeNumeric1.HoverButtonTextColorA = Color.FromArgb(64, 158, 255);
+            hopeNumeric1.HoverButtonTextColorB = Color.FromArgb(64, 158, 255);
+            hopeNumeric1.Location = new Point(187, 165);
+            hopeNumeric1.MaxNum = 10F;
+            hopeNumeric1.MinNum = 0F;
+            hopeNumeric1.Name = "hopeNumeric1";
+            hopeNumeric1.Precision = 0;
+            hopeNumeric1.Size = new Size(101, 32);
+            hopeNumeric1.Step = 1F;
+            hopeNumeric1.Style = ReaLTaiizor.Controls.HopeNumeric.NumericStyle.LeftRight;
+            hopeNumeric1.TabIndex = 36;
+            hopeNumeric1.Text = "hopeNumeric1";
+            hopeNumeric1.ValueNumber = 0F;
+            // 
+            // NumberPrecioCompra
+            // 
+            NumberPrecioCompra.BackColor = Color.White;
+            NumberPrecioCompra.BaseColor = Color.FromArgb(50, 50, 50);
+            NumberPrecioCompra.BorderColorA = Color.FromArgb(192, 196, 204);
+            NumberPrecioCompra.BorderColorB = Color.FromArgb(192, 196, 204);
+            NumberPrecioCompra.BorderHoverColorA = Color.FromArgb(64, 158, 255);
+            NumberPrecioCompra.ButtonTextColorA = Color.FromArgb(144, 147, 153);
+            NumberPrecioCompra.ButtonTextColorB = Color.FromArgb(144, 147, 153);
+            NumberPrecioCompra.EnterKey = true;
+            NumberPrecioCompra.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            NumberPrecioCompra.ForeColor = Color.Black;
+            NumberPrecioCompra.HoverButtonTextColorA = Color.FromArgb(64, 158, 255);
+            NumberPrecioCompra.HoverButtonTextColorB = Color.FromArgb(64, 158, 255);
+            NumberPrecioCompra.Location = new Point(187, 125);
+            NumberPrecioCompra.MaxNum = 10F;
+            NumberPrecioCompra.MinNum = 0F;
+            NumberPrecioCompra.Name = "NumberPrecioCompra";
+            NumberPrecioCompra.Precision = 0;
+            NumberPrecioCompra.Size = new Size(101, 32);
+            NumberPrecioCompra.Step = 1F;
+            NumberPrecioCompra.Style = ReaLTaiizor.Controls.HopeNumeric.NumericStyle.LeftRight;
+            NumberPrecioCompra.TabIndex = 35;
+            NumberPrecioCompra.Text = "hopeNumeric1";
+            NumberPrecioCompra.ValueNumber = 0F;
+            // 
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.Anchor = AnchorStyles.Left;
@@ -95,7 +157,7 @@
             tableLayoutPanel1.Controls.Add(btnGuardar, 0, 0);
             tableLayoutPanel1.Controls.Add(btnEliminar, 2, 0);
             tableLayoutPanel1.Controls.Add(btnLimpiar, 1, 0);
-            tableLayoutPanel1.Location = new Point(16, 380);
+            tableLayoutPanel1.Location = new Point(16, 350);
             tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
@@ -127,6 +189,7 @@
             btnGuardar.TextColor = Color.White;
             btnGuardar.UseVisualStyleBackColor = false;
             btnGuardar.Click += btnGuardar_Click;
+            btnGuardar.MouseHover += btnGuardar_MouseHover;
             // 
             // btnEliminar
             // 
@@ -152,6 +215,7 @@
             btnEliminar.TextColor = Color.White;
             btnEliminar.UseVisualStyleBackColor = false;
             btnEliminar.Click += btnEliminar_Click;
+            btnEliminar.MouseHover += btnEliminar_MouseHover;
             // 
             // btnLimpiar
             // 
@@ -177,17 +241,7 @@
             btnLimpiar.TextColor = Color.White;
             btnLimpiar.UseVisualStyleBackColor = false;
             btnLimpiar.Click += btnLimpiar_Click;
-            // 
-            // lblcantidad
-            // 
-            lblcantidad.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblcantidad.ForeColor = SystemColors.ControlDarkDark;
-            lblcantidad.Location = new Point(18, 204);
-            lblcantidad.Name = "lblcantidad";
-            lblcantidad.Size = new Size(148, 48);
-            lblcantidad.TabIndex = 26;
-            lblcantidad.Text = "Cantidades";
-            lblcantidad.TextAlign = ContentAlignment.MiddleLeft;
+            btnLimpiar.MouseHover += btnLimpiar_MouseHover;
             // 
             // lblPrecioVenta
             // 
@@ -197,7 +251,7 @@
             lblPrecioVenta.Name = "lblPrecioVenta";
             lblPrecioVenta.Size = new Size(148, 48);
             lblPrecioVenta.TabIndex = 25;
-            lblPrecioVenta.Text = "Precio de Venta";
+            lblPrecioVenta.Text = "Precio de Venta    $";
             lblPrecioVenta.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblPrecioCompra
@@ -208,89 +262,8 @@
             lblPrecioCompra.Name = "lblPrecioCompra";
             lblPrecioCompra.Size = new Size(148, 48);
             lblPrecioCompra.TabIndex = 24;
-            lblPrecioCompra.Text = "Precio de Compra";
+            lblPrecioCompra.Text = "Precio de Compra $";
             lblPrecioCompra.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // metroNumeric3
-            // 
-            metroNumeric3.BackColor = Color.Transparent;
-            metroNumeric3.BackgroundColor = Color.Empty;
-            metroNumeric3.BorderColor = Color.FromArgb(110, 110, 110);
-            metroNumeric3.Decrement = 1;
-            metroNumeric3.DisabledBackColor = Color.FromArgb(80, 80, 80);
-            metroNumeric3.DisabledBorderColor = Color.FromArgb(109, 109, 109);
-            metroNumeric3.DisabledForeColor = Color.FromArgb(109, 109, 109);
-            metroNumeric3.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            metroNumeric3.HoldInterval = 10;
-            metroNumeric3.Increment = 1;
-            metroNumeric3.IsDerivedStyle = true;
-            metroNumeric3.Location = new Point(175, 126);
-            metroNumeric3.Maximum = 100;
-            metroNumeric3.Minimum = 0;
-            metroNumeric3.Name = "metroNumeric3";
-            metroNumeric3.Size = new Size(75, 26);
-            metroNumeric3.Style = ReaLTaiizor.Enum.Metro.Style.Dark;
-            metroNumeric3.StyleManager = null;
-            metroNumeric3.SymbolsColor = Color.FromArgb(0, 162, 204);
-            metroNumeric3.TabIndex = 23;
-            metroNumeric3.Text = "metroNumeric3";
-            metroNumeric3.ThemeAuthor = "Taiizor";
-            metroNumeric3.ThemeName = "MetroDark";
-            metroNumeric3.Value = 0;
-            // 
-            // metroNumeric2
-            // 
-            metroNumeric2.BackColor = Color.Transparent;
-            metroNumeric2.BackgroundColor = Color.Empty;
-            metroNumeric2.BorderColor = Color.FromArgb(110, 110, 110);
-            metroNumeric2.Decrement = 1;
-            metroNumeric2.DisabledBackColor = Color.FromArgb(80, 80, 80);
-            metroNumeric2.DisabledBorderColor = Color.FromArgb(109, 109, 109);
-            metroNumeric2.DisabledForeColor = Color.FromArgb(109, 109, 109);
-            metroNumeric2.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            metroNumeric2.HoldInterval = 10;
-            metroNumeric2.Increment = 1;
-            metroNumeric2.IsDerivedStyle = true;
-            metroNumeric2.Location = new Point(175, 215);
-            metroNumeric2.Maximum = 100;
-            metroNumeric2.Minimum = 0;
-            metroNumeric2.Name = "metroNumeric2";
-            metroNumeric2.Size = new Size(75, 26);
-            metroNumeric2.Style = ReaLTaiizor.Enum.Metro.Style.Dark;
-            metroNumeric2.StyleManager = null;
-            metroNumeric2.SymbolsColor = Color.FromArgb(0, 162, 204);
-            metroNumeric2.TabIndex = 22;
-            metroNumeric2.Text = "metroNumeric2";
-            metroNumeric2.ThemeAuthor = "Taiizor";
-            metroNumeric2.ThemeName = "MetroDark";
-            metroNumeric2.Value = 0;
-            // 
-            // metroNumeric1
-            // 
-            metroNumeric1.BackColor = Color.Transparent;
-            metroNumeric1.BackgroundColor = Color.Empty;
-            metroNumeric1.BorderColor = Color.FromArgb(110, 110, 110);
-            metroNumeric1.Decrement = 1;
-            metroNumeric1.DisabledBackColor = Color.FromArgb(80, 80, 80);
-            metroNumeric1.DisabledBorderColor = Color.FromArgb(109, 109, 109);
-            metroNumeric1.DisabledForeColor = Color.FromArgb(109, 109, 109);
-            metroNumeric1.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            metroNumeric1.HoldInterval = 10;
-            metroNumeric1.Increment = 1;
-            metroNumeric1.IsDerivedStyle = true;
-            metroNumeric1.Location = new Point(175, 171);
-            metroNumeric1.Maximum = 100;
-            metroNumeric1.Minimum = 0;
-            metroNumeric1.Name = "metroNumeric1";
-            metroNumeric1.Size = new Size(75, 26);
-            metroNumeric1.Style = ReaLTaiizor.Enum.Metro.Style.Dark;
-            metroNumeric1.StyleManager = null;
-            metroNumeric1.SymbolsColor = Color.FromArgb(0, 162, 204);
-            metroNumeric1.TabIndex = 21;
-            metroNumeric1.Text = "metroNumeric1";
-            metroNumeric1.ThemeAuthor = "Taiizor";
-            metroNumeric1.ThemeName = "MetroDark";
-            metroNumeric1.Value = 0;
             // 
             // cbxCategoria
             // 
@@ -308,7 +281,7 @@
             cbxCategoria.Hint = "Categoria";
             cbxCategoria.IntegralHeight = false;
             cbxCategoria.ItemHeight = 43;
-            cbxCategoria.Location = new Point(12, 314);
+            cbxCategoria.Location = new Point(12, 284);
             cbxCategoria.MaxDropDownItems = 4;
             cbxCategoria.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbxCategoria.Name = "cbxCategoria";
@@ -332,7 +305,7 @@
             cbxProveedor.Hint = "Proveedor";
             cbxProveedor.IntegralHeight = false;
             cbxProveedor.ItemHeight = 43;
-            cbxProveedor.Location = new Point(12, 259);
+            cbxProveedor.Location = new Point(12, 229);
             cbxProveedor.MaxDropDownItems = 4;
             cbxProveedor.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbxProveedor.Name = "cbxProveedor";
@@ -502,7 +475,7 @@
             txtBuscar.HideSelection = true;
             txtBuscar.Hint = "Buscar";
             txtBuscar.LeadingIcon = null;
-            txtBuscar.Location = new Point(548, 29);
+            txtBuscar.Location = new Point(521, 9);
             txtBuscar.MaxLength = 32767;
             txtBuscar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtBuscar.Name = "txtBuscar";
@@ -525,7 +498,7 @@
             // lblEncabezado
             // 
             lblEncabezado.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblEncabezado.Location = new Point(302, 29);
+            lblEncabezado.Location = new Point(300, 9);
             lblEncabezado.Name = "lblEncabezado";
             lblEncabezado.Size = new Size(215, 48);
             lblEncabezado.TabIndex = 24;
@@ -547,6 +520,7 @@
             Text = "formCompras";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)tbUsuarios).EndInit();
             ResumeLayout(false);
@@ -558,12 +532,8 @@
         private Label lblTitulo;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtNombre;
         private TextBox txtIdCategoria;
-        private ReaLTaiizor.Controls.MetroNumeric metroNumeric2;
-        private ReaLTaiizor.Controls.MetroNumeric metroNumeric1;
         private ReaLTaiizor.Controls.MaterialComboBox cbxCategoria;
-        private ReaLTaiizor.Controls.MetroNumeric metroNumeric3;
         private ReaLTaiizor.Controls.PoisonDataGridView tbUsuarios;
-        private Label lblcantidad;
         private Label lblPrecioVenta;
         private Label lblPrecioCompra;
         private TableLayoutPanel tableLayoutPanel1;
@@ -581,5 +551,8 @@
         private DataGridViewTextBoxColumn ProveedorID;
         private DataGridViewTextBoxColumn CategoriaID;
         private ReaLTaiizor.Controls.MaterialComboBox cbxProveedor;
+        private ReaLTaiizor.Controls.HopeNumeric NumberPrecioCompra;
+        private ReaLTaiizor.Controls.HopeNumeric hopeNumeric1;
+        private PictureBox pictureBox1;
     }
 }

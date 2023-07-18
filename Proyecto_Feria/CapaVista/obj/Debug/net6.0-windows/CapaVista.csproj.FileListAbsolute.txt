@@ -164,3 +164,9 @@ C:\Users\arqva\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVi
 C:\Users\arqva\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\obj\Debug\net6.0-windows\CapaVista.pdb
 C:\Users\arqva\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\obj\Debug\net6.0-windows\CapaVista.genruntimeconfig.cache
 C:\Users\arqva\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\obj\Debug\net6.0-windows\ref\CapaVista.dll
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\bin\Debug\net6.0-windows\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\obj\Debug\net6.0-windows\CapaVista.formCompras.resources
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\obj\Debug\net6.0-windows\CapaVista.formEmpleados.resources
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\obj\Debug\net6.0-windows\CapaVista.formProveedor.resources
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\obj\Debug\net6.0-windows\CapaVista.FormPlanilla.formPlanilla.resources
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\obj\Debug\net6.0-windows\CapaVista.FrmInicio.resources

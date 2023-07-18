@@ -5,6 +5,8 @@ using ReaLTaiizor.Forms;
 using ReaLTaiizor.Manager;
 using ReaLTaiizor.Util;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.ToolTip;
 
 namespace CapaVista
 {
@@ -24,8 +26,8 @@ namespace CapaVista
         }
         private void formCategorias_Load(object sender, EventArgs e)
         {
-            mostrarCategorias();
-            mostrarEstados();
+            // mostrarCategorias();
+            //  mostrarEstados();
         }
         private void limpiarCampos()
         {
@@ -139,7 +141,7 @@ namespace CapaVista
         private void pictureBox1_MouseHover(object sender, EventArgs e)
         {
             // Crear un objeto ToolTip
-            ToolTip toolTip = new ToolTip();
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
 
             // Establecer el icono de información (puedes cambiar el icono si lo deseas)
             toolTip.ToolTipIcon = ToolTipIcon.Info;
@@ -162,6 +164,37 @@ namespace CapaVista
             {
                 e.Handled = true; // Evita que se procese el carácter
             }
+        }
+
+        private void btnGuardar_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(btnGuardar, "Guardar");
+        }
+
+        private void btnLimpiar_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(btnLimpiar, "Limpiar");
+        }
+
+        private void btnEliminar_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(btnEliminar, "Eliminar");
         }
     }
 }

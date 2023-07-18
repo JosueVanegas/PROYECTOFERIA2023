@@ -105,6 +105,7 @@ namespace CapaVista
             btnContabilidad.TextAlign = ContentAlignment.BottomCenter;
             btnContabilidad.TextColor = Color.White;
             btnContabilidad.UseVisualStyleBackColor = false;
+            btnContabilidad.MouseHover += btnContabilidad_MouseHover;
             // 
             // btnCalculos
             // 
@@ -128,6 +129,7 @@ namespace CapaVista
             btnCalculos.TextAlign = ContentAlignment.BottomCenter;
             btnCalculos.TextColor = Color.White;
             btnCalculos.UseVisualStyleBackColor = false;
+            btnCalculos.MouseHover += btnCalculos_MouseHover;
             // 
             // btnInventory
             // 
@@ -151,6 +153,8 @@ namespace CapaVista
             btnInventory.TextAlign = ContentAlignment.BottomCenter;
             btnInventory.TextColor = Color.White;
             btnInventory.UseVisualStyleBackColor = false;
+            btnInventory.Click += btnInventory_Click;
+            btnInventory.MouseHover += btnInventory_MouseHover;
             // 
             // btnPlanilla
             // 
@@ -174,6 +178,8 @@ namespace CapaVista
             btnPlanilla.TextAlign = ContentAlignment.BottomCenter;
             btnPlanilla.TextColor = Color.White;
             btnPlanilla.UseVisualStyleBackColor = false;
+            btnPlanilla.Click += btnPlanilla_Click;
+            btnPlanilla.MouseHover += btnPlanilla_MouseHover;
             // 
             // tableLayoutPanel2
             // 
@@ -220,6 +226,7 @@ namespace CapaVista
             btnInicio.TextAlign = ContentAlignment.BottomCenter;
             btnInicio.TextColor = Color.White;
             btnInicio.UseVisualStyleBackColor = false;
+            btnInicio.Click += btnInicio_Click;
             btnInicio.MouseEnter += btnInicio_MouseEnter;
             // 
             // btnUsuarios
@@ -319,9 +326,9 @@ namespace CapaVista
             // tableLayoutPanel3
             // 
             tableLayoutPanel3.ColumnCount = 3;
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 4F));
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 92F));
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 4F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 1.02459013F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 98.0532761F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 0.9221311F));
             tableLayoutPanel3.Controls.Add(panelOpen, 1, 1);
             tableLayoutPanel3.Dock = DockStyle.Fill;
             tableLayoutPanel3.Location = new Point(61, 0);
@@ -338,11 +345,11 @@ namespace CapaVista
             // 
             panelOpen.BackColor = Color.FromArgb(21, 25, 31);
             panelOpen.Dock = DockStyle.Fill;
-            panelOpen.Location = new Point(42, 7);
+            panelOpen.Location = new Point(13, 7);
             panelOpen.Margin = new Padding(3, 2, 3, 2);
             panelOpen.MinimumSize = new Size(564, 272);
             panelOpen.Name = "panelOpen";
-            panelOpen.Size = new Size(891, 499);
+            panelOpen.Size = new Size(951, 499);
             panelOpen.TabIndex = 0;
             // 
             // FrmPrincipal
@@ -357,6 +364,7 @@ namespace CapaVista
             Icon = (Icon)resources.GetObject("$this.Icon");
             MinimumSize = new Size(1053, 647);
             Name = "FrmPrincipal";
+            Load += FrmPrincipal_Load;
             panel1.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);

@@ -1,4 +1,5 @@
 ﻿
+using CapaVista.FormPlanilla;
 using ToolTip = System.Windows.Forms.ToolTip;
 
 namespace CapaVista
@@ -30,7 +31,7 @@ namespace CapaVista
 
         private void btnHerramientas_Click(object sender, EventArgs e)
         {
-            OpenFormInPanel(new formCategorias());
+
         }
         //Descripciones
         private void btnInicio_MouseEnter(object sender, EventArgs e)
@@ -48,7 +49,7 @@ namespace CapaVista
             ToolTip toolTip = new ToolTip();
 
             // Establecer el texto de la descripción
-            toolTip.SetToolTip(btnHerramientas, "Categorias");
+            toolTip.SetToolTip(btnHerramientas, "Herramientas");
         }
 
         private void btnConfiguraciones_MouseEnter(object sender, EventArgs e)
@@ -90,5 +91,60 @@ namespace CapaVista
             EstadoDeBarraVertical = !EstadoDeBarraVertical;
         }
 
+        private void btnInventory_Click(object sender, EventArgs e)
+        {
+            OpenFormInPanel(new formInventario());
+        }
+
+        private void btnPlanilla_Click(object sender, EventArgs e)
+        {
+            OpenFormInPanel(new formPlanilla());
+        }
+
+        private void btnInicio_Click(object sender, EventArgs e)
+        {
+            OpenFormInPanel(new FrmInicio());
+        }
+
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+            OpenFormInPanel(new FrmInicio());
+        }
+
+        private void btnInventory_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            ToolTip toolTip = new ToolTip();
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(btnInventory, "Inventario");
+        }
+
+        private void btnPlanilla_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            ToolTip toolTip = new ToolTip();
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(btnPlanilla, "Planilla");
+        }
+
+        private void btnContabilidad_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            ToolTip toolTip = new ToolTip();
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(btnContabilidad, "Contabilidad");
+        }
+
+        private void btnCalculos_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            ToolTip toolTip = new ToolTip();
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(btnCalculos, "Calculos");
+        }
     }
 }

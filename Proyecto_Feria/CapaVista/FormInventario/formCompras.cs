@@ -58,5 +58,45 @@ namespace CapaVista
                 e.Handled = true; // Evita que se procese el carácter
             }
         }
+
+        private void pictureBox1_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            ToolTip toolTip = new ToolTip();
+
+            // Establecer el icono de información (puedes cambiar el icono si lo deseas)
+            toolTip.ToolTipIcon = ToolTipIcon.Info;
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(pictureBox1, "Descripción del PictureBox");
+        }
+
+        private void btnGuardar_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(btnGuardar, "Guardar");
+        }
+
+        private void btnLimpiar_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(btnLimpiar, "Limpiar");
+        }
+
+        private void btnEliminar_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(btnLimpiar, "Eliminar");
+        }
+
     }
 }
