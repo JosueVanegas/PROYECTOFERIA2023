@@ -19,9 +19,6 @@
     <Compile Update="FormPlanilla\formPlanilla.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="formPrincipal.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="FormInventario\formProveedor.cs">
       <SubType>Form</SubType>
     </Compile>

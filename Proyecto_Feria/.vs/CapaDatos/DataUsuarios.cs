@@ -42,7 +42,7 @@ namespace CapaDatos
         public List<Usuario> ListaUsuarios()
         {
             List<Usuario> lista = new List<Usuario>();
-            string query = "SELECT ID_USUARIO,USUARIO,CLAVE,ROL,DESCRIPCION FROM USUARIO p INNER JOIN ROL_DE_USUARIO r ON P.ROL = R.ID_ROL";
+            string query = "SELECT * FROM USUARIO p INNER JOIN ROL_DE_USUARIO r ON P.ROL = R.ID_ROL";
 
             using (var con = new conexion().conectar())
             {
@@ -61,7 +61,8 @@ namespace CapaDatos
                                     id = Convert.ToInt32(reader["ID_USUARIO"]),
                                     usuario = reader["USUARIO"].ToString(),
                                     clave = reader["CLAVE"].ToString(),
-                                    oRol = new Rol { id = Convert.ToInt32(reader["ROL"]), descripcion = reader["DESCRIPCION"].ToString() }
+                                    oRol = new Rol { id = Convert.ToInt32(reader["ROL"]), descripcion = reader["DESCRIPCION"].ToString() },
+                                    fechaRegistro = reader["FECHA_REGISTRO"].ToString()
                                 });
                             }
                         }
@@ -141,9 +142,9 @@ namespace CapaDatos
                 try
                 {
                     con.Open();
-                    SqlCommand comand = new SqlCommand("eliminarUsuario", con);
+                    SqlCommand comand = new SqlCommand("PROC_ELIMINAR_USUARIO", con);
                     comand.CommandType = CommandType.StoredProcedure;
-                    comand.Parameters.AddWithValue("@Id", idU);
+                    comand.Parameters.AddWithValue("@ID_USUARIO", idU);
                     comand.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     comand.ExecuteNonQuery();
 

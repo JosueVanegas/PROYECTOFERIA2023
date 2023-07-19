@@ -26,8 +26,8 @@ namespace CapaVista
         }
         private void formCategorias_Load(object sender, EventArgs e)
         {
-            // mostrarCategorias();
-            //  mostrarEstados();
+            mostrarCategorias();
+            mostrarEstados();
         }
         private void limpiarCampos()
         {
@@ -44,7 +44,7 @@ namespace CapaVista
             tbCategorias.Rows.Clear();
             foreach (Categoria c in list)
             {
-                tbCategorias.Rows.Add("", c.id, c.nombre, c.oEstado.descripcion, c.fechaRegistro);
+                tbCategorias.Rows.Add("", "", c.id, c.nombre, c.oEstado.descripcion, c.fechaRegistro);
             }
 
         }
@@ -60,7 +60,8 @@ namespace CapaVista
                 MessageBox.Show(cCategoria.registraModificar(new Categoria
                 {
                     id = Convert.ToInt32(txtIdCategoria.Text),
-                    nombre = txtNombre.Text
+                    nombre = txtNombre.Text,
+                    oEstado = (Estado)cbxEstado.SelectedItem
                 }));
 
                 limpiarCampos();
@@ -76,26 +77,23 @@ namespace CapaVista
         {
             limpiarCampos();
         }
-
+        private void eliminarCategoria(int id)
+        {
+            if (MessageBox.Show("esta seguro de eliminar la categoria seleccionada?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                MessageBox.Show(cCategoria.eliminar(id));
+                limpiarCampos();
+                mostrarCategorias();
+            }
+        }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (txtIdCategoria.Text != "" && txtNombre.Text != "")
-            {
-                if (MessageBox.Show("esta seguro de elimar la categoria actual?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                {
-                    MessageBox.Show(cCategoria.eliminar(Convert.ToInt32(txtIdCategoria.Text)));
-                    limpiarCampos();
-                    mostrarCategorias();
-                }
-            }
-            {
-                MessageBox.Show("No se ha seleccionado ninguna categoria para ser eliminada", "Advertencia");
-            }
+
         }
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            string columna = "nombre";
+            string columna = cbxBuscar.Text;
             if (tbCategorias.RowCount > 0)
             {
                 foreach (DataGridViewRow i in tbCategorias.Rows)
@@ -107,37 +105,6 @@ namespace CapaVista
                 }
             }
         }
-
-        private void tbUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (tbCategorias.Columns[e.ColumnIndex].Name == "btnEditar")
-            {
-                if (e.RowIndex >= 0)
-                {
-                    txtIdCategoria.Text = tbCategorias.Rows[e.RowIndex].Cells["id"].Value.ToString();
-                    txtNombre.Text = tbCategorias.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
-                    cbxEstado.Text = tbCategorias.Rows[e.RowIndex].Cells["estado"].Value.ToString();
-                }
-            }
-        }
-
-        private void tbUsuarios_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
-        {
-            if (e.RowIndex < 0)
-                return;
-            if (e.ColumnIndex == 0)
-            {
-                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-                var h = Properties.Resources.pen_circle.Height;
-                var w = Properties.Resources.pen_circle.Width;
-                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
-                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
-
-                e.Graphics.DrawImage(Properties.Resources.pen_circle, new Rectangle(x, y, w, h));
-                e.Handled = true;
-            }
-        }
-
         private void pictureBox1_MouseHover(object sender, EventArgs e)
         {
             // Crear un objeto ToolTip
@@ -152,7 +119,7 @@ namespace CapaVista
 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            if (!Char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Space)
             {
                 e.Handled = true; // Evita que se procese el carácter
             }
@@ -187,14 +154,54 @@ namespace CapaVista
             // Establecer el texto de la descripción
             toolTip.SetToolTip(btnLimpiar, "Limpiar");
         }
-
-        private void btnEliminar_MouseHover(object sender, EventArgs e)
+        private void tbCategorias_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Crear un objeto ToolTip
-            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+            int indice = e.RowIndex;
+            if (tbCategorias.Columns[e.ColumnIndex].Name == "btnEditar")
+            {
+                if (indice >= 0)
+                {
+                    txtIdCategoria.Text = tbCategorias.Rows[e.RowIndex].Cells["id"].Value.ToString();
+                    txtNombre.Text = tbCategorias.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
+                    cbxEstado.Text = tbCategorias.Rows[e.RowIndex].Cells["estado"].Value.ToString();
+                }
+            }
+            if (tbCategorias.Columns[e.ColumnIndex].Name == "btnBorrar")
+            {
+                if (indice >= 0)
+                {
+                    string valor = tbCategorias.Rows[indice].Cells["id"].Value.ToString();
+                    eliminarCategoria(Convert.ToInt32(valor));
+                }
+            }
+        }
 
-            // Establecer el texto de la descripción
-            toolTip.SetToolTip(btnEliminar, "Eliminar");
+        private void tbCategorias_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+            if (e.ColumnIndex == 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var h = Properties.Resources.pen_circle.Height;
+                var w = Properties.Resources.pen_circle.Width;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.pen_circle, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+            if (e.ColumnIndex == 1)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var w = Properties.Resources.eliminar.Width;
+                var h = Properties.Resources.eliminar.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.eliminar, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
         }
     }
 }

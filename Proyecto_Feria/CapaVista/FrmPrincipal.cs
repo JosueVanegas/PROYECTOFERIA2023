@@ -1,4 +1,6 @@
 ﻿
+using CapaControlador;
+using CapaDatos;
 using CapaVista.FormPlanilla;
 using ToolTip = System.Windows.Forms.ToolTip;
 
@@ -6,27 +8,46 @@ namespace CapaVista
 {
     public partial class FrmPrincipal : Form
     {
-        public FrmPrincipal()
+        Usuario user = null;
+        Form formActivo = null;
+        Button botonActivo = null;
+        public FrmPrincipal(Usuario usuario)
         {
             InitializeComponent();
+            var controler = new ControlConexion();
+            this.user = usuario;
+            validarAcceso();
         }
-        private void OpenFormInPanel(object formHijo)
+        void validarAcceso()
         {
-            if (this.panelOpen.Controls.Count > 0)
-                this.panelOpen.Controls.RemoveAt(0);
-
-
-            Form fh = (Form)formHijo;
-            fh.TopLevel = false;
-            fh.FormBorderStyle = FormBorderStyle.None;
-            fh.Dock = DockStyle.Fill;
-            this.panelOpen.Controls.Add(fh);
-            this.panelOpen.Tag = fh;
-            fh.Show();
+            /*
+             * string tipoAcceso = "";
+            if (user.rol == 1)
+            {
+                tipoAcceso = "Administrador";
+            }
+            else
+            {
+                tipoAcceso = "Empleado";
+            }
+            lblUsuarioActual.Text = "Usuario: " + user.usuario + "\nTipo de acceso: " + tipoAcceso;
+             */
+        }
+        private void abrirFormulario(Form form)
+        {
+            if (formActivo != null)
+            {
+                formActivo.Close();
+            }
+            formActivo = form;
+            form.TopLevel = false;
+            form.Dock = DockStyle.Fill;
+            panelContenedor.Controls.Add(form);
+            form.Show();
         }
         private void rjButton9_Click(object sender, EventArgs e)
         {
-            OpenFormInPanel(new formUsuarios());
+            abrirFormulario(new formUsuarios());
         }
 
         private void btnHerramientas_Click(object sender, EventArgs e)
@@ -93,22 +114,22 @@ namespace CapaVista
 
         private void btnInventory_Click(object sender, EventArgs e)
         {
-            OpenFormInPanel(new formInventario());
+            abrirFormulario(new formInventario());
         }
 
         private void btnPlanilla_Click(object sender, EventArgs e)
         {
-            OpenFormInPanel(new formPlanilla());
+            abrirFormulario(new formPlanilla());
         }
 
         private void btnInicio_Click(object sender, EventArgs e)
         {
-            OpenFormInPanel(new FrmInicio());
+            abrirFormulario(new FrmInicio());
         }
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            OpenFormInPanel(new FrmInicio());
+            abrirFormulario(new FrmInicio());
         }
 
         private void btnInventory_MouseHover(object sender, EventArgs e)

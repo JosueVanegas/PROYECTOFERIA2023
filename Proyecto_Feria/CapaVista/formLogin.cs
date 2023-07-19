@@ -18,12 +18,12 @@ namespace CapaVista
             manager.Theme = MaterialSkinManager.Themes.DARK;
             manager.EnforceBackcolorOnAllComponents = true;
             manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.WHITE);
-            lblConexion.Text = new Controles().verificarConexion();
+            lblConexion.Text = new ControlConexion().verificarConexion();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            System.Environment.Exit(0);
+            Application.Exit();
             new conexion().desconectar();
             this.Close();
         }
@@ -35,7 +35,7 @@ namespace CapaVista
 
             if (usuarioValido != null)
             {
-                FrmPrincipal principal = new FrmPrincipal();
+                FrmPrincipal principal = new FrmPrincipal(null);
                 principal.Show();
                 this.Hide();
                 principal.FormClosing += frm_closing;

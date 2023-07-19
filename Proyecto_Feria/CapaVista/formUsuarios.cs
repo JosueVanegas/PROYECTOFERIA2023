@@ -23,9 +23,9 @@ namespace CapaVista
 
         private void formUsuarios_Load(object sender, EventArgs e)
         {
-            // mostarEmpleados();
-            // mostrarRoles();
-            // mostrarUsuarios();
+            mostarEmpleados();
+            mostrarRoles();
+            mostrarUsuarios();
         }
         public void mostrarRoles()
         {
@@ -59,7 +59,7 @@ namespace CapaVista
             foreach (Usuario i in usuarios)
             {
 
-                tbUsuarios.Rows.Add("", i.id, i.usuario, i.oRol.descripcion, i.fechaRegistro, i.oRol.id, i.clave);
+                tbUsuarios.Rows.Add("", "", i.id, i.usuario, i.oRol.descripcion, i.fechaRegistro, i.oRol.id, i.clave, "");
 
             }
         }
@@ -106,23 +106,14 @@ namespace CapaVista
         {
             limpiarCampos();
         }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void eliminarUsuario(int id)
         {
-            if (validarCampos() == true)
+            if (MessageBox.Show("Desea eliminar al usuario actual? ", "Consulta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (MessageBox.Show("Desea eliminar al usuario actual? ", "Consulta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    MessageBox.Show(controlUsuario.eliminar(Convert.ToInt32(txtIdUsuario.Text)));
-                    mostrarUsuarios();
-                    limpiarCampos();
-                }
+                MessageBox.Show(controlUsuario.eliminar(id));
+                mostrarUsuarios();
+                limpiarCampos();
             }
-            else
-            {
-                MessageBox.Show("Seleccione un usuario de la tabla");
-            }
-
         }
 
         private void ckbVerContraseña_CheckedChanged(object sender)
@@ -157,14 +148,24 @@ namespace CapaVista
                 e.Graphics.DrawImage(Properties.Resources.pen_circle, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
+            if (e.ColumnIndex == 1)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var w = Properties.Resources.eliminar.Width;
+                var h = Properties.Resources.eliminar.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.eliminar, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
         }
 
         private void tbUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (tbUsuarios.Columns[e.ColumnIndex].Name == "btnSeleccionar")
+            int indice = e.RowIndex;
+            if (tbUsuarios.Columns[e.ColumnIndex].Name == "btnEditar")
             {
-                int indice = e.RowIndex;
-
                 if (indice >= 0)
                 {
                     txtIdUsuario.Text = tbUsuarios.Rows[indice].Cells["id"].Value.ToString();
@@ -172,6 +173,14 @@ namespace CapaVista
                     txtClave.Text = tbUsuarios.Rows[indice].Cells["clave"].Value.ToString();
                     string rol = tbUsuarios.Rows[indice].Cells["rol"].Value.ToString();
 
+                }
+            }
+            if (tbUsuarios.Columns[e.ColumnIndex].Name == "btnBorrar")
+            {
+                if (indice >= 0)
+                {
+                    string valor = tbUsuarios.Rows[indice].Cells["id"].Value.ToString();
+                    eliminarUsuario(Convert.ToInt32(valor));
                 }
             }
         }

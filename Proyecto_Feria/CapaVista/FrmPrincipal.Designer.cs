@@ -44,7 +44,7 @@ namespace CapaVista
             btnHerramientas = new RJCodeAdvance.RJControls.RJButton();
             btnConfiguraciones = new RJCodeAdvance.RJControls.RJButton();
             tableLayoutPanel3 = new TableLayoutPanel();
-            panelOpen = new Panel();
+            panelContenedor = new Panel();
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -329,7 +329,7 @@ namespace CapaVista
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 1.02459013F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 98.0532761F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 0.9221311F));
-            tableLayoutPanel3.Controls.Add(panelOpen, 1, 1);
+            tableLayoutPanel3.Controls.Add(panelContenedor, 1, 1);
             tableLayoutPanel3.Dock = DockStyle.Fill;
             tableLayoutPanel3.Location = new Point(61, 0);
             tableLayoutPanel3.Margin = new Padding(3, 2, 3, 2);
@@ -341,16 +341,16 @@ namespace CapaVista
             tableLayoutPanel3.Size = new Size(976, 514);
             tableLayoutPanel3.TabIndex = 3;
             // 
-            // panelOpen
+            // panelContenedor
             // 
-            panelOpen.BackColor = Color.FromArgb(21, 25, 31);
-            panelOpen.Dock = DockStyle.Fill;
-            panelOpen.Location = new Point(13, 7);
-            panelOpen.Margin = new Padding(3, 2, 3, 2);
-            panelOpen.MinimumSize = new Size(564, 272);
-            panelOpen.Name = "panelOpen";
-            panelOpen.Size = new Size(951, 499);
-            panelOpen.TabIndex = 0;
+            panelContenedor.BackColor = Color.FromArgb(21, 25, 31);
+            panelContenedor.Dock = DockStyle.Fill;
+            panelContenedor.Location = new Point(13, 7);
+            panelContenedor.Margin = new Padding(3, 2, 3, 2);
+            panelContenedor.MinimumSize = new Size(564, 272);
+            panelContenedor.Name = "panelContenedor";
+            panelContenedor.Size = new Size(951, 499);
+            panelContenedor.TabIndex = 0;
             // 
             // FrmPrincipal
             // 
@@ -364,6 +364,8 @@ namespace CapaVista
             Icon = (Icon)resources.GetObject("$this.Icon");
             MinimumSize = new Size(1053, 647);
             Name = "FrmPrincipal";
+            StartPosition = FormStartPosition.CenterScreen;
+            WindowState = FormWindowState.Maximized;
             Load += FrmPrincipal_Load;
             panel1.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
@@ -386,7 +388,7 @@ namespace CapaVista
         private RJCodeAdvance.RJControls.RJButton btnHerramientas;
         private RJCodeAdvance.RJControls.RJButton btnUsuarios;
         private TableLayoutPanel tableLayoutPanel3;
-        public Panel panelOpen;
+        public Panel panelContenedor;
         private RJCodeAdvance.RJControls.RJButton btnBarraVertical;
         private RJCodeAdvance.RJControls.RJButton btnConfiguraciones;
     }

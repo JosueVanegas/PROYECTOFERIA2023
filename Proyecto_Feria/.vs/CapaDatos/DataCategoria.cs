@@ -76,8 +76,9 @@ namespace CapaDatos
                     using (SqlCommand cmd = new SqlCommand("PROC_REGISTRAR_CATEGORIA", con))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@Id", ca.id);
-                        cmd.Parameters.AddWithValue("@Nombre", ca.nombre);
+                        cmd.Parameters.AddWithValue("@ID_CATEGORIA", ca.id);
+                        cmd.Parameters.AddWithValue("@NOMBRE_CATEGORIA", ca.nombre);
+                        cmd.Parameters.AddWithValue("@ESTADO_CATEGORIA", ca.oEstado.estado);
                         cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                         cmd.ExecuteNonQuery();
 
@@ -100,10 +101,10 @@ namespace CapaDatos
                 try
                 {
                     con.Open();
-                    using (SqlCommand cmd = new SqlCommand("eliminarCategoria", con))
+                    using (SqlCommand cmd = new SqlCommand("PROC_ELIMINAR_CATEGORIA", con))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@Id", id);
+                        cmd.Parameters.AddWithValue("@ID_CATEGORIA", id);
                         cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                         cmd.ExecuteNonQuery();
 

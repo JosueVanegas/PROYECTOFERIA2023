@@ -2006,23 +2006,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Personal\\.nuget\\packages\\": {},
+    "C:\\Users\\arqva\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Personal\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaDatos\\CapaDatos.csproj",
+      "projectUniqueName": "C:\\Users\\arqva\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaDatos\\CapaDatos.csproj",
       "projectName": "CapaDatos",
-      "projectPath": "C:\\Users\\Personal\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaDatos\\CapaDatos.csproj",
-      "packagesPath": "C:\\Users\\Personal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Personal\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaDatos\\obj\\",
+      "projectPath": "C:\\Users\\arqva\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaDatos\\CapaDatos.csproj",
+      "packagesPath": "C:\\Users\\arqva\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\arqva\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaDatos\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Personal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\arqva\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

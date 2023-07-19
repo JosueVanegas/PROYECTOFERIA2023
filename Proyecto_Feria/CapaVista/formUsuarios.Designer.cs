@@ -35,19 +35,20 @@ namespace CapaVista
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formUsuarios));
             tbUsuarios = new ReaLTaiizor.Controls.PoisonDataGridView();
-            btnSeleccionar = new DataGridViewButtonColumn();
+            btnEditar = new DataGridViewButtonColumn();
+            btnBorrar = new DataGridViewButtonColumn();
             id = new DataGridViewTextBoxColumn();
             usuario = new DataGridViewTextBoxColumn();
             rol = new DataGridViewTextBoxColumn();
             fecha = new DataGridViewTextBoxColumn();
             idRol = new DataGridViewTextBoxColumn();
             clave = new DataGridViewTextBoxColumn();
+            idEmpleado = new DataGridViewTextBoxColumn();
             lblEncabezado = new Label();
             pnlRegistroUsuario = new Panel();
             cbxEmpleados = new ReaLTaiizor.Controls.MaterialComboBox();
             tableLayoutPanel1 = new TableLayoutPanel();
             btnGuardar = new RJCodeAdvance.RJControls.RJButton();
-            rjButton6 = new RJCodeAdvance.RJControls.RJButton();
             rjButton2 = new RJCodeAdvance.RJControls.RJButton();
             txtConfirmarClave = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             ckbVerContraseña = new ReaLTaiizor.Controls.AirCheckBox();
@@ -86,7 +87,7 @@ namespace CapaVista
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             tbUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             tbUsuarios.ColumnHeadersHeight = 35;
-            tbUsuarios.Columns.AddRange(new DataGridViewColumn[] { btnSeleccionar, id, usuario, rol, fecha, idRol, clave });
+            tbUsuarios.Columns.AddRange(new DataGridViewColumn[] { btnEditar, btnBorrar, id, usuario, rol, fecha, idRol, clave, idEmpleado });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.DarkGray;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
@@ -114,29 +115,39 @@ namespace CapaVista
             tbUsuarios.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tbUsuarios.RowTemplate.Height = 30;
             tbUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tbUsuarios.Size = new Size(581, 389);
+            tbUsuarios.Size = new Size(607, 389);
             tbUsuarios.TabIndex = 4;
             tbUsuarios.CellContentClick += tbUsuarios_CellContentClick;
             tbUsuarios.CellPainting += tbUsuarios_CellPainting;
             // 
-            // btnSeleccionar
+            // btnEditar
             // 
-            btnSeleccionar.HeaderText = "Editar";
-            btnSeleccionar.Name = "btnSeleccionar";
-            btnSeleccionar.Width = 50;
+            btnEditar.HeaderText = "Editar";
+            btnEditar.Name = "btnEditar";
+            btnEditar.ToolTipText = "editar";
+            btnEditar.Width = 50;
+            // 
+            // btnBorrar
+            // 
+            btnBorrar.HeaderText = "Eliminar";
+            btnBorrar.Name = "btnBorrar";
+            btnBorrar.ToolTipText = "eliminar";
+            btnBorrar.Width = 50;
             // 
             // id
             // 
             id.HeaderText = "ID";
             id.Name = "id";
             id.ReadOnly = true;
+            id.Visible = false;
+            id.Width = 10;
             // 
             // usuario
             // 
             usuario.HeaderText = "Nombre de Usuario";
             usuario.Name = "usuario";
             usuario.ReadOnly = true;
-            usuario.Width = 150;
+            usuario.Width = 200;
             // 
             // rol
             // 
@@ -144,10 +155,11 @@ namespace CapaVista
             rol.Name = "rol";
             rol.ReadOnly = true;
             rol.SortMode = DataGridViewColumnSortMode.NotSortable;
+            rol.Width = 150;
             // 
             // fecha
             // 
-            fecha.HeaderText = "Recha de Registro";
+            fecha.HeaderText = "Fecha de Registro";
             fecha.Name = "fecha";
             fecha.ReadOnly = true;
             fecha.Width = 200;
@@ -165,6 +177,13 @@ namespace CapaVista
             clave.Name = "clave";
             clave.ReadOnly = true;
             clave.Visible = false;
+            // 
+            // idEmpleado
+            // 
+            idEmpleado.HeaderText = "empleado";
+            idEmpleado.Name = "idEmpleado";
+            idEmpleado.ReadOnly = true;
+            idEmpleado.Visible = false;
             // 
             // lblEncabezado
             // 
@@ -184,6 +203,7 @@ namespace CapaVista
             pnlRegistroUsuario.Controls.Add(tableLayoutPanel1);
             pnlRegistroUsuario.Controls.Add(txtConfirmarClave);
             pnlRegistroUsuario.Controls.Add(ckbVerContraseña);
+            pnlRegistroUsuario.Controls.Add(txtIdUsuario);
             pnlRegistroUsuario.Controls.Add(cbxRol);
             pnlRegistroUsuario.Controls.Add(txtClave);
             pnlRegistroUsuario.Controls.Add(txtUsuario);
@@ -220,19 +240,17 @@ namespace CapaVista
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.Anchor = AnchorStyles.Left;
-            tableLayoutPanel1.ColumnCount = 3;
+            tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006237F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006275F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006275F));
             tableLayoutPanel1.Controls.Add(btnGuardar, 0, 0);
-            tableLayoutPanel1.Controls.Add(rjButton6, 2, 0);
             tableLayoutPanel1.Controls.Add(rjButton2, 1, 0);
-            tableLayoutPanel1.Location = new Point(27, 301);
+            tableLayoutPanel1.Location = new Point(71, 301);
             tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(234, 80);
+            tableLayoutPanel1.Size = new Size(152, 80);
             tableLayoutPanel1.TabIndex = 30;
             // 
             // btnGuardar
@@ -252,38 +270,13 @@ namespace CapaVista
             btnGuardar.Location = new Point(3, 2);
             btnGuardar.Margin = new Padding(3, 2, 3, 2);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(71, 76);
+            btnGuardar.Size = new Size(69, 76);
             btnGuardar.TabIndex = 11;
             btnGuardar.Text = "Guardar";
             btnGuardar.TextAlign = ContentAlignment.BottomCenter;
             btnGuardar.TextColor = Color.White;
             btnGuardar.UseVisualStyleBackColor = false;
             btnGuardar.Click += btnAgregar_Click;
-            // 
-            // rjButton6
-            // 
-            rjButton6.Anchor = AnchorStyles.Left;
-            rjButton6.BackColor = Color.FromArgb(63, 63, 70);
-            rjButton6.BackgroundColor = Color.FromArgb(63, 63, 70);
-            rjButton6.BackgroundImage = (Image)resources.GetObject("rjButton6.BackgroundImage");
-            rjButton6.BackgroundImageLayout = ImageLayout.Center;
-            rjButton6.BorderColor = Color.PaleVioletRed;
-            rjButton6.BorderRadius = 10;
-            rjButton6.BorderSize = 0;
-            rjButton6.FlatAppearance.BorderSize = 0;
-            rjButton6.FlatStyle = FlatStyle.Flat;
-            rjButton6.ForeColor = Color.White;
-            rjButton6.ImageAlign = ContentAlignment.MiddleRight;
-            rjButton6.Location = new Point(158, 2);
-            rjButton6.Margin = new Padding(3, 2, 3, 2);
-            rjButton6.Name = "rjButton6";
-            rjButton6.Size = new Size(73, 76);
-            rjButton6.TabIndex = 10;
-            rjButton6.Text = "Eliminar";
-            rjButton6.TextAlign = ContentAlignment.BottomCenter;
-            rjButton6.TextColor = Color.White;
-            rjButton6.UseVisualStyleBackColor = false;
-            rjButton6.Click += btnEliminar_Click;
             // 
             // rjButton2
             // 
@@ -299,10 +292,10 @@ namespace CapaVista
             rjButton2.FlatStyle = FlatStyle.Flat;
             rjButton2.ForeColor = Color.White;
             rjButton2.ImageAlign = ContentAlignment.MiddleRight;
-            rjButton2.Location = new Point(80, 2);
+            rjButton2.Location = new Point(78, 2);
             rjButton2.Margin = new Padding(3, 2, 3, 2);
             rjButton2.Name = "rjButton2";
-            rjButton2.Size = new Size(72, 76);
+            rjButton2.Size = new Size(71, 76);
             rjButton2.TabIndex = 12;
             rjButton2.Text = "Limpiar";
             rjButton2.TextAlign = ContentAlignment.BottomCenter;
@@ -450,7 +443,7 @@ namespace CapaVista
             // txtIdUsuario
             // 
             txtIdUsuario.Anchor = AnchorStyles.Left;
-            txtIdUsuario.Location = new Point(296, 7);
+            txtIdUsuario.Location = new Point(245, 331);
             txtIdUsuario.Name = "txtIdUsuario";
             txtIdUsuario.Size = new Size(16, 23);
             txtIdUsuario.TabIndex = 8;
@@ -560,7 +553,6 @@ namespace CapaVista
             Controls.Add(pnlOpciones);
             Controls.Add(pnlContenedor);
             Controls.Add(txtBuscar);
-            Controls.Add(txtIdUsuario);
             Controls.Add(cbxBuscar);
             Controls.Add(lblEncabezado);
             Controls.Add(tbUsuarios);
@@ -571,10 +563,10 @@ namespace CapaVista
             Load += formUsuarios_Load;
             ((System.ComponentModel.ISupportInitialize)tbUsuarios).EndInit();
             pnlRegistroUsuario.ResumeLayout(false);
+            pnlRegistroUsuario.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
             pnlContenedor.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -592,19 +584,20 @@ namespace CapaVista
         private DataGridViewTextBoxColumn fecha_Registro;
         private TableLayoutPanel tableLayoutPanel1;
         private RJCodeAdvance.RJControls.RJButton btnGuardar;
-        private RJCodeAdvance.RJControls.RJButton rjButton6;
         private RJCodeAdvance.RJControls.RJButton rjButton2;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtBuscar;
         private Panel pnlContenedor;
         private Panel pnlOpciones;
         private ReaLTaiizor.Controls.MaterialDrawer materialDrawer1;
-        private DataGridViewButtonColumn btnSeleccionar;
+        private ReaLTaiizor.Controls.MaterialComboBox cbxEmpleados;
+        private DataGridViewButtonColumn btnEditar;
+        private DataGridViewButtonColumn btnBorrar;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn usuario;
         private DataGridViewTextBoxColumn rol;
         private DataGridViewTextBoxColumn fecha;
         private DataGridViewTextBoxColumn idRol;
         private DataGridViewTextBoxColumn clave;
-        private ReaLTaiizor.Controls.MaterialComboBox cbxEmpleados;
+        private DataGridViewTextBoxColumn idEmpleado;
     }
 }

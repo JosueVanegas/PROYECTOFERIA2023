@@ -40,8 +40,6 @@
             txtNombreContacto = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             tableLayoutPanel1 = new TableLayoutPanel();
             btnGuardar = new RJCodeAdvance.RJControls.RJButton();
-            btnEliminar = new RJCodeAdvance.RJControls.RJButton();
-            btnLimpiar = new RJCodeAdvance.RJControls.RJButton();
             lblTitulo = new Label();
             txtNombreEmpresa = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtId = new TextBox();
@@ -49,12 +47,14 @@
             lblEncabezado = new Label();
             tbProveedores = new ReaLTaiizor.Controls.PoisonDataGridView();
             btnEditar = new DataGridViewButtonColumn();
-            id = new DataGridViewTextBoxColumn();
-            nombreEmpresa = new DataGridViewTextBoxColumn();
-            NombreContacto = new DataGridViewTextBoxColumn();
-            NumeroContacto = new DataGridViewTextBoxColumn();
+            btnBorrar = new DataGridViewButtonColumn();
+            Id = new DataGridViewTextBoxColumn();
+            Empresa = new DataGridViewTextBoxColumn();
+            Contacto = new DataGridViewTextBoxColumn();
+            Numero = new DataGridViewTextBoxColumn();
             Pais = new DataGridViewTextBoxColumn();
             Ciudad = new DataGridViewTextBoxColumn();
+            btnLimpiar = new RJCodeAdvance.RJControls.RJButton();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
@@ -82,7 +82,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(150, 257);
+            pictureBox1.Location = new Point(163, 257);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(112, 105);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -114,7 +114,7 @@
             txtCiudad.SelectionLength = 0;
             txtCiudad.SelectionStart = 0;
             txtCiudad.ShortcutsEnabled = true;
-            txtCiudad.Size = new Size(110, 48);
+            txtCiudad.Size = new Size(145, 48);
             txtCiudad.TabIndex = 35;
             txtCiudad.TabStop = false;
             txtCiudad.TextAlign = HorizontalAlignment.Center;
@@ -146,7 +146,7 @@
             txtPais.SelectionLength = 0;
             txtPais.SelectionStart = 0;
             txtPais.ShortcutsEnabled = true;
-            txtPais.Size = new Size(110, 48);
+            txtPais.Size = new Size(145, 48);
             txtPais.TabIndex = 34;
             txtPais.TabStop = false;
             txtPais.TextAlign = HorizontalAlignment.Center;
@@ -221,19 +221,17 @@
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.Anchor = AnchorStyles.Left;
-            tableLayoutPanel1.ColumnCount = 3;
+            tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006237F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006275F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006275F));
             tableLayoutPanel1.Controls.Add(btnGuardar, 0, 0);
-            tableLayoutPanel1.Controls.Add(btnEliminar, 2, 0);
             tableLayoutPanel1.Controls.Add(btnLimpiar, 1, 0);
-            tableLayoutPanel1.Location = new Point(28, 384);
+            tableLayoutPanel1.Location = new Point(65, 384);
             tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(234, 80);
+            tableLayoutPanel1.Size = new Size(156, 80);
             tableLayoutPanel1.TabIndex = 31;
             // 
             // btnGuardar
@@ -259,57 +257,8 @@
             btnGuardar.TextAlign = ContentAlignment.BottomCenter;
             btnGuardar.TextColor = Color.White;
             btnGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.Click += btnGuardar_Click;
             btnGuardar.MouseHover += btnGuardar_MouseHover;
-            // 
-            // btnEliminar
-            // 
-            btnEliminar.Anchor = AnchorStyles.Left;
-            btnEliminar.BackColor = Color.FromArgb(63, 63, 70);
-            btnEliminar.BackgroundColor = Color.FromArgb(63, 63, 70);
-            btnEliminar.BackgroundImage = (Image)resources.GetObject("btnEliminar.BackgroundImage");
-            btnEliminar.BackgroundImageLayout = ImageLayout.Center;
-            btnEliminar.BorderColor = Color.PaleVioletRed;
-            btnEliminar.BorderRadius = 10;
-            btnEliminar.BorderSize = 0;
-            btnEliminar.FlatAppearance.BorderSize = 0;
-            btnEliminar.FlatStyle = FlatStyle.Flat;
-            btnEliminar.ForeColor = Color.White;
-            btnEliminar.ImageAlign = ContentAlignment.MiddleRight;
-            btnEliminar.Location = new Point(158, 2);
-            btnEliminar.Margin = new Padding(3, 2, 3, 2);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(73, 76);
-            btnEliminar.TabIndex = 10;
-            btnEliminar.Text = "Eliminar";
-            btnEliminar.TextAlign = ContentAlignment.BottomCenter;
-            btnEliminar.TextColor = Color.White;
-            btnEliminar.UseVisualStyleBackColor = false;
-            btnEliminar.MouseHover += btnEliminar_MouseHover;
-            // 
-            // btnLimpiar
-            // 
-            btnLimpiar.Anchor = AnchorStyles.Left;
-            btnLimpiar.BackColor = Color.FromArgb(63, 63, 70);
-            btnLimpiar.BackgroundColor = Color.FromArgb(63, 63, 70);
-            btnLimpiar.BackgroundImage = (Image)resources.GetObject("btnLimpiar.BackgroundImage");
-            btnLimpiar.BackgroundImageLayout = ImageLayout.Center;
-            btnLimpiar.BorderColor = Color.PaleVioletRed;
-            btnLimpiar.BorderRadius = 10;
-            btnLimpiar.BorderSize = 0;
-            btnLimpiar.FlatAppearance.BorderSize = 0;
-            btnLimpiar.FlatStyle = FlatStyle.Flat;
-            btnLimpiar.ForeColor = Color.White;
-            btnLimpiar.ImageAlign = ContentAlignment.MiddleRight;
-            btnLimpiar.Location = new Point(80, 2);
-            btnLimpiar.Margin = new Padding(3, 2, 3, 2);
-            btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(72, 76);
-            btnLimpiar.TabIndex = 12;
-            btnLimpiar.Text = "Limpiar";
-            btnLimpiar.TextAlign = ContentAlignment.BottomCenter;
-            btnLimpiar.TextColor = Color.White;
-            btnLimpiar.UseVisualStyleBackColor = false;
-            btnLimpiar.MouseHover += btnLimpiar_MouseHover;
             // 
             // lblTitulo
             // 
@@ -374,7 +323,7 @@
             txtBuscar.HideSelection = true;
             txtBuscar.Hint = "Buscar";
             txtBuscar.LeadingIcon = null;
-            txtBuscar.Location = new Point(567, 19);
+            txtBuscar.Location = new Point(672, 16);
             txtBuscar.MaxLength = 32767;
             txtBuscar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtBuscar.Name = "txtBuscar";
@@ -423,13 +372,13 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             tbProveedores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             tbProveedores.ColumnHeadersHeight = 40;
-            tbProveedores.Columns.AddRange(new DataGridViewColumn[] { btnEditar, id, nombreEmpresa, NombreContacto, NumeroContacto, Pais, Ciudad });
+            tbProveedores.Columns.AddRange(new DataGridViewColumn[] { btnEditar, btnBorrar, Id, Empresa, Contacto, Numero, Pais, Ciudad });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle2.BackColor = Color.DarkGray;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(136, 136, 136);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             tbProveedores.DefaultCellStyle = dataGridViewCellStyle2;
             tbProveedores.EnableHeadersVisualStyles = false;
@@ -451,38 +400,47 @@
             tbProveedores.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tbProveedores.RowTemplate.Height = 30;
             tbProveedores.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tbProveedores.Size = new Size(545, 405);
+            tbProveedores.Size = new Size(650, 405);
             tbProveedores.TabIndex = 21;
+            tbProveedores.CellContentClick += tbProveedores_CellContentClick;
+            tbProveedores.CellPainting += tbProveedores_CellPainting;
             // 
             // btnEditar
             // 
             btnEditar.HeaderText = "Editar";
             btnEditar.Name = "btnEditar";
-            btnEditar.Width = 90;
+            btnEditar.Width = 50;
             // 
-            // id
+            // btnBorrar
             // 
-            id.HeaderText = "Id";
-            id.Name = "id";
-            id.ReadOnly = true;
-            id.Visible = false;
+            btnBorrar.HeaderText = "Eliminar";
+            btnBorrar.Name = "btnBorrar";
+            btnBorrar.Width = 50;
             // 
-            // nombreEmpresa
+            // Id
             // 
-            nombreEmpresa.HeaderText = "Empresa";
-            nombreEmpresa.Name = "nombreEmpresa";
-            nombreEmpresa.ReadOnly = true;
-            nombreEmpresa.Width = 500;
+            Id.HeaderText = "Id";
+            Id.Name = "Id";
+            Id.ReadOnly = true;
+            Id.Visible = false;
             // 
-            // NombreContacto
+            // Empresa
             // 
-            NombreContacto.HeaderText = "Contacto";
-            NombreContacto.Name = "NombreContacto";
+            Empresa.HeaderText = "Empresa";
+            Empresa.Name = "Empresa";
+            Empresa.ReadOnly = true;
+            Empresa.Width = 150;
             // 
-            // NumeroContacto
+            // Contacto
             // 
-            NumeroContacto.HeaderText = "Numero Telefonico";
-            NumeroContacto.Name = "NumeroContacto";
+            Contacto.HeaderText = "Contacto";
+            Contacto.Name = "Contacto";
+            // 
+            // Numero
+            // 
+            Numero.HeaderText = "Numero Telefonico";
+            Numero.Name = "Numero";
+            Numero.Width = 150;
             // 
             // Pais
             // 
@@ -494,11 +452,36 @@
             Ciudad.HeaderText = "Ciudad";
             Ciudad.Name = "Ciudad";
             // 
+            // btnLimpiar
+            // 
+            btnLimpiar.Anchor = AnchorStyles.Left;
+            btnLimpiar.BackColor = Color.FromArgb(63, 63, 70);
+            btnLimpiar.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnLimpiar.BackgroundImage = (Image)resources.GetObject("btnLimpiar.BackgroundImage");
+            btnLimpiar.BackgroundImageLayout = ImageLayout.Center;
+            btnLimpiar.BorderColor = Color.PaleVioletRed;
+            btnLimpiar.BorderRadius = 10;
+            btnLimpiar.BorderSize = 0;
+            btnLimpiar.FlatAppearance.BorderSize = 0;
+            btnLimpiar.FlatStyle = FlatStyle.Flat;
+            btnLimpiar.ForeColor = Color.White;
+            btnLimpiar.ImageAlign = ContentAlignment.MiddleRight;
+            btnLimpiar.Location = new Point(81, 2);
+            btnLimpiar.Margin = new Padding(3, 2, 3, 2);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(72, 76);
+            btnLimpiar.TabIndex = 12;
+            btnLimpiar.Text = "Limpiar";
+            btnLimpiar.TextAlign = ContentAlignment.BottomCenter;
+            btnLimpiar.TextColor = Color.White;
+            btnLimpiar.UseVisualStyleBackColor = false;
+            btnLimpiar.MouseHover += btnLimpiar_MouseHover;
+            // 
             // formProveedor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(887, 492);
+            ClientSize = new Size(977, 492);
             Controls.Add(txtBuscar);
             Controls.Add(lblEncabezado);
             Controls.Add(tbProveedores);
@@ -520,8 +503,6 @@
         private Panel panel1;
         private TableLayoutPanel tableLayoutPanel1;
         private RJCodeAdvance.RJControls.RJButton btnGuardar;
-        private RJCodeAdvance.RJControls.RJButton btnEliminar;
-        private RJCodeAdvance.RJControls.RJButton btnLimpiar;
         private Label lblTitulo;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtNombreEmpresa;
         private TextBox txtId;
@@ -534,11 +515,13 @@
         private Label lblEncabezado;
         private ReaLTaiizor.Controls.PoisonDataGridView tbProveedores;
         private DataGridViewButtonColumn btnEditar;
-        private DataGridViewTextBoxColumn id;
-        private DataGridViewTextBoxColumn nombreEmpresa;
-        private DataGridViewTextBoxColumn NombreContacto;
-        private DataGridViewTextBoxColumn NumeroContacto;
+        private DataGridViewButtonColumn btnBorrar;
+        private DataGridViewTextBoxColumn Id;
+        private DataGridViewTextBoxColumn Empresa;
+        private DataGridViewTextBoxColumn Contacto;
+        private DataGridViewTextBoxColumn Numero;
         private DataGridViewTextBoxColumn Pais;
         private DataGridViewTextBoxColumn Ciudad;
+        private RJCodeAdvance.RJControls.RJButton btnLimpiar;
     }
 }

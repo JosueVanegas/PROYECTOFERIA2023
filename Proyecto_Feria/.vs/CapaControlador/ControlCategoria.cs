@@ -16,6 +16,7 @@ namespace CapaControlador
         }
         public string registraModificar(Categoria c)
         {
+          
             return dCa.accionesCategoria(c);
         }
         public string eliminar(int id)

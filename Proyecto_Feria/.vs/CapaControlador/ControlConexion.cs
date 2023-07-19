@@ -2,9 +2,9 @@
 
 namespace CapaControlador
 {
-    public class Controles
+    public class ControlConexion
     {
-        public Controles()
+        public ControlConexion()
         {
         }
 
