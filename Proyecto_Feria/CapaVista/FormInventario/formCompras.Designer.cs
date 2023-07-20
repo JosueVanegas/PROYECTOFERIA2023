@@ -33,15 +33,13 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panel1 = new Panel();
+            txtPrecioVenta = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            txtPrecioDeCompra = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             pictureBox1 = new PictureBox();
-            hopeNumeric1 = new ReaLTaiizor.Controls.HopeNumeric();
-            NumberPrecioCompra = new ReaLTaiizor.Controls.HopeNumeric();
             tableLayoutPanel1 = new TableLayoutPanel();
             btnGuardar = new RJCodeAdvance.RJControls.RJButton();
             btnEliminar = new RJCodeAdvance.RJControls.RJButton();
             btnLimpiar = new RJCodeAdvance.RJControls.RJButton();
-            lblPrecioVenta = new Label();
-            lblPrecioCompra = new Label();
             cbxCategoria = new ReaLTaiizor.Controls.MaterialComboBox();
             cbxProveedor = new ReaLTaiizor.Controls.MaterialComboBox();
             lblTitulo = new Label();
@@ -67,12 +65,10 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(txtPrecioVenta);
+            panel1.Controls.Add(txtPrecioDeCompra);
             panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(hopeNumeric1);
-            panel1.Controls.Add(NumberPrecioCompra);
             panel1.Controls.Add(tableLayoutPanel1);
-            panel1.Controls.Add(lblPrecioVenta);
-            panel1.Controls.Add(lblPrecioCompra);
             panel1.Controls.Add(cbxCategoria);
             panel1.Controls.Add(cbxProveedor);
             panel1.Controls.Add(lblTitulo);
@@ -84,6 +80,72 @@
             panel1.Size = new Size(291, 489);
             panel1.TabIndex = 20;
             // 
+            // txtPrecioVenta
+            // 
+            txtPrecioVenta.AnimateReadOnly = true;
+            txtPrecioVenta.AutoCompleteMode = AutoCompleteMode.None;
+            txtPrecioVenta.AutoCompleteSource = AutoCompleteSource.None;
+            txtPrecioVenta.BackgroundImageLayout = ImageLayout.None;
+            txtPrecioVenta.CharacterCasing = CharacterCasing.Normal;
+            txtPrecioVenta.Depth = 0;
+            txtPrecioVenta.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtPrecioVenta.HideSelection = true;
+            txtPrecioVenta.Hint = "Ingrese el Precio de Venta $";
+            txtPrecioVenta.LeadingIcon = null;
+            txtPrecioVenta.Location = new Point(13, 172);
+            txtPrecioVenta.MaxLength = 32767;
+            txtPrecioVenta.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtPrecioVenta.Name = "txtPrecioVenta";
+            txtPrecioVenta.PasswordChar = '\0';
+            txtPrecioVenta.PrefixSuffixText = null;
+            txtPrecioVenta.ReadOnly = false;
+            txtPrecioVenta.RightToLeft = RightToLeft.No;
+            txtPrecioVenta.SelectedText = "";
+            txtPrecioVenta.SelectionLength = 0;
+            txtPrecioVenta.SelectionStart = 0;
+            txtPrecioVenta.ShortcutsEnabled = true;
+            txtPrecioVenta.Size = new Size(263, 48);
+            txtPrecioVenta.TabIndex = 40;
+            txtPrecioVenta.TabStop = false;
+            txtPrecioVenta.TextAlign = HorizontalAlignment.Center;
+            txtPrecioVenta.TrailingIcon = null;
+            txtPrecioVenta.UseSystemPasswordChar = false;
+            txtPrecioVenta.KeyPress += txtPrecioVenta_KeyPress;
+            txtPrecioVenta.Leave += txtPrecioVenta_Leave;
+            // 
+            // txtPrecioDeCompra
+            // 
+            txtPrecioDeCompra.AnimateReadOnly = true;
+            txtPrecioDeCompra.AutoCompleteMode = AutoCompleteMode.None;
+            txtPrecioDeCompra.AutoCompleteSource = AutoCompleteSource.None;
+            txtPrecioDeCompra.BackgroundImageLayout = ImageLayout.None;
+            txtPrecioDeCompra.CharacterCasing = CharacterCasing.Normal;
+            txtPrecioDeCompra.Depth = 0;
+            txtPrecioDeCompra.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtPrecioDeCompra.HideSelection = true;
+            txtPrecioDeCompra.Hint = "Ingrese el Precio de Compra $";
+            txtPrecioDeCompra.LeadingIcon = null;
+            txtPrecioDeCompra.Location = new Point(12, 118);
+            txtPrecioDeCompra.MaxLength = 32767;
+            txtPrecioDeCompra.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtPrecioDeCompra.Name = "txtPrecioDeCompra";
+            txtPrecioDeCompra.PasswordChar = '\0';
+            txtPrecioDeCompra.PrefixSuffixText = null;
+            txtPrecioDeCompra.ReadOnly = false;
+            txtPrecioDeCompra.RightToLeft = RightToLeft.No;
+            txtPrecioDeCompra.SelectedText = "";
+            txtPrecioDeCompra.SelectionLength = 0;
+            txtPrecioDeCompra.SelectionStart = 0;
+            txtPrecioDeCompra.ShortcutsEnabled = true;
+            txtPrecioDeCompra.Size = new Size(263, 48);
+            txtPrecioDeCompra.TabIndex = 39;
+            txtPrecioDeCompra.TabStop = false;
+            txtPrecioDeCompra.TextAlign = HorizontalAlignment.Center;
+            txtPrecioDeCompra.TrailingIcon = null;
+            txtPrecioDeCompra.UseSystemPasswordChar = false;
+            txtPrecioDeCompra.KeyPress += txtPrecioDeCompra_KeyPress;
+            txtPrecioDeCompra.Leave += txtPrecioDeCompra_Leave;
+            // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
@@ -94,58 +156,6 @@
             pictureBox1.TabIndex = 38;
             pictureBox1.TabStop = false;
             pictureBox1.MouseHover += pictureBox1_MouseHover;
-            // 
-            // hopeNumeric1
-            // 
-            hopeNumeric1.BackColor = Color.White;
-            hopeNumeric1.BaseColor = Color.FromArgb(50, 50, 50);
-            hopeNumeric1.BorderColorA = Color.FromArgb(192, 196, 204);
-            hopeNumeric1.BorderColorB = Color.FromArgb(192, 196, 204);
-            hopeNumeric1.BorderHoverColorA = Color.FromArgb(64, 158, 255);
-            hopeNumeric1.ButtonTextColorA = Color.FromArgb(144, 147, 153);
-            hopeNumeric1.ButtonTextColorB = Color.FromArgb(144, 147, 153);
-            hopeNumeric1.EnterKey = true;
-            hopeNumeric1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            hopeNumeric1.ForeColor = Color.Black;
-            hopeNumeric1.HoverButtonTextColorA = Color.FromArgb(64, 158, 255);
-            hopeNumeric1.HoverButtonTextColorB = Color.FromArgb(64, 158, 255);
-            hopeNumeric1.Location = new Point(187, 165);
-            hopeNumeric1.MaxNum = 10F;
-            hopeNumeric1.MinNum = 0F;
-            hopeNumeric1.Name = "hopeNumeric1";
-            hopeNumeric1.Precision = 0;
-            hopeNumeric1.Size = new Size(101, 32);
-            hopeNumeric1.Step = 1F;
-            hopeNumeric1.Style = ReaLTaiizor.Controls.HopeNumeric.NumericStyle.LeftRight;
-            hopeNumeric1.TabIndex = 36;
-            hopeNumeric1.Text = "hopeNumeric1";
-            hopeNumeric1.ValueNumber = 0F;
-            // 
-            // NumberPrecioCompra
-            // 
-            NumberPrecioCompra.BackColor = Color.White;
-            NumberPrecioCompra.BaseColor = Color.FromArgb(50, 50, 50);
-            NumberPrecioCompra.BorderColorA = Color.FromArgb(192, 196, 204);
-            NumberPrecioCompra.BorderColorB = Color.FromArgb(192, 196, 204);
-            NumberPrecioCompra.BorderHoverColorA = Color.FromArgb(64, 158, 255);
-            NumberPrecioCompra.ButtonTextColorA = Color.FromArgb(144, 147, 153);
-            NumberPrecioCompra.ButtonTextColorB = Color.FromArgb(144, 147, 153);
-            NumberPrecioCompra.EnterKey = true;
-            NumberPrecioCompra.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            NumberPrecioCompra.ForeColor = Color.Black;
-            NumberPrecioCompra.HoverButtonTextColorA = Color.FromArgb(64, 158, 255);
-            NumberPrecioCompra.HoverButtonTextColorB = Color.FromArgb(64, 158, 255);
-            NumberPrecioCompra.Location = new Point(187, 125);
-            NumberPrecioCompra.MaxNum = 10F;
-            NumberPrecioCompra.MinNum = 0F;
-            NumberPrecioCompra.Name = "NumberPrecioCompra";
-            NumberPrecioCompra.Precision = 0;
-            NumberPrecioCompra.Size = new Size(101, 32);
-            NumberPrecioCompra.Step = 1F;
-            NumberPrecioCompra.Style = ReaLTaiizor.Controls.HopeNumeric.NumericStyle.LeftRight;
-            NumberPrecioCompra.TabIndex = 35;
-            NumberPrecioCompra.Text = "hopeNumeric1";
-            NumberPrecioCompra.ValueNumber = 0F;
             // 
             // tableLayoutPanel1
             // 
@@ -242,28 +252,6 @@
             btnLimpiar.UseVisualStyleBackColor = false;
             btnLimpiar.Click += btnLimpiar_Click;
             btnLimpiar.MouseHover += btnLimpiar_MouseHover;
-            // 
-            // lblPrecioVenta
-            // 
-            lblPrecioVenta.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblPrecioVenta.ForeColor = SystemColors.ControlDarkDark;
-            lblPrecioVenta.Location = new Point(18, 156);
-            lblPrecioVenta.Name = "lblPrecioVenta";
-            lblPrecioVenta.Size = new Size(148, 48);
-            lblPrecioVenta.TabIndex = 25;
-            lblPrecioVenta.Text = "Precio de Venta    $";
-            lblPrecioVenta.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // lblPrecioCompra
-            // 
-            lblPrecioCompra.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblPrecioCompra.ForeColor = SystemColors.ControlDarkDark;
-            lblPrecioCompra.Location = new Point(18, 115);
-            lblPrecioCompra.Name = "lblPrecioCompra";
-            lblPrecioCompra.Size = new Size(148, 48);
-            lblPrecioCompra.TabIndex = 24;
-            lblPrecioCompra.Text = "Precio de Compra $";
-            lblPrecioCompra.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // cbxCategoria
             // 
@@ -534,8 +522,6 @@
         private TextBox txtIdCategoria;
         private ReaLTaiizor.Controls.MaterialComboBox cbxCategoria;
         private ReaLTaiizor.Controls.PoisonDataGridView tbUsuarios;
-        private Label lblPrecioVenta;
-        private Label lblPrecioCompra;
         private TableLayoutPanel tableLayoutPanel1;
         private RJCodeAdvance.RJControls.RJButton btnGuardar;
         private RJCodeAdvance.RJControls.RJButton btnEliminar;
@@ -551,8 +537,8 @@
         private DataGridViewTextBoxColumn ProveedorID;
         private DataGridViewTextBoxColumn CategoriaID;
         private ReaLTaiizor.Controls.MaterialComboBox cbxProveedor;
-        private ReaLTaiizor.Controls.HopeNumeric NumberPrecioCompra;
-        private ReaLTaiizor.Controls.HopeNumeric hopeNumeric1;
         private PictureBox pictureBox1;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtPrecioDeCompra;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtPrecioVenta;
     }
 }
