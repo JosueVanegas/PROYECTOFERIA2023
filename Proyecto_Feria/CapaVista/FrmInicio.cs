@@ -8,10 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaControlador;
+using ReaLTaiizor.Forms;
 
 namespace CapaVista
 {
-    public partial class FrmInicio : Form
+    public partial class FrmInicio : MaterialForm
     {
         ControlEstadistica cEstat = new ControlEstadistica();
         public FrmInicio()

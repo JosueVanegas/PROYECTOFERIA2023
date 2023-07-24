@@ -52,14 +52,14 @@
             RelojInicio.Font = new Font("Impact", 36F, FontStyle.Regular, GraphicsUnit.Point);
             RelojInicio.HexagonColor = Color.FromArgb(60, 60, 70);
             RelojInicio.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
-            RelojInicio.Location = new Point(289, 69);
+            RelojInicio.Location = new Point(287, 68);
             RelojInicio.Name = "RelojInicio";
             RelojInicio.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
             RelojInicio.ShowAmPm = false;
             RelojInicio.ShowHexagon = true;
             RelojInicio.ShowMinutesCircle = true;
             RelojInicio.ShowSecondsCircle = true;
-            RelojInicio.Size = new Size(315, 388);
+            RelojInicio.Size = new Size(313, 386);
             RelojInicio.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             RelojInicio.TabIndex = 0;
             RelojInicio.Text = "parrotClock1";
@@ -76,9 +76,9 @@
             lblEncabezado.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblEncabezado.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point);
             lblEncabezado.ForeColor = SystemColors.Control;
-            lblEncabezado.Location = new Point(289, 0);
+            lblEncabezado.Location = new Point(287, 0);
             lblEncabezado.Name = "lblEncabezado";
-            lblEncabezado.Size = new Size(315, 66);
+            lblEncabezado.Size = new Size(313, 65);
             lblEncabezado.TabIndex = 40;
             lblEncabezado.Text = "BIENVENIDOS";
             lblEncabezado.TextAlign = ContentAlignment.MiddleCenter;
@@ -93,12 +93,12 @@
             tableLayoutPanel1.Controls.Add(RelojInicio, 1, 1);
             tableLayoutPanel1.Controls.Add(parrotGroupBox1, 2, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Location = new Point(3, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.3507977F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 85.6492F));
-            tableLayoutPanel1.Size = new Size(905, 460);
+            tableLayoutPanel1.Size = new Size(899, 457);
             tableLayoutPanel1.TabIndex = 41;
             tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
@@ -110,10 +110,10 @@
             parrotGroupBox1.Controls.Add(txtDataProveedor);
             parrotGroupBox1.Controls.Add(txtDataProducto);
             parrotGroupBox1.Controls.Add(txtDataEmpleado);
-            parrotGroupBox1.Location = new Point(610, 69);
+            parrotGroupBox1.Location = new Point(606, 68);
             parrotGroupBox1.Name = "parrotGroupBox1";
             parrotGroupBox1.ShowText = true;
-            parrotGroupBox1.Size = new Size(292, 388);
+            parrotGroupBox1.Size = new Size(290, 386);
             parrotGroupBox1.TabIndex = 45;
             parrotGroupBox1.TabStop = false;
             parrotGroupBox1.Text = "Datos generales";
@@ -178,8 +178,9 @@
             BackColor = Color.FromArgb(21, 25, 31);
             ClientSize = new Size(905, 460);
             Controls.Add(tableLayoutPanel1);
-            FormBorderStyle = FormBorderStyle.None;
+            FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
             Name = "FrmInicio";
+            Padding = new Padding(3, 0, 3, 3);
             Text = "Inicio";
             tableLayoutPanel1.ResumeLayout(false);
             parrotGroupBox1.ResumeLayout(false);

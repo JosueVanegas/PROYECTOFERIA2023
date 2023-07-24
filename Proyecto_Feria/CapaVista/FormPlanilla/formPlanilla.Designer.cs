@@ -42,9 +42,9 @@
             panelMenu.BackColor = Color.FromArgb(21, 25, 31);
             panelMenu.Controls.Add(tableLayoutPanel1);
             panelMenu.Dock = DockStyle.Top;
-            panelMenu.Location = new Point(0, 0);
+            panelMenu.Location = new Point(3, 0);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(936, 52);
+            panelMenu.Size = new Size(930, 52);
             panelMenu.TabIndex = 3;
             // 
             // tableLayoutPanel1
@@ -62,7 +62,7 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(936, 52);
+            tableLayoutPanel1.Size = new Size(930, 52);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // btnEmpleados
@@ -83,7 +83,7 @@
             btnEmpleados.Location = new Point(3, 2);
             btnEmpleados.Margin = new Padding(3, 2, 3, 2);
             btnEmpleados.Name = "btnEmpleados";
-            btnEmpleados.Size = new Size(149, 48);
+            btnEmpleados.Size = new Size(148, 48);
             btnEmpleados.TabIndex = 9;
             btnEmpleados.Text = "Empleados";
             btnEmpleados.TextAlign = ContentAlignment.MiddleRight;
@@ -95,11 +95,11 @@
             // 
             panelContenedor.BackColor = Color.FromArgb(21, 25, 31);
             panelContenedor.Dock = DockStyle.Fill;
-            panelContenedor.Location = new Point(0, 52);
+            panelContenedor.Location = new Point(3, 52);
             panelContenedor.Margin = new Padding(3, 2, 3, 2);
             panelContenedor.MinimumSize = new Size(564, 272);
             panelContenedor.Name = "panelContenedor";
-            panelContenedor.Size = new Size(936, 467);
+            panelContenedor.Size = new Size(930, 464);
             panelContenedor.TabIndex = 4;
             // 
             // formPlanilla
@@ -109,8 +109,9 @@
             ClientSize = new Size(936, 519);
             Controls.Add(panelContenedor);
             Controls.Add(panelMenu);
-            FormBorderStyle = FormBorderStyle.None;
+            FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
             Name = "formPlanilla";
+            Padding = new Padding(3, 0, 3, 3);
             Text = "formPlanilla";
             panelMenu.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);

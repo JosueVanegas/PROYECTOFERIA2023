@@ -1,5 +1,6 @@
 ﻿using CapaControlador;
 using CapaDatos;
+using CapaVista.ControlDarkWhite;
 using ReaLTaiizor.Colors;
 using ReaLTaiizor.Forms;
 using ReaLTaiizor.Manager;
@@ -19,13 +20,14 @@ namespace CapaVista
             manager.Theme = MaterialSkinManager.Themes.DARK;
             manager.EnforceBackcolorOnAllComponents = true;
             manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.WHITE);
+
         }
 
         private void formUsuarios_Load(object sender, EventArgs e)
         {
-            mostarEmpleados();
-            mostrarRoles();
-            mostrarUsuarios();
+          //  mostarEmpleados();
+          //  mostrarRoles();
+         //   mostrarUsuarios();
         }
         public void mostrarRoles()
         {

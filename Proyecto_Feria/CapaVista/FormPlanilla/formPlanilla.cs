@@ -7,10 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ReaLTaiizor.Forms;
+
 
 namespace CapaVista.FormPlanilla
 {
-    public partial class formPlanilla : Form
+    public partial class formPlanilla : MaterialForm
     {
         public formPlanilla()
         {

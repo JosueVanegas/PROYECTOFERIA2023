@@ -1,6 +1,8 @@
-﻿namespace CapaVista
+﻿using ReaLTaiizor.Forms;
+
+namespace CapaVista
 {
-    public partial class formInventario : Form
+    public partial class formInventario : MaterialForm
     {
         Form formActivo = null;
         Button botonActivo = null;

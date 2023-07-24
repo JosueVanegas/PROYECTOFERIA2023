@@ -45,6 +45,7 @@ namespace CapaVista
             btnConfiguraciones = new RJCodeAdvance.RJControls.RJButton();
             tableLayoutPanel3 = new TableLayoutPanel();
             panelContenedor = new Panel();
+            btnVentas = new RJCodeAdvance.RJControls.RJButton();
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -65,22 +66,23 @@ namespace CapaVista
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.Anchor = AnchorStyles.Bottom;
-            tableLayoutPanel1.ColumnCount = 4;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel1.ColumnCount = 5;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             tableLayoutPanel1.Controls.Add(btnContabilidad, 0, 0);
-            tableLayoutPanel1.Controls.Add(btnCalculos, 0, 0);
             tableLayoutPanel1.Controls.Add(btnInventory, 0, 0);
             tableLayoutPanel1.Controls.Add(btnPlanilla, 0, 0);
+            tableLayoutPanel1.Controls.Add(btnCalculos, 3, 0);
+            tableLayoutPanel1.Controls.Add(btnVentas, 4, 0);
             tableLayoutPanel1.Location = new Point(318, 9);
             tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 75F));
-            tableLayoutPanel1.Size = new Size(414, 75);
+            tableLayoutPanel1.Size = new Size(481, 75);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // btnContabilidad
@@ -96,10 +98,10 @@ namespace CapaVista
             btnContabilidad.FlatAppearance.BorderSize = 0;
             btnContabilidad.FlatStyle = FlatStyle.Flat;
             btnContabilidad.ForeColor = Color.White;
-            btnContabilidad.Location = new Point(209, 2);
+            btnContabilidad.Location = new Point(195, 2);
             btnContabilidad.Margin = new Padding(3, 2, 3, 2);
             btnContabilidad.Name = "btnContabilidad";
-            btnContabilidad.Size = new Size(97, 71);
+            btnContabilidad.Size = new Size(90, 71);
             btnContabilidad.TabIndex = 5;
             btnContabilidad.Text = "Contabilidad";
             btnContabilidad.TextAlign = ContentAlignment.BottomCenter;
@@ -120,10 +122,10 @@ namespace CapaVista
             btnCalculos.FlatAppearance.BorderSize = 0;
             btnCalculos.FlatStyle = FlatStyle.Flat;
             btnCalculos.ForeColor = Color.White;
-            btnCalculos.Location = new Point(312, 2);
+            btnCalculos.Location = new Point(291, 2);
             btnCalculos.Margin = new Padding(3, 2, 3, 2);
             btnCalculos.Name = "btnCalculos";
-            btnCalculos.Size = new Size(99, 71);
+            btnCalculos.Size = new Size(90, 71);
             btnCalculos.TabIndex = 4;
             btnCalculos.Text = "Calculos";
             btnCalculos.TextAlign = ContentAlignment.BottomCenter;
@@ -144,10 +146,10 @@ namespace CapaVista
             btnInventory.FlatAppearance.BorderSize = 0;
             btnInventory.FlatStyle = FlatStyle.Flat;
             btnInventory.ForeColor = Color.White;
-            btnInventory.Location = new Point(3, 2);
+            btnInventory.Location = new Point(99, 2);
             btnInventory.Margin = new Padding(3, 2, 3, 2);
             btnInventory.Name = "btnInventory";
-            btnInventory.Size = new Size(97, 71);
+            btnInventory.Size = new Size(90, 71);
             btnInventory.TabIndex = 3;
             btnInventory.Text = "Inventario";
             btnInventory.TextAlign = ContentAlignment.BottomCenter;
@@ -169,10 +171,10 @@ namespace CapaVista
             btnPlanilla.FlatAppearance.BorderSize = 0;
             btnPlanilla.FlatStyle = FlatStyle.Flat;
             btnPlanilla.ForeColor = Color.White;
-            btnPlanilla.Location = new Point(106, 2);
+            btnPlanilla.Location = new Point(3, 2);
             btnPlanilla.Margin = new Padding(3, 2, 3, 2);
             btnPlanilla.Name = "btnPlanilla";
-            btnPlanilla.Size = new Size(97, 71);
+            btnPlanilla.Size = new Size(90, 71);
             btnPlanilla.TabIndex = 2;
             btnPlanilla.Text = "Planilla";
             btnPlanilla.TextAlign = ContentAlignment.BottomCenter;
@@ -352,6 +354,29 @@ namespace CapaVista
             panelContenedor.Size = new Size(951, 499);
             panelContenedor.TabIndex = 0;
             // 
+            // btnVentas
+            // 
+            btnVentas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnVentas.BackColor = Color.FromArgb(21, 24, 31);
+            btnVentas.BackgroundColor = Color.FromArgb(21, 24, 31);
+            btnVentas.BackgroundImage = (Image)resources.GetObject("btnVentas.BackgroundImage");
+            btnVentas.BackgroundImageLayout = ImageLayout.Center;
+            btnVentas.BorderColor = Color.PaleVioletRed;
+            btnVentas.BorderRadius = 10;
+            btnVentas.BorderSize = 0;
+            btnVentas.FlatAppearance.BorderSize = 0;
+            btnVentas.FlatStyle = FlatStyle.Flat;
+            btnVentas.ForeColor = Color.White;
+            btnVentas.Location = new Point(387, 2);
+            btnVentas.Margin = new Padding(3, 2, 3, 2);
+            btnVentas.Name = "btnVentas";
+            btnVentas.Size = new Size(91, 71);
+            btnVentas.TabIndex = 6;
+            btnVentas.Text = "Ventas";
+            btnVentas.TextAlign = ContentAlignment.BottomCenter;
+            btnVentas.TextColor = Color.White;
+            btnVentas.UseVisualStyleBackColor = false;
+            // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -391,5 +416,6 @@ namespace CapaVista
         public Panel panelContenedor;
         private RJCodeAdvance.RJControls.RJButton btnBarraVertical;
         private RJCodeAdvance.RJControls.RJButton btnConfiguraciones;
+        private RJCodeAdvance.RJControls.RJButton btnVentas;
     }
 }

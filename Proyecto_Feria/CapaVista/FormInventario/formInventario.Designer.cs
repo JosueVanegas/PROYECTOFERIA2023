@@ -44,9 +44,9 @@
             panelMenu.BackColor = Color.FromArgb(21, 25, 31);
             panelMenu.Controls.Add(tableLayoutPanel1);
             panelMenu.Dock = DockStyle.Top;
-            panelMenu.Location = new Point(0, 0);
+            panelMenu.Location = new Point(3, 0);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(936, 52);
+            panelMenu.Size = new Size(930, 52);
             panelMenu.TabIndex = 2;
             // 
             // tableLayoutPanel1
@@ -66,7 +66,7 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(936, 52);
+            tableLayoutPanel1.Size = new Size(930, 52);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // btnProveedores
@@ -84,10 +84,10 @@
             btnProveedores.ForeColor = Color.White;
             btnProveedores.Image = (Image)resources.GetObject("btnProveedores.Image");
             btnProveedores.ImageAlign = ContentAlignment.MiddleLeft;
-            btnProveedores.Location = new Point(313, 2);
+            btnProveedores.Location = new Point(311, 2);
             btnProveedores.Margin = new Padding(3, 2, 3, 2);
             btnProveedores.Name = "btnProveedores";
-            btnProveedores.Size = new Size(149, 48);
+            btnProveedores.Size = new Size(148, 48);
             btnProveedores.TabIndex = 11;
             btnProveedores.Text = "Proveedores";
             btnProveedores.TextAlign = ContentAlignment.MiddleRight;
@@ -111,10 +111,10 @@
             btnCategorias.ForeColor = Color.White;
             btnCategorias.Image = (Image)resources.GetObject("btnCategorias.Image");
             btnCategorias.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCategorias.Location = new Point(158, 2);
+            btnCategorias.Location = new Point(157, 2);
             btnCategorias.Margin = new Padding(3, 2, 3, 2);
             btnCategorias.Name = "btnCategorias";
-            btnCategorias.Size = new Size(149, 48);
+            btnCategorias.Size = new Size(148, 48);
             btnCategorias.TabIndex = 10;
             btnCategorias.Text = "Categorias";
             btnCategorias.TextAlign = ContentAlignment.MiddleRight;
@@ -141,7 +141,7 @@
             btnProductos.Location = new Point(3, 2);
             btnProductos.Margin = new Padding(3, 2, 3, 2);
             btnProductos.Name = "btnProductos";
-            btnProductos.Size = new Size(149, 48);
+            btnProductos.Size = new Size(148, 48);
             btnProductos.TabIndex = 9;
             btnProductos.Text = "Productos";
             btnProductos.TextAlign = ContentAlignment.MiddleRight;
@@ -154,11 +154,11 @@
             // 
             panelContenedor.BackColor = Color.FromArgb(21, 25, 31);
             panelContenedor.Dock = DockStyle.Fill;
-            panelContenedor.Location = new Point(0, 52);
+            panelContenedor.Location = new Point(3, 52);
             panelContenedor.Margin = new Padding(3, 2, 3, 2);
             panelContenedor.MinimumSize = new Size(564, 272);
             panelContenedor.Name = "panelContenedor";
-            panelContenedor.Size = new Size(936, 467);
+            panelContenedor.Size = new Size(930, 464);
             panelContenedor.TabIndex = 3;
             // 
             // formInventario
@@ -169,8 +169,9 @@
             ClientSize = new Size(936, 519);
             Controls.Add(panelContenedor);
             Controls.Add(panelMenu);
-            FormBorderStyle = FormBorderStyle.None;
+            FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
             Name = "formInventario";
+            Padding = new Padding(3, 0, 3, 3);
             Text = "formProductos";
             panelMenu.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);

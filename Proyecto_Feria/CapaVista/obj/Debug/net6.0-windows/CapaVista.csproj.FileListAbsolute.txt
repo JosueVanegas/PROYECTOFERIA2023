@@ -170,3 +170,4 @@ C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\Cap
 C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\obj\Debug\net6.0-windows\CapaVista.FrmInicio.resources
 C:\Users\arqva\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\obj\Debug\net6.0-windows\CapaVista.FormPlanilla.formPlanilla.resources
 C:\Users\arqva\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\obj\Debug\net6.0-windows\CapaVista.FrmInicio.resources
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\obj\Debug\net6.0-windows\CapaVista.FormVenta.formVentas.resources
