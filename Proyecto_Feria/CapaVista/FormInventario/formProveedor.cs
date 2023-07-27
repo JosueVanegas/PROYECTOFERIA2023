@@ -18,16 +18,28 @@ namespace CapaVista
 {
     public partial class formProveedor : MaterialForm
     {
-        private readonly MaterialSkinManager manager;
+
         ControlProveedor cProv = new ControlProveedor();
-        public formProveedor()
+        public formProveedor(Boolean Mod)
         {
             InitializeComponent();
+            MaterialSkinManager manager;
             manager = MaterialSkinManager.Instance;
             manager.AddFormToManage(this);
-            manager.Theme = MaterialSkinManager.Themes.DARK;
             manager.EnforceBackcolorOnAllComponents = true;
-            manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.WHITE);
+            if (Mod)
+            {
+                manager.Theme = MaterialSkinManager.Themes.DARK;
+                manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.WHITE);
+                tbProveedores.BackgroundColor = Color.FromArgb(50, 50, 50);
+            }
+            if (!Mod)
+            {
+                manager.Theme = MaterialSkinManager.Themes.LIGHT;
+                manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.BLACK);
+                tbProveedores.BackgroundColor = Color.White;
+
+            }
             mostrarProveedores();
         }
         private void mostrarProveedores()

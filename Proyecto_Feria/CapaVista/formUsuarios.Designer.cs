@@ -30,9 +30,9 @@ namespace CapaVista
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formUsuarios));
             tbUsuarios = new ReaLTaiizor.Controls.PoisonDataGridView();
             btnEditar = new DataGridViewButtonColumn();
@@ -52,10 +52,10 @@ namespace CapaVista
             rjButton2 = new RJCodeAdvance.RJControls.RJButton();
             txtConfirmarClave = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             ckbVerContraseña = new ReaLTaiizor.Controls.AirCheckBox();
+            txtIdUsuario = new TextBox();
             cbxRol = new ReaLTaiizor.Controls.MaterialComboBox();
             txtClave = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtUsuario = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            txtIdUsuario = new TextBox();
             cbxBuscar = new ReaLTaiizor.Controls.MaterialComboBox();
             txtBuscar = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             pnlContenedor = new Panel();
@@ -78,38 +78,38 @@ namespace CapaVista
             tbUsuarios.BorderStyle = BorderStyle.None;
             tbUsuarios.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             tbUsuarios.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            tbUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            tbUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             tbUsuarios.ColumnHeadersHeight = 35;
             tbUsuarios.Columns.AddRange(new DataGridViewColumn[] { btnEditar, btnBorrar, id, usuario, rol, fecha, idRol, clave, idEmpleado });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.DarkGray;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = Color.LightSkyBlue;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            tbUsuarios.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.DarkGray;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = Color.LightSkyBlue;
+            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            tbUsuarios.DefaultCellStyle = dataGridViewCellStyle5;
             tbUsuarios.EnableHeadersVisualStyles = false;
             tbUsuarios.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbUsuarios.GridColor = Color.Gray;
             tbUsuarios.Location = new Point(308, 55);
             tbUsuarios.Name = "tbUsuarios";
             tbUsuarios.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.Silver;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            tbUsuarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.Silver;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            tbUsuarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             tbUsuarios.RowHeadersVisible = false;
             tbUsuarios.RowHeadersWidth = 40;
             tbUsuarios.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -351,6 +351,15 @@ namespace CapaVista
             ckbVerContraseña.Transparent = false;
             ckbVerContraseña.CheckedChanged += ckbVerContraseña_CheckedChanged;
             // 
+            // txtIdUsuario
+            // 
+            txtIdUsuario.Anchor = AnchorStyles.Left;
+            txtIdUsuario.Location = new Point(245, 331);
+            txtIdUsuario.Name = "txtIdUsuario";
+            txtIdUsuario.Size = new Size(16, 23);
+            txtIdUsuario.TabIndex = 8;
+            txtIdUsuario.Visible = false;
+            // 
             // cbxRol
             // 
             cbxRol.Anchor = AnchorStyles.Left;
@@ -439,15 +448,6 @@ namespace CapaVista
             txtUsuario.TextAlign = HorizontalAlignment.Center;
             txtUsuario.TrailingIcon = null;
             txtUsuario.UseSystemPasswordChar = false;
-            // 
-            // txtIdUsuario
-            // 
-            txtIdUsuario.Anchor = AnchorStyles.Left;
-            txtIdUsuario.Location = new Point(245, 331);
-            txtIdUsuario.Name = "txtIdUsuario";
-            txtIdUsuario.Size = new Size(16, 23);
-            txtIdUsuario.TabIndex = 8;
-            txtIdUsuario.Visible = false;
             // 
             // cbxBuscar
             // 

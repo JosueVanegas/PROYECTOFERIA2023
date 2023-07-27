@@ -1,3 +1,5 @@
+using CapaVista.FormConfiguracion;
+
 namespace CapaVista
 {
     internal static class Program
@@ -11,7 +13,7 @@ namespace CapaVista
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new FrmPrincipal(null));
+            Application.Run(new FrmPrincipal(null,formConfiguraciones.Mod));
         }
     }
 }

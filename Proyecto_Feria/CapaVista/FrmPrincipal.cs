@@ -1,8 +1,13 @@
 ﻿
 using CapaControlador;
 using CapaDatos;
+using CapaVista.FormConfiguracion;
+
 using CapaVista.FormPlanilla;
+using CapaVista.FormVenta;
 using ToolTip = System.Windows.Forms.ToolTip;
+
+using CapaVista.FormsHerramientas;
 
 namespace CapaVista
 {
@@ -11,12 +16,63 @@ namespace CapaVista
         Usuario user = null;
         Form formActivo = null;
         Button botonActivo = null;
-        public FrmPrincipal(Usuario usuario)
+        public FrmPrincipal(Usuario usuario, Boolean Mod)
         {
             InitializeComponent();
             var controler = new ControlConexion();
             this.user = usuario;
             validarAcceso();
+            CambioColor(Mod);
+
+        }
+
+
+        private void CambioColor(Boolean Mod)
+        {//Mood Light
+            if (!Mod)
+            {
+                btnBarraVertical.BackgroundColor = Color.FromArgb(175, 238, 238);
+                btnInicio.BackgroundColor = Color.FromArgb(175, 238, 238);
+                btnConfiguraciones.BackgroundColor = Color.FromArgb(175, 238, 238);
+                btnHerramientas.BackgroundColor = Color.FromArgb(175, 238, 238);
+                btnUsuarios.BackgroundColor = Color.FromArgb(175, 238, 238);
+
+                btnPlanilla.BackgroundColor = Color.FromArgb(224, 255, 255);
+                btnInventory.BackgroundColor = Color.FromArgb(224, 255, 255);
+                btnContabilidad.BackgroundColor = Color.FromArgb(224, 255, 255);
+                btnCalculos.BackgroundColor = Color.FromArgb(224, 255, 255);
+                btnVentas.BackgroundColor = Color.FromArgb(224, 255, 255);
+
+                tableLayoutPanel1.BackColor = Color.FromArgb(175, 238, 238);
+                tableLayoutPanel2.BackColor = Color.FromArgb(224, 255, 255);
+                tableLayoutPanel3.BackColor = Color.FromArgb(224, 255, 255);
+
+                panelContenedor.BackColor = Color.FromArgb(224, 255, 255);
+                panel1.BackColor = Color.FromArgb(175, 238, 238);
+
+            }
+            if (Mod)
+            {//Mood Dark
+                btnBarraVertical.BackgroundColor = Color.FromArgb(63, 63, 70);
+                btnInicio.BackgroundColor = Color.FromArgb(63, 63, 70);
+                btnConfiguraciones.BackgroundColor = Color.FromArgb(63, 63, 70);
+                btnHerramientas.BackgroundColor = Color.FromArgb(63, 63, 70);
+                btnUsuarios.BackgroundColor = Color.FromArgb(63, 63, 70);
+
+                btnPlanilla.BackgroundColor = Color.FromArgb(21, 25, 31);
+                btnInventory.BackgroundColor = Color.FromArgb(21, 25, 31);
+                btnContabilidad.BackgroundColor = Color.FromArgb(21, 25, 31);
+                btnCalculos.BackgroundColor = Color.FromArgb(21, 25, 31);
+                btnVentas.BackgroundColor = Color.FromArgb(21, 25, 31);
+
+                tableLayoutPanel1.BackColor = Color.FromArgb(63, 63, 70);
+                tableLayoutPanel2.BackColor = Color.FromArgb(21, 25, 31);
+                tableLayoutPanel3.BackColor = Color.FromArgb(21, 25, 31);
+
+                panelContenedor.BackColor = Color.FromArgb(21, 25, 31);
+                panel1.BackColor = Color.FromArgb(63, 63, 70);
+
+            }
         }
         void validarAcceso()
         {
@@ -45,15 +101,68 @@ namespace CapaVista
             panelContenedor.Controls.Add(form);
             form.Show();
         }
-        private void rjButton9_Click(object sender, EventArgs e)
+        //eventos Click
+        private void btnUsuarios_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new formUsuarios());
+            abrirFormulario(new formUsuarios(formConfiguraciones.Mod));
         }
 
         private void btnHerramientas_Click(object sender, EventArgs e)
         {
+            abrirFormulario(new FormsHerramientasss(formConfiguraciones.Mod));
+        }
+    
+        private void btnConfiguraciones_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new formConfiguraciones());
 
         }
+
+        bool EstadoDeBarraVertical = true;
+        private void btnBarraVertical_Button_Click(object sender, EventArgs e)
+        {
+
+            if (EstadoDeBarraVertical)
+            {
+                btnInicio.Visible = false;
+                btnHerramientas.Visible = false;
+                btnConfiguraciones.Visible = false;
+                btnUsuarios.Visible = false;
+            }
+            else
+            {
+                btnInicio.Visible = true;
+                btnHerramientas.Visible = true;
+                btnConfiguraciones.Visible = true;
+                btnUsuarios.Visible = true;
+            }
+            EstadoDeBarraVertical = !EstadoDeBarraVertical;
+        }
+
+        private void btnInventory_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new formInventario(formConfiguraciones.Mod));
+        }
+
+        private void btnPlanilla_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new formPlanilla(formConfiguraciones.Mod));
+        }
+
+        private void btnInicio_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new FrmInicio(formConfiguraciones.Mod));
+        }
+
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+            abrirFormulario(new FrmInicio(formConfiguraciones.Mod));
+
+
+
+        }
+
+
         //Descripciones
         private void btnInicio_MouseEnter(object sender, EventArgs e)
         {
@@ -90,48 +199,6 @@ namespace CapaVista
             // Establecer el texto de la descripción
             toolTip.SetToolTip(btnUsuarios, "Usuarios");
         }
-
-        bool EstadoDeBarraVertical = true;
-        private void btnBarraVertical_Button_Click(object sender, EventArgs e)
-        {
-
-            if (EstadoDeBarraVertical)
-            {
-                btnInicio.Visible = false;
-                btnHerramientas.Visible = false;
-                btnConfiguraciones.Visible = false;
-                btnUsuarios.Visible = false;
-            }
-            else
-            {
-                btnInicio.Visible = true;
-                btnHerramientas.Visible = true;
-                btnConfiguraciones.Visible = true;
-                btnUsuarios.Visible = true;
-            }
-            EstadoDeBarraVertical = !EstadoDeBarraVertical;
-        }
-
-        private void btnInventory_Click(object sender, EventArgs e)
-        {
-            abrirFormulario(new formInventario());
-        }
-
-        private void btnPlanilla_Click(object sender, EventArgs e)
-        {
-            abrirFormulario(new formPlanilla());
-        }
-
-        private void btnInicio_Click(object sender, EventArgs e)
-        {
-            abrirFormulario(new FrmInicio());
-        }
-
-        private void FrmPrincipal_Load(object sender, EventArgs e)
-        {
-            abrirFormulario(new FrmInicio());
-        }
-
         private void btnInventory_MouseHover(object sender, EventArgs e)
         {
             // Crear un objeto ToolTip
@@ -166,6 +233,12 @@ namespace CapaVista
 
             // Establecer el texto de la descripción
             toolTip.SetToolTip(btnCalculos, "Calculos");
+        }
+
+        private void btnVentas_Click(object sender, EventArgs e)
+        {
+            formVentas frmVenta = new formVentas(formConfiguraciones.Mod);
+            frmVenta.ShowDialog();
         }
     }
 }

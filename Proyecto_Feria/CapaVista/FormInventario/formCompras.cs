@@ -17,16 +17,27 @@ namespace CapaVista
 {
     public partial class formCompras : MaterialForm
     {
-        private readonly MaterialSkinManager manager;
-        public formCompras()
+
+        public formCompras(Boolean Mod)
         {
             InitializeComponent();
+            MaterialSkinManager manager;
             manager = MaterialSkinManager.Instance;
             manager.AddFormToManage(this);
-            manager.Theme = MaterialSkinManager.Themes.DARK;
             manager.EnforceBackcolorOnAllComponents = true;
-            manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.WHITE);
+            if (Mod)
+            {
+                manager.Theme = MaterialSkinManager.Themes.DARK;
+                manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.WHITE);
+                tbProductos.BackgroundColor = Color.FromArgb(50, 50, 50);
+            }
+            if (!Mod)
+            {
+                manager.Theme = MaterialSkinManager.Themes.LIGHT;
+                manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.BLACK);
+                tbProductos.BackgroundColor = Color.White;
 
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

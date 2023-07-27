@@ -56,7 +56,7 @@
             pictureBox1 = new PictureBox();
             txtBuscar = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             lblEncabezado = new Label();
-            tbProveedores = new ReaLTaiizor.Controls.PoisonDataGridView();
+            tbEmpleados = new ReaLTaiizor.Controls.PoisonDataGridView();
             btnEditar = new DataGridViewButtonColumn();
             id = new DataGridViewTextBoxColumn();
             nombreEmpresa = new DataGridViewTextBoxColumn();
@@ -69,7 +69,7 @@
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)tbProveedores).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)tbEmpleados).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -619,17 +619,17 @@
             lblEncabezado.Text = "Empleados registradas";
             lblEncabezado.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // tbProveedores
+            // tbEmpleados
             // 
-            tbProveedores.AllowUserToAddRows = false;
-            tbProveedores.AllowUserToOrderColumns = true;
-            tbProveedores.AllowUserToResizeColumns = false;
-            tbProveedores.AllowUserToResizeRows = false;
-            tbProveedores.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            tbProveedores.BackgroundColor = Color.FromArgb(50, 50, 50);
-            tbProveedores.BorderStyle = BorderStyle.None;
-            tbProveedores.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            tbProveedores.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            tbEmpleados.AllowUserToAddRows = false;
+            tbEmpleados.AllowUserToOrderColumns = true;
+            tbEmpleados.AllowUserToResizeColumns = false;
+            tbEmpleados.AllowUserToResizeRows = false;
+            tbEmpleados.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            tbEmpleados.BackgroundColor = Color.FromArgb(50, 50, 50);
+            tbEmpleados.BorderStyle = BorderStyle.None;
+            tbEmpleados.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            tbEmpleados.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 174, 219);
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
@@ -637,9 +637,9 @@
             dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 198, 247);
             dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            tbProveedores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            tbProveedores.ColumnHeadersHeight = 40;
-            tbProveedores.Columns.AddRange(new DataGridViewColumn[] { btnEditar, id, nombreEmpresa, NombreContacto, NumeroContacto, Pais, Ciudad });
+            tbEmpleados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            tbEmpleados.ColumnHeadersHeight = 40;
+            tbEmpleados.Columns.AddRange(new DataGridViewColumn[] { btnEditar, id, nombreEmpresa, NombreContacto, NumeroContacto, Pais, Ciudad });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 255, 255);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
@@ -647,13 +647,13 @@
             dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 198, 247);
             dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            tbProveedores.DefaultCellStyle = dataGridViewCellStyle2;
-            tbProveedores.EnableHeadersVisualStyles = false;
-            tbProveedores.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            tbProveedores.GridColor = Color.FromArgb(255, 255, 255);
-            tbProveedores.Location = new Point(311, 82);
-            tbProveedores.Name = "tbProveedores";
-            tbProveedores.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            tbEmpleados.DefaultCellStyle = dataGridViewCellStyle2;
+            tbEmpleados.EnableHeadersVisualStyles = false;
+            tbEmpleados.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            tbEmpleados.GridColor = Color.FromArgb(255, 255, 255);
+            tbEmpleados.Location = new Point(311, 82);
+            tbEmpleados.Name = "tbEmpleados";
+            tbEmpleados.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.FromArgb(0, 174, 219);
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
@@ -661,14 +661,14 @@
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 198, 247);
             dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            tbProveedores.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            tbProveedores.RowHeadersVisible = false;
-            tbProveedores.RowHeadersWidth = 40;
-            tbProveedores.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            tbProveedores.RowTemplate.Height = 30;
-            tbProveedores.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tbProveedores.Size = new Size(581, 405);
-            tbProveedores.TabIndex = 38;
+            tbEmpleados.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            tbEmpleados.RowHeadersVisible = false;
+            tbEmpleados.RowHeadersWidth = 40;
+            tbEmpleados.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            tbEmpleados.RowTemplate.Height = 30;
+            tbEmpleados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            tbEmpleados.Size = new Size(581, 405);
+            tbEmpleados.TabIndex = 38;
             // 
             // btnEditar
             // 
@@ -717,7 +717,7 @@
             ClientSize = new Size(921, 499);
             Controls.Add(txtBuscar);
             Controls.Add(lblEncabezado);
-            Controls.Add(tbProveedores);
+            Controls.Add(tbEmpleados);
             Controls.Add(panel1);
             Controls.Add(pictureBox1);
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
@@ -730,7 +730,7 @@
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)tbProveedores).EndInit();
+            ((System.ComponentModel.ISupportInitialize)tbEmpleados).EndInit();
             ResumeLayout(false);
         }
 
@@ -754,7 +754,7 @@
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtDireccion;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtBuscar;
         private Label lblEncabezado;
-        private ReaLTaiizor.Controls.PoisonDataGridView tbProveedores;
+        private ReaLTaiizor.Controls.PoisonDataGridView tbEmpleados;
         private DataGridViewButtonColumn btnEditar;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn nombreEmpresa;

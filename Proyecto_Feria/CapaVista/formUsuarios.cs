@@ -1,6 +1,6 @@
 ﻿using CapaControlador;
 using CapaDatos;
-using CapaVista.ControlDarkWhite;
+using CapaVista.FormConfiguracion;
 using ReaLTaiizor.Colors;
 using ReaLTaiizor.Forms;
 using ReaLTaiizor.Manager;
@@ -11,23 +11,37 @@ namespace CapaVista
     public partial class formUsuarios : MaterialForm
     {
         ControlUsuario controlUsuario = new ControlUsuario();
-        private readonly MaterialSkinManager manager;
-        public formUsuarios()
+
+        public formUsuarios(Boolean Mod)
         {
             InitializeComponent();
+
+            MaterialSkinManager manager;
             manager = MaterialSkinManager.Instance;
             manager.AddFormToManage(this);
-            manager.Theme = MaterialSkinManager.Themes.DARK;
             manager.EnforceBackcolorOnAllComponents = true;
-            manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.WHITE);
+            if (Mod)
+            {
+                manager.Theme = MaterialSkinManager.Themes.DARK;
+                manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.WHITE);
+                tbUsuarios.BackgroundColor = Color.FromArgb(50, 50, 50);
+            }
+            if (!Mod)
+            {
+                manager.Theme = MaterialSkinManager.Themes.LIGHT;
+                manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.BLACK);
+                tbUsuarios.BackgroundColor = Color.White;
+
+            }
 
         }
 
+
         private void formUsuarios_Load(object sender, EventArgs e)
         {
-          //  mostarEmpleados();
-          //  mostrarRoles();
-         //   mostrarUsuarios();
+            //  mostarEmpleados();
+            //  mostrarRoles();
+            //   mostrarUsuarios();
         }
         public void mostrarRoles()
         {

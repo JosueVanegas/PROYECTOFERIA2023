@@ -34,9 +34,10 @@ namespace CapaVista
             panel1 = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
             btnContabilidad = new RJCodeAdvance.RJControls.RJButton();
-            btnCalculos = new RJCodeAdvance.RJControls.RJButton();
             btnInventory = new RJCodeAdvance.RJControls.RJButton();
             btnPlanilla = new RJCodeAdvance.RJControls.RJButton();
+            btnCalculos = new RJCodeAdvance.RJControls.RJButton();
+            btnVentas = new RJCodeAdvance.RJControls.RJButton();
             tableLayoutPanel2 = new TableLayoutPanel();
             btnInicio = new RJCodeAdvance.RJControls.RJButton();
             btnUsuarios = new RJCodeAdvance.RJControls.RJButton();
@@ -45,7 +46,6 @@ namespace CapaVista
             btnConfiguraciones = new RJCodeAdvance.RJControls.RJButton();
             tableLayoutPanel3 = new TableLayoutPanel();
             panelContenedor = new Panel();
-            btnVentas = new RJCodeAdvance.RJControls.RJButton();
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -109,30 +109,6 @@ namespace CapaVista
             btnContabilidad.UseVisualStyleBackColor = false;
             btnContabilidad.MouseHover += btnContabilidad_MouseHover;
             // 
-            // btnCalculos
-            // 
-            btnCalculos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnCalculos.BackColor = Color.FromArgb(21, 24, 31);
-            btnCalculos.BackgroundColor = Color.FromArgb(21, 24, 31);
-            btnCalculos.BackgroundImage = (Image)resources.GetObject("btnCalculos.BackgroundImage");
-            btnCalculos.BackgroundImageLayout = ImageLayout.Center;
-            btnCalculos.BorderColor = Color.PaleVioletRed;
-            btnCalculos.BorderRadius = 10;
-            btnCalculos.BorderSize = 0;
-            btnCalculos.FlatAppearance.BorderSize = 0;
-            btnCalculos.FlatStyle = FlatStyle.Flat;
-            btnCalculos.ForeColor = Color.White;
-            btnCalculos.Location = new Point(291, 2);
-            btnCalculos.Margin = new Padding(3, 2, 3, 2);
-            btnCalculos.Name = "btnCalculos";
-            btnCalculos.Size = new Size(90, 71);
-            btnCalculos.TabIndex = 4;
-            btnCalculos.Text = "Calculos";
-            btnCalculos.TextAlign = ContentAlignment.BottomCenter;
-            btnCalculos.TextColor = Color.White;
-            btnCalculos.UseVisualStyleBackColor = false;
-            btnCalculos.MouseHover += btnCalculos_MouseHover;
-            // 
             // btnInventory
             // 
             btnInventory.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -182,6 +158,54 @@ namespace CapaVista
             btnPlanilla.UseVisualStyleBackColor = false;
             btnPlanilla.Click += btnPlanilla_Click;
             btnPlanilla.MouseHover += btnPlanilla_MouseHover;
+            // 
+            // btnCalculos
+            // 
+            btnCalculos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnCalculos.BackColor = Color.FromArgb(21, 24, 31);
+            btnCalculos.BackgroundColor = Color.FromArgb(21, 24, 31);
+            btnCalculos.BackgroundImage = (Image)resources.GetObject("btnCalculos.BackgroundImage");
+            btnCalculos.BackgroundImageLayout = ImageLayout.Center;
+            btnCalculos.BorderColor = Color.PaleVioletRed;
+            btnCalculos.BorderRadius = 10;
+            btnCalculos.BorderSize = 0;
+            btnCalculos.FlatAppearance.BorderSize = 0;
+            btnCalculos.FlatStyle = FlatStyle.Flat;
+            btnCalculos.ForeColor = Color.White;
+            btnCalculos.Location = new Point(291, 2);
+            btnCalculos.Margin = new Padding(3, 2, 3, 2);
+            btnCalculos.Name = "btnCalculos";
+            btnCalculos.Size = new Size(90, 71);
+            btnCalculos.TabIndex = 4;
+            btnCalculos.Text = "Calculos";
+            btnCalculos.TextAlign = ContentAlignment.BottomCenter;
+            btnCalculos.TextColor = Color.White;
+            btnCalculos.UseVisualStyleBackColor = false;
+            btnCalculos.MouseHover += btnCalculos_MouseHover;
+            // 
+            // btnVentas
+            // 
+            btnVentas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnVentas.BackColor = Color.FromArgb(21, 24, 31);
+            btnVentas.BackgroundColor = Color.FromArgb(21, 24, 31);
+            btnVentas.BackgroundImage = (Image)resources.GetObject("btnVentas.BackgroundImage");
+            btnVentas.BackgroundImageLayout = ImageLayout.Center;
+            btnVentas.BorderColor = Color.PaleVioletRed;
+            btnVentas.BorderRadius = 10;
+            btnVentas.BorderSize = 0;
+            btnVentas.FlatAppearance.BorderSize = 0;
+            btnVentas.FlatStyle = FlatStyle.Flat;
+            btnVentas.ForeColor = Color.White;
+            btnVentas.Location = new Point(387, 2);
+            btnVentas.Margin = new Padding(3, 2, 3, 2);
+            btnVentas.Name = "btnVentas";
+            btnVentas.Size = new Size(91, 71);
+            btnVentas.TabIndex = 6;
+            btnVentas.Text = "Ventas";
+            btnVentas.TextAlign = ContentAlignment.BottomCenter;
+            btnVentas.TextColor = Color.White;
+            btnVentas.UseVisualStyleBackColor = false;
+            btnVentas.Click += btnVentas_Click;
             // 
             // tableLayoutPanel2
             // 
@@ -252,7 +276,7 @@ namespace CapaVista
             btnUsuarios.TextAlign = ContentAlignment.BottomCenter;
             btnUsuarios.TextColor = Color.White;
             btnUsuarios.UseVisualStyleBackColor = false;
-            btnUsuarios.Click += rjButton9_Click;
+            btnUsuarios.Click += btnUsuarios_Click;
             btnUsuarios.MouseHover += btnUsuarios_MouseHover;
             // 
             // btnBarraVertical
@@ -323,6 +347,7 @@ namespace CapaVista
             btnConfiguraciones.TextAlign = ContentAlignment.BottomCenter;
             btnConfiguraciones.TextColor = Color.White;
             btnConfiguraciones.UseVisualStyleBackColor = false;
+            btnConfiguraciones.Click += btnConfiguraciones_Click;
             btnConfiguraciones.MouseEnter += btnConfiguraciones_MouseEnter;
             // 
             // tableLayoutPanel3
@@ -353,29 +378,6 @@ namespace CapaVista
             panelContenedor.Name = "panelContenedor";
             panelContenedor.Size = new Size(951, 499);
             panelContenedor.TabIndex = 0;
-            // 
-            // btnVentas
-            // 
-            btnVentas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnVentas.BackColor = Color.FromArgb(21, 24, 31);
-            btnVentas.BackgroundColor = Color.FromArgb(21, 24, 31);
-            btnVentas.BackgroundImage = (Image)resources.GetObject("btnVentas.BackgroundImage");
-            btnVentas.BackgroundImageLayout = ImageLayout.Center;
-            btnVentas.BorderColor = Color.PaleVioletRed;
-            btnVentas.BorderRadius = 10;
-            btnVentas.BorderSize = 0;
-            btnVentas.FlatAppearance.BorderSize = 0;
-            btnVentas.FlatStyle = FlatStyle.Flat;
-            btnVentas.ForeColor = Color.White;
-            btnVentas.Location = new Point(387, 2);
-            btnVentas.Margin = new Padding(3, 2, 3, 2);
-            btnVentas.Name = "btnVentas";
-            btnVentas.Size = new Size(91, 71);
-            btnVentas.TabIndex = 6;
-            btnVentas.Text = "Ventas";
-            btnVentas.TextAlign = ContentAlignment.BottomCenter;
-            btnVentas.TextColor = Color.White;
-            btnVentas.UseVisualStyleBackColor = false;
             // 
             // FrmPrincipal
             // 

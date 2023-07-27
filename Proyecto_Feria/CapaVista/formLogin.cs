@@ -1,5 +1,6 @@
 ﻿using CapaControlador;
 using CapaDatos;
+using CapaVista.FormConfiguracion;
 using ReaLTaiizor.Colors;
 using ReaLTaiizor.Forms;
 using ReaLTaiizor.Manager;
@@ -35,7 +36,7 @@ namespace CapaVista
 
             if (usuarioValido != null)
             {
-                FrmPrincipal principal = new FrmPrincipal(null);
+                FrmPrincipal principal = new FrmPrincipal(null, formConfiguraciones.Mod);
                 principal.Show();
                 this.Hide();
                 principal.FormClosing += frm_closing;

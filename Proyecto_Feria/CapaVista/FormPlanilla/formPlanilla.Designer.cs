@@ -90,6 +90,7 @@
             btnEmpleados.TextColor = Color.White;
             btnEmpleados.UseVisualStyleBackColor = false;
             btnEmpleados.Click += btnEmpleados_Click;
+            btnEmpleados.MouseHover += btnEmpleados_MouseHover;
             // 
             // panelContenedor
             // 
