@@ -33,6 +33,8 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             btnEmpleados = new RJCodeAdvance.RJControls.RJButton();
             panelContenedor = new Panel();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            rjButton1 = new RJCodeAdvance.RJControls.RJButton();
             panelMenu.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
@@ -103,6 +105,48 @@
             panelContenedor.Size = new Size(930, 464);
             panelContenedor.TabIndex = 4;
             // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 6;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(0, 0);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel2.Size = new Size(200, 100);
+            tableLayoutPanel2.TabIndex = 0;
+            // 
+            // rjButton1
+            // 
+            rjButton1.BackColor = Color.FromArgb(63, 63, 70);
+            rjButton1.BackgroundColor = Color.FromArgb(63, 63, 70);
+            rjButton1.BackgroundImageLayout = ImageLayout.Center;
+            rjButton1.BorderColor = Color.PaleVioletRed;
+            rjButton1.BorderRadius = 10;
+            rjButton1.BorderSize = 0;
+            rjButton1.Dock = DockStyle.Fill;
+            rjButton1.FlatAppearance.BorderSize = 0;
+            rjButton1.FlatStyle = FlatStyle.Flat;
+            rjButton1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            rjButton1.ForeColor = Color.White;
+            rjButton1.Image = (Image)resources.GetObject("rjButton1.Image");
+            rjButton1.ImageAlign = ContentAlignment.MiddleLeft;
+            rjButton1.Location = new Point(3, 2);
+            rjButton1.Margin = new Padding(3, 2, 3, 2);
+            rjButton1.Name = "rjButton1";
+            rjButton1.Size = new Size(27, 96);
+            rjButton1.TabIndex = 9;
+            rjButton1.Text = "Empleados";
+            rjButton1.TextAlign = ContentAlignment.MiddleRight;
+            rjButton1.TextColor = Color.White;
+            rjButton1.UseVisualStyleBackColor = false;
+            // 
             // formPlanilla
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -127,5 +171,7 @@
         private RJCodeAdvance.RJControls.RJButton btnCategorias;
         private RJCodeAdvance.RJControls.RJButton btnEmpleados;
         public Panel panelContenedor;
+        private TableLayoutPanel tableLayoutPanel2;
+        private RJCodeAdvance.RJControls.RJButton rjButton1;
     }
 }

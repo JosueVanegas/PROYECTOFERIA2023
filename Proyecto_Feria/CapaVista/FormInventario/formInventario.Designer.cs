@@ -32,7 +32,7 @@
             panelMenu = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
             btnProveedores = new RJCodeAdvance.RJControls.RJButton();
-            btnCategorias = new RJCodeAdvance.RJControls.RJButton();
+            btnServicios = new RJCodeAdvance.RJControls.RJButton();
             btnProductos = new RJCodeAdvance.RJControls.RJButton();
             panelContenedor = new Panel();
             panelMenu.SuspendLayout();
@@ -59,7 +59,7 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
             tableLayoutPanel1.Controls.Add(btnProveedores, 2, 0);
-            tableLayoutPanel1.Controls.Add(btnCategorias, 1, 0);
+            tableLayoutPanel1.Controls.Add(btnServicios, 1, 0);
             tableLayoutPanel1.Controls.Add(btnProductos, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
@@ -96,32 +96,32 @@
             btnProveedores.Click += btnProveedores_Click;
             btnProveedores.MouseHover += btnProveedores_MouseHover;
             // 
-            // btnCategorias
+            // btnServicios
             // 
-            btnCategorias.BackColor = Color.FromArgb(63, 63, 70);
-            btnCategorias.BackgroundColor = Color.FromArgb(63, 63, 70);
-            btnCategorias.BackgroundImageLayout = ImageLayout.Center;
-            btnCategorias.BorderColor = Color.PaleVioletRed;
-            btnCategorias.BorderRadius = 10;
-            btnCategorias.BorderSize = 0;
-            btnCategorias.Dock = DockStyle.Fill;
-            btnCategorias.FlatAppearance.BorderSize = 0;
-            btnCategorias.FlatStyle = FlatStyle.Flat;
-            btnCategorias.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCategorias.ForeColor = Color.White;
-            btnCategorias.Image = (Image)resources.GetObject("btnCategorias.Image");
-            btnCategorias.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCategorias.Location = new Point(157, 2);
-            btnCategorias.Margin = new Padding(3, 2, 3, 2);
-            btnCategorias.Name = "btnCategorias";
-            btnCategorias.Size = new Size(148, 48);
-            btnCategorias.TabIndex = 10;
-            btnCategorias.Text = "Categorias";
-            btnCategorias.TextAlign = ContentAlignment.MiddleRight;
-            btnCategorias.TextColor = Color.White;
-            btnCategorias.UseVisualStyleBackColor = false;
-            btnCategorias.Click += btnCategorias_Click;
-            btnCategorias.MouseHover += btnCategorias_MouseHover;
+            btnServicios.BackColor = Color.FromArgb(63, 63, 70);
+            btnServicios.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnServicios.BackgroundImageLayout = ImageLayout.Center;
+            btnServicios.BorderColor = Color.PaleVioletRed;
+            btnServicios.BorderRadius = 10;
+            btnServicios.BorderSize = 0;
+            btnServicios.Dock = DockStyle.Fill;
+            btnServicios.FlatAppearance.BorderSize = 0;
+            btnServicios.FlatStyle = FlatStyle.Flat;
+            btnServicios.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnServicios.ForeColor = Color.White;
+            btnServicios.Image = (Image)resources.GetObject("btnServicios.Image");
+            btnServicios.ImageAlign = ContentAlignment.MiddleLeft;
+            btnServicios.Location = new Point(157, 2);
+            btnServicios.Margin = new Padding(3, 2, 3, 2);
+            btnServicios.Name = "btnServicios";
+            btnServicios.Size = new Size(148, 48);
+            btnServicios.TabIndex = 10;
+            btnServicios.Text = "Servicios";
+            btnServicios.TextAlign = ContentAlignment.MiddleRight;
+            btnServicios.TextColor = Color.White;
+            btnServicios.UseVisualStyleBackColor = false;
+            btnServicios.Click += btnCategorias_Click;
+            btnServicios.MouseHover += btnCategorias_MouseHover;
             // 
             // btnProductos
             // 
@@ -184,7 +184,7 @@
         private RJCodeAdvance.RJControls.RJButton btnProductos;
         private TableLayoutPanel tableLayoutPanel1;
         private RJCodeAdvance.RJControls.RJButton btnProveedores;
-        private RJCodeAdvance.RJControls.RJButton btnCategorias;
+        private RJCodeAdvance.RJControls.RJButton btnServicios;
         public Panel panelContenedor;
     }
 }

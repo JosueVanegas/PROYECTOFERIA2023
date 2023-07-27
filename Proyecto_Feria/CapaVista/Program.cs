@@ -1,4 +1,5 @@
 using CapaVista.FormConfiguracion;
+using CapaVista.FormPrimerAcceso;
 
 namespace CapaVista
 {
@@ -13,7 +14,9 @@ namespace CapaVista
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
+            //Application.Run(new FormInicar(formConfiguraciones.Mod));
             Application.Run(new FrmPrincipal(null,formConfiguraciones.Mod));
+
         }
     }
 }

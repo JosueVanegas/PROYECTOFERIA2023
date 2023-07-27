@@ -72,5 +72,10 @@ namespace CapaVista.FormVenta
             FormBuscarProductos form = new FormBuscarProductos(formConfiguraciones.Mod);
             form.ShowDialog();
         }
+
+        private void txtDescuento_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -8,6 +8,7 @@ using CapaVista.FormVenta;
 using ToolTip = System.Windows.Forms.ToolTip;
 
 using CapaVista.FormsHerramientas;
+using CapaVista.FormContabilidad;
 
 namespace CapaVista
 {
@@ -111,7 +112,7 @@ namespace CapaVista
         {
             abrirFormulario(new FormsHerramientasss(formConfiguraciones.Mod));
         }
-    
+
         private void btnConfiguraciones_Click(object sender, EventArgs e)
         {
             abrirFormulario(new formConfiguraciones());
@@ -239,6 +240,16 @@ namespace CapaVista
         {
             formVentas frmVenta = new formVentas(formConfiguraciones.Mod);
             frmVenta.ShowDialog();
+        }
+
+        private void btnContabilidad_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new FormContabilidads(formConfiguraciones.Mod));
+        }
+
+        private void btnCalculos_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new FormCalculos.FormCalculos(formConfiguraciones.Mod));
         }
     }
 }

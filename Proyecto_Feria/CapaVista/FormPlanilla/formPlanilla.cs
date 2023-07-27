@@ -29,18 +29,14 @@ public partial class formPlanilla : MaterialForm
             manager.Theme = MaterialSkinManager.Themes.DARK;
             manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.WHITE);
             //Modo Dark
-            btnEmpleados.BackColor = Color.FromArgb(63, 63, 70);
-            tableLayoutPanel1.BackColor = Color.FromArgb(21, 25, 31);
-            panelContenedor.BackColor = Color.FromArgb(21, 25, 31);
+          
         }
         if (!Mod)
         {
             manager.Theme = MaterialSkinManager.Themes.LIGHT;
             manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.BLACK);
             //Modo Light
-            btnEmpleados.BackColor = Color.FromArgb(242, 242, 242);
-            tableLayoutPanel1.BackColor = Color.FromArgb(242, 242, 242);
-            panelContenedor.BackColor = Color.FromArgb(242, 242, 242);
+           
 
         }
     }

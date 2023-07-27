@@ -107,6 +107,7 @@ namespace CapaVista
             btnContabilidad.TextAlign = ContentAlignment.BottomCenter;
             btnContabilidad.TextColor = Color.White;
             btnContabilidad.UseVisualStyleBackColor = false;
+            btnContabilidad.Click += btnContabilidad_Click;
             btnContabilidad.MouseHover += btnContabilidad_MouseHover;
             // 
             // btnInventory
@@ -181,6 +182,7 @@ namespace CapaVista
             btnCalculos.TextAlign = ContentAlignment.BottomCenter;
             btnCalculos.TextColor = Color.White;
             btnCalculos.UseVisualStyleBackColor = false;
+            btnCalculos.Click += btnCalculos_Click;
             btnCalculos.MouseHover += btnCalculos_MouseHover;
             // 
             // btnVentas
