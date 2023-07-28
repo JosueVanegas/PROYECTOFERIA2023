@@ -19,10 +19,11 @@ namespace CapaVista.FormPrimerAcceso
 {
     public partial class FormaAjustesEntidad : MaterialForm
     {
-        public FormaAjustesEntidad(Boolean Mod)
+
+        public FormaAjustesEntidad(Boolean Mod,Boolean Acceso)
         {
             InitializeComponent();
-            Boolean con = EstadoDeLaEntidad();
+            EstadoDeLaEntidad(Acceso) ;
             MaterialSkinManager manager;
             manager = MaterialSkinManager.Instance;
             manager.AddFormToManage(this);
@@ -47,21 +48,21 @@ namespace CapaVista.FormPrimerAcceso
 
 
         }
-        public Boolean EstadoDeLaEntidad()
+        public Boolean EstadoDeLaEntidad(Boolean Acceso)
         {
             Boolean Confirmacion = true;
             //Confirmacion si es de primer acceso verificamos en la tabla de entidad de la empresa esta en null
             //tiene que caer en el primer If y asi con su opuesto en el cual lo vamos usar para las configuraciones en
             //Cual podemos cambiar los valores de la entidad de la misma;
 
-            if (true)
+            if (Acceso)
             {
                 Confirmacion = true;
                 this.FormStyle = ReaLTaiizor.Enum.Material.FormStyles.ActionBar_None;
                 btnUsuario.Visible = true;
                 lblUsuario.Visible = true;
             }
-            if (!true)
+            if (!Acceso)
             {
                 Confirmacion |= false;
                 this.FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;

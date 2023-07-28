@@ -110,6 +110,7 @@
             btnCalculadoraBasica.TextAlign = ContentAlignment.BottomCenter;
             btnCalculadoraBasica.TextColor = Color.White;
             btnCalculadoraBasica.UseVisualStyleBackColor = false;
+            btnCalculadoraBasica.Visible = false;
             // 
             // btnCalcularDescuento
             // 
@@ -133,6 +134,7 @@
             btnCalcularDescuento.TextAlign = ContentAlignment.BottomCenter;
             btnCalcularDescuento.TextColor = Color.White;
             btnCalcularDescuento.UseVisualStyleBackColor = false;
+            btnCalcularDescuento.Visible = false;
             // 
             // bntCalcularFecha
             // 
@@ -156,6 +158,7 @@
             bntCalcularFecha.TextAlign = ContentAlignment.BottomCenter;
             bntCalcularFecha.TextColor = Color.White;
             bntCalcularFecha.UseVisualStyleBackColor = false;
+            bntCalcularFecha.Visible = false;
             // 
             // btnCalcularNomina
             // 
@@ -179,6 +182,7 @@
             btnCalcularNomina.TextAlign = ContentAlignment.BottomCenter;
             btnCalcularNomina.TextColor = Color.White;
             btnCalcularNomina.UseVisualStyleBackColor = false;
+            btnCalcularNomina.Visible = false;
             // 
             // btnIR
             // 
@@ -202,6 +206,7 @@
             btnIR.TextAlign = ContentAlignment.BottomCenter;
             btnIR.TextColor = Color.White;
             btnIR.UseVisualStyleBackColor = false;
+            btnIR.Visible = false;
             // 
             // btnCalcularEdar
             // 
@@ -225,6 +230,7 @@
             btnCalcularEdar.TextAlign = ContentAlignment.BottomCenter;
             btnCalcularEdar.TextColor = Color.White;
             btnCalcularEdar.UseVisualStyleBackColor = false;
+            btnCalcularEdar.Visible = false;
             // 
             // btnbitacora
             // 
@@ -248,6 +254,7 @@
             btnbitacora.TextAlign = ContentAlignment.BottomCenter;
             btnbitacora.TextColor = Color.White;
             btnbitacora.UseVisualStyleBackColor = false;
+            btnbitacora.Visible = false;
             // 
             // FormsHerramientasss
             // 

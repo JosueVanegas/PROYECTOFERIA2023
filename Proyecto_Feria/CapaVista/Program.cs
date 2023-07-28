@@ -1,3 +1,4 @@
+using CapaDatos;
 using CapaVista.FormConfiguracion;
 using CapaVista.FormPrimerAcceso;
 
@@ -15,7 +16,8 @@ namespace CapaVista
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new FormInicar(formConfiguraciones.Mod));
-            Application.Run(new FrmPrincipal(null,formConfiguraciones.Mod));
+
+            Application.Run(new FrmPrincipal(null, formConfiguraciones.Mod));
 
         }
     }

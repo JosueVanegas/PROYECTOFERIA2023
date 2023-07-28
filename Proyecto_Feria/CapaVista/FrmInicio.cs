@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaControlador;
+using CapaDatos;
 using ReaLTaiizor.Colors;
 using ReaLTaiizor.Forms;
 using ReaLTaiizor.Manager;
@@ -18,15 +19,15 @@ namespace CapaVista
     public partial class FrmInicio : MaterialForm
     {
         ControlEstadistica cEstat = new ControlEstadistica();
-        public FrmInicio(Boolean Mod)
+        public FrmInicio(Boolean Mod, Usuario Rol)
         {
             InitializeComponent();
-            
+
             //MessageBox.Show("la cantidad de categorias es de: " + cEstat.cantidadCategorias());
             mostrarCantidades();
 
             MaterialSkinManager manager;
-            
+
             manager = MaterialSkinManager.Instance;
             manager.AddFormToManage(this);
             manager.EnforceBackcolorOnAllComponents = true;
@@ -34,12 +35,12 @@ namespace CapaVista
             {
                 manager.Theme = MaterialSkinManager.Themes.DARK;
                 manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.WHITE);
-                RelojInicio.HexagonColor = Color.FromArgb(60,60,70);
+                RelojInicio.HexagonColor = Color.FromArgb(60, 60, 70);
                 RelojInicio.UnfilledHourColor = Color.FromArgb(60, 60, 70);
                 RelojInicio.UnfilledMinuteColor = Color.FromArgb(60, 60, 70);
                 RelojInicio.UnfilledSecondColor = Color.FromArgb(60, 60, 70);
                 RelojInicio.TimeColor = Color.White;
-            }  
+            }
             if (!Mod)
             {
                 manager.Theme = MaterialSkinManager.Themes.LIGHT;
@@ -51,10 +52,21 @@ namespace CapaVista
                 RelojInicio.TimeColor = Color.Black;
 
             }
-            RelojInicio.Font = new Font("Impact", 36); 
-            lblEncabezado.Font = new Font(" Microsoft Sans Serif", 24);
+        /*    if (Rol.oRol.descripcion == "Administrador" || Rol.oRol.descripcion == "Contador")
+            {
+                parrotGroupBox1.Visible = true;
+            }
+            
+            if (Rol.oRol.descripcion == "Vendedor")
+            {
+                parrotGroupBox1.Visible = false;
+            }*/
 
+            RelojInicio.Font = new Font("Impact", 36);
+            lblEncabezado.Font = new Font(" Microsoft Sans Serif", 24);
+            
         }
+        
         private void mostrarCantidades()
         {
             txtDataEmpleado.Text = "Cantidad de empleados : " + cEstat.cantidadCategorias("EMPLEADO");
@@ -62,9 +74,6 @@ namespace CapaVista
             txtDataProveedor.Text = "Cantidad de empleados : " + cEstat.cantidadCategorias("PROVEEDOR");
             txtDataProducto.Text = "Cantidad de categorias: " + cEstat.cantidadCategorias("PRODUCTO");
         }
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
     }
 }

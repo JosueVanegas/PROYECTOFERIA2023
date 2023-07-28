@@ -34,7 +34,7 @@
     <Compile Update="FormPrimerAcceso\FormaAjustesEntidad.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormPrimerAcceso\FormInicar.cs">
+    <Compile Update="FormInicar.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormPrimerAcceso\FormUsuarioInicial.cs">

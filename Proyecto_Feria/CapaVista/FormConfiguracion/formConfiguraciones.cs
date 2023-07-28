@@ -1,4 +1,5 @@
-﻿using ReaLTaiizor.Colors;
+﻿using CapaVista.FormPrimerAcceso;
+using ReaLTaiizor.Colors;
 using ReaLTaiizor.Forms;
 using ReaLTaiizor.Manager;
 using ReaLTaiizor.Util;
@@ -20,76 +21,35 @@ namespace CapaVista.FormConfiguracion
         public formConfiguraciones()
         {
             InitializeComponent();
-           switchModd.Checked = Mod;
+
             MaterialSkinManager manager;
             manager = MaterialSkinManager.Instance;
             manager.AddFormToManage(this);
             manager.EnforceBackcolorOnAllComponents = true;
-            if (switchModd.Checked)
+            if (Mod)
             {
-                LunaPicture.Visible = true;
-                SolPicture.Visible = false;
-
-                lblEncabezado3.Text = "OSCURO";
-
-
                 manager.Theme = MaterialSkinManager.Themes.DARK;
                 manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.WHITE);
 
 
             }
-            if (!switchModd.Checked)
+            if (!Mod)
             {
-                LunaPicture.Visible = false;
-                SolPicture.Visible = true;
-                lblEncabezado3.Text = "CLARO";
+                {
+                    manager.Theme = MaterialSkinManager.Themes.LIGHT;
+                    manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.BLACK);
 
-
-                manager.Theme = MaterialSkinManager.Themes.LIGHT;
-                manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.BLACK);
+                }
 
             }
-            lblEncabezado3.Font = new Font("Segoe UI", 36);
-            lblEncabezado2.Font = new Font("Segoe UI", 36);
+
         }
 
-        private void cyberSwitch2_CheckedChanged()
-        {
-
-            Mod = switchModd.Checked;
-            MaterialSkinManager manager;
-            manager = MaterialSkinManager.Instance;
-            manager.AddFormToManage(this);
-            manager.EnforceBackcolorOnAllComponents = true;
-            if (switchModd.Checked)
+            private void btnEntidadEmpresa_Click(object sender, EventArgs e)
             {
-                LunaPicture.Visible = true;
-                SolPicture.Visible = false;
-
-                lblEncabezado3.Text = "OSCURO";
-               
-
-                manager.Theme = MaterialSkinManager.Themes.DARK;
-                manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.WHITE);
-                switchModd.ColorValue = Color.FromArgb(29, 200, 238);
-                switchModd.ColorBackground = Color.FromArgb(21, 25, 31);
+                FormaAjustesEntidad form = new FormaAjustesEntidad(formConfiguraciones.Mod, false);
+                form.ShowDialog();
             }
-            if (!switchModd.Checked)
-            {
-                LunaPicture.Visible = false;
-                SolPicture.Visible = true;
-                lblEncabezado3.Text = "CLARO";
-
-
-                manager.Theme = MaterialSkinManager.Themes.LIGHT;
-                manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.BLACK);
-                switchModd.ColorValue = Color.FromArgb(175, 238, 238);
-                switchModd.ColorBackground = Color.FromArgb(224, 255, 255);
-            }
-            lblEncabezado3.Font = new Font("Segoe UI", 36);
-            lblEncabezado2.Font = new Font("Segoe UI", 36);
-
         }
-    }
-}
+    } 
 

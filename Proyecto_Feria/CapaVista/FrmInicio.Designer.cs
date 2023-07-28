@@ -100,7 +100,6 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 85.6492F));
             tableLayoutPanel1.Size = new Size(899, 457);
             tableLayoutPanel1.TabIndex = 41;
-            tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
             // parrotGroupBox1
             // 
@@ -118,6 +117,7 @@
             parrotGroupBox1.TabStop = false;
             parrotGroupBox1.Text = "Datos generales";
             parrotGroupBox1.TextColor = Color.DodgerBlue;
+            parrotGroupBox1.Visible = false;
             // 
             // txtDataCategoria
             // 
