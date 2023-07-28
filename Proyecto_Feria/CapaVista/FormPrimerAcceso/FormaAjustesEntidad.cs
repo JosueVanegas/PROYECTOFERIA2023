@@ -102,9 +102,11 @@ namespace CapaVista.FormPrimerAcceso
             if (cbxPais.SelectedValue == "Nicaragua")
             {
                 cbxDepartamento.Visible = true;
+
             }
             if (!(cbxPais.SelectedValue == "Nicaragua"))
             {
+                //SI no es de nicaragua ponele espacio en blanco xd
                 cbxDepartamento.Visible = false;
             }
 
