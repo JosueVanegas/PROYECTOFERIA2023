@@ -34,11 +34,9 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             btnCalculadoraBasica = new RJCodeAdvance.RJControls.RJButton();
             btnCalcularDescuento = new RJCodeAdvance.RJControls.RJButton();
-            bntCalcularFecha = new RJCodeAdvance.RJControls.RJButton();
-            btnCalcularNomina = new RJCodeAdvance.RJControls.RJButton();
             btnIR = new RJCodeAdvance.RJControls.RJButton();
-            btnCalcularEdar = new RJCodeAdvance.RJControls.RJButton();
             btnbitacora = new RJCodeAdvance.RJControls.RJButton();
+            btnCalcularNomina = new RJCodeAdvance.RJControls.RJButton();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
@@ -72,11 +70,9 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
             tableLayoutPanel1.Controls.Add(btnCalculadoraBasica, 0, 0);
             tableLayoutPanel1.Controls.Add(btnCalcularDescuento, 1, 0);
-            tableLayoutPanel1.Controls.Add(bntCalcularFecha, 1, 1);
-            tableLayoutPanel1.Controls.Add(btnCalcularNomina, 2, 0);
-            tableLayoutPanel1.Controls.Add(btnIR, 3, 0);
-            tableLayoutPanel1.Controls.Add(btnCalcularEdar, 2, 1);
+            tableLayoutPanel1.Controls.Add(btnIR, 2, 0);
             tableLayoutPanel1.Controls.Add(btnbitacora, 0, 1);
+            tableLayoutPanel1.Controls.Add(btnCalcularNomina, 3, 0);
             tableLayoutPanel1.Location = new Point(21, 12);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 4;
@@ -111,6 +107,7 @@
             btnCalculadoraBasica.TextColor = Color.White;
             btnCalculadoraBasica.UseVisualStyleBackColor = false;
             btnCalculadoraBasica.Visible = false;
+            btnCalculadoraBasica.Click += btnCalculadoraBasica_Click;
             // 
             // btnCalcularDescuento
             // 
@@ -135,54 +132,7 @@
             btnCalcularDescuento.TextColor = Color.White;
             btnCalcularDescuento.UseVisualStyleBackColor = false;
             btnCalcularDescuento.Visible = false;
-            // 
-            // bntCalcularFecha
-            // 
-            bntCalcularFecha.BackColor = Color.FromArgb(63, 63, 70);
-            bntCalcularFecha.BackgroundColor = Color.FromArgb(63, 63, 70);
-            bntCalcularFecha.BackgroundImage = (Image)resources.GetObject("bntCalcularFecha.BackgroundImage");
-            bntCalcularFecha.BackgroundImageLayout = ImageLayout.Center;
-            bntCalcularFecha.BorderColor = Color.PaleVioletRed;
-            bntCalcularFecha.BorderRadius = 10;
-            bntCalcularFecha.BorderSize = 0;
-            bntCalcularFecha.FlatAppearance.BorderSize = 0;
-            bntCalcularFecha.FlatStyle = FlatStyle.Flat;
-            bntCalcularFecha.ForeColor = Color.White;
-            bntCalcularFecha.ImageAlign = ContentAlignment.MiddleRight;
-            bntCalcularFecha.Location = new Point(152, 121);
-            bntCalcularFecha.Margin = new Padding(3, 2, 3, 2);
-            bntCalcularFecha.Name = "bntCalcularFecha";
-            bntCalcularFecha.Size = new Size(143, 115);
-            bntCalcularFecha.TabIndex = 15;
-            bntCalcularFecha.Text = "Calcular Fecha";
-            bntCalcularFecha.TextAlign = ContentAlignment.BottomCenter;
-            bntCalcularFecha.TextColor = Color.White;
-            bntCalcularFecha.UseVisualStyleBackColor = false;
-            bntCalcularFecha.Visible = false;
-            // 
-            // btnCalcularNomina
-            // 
-            btnCalcularNomina.BackColor = Color.FromArgb(63, 63, 70);
-            btnCalcularNomina.BackgroundColor = Color.FromArgb(63, 63, 70);
-            btnCalcularNomina.BackgroundImage = (Image)resources.GetObject("btnCalcularNomina.BackgroundImage");
-            btnCalcularNomina.BackgroundImageLayout = ImageLayout.Center;
-            btnCalcularNomina.BorderColor = Color.PaleVioletRed;
-            btnCalcularNomina.BorderRadius = 10;
-            btnCalcularNomina.BorderSize = 0;
-            btnCalcularNomina.FlatAppearance.BorderSize = 0;
-            btnCalcularNomina.FlatStyle = FlatStyle.Flat;
-            btnCalcularNomina.ForeColor = Color.White;
-            btnCalcularNomina.ImageAlign = ContentAlignment.MiddleRight;
-            btnCalcularNomina.Location = new Point(301, 2);
-            btnCalcularNomina.Margin = new Padding(3, 2, 3, 2);
-            btnCalcularNomina.Name = "btnCalcularNomina";
-            btnCalcularNomina.Size = new Size(143, 115);
-            btnCalcularNomina.TabIndex = 16;
-            btnCalcularNomina.Text = "Calcular Nomina";
-            btnCalcularNomina.TextAlign = ContentAlignment.BottomCenter;
-            btnCalcularNomina.TextColor = Color.White;
-            btnCalcularNomina.UseVisualStyleBackColor = false;
-            btnCalcularNomina.Visible = false;
+            btnCalcularDescuento.Click += btnCalcularDescuento_Click;
             // 
             // btnIR
             // 
@@ -197,7 +147,7 @@
             btnIR.FlatStyle = FlatStyle.Flat;
             btnIR.ForeColor = Color.White;
             btnIR.ImageAlign = ContentAlignment.MiddleRight;
-            btnIR.Location = new Point(450, 2);
+            btnIR.Location = new Point(301, 2);
             btnIR.Margin = new Padding(3, 2, 3, 2);
             btnIR.Name = "btnIR";
             btnIR.Size = new Size(143, 115);
@@ -207,30 +157,6 @@
             btnIR.TextColor = Color.White;
             btnIR.UseVisualStyleBackColor = false;
             btnIR.Visible = false;
-            // 
-            // btnCalcularEdar
-            // 
-            btnCalcularEdar.BackColor = Color.FromArgb(63, 63, 70);
-            btnCalcularEdar.BackgroundColor = Color.FromArgb(63, 63, 70);
-            btnCalcularEdar.BackgroundImage = (Image)resources.GetObject("btnCalcularEdar.BackgroundImage");
-            btnCalcularEdar.BackgroundImageLayout = ImageLayout.Center;
-            btnCalcularEdar.BorderColor = Color.PaleVioletRed;
-            btnCalcularEdar.BorderRadius = 10;
-            btnCalcularEdar.BorderSize = 0;
-            btnCalcularEdar.FlatAppearance.BorderSize = 0;
-            btnCalcularEdar.FlatStyle = FlatStyle.Flat;
-            btnCalcularEdar.ForeColor = Color.White;
-            btnCalcularEdar.ImageAlign = ContentAlignment.MiddleRight;
-            btnCalcularEdar.Location = new Point(301, 121);
-            btnCalcularEdar.Margin = new Padding(3, 2, 3, 2);
-            btnCalcularEdar.Name = "btnCalcularEdar";
-            btnCalcularEdar.Size = new Size(143, 115);
-            btnCalcularEdar.TabIndex = 13;
-            btnCalcularEdar.Text = "Calcular Edad";
-            btnCalcularEdar.TextAlign = ContentAlignment.BottomCenter;
-            btnCalcularEdar.TextColor = Color.White;
-            btnCalcularEdar.UseVisualStyleBackColor = false;
-            btnCalcularEdar.Visible = false;
             // 
             // btnbitacora
             // 
@@ -256,6 +182,30 @@
             btnbitacora.UseVisualStyleBackColor = false;
             btnbitacora.Visible = false;
             // 
+            // btnCalcularNomina
+            // 
+            btnCalcularNomina.BackColor = Color.FromArgb(63, 63, 70);
+            btnCalcularNomina.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnCalcularNomina.BackgroundImage = (Image)resources.GetObject("btnCalcularNomina.BackgroundImage");
+            btnCalcularNomina.BackgroundImageLayout = ImageLayout.Center;
+            btnCalcularNomina.BorderColor = Color.PaleVioletRed;
+            btnCalcularNomina.BorderRadius = 10;
+            btnCalcularNomina.BorderSize = 0;
+            btnCalcularNomina.FlatAppearance.BorderSize = 0;
+            btnCalcularNomina.FlatStyle = FlatStyle.Flat;
+            btnCalcularNomina.ForeColor = Color.White;
+            btnCalcularNomina.ImageAlign = ContentAlignment.MiddleRight;
+            btnCalcularNomina.Location = new Point(450, 2);
+            btnCalcularNomina.Margin = new Padding(3, 2, 3, 2);
+            btnCalcularNomina.Name = "btnCalcularNomina";
+            btnCalcularNomina.Size = new Size(143, 115);
+            btnCalcularNomina.TabIndex = 16;
+            btnCalcularNomina.Text = "Calcular Nomina";
+            btnCalcularNomina.TextAlign = ContentAlignment.BottomCenter;
+            btnCalcularNomina.TextColor = Color.White;
+            btnCalcularNomina.UseVisualStyleBackColor = false;
+            btnCalcularNomina.Visible = false;
+            // 
             // FormsHerramientasss
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -280,10 +230,8 @@
         private TableLayoutPanel tableLayoutPanel1;
         private RJCodeAdvance.RJControls.RJButton btnCalculadoraBasica;
         private RJCodeAdvance.RJControls.RJButton btnCalcularDescuento;
-        private RJCodeAdvance.RJControls.RJButton bntCalcularFecha;
         private RJCodeAdvance.RJControls.RJButton btnCalcularNomina;
         private RJCodeAdvance.RJControls.RJButton btnIR;
-        private RJCodeAdvance.RJControls.RJButton btnCalcularEdar;
         private RJCodeAdvance.RJControls.RJButton btnbitacora;
     }
 }

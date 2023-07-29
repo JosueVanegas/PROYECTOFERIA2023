@@ -40,6 +40,12 @@
     <Compile Update="FormPrimerAcceso\FormUsuarioInicial.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FormsHerramientas\CalculadoraBasica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormsHerramientas\CalcularDescuento.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FormsHerramientas\FormsHerramientasss.cs">
       <SubType>Form</SubType>
     </Compile>

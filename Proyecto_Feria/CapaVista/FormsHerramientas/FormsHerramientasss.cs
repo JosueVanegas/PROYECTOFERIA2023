@@ -1,4 +1,5 @@
 ﻿using CapaDatos;
+using CapaVista.FormConfiguracion;
 using ReaLTaiizor.Colors;
 using ReaLTaiizor.Forms;
 using ReaLTaiizor.Manager;
@@ -41,32 +42,44 @@ namespace CapaVista.FormsHerramientas
                 btnbitacora.Visible = true;
                 btnCalculadoraBasica.Visible = true;
                 btnCalcularDescuento.Visible = true;
-                btnCalcularEdar.Visible = true;
+                
                 btnCalcularNomina.Visible = true;
                 btnIR.Visible = true;
-                bntCalcularFecha.Visible = true;
+                
             }
             if (Rol.oRol.descripcion == "Contador")
             {
                 btnbitacora.Visible = true;
                 btnCalculadoraBasica.Visible = true;
                 btnCalcularDescuento.Visible = true;
-                btnCalcularEdar.Visible = true;
+                
                 btnCalcularNomina.Visible = true;
                 btnIR.Visible = true;
-                bntCalcularFecha.Visible = true;
+                
             }
             if (Rol.oRol.descripcion == "Vendedor")
             {
                 btnbitacora.Visible = true;
                 btnCalculadoraBasica.Visible = true;
                 btnCalcularDescuento.Visible = true;
-                btnCalcularEdar.Visible = false;
+            
                 btnCalcularNomina.Visible = false;
                 btnIR.Visible = false;
-                bntCalcularFecha.Visible = false;
+               
             }*/
 
+        }
+
+        private void btnCalculadoraBasica_Click(object sender, EventArgs e)
+        {
+            CalculadoraBasica Ca = new CalculadoraBasica(formConfiguraciones.Mod);
+            Ca.ShowDialog();
+        }
+
+        private void btnCalcularDescuento_Click(object sender, EventArgs e)
+        {
+            CalcularDescuento Ca = new CalcularDescuento(formConfiguraciones.Mod);
+            Ca.ShowDialog();
         }
     }
 }
