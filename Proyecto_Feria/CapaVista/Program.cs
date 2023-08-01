@@ -1,6 +1,4 @@
-using CapaDatos;
 using CapaVista.FormConfiguracion;
-using CapaVista.FormPrimerAcceso;
 
 namespace CapaVista
 {

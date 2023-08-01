@@ -31,13 +31,13 @@ namespace CapaVista
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
-            panel1 = new Panel();
-            panel4 = new Panel();
+            panelAbajo = new Panel();
+            panelModo = new Panel();
             tableLayoutPanel5 = new TableLayoutPanel();
-            switchModd = new ReaLTaiizor.Controls.CyberSwitch();
+            cambioModo = new ReaLTaiizor.Controls.CyberSwitch();
             tableLayoutPanel4 = new TableLayoutPanel();
             panel3 = new Panel();
-            LunaPicture = new PictureBox();
+            imagenModo = new PictureBox();
             SolPicture = new PictureBox();
             tablePanel_Admin = new TableLayoutPanel();
             btnContabilidadl_Admin = new RJCodeAdvance.RJControls.RJButton();
@@ -78,12 +78,12 @@ namespace CapaVista
             tableLayoutPanel3 = new TableLayoutPanel();
             lblEncabezado2 = new Label();
             lblEncabezado3 = new Label();
-            panel1.SuspendLayout();
-            panel4.SuspendLayout();
+            panelAbajo.SuspendLayout();
+            panelModo.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)LunaPicture).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)imagenModo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)SolPicture).BeginInit();
             tablePanel_Admin.SuspendLayout();
             tablePanel_Contador.SuspendLayout();
@@ -98,36 +98,36 @@ namespace CapaVista
             tableLayoutPanel3.SuspendLayout();
             SuspendLayout();
             // 
-            // panel1
+            // panelAbajo
             // 
-            panel1.BackColor = Color.FromArgb(53, 53, 60);
-            panel1.Controls.Add(panel4);
-            panel1.Controls.Add(tablePanel_Admin);
-            panel1.Controls.Add(tablePanel_Contador);
-            panel1.Controls.Add(tablePanelNombre_Vendedor);
-            panel1.Dock = DockStyle.Bottom;
-            panel1.Location = new Point(0, 514);
-            panel1.Margin = new Padding(3, 2, 3, 2);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1037, 94);
-            panel1.TabIndex = 1;
+            panelAbajo.BackColor = Color.FromArgb(53, 53, 60);
+            panelAbajo.Controls.Add(panelModo);
+            panelAbajo.Controls.Add(tablePanel_Admin);
+            panelAbajo.Controls.Add(tablePanel_Contador);
+            panelAbajo.Controls.Add(tablePanelNombre_Vendedor);
+            panelAbajo.Dock = DockStyle.Bottom;
+            panelAbajo.Location = new Point(0, 514);
+            panelAbajo.Margin = new Padding(3, 2, 3, 2);
+            panelAbajo.Name = "panelAbajo";
+            panelAbajo.Size = new Size(1037, 94);
+            panelAbajo.TabIndex = 1;
             // 
-            // panel4
+            // panelModo
             // 
-            panel4.Controls.Add(tableLayoutPanel5);
-            panel4.Controls.Add(tableLayoutPanel4);
-            panel4.Dock = DockStyle.Right;
-            panel4.Location = new Point(872, 0);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(165, 94);
-            panel4.TabIndex = 0;
+            panelModo.Controls.Add(tableLayoutPanel5);
+            panelModo.Controls.Add(tableLayoutPanel4);
+            panelModo.Dock = DockStyle.Right;
+            panelModo.Location = new Point(872, 0);
+            panelModo.Name = "panelModo";
+            panelModo.Size = new Size(165, 94);
+            panelModo.TabIndex = 0;
             // 
             // tableLayoutPanel5
             // 
             tableLayoutPanel5.BackColor = Color.Transparent;
             tableLayoutPanel5.ColumnCount = 1;
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel5.Controls.Add(switchModd, 0, 0);
+            tableLayoutPanel5.Controls.Add(cambioModo, 0, 0);
             tableLayoutPanel5.Location = new Point(19, 25);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 1;
@@ -136,45 +136,45 @@ namespace CapaVista
             tableLayoutPanel5.Size = new Size(78, 43);
             tableLayoutPanel5.TabIndex = 18;
             // 
-            // switchModd
+            // cambioModo
             // 
-            switchModd.Alpha = 50;
-            switchModd.BackColor = Color.Transparent;
-            switchModd.Background = true;
-            switchModd.Background_WidthPen = 2F;
-            switchModd.BackgroundPen = true;
-            switchModd.Checked = true;
-            switchModd.ColorBackground = Color.FromArgb(21, 25, 31);
-            switchModd.ColorBackground_1 = Color.FromArgb(37, 52, 68);
-            switchModd.ColorBackground_2 = Color.FromArgb(41, 63, 86);
-            switchModd.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
-            switchModd.ColorBackground_Value_1 = Color.FromArgb(28, 200, 238);
-            switchModd.ColorBackground_Value_2 = Color.FromArgb(100, 208, 232);
-            switchModd.ColorLighting = Color.FromArgb(29, 200, 238);
-            switchModd.ColorPen_1 = Color.FromArgb(37, 52, 68);
-            switchModd.ColorPen_2 = Color.FromArgb(41, 63, 86);
-            switchModd.ColorValue = Color.FromArgb(29, 200, 238);
-            switchModd.CyberSwitchStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            switchModd.Dock = DockStyle.Fill;
-            switchModd.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            switchModd.ForeColor = Color.FromArgb(245, 245, 245);
-            switchModd.Lighting = true;
-            switchModd.LinearGradient_Background = true;
-            switchModd.LinearGradient_Value = true;
-            switchModd.LinearGradientPen = false;
-            switchModd.Location = new Point(3, 3);
-            switchModd.Name = "switchModd";
-            switchModd.PenWidth = 10;
-            switchModd.RGB = false;
-            switchModd.Rounding = true;
-            switchModd.RoundingInt = 90;
-            switchModd.Size = new Size(72, 37);
-            switchModd.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            switchModd.TabIndex = 0;
-            switchModd.Tag = "Cyber";
-            switchModd.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            switchModd.Timer_RGB = 300;
-            switchModd.CheckedChanged += cyberSwitch2_CheckedChanged;
+            cambioModo.Alpha = 50;
+            cambioModo.BackColor = Color.Transparent;
+            cambioModo.Background = true;
+            cambioModo.Background_WidthPen = 2F;
+            cambioModo.BackgroundPen = true;
+            cambioModo.Checked = true;
+            cambioModo.ColorBackground = Color.FromArgb(21, 25, 31);
+            cambioModo.ColorBackground_1 = Color.FromArgb(37, 52, 68);
+            cambioModo.ColorBackground_2 = Color.FromArgb(41, 63, 86);
+            cambioModo.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
+            cambioModo.ColorBackground_Value_1 = Color.FromArgb(28, 200, 238);
+            cambioModo.ColorBackground_Value_2 = Color.FromArgb(100, 208, 232);
+            cambioModo.ColorLighting = Color.FromArgb(29, 200, 238);
+            cambioModo.ColorPen_1 = Color.FromArgb(37, 52, 68);
+            cambioModo.ColorPen_2 = Color.FromArgb(41, 63, 86);
+            cambioModo.ColorValue = Color.FromArgb(29, 200, 238);
+            cambioModo.CyberSwitchStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            cambioModo.Dock = DockStyle.Fill;
+            cambioModo.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            cambioModo.ForeColor = Color.FromArgb(245, 245, 245);
+            cambioModo.Lighting = true;
+            cambioModo.LinearGradient_Background = true;
+            cambioModo.LinearGradient_Value = true;
+            cambioModo.LinearGradientPen = false;
+            cambioModo.Location = new Point(3, 3);
+            cambioModo.Name = "cambioModo";
+            cambioModo.PenWidth = 10;
+            cambioModo.RGB = false;
+            cambioModo.Rounding = true;
+            cambioModo.RoundingInt = 90;
+            cambioModo.Size = new Size(72, 37);
+            cambioModo.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            cambioModo.TabIndex = 0;
+            cambioModo.Tag = "Cyber";
+            cambioModo.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            cambioModo.Timer_RGB = 300;
+            cambioModo.CheckedChanged += cyberSwitch2_CheckedChanged;
             // 
             // tableLayoutPanel4
             // 
@@ -192,7 +192,7 @@ namespace CapaVista
             // 
             // panel3
             // 
-            panel3.Controls.Add(LunaPicture);
+            panel3.Controls.Add(imagenModo);
             panel3.Controls.Add(SolPicture);
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(3, 3);
@@ -200,17 +200,17 @@ namespace CapaVista
             panel3.Size = new Size(39, 37);
             panel3.TabIndex = 1;
             // 
-            // LunaPicture
+            // imagenModo
             // 
-            LunaPicture.Dock = DockStyle.Fill;
-            LunaPicture.Image = (Image)resources.GetObject("LunaPicture.Image");
-            LunaPicture.Location = new Point(0, 0);
-            LunaPicture.Name = "LunaPicture";
-            LunaPicture.Size = new Size(39, 37);
-            LunaPicture.SizeMode = PictureBoxSizeMode.Zoom;
-            LunaPicture.TabIndex = 7;
-            LunaPicture.TabStop = false;
-            LunaPicture.Visible = false;
+            imagenModo.Dock = DockStyle.Fill;
+            imagenModo.Image = (Image)resources.GetObject("imagenModo.Image");
+            imagenModo.Location = new Point(0, 0);
+            imagenModo.Name = "imagenModo";
+            imagenModo.Size = new Size(39, 37);
+            imagenModo.SizeMode = PictureBoxSizeMode.Zoom;
+            imagenModo.TabIndex = 7;
+            imagenModo.TabStop = false;
+            imagenModo.Visible = false;
             // 
             // SolPicture
             // 
@@ -1040,19 +1040,19 @@ namespace CapaVista
             ClientSize = new Size(1037, 608);
             Controls.Add(tablepanelPanelContenedor);
             Controls.Add(panel2);
-            Controls.Add(panel1);
+            Controls.Add(panelAbajo);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MinimumSize = new Size(1053, 647);
             Name = "FrmPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             WindowState = FormWindowState.Maximized;
             Load += FrmPrincipal_Load;
-            panel1.ResumeLayout(false);
-            panel4.ResumeLayout(false);
+            panelAbajo.ResumeLayout(false);
+            panelModo.ResumeLayout(false);
             tableLayoutPanel5.ResumeLayout(false);
             tableLayoutPanel4.ResumeLayout(false);
             panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)LunaPicture).EndInit();
+            ((System.ComponentModel.ISupportInitialize)imagenModo).EndInit();
             ((System.ComponentModel.ISupportInitialize)SolPicture).EndInit();
             tablePanel_Admin.ResumeLayout(false);
             tablePanel_Contador.ResumeLayout(false);
@@ -1071,7 +1071,7 @@ namespace CapaVista
 
         #endregion
 
-        private Panel panel1;
+        private Panel panelAbajo;
         private TableLayoutPanel tablePanel_Admin;
         private RJCodeAdvance.RJControls.RJButton btnContabilidadl_Admin;
         private RJCodeAdvance.RJControls.RJButton btnCalculosl_Admin;
@@ -1111,13 +1111,13 @@ namespace CapaVista
         private RJCodeAdvance.RJControls.RJButton btnPlanillal_Contador;
         private TableLayoutPanel tableLayoutPanel4;
         private Panel panel3;
-        private PictureBox LunaPicture;
+        private PictureBox imagenModo;
         private PictureBox SolPicture;
         private TableLayoutPanel tableLayoutPanel3;
         private Label lblEncabezado2;
         private Label lblEncabezado3;
         private TableLayoutPanel tableLayoutPanel5;
-        private Panel panel4;
-        public ReaLTaiizor.Controls.CyberSwitch switchModd;
+        private Panel panelModo;
+        public ReaLTaiizor.Controls.CyberSwitch cambioModo;
     }
 }

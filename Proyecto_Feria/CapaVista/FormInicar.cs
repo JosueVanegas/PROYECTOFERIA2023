@@ -3,15 +3,6 @@ using ReaLTaiizor.Colors;
 using ReaLTaiizor.Forms;
 using ReaLTaiizor.Manager;
 using ReaLTaiizor.Util;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace CapaVista.FormPrimerAcceso
 {
@@ -19,7 +10,7 @@ namespace CapaVista.FormPrimerAcceso
     {
         private System.Windows.Forms.Timer timer;
         private int secondsElapsed = 0;
-   
+
         public FormInicar(Boolean Mod)
         {
 
@@ -64,9 +55,9 @@ namespace CapaVista.FormPrimerAcceso
                 // Detener el temporizador
                 timer.Stop();
 
-               
-                
-                
+
+
+
                 /// Josue para saber si es primer acceso
                 if (true)
                 {

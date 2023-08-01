@@ -3,15 +3,6 @@ using ReaLTaiizor.Colors;
 using ReaLTaiizor.Forms;
 using ReaLTaiizor.Manager;
 using ReaLTaiizor.Util;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace CapaVista.FormConfiguracion
 {
@@ -45,11 +36,11 @@ namespace CapaVista.FormConfiguracion
 
         }
 
-            private void btnEntidadEmpresa_Click(object sender, EventArgs e)
-            {
-                FormaAjustesEntidad form = new FormaAjustesEntidad(formConfiguraciones.Mod, false);
-                form.ShowDialog();
-            }
+        private void btnEntidadEmpresa_Click(object sender, EventArgs e)
+        {
+            FormaAjustesEntidad form = new FormaAjustesEntidad(formConfiguraciones.Mod, false);
+            form.ShowDialog();
         }
-    } 
+    }
+}
 

@@ -1,29 +1,19 @@
 ﻿using CapaVista.FormConfiguracion;
-using Microsoft.Identity.Client;
 using ReaLTaiizor.Colors;
 using ReaLTaiizor.Forms;
 using ReaLTaiizor.Manager;
 using ReaLTaiizor.Util;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace CapaVista.FormPrimerAcceso
 {
     public partial class FormaAjustesEntidad : MaterialForm
     {
 
-        public FormaAjustesEntidad(Boolean Mod,Boolean Acceso)
+        public FormaAjustesEntidad(Boolean Mod, Boolean Acceso)
         {
             InitializeComponent();
-            EstadoDeLaEntidad(Acceso) ;
+            EstadoDeLaEntidad(Acceso);
             MaterialSkinManager manager;
             manager = MaterialSkinManager.Instance;
             manager.AddFormToManage(this);

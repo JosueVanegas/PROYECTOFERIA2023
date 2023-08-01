@@ -1,6 +1,6 @@
 ﻿namespace CapaVista.FormsHerramientas
 {
-    partial class FormsHerramientasss
+    partial class FormHerramientas
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormsHerramientasss));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHerramientas));
             flowLayoutPanel1 = new FlowLayoutPanel();
             pictureBox1 = new PictureBox();
             tableLayoutPanel1 = new TableLayoutPanel();

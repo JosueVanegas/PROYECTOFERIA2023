@@ -10,10 +10,10 @@
     <Compile Update="FormContabilidad\FormContabilidads.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormInventario\formServicios.cs">
+    <Compile Update="FormInventario\formCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormInventario\formCompras.cs">
+    <Compile Update="FormInventario\formProductos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormPlanilla\formEmpleados.cs">
@@ -46,7 +46,7 @@
     <Compile Update="FormsHerramientas\CalcularDescuento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormsHerramientas\FormsHerramientasss.cs">
+    <Compile Update="FormsHerramientas\FormHerramientas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="formUsuarios.cs">

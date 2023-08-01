@@ -7,7 +7,7 @@ namespace CapaDatos
     {
         string mensaje = "";
         public DataUsuarios() { }
-        
+
         public List<Rol> listaRoles()
         {
             List<Rol> lista = new List<Rol>();
@@ -20,8 +20,9 @@ namespace CapaDatos
                     using (var cmd = new SqlCommand(query, con))
                     {
                         cmd.CommandType = CommandType.Text;
-                        using (var reader = cmd.ExecuteReader()) { 
-                           while(reader.Read())
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
                             {
                                 lista.Add(new Rol
                                 {
@@ -79,12 +80,12 @@ namespace CapaDatos
         {
             List<Empleado> lista = new List<Empleado>();
             string query = "SELECT ID_EMPLEADO,NOMBRE,APELLIDO FROM EMPLEADO";
-            using(var con = new conexion().conectar())
+            using (var con = new conexion().conectar())
             {
                 try
                 {
                     con.Open();
-                    using (var command = new SqlCommand(query,con))
+                    using (var command = new SqlCommand(query, con))
                     {
                         command.CommandType = CommandType.Text;
                         using (var reader = command.ExecuteReader())
@@ -93,14 +94,15 @@ namespace CapaDatos
                             {
                                 lista.Add(new Empleado
                                 {
-                                    id= Convert.ToInt32(reader["ID_EMPLEADO"]),
+                                    id = Convert.ToInt32(reader["ID_EMPLEADO"]),
                                     nombres = reader["NOMBRE"].ToString(),
                                     apellidos = reader["APELLIDO"].ToString()
                                 });
                             }
                         }
                     }
-                }catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
                     lista = new List<Empleado>();
                 }

@@ -2,17 +2,11 @@
 using CapaControlador;
 using CapaDatos;
 using CapaVista.FormConfiguracion;
-
+using CapaVista.FormContabilidad;
 using CapaVista.FormPlanilla;
+using CapaVista.FormsHerramientas;
 using CapaVista.FormVenta;
 using ToolTip = System.Windows.Forms.ToolTip;
-
-using CapaVista.FormsHerramientas;
-using CapaVista.FormContabilidad;
-using System.Runtime.CompilerServices;
-using ReaLTaiizor.Colors;
-using ReaLTaiizor.Manager;
-using ReaLTaiizor.Util;
 
 namespace CapaVista
 {
@@ -22,34 +16,48 @@ namespace CapaVista
         Boolean Mod = true;
         Form formActivo = null;
         Button botonActivo = null;
-        String UsuarioActual = "";
+        bool EstadoDeBarraVertical_Vendedor = true;
+        bool EstadoDeBarraVertical_Contador = true;
+        // Color fondoOscuro = Color.FromArgb();
+        //Color fondoClaro = Color.FromArgb();
         public FrmPrincipal(Usuario usuario, Boolean DMod)
         {
 
             InitializeComponent();
             Mod = DMod;
-            switchModd.Checked = DMod;
+            cambioModo.Checked = DMod;
             var controler = new ControlConexion();
             this.user = usuario;
             //validarAcceso();
-
-
+        }
+        private void botonesOscuros()
+        {
 
         }
+        private void botonesClaros()
+        {
 
+        }
+        private void fondoOscuro()
+        {
 
+        }
+        private void fondoClaro()
+        {
+
+        }
         private void CambioColor(Boolean Mod)
-        {//Mood Light
+        {
             if (!Mod)
             {
-                //General
+
                 panelContenedor.BackColor = Color.FromArgb(242, 242, 242);
-                panel1.BackColor = Color.FromArgb(138, 138, 138);
+                panelAbajo.BackColor = Color.FromArgb(138, 138, 138);
                 tablepanelPanelContenedor.BackColor = Color.FromArgb(242, 242, 242);
                 panel2.BackColor = Color.FromArgb(242, 242, 242);
                 this.BackColor = Color.FromArgb(242, 242, 242);
 
-                //Rol Administracion
+
                 btnBarraVertical_Admin.BackgroundColor = Color.FromArgb(138, 138, 138);
                 btnIniciol_Admin.BackgroundColor = Color.FromArgb(138, 138, 138);
                 btnConfiguracionesl_Admin.BackgroundColor = Color.FromArgb(138, 138, 138);
@@ -71,14 +79,12 @@ namespace CapaVista
                 btnVentasl_Admin.ForeColor = Color.Black;
 
 
-                //Rol Vendedor
                 btnBarraVertical_Vendedor.BackgroundColor = Color.FromArgb(138, 138, 138);
                 btnInicio_Vendedor.BackgroundColor = Color.FromArgb(138, 138, 138);
 
                 btnVentas_Vendedor.BackgroundColor = Color.FromArgb(242, 242, 242);
                 panelVertical_Vendedor.BackColor = Color.FromArgb(242, 242, 242);
 
-                //Rol Contador
                 btnBarraVertical_Contador.BackgroundColor = Color.FromArgb(138, 138, 138);
                 btnInicio_Contador.BackgroundColor = Color.FromArgb(138, 138, 138);
                 btnHerramientas_Contador.BackgroundColor = Color.FromArgb(138, 138, 138);
@@ -96,16 +102,13 @@ namespace CapaVista
 
             }
             if (Mod)
-            {//Mood Dark
-
-                //General
+            {
                 tablepanelPanelContenedor.BackColor = Color.FromArgb(21, 25, 31);
                 panel2.BackColor = Color.FromArgb(21, 25, 31);
                 panelContenedor.BackColor = Color.FromArgb(21, 25, 31);
-                panel1.BackColor = Color.FromArgb(63, 63, 70);
+                panelAbajo.BackColor = Color.FromArgb(63, 63, 70);
                 this.BackColor = Color.FromArgb(21, 25, 31);
 
-                //Rol Administracion
                 btnBarraVertical_Admin.BackgroundColor = Color.FromArgb(63, 63, 70);
                 btnIniciol_Admin.BackgroundColor = Color.FromArgb(63, 63, 70);
                 btnConfiguracionesl_Admin.BackgroundColor = Color.FromArgb(63, 63, 70);
@@ -127,14 +130,12 @@ namespace CapaVista
                 tablePanel_Admin.BackColor = Color.FromArgb(63, 63, 70);
                 panelVertical_Admin.BackColor = Color.FromArgb(21, 25, 31);
 
-                //Rol Vendedor
                 btnBarraVertical_Vendedor.BackgroundColor = Color.FromArgb(63, 63, 70);
                 btnInicio_Vendedor.BackgroundColor = Color.FromArgb(63, 63, 70);
 
                 btnVentas_Vendedor.BackgroundColor = Color.FromArgb(21, 25, 31);
                 panelVertical_Vendedor.BackColor = Color.FromArgb(21, 25, 31);
 
-                //Rol Contador
                 btnBarraVertical_Contador.BackgroundColor = Color.FromArgb(63, 63, 70);
                 btnInicio_Contador.BackgroundColor = Color.FromArgb(63, 63, 70);
                 btnHerramientas_Contador.BackgroundColor = Color.FromArgb(63, 63, 70);
@@ -271,27 +272,6 @@ namespace CapaVista
                         }
                         */
         }
-        /* private String validarAcceso()
-         {
-
-             string tipoAcceso = "";
-             if (user.oRol.descripcion == "Administrador")
-             {
-                 tipoAcceso = "Administrador";
-             }
-             if (user.oRol.descripcion == "Vendedor")
-             {
-                 tipoAcceso = "Vendedor";
-             }
-             if (user.oRol.descripcion == "Contador")
-             {
-                 tipoAcceso = "Contador";
-             }
-
-             UsuarioActual = "Usuario: " + user.usuario + "\nTipo de acceso: " + tipoAcceso;
-             return tipoAcceso;
-         }*/
-
         private void abrirFormulario(Form form)
         {
             if (formActivo != null)
@@ -304,31 +284,25 @@ namespace CapaVista
             panelContenedor.Controls.Add(form);
             form.Show();
         }
-
-        //Modo Dark
-
         public void cyberSwitch2_CheckedChanged()
         {
 
-            Mod = switchModd.Checked;
-            formConfiguraciones.Mod = Mod;
-            if (switchModd.Checked)
+            Mod = cambioModo.Checked;
+            if (cambioModo.Checked)
             {
-                LunaPicture.Visible = true;
+                imagenModo.Visible = true;
                 SolPicture.Visible = false;
 
             }
-            if (!switchModd.Checked)
+            if (!cambioModo.Checked)
             {
-                LunaPicture.Visible = false;
+                imagenModo.Visible = false;
                 SolPicture.Visible = true;
 
             }
-            abrirFormulario(new FrmInicio(formConfiguraciones.Mod, user));
+            abrirFormulario(new FrmInicio(this.Mod, user));
             CambioColor(Mod);
         }
-
-        //eventos Click //Rol Administracion
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
             abrirFormulario(new formUsuarios(formConfiguraciones.Mod));
@@ -336,13 +310,12 @@ namespace CapaVista
 
         private void btnHerramientas_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new FormsHerramientasss(formConfiguraciones.Mod, user));
+            abrirFormulario(new FormHerramientas(formConfiguraciones.Mod, user));
         }
 
         private void btnConfiguraciones_Click(object sender, EventArgs e)
         {
             abrirFormulario(new formConfiguraciones());
-
         }
 
         bool EstadoDeBarraVertical = true;
@@ -387,8 +360,7 @@ namespace CapaVista
         }
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            formVentas frmVenta = new formVentas(formConfiguraciones.Mod);
-            frmVenta.ShowDialog();
+            abrirFormulario(new formVentas(formConfiguraciones.Mod));
         }
 
         private void btnContabilidad_Click(object sender, EventArgs e)
@@ -400,11 +372,7 @@ namespace CapaVista
         {
             abrirFormulario(new FormCalculos.FormCalculos(formConfiguraciones.Mod));
         }
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        //eventos Click //Rol Vendedor
-
-        bool EstadoDeBarraVertical_Vendedor = true;
         private void EstadoDeBarraVertical_Vendedorl_Button_Click(object sender, EventArgs e)
         {
 
@@ -440,10 +408,8 @@ namespace CapaVista
 
         private void btnHerramientas_Contador_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new FormsHerramientasss(formConfiguraciones.Mod, user));
+            abrirFormulario(new FormHerramientas(formConfiguraciones.Mod, user));
         }
-
-        bool EstadoDeBarraVertical_Contador = true;
         private void btnBarraVertical_Contador_Button_Click(object sender, EventArgs e)
         {
 
@@ -463,13 +429,10 @@ namespace CapaVista
             }
             EstadoDeBarraVertical_Contador = !EstadoDeBarraVertical_Contador;
         }
-
-
         private void btnPlanillaContador_Click(object sender, EventArgs e)
         {
             abrirFormulario(new formPlanilla(formConfiguraciones.Mod));
         }
-
         private void btnInicioContador_Click(object sender, EventArgs e)
         {
             abrirFormulario(new FrmInicio(formConfiguraciones.Mod, user));
@@ -478,20 +441,13 @@ namespace CapaVista
         {
             abrirFormulario(new FormContabilidads(formConfiguraciones.Mod));
         }
-
         private void btnCalculosContador_Click(object sender, EventArgs e)
         {
             abrirFormulario(new FormCalculos.FormCalculos(formConfiguraciones.Mod));
         }
-
-
-        //Descripciones //
         private void btnInicio_MouseEnter(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             ToolTip toolTip = new ToolTip();
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(btnIniciol_Admin, "Inicio");
             toolTip.SetToolTip(btnInicio_Contador, "Inicio");
             toolTip.SetToolTip(btnInicio_Vendedor, "Inicio");
@@ -499,80 +455,54 @@ namespace CapaVista
 
         private void btnHerramientas_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             ToolTip toolTip = new ToolTip();
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(btnHerramientasl_Admin, "Herramientas");
             toolTip.SetToolTip(btnHerramientas_Contador, "Herramientas");
         }
 
         private void btnConfiguraciones_MouseEnter(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             ToolTip toolTip = new ToolTip();
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(btnConfiguracionesl_Admin, "Configuraciones");
         }
         private void btnVentas_MouseEnter(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             ToolTip toolTip = new ToolTip();
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(btnVentas_Vendedor, "Ventas");
         }
 
         private void btnUsuarios_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             ToolTip toolTip = new ToolTip();
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(btnUsuariosl_Admin, "Usuarios");
         }
         private void btnInventory_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             ToolTip toolTip = new ToolTip();
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(btnInventoryl_Admin, "Inventario");
         }
 
         private void btnPlanilla_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             ToolTip toolTip = new ToolTip();
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(btnPlanillal_Admin, "Planilla");
             toolTip.SetToolTip(btnPlanillal_Contador, "Planilla");
         }
 
         private void btnContabilidad_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             ToolTip toolTip = new ToolTip();
 
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(btnContabilidadl_Admin, "Contabilidad");
             toolTip.SetToolTip(btnContablidad_Contador, "Contabilidad");
         }
 
         private void btnCalculos_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             ToolTip toolTip = new ToolTip();
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(btnCalculosl_Admin, "Calculos");
             toolTip.SetToolTip(btnContablidad_Contador, "Calculos");
 
         }
-        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace CapaVista
 {
-    partial class formServicios
+    partial class formCategoria
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formServicios));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formCategoria));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
@@ -135,7 +135,7 @@
             txtNombre.SelectionLength = 0;
             txtNombre.SelectionStart = 0;
             txtNombre.ShortcutsEnabled = true;
-            txtNombre.Size = new Size(299, 48);
+            txtNombre.Size = new Size(287, 48);
             txtNombre.TabIndex = 10;
             txtNombre.TabStop = false;
             txtNombre.TextAlign = HorizontalAlignment.Center;
@@ -145,7 +145,7 @@
             // 
             // txtIdCategoria
             // 
-            txtIdCategoria.Location = new Point(278, 32);
+            txtIdCategoria.Location = new Point(266, 33);
             txtIdCategoria.Name = "txtIdCategoria";
             txtIdCategoria.Size = new Size(35, 23);
             txtIdCategoria.TabIndex = 8;
@@ -164,7 +164,7 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(3, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(330, 489);
+            panel1.Size = new Size(318, 489);
             panel1.TabIndex = 18;
             // 
             // pictureBox1
@@ -198,7 +198,7 @@
             cbxEstado.MaxDropDownItems = 4;
             cbxEstado.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbxEstado.Name = "cbxEstado";
-            cbxEstado.Size = new Size(299, 49);
+            cbxEstado.Size = new Size(287, 49);
             cbxEstado.StartIndex = 0;
             cbxEstado.TabIndex = 33;
             // 
@@ -292,7 +292,7 @@
             txtBuscar.HideSelection = true;
             txtBuscar.Hint = "Buscar";
             txtBuscar.LeadingIcon = null;
-            txtBuscar.Location = new Point(366, 28);
+            txtBuscar.Location = new Point(350, 7);
             txtBuscar.MaxLength = 32767;
             txtBuscar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtBuscar.Name = "txtBuscar";
@@ -304,7 +304,7 @@
             txtBuscar.SelectionLength = 0;
             txtBuscar.SelectionStart = 0;
             txtBuscar.ShortcutsEnabled = true;
-            txtBuscar.Size = new Size(248, 48);
+            txtBuscar.Size = new Size(279, 48);
             txtBuscar.TabIndex = 20;
             txtBuscar.TabStop = false;
             txtBuscar.TextAlign = HorizontalAlignment.Center;
@@ -316,9 +316,9 @@
             // lblEncabezado
             // 
             lblEncabezado.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblEncabezado.Location = new Point(3, 16);
+            lblEncabezado.Location = new Point(18, 7);
             lblEncabezado.Name = "lblEncabezado";
-            lblEncabezado.Size = new Size(197, 48);
+            lblEncabezado.Size = new Size(178, 48);
             lblEncabezado.TabIndex = 17;
             lblEncabezado.Text = "Categorias registradas";
             lblEncabezado.TextAlign = ContentAlignment.MiddleLeft;
@@ -735,9 +735,9 @@
             panel4.Controls.Add(lblEncabezado);
             panel4.Controls.Add(txtBuscar);
             panel4.Dock = DockStyle.Top;
-            panel4.Location = new Point(333, 0);
+            panel4.Location = new Point(321, 0);
             panel4.Name = "panel4";
-            panel4.Size = new Size(617, 79);
+            panel4.Size = new Size(629, 73);
             panel4.TabIndex = 21;
             // 
             // cbxBuscar
@@ -757,7 +757,7 @@
             cbxBuscar.IntegralHeight = false;
             cbxBuscar.ItemHeight = 43;
             cbxBuscar.Items.AddRange(new object[] { "nombre", "estado", "fecha" });
-            cbxBuscar.Location = new Point(206, 27);
+            cbxBuscar.Location = new Point(190, 7);
             cbxBuscar.MaxDropDownItems = 4;
             cbxBuscar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbxBuscar.Name = "cbxBuscar";
@@ -797,7 +797,7 @@
             tbCategorias.EnableHeadersVisualStyles = false;
             tbCategorias.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbCategorias.GridColor = Color.Gray;
-            tbCategorias.Location = new Point(336, 86);
+            tbCategorias.Location = new Point(339, 79);
             tbCategorias.Name = "tbCategorias";
             tbCategorias.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -813,7 +813,7 @@
             tbCategorias.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tbCategorias.RowTemplate.Height = 30;
             tbCategorias.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tbCategorias.Size = new Size(611, 389);
+            tbCategorias.Size = new Size(611, 407);
             tbCategorias.TabIndex = 22;
             tbCategorias.CellContentClick += tbCategorias_CellContentClick;
             tbCategorias.CellPainting += tbCategorias_CellPainting;
@@ -858,7 +858,7 @@
             fecha.ReadOnly = true;
             fecha.Width = 200;
             // 
-            // formCategorias
+            // formCategoria
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -869,7 +869,7 @@
             Controls.Add(panel4);
             Controls.Add(panel1);
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
-            Name = "formCategorias";
+            Name = "formCategoria";
             Padding = new Padding(3, 0, 3, 3);
             Text = "formCategorias";
             Load += formCategorias_Load;

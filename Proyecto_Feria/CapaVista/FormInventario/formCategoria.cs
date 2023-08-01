@@ -4,18 +4,15 @@ using ReaLTaiizor.Colors;
 using ReaLTaiizor.Forms;
 using ReaLTaiizor.Manager;
 using ReaLTaiizor.Util;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using static System.Windows.Forms.ToolTip;
 
 namespace CapaVista
 {
-    public partial class formServicios : MaterialForm
+    public partial class formCategoria : MaterialForm
     {
         ControlCategoria cCategoria = new ControlCategoria();
 
 
-        public formServicios(Boolean Mod)
+        public formCategoria(Boolean Mod)
         {
             InitializeComponent();
             MaterialSkinManager manager;

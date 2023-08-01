@@ -36,34 +36,38 @@ namespace CapaVista
 
 
         }
-        private void OpenFormInPanel(object formHijo)
+        private void abrirFormulario(Form form)
         {
             if (this.panelContenedor.Controls.Count > 0)
                 this.panelContenedor.Controls.RemoveAt(0);
 
-
-            Form fh = (Form)formHijo;
-            fh.TopLevel = false;
-            fh.FormBorderStyle = FormBorderStyle.None;
-            fh.Dock = DockStyle.Fill;
-            this.panelContenedor.Controls.Add(fh);
-            this.panelContenedor.Tag = fh;
-            fh.Show();
+            if (formActivo != null)
+            {
+                formActivo.Close();
+            }
+            formActivo = form;
+            form.TopLevel = false;
+            form.Dock = DockStyle.Fill;
+            panelContenedor.Controls.Add(form);
+            form.Show();
         }
-        // Clicks
+        private void btnCompras_Click(object sender, EventArgs e)
+        {
+
+        }
         private void btnProductos_Click(object sender, EventArgs e)
         {
-            OpenFormInPanel(new formCompras(formConfiguraciones.Mod));
+            abrirFormulario(new formProductos(formConfiguraciones.Mod));
         }
 
         private void btnCategorias_Click(object sender, EventArgs e)
         {
-            OpenFormInPanel(new formServicios(formConfiguraciones.Mod));
+            abrirFormulario(new formCategoria(formConfiguraciones.Mod));
         }
 
         private void btnProveedores_Click(object sender, EventArgs e)
         {
-            OpenFormInPanel(new formProveedor(formConfiguraciones.Mod));
+            abrirFormulario(new formProveedor(formConfiguraciones.Mod));
         }
 
         //Descripciones

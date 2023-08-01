@@ -55,6 +55,7 @@
             Numero = new DataGridViewTextBoxColumn();
             Pais = new DataGridViewTextBoxColumn();
             Ciudad = new DataGridViewTextBoxColumn();
+            cbxBuscar = new ReaLTaiizor.Controls.MaterialComboBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
@@ -348,7 +349,7 @@
             txtBuscar.HideSelection = true;
             txtBuscar.Hint = "Buscar";
             txtBuscar.LeadingIcon = null;
-            txtBuscar.Location = new Point(672, 16);
+            txtBuscar.Location = new Point(642, 16);
             txtBuscar.MaxLength = 32767;
             txtBuscar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtBuscar.Name = "txtBuscar";
@@ -360,7 +361,7 @@
             txtBuscar.SelectionLength = 0;
             txtBuscar.SelectionStart = 0;
             txtBuscar.ShortcutsEnabled = true;
-            txtBuscar.Size = new Size(299, 48);
+            txtBuscar.Size = new Size(329, 48);
             txtBuscar.TabIndex = 23;
             txtBuscar.TabStop = false;
             txtBuscar.TextAlign = HorizontalAlignment.Center;
@@ -370,11 +371,11 @@
             // lblEncabezado
             // 
             lblEncabezado.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblEncabezado.Location = new Point(321, 19);
+            lblEncabezado.Location = new Point(321, 15);
             lblEncabezado.Name = "lblEncabezado";
-            lblEncabezado.Size = new Size(215, 48);
+            lblEncabezado.Size = new Size(181, 48);
             lblEncabezado.TabIndex = 22;
-            lblEncabezado.Text = "Proveedores registradas";
+            lblEncabezado.Text = "Proveedores registrados";
             lblEncabezado.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // tbProveedores
@@ -477,11 +478,36 @@
             Ciudad.HeaderText = "Ciudad";
             Ciudad.Name = "Ciudad";
             // 
+            // cbxBuscar
+            // 
+            cbxBuscar.Anchor = AnchorStyles.Left;
+            cbxBuscar.AutoResize = false;
+            cbxBuscar.BackColor = Color.FromArgb(255, 255, 255);
+            cbxBuscar.Depth = 0;
+            cbxBuscar.DrawMode = DrawMode.OwnerDrawVariable;
+            cbxBuscar.DropDownHeight = 174;
+            cbxBuscar.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxBuscar.DropDownWidth = 121;
+            cbxBuscar.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cbxBuscar.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cbxBuscar.FormattingEnabled = true;
+            cbxBuscar.Hint = "buscar por";
+            cbxBuscar.IntegralHeight = false;
+            cbxBuscar.ItemHeight = 43;
+            cbxBuscar.Location = new Point(508, 16);
+            cbxBuscar.MaxDropDownItems = 4;
+            cbxBuscar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            cbxBuscar.Name = "cbxBuscar";
+            cbxBuscar.Size = new Size(128, 49);
+            cbxBuscar.StartIndex = 0;
+            cbxBuscar.TabIndex = 27;
+            // 
             // formProveedor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(977, 492);
+            Controls.Add(cbxBuscar);
             Controls.Add(txtBuscar);
             Controls.Add(lblEncabezado);
             Controls.Add(tbProveedores);
@@ -523,5 +549,6 @@
         private DataGridViewTextBoxColumn Pais;
         private DataGridViewTextBoxColumn Ciudad;
         private RJCodeAdvance.RJControls.RJButton btnLimpiar;
+        private ReaLTaiizor.Controls.MaterialComboBox cbxBuscar;
     }
 }

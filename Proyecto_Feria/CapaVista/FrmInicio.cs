@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using CapaControlador;
+﻿using CapaControlador;
 using CapaDatos;
 using ReaLTaiizor.Colors;
 using ReaLTaiizor.Forms;
@@ -52,21 +43,21 @@ namespace CapaVista
                 RelojInicio.TimeColor = Color.Black;
 
             }
-        /*    if (Rol.oRol.descripcion == "Administrador" || Rol.oRol.descripcion == "Contador")
-            {
-                parrotGroupBox1.Visible = true;
-            }
-            
-            if (Rol.oRol.descripcion == "Vendedor")
-            {
-                parrotGroupBox1.Visible = false;
-            }*/
+            /*    if (Rol.oRol.descripcion == "Administrador" || Rol.oRol.descripcion == "Contador")
+                {
+                    parrotGroupBox1.Visible = true;
+                }
+
+                if (Rol.oRol.descripcion == "Vendedor")
+                {
+                    parrotGroupBox1.Visible = false;
+                }*/
 
             RelojInicio.Font = new Font("Impact", 36);
             lblEncabezado.Font = new Font(" Microsoft Sans Serif", 24);
-            
+
         }
-        
+
         private void mostrarCantidades()
         {
             txtDataEmpleado.Text = "Cantidad de empleados : " + cEstat.cantidadCategorias("EMPLEADO");
@@ -74,6 +65,6 @@ namespace CapaVista
             txtDataProveedor.Text = "Cantidad de empleados : " + cEstat.cantidadCategorias("PROVEEDOR");
             txtDataProducto.Text = "Cantidad de categorias: " + cEstat.cantidadCategorias("PRODUCTO");
         }
-        
+
     }
 }

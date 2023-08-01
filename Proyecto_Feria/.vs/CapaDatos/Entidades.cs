@@ -3,6 +3,10 @@
     public class Entidades
     {
     }
+    public class empresa
+    {
+        public string nombre { get; set; }
+    }
     //clases relacionadas con el login y nominas
     public class Empleado
     {
@@ -32,7 +36,8 @@
             return descripcion;
         }
     }
-    public class Estado{
+    public class Estado
+    {
         public bool estado { get; set; }
         public string descripcion { get; set; }
 
@@ -72,15 +77,15 @@
 
     public class Producto
     {
-        public string id { get; set; }
-        public byte[] Imagen { get; set; }
+        public int id { get; set; }
+        public int codigo { get; set; }
         public string nombre { get; set; }
+        public byte[] Imagen { get; set; }
+        public decimal PrecioCompra { get; set; }
+        public decimal PrecioVenta { get; set; }
+        public int cantidad { get; set; }
         public Categoria oCategoria { get; set; }
         public Proveedor oProveedor { get; set; }
-        public decimal Precio { get; set; }
-
-        public Categoria Categoria { get; set; }
-        public Proveedor Proveedor { get; set; }
     }
     /*
      * para pedir la imagen 

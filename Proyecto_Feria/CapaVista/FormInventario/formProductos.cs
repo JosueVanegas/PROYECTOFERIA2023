@@ -2,23 +2,13 @@
 using ReaLTaiizor.Forms;
 using ReaLTaiizor.Manager;
 using ReaLTaiizor.Util;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CapaVista
 {
-    public partial class formCompras : MaterialForm
+    public partial class formProductos : MaterialForm
     {
 
-        public formCompras(Boolean Mod)
+        public formProductos(Boolean Mod)
         {
             InitializeComponent();
             MaterialSkinManager manager;
@@ -79,8 +69,7 @@ namespace CapaVista
             // Establecer el icono de información (puedes cambiar el icono si lo deseas)
             toolTip.ToolTipIcon = ToolTipIcon.Info;
 
-            // Establecer el texto de la descripción
-            toolTip.SetToolTip(pictureBox1, "Descripción del PictureBox");
+
         }
 
         private void btnGuardar_MouseHover(object sender, EventArgs e)
@@ -121,7 +110,7 @@ namespace CapaVista
             }
 
             // Si se ingresa un punto decimal y ya hay otro presente o es el primer carácter, evitar que se procese
-            if ((keyPressed == '.' && (txtPrecioDeCompra.Text.Contains(".") || txtPrecioDeCompra.Text.Length == 0)))
+            if ((keyPressed == '.' && (txtPrecioCompra.Text.Contains(".") || txtPrecioCompra.Text.Length == 0)))
             {
                 e.Handled = true;
             }
@@ -129,28 +118,28 @@ namespace CapaVista
 
         private void txtPrecioDeCompra_Leave(object sender, EventArgs e)
         {
-            if (txtPrecioDeCompra != null)
+            if (txtPrecioCompra != null)
             {
                 // Si el último carácter es un punto decimal, eliminarlo
-                if (txtPrecioDeCompra.Text.EndsWith("."))
+                if (txtPrecioCompra.Text.EndsWith("."))
                 {
-                    txtPrecioDeCompra.Text = txtPrecioDeCompra.Text.TrimEnd('.');
+                    txtPrecioCompra.Text = txtPrecioCompra.Text.TrimEnd('.');
                 }
 
                 // Si no hay un punto decimal o si el último carácter es el punto decimal, añadir ".00" al final
-                if (txtPrecioDeCompra.Text.IndexOf('.') == -1 || txtPrecioDeCompra.Text.EndsWith("."))
+                if (txtPrecioCompra.Text.IndexOf('.') == -1 || txtPrecioCompra.Text.EndsWith("."))
                 {
-                    txtPrecioDeCompra.Text += ".00";
+                    txtPrecioCompra.Text += ".00";
                 }
                 // Si hay un punto decimal, pero solo un dígito después de él, agregar un cero adicional
-                else if (txtPrecioDeCompra.Text.Length - txtPrecioDeCompra.Text.IndexOf('.') == 2)
+                else if (txtPrecioCompra.Text.Length - txtPrecioCompra.Text.IndexOf('.') == 2)
                 {
-                    txtPrecioDeCompra.Text += "0";
+                    txtPrecioCompra.Text += "0";
                 }
                 // Si no hay dígitos después del punto decimal, agregar dos ceros adicionales
-                else if (txtPrecioDeCompra.Text.Length - txtPrecioDeCompra.Text.IndexOf('.') == 1)
+                else if (txtPrecioCompra.Text.Length - txtPrecioCompra.Text.IndexOf('.') == 1)
                 {
-                    txtPrecioDeCompra.Text += "00";
+                    txtPrecioCompra.Text += "00";
                 }
             }
 

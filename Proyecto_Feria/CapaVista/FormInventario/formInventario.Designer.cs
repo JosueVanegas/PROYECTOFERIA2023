@@ -35,6 +35,7 @@
             btnServicios = new RJCodeAdvance.RJControls.RJButton();
             btnProductos = new RJCodeAdvance.RJControls.RJButton();
             panelContenedor = new Panel();
+            btnCompras = new RJCodeAdvance.RJControls.RJButton();
             panelMenu.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
@@ -58,6 +59,7 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
+            tableLayoutPanel1.Controls.Add(btnCompras, 0, 0);
             tableLayoutPanel1.Controls.Add(btnProveedores, 2, 0);
             tableLayoutPanel1.Controls.Add(btnServicios, 1, 0);
             tableLayoutPanel1.Controls.Add(btnProductos, 0, 0);
@@ -84,7 +86,7 @@
             btnProveedores.ForeColor = Color.White;
             btnProveedores.Image = (Image)resources.GetObject("btnProveedores.Image");
             btnProveedores.ImageAlign = ContentAlignment.MiddleLeft;
-            btnProveedores.Location = new Point(311, 2);
+            btnProveedores.Location = new Point(465, 2);
             btnProveedores.Margin = new Padding(3, 2, 3, 2);
             btnProveedores.Name = "btnProveedores";
             btnProveedores.Size = new Size(148, 48);
@@ -111,12 +113,12 @@
             btnServicios.ForeColor = Color.White;
             btnServicios.Image = (Image)resources.GetObject("btnServicios.Image");
             btnServicios.ImageAlign = ContentAlignment.MiddleLeft;
-            btnServicios.Location = new Point(157, 2);
+            btnServicios.Location = new Point(311, 2);
             btnServicios.Margin = new Padding(3, 2, 3, 2);
             btnServicios.Name = "btnServicios";
             btnServicios.Size = new Size(148, 48);
             btnServicios.TabIndex = 10;
-            btnServicios.Text = "Servicios";
+            btnServicios.Text = "Categorias";
             btnServicios.TextAlign = ContentAlignment.MiddleRight;
             btnServicios.TextColor = Color.White;
             btnServicios.UseVisualStyleBackColor = false;
@@ -161,6 +163,31 @@
             panelContenedor.Size = new Size(930, 464);
             panelContenedor.TabIndex = 3;
             // 
+            // btnCompras
+            // 
+            btnCompras.BackColor = Color.FromArgb(63, 63, 70);
+            btnCompras.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnCompras.BackgroundImageLayout = ImageLayout.Center;
+            btnCompras.BorderColor = Color.PaleVioletRed;
+            btnCompras.BorderRadius = 10;
+            btnCompras.BorderSize = 0;
+            btnCompras.Dock = DockStyle.Fill;
+            btnCompras.FlatAppearance.BorderSize = 0;
+            btnCompras.FlatStyle = FlatStyle.Flat;
+            btnCompras.Font = new Font("Segoe UI", 12.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCompras.ForeColor = Color.White;
+            btnCompras.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCompras.Location = new Point(157, 2);
+            btnCompras.Margin = new Padding(3, 2, 3, 2);
+            btnCompras.Name = "btnCompras";
+            btnCompras.Size = new Size(148, 48);
+            btnCompras.TabIndex = 12;
+            btnCompras.Text = "Compras";
+            btnCompras.TextAlign = ContentAlignment.MiddleRight;
+            btnCompras.TextColor = Color.White;
+            btnCompras.UseVisualStyleBackColor = false;
+            btnCompras.Click += btnCompras_Click;
+            // 
             // formInventario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -186,5 +213,6 @@
         private RJCodeAdvance.RJControls.RJButton btnProveedores;
         private RJCodeAdvance.RJControls.RJButton btnServicios;
         public Panel panelContenedor;
+        private RJCodeAdvance.RJControls.RJButton btnCompras;
     }
 }

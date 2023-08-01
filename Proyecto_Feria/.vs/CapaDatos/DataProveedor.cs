@@ -1,10 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
-using System;
 using System.Data;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CapaDatos
 {
@@ -24,7 +19,8 @@ namespace CapaDatos
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
                         cmd.CommandType = CommandType.Text;
-                        using(SqlDataReader reader = cmd.ExecuteReader()) {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
                             while (reader.Read())
                             {
                                 lista.Add(new Proveedor
@@ -44,7 +40,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-               lista = new List<Proveedor>();
+                lista = new List<Proveedor>();
             }
             return lista;
         }

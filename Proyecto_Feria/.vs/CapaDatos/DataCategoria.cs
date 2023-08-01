@@ -11,7 +11,7 @@ namespace CapaDatos
         public List<Estado> listarEstados()
         {
             List<Estado> estados = new List<Estado>();
-            estados.Add(new Estado {estado = true,descripcion = "ACTIVA" });
+            estados.Add(new Estado { estado = true, descripcion = "ACTIVA" });
             estados.Add(new Estado { estado = false, descripcion = "INACTIVA" });
             return estados;
         }
