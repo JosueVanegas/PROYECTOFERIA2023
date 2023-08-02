@@ -249,7 +249,8 @@
             txtDescuento.TrailingIcon = null;
             txtDescuento.UseSystemPasswordChar = false;
             txtDescuento.Visible = false;
-        
+            txtDescuento.KeyPress += textBox1_KeyPress;
+            txtDescuento.TextChanged += AddPercentageSign;
             // 
             // txtSubTotal
             // 

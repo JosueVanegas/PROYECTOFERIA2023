@@ -34,18 +34,6 @@ namespace CapaVista
         {
 
         }
-        private void botonesClaros()
-        {
-
-        }
-        private void fondoOscuro()
-        {
-
-        }
-        private void fondoClaro()
-        {
-
-        }
         private void CambioColor(Boolean Mod)
         {
             if (!Mod)

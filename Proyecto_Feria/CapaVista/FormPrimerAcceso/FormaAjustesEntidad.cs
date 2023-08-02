@@ -9,11 +9,12 @@ namespace CapaVista.FormPrimerAcceso
 {
     public partial class FormaAjustesEntidad : MaterialForm
     {
-
+        Boolean Acceso = true;
         public FormaAjustesEntidad(Boolean Mod, Boolean Acceso)
         {
             InitializeComponent();
-            EstadoDeLaEntidad(Acceso);
+            this.Acceso = Acceso;
+            EstadoDeLaEntidad(this.Acceso);
             MaterialSkinManager manager;
             manager = MaterialSkinManager.Instance;
             manager.AddFormToManage(this);
@@ -63,6 +64,7 @@ namespace CapaVista.FormPrimerAcceso
 
             return Confirmacion;
         }
+        
 
         private void btnUsuario_Click(object sender, EventArgs e)
         {
@@ -73,19 +75,49 @@ namespace CapaVista.FormPrimerAcceso
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (txtDireccion.Text != null && txtNombreEmpresa != null && pictureEmpresa.Image != null && cbxPais.Text != null)
+           
+
+            if (this.Acceso)
             {
-                this.Close();
-                formLogin login = new formLogin();
-                login.ShowDialog();
+                //Para FrmIniciar
+                if (txtDireccion.Text != null && txtNombreEmpresa != null && pictureEmpresa.Image != null && cbxPais.Text != null)
+                {
+                    this.Close();
+                    MessageBox.Show("Perfecto Datos Guarda a continuacion puedes iniciar", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar este elemento?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        formLogin login = new formLogin();
+                        login.ShowDialog();
+                    }
+
+                }
+                else
+                {
+                    this.Close();
+                    MessageBox.Show("Por favor completar cada uno de los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
             }
-            else
+            if (!Acceso)
             {
-                this.Close();
-                MessageBox.Show("Por favor completar cada uno de los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                formLogin login = new formLogin();
-                login.ShowDialog();
+               //Para formConfiguracion
+                
+                if (txtDireccion.Text != null && txtNombreEmpresa != null && pictureEmpresa.Image != null && cbxPais.Text != null)
+                {
+                    this.Close();
+                    MessageBox.Show("Perfecto Datos Guarda a continuacion puedes iniciar", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
+                    
+                }
+                else
+                {
+                    this.Close();
+                    MessageBox.Show("Por favor completar cada uno de los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                   
+                }
             }
+
         }
 
         private void cbxPais_SelectedIndexChanged(object sender, EventArgs e)
