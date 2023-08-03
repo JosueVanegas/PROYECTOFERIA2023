@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Proyecto_Feria",
+    "\\Proyecto_Feria\\CapaVista",
+    "\\Proyecto_Feria\\CapaVista\\FormInventario"
   ],
+  "SelectedNode": "\\Proyecto_Feria\\CapaVista\\FormInventario\\formProductos.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -63,6 +63,16 @@ namespace CapaVista.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap carrito_de_compra_anadir__2_ {
+            get {
+                object obj = ResourceManager.GetObject("carrito-de-compra-anadir (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap eliminar {
             get {
                 object obj = ResourceManager.GetObject("eliminar", resourceCulture);

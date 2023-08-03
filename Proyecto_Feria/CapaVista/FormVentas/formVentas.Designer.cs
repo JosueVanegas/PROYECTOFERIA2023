@@ -45,8 +45,10 @@
             btnCash = new RJCodeAdvance.RJControls.RJButton();
             lblTitulo = new Label();
             panel2 = new Panel();
+            txtIva = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtTotal = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             checkDescuento = new ReaLTaiizor.Controls.MaterialCheckBox();
+            tableLayoutPanel3 = new TableLayoutPanel();
             ProductosDataGrid = new ReaLTaiizor.Controls.PoisonDataGridView();
             Eliminar = new DataGridViewImageColumn();
             DescripcionData = new DataGridViewTextBoxColumn();
@@ -57,7 +59,10 @@
             IncrementoCantidadDataGrid = new DataGridViewImageColumn();
             DecrementoCantidadDataGrid = new DataGridViewImageColumn();
             ImageProducto = new DataGridViewImageColumn();
-            tableLayoutPanel3 = new TableLayoutPanel();
+            panel3 = new Panel();
+            flowLayoutPanel2 = new FlowLayoutPanel();
+            txtCodigoProducto = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            btnAgregarProducto = new RJCodeAdvance.RJControls.RJButton();
             flowLayoutPanel1 = new FlowLayoutPanel();
             btnBuscar = new RJCodeAdvance.RJControls.RJButton();
             cbxBuscar = new ReaLTaiizor.Controls.MaterialComboBox();
@@ -68,8 +73,10 @@
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)ProductosDataGrid).BeginInit();
             tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ProductosDataGrid).BeginInit();
+            panel3.SuspendLayout();
+            flowLayoutPanel2.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -301,7 +308,6 @@
             // 
             btnCash.BackColor = Color.FromArgb(63, 63, 70);
             btnCash.BackgroundColor = Color.FromArgb(63, 63, 70);
-            btnCash.BackgroundImage = (Image)resources.GetObject("btnCash.BackgroundImage");
             btnCash.BackgroundImageLayout = ImageLayout.Center;
             btnCash.BorderColor = Color.PaleVioletRed;
             btnCash.BorderRadius = 10;
@@ -310,12 +316,13 @@
             btnCash.FlatAppearance.BorderSize = 0;
             btnCash.FlatStyle = FlatStyle.Flat;
             btnCash.ForeColor = Color.White;
+            btnCash.Image = (Image)resources.GetObject("btnCash.Image");
             btnCash.Location = new Point(3, 2);
             btnCash.Margin = new Padding(3, 2, 3, 2);
             btnCash.Name = "btnCash";
             btnCash.Size = new Size(260, 79);
             btnCash.TabIndex = 12;
-            btnCash.Text = "Cash";
+            btnCash.Text = "Finalizar compra ";
             btnCash.TextAlign = ContentAlignment.BottomCenter;
             btnCash.TextColor = Color.White;
             btnCash.UseVisualStyleBackColor = false;
@@ -336,6 +343,7 @@
             // 
             panel2.BackColor = Color.White;
             panel2.BackgroundImageLayout = ImageLayout.Stretch;
+            panel2.Controls.Add(txtIva);
             panel2.Controls.Add(txtTotal);
             panel2.Controls.Add(checkDescuento);
             panel2.Controls.Add(lblTitulo);
@@ -347,6 +355,37 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(302, 542);
             panel2.TabIndex = 50;
+            // 
+            // txtIva
+            // 
+            txtIva.AnimateReadOnly = true;
+            txtIva.AutoCompleteMode = AutoCompleteMode.None;
+            txtIva.AutoCompleteSource = AutoCompleteSource.None;
+            txtIva.BackgroundImageLayout = ImageLayout.None;
+            txtIva.CharacterCasing = CharacterCasing.Normal;
+            txtIva.Depth = 0;
+            txtIva.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtIva.HideSelection = true;
+            txtIva.Hint = "Iva";
+            txtIva.LeadingIcon = null;
+            txtIva.Location = new Point(21, 331);
+            txtIva.MaxLength = 32767;
+            txtIva.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtIva.Name = "txtIva";
+            txtIva.PasswordChar = '\0';
+            txtIva.PrefixSuffixText = null;
+            txtIva.ReadOnly = true;
+            txtIva.RightToLeft = RightToLeft.No;
+            txtIva.SelectedText = "";
+            txtIva.SelectionLength = 0;
+            txtIva.SelectionStart = 0;
+            txtIva.ShortcutsEnabled = true;
+            txtIva.Size = new Size(263, 48);
+            txtIva.TabIndex = 52;
+            txtIva.TabStop = false;
+            txtIva.TextAlign = HorizontalAlignment.Center;
+            txtIva.TrailingIcon = null;
+            txtIva.UseSystemPasswordChar = false;
             // 
             // txtTotal
             // 
@@ -397,6 +436,22 @@
             checkDescuento.UseVisualStyleBackColor = true;
             checkDescuento.CheckedChanged += checkDescuento_CheckedChanged;
             // 
+            // tableLayoutPanel3
+            // 
+            tableLayoutPanel3.ColumnCount = 1;
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel3.Controls.Add(ProductosDataGrid, 0, 1);
+            tableLayoutPanel3.Controls.Add(panel3, 0, 0);
+            tableLayoutPanel3.Dock = DockStyle.Fill;
+            tableLayoutPanel3.Location = new Point(3, 24);
+            tableLayoutPanel3.Name = "tableLayoutPanel3";
+            tableLayoutPanel3.RowCount = 2;
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 21.955719F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 78.04428F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel3.Size = new Size(787, 542);
+            tableLayoutPanel3.TabIndex = 52;
+            // 
             // ProductosDataGrid
             // 
             ProductosDataGrid.AllowUserToResizeRows = false;
@@ -422,10 +477,11 @@
             dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             ProductosDataGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            ProductosDataGrid.Dock = DockStyle.Fill;
             ProductosDataGrid.EnableHeadersVisualStyles = false;
             ProductosDataGrid.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             ProductosDataGrid.GridColor = Color.FromArgb(255, 255, 255);
-            ProductosDataGrid.Location = new Point(3, 70);
+            ProductosDataGrid.Location = new Point(3, 122);
             ProductosDataGrid.Name = "ProductosDataGrid";
             ProductosDataGrid.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -439,8 +495,8 @@
             ProductosDataGrid.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             ProductosDataGrid.RowTemplate.Height = 25;
             ProductosDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            ProductosDataGrid.Size = new Size(781, 469);
-            ProductosDataGrid.TabIndex = 51;
+            ProductosDataGrid.Size = new Size(781, 417);
+            ProductosDataGrid.TabIndex = 54;
             // 
             // Eliminar
             // 
@@ -490,21 +546,82 @@
             ImageProducto.HeaderText = "";
             ImageProducto.Name = "ImageProducto";
             // 
-            // tableLayoutPanel3
+            // panel3
             // 
-            tableLayoutPanel3.ColumnCount = 1;
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel3.Controls.Add(flowLayoutPanel1, 0, 0);
-            tableLayoutPanel3.Controls.Add(ProductosDataGrid, 0, 1);
-            tableLayoutPanel3.Dock = DockStyle.Fill;
-            tableLayoutPanel3.Location = new Point(3, 24);
-            tableLayoutPanel3.Name = "tableLayoutPanel3";
-            tableLayoutPanel3.RowCount = 2;
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 12.3616238F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 87.6383743F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel3.Size = new Size(787, 542);
-            tableLayoutPanel3.TabIndex = 52;
+            panel3.Controls.Add(flowLayoutPanel2);
+            panel3.Controls.Add(flowLayoutPanel1);
+            panel3.Dock = DockStyle.Fill;
+            panel3.Location = new Point(3, 3);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(781, 113);
+            panel3.TabIndex = 53;
+            // 
+            // flowLayoutPanel2
+            // 
+            flowLayoutPanel2.Controls.Add(txtCodigoProducto);
+            flowLayoutPanel2.Controls.Add(btnAgregarProducto);
+            flowLayoutPanel2.Dock = DockStyle.Top;
+            flowLayoutPanel2.Font = new Font("Microsoft New Tai Lue", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            flowLayoutPanel2.Location = new Point(0, 61);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Size = new Size(781, 54);
+            flowLayoutPanel2.TabIndex = 53;
+            // 
+            // txtCodigoProducto
+            // 
+            txtCodigoProducto.AnimateReadOnly = true;
+            txtCodigoProducto.AutoCompleteMode = AutoCompleteMode.None;
+            txtCodigoProducto.AutoCompleteSource = AutoCompleteSource.None;
+            txtCodigoProducto.BackgroundImageLayout = ImageLayout.None;
+            txtCodigoProducto.CharacterCasing = CharacterCasing.Normal;
+            txtCodigoProducto.Depth = 0;
+            txtCodigoProducto.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtCodigoProducto.HideSelection = true;
+            txtCodigoProducto.Hint = " ";
+            txtCodigoProducto.LeadingIcon = null;
+            txtCodigoProducto.Location = new Point(3, 3);
+            txtCodigoProducto.MaxLength = 32767;
+            txtCodigoProducto.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtCodigoProducto.Name = "txtCodigoProducto";
+            txtCodigoProducto.PasswordChar = '\0';
+            txtCodigoProducto.PrefixSuffixText = null;
+            txtCodigoProducto.ReadOnly = false;
+            txtCodigoProducto.RightToLeft = RightToLeft.No;
+            txtCodigoProducto.SelectedText = "";
+            txtCodigoProducto.SelectionLength = 0;
+            txtCodigoProducto.SelectionStart = 0;
+            txtCodigoProducto.ShortcutsEnabled = false;
+            txtCodigoProducto.Size = new Size(654, 48);
+            txtCodigoProducto.TabIndex = 49;
+            txtCodigoProducto.TabStop = false;
+            txtCodigoProducto.Text = "#";
+            txtCodigoProducto.TextAlign = HorizontalAlignment.Left;
+            txtCodigoProducto.TrailingIcon = null;
+            txtCodigoProducto.UseSystemPasswordChar = false;
+            txtCodigoProducto.KeyPress += txtCodigoProducto_KeyPress;
+            txtCodigoProducto.TextChanged += AddNumeralSign;
+            // 
+            // btnAgregarProducto
+            // 
+            btnAgregarProducto.BackColor = Color.FromArgb(63, 63, 70);
+            btnAgregarProducto.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnAgregarProducto.BackgroundImageLayout = ImageLayout.None;
+            btnAgregarProducto.BorderColor = Color.PaleVioletRed;
+            btnAgregarProducto.BorderRadius = 10;
+            btnAgregarProducto.BorderSize = 0;
+            btnAgregarProducto.FlatAppearance.BorderSize = 0;
+            btnAgregarProducto.FlatStyle = FlatStyle.Flat;
+            btnAgregarProducto.ForeColor = Color.White;
+            btnAgregarProducto.Image = (Image)resources.GetObject("btnAgregarProducto.Image");
+            btnAgregarProducto.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAgregarProducto.Location = new Point(663, 3);
+            btnAgregarProducto.Name = "btnAgregarProducto";
+            btnAgregarProducto.Size = new Size(112, 49);
+            btnAgregarProducto.TabIndex = 50;
+            btnAgregarProducto.Text = "Agregar";
+            btnAgregarProducto.TextAlign = ContentAlignment.MiddleRight;
+            btnAgregarProducto.TextColor = Color.White;
+            btnAgregarProducto.UseVisualStyleBackColor = false;
             // 
             // flowLayoutPanel1
             // 
@@ -512,8 +629,8 @@
             flowLayoutPanel1.Controls.Add(cbxBuscar);
             flowLayoutPanel1.Controls.Add(btnEntradaManual);
             flowLayoutPanel1.Controls.Add(btnEntradaLaser);
-            flowLayoutPanel1.Dock = DockStyle.Fill;
-            flowLayoutPanel1.Location = new Point(3, 3);
+            flowLayoutPanel1.Dock = DockStyle.Top;
+            flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(781, 61);
             flowLayoutPanel1.TabIndex = 52;
@@ -565,6 +682,7 @@
             cbxBuscar.Size = new Size(448, 49);
             cbxBuscar.StartIndex = 0;
             cbxBuscar.TabIndex = 53;
+            cbxBuscar.SelectedIndexChanged += cbxBuscar_SelectedIndexChanged;
             // 
             // btnEntradaManual
             // 
@@ -632,8 +750,10 @@
             tableLayoutPanel2.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)ProductosDataGrid).EndInit();
             tableLayoutPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)ProductosDataGrid).EndInit();
+            panel3.ResumeLayout(false);
+            flowLayoutPanel2.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -654,6 +774,14 @@
         private Label lblTitulo;
         private TextBox txtIdCategoria;
         private Panel panel2;
+        private TableLayoutPanel tableLayoutPanel3;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private RJCodeAdvance.RJControls.RJButton btnBuscar;
+        private ReaLTaiizor.Controls.MaterialComboBox cbxBuscar;
+        private RJCodeAdvance.RJControls.RJButton btnEntradaManual;
+        private RJCodeAdvance.RJControls.RJButton btnEntradaLaser;
+        private ReaLTaiizor.Controls.MaterialCheckBox checkDescuento;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtTotal;
         private ReaLTaiizor.Controls.PoisonDataGridView ProductosDataGrid;
         private DataGridViewImageColumn Eliminar;
         private DataGridViewTextBoxColumn DescripcionData;
@@ -664,13 +792,10 @@
         private DataGridViewImageColumn IncrementoCantidadDataGrid;
         private DataGridViewImageColumn DecrementoCantidadDataGrid;
         private DataGridViewImageColumn ImageProducto;
-        private TableLayoutPanel tableLayoutPanel3;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private RJCodeAdvance.RJControls.RJButton btnBuscar;
-        private ReaLTaiizor.Controls.MaterialComboBox cbxBuscar;
-        private RJCodeAdvance.RJControls.RJButton btnEntradaManual;
-        private RJCodeAdvance.RJControls.RJButton btnEntradaLaser;
-        private ReaLTaiizor.Controls.MaterialCheckBox checkDescuento;
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtTotal;
+        private Panel panel3;
+        private FlowLayoutPanel flowLayoutPanel2;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCodigoProducto;
+        private RJCodeAdvance.RJControls.RJButton btnAgregarProducto;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtIva;
     }
 }

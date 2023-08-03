@@ -348,7 +348,8 @@ namespace CapaVista
         }
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new formVentas(formConfiguraciones.Mod));
+            formVentas frmVenta = new formVentas(formConfiguraciones.Mod);
+            frmVenta.ShowDialog();
         }
 
         private void btnContabilidad_Click(object sender, EventArgs e)

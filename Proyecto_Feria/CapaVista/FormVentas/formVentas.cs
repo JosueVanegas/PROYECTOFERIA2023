@@ -36,6 +36,15 @@ namespace CapaVista.FormVenta
 
 
         }
+        //este habilidad la opcion de escribir que se haga una sugerencia
+        //lo hago de esta por al estar vacio no me lo permite cuando 
+        //se conecte a base de datos usa este metodo despues de conectar
+        private void cbxbuscarSugerir()
+        {
+            // Establecer el modo de autocompletado del ComboBox
+            cbxBuscar.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cbxBuscar.AutoCompleteSource = AutoCompleteSource.ListItems;
+        }
 
         private void checkDescuento_CheckedChanged(object sender, EventArgs e)
         {
@@ -117,8 +126,26 @@ namespace CapaVista.FormVenta
                 txtDescuento.Text = currentText + "%";
             }
         }
+        private void AddNumeralSign(object sender, EventArgs e)
+        {
+            // Obtener el contenido actual del control de texto.
+            string currentText = txtCodigoProducto.Text;
 
+            // Verificar si el texto ya contiene un símbolo de porcentaje (%). Si no, agregarlo al final.
+            if (!currentText.StartsWith("#"))
+            {
+                txtCodigoProducto.Text = "#" + currentText;
+            }
+        }
 
+        private void txtCodigoProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Xd pendiente xd
+        }
 
+        private void cbxBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtCodigoProducto.Text = cbxBuscar.SelectedIndex.ToString();
+        }
     }
 }
