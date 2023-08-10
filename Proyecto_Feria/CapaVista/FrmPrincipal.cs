@@ -16,8 +16,6 @@ namespace CapaVista
         Boolean Mod = true;
         Form formActivo = null;
         Button botonActivo = null;
-        bool EstadoDeBarraVertical_Vendedor = true;
-        bool EstadoDeBarraVertical_Contador = true;
         //Color fondoOscuro = Color.FromArgb();
         //Color fondoClaro = Color.FromArgb();
         public FrmPrincipal(Usuario usuario, Boolean DMod)
@@ -28,7 +26,12 @@ namespace CapaVista
             cambioModo.Checked = DMod;
             var controler = new ControlConexion();
             this.user = usuario;
-            //validarAcceso();
+            datosDeUsuarioActual();
+        }
+        private void datosDeUsuarioActual()
+        {
+            lblUsuario.Text = "USUARIO ACTUAL: " + this.user.usuario;
+            lblRol.Text = "ROL DE USUARIO: " + this.user.oRol.descripcion;
         }
 
         private void CambioColor(Boolean Mod)

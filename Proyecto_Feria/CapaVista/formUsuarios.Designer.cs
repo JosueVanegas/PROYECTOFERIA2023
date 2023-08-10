@@ -30,9 +30,9 @@ namespace CapaVista
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formUsuarios));
             tbUsuarios = new ReaLTaiizor.Controls.PoisonDataGridView();
             btnEditar = new DataGridViewButtonColumn();
@@ -61,6 +61,7 @@ namespace CapaVista
             pnlContenedor = new Panel();
             pnlOpciones = new Panel();
             materialDrawer1 = new ReaLTaiizor.Controls.MaterialDrawer();
+            ckbEmpleadoNulo = new ReaLTaiizor.Controls.AirCheckBox();
             ((System.ComponentModel.ISupportInitialize)tbUsuarios).BeginInit();
             pnlRegistroUsuario.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -78,38 +79,38 @@ namespace CapaVista
             tbUsuarios.BorderStyle = BorderStyle.None;
             tbUsuarios.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             tbUsuarios.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            tbUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            tbUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             tbUsuarios.ColumnHeadersHeight = 35;
             tbUsuarios.Columns.AddRange(new DataGridViewColumn[] { btnEditar, btnBorrar, id, usuario, rol, fecha, idRol, clave, idEmpleado });
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.DarkGray;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = Color.LightSkyBlue;
-            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            tbUsuarios.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.DarkGray;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.LightSkyBlue;
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            tbUsuarios.DefaultCellStyle = dataGridViewCellStyle2;
             tbUsuarios.EnableHeadersVisualStyles = false;
             tbUsuarios.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbUsuarios.GridColor = Color.Gray;
             tbUsuarios.Location = new Point(308, 55);
             tbUsuarios.Name = "tbUsuarios";
             tbUsuarios.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.Silver;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            tbUsuarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.Silver;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            tbUsuarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             tbUsuarios.RowHeadersVisible = false;
             tbUsuarios.RowHeadersWidth = 40;
             tbUsuarios.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -199,6 +200,7 @@ namespace CapaVista
             // pnlRegistroUsuario
             // 
             pnlRegistroUsuario.BackColor = Color.White;
+            pnlRegistroUsuario.Controls.Add(ckbEmpleadoNulo);
             pnlRegistroUsuario.Controls.Add(cbxEmpleados);
             pnlRegistroUsuario.Controls.Add(tableLayoutPanel1);
             pnlRegistroUsuario.Controls.Add(txtConfirmarClave);
@@ -229,7 +231,7 @@ namespace CapaVista
             cbxEmpleados.Hint = "seleccione un empleado";
             cbxEmpleados.IntegralHeight = false;
             cbxEmpleados.ItemHeight = 43;
-            cbxEmpleados.Location = new Point(27, 247);
+            cbxEmpleados.Location = new Point(13, 248);
             cbxEmpleados.MaxDropDownItems = 4;
             cbxEmpleados.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbxEmpleados.Name = "cbxEmpleados";
@@ -243,14 +245,14 @@ namespace CapaVista
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006237F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006275F));
-            tableLayoutPanel1.Controls.Add(btnGuardar, 0, 0);
             tableLayoutPanel1.Controls.Add(rjButton2, 1, 0);
-            tableLayoutPanel1.Location = new Point(71, 301);
+            tableLayoutPanel1.Controls.Add(btnGuardar, 0, 0);
+            tableLayoutPanel1.Location = new Point(49, 321);
             tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(152, 80);
+            tableLayoutPanel1.Size = new Size(152, 70);
             tableLayoutPanel1.TabIndex = 30;
             // 
             // btnGuardar
@@ -270,7 +272,7 @@ namespace CapaVista
             btnGuardar.Location = new Point(3, 2);
             btnGuardar.Margin = new Padding(3, 2, 3, 2);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(69, 76);
+            btnGuardar.Size = new Size(69, 66);
             btnGuardar.TabIndex = 11;
             btnGuardar.Text = "Guardar";
             btnGuardar.TextAlign = ContentAlignment.BottomCenter;
@@ -295,7 +297,7 @@ namespace CapaVista
             rjButton2.Location = new Point(78, 2);
             rjButton2.Margin = new Padding(3, 2, 3, 2);
             rjButton2.Name = "rjButton2";
-            rjButton2.Size = new Size(71, 76);
+            rjButton2.Size = new Size(71, 66);
             rjButton2.TabIndex = 12;
             rjButton2.Text = "Limpiar";
             rjButton2.TextAlign = ContentAlignment.BottomCenter;
@@ -316,7 +318,7 @@ namespace CapaVista
             txtConfirmarClave.HideSelection = true;
             txtConfirmarClave.Hint = "ingrese la clave nuevamente";
             txtConfirmarClave.LeadingIcon = null;
-            txtConfirmarClave.Location = new Point(27, 116);
+            txtConfirmarClave.Location = new Point(13, 116);
             txtConfirmarClave.MaxLength = 32767;
             txtConfirmarClave.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtConfirmarClave.Name = "txtConfirmarClave";
@@ -342,7 +344,7 @@ namespace CapaVista
             ckbVerContraseña.Customization = "7e3t//Ly8v/r6+v/5ubm/+vr6//f39//p6en/zw8PP8=";
             ckbVerContraseña.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             ckbVerContraseña.Image = null;
-            ckbVerContraseña.Location = new Point(27, 170);
+            ckbVerContraseña.Location = new Point(13, 170);
             ckbVerContraseña.Name = "ckbVerContraseña";
             ckbVerContraseña.NoRounding = false;
             ckbVerContraseña.Size = new Size(234, 17);
@@ -354,7 +356,7 @@ namespace CapaVista
             // txtIdUsuario
             // 
             txtIdUsuario.Anchor = AnchorStyles.Left;
-            txtIdUsuario.Location = new Point(245, 331);
+            txtIdUsuario.Location = new Point(265, 359);
             txtIdUsuario.Name = "txtIdUsuario";
             txtIdUsuario.Size = new Size(16, 23);
             txtIdUsuario.TabIndex = 8;
@@ -377,7 +379,7 @@ namespace CapaVista
             cbxRol.IntegralHeight = false;
             cbxRol.ItemHeight = 43;
             cbxRol.Items.AddRange(new object[] { "Administrador", "Empleado" });
-            cbxRol.Location = new Point(27, 193);
+            cbxRol.Location = new Point(13, 193);
             cbxRol.MaxDropDownItems = 4;
             cbxRol.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbxRol.Name = "cbxRol";
@@ -398,7 +400,7 @@ namespace CapaVista
             txtClave.HideSelection = true;
             txtClave.Hint = "ingrese la clave de usuario";
             txtClave.LeadingIcon = null;
-            txtClave.Location = new Point(27, 62);
+            txtClave.Location = new Point(13, 62);
             txtClave.MaxLength = 32767;
             txtClave.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtClave.Name = "txtClave";
@@ -430,7 +432,7 @@ namespace CapaVista
             txtUsuario.HideSelection = true;
             txtUsuario.Hint = "ingrese el nombre de usuario";
             txtUsuario.LeadingIcon = null;
-            txtUsuario.Location = new Point(27, 8);
+            txtUsuario.Location = new Point(13, 8);
             txtUsuario.MaxLength = 32767;
             txtUsuario.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtUsuario.Name = "txtUsuario";
@@ -542,6 +544,22 @@ namespace CapaVista
             materialDrawer1.Text = "materialDrawer1";
             materialDrawer1.UseColors = false;
             // 
+            // ckbEmpleadoNulo
+            // 
+            ckbEmpleadoNulo.Anchor = AnchorStyles.Left;
+            ckbEmpleadoNulo.Checked = false;
+            ckbEmpleadoNulo.Customization = "7e3t//Ly8v/r6+v/5ubm/+vr6//f39//p6en/zw8PP8=";
+            ckbEmpleadoNulo.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            ckbEmpleadoNulo.Image = null;
+            ckbEmpleadoNulo.Location = new Point(13, 301);
+            ckbEmpleadoNulo.Name = "ckbEmpleadoNulo";
+            ckbEmpleadoNulo.NoRounding = false;
+            ckbEmpleadoNulo.Size = new Size(234, 17);
+            ckbEmpleadoNulo.TabIndex = 32;
+            ckbEmpleadoNulo.Text = "Desactivar empleados";
+            ckbEmpleadoNulo.Transparent = false;
+            ckbEmpleadoNulo.CheckedChanged += ckbEmpleadoNulo_CheckedChanged;
+            // 
             // formUsuarios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -599,5 +617,6 @@ namespace CapaVista
         private DataGridViewTextBoxColumn idRol;
         private DataGridViewTextBoxColumn clave;
         private DataGridViewTextBoxColumn idEmpleado;
+        private ReaLTaiizor.Controls.AirCheckBox ckbEmpleadoNulo;
     }
 }

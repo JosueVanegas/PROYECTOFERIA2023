@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formLogin));
             parrotGradientPanel1 = new ReaLTaiizor.Controls.ParrotGradientPanel();
+            pictureBox1 = new PictureBox();
             btnIngresar = new ReaLTaiizor.Controls.MaterialButton();
             btnSalir = new ReaLTaiizor.Controls.MaterialButton();
             txtContraseña = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
@@ -36,26 +38,40 @@
             materialLabel1 = new ReaLTaiizor.Controls.MaterialLabel();
             ckbVerContraseña = new ReaLTaiizor.Controls.AirCheckBox();
             lblConexion = new Label();
+            parrotGradientPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // parrotGradientPanel1
             // 
-            parrotGradientPanel1.BottomLeft = Color.RosyBrown;
-            parrotGradientPanel1.BottomRight = Color.DarkCyan;
+            parrotGradientPanel1.BottomLeft = Color.DimGray;
+            parrotGradientPanel1.BottomRight = Color.Teal;
             parrotGradientPanel1.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-            parrotGradientPanel1.Dock = DockStyle.Left;
+            parrotGradientPanel1.Controls.Add(pictureBox1);
             parrotGradientPanel1.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
-            parrotGradientPanel1.Location = new Point(3, 0);
+            parrotGradientPanel1.Location = new Point(-11, 0);
             parrotGradientPanel1.Name = "parrotGradientPanel1";
             parrotGradientPanel1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
             parrotGradientPanel1.PrimerColor = Color.White;
-            parrotGradientPanel1.Size = new Size(233, 297);
+            parrotGradientPanel1.Size = new Size(247, 305);
             parrotGradientPanel1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             parrotGradientPanel1.Style = ReaLTaiizor.Controls.ParrotGradientPanel.GradientStyle.Corners;
             parrotGradientPanel1.TabIndex = 0;
             parrotGradientPanel1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            parrotGradientPanel1.TopLeft = Color.DeepSkyBlue;
-            parrotGradientPanel1.TopRight = Color.Fuchsia;
+            parrotGradientPanel1.TopLeft = Color.Cyan;
+            parrotGradientPanel1.TopRight = Color.FromArgb(50, 50, 50);
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.ErrorImage = (Image)resources.GetObject("pictureBox1.ErrorImage");
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.InitialImage = (Image)resources.GetObject("pictureBox1.InitialImage");
+            pictureBox1.Location = new Point(67, 90);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(102, 98);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
             // 
             // btnIngresar
             // 
@@ -66,7 +82,7 @@
             btnIngresar.HighEmphasis = true;
             btnIngresar.Icon = null;
             btnIngresar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnIngresar.Location = new Point(255, 211);
+            btnIngresar.Location = new Point(272, 211);
             btnIngresar.Margin = new Padding(4, 6, 4, 6);
             btnIngresar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnIngresar.Name = "btnIngresar";
@@ -88,7 +104,7 @@
             btnSalir.HighEmphasis = true;
             btnSalir.Icon = null;
             btnSalir.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnSalir.Location = new Point(370, 211);
+            btnSalir.Location = new Point(397, 211);
             btnSalir.Margin = new Padding(4, 6, 4, 6);
             btnSalir.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnSalir.Name = "btnSalir";
@@ -113,7 +129,7 @@
             txtContraseña.HideSelection = true;
             txtContraseña.Hint = "ingrese la contraseña";
             txtContraseña.LeadingIcon = null;
-            txtContraseña.Location = new Point(255, 131);
+            txtContraseña.Location = new Point(272, 131);
             txtContraseña.MaxLength = 32767;
             txtContraseña.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtContraseña.Name = "txtContraseña";
@@ -125,7 +141,7 @@
             txtContraseña.SelectionLength = 0;
             txtContraseña.SelectionStart = 0;
             txtContraseña.ShortcutsEnabled = true;
-            txtContraseña.Size = new Size(200, 48);
+            txtContraseña.Size = new Size(210, 48);
             txtContraseña.TabIndex = 3;
             txtContraseña.TabStop = false;
             txtContraseña.TextAlign = HorizontalAlignment.Center;
@@ -144,7 +160,7 @@
             txtUsuario.HideSelection = true;
             txtUsuario.Hint = "ingrese el usuario";
             txtUsuario.LeadingIcon = null;
-            txtUsuario.Location = new Point(255, 63);
+            txtUsuario.Location = new Point(272, 77);
             txtUsuario.MaxLength = 32767;
             txtUsuario.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtUsuario.Name = "txtUsuario";
@@ -156,7 +172,7 @@
             txtUsuario.SelectionLength = 0;
             txtUsuario.SelectionStart = 0;
             txtUsuario.ShortcutsEnabled = true;
-            txtUsuario.Size = new Size(200, 48);
+            txtUsuario.Size = new Size(210, 48);
             txtUsuario.TabIndex = 4;
             txtUsuario.TabStop = false;
             txtUsuario.TextAlign = HorizontalAlignment.Center;
@@ -167,10 +183,10 @@
             // 
             materialLabel1.Depth = 0;
             materialLabel1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel1.Location = new Point(255, 9);
+            materialLabel1.Location = new Point(272, 9);
             materialLabel1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel1.Name = "materialLabel1";
-            materialLabel1.Size = new Size(200, 51);
+            materialLabel1.Size = new Size(210, 51);
             materialLabel1.TabIndex = 5;
             materialLabel1.Text = "Login";
             materialLabel1.TextAlign = ContentAlignment.MiddleCenter;
@@ -181,10 +197,10 @@
             ckbVerContraseña.Customization = "7e3t//Ly8v/r6+v/5ubm/+vr6//f39//p6en/zw8PP8=";
             ckbVerContraseña.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             ckbVerContraseña.Image = null;
-            ckbVerContraseña.Location = new Point(255, 185);
+            ckbVerContraseña.Location = new Point(272, 185);
             ckbVerContraseña.Name = "ckbVerContraseña";
             ckbVerContraseña.NoRounding = false;
-            ckbVerContraseña.Size = new Size(200, 17);
+            ckbVerContraseña.Size = new Size(210, 17);
             ckbVerContraseña.TabIndex = 6;
             ckbVerContraseña.Text = "ver contraseña";
             ckbVerContraseña.Transparent = false;
@@ -194,9 +210,9 @@
             // 
             lblConexion.Font = new Font("Microsoft Sans Serif", 6F, FontStyle.Regular, GraphicsUnit.Point);
             lblConexion.ForeColor = SystemColors.ControlDarkDark;
-            lblConexion.Location = new Point(255, 253);
+            lblConexion.Location = new Point(242, 253);
             lblConexion.Name = "lblConexion";
-            lblConexion.Size = new Size(200, 38);
+            lblConexion.Size = new Size(265, 44);
             lblConexion.TabIndex = 7;
             // 
             // formLogin
@@ -204,7 +220,7 @@
             AcceptButton = btnIngresar;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(476, 300);
+            ClientSize = new Size(518, 305);
             Controls.Add(lblConexion);
             Controls.Add(ckbVerContraseña);
             Controls.Add(materialLabel1);
@@ -220,6 +236,8 @@
             Sizable = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "formLogin";
+            parrotGradientPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -233,5 +251,6 @@
         private ReaLTaiizor.Controls.AirCheckBox ckbVerContraseña;
         private Label lblConexion;
         public ReaLTaiizor.Controls.MaterialTextBoxEdit txtContraseña;
+        private PictureBox pictureBox1;
     }
 }

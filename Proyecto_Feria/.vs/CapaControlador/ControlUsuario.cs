@@ -18,9 +18,9 @@ namespace CapaControlador
         {
             return dUser.listaEmpleados();
         }
-        public string registrar(Usuario u)
+        public string registrar(Usuario u,bool empleadonulo)
         {
-            string mensaje = dUser.accionesUsuario(u);
+            string mensaje = dUser.accionesUsuario(u, empleadonulo);
             return mensaje;
         }
         public string eliminar(int id)

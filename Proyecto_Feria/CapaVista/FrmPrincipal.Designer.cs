@@ -46,8 +46,8 @@ namespace CapaVista
             btnCalculosl_Admin = new RJCodeAdvance.RJControls.RJButton();
             btnVentasl_Admin = new RJCodeAdvance.RJControls.RJButton();
             tablePanelNombre_Vendedor = new TableLayoutPanel();
-            label1 = new Label();
-            lblTitulo = new Label();
+            lblRol = new Label();
+            lblUsuario = new Label();
             panelVertical_Admin = new TableLayoutPanel();
             btnIniciol_Admin = new RJCodeAdvance.RJControls.RJButton();
             btnUsuariosl_Admin = new RJCodeAdvance.RJControls.RJButton();
@@ -356,42 +356,42 @@ namespace CapaVista
             // 
             // tablePanelNombre_Vendedor
             // 
-            tablePanelNombre_Vendedor.ColumnCount = 2;
-            tablePanelNombre_Vendedor.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tablePanelNombre_Vendedor.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 505F));
-            tablePanelNombre_Vendedor.Controls.Add(label1, 1, 0);
-            tablePanelNombre_Vendedor.Controls.Add(lblTitulo, 0, 0);
-            tablePanelNombre_Vendedor.Location = new Point(12, 25);
+            tablePanelNombre_Vendedor.ColumnCount = 1;
+            tablePanelNombre_Vendedor.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tablePanelNombre_Vendedor.Controls.Add(lblRol, 0, 1);
+            tablePanelNombre_Vendedor.Controls.Add(lblUsuario, 0, 0);
+            tablePanelNombre_Vendedor.Dock = DockStyle.Left;
+            tablePanelNombre_Vendedor.Location = new Point(0, 0);
             tablePanelNombre_Vendedor.Name = "tablePanelNombre_Vendedor";
-            tablePanelNombre_Vendedor.RowCount = 1;
+            tablePanelNombre_Vendedor.RowCount = 2;
             tablePanelNombre_Vendedor.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tablePanelNombre_Vendedor.Size = new Size(621, 57);
+            tablePanelNombre_Vendedor.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tablePanelNombre_Vendedor.Size = new Size(274, 94);
             tablePanelNombre_Vendedor.TabIndex = 1;
-            tablePanelNombre_Vendedor.Visible = false;
             // 
-            // label1
+            // lblRol
             // 
-            label1.Dock = DockStyle.Fill;
-            label1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(119, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(499, 57);
-            label1.TabIndex = 53;
-            label1.Text = "txt";
-            label1.TextAlign = ContentAlignment.MiddleLeft;
+            lblRol.Dock = DockStyle.Fill;
+            lblRol.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblRol.ForeColor = Color.White;
+            lblRol.Location = new Point(3, 47);
+            lblRol.Name = "lblRol";
+            lblRol.Size = new Size(268, 47);
+            lblRol.TabIndex = 53;
+            lblRol.Text = "ROL DE USUARIO:";
+            lblRol.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // lblTitulo
+            // lblUsuario
             // 
-            lblTitulo.Dock = DockStyle.Fill;
-            lblTitulo.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblTitulo.ForeColor = Color.White;
-            lblTitulo.Location = new Point(3, 0);
-            lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(110, 57);
-            lblTitulo.TabIndex = 52;
-            lblTitulo.Text = "Vendedor :";
-            lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
+            lblUsuario.Dock = DockStyle.Fill;
+            lblUsuario.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblUsuario.ForeColor = Color.White;
+            lblUsuario.Location = new Point(3, 0);
+            lblUsuario.Name = "lblUsuario";
+            lblUsuario.Size = new Size(268, 47);
+            lblUsuario.TabIndex = 52;
+            lblUsuario.Text = "USUARIO ACTUAL:";
+            lblUsuario.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // panelVertical_Admin
             // 
@@ -791,8 +791,7 @@ namespace CapaVista
         private RJCodeAdvance.RJControls.RJButton btnConfiguracionesl_Admin;
         private RJCodeAdvance.RJControls.RJButton btnVentasl_Admin;
         private TableLayoutPanel tablePanelNombre_Vendedor;
-        private Label label1;
-        private Label lblTitulo;
+        private Label lblUsuario;
         public Panel panelContenedor;
         private Panel panel2;
         private TableLayoutPanel tableLayoutPanel2;
@@ -811,5 +810,6 @@ namespace CapaVista
         private TableLayoutPanel tableLayoutPanel5;
         private Panel panelModo;
         public ReaLTaiizor.Controls.CyberSwitch cambioModo;
+        private Label lblRol;
     }
 }

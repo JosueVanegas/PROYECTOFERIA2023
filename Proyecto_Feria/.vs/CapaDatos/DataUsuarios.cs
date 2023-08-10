@@ -153,7 +153,7 @@ namespace CapaDatos
             }
             return lista;
         }
-        public string accionesUsuario(Usuario user)
+        public string accionesUsuario(Usuario user,bool empleadoNulo)
         {
             using (SqlConnection connection = new conexion().conectar())
             {
@@ -163,7 +163,14 @@ namespace CapaDatos
                     SqlCommand comand = new SqlCommand("PROC_REGISTRAR_USUARIO", connection);
                     comand.CommandType = CommandType.StoredProcedure;
                     comand.Parameters.AddWithValue("@ID_USUARIO", user.id);
-                    comand.Parameters.AddWithValue("@ID_EMPLEADO", user.oEmpleado.id);
+                    if(empleadoNulo == true)
+                    {
+                        comand.Parameters.AddWithValue("@ID_EMPLEADO",DBNull.Value );
+                    }
+                    else
+                    {
+                        comand.Parameters.AddWithValue("@ID_EMPLEADO", user.oEmpleado.id);
+                    }
                     comand.Parameters.AddWithValue("@USUARIO", user.usuario);
                     comand.Parameters.AddWithValue("@CLAVE", user.clave);
                     comand.Parameters.AddWithValue("@ID_ROL", user.oRol.id);

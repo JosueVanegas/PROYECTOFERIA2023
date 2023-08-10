@@ -10,7 +10,7 @@
     //clases relacionadas con el login y nominas
     public class Empleado
     {
-        public int id { get; set; }
+        public int? id { get; set; }
         public string cedula { get; set; }
         public string nombres { get; set; }
         public string apellidos { get; set; }

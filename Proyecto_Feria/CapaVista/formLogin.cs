@@ -33,10 +33,10 @@ namespace CapaVista
         {
             ControlUsuario cUsuarios = new ControlUsuario();
             bool acceder = cUsuarios.validarAcceso(txtUsuario.Text, txtContraseña.Text);
-
+            Usuario user = cUsuarios.listarUsuarios().FirstOrDefault(u => u.usuario == txtUsuario.Text);
             if (acceder)
             {
-                FrmPrincipal principal = new FrmPrincipal(null, formConfiguraciones.Mod);
+                FrmPrincipal principal = new FrmPrincipal(user, formConfiguraciones.Mod);
                 principal.Show();
                 this.Hide();
                 principal.FormClosing += frm_closing;

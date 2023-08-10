@@ -10,7 +10,7 @@ namespace CapaVista
     public partial class formUsuarios : MaterialForm
     {
         ControlUsuario controlUsuario = new ControlUsuario();
-
+        bool EmpleadoNulo = false;
         public formUsuarios(Boolean Mod)
         {
             InitializeComponent();
@@ -37,10 +37,10 @@ namespace CapaVista
 
 
         private void formUsuarios_Load(object sender, EventArgs e)
-        { 
-        //mostarEmpleados();
-        //mostrarRoles();
-           mostrarUsuarios();
+        {
+            mostarEmpleados();
+            mostrarRoles();
+            mostrarUsuarios();
         }
         public void mostrarRoles()
         {
@@ -73,9 +73,7 @@ namespace CapaVista
             tbUsuarios.Rows.Clear();
             foreach (Usuario i in usuarios)
             {
-
                 tbUsuarios.Rows.Add("", "", i.id, i.usuario, i.oRol.descripcion, i.fechaRegistro, i.oRol.id, i.clave, "");
-
             }
         }
 
@@ -86,24 +84,25 @@ namespace CapaVista
         private void registrarUsuario()
         {
             int rolU = 0;
+            Empleado emp;
             if (validarCampos() == true)
             {
                 if (txtClave.Text == txtConfirmarClave.Text)
                 {
                     if (txtIdUsuario.Text == "")
                         txtIdUsuario.Text = "1";
-                    Empleado emp = cbxEmpleados.SelectedItem as Empleado;
+                    emp = cbxEmpleados.SelectedItem as Empleado;
                     Rol rol = cbxRol.SelectedItem as Rol;
-                    MessageBox.Show(
-                    controlUsuario.registrar(new Usuario
+                    Usuario user = new Usuario
                     {
                         id = Convert.ToInt32(txtIdUsuario.Text),
                         oEmpleado = emp,
                         usuario = txtUsuario.Text,
                         clave = txtClave.Text,
                         oRol = rol,
-                    })
-                    ); ;
+                    };
+                    MessageBox.Show(controlUsuario.registrar(user,EmpleadoNulo));
+                    controlUsuario.encriptarClave(user);
                     limpiarCampos();
                     mostrarUsuarios();
                 }
@@ -185,7 +184,6 @@ namespace CapaVista
                 {
                     txtIdUsuario.Text = tbUsuarios.Rows[indice].Cells["id"].Value.ToString();
                     txtUsuario.Text = tbUsuarios.Rows[indice].Cells["usuario"].Value.ToString();
-                    txtClave.Text = tbUsuarios.Rows[indice].Cells["clave"].Value.ToString();
                     string rol = tbUsuarios.Rows[indice].Cells["rol"].Value.ToString();
 
                 }
@@ -213,6 +211,22 @@ namespace CapaVista
                     else
                         i.Visible = false;
                 }
+            }
+        }
+
+        private void ckbEmpleadoNulo_CheckedChanged(object sender)
+        {
+            if(ckbEmpleadoNulo.Checked == true)
+            {
+                cbxEmpleados.Enabled = false;
+                EmpleadoNulo = true;
+                MessageBox.Show("el empleado es nulo");
+            }
+            else
+            {
+                cbxEmpleados.Enabled = true;
+                EmpleadoNulo = false;
+                MessageBox.Show("el empleado es activo");
             }
         }
     }
