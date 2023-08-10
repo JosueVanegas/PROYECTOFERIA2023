@@ -32,9 +32,9 @@ namespace CapaVista
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             ControlUsuario cUsuarios = new ControlUsuario();
-            Usuario usuarioValido = cUsuarios.listarUsuarios().FirstOrDefault(u => u.usuario == txtUsuario.Text && u.clave == txtContraseña.Text);
+            bool acceder = cUsuarios.validarAcceso(txtUsuario.Text, txtContraseña.Text);
 
-            if (usuarioValido != null)
+            if (acceder)
             {
                 FrmPrincipal principal = new FrmPrincipal(null, formConfiguraciones.Mod);
                 principal.Show();

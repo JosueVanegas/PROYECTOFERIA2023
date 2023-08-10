@@ -38,9 +38,9 @@ namespace CapaVista
 
         private void formUsuarios_Load(object sender, EventArgs e)
         { 
-            mostarEmpleados();
-            mostrarRoles();
-            mostrarUsuarios();
+        //mostarEmpleados();
+        //mostrarRoles();
+           mostrarUsuarios();
         }
         public void mostrarRoles()
         {

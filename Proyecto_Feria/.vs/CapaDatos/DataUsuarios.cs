@@ -10,30 +10,47 @@ namespace CapaDatos
 
         public string encriptarClave(Usuario u)
         {
-            using(SqlConnection con = new conexion().conectar())
+            try
             {
-                con.Open();
-                using (SqlCommand cmd = new SqlCommand("PROC_ENCRIPTAR_CLAVE", con))
+                using (SqlConnection con = new conexion().conectar())
                 {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@ID",u.id);
-                    cmd.Parameters.AddWithValue("@USUARIO", u.usuario);
-                    cmd.Parameters.AddWithValue("@CLAVE", u.clave);
-                    cmd.ExecuteNonQuery();
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand("PROC_ENCRIPTAR_CLAVE", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@ID", u.id);
+                        cmd.Parameters.AddWithValue("@USUARIO", u.usuario);
+                        cmd.Parameters.AddWithValue("@CLAVE", u.clave);
+                        cmd.ExecuteNonQuery();
+                        mensaje = "se encripto la clave de usuario correctamente";
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                mensaje = ex.Message;
             }
             return mensaje;
         }
-        public void validarAcceso()
+        public bool validarAcceso(string usuario,string clave)
         {
+            bool acceder = false;
             using (SqlConnection con = new conexion().conectar())
             {
                 con.Open();
                 using (SqlCommand cmd = new SqlCommand("PROC_VALIDAR_ACCESO", con)){
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("", SqlDbType.Bit).Direction = ParameterDirection.Output;
+
+                    cmd.Parameters.AddWithValue("@USUARIO", usuario);
+                    cmd.Parameters.AddWithValue("@CLAVE", clave);
+                    cmd.Parameters.Add("@RESULTADO", SqlDbType.Bit).Direction = ParameterDirection.Output;
+
+                    cmd.ExecuteNonQuery();
+
+                    acceder = (bool)cmd.Parameters["@RESULTADO"].Value;
                 }
             }
+            return acceder;
         }
         public List<Rol> listaRoles()
         {

@@ -192,11 +192,11 @@
             // 
             // lblConexion
             // 
-            lblConexion.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblConexion.Font = new Font("Microsoft Sans Serif", 6F, FontStyle.Regular, GraphicsUnit.Point);
             lblConexion.ForeColor = SystemColors.ControlDarkDark;
-            lblConexion.Location = new Point(255, 273);
+            lblConexion.Location = new Point(255, 253);
             lblConexion.Name = "lblConexion";
-            lblConexion.Size = new Size(200, 18);
+            lblConexion.Size = new Size(200, 38);
             lblConexion.TabIndex = 7;
             // 
             // formLogin

@@ -27,5 +27,13 @@ namespace CapaControlador
         {
             return dUser.eliminarUsuario(id);
         }
+        public string encriptarClave(Usuario u)
+        {
+            return dUser.encriptarClave(u);
+        }
+        public bool validarAcceso(string usuario,string clave)
+        {
+            return dUser.validarAcceso(usuario,clave);
+        }
     }
 }
