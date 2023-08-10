@@ -35,13 +35,11 @@ namespace CapaVista
         {
             if (!Mod)
             {
-
                 panelContenedor.BackColor = Color.FromArgb(242, 242, 242);
                 panelAbajo.BackColor = Color.FromArgb(138, 138, 138);
                 tablepanelPanelContenedor.BackColor = Color.FromArgb(242, 242, 242);
                 panel2.BackColor = Color.FromArgb(242, 242, 242);
                 this.BackColor = Color.FromArgb(242, 242, 242);
-
 
                 btnBarraVertical_Admin.BackgroundColor = Color.FromArgb(138, 138, 138);
                 btnIniciol_Admin.BackgroundColor = Color.FromArgb(138, 138, 138);
@@ -62,10 +60,6 @@ namespace CapaVista
                 btnContabilidadl_Admin.ForeColor = Color.Black;
                 btnCalculosl_Admin.ForeColor = Color.Black;
                 btnVentasl_Admin.ForeColor = Color.Black;
-
-
-
-
             }
             if (Mod)
             {

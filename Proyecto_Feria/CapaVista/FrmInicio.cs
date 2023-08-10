@@ -13,9 +13,7 @@ namespace CapaVista
         public FrmInicio(Boolean Mod, Usuario Rol)
         {
             InitializeComponent();
-
-            //MessageBox.Show("la cantidad de categorias es de: " + cEstat.cantidadCategorias());
-          //  mostrarCantidades();
+            mostrarCantidades();
 
             MaterialSkinManager manager;
 

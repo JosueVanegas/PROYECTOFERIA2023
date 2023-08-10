@@ -8,6 +8,33 @@ namespace CapaDatos
         string mensaje = "";
         public DataUsuarios() { }
 
+        public string encriptarClave(Usuario u)
+        {
+            using(SqlConnection con = new conexion().conectar())
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("PROC_ENCRIPTAR_CLAVE", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ID",u.id);
+                    cmd.Parameters.AddWithValue("@USUARIO", u.usuario);
+                    cmd.Parameters.AddWithValue("@CLAVE", u.clave);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            return mensaje;
+        }
+        public void validarAcceso()
+        {
+            using (SqlConnection con = new conexion().conectar())
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("PROC_VALIDAR_ACCESO", con)){
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                }
+            }
+        }
         public List<Rol> listaRoles()
         {
             List<Rol> lista = new List<Rol>();

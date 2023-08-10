@@ -4,8 +4,7 @@ namespace CapaDatos
 {
     public class conexion
     {
-        string cadenaConexion = "Data Source=(local)\\SQLEXPRESS;Initial Catalog=DBPUNTO_DE_VENTA;Integrated Security=true;TrustServerCertificate=true;";
-
+        string cadenaConexion = "Data Source=PERSONAL;Initial Catalog=DBPUNTO_DE_VENTA;Integrated Security=True;Persist Security Info=False;Pooling=False;Multiple Active Result Sets=False;Encrypt=False;Trust Server Certificate=False;Command Timeout=0";
         public conexion() { }
         public string conexionExitosa()
         {
@@ -28,13 +27,11 @@ namespace CapaDatos
         {
             return new SqlConnection(cadenaConexion);
         }
-
         public void desconectar()
         {
             SqlConnection c = conectar();
             c.Open();
             c.Close();
         }
-
     }
 }

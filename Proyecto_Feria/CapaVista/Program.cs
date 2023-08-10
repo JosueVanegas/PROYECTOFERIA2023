@@ -15,8 +15,8 @@ namespace CapaVista
             ApplicationConfiguration.Initialize();
             //Application.Run(new FormInicar(formConfiguraciones.Mod));
 
-            Application.Run(new FrmPrincipal(null, formConfiguraciones.Mod));
-
+            //Application.Run(new FrmPrincipal(null, formConfiguraciones.Mod));
+            Application.Run(new formLogin());
         }
     }
 }
