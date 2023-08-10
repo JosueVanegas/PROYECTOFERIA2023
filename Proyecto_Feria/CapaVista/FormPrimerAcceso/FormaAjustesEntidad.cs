@@ -64,7 +64,7 @@ namespace CapaVista.FormPrimerAcceso
 
             return Confirmacion;
         }
-        
+
 
         private void btnUsuario_Click(object sender, EventArgs e)
         {
@@ -75,7 +75,7 @@ namespace CapaVista.FormPrimerAcceso
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-           
+
 
             if (this.Acceso)
             {
@@ -101,20 +101,20 @@ namespace CapaVista.FormPrimerAcceso
             }
             if (!Acceso)
             {
-               //Para formConfiguracion
-                
+                //Para formConfiguracion
+
                 if (txtDireccion.Text != null && txtNombreEmpresa != null && pictureEmpresa.Image != null && cbxPais.Text != null)
                 {
                     this.Close();
                     MessageBox.Show("Perfecto Datos Guarda a continuacion puedes iniciar", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
-                    
+
+
                 }
                 else
                 {
                     this.Close();
                     MessageBox.Show("Por favor completar cada uno de los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                   
+
                 }
             }
 

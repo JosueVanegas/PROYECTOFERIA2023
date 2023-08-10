@@ -117,7 +117,6 @@
             parrotGroupBox1.TabStop = false;
             parrotGroupBox1.Text = "Datos generales";
             parrotGroupBox1.TextColor = Color.DodgerBlue;
-            parrotGroupBox1.Visible = false;
             // 
             // txtDataCategoria
             // 

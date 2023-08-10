@@ -45,10 +45,6 @@ namespace CapaVista
             btnPlanillal_Admin = new RJCodeAdvance.RJControls.RJButton();
             btnCalculosl_Admin = new RJCodeAdvance.RJControls.RJButton();
             btnVentasl_Admin = new RJCodeAdvance.RJControls.RJButton();
-            tablePanel_Contador = new TableLayoutPanel();
-            btnCalculosl_Contador = new RJCodeAdvance.RJControls.RJButton();
-            btnContablidad_Contador = new RJCodeAdvance.RJControls.RJButton();
-            btnPlanillal_Contador = new RJCodeAdvance.RJControls.RJButton();
             tablePanelNombre_Vendedor = new TableLayoutPanel();
             label1 = new Label();
             lblTitulo = new Label();
@@ -61,14 +57,6 @@ namespace CapaVista
             tablepanelPanelContenedor = new TableLayoutPanel();
             panelContenedor = new Panel();
             panel2 = new Panel();
-            panelVertical_Vendedor = new TableLayoutPanel();
-            btnVentas_Vendedor = new RJCodeAdvance.RJControls.RJButton();
-            btnInicio_Vendedor = new RJCodeAdvance.RJControls.RJButton();
-            btnBarraVertical_Vendedor = new RJCodeAdvance.RJControls.RJButton();
-            panelVertical_Contador = new TableLayoutPanel();
-            btnHerramientas_Contador = new RJCodeAdvance.RJControls.RJButton();
-            btnInicio_Contador = new RJCodeAdvance.RJControls.RJButton();
-            btnBarraVertical_Contador = new RJCodeAdvance.RJControls.RJButton();
             tableLayoutPanel2 = new TableLayoutPanel();
             rjButton1 = new RJCodeAdvance.RJControls.RJButton();
             rjButton2 = new RJCodeAdvance.RJControls.RJButton();
@@ -86,13 +74,10 @@ namespace CapaVista
             ((System.ComponentModel.ISupportInitialize)imagenModo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)SolPicture).BeginInit();
             tablePanel_Admin.SuspendLayout();
-            tablePanel_Contador.SuspendLayout();
             tablePanelNombre_Vendedor.SuspendLayout();
             panelVertical_Admin.SuspendLayout();
             tablepanelPanelContenedor.SuspendLayout();
             panel2.SuspendLayout();
-            panelVertical_Vendedor.SuspendLayout();
-            panelVertical_Contador.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
@@ -103,7 +88,6 @@ namespace CapaVista
             panelAbajo.BackColor = Color.FromArgb(53, 53, 60);
             panelAbajo.Controls.Add(panelModo);
             panelAbajo.Controls.Add(tablePanel_Admin);
-            panelAbajo.Controls.Add(tablePanel_Contador);
             panelAbajo.Controls.Add(tablePanelNombre_Vendedor);
             panelAbajo.Dock = DockStyle.Bottom;
             panelAbajo.Location = new Point(0, 514);
@@ -238,7 +222,7 @@ namespace CapaVista
             tablePanel_Admin.Controls.Add(btnPlanillal_Admin, 0, 0);
             tablePanel_Admin.Controls.Add(btnCalculosl_Admin, 3, 0);
             tablePanel_Admin.Controls.Add(btnVentasl_Admin, 4, 0);
-            tablePanel_Admin.Location = new Point(299, 9);
+            tablePanel_Admin.Location = new Point(297, 13);
             tablePanel_Admin.Margin = new Padding(3, 2, 3, 2);
             tablePanel_Admin.Name = "tablePanel_Admin";
             tablePanel_Admin.RowCount = 1;
@@ -370,99 +354,6 @@ namespace CapaVista
             btnVentasl_Admin.UseVisualStyleBackColor = false;
             btnVentasl_Admin.Click += btnVentas_Click;
             // 
-            // tablePanel_Contador
-            // 
-            tablePanel_Contador.Anchor = AnchorStyles.Bottom;
-            tablePanel_Contador.ColumnCount = 5;
-            tablePanel_Contador.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tablePanel_Contador.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tablePanel_Contador.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tablePanel_Contador.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tablePanel_Contador.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tablePanel_Contador.Controls.Add(btnCalculosl_Contador, 3, 0);
-            tablePanel_Contador.Controls.Add(btnContablidad_Contador, 2, 0);
-            tablePanel_Contador.Controls.Add(btnPlanillal_Contador, 1, 0);
-            tablePanel_Contador.Location = new Point(299, 9);
-            tablePanel_Contador.Margin = new Padding(3, 2, 3, 2);
-            tablePanel_Contador.Name = "tablePanel_Contador";
-            tablePanel_Contador.RowCount = 1;
-            tablePanel_Contador.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tablePanel_Contador.Size = new Size(481, 75);
-            tablePanel_Contador.TabIndex = 2;
-            tablePanel_Contador.Visible = false;
-            // 
-            // btnCalculosl_Contador
-            // 
-            btnCalculosl_Contador.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnCalculosl_Contador.BackColor = Color.FromArgb(21, 24, 31);
-            btnCalculosl_Contador.BackgroundColor = Color.FromArgb(21, 24, 31);
-            btnCalculosl_Contador.BackgroundImage = (Image)resources.GetObject("btnCalculosl_Contador.BackgroundImage");
-            btnCalculosl_Contador.BackgroundImageLayout = ImageLayout.Center;
-            btnCalculosl_Contador.BorderColor = Color.PaleVioletRed;
-            btnCalculosl_Contador.BorderRadius = 10;
-            btnCalculosl_Contador.BorderSize = 0;
-            btnCalculosl_Contador.FlatAppearance.BorderSize = 0;
-            btnCalculosl_Contador.FlatStyle = FlatStyle.Flat;
-            btnCalculosl_Contador.ForeColor = Color.White;
-            btnCalculosl_Contador.Location = new Point(291, 2);
-            btnCalculosl_Contador.Margin = new Padding(3, 2, 3, 2);
-            btnCalculosl_Contador.Name = "btnCalculosl_Contador";
-            btnCalculosl_Contador.Size = new Size(90, 71);
-            btnCalculosl_Contador.TabIndex = 4;
-            btnCalculosl_Contador.Text = "Calculos";
-            btnCalculosl_Contador.TextAlign = ContentAlignment.BottomCenter;
-            btnCalculosl_Contador.TextColor = Color.White;
-            btnCalculosl_Contador.UseVisualStyleBackColor = false;
-            btnCalculosl_Contador.Click += btnCalculosContador_Click;
-            // 
-            // btnContablidad_Contador
-            // 
-            btnContablidad_Contador.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnContablidad_Contador.BackColor = Color.FromArgb(21, 24, 31);
-            btnContablidad_Contador.BackgroundColor = Color.FromArgb(21, 24, 31);
-            btnContablidad_Contador.BackgroundImage = (Image)resources.GetObject("btnContablidad_Contador.BackgroundImage");
-            btnContablidad_Contador.BackgroundImageLayout = ImageLayout.Center;
-            btnContablidad_Contador.BorderColor = Color.PaleVioletRed;
-            btnContablidad_Contador.BorderRadius = 10;
-            btnContablidad_Contador.BorderSize = 0;
-            btnContablidad_Contador.FlatAppearance.BorderSize = 0;
-            btnContablidad_Contador.FlatStyle = FlatStyle.Flat;
-            btnContablidad_Contador.ForeColor = Color.White;
-            btnContablidad_Contador.Location = new Point(195, 2);
-            btnContablidad_Contador.Margin = new Padding(3, 2, 3, 2);
-            btnContablidad_Contador.Name = "btnContablidad_Contador";
-            btnContablidad_Contador.Size = new Size(90, 71);
-            btnContablidad_Contador.TabIndex = 5;
-            btnContablidad_Contador.Text = "Contabilidad";
-            btnContablidad_Contador.TextAlign = ContentAlignment.BottomCenter;
-            btnContablidad_Contador.TextColor = Color.White;
-            btnContablidad_Contador.UseVisualStyleBackColor = false;
-            btnContablidad_Contador.Click += btnContabilidadContador_Click;
-            // 
-            // btnPlanillal_Contador
-            // 
-            btnPlanillal_Contador.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnPlanillal_Contador.BackColor = Color.FromArgb(21, 24, 31);
-            btnPlanillal_Contador.BackgroundColor = Color.FromArgb(21, 24, 31);
-            btnPlanillal_Contador.BackgroundImage = (Image)resources.GetObject("btnPlanillal_Contador.BackgroundImage");
-            btnPlanillal_Contador.BackgroundImageLayout = ImageLayout.Center;
-            btnPlanillal_Contador.BorderColor = Color.PaleVioletRed;
-            btnPlanillal_Contador.BorderRadius = 10;
-            btnPlanillal_Contador.BorderSize = 0;
-            btnPlanillal_Contador.FlatAppearance.BorderSize = 0;
-            btnPlanillal_Contador.FlatStyle = FlatStyle.Flat;
-            btnPlanillal_Contador.ForeColor = Color.White;
-            btnPlanillal_Contador.Location = new Point(99, 2);
-            btnPlanillal_Contador.Margin = new Padding(3, 2, 3, 2);
-            btnPlanillal_Contador.Name = "btnPlanillal_Contador";
-            btnPlanillal_Contador.Size = new Size(90, 71);
-            btnPlanillal_Contador.TabIndex = 2;
-            btnPlanillal_Contador.Text = "Planilla";
-            btnPlanillal_Contador.TextAlign = ContentAlignment.BottomCenter;
-            btnPlanillal_Contador.TextColor = Color.White;
-            btnPlanillal_Contador.UseVisualStyleBackColor = false;
-            btnPlanillal_Contador.Click += btnPlanillaContador_Click;
-            // 
             // tablePanelNombre_Vendedor
             // 
             tablePanelNombre_Vendedor.ColumnCount = 2;
@@ -511,7 +402,8 @@ namespace CapaVista
             panelVertical_Admin.Controls.Add(btnBarraVertical_Admin, 0, 1);
             panelVertical_Admin.Controls.Add(btnHerramientasl_Admin, 0, 3);
             panelVertical_Admin.Controls.Add(btnConfiguracionesl_Admin, 0, 4);
-            panelVertical_Admin.Location = new Point(0, 2);
+            panelVertical_Admin.Dock = DockStyle.Left;
+            panelVertical_Admin.Location = new Point(0, 0);
             panelVertical_Admin.Margin = new Padding(3, 2, 3, 2);
             panelVertical_Admin.Name = "panelVertical_Admin";
             panelVertical_Admin.RowCount = 7;
@@ -652,14 +544,14 @@ namespace CapaVista
             tablepanelPanelContenedor.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 0.9221311F));
             tablepanelPanelContenedor.Controls.Add(panelContenedor, 1, 1);
             tablepanelPanelContenedor.Dock = DockStyle.Fill;
-            tablepanelPanelContenedor.Location = new Point(70, 0);
+            tablepanelPanelContenedor.Location = new Point(66, 0);
             tablepanelPanelContenedor.Margin = new Padding(3, 2, 3, 2);
             tablepanelPanelContenedor.Name = "tablepanelPanelContenedor";
             tablepanelPanelContenedor.RowCount = 3;
             tablepanelPanelContenedor.RowStyles.Add(new RowStyle(SizeType.Percent, 1F));
             tablepanelPanelContenedor.RowStyles.Add(new RowStyle(SizeType.Percent, 98F));
             tablepanelPanelContenedor.RowStyles.Add(new RowStyle(SizeType.Percent, 1F));
-            tablepanelPanelContenedor.Size = new Size(967, 514);
+            tablepanelPanelContenedor.Size = new Size(971, 514);
             tablepanelPanelContenedor.TabIndex = 3;
             // 
             // panelContenedor
@@ -670,202 +562,17 @@ namespace CapaVista
             panelContenedor.Margin = new Padding(3, 2, 3, 2);
             panelContenedor.MinimumSize = new Size(564, 272);
             panelContenedor.Name = "panelContenedor";
-            panelContenedor.Size = new Size(942, 499);
+            panelContenedor.Size = new Size(946, 499);
             panelContenedor.TabIndex = 1;
             // 
             // panel2
             // 
-            panel2.Controls.Add(panelVertical_Vendedor);
             panel2.Controls.Add(panelVertical_Admin);
-            panel2.Controls.Add(panelVertical_Contador);
             panel2.Dock = DockStyle.Left;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(70, 514);
+            panel2.Size = new Size(66, 514);
             panel2.TabIndex = 4;
-            // 
-            // panelVertical_Vendedor
-            // 
-            panelVertical_Vendedor.ColumnCount = 1;
-            panelVertical_Vendedor.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            panelVertical_Vendedor.Controls.Add(btnVentas_Vendedor, 0, 4);
-            panelVertical_Vendedor.Controls.Add(btnInicio_Vendedor, 0, 3);
-            panelVertical_Vendedor.Controls.Add(btnBarraVertical_Vendedor, 0, 2);
-            panelVertical_Vendedor.Location = new Point(-1, 2);
-            panelVertical_Vendedor.Margin = new Padding(3, 2, 3, 2);
-            panelVertical_Vendedor.Name = "panelVertical_Vendedor";
-            panelVertical_Vendedor.RowCount = 7;
-            panelVertical_Vendedor.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
-            panelVertical_Vendedor.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
-            panelVertical_Vendedor.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
-            panelVertical_Vendedor.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
-            panelVertical_Vendedor.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
-            panelVertical_Vendedor.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
-            panelVertical_Vendedor.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
-            panelVertical_Vendedor.Size = new Size(61, 514);
-            panelVertical_Vendedor.TabIndex = 5;
-            panelVertical_Vendedor.Visible = false;
-            // 
-            // btnVentas_Vendedor
-            // 
-            btnVentas_Vendedor.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnVentas_Vendedor.BackColor = Color.FromArgb(63, 63, 70);
-            btnVentas_Vendedor.BackgroundColor = Color.FromArgb(63, 63, 70);
-            btnVentas_Vendedor.BackgroundImage = (Image)resources.GetObject("btnVentas_Vendedor.BackgroundImage");
-            btnVentas_Vendedor.BackgroundImageLayout = ImageLayout.Center;
-            btnVentas_Vendedor.BorderColor = Color.PaleVioletRed;
-            btnVentas_Vendedor.BorderRadius = 10;
-            btnVentas_Vendedor.BorderSize = 0;
-            btnVentas_Vendedor.FlatAppearance.BorderSize = 0;
-            btnVentas_Vendedor.FlatStyle = FlatStyle.Flat;
-            btnVentas_Vendedor.ForeColor = Color.White;
-            btnVentas_Vendedor.Location = new Point(3, 294);
-            btnVentas_Vendedor.Margin = new Padding(3, 2, 3, 2);
-            btnVentas_Vendedor.Name = "btnVentas_Vendedor";
-            btnVentas_Vendedor.Size = new Size(55, 69);
-            btnVentas_Vendedor.TabIndex = 6;
-            btnVentas_Vendedor.TextAlign = ContentAlignment.BottomCenter;
-            btnVentas_Vendedor.TextColor = Color.White;
-            btnVentas_Vendedor.UseVisualStyleBackColor = false;
-            btnVentas_Vendedor.Click += btnVentas_Vendedor_Click;
-            btnVentas_Vendedor.MouseHover += btnVentas_MouseEnter;
-            // 
-            // btnInicio_Vendedor
-            // 
-            btnInicio_Vendedor.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnInicio_Vendedor.BackColor = Color.FromArgb(63, 63, 70);
-            btnInicio_Vendedor.BackgroundColor = Color.FromArgb(63, 63, 70);
-            btnInicio_Vendedor.BackgroundImage = (Image)resources.GetObject("btnInicio_Vendedor.BackgroundImage");
-            btnInicio_Vendedor.BackgroundImageLayout = ImageLayout.Center;
-            btnInicio_Vendedor.BorderColor = Color.PaleVioletRed;
-            btnInicio_Vendedor.BorderRadius = 10;
-            btnInicio_Vendedor.BorderSize = 0;
-            btnInicio_Vendedor.FlatAppearance.BorderSize = 0;
-            btnInicio_Vendedor.FlatStyle = FlatStyle.Flat;
-            btnInicio_Vendedor.ForeColor = Color.White;
-            btnInicio_Vendedor.Location = new Point(3, 221);
-            btnInicio_Vendedor.Margin = new Padding(3, 2, 3, 2);
-            btnInicio_Vendedor.Name = "btnInicio_Vendedor";
-            btnInicio_Vendedor.Size = new Size(55, 69);
-            btnInicio_Vendedor.TabIndex = 5;
-            btnInicio_Vendedor.TextAlign = ContentAlignment.BottomCenter;
-            btnInicio_Vendedor.TextColor = Color.White;
-            btnInicio_Vendedor.UseVisualStyleBackColor = false;
-            btnInicio_Vendedor.Click += btnInicio_Vendedor_Click;
-            btnInicio_Vendedor.MouseHover += btnInicio_MouseEnter;
-            // 
-            // btnBarraVertical_Vendedor
-            // 
-            btnBarraVertical_Vendedor.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnBarraVertical_Vendedor.BackColor = Color.FromArgb(63, 63, 70);
-            btnBarraVertical_Vendedor.BackgroundColor = Color.FromArgb(63, 63, 70);
-            btnBarraVertical_Vendedor.BackgroundImage = (Image)resources.GetObject("btnBarraVertical_Vendedor.BackgroundImage");
-            btnBarraVertical_Vendedor.BackgroundImageLayout = ImageLayout.Center;
-            btnBarraVertical_Vendedor.BorderColor = Color.PaleVioletRed;
-            btnBarraVertical_Vendedor.BorderRadius = 10;
-            btnBarraVertical_Vendedor.BorderSize = 0;
-            btnBarraVertical_Vendedor.FlatAppearance.BorderSize = 0;
-            btnBarraVertical_Vendedor.FlatStyle = FlatStyle.Flat;
-            btnBarraVertical_Vendedor.ForeColor = Color.White;
-            btnBarraVertical_Vendedor.Location = new Point(3, 148);
-            btnBarraVertical_Vendedor.Margin = new Padding(3, 2, 3, 2);
-            btnBarraVertical_Vendedor.Name = "btnBarraVertical_Vendedor";
-            btnBarraVertical_Vendedor.Size = new Size(55, 69);
-            btnBarraVertical_Vendedor.TabIndex = 8;
-            btnBarraVertical_Vendedor.TextAlign = ContentAlignment.BottomCenter;
-            btnBarraVertical_Vendedor.TextColor = Color.White;
-            btnBarraVertical_Vendedor.UseVisualStyleBackColor = false;
-            btnBarraVertical_Vendedor.Click += EstadoDeBarraVertical_Vendedorl_Button_Click;
-            // 
-            // panelVertical_Contador
-            // 
-            panelVertical_Contador.ColumnCount = 1;
-            panelVertical_Contador.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            panelVertical_Contador.Controls.Add(btnHerramientas_Contador, 0, 4);
-            panelVertical_Contador.Controls.Add(btnInicio_Contador, 0, 3);
-            panelVertical_Contador.Controls.Add(btnBarraVertical_Contador, 0, 2);
-            panelVertical_Contador.Location = new Point(2, 2);
-            panelVertical_Contador.Margin = new Padding(3, 2, 3, 2);
-            panelVertical_Contador.Name = "panelVertical_Contador";
-            panelVertical_Contador.RowCount = 7;
-            panelVertical_Contador.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
-            panelVertical_Contador.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
-            panelVertical_Contador.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
-            panelVertical_Contador.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
-            panelVertical_Contador.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
-            panelVertical_Contador.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
-            panelVertical_Contador.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
-            panelVertical_Contador.Size = new Size(61, 514);
-            panelVertical_Contador.TabIndex = 6;
-            panelVertical_Contador.Visible = false;
-            // 
-            // btnHerramientas_Contador
-            // 
-            btnHerramientas_Contador.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnHerramientas_Contador.BackColor = Color.FromArgb(63, 63, 70);
-            btnHerramientas_Contador.BackgroundColor = Color.FromArgb(63, 63, 70);
-            btnHerramientas_Contador.BackgroundImage = (Image)resources.GetObject("btnHerramientas_Contador.BackgroundImage");
-            btnHerramientas_Contador.BackgroundImageLayout = ImageLayout.Center;
-            btnHerramientas_Contador.BorderColor = Color.PaleVioletRed;
-            btnHerramientas_Contador.BorderRadius = 5;
-            btnHerramientas_Contador.BorderSize = 0;
-            btnHerramientas_Contador.FlatAppearance.BorderSize = 0;
-            btnHerramientas_Contador.FlatStyle = FlatStyle.Flat;
-            btnHerramientas_Contador.ForeColor = Color.White;
-            btnHerramientas_Contador.Location = new Point(3, 294);
-            btnHerramientas_Contador.Margin = new Padding(3, 2, 3, 2);
-            btnHerramientas_Contador.Name = "btnHerramientas_Contador";
-            btnHerramientas_Contador.Size = new Size(55, 69);
-            btnHerramientas_Contador.TabIndex = 6;
-            btnHerramientas_Contador.TextAlign = ContentAlignment.BottomCenter;
-            btnHerramientas_Contador.TextColor = Color.White;
-            btnHerramientas_Contador.UseVisualStyleBackColor = false;
-            btnHerramientas_Contador.MouseEnter += btnHerramientas_MouseHover;
-            // 
-            // btnInicio_Contador
-            // 
-            btnInicio_Contador.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnInicio_Contador.BackColor = Color.FromArgb(63, 63, 70);
-            btnInicio_Contador.BackgroundColor = Color.FromArgb(63, 63, 70);
-            btnInicio_Contador.BackgroundImage = (Image)resources.GetObject("btnInicio_Contador.BackgroundImage");
-            btnInicio_Contador.BackgroundImageLayout = ImageLayout.Center;
-            btnInicio_Contador.BorderColor = Color.PaleVioletRed;
-            btnInicio_Contador.BorderRadius = 5;
-            btnInicio_Contador.BorderSize = 0;
-            btnInicio_Contador.FlatAppearance.BorderSize = 0;
-            btnInicio_Contador.FlatStyle = FlatStyle.Flat;
-            btnInicio_Contador.ForeColor = Color.White;
-            btnInicio_Contador.Location = new Point(3, 221);
-            btnInicio_Contador.Margin = new Padding(3, 2, 3, 2);
-            btnInicio_Contador.Name = "btnInicio_Contador";
-            btnInicio_Contador.Size = new Size(55, 69);
-            btnInicio_Contador.TabIndex = 5;
-            btnInicio_Contador.TextAlign = ContentAlignment.BottomCenter;
-            btnInicio_Contador.TextColor = Color.White;
-            btnInicio_Contador.UseVisualStyleBackColor = false;
-            btnInicio_Contador.MouseHover += btnInicio_MouseEnter;
-            // 
-            // btnBarraVertical_Contador
-            // 
-            btnBarraVertical_Contador.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnBarraVertical_Contador.BackColor = Color.FromArgb(63, 63, 70);
-            btnBarraVertical_Contador.BackgroundColor = Color.FromArgb(63, 63, 70);
-            btnBarraVertical_Contador.BackgroundImage = (Image)resources.GetObject("btnBarraVertical_Contador.BackgroundImage");
-            btnBarraVertical_Contador.BackgroundImageLayout = ImageLayout.Center;
-            btnBarraVertical_Contador.BorderColor = Color.PaleVioletRed;
-            btnBarraVertical_Contador.BorderRadius = 5;
-            btnBarraVertical_Contador.BorderSize = 0;
-            btnBarraVertical_Contador.FlatAppearance.BorderSize = 0;
-            btnBarraVertical_Contador.FlatStyle = FlatStyle.Flat;
-            btnBarraVertical_Contador.ForeColor = Color.White;
-            btnBarraVertical_Contador.Location = new Point(3, 148);
-            btnBarraVertical_Contador.Margin = new Padding(3, 2, 3, 2);
-            btnBarraVertical_Contador.Name = "btnBarraVertical_Contador";
-            btnBarraVertical_Contador.Size = new Size(55, 69);
-            btnBarraVertical_Contador.TabIndex = 8;
-            btnBarraVertical_Contador.TextAlign = ContentAlignment.BottomCenter;
-            btnBarraVertical_Contador.TextColor = Color.White;
-            btnBarraVertical_Contador.UseVisualStyleBackColor = false;
             // 
             // tableLayoutPanel2
             // 
@@ -1055,13 +762,10 @@ namespace CapaVista
             ((System.ComponentModel.ISupportInitialize)imagenModo).EndInit();
             ((System.ComponentModel.ISupportInitialize)SolPicture).EndInit();
             tablePanel_Admin.ResumeLayout(false);
-            tablePanel_Contador.ResumeLayout(false);
             tablePanelNombre_Vendedor.ResumeLayout(false);
             panelVertical_Admin.ResumeLayout(false);
             tablepanelPanelContenedor.ResumeLayout(false);
             panel2.ResumeLayout(false);
-            panelVertical_Vendedor.ResumeLayout(false);
-            panelVertical_Contador.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel3.ResumeLayout(false);
@@ -1091,24 +795,12 @@ namespace CapaVista
         private Label lblTitulo;
         public Panel panelContenedor;
         private Panel panel2;
-        private TableLayoutPanel panelVertical_Vendedor;
-        private RJCodeAdvance.RJControls.RJButton btnVentas_Vendedor;
-        private RJCodeAdvance.RJControls.RJButton btnInicio_Vendedor;
-        private RJCodeAdvance.RJControls.RJButton btnBarraVertical_Vendedor;
         private TableLayoutPanel tableLayoutPanel2;
         private RJCodeAdvance.RJControls.RJButton rjButton1;
         private RJCodeAdvance.RJControls.RJButton rjButton2;
-        private RJCodeAdvance.RJControls.RJButton btnHerramientas_Contador;
-        private RJCodeAdvance.RJControls.RJButton btnBarraVertical_Contador;
-        private RJCodeAdvance.RJControls.RJButton btnInicio_Contador;
-        private TableLayoutPanel panelVertical_Contador;
         private TableLayoutPanel tableLayoutPanel1;
         private RJCodeAdvance.RJControls.RJButton rjButton3;
         private RJCodeAdvance.RJControls.RJButton rjButton4;
-        private TableLayoutPanel tablePanel_Contador;
-        private RJCodeAdvance.RJControls.RJButton btnCalculosl_Contador;
-        private RJCodeAdvance.RJControls.RJButton btnContablidad_Contador;
-        private RJCodeAdvance.RJControls.RJButton btnPlanillal_Contador;
         private TableLayoutPanel tableLayoutPanel4;
         private Panel panel3;
         private PictureBox imagenModo;
