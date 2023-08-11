@@ -10,20 +10,20 @@ namespace CapaDatos
         public List<Producto> listarProductos()
         {
             List<Producto> lista = new List<Producto>();
-            string query = "SELECT ID_PRODUCTO,CODIGO_PRODUCTO,NOMBRE_PRODUCTO,IMAGEN_PRODUCTO,PRECIO_COMPRA,PRECIO_VENTA,CANTIDAD_INVENTARIO,P.ID_PROVEEDOR,P.ID_CATEGORIA,NOMBRE_CATEGORIA,NOMBRE_EMPRESA FROM PRODUCTO P INNER JOIN CATEGORIA C ON P.ID_CATEGORIA = C.ID_CATEGORIA INNER JOIN PROVEEDOR PP ON P.ID_PROVEEDOR = PP.ID_PROVEEDOR";
+            string query = "SELECT P.ID_PRODUCTO, P.CODIGO_PRODUCTO, P.NOMBRE_PRODUCTO, P.IMAGEN_PRODUCTO, P.PRECIO_COMPRA, P.PRECIO_VENTA, P.CANTIDAD_INVENTARIO, C.ID_CATEGORIA, C.NOMBRE_CATEGORIA, PP.ID_PROVEEDOR, PP.NOMBRE_EMPRESA FROM PRODUCTO P INNER JOIN CATEGORIA C ON P.ID_CATEGORIA = C.ID_CATEGORIA INNER JOIN PROVEEDOR PP ON P.ID_PROVEEDOR = PP.ID_PROVEEDOR";
+
             try
             {
-                using (var con = new conexion().conectar())
+                using (var con = new conexion().conectar()) 
                 {
                     con.Open();
                     using (var cmd = new SqlCommand(query, con))
                     {
-                        cmd.CommandType = CommandType.Text;
                         using (var reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {
-                                lista.Add(new Producto
+                                Producto producto = new Producto
                                 {
                                     id = Convert.ToInt32(reader["ID_PRODUCTO"]),
                                     codigo = Convert.ToInt32(reader["CODIGO_PRODUCTO"]),
@@ -34,16 +34,16 @@ namespace CapaDatos
                                     cantidad = Convert.ToInt32(reader["CANTIDAD_INVENTARIO"]),
                                     oCategoria = new Categoria
                                     {
-                                        id = Convert.ToInt32(reader["P.ID_CATEGORIA"]),
+                                        id = Convert.ToInt32(reader["ID_CATEGORIA"]),
                                         nombre = reader["NOMBRE_CATEGORIA"].ToString()
                                     },
                                     oProveedor = new Proveedor
                                     {
-                                        id = Convert.ToInt32(reader["P.ID_PROVEEDOR"]),
+                                        id = Convert.ToInt32(reader["ID_PROVEEDOR"]),
                                         nombreProveedor = reader["NOMBRE_EMPRESA"].ToString()
                                     }
-
-                                });
+                                };
+                                lista.Add(producto);
                             }
                         }
                     }
@@ -55,6 +55,7 @@ namespace CapaDatos
             }
             return lista;
         }
+
         public List<Proveedor> listarProveedores()
         {
             List<Proveedor> lista = new List<Proveedor>();
@@ -137,7 +138,7 @@ namespace CapaDatos
                         cmd.Parameters.AddWithValue("@PRECIOVENTA", p.PrecioVenta);
                         cmd.Parameters.AddWithValue("@ID_PROVEEDOR", p.oProveedor.id);
                         cmd.Parameters.AddWithValue("@ID_CATEGORIA", p.oCategoria.id);
-                        cmd.Parameters.Add("@mensaje", SqlDbType.VarChar).Direction = ParameterDirection.Output;
+                        cmd.Parameters.Add("mensaje", SqlDbType.VarChar,500).Direction = ParameterDirection.Output;
                         cmd.ExecuteNonQuery();
                         mensaje = cmd.Parameters["mensaje"].Value.ToString();
                     }

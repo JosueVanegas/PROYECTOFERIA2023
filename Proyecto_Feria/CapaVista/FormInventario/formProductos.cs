@@ -5,13 +5,15 @@ using ReaLTaiizor.Forms;
 using ReaLTaiizor.Manager;
 using ReaLTaiizor.Util;
 using System.Drawing;
+using System.Security.Cryptography;
+using System.Windows.Forms;
 
 namespace CapaVista
 {
     public partial class formProductos : MaterialForm
     {
         ControlProducto cProd = new ControlProducto();
-        byte[] imagenEnBytes;
+        string urlImagen = "";
         public formProductos(Boolean Mod)
         {
             InitializeComponent();
@@ -55,7 +57,7 @@ namespace CapaVista
             {
                 tbProductos.Rows.Add("", "", p.id, p.codigo, p.nombre, p.PrecioCompra,
                     p.PrecioVenta, p.cantidad, p.oProveedor.id, p.oCategoria.id,
-                    p.oProveedor.nombreProveedor, p.oCategoria.nombre);
+                    p.oProveedor.nombreProveedor, p.oCategoria.nombre,p.imagen);
             }
         }
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -67,11 +69,19 @@ namespace CapaVista
         {
             bool permitir = true;
             if (txtCodigoBarra.Text.Equals("") && txtNombre.Text.Equals("") && txtPrecioCompra.Text.Equals("") &&
-                txtPrecioVenta.Text.Equals("") && imagenEnBytes == null)
+                txtPrecioVenta.Text.Equals("") && urlImagen == "")
             {
                 permitir = false;
             }
             return permitir;
+        }
+        private void leerImage(Byte[] img)
+        {
+            using (MemoryStream memoryStream = new MemoryStream(img))
+            {
+                Image imagen = Image.FromStream(memoryStream);
+                imagenProducto.Image = imagen;
+            }
         }
         private void eliminarProducto(int id)
         {
@@ -85,36 +95,37 @@ namespace CapaVista
                 {
                     try
                     {
-                        OpenFileDialog openFileDialog = new OpenFileDialog();
-                        openFileDialog.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
-                        openFileDialog.Title = "Selecciona una imagen";
-
-                        if (openFileDialog.ShowDialog() == DialogResult.OK)
+                        if (urlImagen != "")
                         {
-                            string rutaImagen = openFileDialog.FileName;
-                            imagenEnBytes = File.ReadAllBytes(rutaImagen);
-                            imagenProducto.Image = Image.FromFile(rutaImagen);
+                            MemoryStream memoryStream = new MemoryStream();
+                            imagenProducto.Image.Save(memoryStream, imagenProducto.Image.RawFormat);
+                            byte[] imageBytes = memoryStream.ToArray();
+                            decimal pc = Convert.ToDecimal(txtPrecioCompra.Text);
+                            decimal pv = Convert.ToDecimal(txtPrecioVenta.Text);
+                            Producto prod = new Producto
+                            {
+
+                                imagen = imageBytes,
+                                id = Convert.ToInt32(txtIdProducto.Text),
+                                codigo = Convert.ToInt32(txtCodigoBarra.Text),
+                                nombre = txtNombre.Text,
+                                PrecioCompra = pc,
+                                PrecioVenta = pv,
+                                oProveedor = prov,
+                                oCategoria = cat
+                            };
+
+                            MessageBox.Show(cProd.accionesProducto(prod));
+                            mostrarProductos();
                         }
-                        decimal pc = Convert.ToDecimal(txtPrecioCompra.Text);
-                        decimal pv = Convert.ToDecimal(txtPrecioVenta.Text);
-                        Producto prod = new Producto
+                        else
                         {
-                            
-                            imagen = imagenEnBytes,
-                            id = Convert.ToInt32(txtIdProducto.Text),
-                            codigo = Convert.ToInt32(txtCodigoBarra.Text),
-                            nombre = txtNombre.Text,
-                            PrecioCompra = pc,
-                            PrecioVenta = pv,
-                            oProveedor = prov,
-                            oCategoria = cat
-                        };
-
-                       // MessageBox.Show(cProd.accionesProducto(prod));
+                            MessageBox.Show("Primero seleccione la imagen del producto");
+                        }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(imagenEnBytes+ex.Message);
+                        MessageBox.Show(ex.Message);
                     }
                 }
                 else
@@ -174,7 +185,7 @@ namespace CapaVista
             {
                 e.Handled = true;
             }
-            
+
         }
         private void tbProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -188,6 +199,8 @@ namespace CapaVista
                     txtIdProducto.Text = tbProductos.Rows[indice].Cells["Id"].Value.ToString();
                     txtPrecioCompra.Text = tbProductos.Rows[indice].Cells["PrecioCompra"].Value.ToString();
                     txtPrecioVenta.Text = tbProductos.Rows[indice].Cells["PrecioVenta"].Value.ToString();
+                    byte[] imagenBytes = (byte[])tbProductos.Rows[indice].Cells["Imagen"].Value;
+                    leerImage(imagenBytes);
                 }
             }
             if (tbProductos.Columns[e.ColumnIndex].Name == "btnBorrar")
@@ -240,16 +253,15 @@ namespace CapaVista
         private void btnSeleccionarImagen_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
+            openFileDialog.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*";
             openFileDialog.Title = "Selecciona una imagen";
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-               string rutaImagen = openFileDialog.FileName;
-                imagenEnBytes = File.ReadAllBytes(rutaImagen);
-                imagenProducto.Image = Image.FromFile(rutaImagen);
+                urlImagen = openFileDialog.FileName;
+                imagenProducto.Image = Image.FromFile(urlImagen);
             }
-            
+
         }
     }
 
