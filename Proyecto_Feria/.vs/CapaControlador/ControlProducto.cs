@@ -11,9 +11,17 @@ namespace CapaControlador
         {
             return dProd.listarProductos();
         }
-        public string accionesProducto()
+        public List<Proveedor> listarProveedores()
         {
-            return dProd.accionesProducto(null);
+            return dProd.listarProveedores();
+        }
+        public List<Categoria> listarCategoria()
+        {
+            return dProd.listarCategorias();
+        }
+        public string accionesProducto(Producto p)
+        {
+            return dProd.accionesProducto(p);
         }
         public string eliminarProducto(int id)
         {

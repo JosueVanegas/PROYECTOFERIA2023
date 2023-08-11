@@ -101,7 +101,7 @@ namespace CapaVista
                         clave = txtClave.Text,
                         oRol = rol,
                     };
-                    MessageBox.Show(controlUsuario.registrar(user,EmpleadoNulo));
+                    MessageBox.Show(controlUsuario.registrar(user, EmpleadoNulo));
                     controlUsuario.encriptarClave(user);
                     limpiarCampos();
                     mostrarUsuarios();
@@ -216,7 +216,7 @@ namespace CapaVista
 
         private void ckbEmpleadoNulo_CheckedChanged(object sender)
         {
-            if(ckbEmpleadoNulo.Checked == true)
+            if (ckbEmpleadoNulo.Checked == true)
             {
                 cbxEmpleados.Enabled = false;
                 EmpleadoNulo = true;

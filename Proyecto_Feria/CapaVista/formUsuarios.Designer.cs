@@ -46,10 +46,11 @@ namespace CapaVista
             idEmpleado = new DataGridViewTextBoxColumn();
             lblEncabezado = new Label();
             pnlRegistroUsuario = new Panel();
+            ckbEmpleadoNulo = new ReaLTaiizor.Controls.AirCheckBox();
             cbxEmpleados = new ReaLTaiizor.Controls.MaterialComboBox();
             tableLayoutPanel1 = new TableLayoutPanel();
-            btnGuardar = new RJCodeAdvance.RJControls.RJButton();
             rjButton2 = new RJCodeAdvance.RJControls.RJButton();
+            btnGuardar = new RJCodeAdvance.RJControls.RJButton();
             txtConfirmarClave = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             ckbVerContraseña = new ReaLTaiizor.Controls.AirCheckBox();
             txtIdUsuario = new TextBox();
@@ -61,7 +62,6 @@ namespace CapaVista
             pnlContenedor = new Panel();
             pnlOpciones = new Panel();
             materialDrawer1 = new ReaLTaiizor.Controls.MaterialDrawer();
-            ckbEmpleadoNulo = new ReaLTaiizor.Controls.AirCheckBox();
             ((System.ComponentModel.ISupportInitialize)tbUsuarios).BeginInit();
             pnlRegistroUsuario.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -215,6 +215,22 @@ namespace CapaVista
             pnlRegistroUsuario.Size = new Size(284, 393);
             pnlRegistroUsuario.TabIndex = 6;
             // 
+            // ckbEmpleadoNulo
+            // 
+            ckbEmpleadoNulo.Anchor = AnchorStyles.Left;
+            ckbEmpleadoNulo.Checked = false;
+            ckbEmpleadoNulo.Customization = "7e3t//Ly8v/r6+v/5ubm/+vr6//f39//p6en/zw8PP8=";
+            ckbEmpleadoNulo.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            ckbEmpleadoNulo.Image = null;
+            ckbEmpleadoNulo.Location = new Point(13, 301);
+            ckbEmpleadoNulo.Name = "ckbEmpleadoNulo";
+            ckbEmpleadoNulo.NoRounding = false;
+            ckbEmpleadoNulo.Size = new Size(234, 17);
+            ckbEmpleadoNulo.TabIndex = 32;
+            ckbEmpleadoNulo.Text = "Desactivar empleados";
+            ckbEmpleadoNulo.Transparent = false;
+            ckbEmpleadoNulo.CheckedChanged += ckbEmpleadoNulo_CheckedChanged;
+            // 
             // cbxEmpleados
             // 
             cbxEmpleados.Anchor = AnchorStyles.Left;
@@ -255,31 +271,6 @@ namespace CapaVista
             tableLayoutPanel1.Size = new Size(152, 70);
             tableLayoutPanel1.TabIndex = 30;
             // 
-            // btnGuardar
-            // 
-            btnGuardar.Anchor = AnchorStyles.Left;
-            btnGuardar.BackColor = Color.FromArgb(63, 63, 70);
-            btnGuardar.BackgroundColor = Color.FromArgb(63, 63, 70);
-            btnGuardar.BackgroundImage = (Image)resources.GetObject("btnGuardar.BackgroundImage");
-            btnGuardar.BackgroundImageLayout = ImageLayout.Center;
-            btnGuardar.BorderColor = Color.PaleVioletRed;
-            btnGuardar.BorderRadius = 10;
-            btnGuardar.BorderSize = 0;
-            btnGuardar.FlatAppearance.BorderSize = 0;
-            btnGuardar.FlatStyle = FlatStyle.Flat;
-            btnGuardar.ForeColor = Color.White;
-            btnGuardar.ImageAlign = ContentAlignment.MiddleRight;
-            btnGuardar.Location = new Point(3, 2);
-            btnGuardar.Margin = new Padding(3, 2, 3, 2);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(69, 66);
-            btnGuardar.TabIndex = 11;
-            btnGuardar.Text = "Guardar";
-            btnGuardar.TextAlign = ContentAlignment.BottomCenter;
-            btnGuardar.TextColor = Color.White;
-            btnGuardar.UseVisualStyleBackColor = false;
-            btnGuardar.Click += btnAgregar_Click;
-            // 
             // rjButton2
             // 
             rjButton2.Anchor = AnchorStyles.Left;
@@ -304,6 +295,31 @@ namespace CapaVista
             rjButton2.TextColor = Color.White;
             rjButton2.UseVisualStyleBackColor = false;
             rjButton2.Click += btnLimpiar_Click;
+            // 
+            // btnGuardar
+            // 
+            btnGuardar.Anchor = AnchorStyles.Left;
+            btnGuardar.BackColor = Color.FromArgb(63, 63, 70);
+            btnGuardar.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnGuardar.BackgroundImage = (Image)resources.GetObject("btnGuardar.BackgroundImage");
+            btnGuardar.BackgroundImageLayout = ImageLayout.Center;
+            btnGuardar.BorderColor = Color.PaleVioletRed;
+            btnGuardar.BorderRadius = 10;
+            btnGuardar.BorderSize = 0;
+            btnGuardar.FlatAppearance.BorderSize = 0;
+            btnGuardar.FlatStyle = FlatStyle.Flat;
+            btnGuardar.ForeColor = Color.White;
+            btnGuardar.ImageAlign = ContentAlignment.MiddleRight;
+            btnGuardar.Location = new Point(3, 2);
+            btnGuardar.Margin = new Padding(3, 2, 3, 2);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(69, 66);
+            btnGuardar.TabIndex = 11;
+            btnGuardar.Text = "Guardar";
+            btnGuardar.TextAlign = ContentAlignment.BottomCenter;
+            btnGuardar.TextColor = Color.White;
+            btnGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.Click += btnAgregar_Click;
             // 
             // txtConfirmarClave
             // 
@@ -378,7 +394,6 @@ namespace CapaVista
             cbxRol.Hint = "seleccione un rol de usuario";
             cbxRol.IntegralHeight = false;
             cbxRol.ItemHeight = 43;
-            cbxRol.Items.AddRange(new object[] { "Administrador", "Empleado" });
             cbxRol.Location = new Point(13, 193);
             cbxRol.MaxDropDownItems = 4;
             cbxRol.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -543,22 +558,6 @@ namespace CapaVista
             materialDrawer1.TabIndex = 0;
             materialDrawer1.Text = "materialDrawer1";
             materialDrawer1.UseColors = false;
-            // 
-            // ckbEmpleadoNulo
-            // 
-            ckbEmpleadoNulo.Anchor = AnchorStyles.Left;
-            ckbEmpleadoNulo.Checked = false;
-            ckbEmpleadoNulo.Customization = "7e3t//Ly8v/r6+v/5ubm/+vr6//f39//p6en/zw8PP8=";
-            ckbEmpleadoNulo.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            ckbEmpleadoNulo.Image = null;
-            ckbEmpleadoNulo.Location = new Point(13, 301);
-            ckbEmpleadoNulo.Name = "ckbEmpleadoNulo";
-            ckbEmpleadoNulo.NoRounding = false;
-            ckbEmpleadoNulo.Size = new Size(234, 17);
-            ckbEmpleadoNulo.TabIndex = 32;
-            ckbEmpleadoNulo.Text = "Desactivar empleados";
-            ckbEmpleadoNulo.Transparent = false;
-            ckbEmpleadoNulo.CheckedChanged += ckbEmpleadoNulo_CheckedChanged;
             // 
             // formUsuarios
             // 

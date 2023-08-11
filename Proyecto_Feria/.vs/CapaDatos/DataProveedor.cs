@@ -44,7 +44,6 @@ namespace CapaDatos
             }
             return lista;
         }
-        //hay que adaptarlo para proveedor enves de usuario
         public string accionesProveedor(Proveedor prov)
         {
             using (SqlConnection connection = new conexion().conectar())
@@ -54,11 +53,12 @@ namespace CapaDatos
                     connection.Open();
                     SqlCommand comand = new SqlCommand("PROC_REGISTRAR_PROVEEDOR", connection);
                     comand.CommandType = CommandType.StoredProcedure;
-                    comand.Parameters.AddWithValue("@ID_USUARIO", prov.id);
-                    comand.Parameters.AddWithValue("@ID_EMPLEADO", prov.nombreProveedor);
-                    comand.Parameters.AddWithValue("@USUARIO", prov.nombreContacto);
-                    comand.Parameters.AddWithValue("@CLAVE", prov.numeroContacto);
-                    comand.Parameters.AddWithValue("@ID_ROL", prov.pais);
+                    comand.Parameters.AddWithValue("@ID_PROVEEDOR", prov.id);
+                    comand.Parameters.AddWithValue("@NOMBRE_EMPRESA", prov.nombreProveedor);
+                    comand.Parameters.AddWithValue("@NOMBRE_CONTACTO", prov.nombreContacto);
+                    comand.Parameters.AddWithValue("@NUMERO_CONTACTO", prov.numeroContacto);
+                    comand.Parameters.AddWithValue("@PAIS", prov.pais);
+                    comand.Parameters.AddWithValue("@CIUDAD", prov.ciudad);
                     comand.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
                     comand.ExecuteNonQuery();
@@ -82,7 +82,7 @@ namespace CapaDatos
                     con.Open();
                     SqlCommand comand = new SqlCommand("PROC_ELIMINAR_PROVEEDOR", con);
                     comand.CommandType = CommandType.StoredProcedure;
-                    comand.Parameters.AddWithValue("@ID_USUARIO", idP);
+                    comand.Parameters.AddWithValue("@ID_PROVEEDOR", idP);
                     comand.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     comand.ExecuteNonQuery();
 

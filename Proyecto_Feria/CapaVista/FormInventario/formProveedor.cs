@@ -53,11 +53,21 @@ namespace CapaVista
         }
         private void limpiarCampos()
         {
-
+            txtNombreEmpresa.Text = "";
+            txtNombreContacto.Text = "";
+            txtNumeroContacto.Text = "";
+            txtPais.Text = "";
+            txtCiudad.Text = "";
         }
-        private void registrarUsuario()
+        private void registrarProveedor()
         {
-            int rolU = 0;
+            /*
+             * int id = 1;
+            if(txtId.Text != "")
+            {
+                id = Convert.ToInt32(txtId.Text);
+            }
+             */
             if (validarCampos() == true)
             {
                 MessageBox.Show(cProv.accionProveedor(new Proveedor
@@ -86,7 +96,6 @@ namespace CapaVista
                 limpiarCampos();
             }
         }
-
         private void tbProveedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int indice = e.RowIndex;
@@ -102,7 +111,6 @@ namespace CapaVista
                     txtCiudad.Text = tbProveedores.Rows[indice].Cells["Ciudad"].Value.ToString();
                 }
             }
-
             if (tbProveedores.Columns[e.ColumnIndex].Name == "btnBorrar")
             {
                 if (indice >= 0)
@@ -112,7 +120,6 @@ namespace CapaVista
                 }
             }
         }
-
         private void tbProveedores_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.RowIndex < 0)
@@ -141,78 +148,32 @@ namespace CapaVista
                 e.Handled = true;
             }
         }
-
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            registrarUsuario();
+            registrarProveedor();
         }
         private void pictureBox1_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             ToolTip toolTip = new ToolTip();
-
             toolTip.ToolTipIcon = ToolTipIcon.Info;
             toolTip.SetToolTip(pictureBox1, "Descripción del PictureBox");
         }
-
-        private void txtNombreEmpresa_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Space)
-            {
-                e.Handled = true; // Evita que se procese el carácter
-            }
-        }
-
-        private void txtNombreContacto_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Space)
-            {
-                e.Handled = true; // Evita que se procese el carácter
-            }
-        }
-
         private void txtNumeroContacto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Space)
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != '-')
             {
-                e.Handled = true; // Evita que se procese el carácter
-            }
-        }
-
-        private void txtPais_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Space)
-            {
-                e.Handled = true; // Evita que se procese el carácter
-            }
-        }
-
-        private void txtCiudad_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Space)
-            {
-                e.Handled = true; // Evita que se procese el carácter
+                e.Handled = true;
             }
         }
         private void btnGuardar_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
-
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(btnGuardar, "Guardar");
         }
 
         private void btnLimpiar_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
-
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(btnLimpiar, "Limpiar");
         }
     }

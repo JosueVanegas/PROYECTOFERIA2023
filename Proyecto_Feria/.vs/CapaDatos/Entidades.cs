@@ -62,6 +62,11 @@
         public string nombre { get; set; }
         public Estado oEstado { get; set; }
         public string fechaRegistro { get; set; }
+
+        public override string ToString()
+        {
+            return nombre;
+        }
     }
 
     public class Proveedor
@@ -73,6 +78,11 @@
         public string pais { get; set; }
         public string ciudad { get; set; }
         public string fechaRegistro { get; set; }
+
+        public override string ToString()
+        {
+            return nombreProveedor;
+        }
     }
 
     public class Producto
@@ -80,7 +90,7 @@
         public int id { get; set; }
         public int codigo { get; set; }
         public string nombre { get; set; }
-        public byte[] Imagen { get; set; }
+        public byte[] imagen { get; set; }
         public decimal PrecioCompra { get; set; }
         public decimal PrecioVenta { get; set; }
         public int cantidad { get; set; }

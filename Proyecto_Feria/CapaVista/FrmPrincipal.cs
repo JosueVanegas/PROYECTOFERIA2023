@@ -26,7 +26,7 @@ namespace CapaVista
             cambioModo.Checked = DMod;
             var controler = new ControlConexion();
             this.user = usuario;
-            datosDeUsuarioActual();
+           // datosDeUsuarioActual();
         }
         private void datosDeUsuarioActual()
         {
@@ -44,25 +44,25 @@ namespace CapaVista
                 panel2.BackColor = Color.FromArgb(242, 242, 242);
                 this.BackColor = Color.FromArgb(242, 242, 242);
 
-                btnBarraVertical_Admin.BackgroundColor = Color.FromArgb(138, 138, 138);
-                btnIniciol_Admin.BackgroundColor = Color.FromArgb(138, 138, 138);
-                btnConfiguracionesl_Admin.BackgroundColor = Color.FromArgb(138, 138, 138);
-                btnHerramientasl_Admin.BackgroundColor = Color.FromArgb(138, 138, 138);
-                btnUsuariosl_Admin.BackgroundColor = Color.FromArgb(138, 138, 138);
+                btnBarraVertical.BackgroundColor = Color.FromArgb(138, 138, 138);
+                btnInicio.BackgroundColor = Color.FromArgb(138, 138, 138);
+                btnConfiguraciones.BackgroundColor = Color.FromArgb(138, 138, 138);
+                btnHerramientas.BackgroundColor = Color.FromArgb(138, 138, 138);
+                btnUsuarios.BackgroundColor = Color.FromArgb(138, 138, 138);
                 tablePanel_Admin.BackColor = Color.FromArgb(138, 138, 138);
 
-                btnPlanillal_Admin.BackgroundColor = Color.FromArgb(242, 242, 242);
-                btnInventoryl_Admin.BackgroundColor = Color.FromArgb(242, 242, 242);
-                btnContabilidadl_Admin.BackgroundColor = Color.FromArgb(242, 242, 242);
-                btnCalculosl_Admin.BackgroundColor = Color.FromArgb(242, 242, 242);
-                btnVentasl_Admin.BackgroundColor = Color.FromArgb(242, 242, 242);
+                btnPlanilla.BackgroundColor = Color.FromArgb(242, 242, 242);
+                btnInventario.BackgroundColor = Color.FromArgb(242, 242, 242);
+                btnContabilidad.BackgroundColor = Color.FromArgb(242, 242, 242);
+                btnCalculos.BackgroundColor = Color.FromArgb(242, 242, 242);
+                btnVentas.BackgroundColor = Color.FromArgb(242, 242, 242);
                 panelVertical_Admin.BackColor = Color.FromArgb(242, 242, 242);
 
-                btnPlanillal_Admin.ForeColor = Color.Black;
-                btnInventoryl_Admin.ForeColor = Color.Black;
-                btnContabilidadl_Admin.ForeColor = Color.Black;
-                btnCalculosl_Admin.ForeColor = Color.Black;
-                btnVentasl_Admin.ForeColor = Color.Black;
+                btnPlanilla.ForeColor = Color.Black;
+                btnInventario.ForeColor = Color.Black;
+                btnContabilidad.ForeColor = Color.Black;
+                btnCalculos.ForeColor = Color.Black;
+                btnVentas.ForeColor = Color.Black;
             }
             if (Mod)
             {
@@ -72,23 +72,23 @@ namespace CapaVista
                 panelAbajo.BackColor = Color.FromArgb(63, 63, 70);
                 this.BackColor = Color.FromArgb(21, 25, 31);
 
-                btnBarraVertical_Admin.BackgroundColor = Color.FromArgb(63, 63, 70);
-                btnIniciol_Admin.BackgroundColor = Color.FromArgb(63, 63, 70);
-                btnConfiguracionesl_Admin.BackgroundColor = Color.FromArgb(63, 63, 70);
-                btnHerramientasl_Admin.BackgroundColor = Color.FromArgb(63, 63, 70);
-                btnUsuariosl_Admin.BackgroundColor = Color.FromArgb(63, 63, 70);
+                btnBarraVertical.BackgroundColor = Color.FromArgb(63, 63, 70);
+                btnInicio.BackgroundColor = Color.FromArgb(63, 63, 70);
+                btnConfiguraciones.BackgroundColor = Color.FromArgb(63, 63, 70);
+                btnHerramientas.BackgroundColor = Color.FromArgb(63, 63, 70);
+                btnUsuarios.BackgroundColor = Color.FromArgb(63, 63, 70);
 
-                btnPlanillal_Admin.BackgroundColor = Color.FromArgb(21, 25, 31);
-                btnInventoryl_Admin.BackgroundColor = Color.FromArgb(21, 25, 31);
-                btnContabilidadl_Admin.BackgroundColor = Color.FromArgb(21, 25, 31);
-                btnCalculosl_Admin.BackgroundColor = Color.FromArgb(21, 25, 31);
-                btnVentasl_Admin.BackgroundColor = Color.FromArgb(21, 25, 31);
+                btnPlanilla.BackgroundColor = Color.FromArgb(21, 25, 31);
+                btnInventario.BackgroundColor = Color.FromArgb(21, 25, 31);
+                btnContabilidad.BackgroundColor = Color.FromArgb(21, 25, 31);
+                btnCalculos.BackgroundColor = Color.FromArgb(21, 25, 31);
+                btnVentas.BackgroundColor = Color.FromArgb(21, 25, 31);
 
-                btnPlanillal_Admin.ForeColor = Color.White;
-                btnInventoryl_Admin.ForeColor = Color.White;
-                btnContabilidadl_Admin.ForeColor = Color.White;
-                btnCalculosl_Admin.ForeColor = Color.White;
-                btnVentasl_Admin.ForeColor = Color.White;
+                btnPlanilla.ForeColor = Color.White;
+                btnInventario.ForeColor = Color.White;
+                btnContabilidad.ForeColor = Color.White;
+                btnCalculos.ForeColor = Color.White;
+                btnVentas.ForeColor = Color.White;
 
                 tablePanel_Admin.BackColor = Color.FromArgb(63, 63, 70);
                 panelVertical_Admin.BackColor = Color.FromArgb(21, 25, 31);
@@ -266,17 +266,17 @@ namespace CapaVista
 
             if (EstadoDeBarraVertical)
             {
-                btnIniciol_Admin.Visible = false;
-                btnHerramientasl_Admin.Visible = false;
-                btnConfiguracionesl_Admin.Visible = false;
-                btnUsuariosl_Admin.Visible = false;
+                btnInicio.Visible = false;
+                btnHerramientas.Visible = false;
+                btnConfiguraciones.Visible = false;
+                btnUsuarios.Visible = false;
             }
             else
             {
-                btnIniciol_Admin.Visible = true;
-                btnHerramientasl_Admin.Visible = true;
-                btnConfiguracionesl_Admin.Visible = true;
-                btnUsuariosl_Admin.Visible = true;
+                btnInicio.Visible = true;
+                btnHerramientas.Visible = true;
+                btnConfiguraciones.Visible = true;
+                btnUsuarios.Visible = true;
             }
             EstadoDeBarraVertical = !EstadoDeBarraVertical;
         }
@@ -302,8 +302,7 @@ namespace CapaVista
         }
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            formVentas frmVenta = new formVentas(formConfiguraciones.Mod);
-            frmVenta.ShowDialog();
+            abrirFormulario(new formVentas(formConfiguraciones.Mod));
         }
 
         private void btnContabilidad_Click(object sender, EventArgs e)
@@ -318,45 +317,45 @@ namespace CapaVista
         private void btnInicio_MouseEnter(object sender, EventArgs e)
         {
             ToolTip toolTip = new ToolTip();
-            toolTip.SetToolTip(btnIniciol_Admin, "Inicio");
+            toolTip.SetToolTip(btnInicio, "Inicio");
 
         }
         private void btnHerramientas_MouseHover(object sender, EventArgs e)
         {
             ToolTip toolTip = new ToolTip();
-            toolTip.SetToolTip(btnHerramientasl_Admin, "Herramientas");
+            toolTip.SetToolTip(btnHerramientas, "Herramientas");
 
         }
         private void btnConfiguraciones_MouseEnter(object sender, EventArgs e)
         {
             ToolTip toolTip = new ToolTip();
-            toolTip.SetToolTip(btnConfiguracionesl_Admin, "Configuraciones");
+            toolTip.SetToolTip(btnConfiguraciones, "Configuraciones");
         }
         private void btnUsuarios_MouseHover(object sender, EventArgs e)
         {
             ToolTip toolTip = new ToolTip();
-            toolTip.SetToolTip(btnUsuariosl_Admin, "Usuarios");
+            toolTip.SetToolTip(btnUsuarios, "Usuarios");
         }
         private void btnInventory_MouseHover(object sender, EventArgs e)
         {
             ToolTip toolTip = new ToolTip();
-            toolTip.SetToolTip(btnInventoryl_Admin, "Inventario");
+            toolTip.SetToolTip(btnInventario, "Inventario");
         }
         private void btnPlanilla_MouseHover(object sender, EventArgs e)
         {
             ToolTip toolTip = new ToolTip();
-            toolTip.SetToolTip(btnPlanillal_Admin, "Planilla");
+            toolTip.SetToolTip(btnPlanilla, "Planilla");
         }
         private void btnContabilidad_MouseHover(object sender, EventArgs e)
         {
             ToolTip toolTip = new ToolTip();
-            toolTip.SetToolTip(btnContabilidadl_Admin, "Contabilidad");
+            toolTip.SetToolTip(btnContabilidad, "Contabilidad");
         }
 
         private void btnCalculos_MouseHover(object sender, EventArgs e)
         {
             ToolTip toolTip = new ToolTip();
-            toolTip.SetToolTip(btnCalculosl_Admin, "Calculos");
+            toolTip.SetToolTip(btnCalculos, "Calculos");
         }
     }
 }

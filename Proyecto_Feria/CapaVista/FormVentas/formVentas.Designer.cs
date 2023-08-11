@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formVentas));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             panel1 = new Panel();
             txtPrecioVenta = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtPrecioDeCompra = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
@@ -68,6 +68,7 @@
             cbxBuscar = new ReaLTaiizor.Controls.MaterialComboBox();
             btnEntradaManual = new RJCodeAdvance.RJControls.RJButton();
             btnEntradaLaser = new RJCodeAdvance.RJControls.RJButton();
+            cbxCliente = new ReaLTaiizor.Controls.MaterialComboBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
@@ -237,7 +238,7 @@
             txtDescuento.HideSelection = true;
             txtDescuento.Hint = "Ingrese cantidad del Descuento";
             txtDescuento.LeadingIcon = null;
-            txtDescuento.Location = new Point(24, 177);
+            txtDescuento.Location = new Point(21, 211);
             txtDescuento.MaxLength = 32767;
             txtDescuento.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtDescuento.Name = "txtDescuento";
@@ -271,7 +272,7 @@
             txtSubTotal.HideSelection = true;
             txtSubTotal.Hint = "Subtotal";
             txtSubTotal.LeadingIcon = null;
-            txtSubTotal.Location = new Point(24, 56);
+            txtSubTotal.Location = new Point(21, 265);
             txtSubTotal.MaxLength = 32767;
             txtSubTotal.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtSubTotal.Name = "txtSubTotal";
@@ -322,7 +323,7 @@
             btnCash.Name = "btnCash";
             btnCash.Size = new Size(260, 79);
             btnCash.TabIndex = 12;
-            btnCash.Text = "Finalizar compra ";
+            btnCash.Text = "Facturar";
             btnCash.TextAlign = ContentAlignment.BottomCenter;
             btnCash.TextColor = Color.White;
             btnCash.UseVisualStyleBackColor = false;
@@ -332,9 +333,9 @@
             // 
             lblTitulo.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             lblTitulo.ForeColor = SystemColors.ControlDarkDark;
-            lblTitulo.Location = new Point(24, 5);
+            lblTitulo.Location = new Point(24, 122);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(193, 48);
+            lblTitulo.Size = new Size(260, 48);
             lblTitulo.TabIndex = 41;
             lblTitulo.Text = "En Venta";
             lblTitulo.TextAlign = ContentAlignment.MiddleLeft;
@@ -343,6 +344,7 @@
             // 
             panel2.BackColor = Color.White;
             panel2.BackgroundImageLayout = ImageLayout.Stretch;
+            panel2.Controls.Add(cbxCliente);
             panel2.Controls.Add(txtIva);
             panel2.Controls.Add(txtTotal);
             panel2.Controls.Add(checkDescuento);
@@ -368,7 +370,7 @@
             txtIva.HideSelection = true;
             txtIva.Hint = "Iva";
             txtIva.LeadingIcon = null;
-            txtIva.Location = new Point(21, 331);
+            txtIva.Location = new Point(21, 319);
             txtIva.MaxLength = 32767;
             txtIva.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtIva.Name = "txtIva";
@@ -399,7 +401,7 @@
             txtTotal.HideSelection = true;
             txtTotal.Hint = "Total a pagar";
             txtTotal.LeadingIcon = null;
-            txtTotal.Location = new Point(21, 385);
+            txtTotal.Location = new Point(21, 373);
             txtTotal.MaxLength = 32767;
             txtTotal.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtTotal.Name = "txtTotal";
@@ -422,7 +424,7 @@
             // 
             checkDescuento.AutoSize = true;
             checkDescuento.Depth = 0;
-            checkDescuento.Location = new Point(24, 126);
+            checkDescuento.Location = new Point(21, 171);
             checkDescuento.Margin = new Padding(0);
             checkDescuento.MouseLocation = new Point(-1, -1);
             checkDescuento.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -459,24 +461,24 @@
             ProductosDataGrid.BorderStyle = BorderStyle.None;
             ProductosDataGrid.CellBorderStyle = DataGridViewCellBorderStyle.None;
             ProductosDataGrid.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            ProductosDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            ProductosDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             ProductosDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             ProductosDataGrid.Columns.AddRange(new DataGridViewColumn[] { Eliminar, DescripcionData, PrecioVentaDataGrid, StockDataGrid, CantidadDataGrid, TotalDataGrid, IncrementoCantidadDataGrid, DecrementoCantidadDataGrid, ImageProducto });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            ProductosDataGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = Color.FromArgb(136, 136, 136);
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            ProductosDataGrid.DefaultCellStyle = dataGridViewCellStyle5;
             ProductosDataGrid.Dock = DockStyle.Fill;
             ProductosDataGrid.EnableHeadersVisualStyles = false;
             ProductosDataGrid.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
@@ -484,14 +486,14 @@
             ProductosDataGrid.Location = new Point(3, 122);
             ProductosDataGrid.Name = "ProductosDataGrid";
             ProductosDataGrid.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            ProductosDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            ProductosDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             ProductosDataGrid.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             ProductosDataGrid.RowTemplate.Height = 25;
             ProductosDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -731,6 +733,30 @@
             btnEntradaLaser.TextColor = Color.White;
             btnEntradaLaser.UseVisualStyleBackColor = false;
             // 
+            // cbxCliente
+            // 
+            cbxCliente.Anchor = AnchorStyles.Left;
+            cbxCliente.AutoResize = false;
+            cbxCliente.BackColor = Color.FromArgb(255, 255, 255);
+            cbxCliente.Depth = 0;
+            cbxCliente.DrawMode = DrawMode.OwnerDrawVariable;
+            cbxCliente.DropDownHeight = 174;
+            cbxCliente.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxCliente.DropDownWidth = 121;
+            cbxCliente.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cbxCliente.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cbxCliente.FormattingEnabled = true;
+            cbxCliente.Hint = "seleccione un cliente";
+            cbxCliente.IntegralHeight = false;
+            cbxCliente.ItemHeight = 43;
+            cbxCliente.Location = new Point(24, 48);
+            cbxCliente.MaxDropDownItems = 4;
+            cbxCliente.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            cbxCliente.Name = "cbxCliente";
+            cbxCliente.Size = new Size(260, 49);
+            cbxCliente.StartIndex = 0;
+            cbxCliente.TabIndex = 53;
+            // 
             // formVentas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -797,5 +823,6 @@
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCodigoProducto;
         private RJCodeAdvance.RJControls.RJButton btnAgregarProducto;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtIva;
+        private ReaLTaiizor.Controls.MaterialComboBox cbxCliente;
     }
 }

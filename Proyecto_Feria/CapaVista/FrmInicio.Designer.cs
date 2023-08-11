@@ -30,13 +30,15 @@
         {
             RelojInicio = new ReaLTaiizor.Controls.ParrotClock();
             lblEncabezado = new Label();
-            tableLayoutPanel1 = new TableLayoutPanel();
+            tbCantidades = new TableLayoutPanel();
             parrotGroupBox1 = new ReaLTaiizor.Controls.ParrotGroupBox();
+            txtDataUsuarios = new ReaLTaiizor.Controls.ParrotBanner();
+            txtDataClientes = new ReaLTaiizor.Controls.ParrotBanner();
             txtDataCategoria = new ReaLTaiizor.Controls.ParrotBanner();
             txtDataProveedor = new ReaLTaiizor.Controls.ParrotBanner();
             txtDataProducto = new ReaLTaiizor.Controls.ParrotBanner();
             txtDataEmpleado = new ReaLTaiizor.Controls.ParrotBanner();
-            tableLayoutPanel1.SuspendLayout();
+            tbCantidades.SuspendLayout();
             parrotGroupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -80,31 +82,33 @@
             lblEncabezado.Name = "lblEncabezado";
             lblEncabezado.Size = new Size(313, 65);
             lblEncabezado.TabIndex = 40;
-            lblEncabezado.Text = "BIENVENIDOS";
+            lblEncabezado.Text = "BIENVENIDO";
             lblEncabezado.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // tableLayoutPanel1
+            // tbCantidades
             // 
-            tableLayoutPanel1.ColumnCount = 3;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 31.60221F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35.58011F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 32.81768F));
-            tableLayoutPanel1.Controls.Add(lblEncabezado, 1, 0);
-            tableLayoutPanel1.Controls.Add(RelojInicio, 1, 1);
-            tableLayoutPanel1.Controls.Add(parrotGroupBox1, 2, 1);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(3, 0);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.3507977F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 85.6492F));
-            tableLayoutPanel1.Size = new Size(899, 457);
-            tableLayoutPanel1.TabIndex = 41;
+            tbCantidades.ColumnCount = 3;
+            tbCantidades.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 31.60221F));
+            tbCantidades.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35.58011F));
+            tbCantidades.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 32.81768F));
+            tbCantidades.Controls.Add(lblEncabezado, 1, 0);
+            tbCantidades.Controls.Add(RelojInicio, 1, 1);
+            tbCantidades.Controls.Add(parrotGroupBox1, 2, 1);
+            tbCantidades.Dock = DockStyle.Fill;
+            tbCantidades.Location = new Point(3, 0);
+            tbCantidades.Name = "tbCantidades";
+            tbCantidades.RowCount = 2;
+            tbCantidades.RowStyles.Add(new RowStyle(SizeType.Percent, 14.3507977F));
+            tbCantidades.RowStyles.Add(new RowStyle(SizeType.Percent, 85.6492F));
+            tbCantidades.Size = new Size(899, 457);
+            tbCantidades.TabIndex = 41;
             // 
             // parrotGroupBox1
             // 
             parrotGroupBox1.BorderColor = Color.DodgerBlue;
             parrotGroupBox1.BorderWidth = 1;
+            parrotGroupBox1.Controls.Add(txtDataUsuarios);
+            parrotGroupBox1.Controls.Add(txtDataClientes);
             parrotGroupBox1.Controls.Add(txtDataCategoria);
             parrotGroupBox1.Controls.Add(txtDataProveedor);
             parrotGroupBox1.Controls.Add(txtDataProducto);
@@ -115,8 +119,34 @@
             parrotGroupBox1.Size = new Size(290, 386);
             parrotGroupBox1.TabIndex = 45;
             parrotGroupBox1.TabStop = false;
-            parrotGroupBox1.Text = "Datos generales";
+            parrotGroupBox1.Text = "Cantidades";
             parrotGroupBox1.TextColor = Color.DodgerBlue;
+            // 
+            // txtDataUsuarios
+            // 
+            txtDataUsuarios.BackColor = Color.Transparent;
+            txtDataUsuarios.BannerColor = SystemColors.ActiveCaption;
+            txtDataUsuarios.BorderColor = Color.White;
+            txtDataUsuarios.ForeColor = Color.White;
+            txtDataUsuarios.Location = new Point(6, 325);
+            txtDataUsuarios.Name = "txtDataUsuarios";
+            txtDataUsuarios.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            txtDataUsuarios.Size = new Size(280, 55);
+            txtDataUsuarios.TabIndex = 51;
+            txtDataUsuarios.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            // 
+            // txtDataClientes
+            // 
+            txtDataClientes.BackColor = Color.Transparent;
+            txtDataClientes.BannerColor = SystemColors.ActiveCaption;
+            txtDataClientes.BorderColor = Color.White;
+            txtDataClientes.ForeColor = Color.White;
+            txtDataClientes.Location = new Point(6, 264);
+            txtDataClientes.Name = "txtDataClientes";
+            txtDataClientes.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            txtDataClientes.Size = new Size(280, 55);
+            txtDataClientes.TabIndex = 50;
+            txtDataClientes.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
             // txtDataCategoria
             // 
@@ -127,7 +157,7 @@
             txtDataCategoria.Location = new Point(6, 22);
             txtDataCategoria.Name = "txtDataCategoria";
             txtDataCategoria.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            txtDataCategoria.Size = new Size(280, 60);
+            txtDataCategoria.Size = new Size(280, 55);
             txtDataCategoria.TabIndex = 48;
             txtDataCategoria.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
@@ -137,10 +167,10 @@
             txtDataProveedor.BannerColor = SystemColors.ActiveCaption;
             txtDataProveedor.BorderColor = Color.White;
             txtDataProveedor.ForeColor = Color.White;
-            txtDataProveedor.Location = new Point(6, 220);
+            txtDataProveedor.Location = new Point(4, 203);
             txtDataProveedor.Name = "txtDataProveedor";
             txtDataProveedor.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            txtDataProveedor.Size = new Size(280, 60);
+            txtDataProveedor.Size = new Size(280, 55);
             txtDataProveedor.TabIndex = 46;
             txtDataProveedor.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
@@ -150,10 +180,10 @@
             txtDataProducto.BannerColor = SystemColors.ActiveCaption;
             txtDataProducto.BorderColor = Color.White;
             txtDataProducto.ForeColor = Color.White;
-            txtDataProducto.Location = new Point(6, 154);
+            txtDataProducto.Location = new Point(4, 142);
             txtDataProducto.Name = "txtDataProducto";
             txtDataProducto.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            txtDataProducto.Size = new Size(280, 60);
+            txtDataProducto.Size = new Size(280, 55);
             txtDataProducto.TabIndex = 45;
             txtDataProducto.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
@@ -163,10 +193,10 @@
             txtDataEmpleado.BannerColor = SystemColors.ActiveCaption;
             txtDataEmpleado.BorderColor = Color.White;
             txtDataEmpleado.ForeColor = Color.White;
-            txtDataEmpleado.Location = new Point(6, 88);
+            txtDataEmpleado.Location = new Point(6, 81);
             txtDataEmpleado.Name = "txtDataEmpleado";
             txtDataEmpleado.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            txtDataEmpleado.Size = new Size(280, 60);
+            txtDataEmpleado.Size = new Size(280, 55);
             txtDataEmpleado.TabIndex = 44;
             txtDataEmpleado.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
@@ -176,12 +206,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(21, 25, 31);
             ClientSize = new Size(905, 460);
-            Controls.Add(tableLayoutPanel1);
+            Controls.Add(tbCantidades);
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
             Name = "FrmInicio";
             Padding = new Padding(3, 0, 3, 3);
             Text = "Inicio";
-            tableLayoutPanel1.ResumeLayout(false);
+            tbCantidades.ResumeLayout(false);
             parrotGroupBox1.ResumeLayout(false);
             parrotGroupBox1.PerformLayout();
             ResumeLayout(false);
@@ -191,7 +221,7 @@
 
         private ReaLTaiizor.Controls.ParrotClock RelojInicio;
         private Label lblEncabezado;
-        private TableLayoutPanel tableLayoutPanel1;
+        private TableLayoutPanel tbCantidades;
         private ReaLTaiizor.Controls.ParrotBanner txtDataEmpleados;
         private ReaLTaiizor.Controls.ParrotPieGraph parrotPieGraph1;
         private ReaLTaiizor.Controls.ParrotBanner txtDataEmpleado;
@@ -199,5 +229,7 @@
         private ReaLTaiizor.Controls.ParrotBanner txtDataProveedor;
         private ReaLTaiizor.Controls.ParrotBanner txtDataProducto;
         private ReaLTaiizor.Controls.ParrotBanner txtDataCategoria;
+        private ReaLTaiizor.Controls.ParrotBanner txtDataUsuarios;
+        private ReaLTaiizor.Controls.ParrotBanner txtDataClientes;
     }
 }

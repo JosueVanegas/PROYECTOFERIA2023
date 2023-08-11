@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formProveedor));
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             txtCiudad = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
@@ -121,7 +121,6 @@
             txtCiudad.TextAlign = HorizontalAlignment.Center;
             txtCiudad.TrailingIcon = null;
             txtCiudad.UseSystemPasswordChar = false;
-            txtCiudad.KeyPress += txtCiudad_KeyPress;
             // 
             // txtPais
             // 
@@ -153,7 +152,6 @@
             txtPais.TextAlign = HorizontalAlignment.Center;
             txtPais.TrailingIcon = null;
             txtPais.UseSystemPasswordChar = false;
-            txtPais.KeyPress += txtPais_KeyPress;
             // 
             // txtNumeroContacto
             // 
@@ -217,7 +215,6 @@
             txtNombreContacto.TextAlign = HorizontalAlignment.Center;
             txtNombreContacto.TrailingIcon = null;
             txtNombreContacto.UseSystemPasswordChar = false;
-            txtNombreContacto.KeyPress += txtNombreContacto_KeyPress;
             // 
             // tableLayoutPanel1
             // 
@@ -327,7 +324,6 @@
             txtNombreEmpresa.TextAlign = HorizontalAlignment.Center;
             txtNombreEmpresa.TrailingIcon = null;
             txtNombreEmpresa.UseSystemPasswordChar = false;
-            txtNombreEmpresa.KeyPress += txtNombreEmpresa_KeyPress;
             // 
             // txtId
             // 
@@ -335,6 +331,7 @@
             txtId.Name = "txtId";
             txtId.Size = new Size(35, 23);
             txtId.TabIndex = 8;
+            txtId.Text = "1";
             txtId.Visible = false;
             // 
             // txtBuscar
@@ -389,38 +386,38 @@
             tbProveedores.BorderStyle = BorderStyle.None;
             tbProveedores.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             tbProveedores.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            tbProveedores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            tbProveedores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             tbProveedores.ColumnHeadersHeight = 40;
             tbProveedores.Columns.AddRange(new DataGridViewColumn[] { btnEditar, btnBorrar, Id, Empresa, Contacto, Numero, Pais, Ciudad });
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.DarkGray;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            tbProveedores.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.DarkGray;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            tbProveedores.DefaultCellStyle = dataGridViewCellStyle2;
             tbProveedores.EnableHeadersVisualStyles = false;
             tbProveedores.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbProveedores.GridColor = Color.FromArgb(255, 255, 255);
             tbProveedores.Location = new Point(321, 70);
             tbProveedores.Name = "tbProveedores";
             tbProveedores.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            tbProveedores.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            tbProveedores.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             tbProveedores.RowHeadersVisible = false;
             tbProveedores.RowHeadersWidth = 40;
             tbProveedores.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;

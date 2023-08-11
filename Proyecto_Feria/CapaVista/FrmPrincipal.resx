@@ -667,7 +667,7 @@
         AAAAAAAAAAAAgKyZMeP/A53wb7e1yM11AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="btnContabilidadl_Admin.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnContabilidad.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
         MAAA6mAAADqYAAAXcJy6UTwAAAAHdElNRQfnBxkSFTBWauQ5AAADmUlEQVRYR6WX229MURSHS9zvieuL
@@ -689,7 +689,7 @@
         vwfhBvRA4OMUAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="btnInventoryl_Admin.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnInventario.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
         MAAA6mAAADqYAAAXcJy6UTwAAAAHdElNRQfnBxkSFQvnYQ0dAAABUElEQVRYR+1WS0oDQRQcPIdb8Qp6
@@ -701,7 +701,7 @@
         g/92tIIvY3QQ5TH3xbPsBxCudOgbJZ4uAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="btnPlanillal_Admin.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnPlanilla.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
         MAAA6mAAADqYAAAXcJy6UTwAAAAHdElNRQfnBxkSCxS+KD83AAAC6klEQVRYR82XO2hUQRiFNyrYqI2o
@@ -720,7 +720,7 @@
         +fcskfgF3dVb6dZj944AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnCalculosl_Admin.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnCalculos.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
         MAAA6mAAADqYAAAXcJy6UTwAAAAHdElNRQfnBxkSFw6lPZsQAAACQklEQVRYR+2WP2sUURTFV4X04hdQ
@@ -736,7 +736,7 @@
         bhFijesn+FtNY6EdNo7jF/8A5z06AFEj/BkAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnVentasl_Admin.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnVentas.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
         MAAA6mAAADqYAAAXcJy6UTwAAAAHdElNRQfnBxkSFzqEiW+lAAACZUlEQVRYR+2WvWsUURTFV0kpiEYE
@@ -753,7 +753,7 @@
         dQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="btnIniciol_Admin.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnInicio.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
         MAAA6mAAADqYAAAXcJy6UTwAAAAHdElNRQfnBxkSBRe5okMDAAACDElEQVRYR+2WPUvDYBSFo7gI4iA4
@@ -768,7 +768,7 @@
         sB2qiOkHOAYFakp8DkAzjtLp9KBhGMY3pfdWQvmF9mcAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnUsuariosl_Admin.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnUsuarios.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
         MAAA6mAAADqYAAAXcJy6UTwAAAAHdElNRQfnBxkSCQcIoBxrAAADa0lEQVRYR61Wy0tUYRy9FfSAqEVl
@@ -789,7 +789,7 @@
         mzIKnIxaxiD2hkwx8Lx/d8rtEJSYK9YAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnBarraVertical_Admin.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnBarraVertical.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
         MAAA6mAAADqYAAAXcJy6UTwAAAAHdElNRQfnBxkSBCVobiPCAAAAuUlEQVRYR+2WzQkCMRCF04WWoh0o
@@ -799,7 +799,7 @@
         RK5CYII=
 </value>
   </data>
-  <data name="btnHerramientasl_Admin.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnHerramientas.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
         MAAA6mAAADqYAAAXcJy6UTwAAAAHdElNRQfnBxkSBhgCMA1RAAAD2ElEQVRYR62XT2hcVRTGJ1VsKxYp
@@ -822,7 +822,7 @@
         MpnM/1bYn942jUgdAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="btnConfiguracionesl_Admin.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnConfiguraciones.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
         MAAA6mAAADqYAAAXcJy6UTwAAAAHdElNRQfnBxkSCAcRuy0qAAACU0lEQVRYR72XzU4TURiGR28BFmiU

@@ -1,13 +1,17 @@
-﻿using ReaLTaiizor.Colors;
+﻿using CapaControlador;
+using CapaDatos;
+using ReaLTaiizor.Colors;
 using ReaLTaiizor.Forms;
 using ReaLTaiizor.Manager;
 using ReaLTaiizor.Util;
+using System.Drawing;
 
 namespace CapaVista
 {
     public partial class formProductos : MaterialForm
     {
-
+        ControlProducto cProd = new ControlProducto();
+        byte[] imagenEnBytes;
         public formProductos(Boolean Mod)
         {
             InitializeComponent();
@@ -29,180 +33,224 @@ namespace CapaVista
 
             }
         }
-
+        private void formProductos_Load(object sender, EventArgs e)
+        {
+            mostrarProductos();
+            mostrarCategoria();
+            mostrarProveedores();
+        }
+        private void mostrarCategoria()
+        {
+            cbxCategoria.DataSource = cProd.listarCategoria();
+        }
+        private void mostrarProveedores()
+        {
+            cbxProveedor.DataSource = cProd.listarProveedores();
+        }
+        private void mostrarProductos()
+        {
+            List<Producto> lista = cProd.listarProductos();
+            tbProductos.Rows.Clear();
+            foreach (Producto p in lista)
+            {
+                tbProductos.Rows.Add("", "", p.id, p.codigo, p.nombre, p.PrecioCompra,
+                    p.PrecioVenta, p.cantidad, p.oProveedor.id, p.oCategoria.id,
+                    p.oProveedor.nombreProveedor, p.oCategoria.nombre);
+            }
+        }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            registrarProducto();
 
         }
+        private bool validarCampos()
+        {
+            bool permitir = true;
+            if (txtCodigoBarra.Text.Equals("") && txtNombre.Text.Equals("") && txtPrecioCompra.Text.Equals("") &&
+                txtPrecioVenta.Text.Equals("") && imagenEnBytes == null)
+            {
+                permitir = false;
+            }
+            return permitir;
+        }
+        private void eliminarProducto(int id)
+        {
+            cProd.eliminarProducto(id);
+        }
+        private void registrarProducto()
+        {
+            if (validarCampos())
+            {
+                if (cbxProveedor.SelectedItem is Proveedor prov && cbxCategoria.SelectedItem is Categoria cat)
+                {
+                    try
+                    {
+                        OpenFileDialog openFileDialog = new OpenFileDialog();
+                        openFileDialog.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
+                        openFileDialog.Title = "Selecciona una imagen";
 
+                        if (openFileDialog.ShowDialog() == DialogResult.OK)
+                        {
+                            string rutaImagen = openFileDialog.FileName;
+                            imagenEnBytes = File.ReadAllBytes(rutaImagen);
+                            imagenProducto.Image = Image.FromFile(rutaImagen);
+                        }
+                        decimal pc = Convert.ToDecimal(txtPrecioCompra.Text);
+                        decimal pv = Convert.ToDecimal(txtPrecioVenta.Text);
+                        Producto prod = new Producto
+                        {
+                            
+                            imagen = imagenEnBytes,
+                            id = Convert.ToInt32(txtIdProducto.Text),
+                            codigo = Convert.ToInt32(txtCodigoBarra.Text),
+                            nombre = txtNombre.Text,
+                            PrecioCompra = pc,
+                            PrecioVenta = pv,
+                            oProveedor = prov,
+                            oCategoria = cat
+                        };
+
+                       // MessageBox.Show(cProd.accionesProducto(prod));
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(imagenEnBytes+ex.Message);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione un proveedor y una categoría válidos.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, llene todos los campos primero (incluida la imagen).");
+            }
+        }
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
 
         }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back)
-            {
-                e.Handled = true; // Evita que se procese el carácter
-            }
-        }
-
         private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
             {
-                e.Handled = true; // Evita que se procese el carácter
+                e.Handled = true;
             }
         }
-
-        private void pictureBox1_MouseHover(object sender, EventArgs e)
-        {
-            // Crear un objeto ToolTip
-            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
-            // Establecer el icono de información (puedes cambiar el icono si lo deseas)
-            toolTip.ToolTipIcon = ToolTipIcon.Info;
-
-
-        }
-
         private void btnGuardar_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(btnGuardar, "Guardar");
         }
-
         private void btnLimpiar_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(btnLimpiar, "Limpiar");
         }
-
-        private void btnEliminar_MouseHover(object sender, EventArgs e)
-        {
-            // Crear un objeto ToolTip
-            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
-            // Establecer el texto de la descripción
-            toolTip.SetToolTip(btnLimpiar, "Eliminar");
-        }
-
         private void txtPrecioDeCompra_KeyPress(object sender, KeyPressEventArgs e)
         {
             char keyPressed = e.KeyChar;
-
-            // Permitir números, punto decimal, tecla de eliminar o suprimir, y teclas de control (copiar, pegar, etc.)
             if (!char.IsDigit(keyPressed) && keyPressed != '.' && keyPressed != (char)Keys.Delete && keyPressed != (char)Keys.Back && !char.IsControl(keyPressed))
-            {
-                e.Handled = true; // Evitar que se procese el carácter
-            }
-
-            // Si se ingresa un punto decimal y ya hay otro presente o es el primer carácter, evitar que se procese
-            if ((keyPressed == '.' && (txtPrecioCompra.Text.Contains(".") || txtPrecioCompra.Text.Length == 0)))
             {
                 e.Handled = true;
             }
-        }
-
-        private void txtPrecioDeCompra_Leave(object sender, EventArgs e)
-        {
-            if (txtPrecioCompra != null)
+            /*
+             * if ((keyPressed == '.' && (txtPrecioCompra.Text.Contains(".") || txtPrecioCompra.Text.Length == 10)))
             {
-                // Si el último carácter es un punto decimal, eliminarlo
-                if (txtPrecioCompra.Text.EndsWith("."))
-                {
-                    txtPrecioCompra.Text = txtPrecioCompra.Text.TrimEnd('.');
-                }
-
-                // Si no hay un punto decimal o si el último carácter es el punto decimal, añadir ".00" al final
-                if (txtPrecioCompra.Text.IndexOf('.') == -1 || txtPrecioCompra.Text.EndsWith("."))
-                {
-                    txtPrecioCompra.Text += ".00";
-                }
-                // Si hay un punto decimal, pero solo un dígito después de él, agregar un cero adicional
-                else if (txtPrecioCompra.Text.Length - txtPrecioCompra.Text.IndexOf('.') == 2)
-                {
-                    txtPrecioCompra.Text += "0";
-                }
-                // Si no hay dígitos después del punto decimal, agregar dos ceros adicionales
-                else if (txtPrecioCompra.Text.Length - txtPrecioCompra.Text.IndexOf('.') == 1)
-                {
-                    txtPrecioCompra.Text += "00";
-                }
+                e.Handled = true;
             }
-
+            if ((keyPressed == '.' && (txtPrecioVenta.Text.Contains(".") || txtPrecioVenta.Text.Length == 10)))
+            {
+                e.Handled = true;
+            }
+             */
 
         }
-
         private void txtPrecioVenta_KeyPress(object sender, KeyPressEventArgs e)
         {
             char keyPressed = e.KeyChar;
-
-            // Permitir números, punto decimal, tecla de eliminar o suprimir, y teclas de control (copiar, pegar, etc.)
             if (!char.IsDigit(keyPressed) && keyPressed != '.' && keyPressed != (char)Keys.Delete && keyPressed != (char)Keys.Back && !char.IsControl(keyPressed))
-            {
-                e.Handled = true; // Evitar que se procese el carácter
-            }
-
-            // Si se ingresa un punto decimal y ya hay otro presente o es el primer carácter, evitar que se procese
-            if ((keyPressed == '.' && (txtPrecioVenta.Text.Contains(".") || txtPrecioVenta.Text.Length == 0)))
             {
                 e.Handled = true;
             }
-
-            // Validar que solo se ingresen hasta 6 dígitos antes del punto decimal
-            if (keyPressed != '.' && txtPrecioVenta.Text.Contains("."))
-            {
-                int dotIndex = txtPrecioVenta.Text.IndexOf('.');
-                if (dotIndex != -1 && dotIndex < txtPrecioVenta.Text.Length - 7)
-                {
-                    e.Handled = true;
-                }
-            }
+            
         }
-
-
-        private void txtPrecioVenta_Leave(object sender, EventArgs e)
+        private void tbProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (txtPrecioVenta != null)
+            int indice = e.RowIndex;
+            if (tbProductos.Columns[e.ColumnIndex].Name == "btnSeleccionar")
             {
-                // Si el último carácter es un punto decimal, eliminarlo
-                if (txtPrecioVenta.Text.EndsWith("."))
+                if (indice >= 0)
                 {
-                    txtPrecioVenta.Text = txtPrecioVenta.Text.TrimEnd('.');
+                    txtCodigoBarra.Text = tbProductos.Rows[indice].Cells["Codigo"].Value.ToString();
+                    txtNombre.Text = tbProductos.Rows[indice].Cells["Nombre"].Value.ToString();
+                    txtIdProducto.Text = tbProductos.Rows[indice].Cells["Id"].Value.ToString();
+                    txtPrecioCompra.Text = tbProductos.Rows[indice].Cells["PrecioCompra"].Value.ToString();
+                    txtPrecioVenta.Text = tbProductos.Rows[indice].Cells["PrecioVenta"].Value.ToString();
                 }
-
-                // Si no hay un punto decimal o si el último carácter es el punto decimal, añadir ".00" al final
-                if (txtPrecioVenta.Text.IndexOf('.') == -1 || txtPrecioVenta.Text.EndsWith("."))
+            }
+            if (tbProductos.Columns[e.ColumnIndex].Name == "btnBorrar")
+            {
+                if (indice >= 0)
                 {
-                    txtPrecioVenta.Text += ".00";
-                }
-                // Si hay un punto decimal, pero solo un dígito después de él, agregar un cero adicional
-                else if (txtPrecioVenta.Text.Length - txtPrecioVenta.Text.IndexOf('.') == 2)
-                {
-                    txtPrecioVenta.Text += "0";
-                }
-                // Si no hay dígitos después del punto decimal, agregar dos ceros adicionales
-                else if (txtPrecioVenta.Text.Length - txtPrecioVenta.Text.IndexOf('.') == 1)
-                {
-                    txtPrecioVenta.Text += "00";
+                    string valor = tbProductos.Rows[indice].Cells["Id"].Value.ToString();
+                    eliminarProducto(Convert.ToInt32(valor));
                 }
             }
         }
+        private void tbProductos_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
 
+            if (e.ColumnIndex == 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var w = Properties.Resources.pen_circle.Width;
+                var h = Properties.Resources.pen_circle.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
 
+                e.Graphics.DrawImage(Properties.Resources.pen_circle, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+            if (e.ColumnIndex == 1)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var w = Properties.Resources.eliminar.Width;
+                var h = Properties.Resources.eliminar.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.eliminar, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
+
+        private void txtCodigoBarra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char keyPressed = e.KeyChar;
+            if (!char.IsDigit(keyPressed) && keyPressed != (char)Keys.Delete && keyPressed != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnSeleccionarImagen_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
+            openFileDialog.Title = "Selecciona una imagen";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+               string rutaImagen = openFileDialog.FileName;
+                imagenEnBytes = File.ReadAllBytes(rutaImagen);
+                imagenProducto.Image = Image.FromFile(rutaImagen);
+            }
+            
+        }
     }
 
 }
