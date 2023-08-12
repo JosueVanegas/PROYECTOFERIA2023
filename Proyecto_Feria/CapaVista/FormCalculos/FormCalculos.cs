@@ -2,7 +2,6 @@
 using ReaLTaiizor.Forms;
 using ReaLTaiizor.Manager;
 using ReaLTaiizor.Util;
-using System.ComponentModel;
 
 namespace CapaVista.FormCalculos
 {
@@ -31,7 +30,7 @@ namespace CapaVista.FormCalculos
 
         private void InitializeComponent()
         {
-            ComponentResourceManager resources = new ComponentResourceManager(typeof(FormCalculos));
+
             tableLayoutPanel1 = new TableLayoutPanel();
             btnEmpleados = new RJCodeAdvance.RJControls.RJButton();
             panelContenedor = new Panel();
@@ -75,7 +74,6 @@ namespace CapaVista.FormCalculos
             btnEmpleados.FlatStyle = FlatStyle.Flat;
             btnEmpleados.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnEmpleados.ForeColor = Color.White;
-            btnEmpleados.Image = (Image)resources.GetObject("btnEmpleados.Image");
             btnEmpleados.ImageAlign = ContentAlignment.MiddleLeft;
             btnEmpleados.Location = new Point(3, 2);
             btnEmpleados.Margin = new Padding(3, 2, 3, 2);
@@ -128,7 +126,6 @@ namespace CapaVista.FormCalculos
             rjButton1.FlatStyle = FlatStyle.Flat;
             rjButton1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             rjButton1.ForeColor = Color.White;
-            rjButton1.Image = (Image)resources.GetObject("rjButton1.Image");
             rjButton1.ImageAlign = ContentAlignment.MiddleLeft;
             rjButton1.Location = new Point(3, 2);
             rjButton1.Margin = new Padding(3, 2, 3, 2);
@@ -181,7 +178,6 @@ namespace CapaVista.FormCalculos
             btnGraficas.FlatStyle = FlatStyle.Flat;
             btnGraficas.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnGraficas.ForeColor = Color.White;
-            btnGraficas.Image = (Image)resources.GetObject("btnGraficas.Image");
             btnGraficas.ImageAlign = ContentAlignment.MiddleLeft;
             btnGraficas.Location = new Point(3, 2);
             btnGraficas.Margin = new Padding(3, 2, 3, 2);

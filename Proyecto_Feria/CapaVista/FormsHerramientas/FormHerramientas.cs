@@ -33,6 +33,7 @@ namespace CapaVista.FormsHerramientas
 
             btnCalcularNomina.Visible = true;
             btnIR.Visible = true;
+            btnGenerarCodigoBarra.Visible = true;
             /*
             if (Rol.oRol.descripcion == "Administrador")
             {
@@ -69,14 +70,20 @@ namespace CapaVista.FormsHerramientas
 
         private void btnCalculadoraBasica_Click(object sender, EventArgs e)
         {
-            CalculadoraBasica Ca = new CalculadoraBasica(formConfiguraciones.Mod);
+            FormCalculadoraBasica Ca = new FormCalculadoraBasica(formConfiguraciones.Mod);
             Ca.ShowDialog();
         }
 
         private void btnCalcularDescuento_Click(object sender, EventArgs e)
         {
-            CalcularDescuento Ca = new CalcularDescuento(formConfiguraciones.Mod);
+            FormCalcularDescuento Ca = new FormCalcularDescuento(formConfiguraciones.Mod);
             Ca.ShowDialog();
+        }
+
+        private void btnGenerarCodigoBarra_Click(object sender, EventArgs e)
+        {
+            FormGenerarCodigoBarra GeneradorCodigo = new FormGenerarCodigoBarra();
+            GeneradorCodigo.ShowDialog();
         }
     }
 }

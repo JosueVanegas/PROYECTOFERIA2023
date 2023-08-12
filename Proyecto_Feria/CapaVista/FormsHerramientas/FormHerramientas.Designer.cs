@@ -37,6 +37,7 @@
             btnIR = new RJCodeAdvance.RJControls.RJButton();
             btnbitacora = new RJCodeAdvance.RJControls.RJButton();
             btnCalcularNomina = new RJCodeAdvance.RJControls.RJButton();
+            btnGenerarCodigoBarra = new RJCodeAdvance.RJControls.RJButton();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
@@ -73,6 +74,7 @@
             tableLayoutPanel1.Controls.Add(btnIR, 2, 0);
             tableLayoutPanel1.Controls.Add(btnbitacora, 0, 1);
             tableLayoutPanel1.Controls.Add(btnCalcularNomina, 3, 0);
+            tableLayoutPanel1.Controls.Add(btnGenerarCodigoBarra, 1, 1);
             tableLayoutPanel1.Location = new Point(21, 12);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 4;
@@ -206,7 +208,32 @@
             btnCalcularNomina.UseVisualStyleBackColor = false;
             btnCalcularNomina.Visible = false;
             // 
-            // FormsHerramientasss
+            // btnGenerarCodigoBarra
+            // 
+            btnGenerarCodigoBarra.BackColor = Color.FromArgb(63, 63, 70);
+            btnGenerarCodigoBarra.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnGenerarCodigoBarra.BackgroundImage = (Image)resources.GetObject("btnGenerarCodigoBarra.BackgroundImage");
+            btnGenerarCodigoBarra.BackgroundImageLayout = ImageLayout.Center;
+            btnGenerarCodigoBarra.BorderColor = Color.PaleVioletRed;
+            btnGenerarCodigoBarra.BorderRadius = 10;
+            btnGenerarCodigoBarra.BorderSize = 0;
+            btnGenerarCodigoBarra.FlatAppearance.BorderSize = 0;
+            btnGenerarCodigoBarra.FlatStyle = FlatStyle.Flat;
+            btnGenerarCodigoBarra.ForeColor = Color.White;
+            btnGenerarCodigoBarra.ImageAlign = ContentAlignment.MiddleRight;
+            btnGenerarCodigoBarra.Location = new Point(152, 121);
+            btnGenerarCodigoBarra.Margin = new Padding(3, 2, 3, 2);
+            btnGenerarCodigoBarra.Name = "btnGenerarCodigoBarra";
+            btnGenerarCodigoBarra.Size = new Size(143, 115);
+            btnGenerarCodigoBarra.TabIndex = 19;
+            btnGenerarCodigoBarra.Text = "Crear Codigo";
+            btnGenerarCodigoBarra.TextAlign = ContentAlignment.BottomCenter;
+            btnGenerarCodigoBarra.TextColor = Color.White;
+            btnGenerarCodigoBarra.UseVisualStyleBackColor = false;
+            btnGenerarCodigoBarra.Visible = false;
+            btnGenerarCodigoBarra.Click += btnGenerarCodigoBarra_Click;
+            // 
+            // FormHerramientas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -214,7 +241,7 @@
             Controls.Add(flowLayoutPanel1);
             Controls.Add(tableLayoutPanel1);
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
-            Name = "FormsHerramientasss";
+            Name = "FormHerramientas";
             Padding = new Padding(3, 0, 3, 3);
             Text = "FormsHerramientasss";
             flowLayoutPanel1.ResumeLayout(false);
@@ -233,5 +260,6 @@
         private RJCodeAdvance.RJControls.RJButton btnCalcularNomina;
         private RJCodeAdvance.RJControls.RJButton btnIR;
         private RJCodeAdvance.RJControls.RJButton btnbitacora;
+        private RJCodeAdvance.RJControls.RJButton btnGenerarCodigoBarra;
     }
 }

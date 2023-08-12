@@ -47,9 +47,6 @@
             txtNombre = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtIdProducto = new TextBox();
             tbProductos = new ReaLTaiizor.Controls.PoisonDataGridView();
-            txtBuscar = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            lblEncabezado = new Label();
-            cbxBuscar = new ReaLTaiizor.Controls.MaterialComboBox();
             btnSeleccionar = new DataGridViewButtonColumn();
             btnBorrar = new DataGridViewButtonColumn();
             Id = new DataGridViewTextBoxColumn();
@@ -63,10 +60,15 @@
             NombreProveedor = new DataGridViewTextBoxColumn();
             NombreCategoria = new DataGridViewTextBoxColumn();
             Imagen = new DataGridViewTextBoxColumn();
+            txtBuscar = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            lblEncabezado = new Label();
+            cbxBuscar = new ReaLTaiizor.Controls.MaterialComboBox();
+            panelBusqueda = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)imagenProducto).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tbProductos).BeginInit();
+            panelBusqueda.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -91,6 +93,7 @@
             // 
             // imagenProducto
             // 
+            imagenProducto.ErrorImage = (Image)resources.GetObject("imagenProducto.ErrorImage");
             imagenProducto.Location = new Point(12, 46);
             imagenProducto.Name = "imagenProducto";
             imagenProducto.Size = new Size(96, 94);
@@ -226,7 +229,7 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006275F));
             tableLayoutPanel1.Controls.Add(btnLimpiar, 1, 0);
             tableLayoutPanel1.Controls.Add(btnGuardar, 0, 0);
-            tableLayoutPanel1.Location = new Point(60, 416);
+            tableLayoutPanel1.Location = new Point(59, 416);
             tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
@@ -390,7 +393,6 @@
             tbProductos.AllowUserToAddRows = false;
             tbProductos.AllowUserToOrderColumns = true;
             tbProductos.AllowUserToResizeRows = false;
-            tbProductos.Anchor = AnchorStyles.Left;
             tbProductos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             tbProductos.BackgroundColor = Color.FromArgb(50, 50, 50);
             tbProductos.BorderStyle = BorderStyle.None;
@@ -414,10 +416,11 @@
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             tbProductos.DefaultCellStyle = dataGridViewCellStyle2;
+            tbProductos.Dock = DockStyle.Fill;
             tbProductos.EnableHeadersVisualStyles = false;
             tbProductos.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbProductos.GridColor = Color.Gray;
-            tbProductos.Location = new Point(323, 89);
+            tbProductos.Location = new Point(289, 54);
             tbProductos.Name = "tbProductos";
             tbProductos.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -433,76 +436,10 @@
             tbProductos.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tbProductos.RowTemplate.Height = 30;
             tbProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tbProductos.Size = new Size(617, 421);
+            tbProductos.Size = new Size(654, 435);
             tbProductos.TabIndex = 21;
             tbProductos.CellContentClick += tbProductos_CellContentClick;
             tbProductos.CellPainting += tbProductos_CellPainting;
-            // 
-            // txtBuscar
-            // 
-            txtBuscar.AnimateReadOnly = true;
-            txtBuscar.AutoCompleteMode = AutoCompleteMode.None;
-            txtBuscar.AutoCompleteSource = AutoCompleteSource.None;
-            txtBuscar.BackgroundImageLayout = ImageLayout.None;
-            txtBuscar.CharacterCasing = CharacterCasing.Normal;
-            txtBuscar.Depth = 0;
-            txtBuscar.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtBuscar.HideSelection = true;
-            txtBuscar.Hint = "Buscar";
-            txtBuscar.LeadingIcon = null;
-            txtBuscar.Location = new Point(616, 11);
-            txtBuscar.MaxLength = 32767;
-            txtBuscar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            txtBuscar.Name = "txtBuscar";
-            txtBuscar.PasswordChar = '\0';
-            txtBuscar.PrefixSuffixText = null;
-            txtBuscar.ReadOnly = false;
-            txtBuscar.RightToLeft = RightToLeft.No;
-            txtBuscar.SelectedText = "";
-            txtBuscar.SelectionLength = 0;
-            txtBuscar.SelectionStart = 0;
-            txtBuscar.ShortcutsEnabled = true;
-            txtBuscar.Size = new Size(324, 48);
-            txtBuscar.TabIndex = 25;
-            txtBuscar.TabStop = false;
-            txtBuscar.TextAlign = HorizontalAlignment.Center;
-            txtBuscar.TrailingIcon = null;
-            txtBuscar.UseSystemPasswordChar = false;
-            txtBuscar.KeyPress += txtBuscar_KeyPress;
-            // 
-            // lblEncabezado
-            // 
-            lblEncabezado.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblEncabezado.Location = new Point(323, 10);
-            lblEncabezado.Name = "lblEncabezado";
-            lblEncabezado.Size = new Size(153, 49);
-            lblEncabezado.TabIndex = 24;
-            lblEncabezado.Text = "Productos registrados";
-            lblEncabezado.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // cbxBuscar
-            // 
-            cbxBuscar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            cbxBuscar.AutoResize = false;
-            cbxBuscar.BackColor = Color.FromArgb(255, 255, 255);
-            cbxBuscar.Depth = 0;
-            cbxBuscar.DrawMode = DrawMode.OwnerDrawVariable;
-            cbxBuscar.DropDownHeight = 174;
-            cbxBuscar.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbxBuscar.DropDownWidth = 121;
-            cbxBuscar.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            cbxBuscar.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            cbxBuscar.FormattingEnabled = true;
-            cbxBuscar.Hint = "buscar por";
-            cbxBuscar.IntegralHeight = false;
-            cbxBuscar.ItemHeight = 43;
-            cbxBuscar.Location = new Point(482, 10);
-            cbxBuscar.MaxDropDownItems = 4;
-            cbxBuscar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            cbxBuscar.Name = "cbxBuscar";
-            cbxBuscar.Size = new Size(128, 49);
-            cbxBuscar.StartIndex = 0;
-            cbxBuscar.TabIndex = 26;
             // 
             // btnSeleccionar
             // 
@@ -590,15 +527,94 @@
             Imagen.ReadOnly = true;
             Imagen.Visible = false;
             // 
+            // txtBuscar
+            // 
+            txtBuscar.AnimateReadOnly = true;
+            txtBuscar.AutoCompleteMode = AutoCompleteMode.None;
+            txtBuscar.AutoCompleteSource = AutoCompleteSource.None;
+            txtBuscar.BackgroundImageLayout = ImageLayout.None;
+            txtBuscar.CharacterCasing = CharacterCasing.Normal;
+            txtBuscar.Depth = 0;
+            txtBuscar.Dock = DockStyle.Left;
+            txtBuscar.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtBuscar.HideSelection = true;
+            txtBuscar.Hint = "Buscar";
+            txtBuscar.LeadingIcon = null;
+            txtBuscar.Location = new Point(328, 0);
+            txtBuscar.MaxLength = 32767;
+            txtBuscar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.PasswordChar = '\0';
+            txtBuscar.PrefixSuffixText = null;
+            txtBuscar.ReadOnly = false;
+            txtBuscar.RightToLeft = RightToLeft.No;
+            txtBuscar.SelectedText = "";
+            txtBuscar.SelectionLength = 0;
+            txtBuscar.SelectionStart = 0;
+            txtBuscar.ShortcutsEnabled = true;
+            txtBuscar.Size = new Size(324, 48);
+            txtBuscar.TabIndex = 25;
+            txtBuscar.TabStop = false;
+            txtBuscar.TextAlign = HorizontalAlignment.Center;
+            txtBuscar.TrailingIcon = null;
+            txtBuscar.UseSystemPasswordChar = false;
+            txtBuscar.KeyPress += txtBuscar_KeyPress;
+            txtBuscar.TextChanged += txtBuscar_TextChanged;
+            // 
+            // lblEncabezado
+            // 
+            lblEncabezado.Dock = DockStyle.Left;
+            lblEncabezado.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblEncabezado.Location = new Point(0, 0);
+            lblEncabezado.Name = "lblEncabezado";
+            lblEncabezado.Size = new Size(200, 54);
+            lblEncabezado.TabIndex = 24;
+            lblEncabezado.Text = "Productos registrados";
+            lblEncabezado.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // cbxBuscar
+            // 
+            cbxBuscar.AutoResize = false;
+            cbxBuscar.BackColor = Color.FromArgb(255, 255, 255);
+            cbxBuscar.Depth = 0;
+            cbxBuscar.Dock = DockStyle.Left;
+            cbxBuscar.DrawMode = DrawMode.OwnerDrawVariable;
+            cbxBuscar.DropDownHeight = 174;
+            cbxBuscar.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxBuscar.DropDownWidth = 121;
+            cbxBuscar.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cbxBuscar.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cbxBuscar.FormattingEnabled = true;
+            cbxBuscar.Hint = "buscar por";
+            cbxBuscar.IntegralHeight = false;
+            cbxBuscar.ItemHeight = 43;
+            cbxBuscar.Items.AddRange(new object[] { "Codigo", "Nombre", "Proveedor", "Categoria" });
+            cbxBuscar.Location = new Point(200, 0);
+            cbxBuscar.MaxDropDownItems = 4;
+            cbxBuscar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            cbxBuscar.Name = "cbxBuscar";
+            cbxBuscar.Size = new Size(128, 49);
+            cbxBuscar.StartIndex = 0;
+            cbxBuscar.TabIndex = 26;
+            // 
+            // panelBusqueda
+            // 
+            panelBusqueda.Controls.Add(txtBuscar);
+            panelBusqueda.Controls.Add(cbxBuscar);
+            panelBusqueda.Controls.Add(lblEncabezado);
+            panelBusqueda.Dock = DockStyle.Top;
+            panelBusqueda.Location = new Point(289, 0);
+            panelBusqueda.Name = "panelBusqueda";
+            panelBusqueda.Size = new Size(654, 54);
+            panelBusqueda.TabIndex = 27;
+            // 
             // formProductos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(946, 492);
-            Controls.Add(cbxBuscar);
-            Controls.Add(txtBuscar);
-            Controls.Add(lblEncabezado);
             Controls.Add(tbProductos);
+            Controls.Add(panelBusqueda);
             Controls.Add(panel1);
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
             Name = "formProductos";
@@ -610,6 +626,7 @@
             ((System.ComponentModel.ISupportInitialize)imagenProducto).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)tbProductos).EndInit();
+            panelBusqueda.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -646,5 +663,6 @@
         private DataGridViewTextBoxColumn NombreProveedor;
         private DataGridViewTextBoxColumn NombreCategoria;
         private DataGridViewTextBoxColumn Imagen;
+        private Panel panelBusqueda;
     }
 }

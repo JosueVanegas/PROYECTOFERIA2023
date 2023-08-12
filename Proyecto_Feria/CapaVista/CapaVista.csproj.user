@@ -4,31 +4,34 @@
     <Compile Update="FormCalculos\FormCalculos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormConfiguracion\formConfiguraciones.cs">
+    <Compile Update="FormConfiguracion\FormConfiguraciones.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormContabilidad\FormContabilidads.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormInventario\formCategoria.cs">
+    <Compile Update="FormInventario\FormCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormInventario\formProductos.cs">
+    <Compile Update="FormInventario\FormCompras.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormPlanilla\formEmpleados.cs">
+    <Compile Update="FormInventario\FormProductos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormInventario\formInventario.cs">
+    <Compile Update="FormPlanilla\FormEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="formLogin.cs">
+    <Compile Update="FormInventario\FormInventario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormPlanilla\formPlanilla.cs">
+    <Compile Update="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormInventario\formProveedor.cs">
+    <Compile Update="FormPlanilla\FormPlanilla.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormInventario\FormProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormPrimerAcceso\FormaAjustesEntidad.cs">
@@ -40,16 +43,19 @@
     <Compile Update="FormPrimerAcceso\FormUsuarioInicial.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormsHerramientas\CalculadoraBasica.cs">
+    <Compile Update="FormsHerramientas\FormCalculadoraBasica.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormsHerramientas\CalcularDescuento.cs">
+    <Compile Update="FormsHerramientas\FormCalcularDescuento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormsHerramientas\FormGenerarCodigoBarra.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormsHerramientas\FormHerramientas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="formUsuarios.cs">
+    <Compile Update="FormUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormVentas\FormBuscarProductos.cs">
@@ -61,13 +67,13 @@
     <Compile Update="FormVentas\FormPagar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormVentas\formVentas.cs">
+    <Compile Update="FormVentas\FormVentas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FrmInicio.cs">
+    <Compile Update="FormInicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FrmPrincipal.cs">
+    <Compile Update="FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

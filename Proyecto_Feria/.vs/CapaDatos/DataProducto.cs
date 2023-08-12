@@ -14,7 +14,7 @@ namespace CapaDatos
 
             try
             {
-                using (var con = new conexion().conectar()) 
+                using (var con = new conexion().conectar())
                 {
                     con.Open();
                     using (var cmd = new SqlCommand(query, con))
@@ -26,7 +26,7 @@ namespace CapaDatos
                                 Producto producto = new Producto
                                 {
                                     id = Convert.ToInt32(reader["ID_PRODUCTO"]),
-                                    codigo = Convert.ToInt32(reader["CODIGO_PRODUCTO"]),
+                                    codigo = reader["CODIGO_PRODUCTO"].ToString(),
                                     nombre = reader["NOMBRE_PRODUCTO"].ToString(),
                                     imagen = (byte[])reader["IMAGEN_PRODUCTO"],
                                     PrecioCompra = Convert.ToDecimal(reader["PRECIO_COMPRA"]),
@@ -138,7 +138,7 @@ namespace CapaDatos
                         cmd.Parameters.AddWithValue("@PRECIOVENTA", p.PrecioVenta);
                         cmd.Parameters.AddWithValue("@ID_PROVEEDOR", p.oProveedor.id);
                         cmd.Parameters.AddWithValue("@ID_CATEGORIA", p.oCategoria.id);
-                        cmd.Parameters.Add("mensaje", SqlDbType.VarChar,500).Direction = ParameterDirection.Output;
+                        cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                         cmd.ExecuteNonQuery();
                         mensaje = cmd.Parameters["mensaje"].Value.ToString();
                     }
@@ -156,11 +156,13 @@ namespace CapaDatos
             {
                 using (var con = new conexion().conectar())
                 {
+                    con.Open();
                     using (var cmd = new SqlCommand("PROC_ELIMINAR_PRODUCTO", con))
                     {
                         cmd.CommandType = System.Data.CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@ID_PRODUCTO", id);
-                        cmd.Parameters.Add("@mensaje", System.Data.SqlDbType.VarChar, 150).Direction = ParameterDirection.Output;
+                        cmd.Parameters.Add("mensaje", System.Data.SqlDbType.VarChar, 150).Direction = ParameterDirection.Output;
+                        cmd.ExecuteNonQuery();
                         mensaje = cmd.Parameters["mensaje"].Value.ToString();
                     }
                 }

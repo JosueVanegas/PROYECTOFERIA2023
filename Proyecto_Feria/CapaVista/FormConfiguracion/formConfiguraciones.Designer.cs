@@ -1,4 +1,5 @@
-﻿namespace CapaVista.FormConfiguracion
+﻿using System.Drawing;
+namespace CapaVista.FormConfiguracion
 {
     partial class formConfiguraciones
     {
@@ -42,7 +43,7 @@
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
             tableLayoutPanel3.Controls.Add(btnEntidadEmpresa, 0, 0);
-            tableLayoutPanel3.Location = new Point(44, 48);
+            tableLayoutPanel3.Location = new System.Drawing.Point(44, 48);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 26.086956F));
@@ -54,7 +55,7 @@
             // 
             btnEntidadEmpresa.BackColor = Color.FromArgb(63, 63, 70);
             btnEntidadEmpresa.BackgroundColor = Color.FromArgb(63, 63, 70);
-            btnEntidadEmpresa.BackgroundImage = (Image)resources.GetObject("btnEntidadEmpresa.BackgroundImage");
+            btnEntidadEmpresa.BackgroundImage = (System.Drawing.Image)resources.GetObject("btnEntidadEmpresa.BackgroundImage");
             btnEntidadEmpresa.BackgroundImageLayout = ImageLayout.Center;
             btnEntidadEmpresa.BorderColor = Color.PaleVioletRed;
             btnEntidadEmpresa.BorderRadius = 10;
@@ -62,14 +63,14 @@
             btnEntidadEmpresa.FlatAppearance.BorderSize = 0;
             btnEntidadEmpresa.FlatStyle = FlatStyle.Flat;
             btnEntidadEmpresa.ForeColor = Color.White;
-            btnEntidadEmpresa.Location = new Point(3, 2);
+            btnEntidadEmpresa.Location = new System.Drawing.Point(3, 2);
             btnEntidadEmpresa.Margin = new Padding(3, 2, 3, 2);
             btnEntidadEmpresa.Name = "btnEntidadEmpresa";
-            btnEntidadEmpresa.Size = new Size(103, 145);
+            btnEntidadEmpresa.Size = new System.Drawing.Size(103, 145);
             btnEntidadEmpresa.TabIndex = 12;
             btnEntidadEmpresa.Text = "Entidad de la Empresa";
             btnEntidadEmpresa.TextAlign = ContentAlignment.BottomCenter;
-            btnEntidadEmpresa.TextColor = Color.White;
+            btnEntidadEmpresa.TextColor = System.Drawing.Color.White;
             btnEntidadEmpresa.UseVisualStyleBackColor = false;
             btnEntidadEmpresa.Click += btnEntidadEmpresa_Click;
             // 

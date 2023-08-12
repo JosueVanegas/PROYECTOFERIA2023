@@ -88,7 +88,7 @@
     public class Producto
     {
         public int id { get; set; }
-        public int codigo { get; set; }
+        public string codigo { get; set; }
         public string nombre { get; set; }
         public byte[] imagen { get; set; }
         public decimal PrecioCompra { get; set; }

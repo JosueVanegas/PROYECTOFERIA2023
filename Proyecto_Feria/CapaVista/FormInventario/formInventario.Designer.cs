@@ -31,13 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formInventario));
             panelMenu = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
+            btnCompras = new RJCodeAdvance.RJControls.RJButton();
             btnProveedores = new RJCodeAdvance.RJControls.RJButton();
             btnServicios = new RJCodeAdvance.RJControls.RJButton();
             btnProductos = new RJCodeAdvance.RJControls.RJButton();
             panelContenedor = new Panel();
-            btnCompras = new RJCodeAdvance.RJControls.RJButton();
+            rjCircularPictureBox1 = new RJCodeAdvance.RJControls.RJCircularPictureBox();
             panelMenu.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
+            panelContenedor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panelMenu
@@ -70,6 +73,31 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Size = new Size(930, 52);
             tableLayoutPanel1.TabIndex = 0;
+            // 
+            // btnCompras
+            // 
+            btnCompras.BackColor = Color.FromArgb(63, 63, 70);
+            btnCompras.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnCompras.BackgroundImageLayout = ImageLayout.Center;
+            btnCompras.BorderColor = Color.PaleVioletRed;
+            btnCompras.BorderRadius = 10;
+            btnCompras.BorderSize = 0;
+            btnCompras.Dock = DockStyle.Fill;
+            btnCompras.FlatAppearance.BorderSize = 0;
+            btnCompras.FlatStyle = FlatStyle.Flat;
+            btnCompras.Font = new Font("Segoe UI", 12.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCompras.ForeColor = Color.White;
+            btnCompras.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCompras.Location = new Point(157, 2);
+            btnCompras.Margin = new Padding(3, 2, 3, 2);
+            btnCompras.Name = "btnCompras";
+            btnCompras.Size = new Size(148, 48);
+            btnCompras.TabIndex = 12;
+            btnCompras.Text = "Compras";
+            btnCompras.TextAlign = ContentAlignment.MiddleRight;
+            btnCompras.TextColor = Color.White;
+            btnCompras.UseVisualStyleBackColor = false;
+            btnCompras.Click += btnCompras_Click;
             // 
             // btnProveedores
             // 
@@ -155,6 +183,7 @@
             // panelContenedor
             // 
             panelContenedor.BackColor = Color.FromArgb(21, 25, 31);
+            panelContenedor.Controls.Add(rjCircularPictureBox1);
             panelContenedor.Dock = DockStyle.Fill;
             panelContenedor.Location = new Point(3, 52);
             panelContenedor.Margin = new Padding(3, 2, 3, 2);
@@ -163,30 +192,22 @@
             panelContenedor.Size = new Size(930, 464);
             panelContenedor.TabIndex = 3;
             // 
-            // btnCompras
+            // rjCircularPictureBox1
             // 
-            btnCompras.BackColor = Color.FromArgb(63, 63, 70);
-            btnCompras.BackgroundColor = Color.FromArgb(63, 63, 70);
-            btnCompras.BackgroundImageLayout = ImageLayout.Center;
-            btnCompras.BorderColor = Color.PaleVioletRed;
-            btnCompras.BorderRadius = 10;
-            btnCompras.BorderSize = 0;
-            btnCompras.Dock = DockStyle.Fill;
-            btnCompras.FlatAppearance.BorderSize = 0;
-            btnCompras.FlatStyle = FlatStyle.Flat;
-            btnCompras.Font = new Font("Segoe UI", 12.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCompras.ForeColor = Color.White;
-            btnCompras.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCompras.Location = new Point(157, 2);
-            btnCompras.Margin = new Padding(3, 2, 3, 2);
-            btnCompras.Name = "btnCompras";
-            btnCompras.Size = new Size(148, 48);
-            btnCompras.TabIndex = 12;
-            btnCompras.Text = "Compras";
-            btnCompras.TextAlign = ContentAlignment.MiddleRight;
-            btnCompras.TextColor = Color.White;
-            btnCompras.UseVisualStyleBackColor = false;
-            btnCompras.Click += btnCompras_Click;
+            rjCircularPictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            rjCircularPictureBox1.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            rjCircularPictureBox1.BorderColor = Color.RoyalBlue;
+            rjCircularPictureBox1.BorderColor2 = Color.HotPink;
+            rjCircularPictureBox1.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            rjCircularPictureBox1.BorderSize = 2;
+            rjCircularPictureBox1.GradientAngle = 50F;
+            rjCircularPictureBox1.Image = (Image)resources.GetObject("rjCircularPictureBox1.Image");
+            rjCircularPictureBox1.Location = new Point(398, 47);
+            rjCircularPictureBox1.Name = "rjCircularPictureBox1";
+            rjCircularPictureBox1.Size = new Size(388, 388);
+            rjCircularPictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            rjCircularPictureBox1.TabIndex = 0;
+            rjCircularPictureBox1.TabStop = false;
             // 
             // formInventario
             // 
@@ -202,6 +223,8 @@
             Text = "formProductos";
             panelMenu.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
+            panelContenedor.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -214,5 +237,6 @@
         private RJCodeAdvance.RJControls.RJButton btnServicios;
         public Panel panelContenedor;
         private RJCodeAdvance.RJControls.RJButton btnCompras;
+        private RJCodeAdvance.RJControls.RJCircularPictureBox rjCircularPictureBox1;
     }
 }

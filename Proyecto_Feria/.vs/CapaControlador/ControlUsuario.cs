@@ -18,7 +18,7 @@ namespace CapaControlador
         {
             return dUser.listaEmpleados();
         }
-        public string registrar(Usuario u,bool empleadonulo)
+        public string registrar(Usuario u, bool empleadonulo)
         {
             string mensaje = dUser.accionesUsuario(u, empleadonulo);
             return mensaje;
@@ -31,9 +31,9 @@ namespace CapaControlador
         {
             return dUser.encriptarClave(u);
         }
-        public bool validarAcceso(string usuario,string clave)
+        public bool validarAcceso(string usuario, string clave)
         {
-            return dUser.validarAcceso(usuario,clave);
+            return dUser.validarAcceso(usuario, clave);
         }
     }
 }

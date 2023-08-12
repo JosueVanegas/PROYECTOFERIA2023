@@ -36,7 +36,7 @@ namespace CapaVista
             Usuario user = cUsuarios.listarUsuarios().FirstOrDefault(u => u.usuario == txtUsuario.Text);
             if (acceder)
             {
-                FrmPrincipal principal = new FrmPrincipal(user, formConfiguraciones.Mod);
+                FormPrincipal principal = new FormPrincipal(user, formConfiguraciones.Mod);
                 principal.Show();
                 this.Hide();
                 principal.FormClosing += frm_closing;

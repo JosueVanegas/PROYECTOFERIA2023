@@ -32,13 +32,14 @@ namespace CapaDatos
             }
             return mensaje;
         }
-        public bool validarAcceso(string usuario,string clave)
+        public bool validarAcceso(string usuario, string clave)
         {
             bool acceder = false;
             using (SqlConnection con = new conexion().conectar())
             {
                 con.Open();
-                using (SqlCommand cmd = new SqlCommand("PROC_VALIDAR_ACCESO", con)){
+                using (SqlCommand cmd = new SqlCommand("PROC_VALIDAR_ACCESO", con))
+                {
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.AddWithValue("@USUARIO", usuario);
@@ -153,7 +154,7 @@ namespace CapaDatos
             }
             return lista;
         }
-        public string accionesUsuario(Usuario user,bool empleadoNulo)
+        public string accionesUsuario(Usuario user, bool empleadoNulo)
         {
             using (SqlConnection connection = new conexion().conectar())
             {
@@ -163,9 +164,9 @@ namespace CapaDatos
                     SqlCommand comand = new SqlCommand("PROC_REGISTRAR_USUARIO", connection);
                     comand.CommandType = CommandType.StoredProcedure;
                     comand.Parameters.AddWithValue("@ID_USUARIO", user.id);
-                    if(empleadoNulo == true)
+                    if (empleadoNulo == true)
                     {
-                        comand.Parameters.AddWithValue("@ID_EMPLEADO",DBNull.Value );
+                        comand.Parameters.AddWithValue("@ID_EMPLEADO", DBNull.Value);
                     }
                     else
                     {
