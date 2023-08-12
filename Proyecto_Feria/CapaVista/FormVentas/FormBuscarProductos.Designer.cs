@@ -81,7 +81,7 @@
             ProductosDataGrid.EnableHeadersVisualStyles = false;
             ProductosDataGrid.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             ProductosDataGrid.GridColor = Color.FromArgb(255, 255, 255);
-            ProductosDataGrid.Location = new Point(3, 56);
+            ProductosDataGrid.Location = new Point(3, 66);
             ProductosDataGrid.Name = "ProductosDataGrid";
             ProductosDataGrid.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -95,7 +95,7 @@
             ProductosDataGrid.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             ProductosDataGrid.RowTemplate.Height = 25;
             ProductosDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            ProductosDataGrid.Size = new Size(902, 278);
+            ProductosDataGrid.Size = new Size(902, 332);
             ProductosDataGrid.TabIndex = 52;
             // 
             // Eliminar
@@ -154,13 +154,13 @@
             tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 0, 0);
             tableLayoutPanel1.Controls.Add(ProductosDataGrid, 0, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(3, 64);
+            tableLayoutPanel1.Location = new Point(3, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 3;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 15.7270031F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 84.272995F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 102F));
-            tableLayoutPanel1.Size = new Size(908, 440);
+            tableLayoutPanel1.Size = new Size(908, 504);
             tableLayoutPanel1.TabIndex = 53;
             // 
             // btnAceptar
@@ -176,7 +176,7 @@
             btnAceptar.FlatAppearance.BorderSize = 0;
             btnAceptar.FlatStyle = FlatStyle.Flat;
             btnAceptar.ForeColor = Color.White;
-            btnAceptar.Location = new Point(3, 339);
+            btnAceptar.Location = new Point(3, 403);
             btnAceptar.Margin = new Padding(3, 2, 3, 2);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(902, 99);
@@ -194,7 +194,7 @@
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(3, 3);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(902, 47);
+            flowLayoutPanel1.Size = new Size(902, 57);
             flowLayoutPanel1.TabIndex = 55;
             // 
             // txtbuscar
@@ -283,10 +283,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(914, 507);
             Controls.Add(tableLayoutPanel1);
+            FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
             MaximizeBox = false;
             MdiChildrenMinimizedAnchorBottom = false;
             MinimizeBox = false;
             Name = "FormBuscarProductos";
+            Padding = new Padding(3, 0, 3, 3);
             ShowIcon = false;
             ShowInTaskbar = false;
             Sizable = false;
