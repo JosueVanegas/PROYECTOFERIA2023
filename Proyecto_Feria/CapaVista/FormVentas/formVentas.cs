@@ -15,6 +15,7 @@ namespace CapaVista.FormVenta
         public static decimal Monto;
         ControlProducto controlProducto = new ControlProducto();
         ControlVenta controlVenta = new ControlVenta();
+        List<Producto> lista = null;
         public formVentas(bool Mod)
         {
             InitializeComponent();
@@ -43,7 +44,7 @@ namespace CapaVista.FormVenta
         }
         private void mostrarProductosDisponible()
         {
-            List<Producto> lista = controlProducto.listarProductos();
+            lista = controlProducto.listarProductos();
             tbBusqueda.Rows.Clear();
             foreach (Producto p in lista)
             {
@@ -55,18 +56,19 @@ namespace CapaVista.FormVenta
 
                 }
 
-                tbBusqueda.Rows.Add(img, "", p.id, p.codigo, p.nombre, p.PrecioVenta, p.cantidad);
+                tbBusqueda.Rows.Add("", img, p.id, p.codigo, p.nombre, p.PrecioVenta, p.cantidad);
             }
         }
         private void checkDescuento_CheckedChanged(object sender, EventArgs e)
         {
             if (checkDescuento.Checked)
             {
-                txtDescuento.Enabled = true;
+                nbrDescuento.Enabled = true;
             }
             if (!checkDescuento.Checked)
             {
-                txtDescuento.Enabled = false;
+                nbrDescuento.Enabled = false;
+                nbrDescuento.Value = 0;
             }
         }
 
@@ -78,66 +80,10 @@ namespace CapaVista.FormVenta
             FormPagar form = new FormPagar(formConfiguraciones.Mod);
             form.ShowDialog();
         }
-
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-                return;
-            }
-            if (char.IsDigit(e.KeyChar))
-            {
-                string currentText = txtDescuento.Text;
-                string newText = currentText + e.KeyChar;
-                if (int.TryParse(newText, out int number))
-                {
-                    if (number >= 1 && number <= 100)
-                    {
-                        e.Handled = false;
-                    }
-                    else
-                    {
-                        e.Handled = true;
-                    }
-                }
-                else
-                {
-                    e.Handled = true;
-                }
-            }
-            else
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void AddPercentageSign(object sender, EventArgs e)
-        {
-            string currentText = txtDescuento.Text;
-            if (!currentText.EndsWith("%"))
-            {
-                txtDescuento.Text = currentText + "%";
-            }
-        }
-        private void AddNumeralSign(object sender, EventArgs e)
-        {
-            string currentText = txtCodigoProducto.Text;
-            if (!currentText.StartsWith("#"))
-            {
-                txtCodigoProducto.Text = "#" + currentText;
-            }
-        }
-        private void añadirProducto(int id, string codigo)
-        {
-            // tiene los valores de 
-            tbResumen.Rows.Add();
-        }
         private void txtCodigoProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
 
         }
-
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             mostrarProductosDisponible();
@@ -176,7 +122,6 @@ namespace CapaVista.FormVenta
                 }
             }
         }
-
         private void tbBusqueda_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int indice = e.RowIndex;
@@ -184,13 +129,144 @@ namespace CapaVista.FormVenta
             {
                 if (indice >= 0)
                 {
+                    limpiarEtiquetas();
                     txtCodigoProducto.Text = tbBusqueda.Rows[indice].Cells["CodigoP"].Value.ToString();
+                    lblCodigo.Text = lblCodigo.Text + " " + tbBusqueda.Rows[indice].Cells["CodigoP"].Value.ToString();
+                    lblNombre.Text = lblNombre.Text + " " + tbBusqueda.Rows[indice].Cells["NombreP"].Value.ToString();
+                    lblPrecio.Text = lblPrecio.Text + " " + tbBusqueda.Rows[indice].Cells["PrecioP"].Value.ToString();
                     pktProducto.Image = (Image)tbBusqueda.Rows[indice].Cells["Img"].Value;
                 }
             }
         }
-
         private void tbBusqueda_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+            if (e.ColumnIndex == 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var w = Properties.Resources.pen_circle.Width;
+                var h = Properties.Resources.pen_circle.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.ojo, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
+        //Relacionado con la tabla resumen de cuenta
+        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        {
+            if (txtCodigoProducto.Text != "")
+            {
+                panelBusqueda.SendToBack();
+                agregarProducto(txtCodigoProducto.Text);
+            }
+            else
+            {
+                MessageBox.Show("ingrese el codigo del producto primero");
+            }
+        }
+        private void agregarProducto(string codigo)
+        {
+            var producto = lista.FirstOrDefault(p => p.codigo == codigo);
+            if (producto != null)
+            {
+                int rowIndex = -1;
+                for (int i = 0; i < tbResumen.Rows.Count; i++)
+                {
+                    if (tbResumen.Rows[i].Cells["Codigo"].Value != null &&
+                        tbResumen.Rows[i].Cells["Codigo"].Value.ToString() == codigo)
+                    {
+                        rowIndex = i;
+                        break;
+                    }
+                }
+                if (rowIndex >= 0)
+                {
+                    int nuevaCantidad = 1 + Convert.ToInt32(tbResumen.Rows[rowIndex].Cells["Cantidad"].Value);
+                    decimal nuevoSubTotal = nuevaCantidad * producto.PrecioVenta;
+                    tbResumen.Rows[rowIndex].Cells["Cantidad"].Value = nuevaCantidad;
+                    tbResumen.Rows[rowIndex].Cells["SubTotal"].Value = nuevoSubTotal;
+                }
+                else
+                {
+                    tbResumen.Rows.Add("", "", producto.imagen, producto.id, producto.codigo, producto.nombre
+                        , producto.PrecioVenta, 1, producto.PrecioVenta);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se encuentra el producto con el Codigo de barra ingresado");
+            }
+            recuentoSubTotal();
+        }
+        private void recuentoSubTotal()
+        {
+            decimal subTotal = 0;
+            decimal iva = 0;
+            decimal descuento = 0;
+            decimal total = 0;
+            if (tbResumen.RowCount > 0)
+            {
+                foreach (DataGridViewRow row in tbResumen.Rows)
+                {
+                    if (row.Cells["SubTotal"].Value != null)
+                    {
+                        decimal valorCelda = Convert.ToDecimal(row.Cells["SubTotal"].Value);
+                        subTotal += valorCelda;
+                        descuento = (nbrDescuento.Value * Convert.ToDecimal(0.01)) * subTotal;
+                        subTotal = subTotal - descuento;
+                        iva = Convert.ToDecimal(subTotal) * Convert.ToDecimal(0.15);
+                        total = subTotal - iva;
+                    }
+                }
+            }
+            txtSubTotal.Text = subTotal.ToString();
+            txtIva.Text = iva.ToString();
+            txtTotal.Text = total.ToString();
+        }
+        private void limpiarEtiquetas()
+        {
+            lblCodigo.Text = "Codigo: ";
+            lblNombre.Text = "Nombre: ";
+            lblPrecio.Text = "Precio: ";
+            lblCantidad.Text = "Cantidad ordenada: ";
+            lblSubTotal.Text = "SubTotal: ";
+        }
+        private void tbResumen_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int indice = e.RowIndex;
+            if (tbResumen.Columns[e.ColumnIndex].Name == "btnQuitar")
+            {
+                if (indice >= 0)
+                {
+                    tbResumen.Rows.RemoveAt(indice);
+                    limpiarEtiquetas();
+                }
+            }
+            recuentoSubTotal();
+            if (tbResumen.Columns[e.ColumnIndex].Name == "btnVer")
+            {
+                limpiarEtiquetas();
+                pktProducto.Image = null;
+                if (indice >= 0)
+                {
+                    lblCodigo.Text = lblCodigo.Text + " " + tbResumen.Rows[indice].Cells["Codigo"].Value.ToString();
+                    lblNombre.Text = lblNombre.Text + " " + tbResumen.Rows[indice].Cells["Nombre"].Value.ToString();
+                    lblPrecio.Text = lblPrecio.Text + " " + tbResumen.Rows[indice].Cells["PrecioVenta"].Value.ToString();
+                    lblCantidad.Text = lblCantidad.Text + " " + tbResumen.Rows[indice].Cells["Cantidad"].Value.ToString();
+                    lblSubTotal.Text = lblSubTotal.Text + " " + tbResumen.Rows[indice].Cells["SubTotal"].Value.ToString();
+                    byte[] imagenBytes = (byte[])tbResumen.Rows[indice].Cells["Imagen"].Value;
+                    using (MemoryStream memoryStream = new MemoryStream(imagenBytes))
+                    {
+                        Image imagen = Image.FromStream(memoryStream);
+                        pktProducto.Image = imagen;
+                    }
+                }
+            }
+        }
+        private void tbResumen_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.RowIndex < 0)
                 return;
@@ -203,10 +279,20 @@ namespace CapaVista.FormVenta
                 var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
                 var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
 
-                e.Graphics.DrawImage(Properties.Resources.pen_circle, new Rectangle(x, y, w, h));
+                e.Graphics.DrawImage(Properties.Resources.eliminar, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+            if (e.ColumnIndex == 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var w = Properties.Resources.pen_circle.Width;
+                var h = Properties.Resources.pen_circle.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.ojo, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
         }
-
     }
 }
