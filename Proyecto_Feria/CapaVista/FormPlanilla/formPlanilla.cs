@@ -8,27 +8,26 @@ namespace CapaVista.FormPlanilla;
 
 public partial class formPlanilla : MaterialForm
 {
-    public formPlanilla(Boolean Mod)
+    bool Mod;
+    public formPlanilla(Boolean Dmod)
     {
         InitializeComponent();
+        cambiarModo(Dmod);
+        Mod = Dmod;
+    }
+    private void cambiarModo(bool modoOscuro)
+    {
         MaterialSkinManager manager;
         manager = MaterialSkinManager.Instance;
         manager.AddFormToManage(this);
         manager.EnforceBackcolorOnAllComponents = true;
-        if (Mod)
+        if (modoOscuro)
         {
             manager.Theme = MaterialSkinManager.Themes.DARK;
-            manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.WHITE);
-            //Modo Dark
-
         }
-        if (!Mod)
+        if (!modoOscuro)
         {
             manager.Theme = MaterialSkinManager.Themes.LIGHT;
-            manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.BLACK);
-            //Modo Light
-
-
         }
     }
     private void OpenFormInPanel(object formHijo)
@@ -45,18 +44,13 @@ public partial class formPlanilla : MaterialForm
         this.panelContenedor.Tag = fh;
         fh.Show();
     }
-    //Clicks
     private void btnEmpleados_Click(object sender, EventArgs e)
     {
-        OpenFormInPanel(new formEmpleados(formConfiguraciones.Mod));
+        OpenFormInPanel(new formEmpleados(Mod));
     }
-    //Descripciones
     private void btnEmpleados_MouseHover(object sender, EventArgs e)
     {
-        // Crear un objeto ToolTip
         ToolTip toolTip = new ToolTip();
-
-        // Establecer el texto de la descripción
         toolTip.SetToolTip(btnEmpleados, "Empleados");
     }
 }

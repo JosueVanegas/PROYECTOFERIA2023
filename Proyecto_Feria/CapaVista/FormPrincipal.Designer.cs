@@ -90,10 +90,10 @@ namespace CapaVista
             panelAbajo.Controls.Add(tablePanel_Admin);
             panelAbajo.Controls.Add(tablePanelNombre_Vendedor);
             panelAbajo.Dock = DockStyle.Bottom;
-            panelAbajo.Location = new Point(0, 514);
+            panelAbajo.Location = new Point(3, 589);
             panelAbajo.Margin = new Padding(3, 2, 3, 2);
             panelAbajo.Name = "panelAbajo";
-            panelAbajo.Size = new Size(1037, 94);
+            panelAbajo.Size = new Size(1063, 94);
             panelAbajo.TabIndex = 1;
             // 
             // panelModo
@@ -101,7 +101,7 @@ namespace CapaVista
             panelModo.Controls.Add(tableLayoutPanel5);
             panelModo.Controls.Add(tableLayoutPanel4);
             panelModo.Dock = DockStyle.Right;
-            panelModo.Location = new Point(872, 0);
+            panelModo.Location = new Point(898, 0);
             panelModo.Name = "panelModo";
             panelModo.Size = new Size(165, 94);
             panelModo.TabIndex = 0;
@@ -222,7 +222,7 @@ namespace CapaVista
             tablePanel_Admin.Controls.Add(btnPlanilla, 0, 0);
             tablePanel_Admin.Controls.Add(btnCalculos, 3, 0);
             tablePanel_Admin.Controls.Add(btnVentas, 4, 0);
-            tablePanel_Admin.Location = new Point(297, 13);
+            tablePanel_Admin.Location = new Point(310, 13);
             tablePanel_Admin.Margin = new Padding(3, 2, 3, 2);
             tablePanel_Admin.Name = "tablePanel_Admin";
             tablePanel_Admin.RowCount = 1;
@@ -248,7 +248,7 @@ namespace CapaVista
             btnContabilidad.Name = "btnContabilidad";
             btnContabilidad.Size = new Size(90, 71);
             btnContabilidad.TabIndex = 5;
-            btnContabilidad.Text = "Contabilidad";
+            btnContabilidad.Text = "Contaduria";
             btnContabilidad.TextAlign = ContentAlignment.BottomCenter;
             btnContabilidad.TextColor = Color.White;
             btnContabilidad.UseVisualStyleBackColor = false;
@@ -414,7 +414,7 @@ namespace CapaVista
             panelVertical_Admin.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
             panelVertical_Admin.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
             panelVertical_Admin.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
-            panelVertical_Admin.Size = new Size(61, 514);
+            panelVertical_Admin.Size = new Size(61, 565);
             panelVertical_Admin.TabIndex = 2;
             // 
             // btnInicio
@@ -430,10 +430,10 @@ namespace CapaVista
             btnInicio.FlatAppearance.BorderSize = 0;
             btnInicio.FlatStyle = FlatStyle.Flat;
             btnInicio.ForeColor = Color.White;
-            btnInicio.Location = new Point(3, 148);
+            btnInicio.Location = new Point(3, 162);
             btnInicio.Margin = new Padding(3, 2, 3, 2);
             btnInicio.Name = "btnInicio";
-            btnInicio.Size = new Size(55, 69);
+            btnInicio.Size = new Size(55, 76);
             btnInicio.TabIndex = 5;
             btnInicio.TextAlign = ContentAlignment.BottomCenter;
             btnInicio.TextColor = Color.White;
@@ -454,10 +454,10 @@ namespace CapaVista
             btnUsuarios.FlatAppearance.BorderSize = 0;
             btnUsuarios.FlatStyle = FlatStyle.Flat;
             btnUsuarios.ForeColor = Color.White;
-            btnUsuarios.Location = new Point(3, 367);
+            btnUsuarios.Location = new Point(3, 402);
             btnUsuarios.Margin = new Padding(3, 2, 3, 2);
             btnUsuarios.Name = "btnUsuarios";
-            btnUsuarios.Size = new Size(55, 69);
+            btnUsuarios.Size = new Size(55, 76);
             btnUsuarios.TabIndex = 7;
             btnUsuarios.TextAlign = ContentAlignment.BottomCenter;
             btnUsuarios.TextColor = Color.White;
@@ -478,10 +478,10 @@ namespace CapaVista
             btnBarraVertical.FlatAppearance.BorderSize = 0;
             btnBarraVertical.FlatStyle = FlatStyle.Flat;
             btnBarraVertical.ForeColor = Color.White;
-            btnBarraVertical.Location = new Point(3, 75);
+            btnBarraVertical.Location = new Point(3, 82);
             btnBarraVertical.Margin = new Padding(3, 2, 3, 2);
             btnBarraVertical.Name = "btnBarraVertical";
-            btnBarraVertical.Size = new Size(55, 69);
+            btnBarraVertical.Size = new Size(55, 76);
             btnBarraVertical.TabIndex = 8;
             btnBarraVertical.TextAlign = ContentAlignment.BottomCenter;
             btnBarraVertical.TextColor = Color.White;
@@ -501,10 +501,10 @@ namespace CapaVista
             btnHerramientas.FlatAppearance.BorderSize = 0;
             btnHerramientas.FlatStyle = FlatStyle.Flat;
             btnHerramientas.ForeColor = Color.White;
-            btnHerramientas.Location = new Point(3, 221);
+            btnHerramientas.Location = new Point(3, 242);
             btnHerramientas.Margin = new Padding(3, 2, 3, 2);
             btnHerramientas.Name = "btnHerramientas";
-            btnHerramientas.Size = new Size(55, 69);
+            btnHerramientas.Size = new Size(55, 76);
             btnHerramientas.TabIndex = 6;
             btnHerramientas.TextAlign = ContentAlignment.BottomCenter;
             btnHerramientas.TextColor = Color.White;
@@ -525,10 +525,10 @@ namespace CapaVista
             btnConfiguraciones.FlatAppearance.BorderSize = 0;
             btnConfiguraciones.FlatStyle = FlatStyle.Flat;
             btnConfiguraciones.ForeColor = Color.White;
-            btnConfiguraciones.Location = new Point(3, 294);
+            btnConfiguraciones.Location = new Point(3, 322);
             btnConfiguraciones.Margin = new Padding(3, 2, 3, 2);
             btnConfiguraciones.Name = "btnConfiguraciones";
-            btnConfiguraciones.Size = new Size(55, 69);
+            btnConfiguraciones.Size = new Size(55, 76);
             btnConfiguraciones.TabIndex = 9;
             btnConfiguraciones.TextAlign = ContentAlignment.BottomCenter;
             btnConfiguraciones.TextColor = Color.White;
@@ -544,34 +544,34 @@ namespace CapaVista
             tablepanelPanelContenedor.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 0.9221311F));
             tablepanelPanelContenedor.Controls.Add(panelContenedor, 1, 1);
             tablepanelPanelContenedor.Dock = DockStyle.Fill;
-            tablepanelPanelContenedor.Location = new Point(66, 0);
+            tablepanelPanelContenedor.Location = new Point(69, 24);
             tablepanelPanelContenedor.Margin = new Padding(3, 2, 3, 2);
             tablepanelPanelContenedor.Name = "tablepanelPanelContenedor";
             tablepanelPanelContenedor.RowCount = 3;
             tablepanelPanelContenedor.RowStyles.Add(new RowStyle(SizeType.Percent, 1F));
             tablepanelPanelContenedor.RowStyles.Add(new RowStyle(SizeType.Percent, 98F));
             tablepanelPanelContenedor.RowStyles.Add(new RowStyle(SizeType.Percent, 1F));
-            tablepanelPanelContenedor.Size = new Size(971, 514);
+            tablepanelPanelContenedor.Size = new Size(997, 565);
             tablepanelPanelContenedor.TabIndex = 3;
             // 
             // panelContenedor
             // 
             panelContenedor.BackColor = Color.FromArgb(21, 25, 31);
             panelContenedor.Dock = DockStyle.Fill;
-            panelContenedor.Location = new Point(12, 7);
+            panelContenedor.Location = new Point(13, 7);
             panelContenedor.Margin = new Padding(3, 2, 3, 2);
             panelContenedor.MinimumSize = new Size(564, 272);
             panelContenedor.Name = "panelContenedor";
-            panelContenedor.Size = new Size(946, 499);
+            panelContenedor.Size = new Size(971, 549);
             panelContenedor.TabIndex = 1;
             // 
             // panel2
             // 
             panel2.Controls.Add(panelVertical_Admin);
             panel2.Dock = DockStyle.Left;
-            panel2.Location = new Point(0, 0);
+            panel2.Location = new Point(3, 24);
             panel2.Name = "panel2";
-            panel2.Size = new Size(66, 514);
+            panel2.Size = new Size(66, 565);
             panel2.TabIndex = 4;
             // 
             // tableLayoutPanel2
@@ -739,18 +739,19 @@ namespace CapaVista
             lblEncabezado3.Text = "tx";
             lblEncabezado3.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // FrmPrincipal
+            // FormPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(21, 25, 31);
-            ClientSize = new Size(1037, 608);
+            ClientSize = new Size(1069, 686);
             Controls.Add(tablepanelPanelContenedor);
             Controls.Add(panel2);
             Controls.Add(panelAbajo);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MinimumSize = new Size(1053, 647);
-            Name = "FrmPrincipal";
+            Name = "FormPrincipal";
+            Padding = new Padding(3, 24, 3, 3);
             StartPosition = FormStartPosition.CenterScreen;
             WindowState = FormWindowState.Maximized;
             Load += FrmPrincipal_Load;

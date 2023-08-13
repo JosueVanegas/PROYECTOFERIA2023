@@ -9,35 +9,14 @@ namespace CapaVista.FormPrimerAcceso
 {
     public partial class FormaAjustesEntidad : MaterialForm
     {
-        Boolean Acceso = true;
-        public FormaAjustesEntidad(Boolean Mod, Boolean Acceso)
+        bool Acceso = true;
+        bool Mod;
+        public FormaAjustesEntidad(Boolean Dmod, Boolean Acceso)
         {
             InitializeComponent();
             this.Acceso = Acceso;
+            this.Mod = Dmod;
             EstadoDeLaEntidad(this.Acceso);
-            MaterialSkinManager manager;
-            manager = MaterialSkinManager.Instance;
-            manager.AddFormToManage(this);
-            manager.EnforceBackcolorOnAllComponents = true;
-            lblTitulo.Font = new Font("Microsoft Sans Serif", 22);
-            lblUsuario.Font = new Font("Microsoft Sans Serif", 12);
-            if (Mod)
-            {
-                manager.Theme = MaterialSkinManager.Themes.DARK;
-                manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.WHITE);
-                lblTitulo.Font = new Font("Microsoft Sans Serif", 22);
-                lblUsuario.Font = new Font("Microsoft Sans Serif", 12);
-            }
-            if (!Mod)
-            {
-                manager.Theme = MaterialSkinManager.Themes.LIGHT;
-                manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.BLACK);
-                lblTitulo.Font = new Font("Microsoft Sans Serif", 22);
-                lblUsuario.Font = new Font("Microsoft Sans Serif", 12);
-
-            }
-
-
         }
         public Boolean EstadoDeLaEntidad(Boolean Acceso)
         {
@@ -68,7 +47,7 @@ namespace CapaVista.FormPrimerAcceso
 
         private void btnUsuario_Click(object sender, EventArgs e)
         {
-            FormUsuarioInicial form = new FormUsuarioInicial(formConfiguraciones.Mod);
+            FormUsuarioInicial form = new FormUsuarioInicial(Mod);
 
             form.ShowDialog();
         }

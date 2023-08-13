@@ -9,24 +9,12 @@ namespace CapaVista.FormsHerramientas
 {
     public partial class FormHerramientas : MaterialForm
     {
-        public FormHerramientas(Boolean Mod, Usuario Rol)
+        bool Mod;
+        public FormHerramientas(Boolean Dmod, Usuario Rol)
         {
             InitializeComponent();
-            MaterialSkinManager manager;
-            manager = MaterialSkinManager.Instance;
-            manager.AddFormToManage(this);
-            manager.EnforceBackcolorOnAllComponents = true;
-            if (Mod)
-            {
-                manager.Theme = MaterialSkinManager.Themes.DARK;
-                manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.WHITE);
-
-            }
-            if (!Mod)
-            {
-                manager.Theme = MaterialSkinManager.Themes.LIGHT;
-                manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.BLACK);
-            }
+            Mod = Dmod;
+            cambiarModo(Dmod);
             btnbitacora.Visible = true;
             btnCalculadoraBasica.Visible = true;
             btnCalcularDescuento.Visible = true;
@@ -67,16 +55,31 @@ namespace CapaVista.FormsHerramientas
             }*/
 
         }
+        private void cambiarModo(bool modoOscuro)
+        {
+            MaterialSkinManager manager;
+            manager = MaterialSkinManager.Instance;
+            manager.AddFormToManage(this);
+            manager.EnforceBackcolorOnAllComponents = true;
+            if (modoOscuro)
+            {
+                manager.Theme = MaterialSkinManager.Themes.DARK;
+            }
+            if (!modoOscuro)
+            {
+                manager.Theme = MaterialSkinManager.Themes.LIGHT;
+            }
+        }
 
         private void btnCalculadoraBasica_Click(object sender, EventArgs e)
         {
-            FormCalculadoraBasica Ca = new FormCalculadoraBasica(formConfiguraciones.Mod);
+            FormCalculadoraBasica Ca = new FormCalculadoraBasica(Mod);
             Ca.ShowDialog();
         }
 
         private void btnCalcularDescuento_Click(object sender, EventArgs e)
         {
-            FormCalcularDescuento Ca = new FormCalcularDescuento(formConfiguraciones.Mod);
+            FormCalcularDescuento Ca = new FormCalcularDescuento(Mod);
             Ca.ShowDialog();
         }
 

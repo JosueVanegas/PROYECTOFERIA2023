@@ -52,7 +52,6 @@
             lblEcabezadoIzquierdo = new Label();
             txtTotal = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtIva = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            cbxCliente = new ReaLTaiizor.Controls.MaterialComboBox();
             checkDescuento = new ReaLTaiizor.Controls.MaterialCheckBox();
             panelBusqueda = new Panel();
             lblBuscar = new Label();
@@ -341,8 +340,8 @@
             // 
             panelContenedorIzquierdo.BackColor = Color.White;
             panelContenedorIzquierdo.BackgroundImageLayout = ImageLayout.Stretch;
-            panelContenedorIzquierdo.Controls.Add(panelDetalleVenta);
             panelContenedorIzquierdo.Controls.Add(panelBusqueda);
+            panelContenedorIzquierdo.Controls.Add(panelDetalleVenta);
             panelContenedorIzquierdo.Dock = DockStyle.Right;
             panelContenedorIzquierdo.Location = new Point(773, 24);
             panelContenedorIzquierdo.Name = "panelContenedorIzquierdo";
@@ -356,7 +355,6 @@
             panelDetalleVenta.Controls.Add(tableLayoutPanel2);
             panelDetalleVenta.Controls.Add(txtTotal);
             panelDetalleVenta.Controls.Add(txtIva);
-            panelDetalleVenta.Controls.Add(cbxCliente);
             panelDetalleVenta.Controls.Add(checkDescuento);
             panelDetalleVenta.Controls.Add(txtSubTotal);
             panelDetalleVenta.Dock = DockStyle.Fill;
@@ -383,11 +381,11 @@
             nbrDescuento.Enabled = false;
             nbrDescuento.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             nbrDescuento.ForeColor = Color.FromArgb(27, 94, 137);
-            nbrDescuento.Location = new Point(170, 122);
+            nbrDescuento.Location = new Point(21, 131);
             nbrDescuento.Maximum = 100L;
             nbrDescuento.Minimum = 0L;
             nbrDescuento.Name = "nbrDescuento";
-            nbrDescuento.Size = new Size(111, 30);
+            nbrDescuento.Size = new Size(92, 30);
             nbrDescuento.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             nbrDescuento.TabIndex = 55;
             nbrDescuento.TopTriangleColor = Color.FromArgb(27, 94, 137);
@@ -399,10 +397,10 @@
             lblEcabezadoIzquierdo.ForeColor = SystemColors.ControlDarkDark;
             lblEcabezadoIzquierdo.Location = new Point(21, 16);
             lblEcabezadoIzquierdo.Name = "lblEcabezadoIzquierdo";
-            lblEcabezadoIzquierdo.Size = new Size(263, 48);
+            lblEcabezadoIzquierdo.Size = new Size(263, 53);
             lblEcabezadoIzquierdo.TabIndex = 54;
             lblEcabezadoIzquierdo.Text = "Informacion de venta";
-            lblEcabezadoIzquierdo.TextAlign = ContentAlignment.MiddleLeft;
+            lblEcabezadoIzquierdo.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // txtTotal
             // 
@@ -417,7 +415,7 @@
             txtTotal.HideSelection = true;
             txtTotal.Hint = "Total a pagar";
             txtTotal.LeadingIcon = null;
-            txtTotal.Location = new Point(21, 272);
+            txtTotal.Location = new Point(21, 313);
             txtTotal.MaxLength = 32767;
             txtTotal.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtTotal.Name = "txtTotal";
@@ -449,7 +447,7 @@
             txtIva.HideSelection = true;
             txtIva.Hint = "Iva";
             txtIva.LeadingIcon = null;
-            txtIva.Location = new Point(21, 218);
+            txtIva.Location = new Point(21, 237);
             txtIva.MaxLength = 32767;
             txtIva.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtIva.Name = "txtIva";
@@ -468,35 +466,11 @@
             txtIva.TrailingIcon = null;
             txtIva.UseSystemPasswordChar = false;
             // 
-            // cbxCliente
-            // 
-            cbxCliente.Anchor = AnchorStyles.Left;
-            cbxCliente.AutoResize = false;
-            cbxCliente.BackColor = Color.FromArgb(255, 255, 255);
-            cbxCliente.Depth = 0;
-            cbxCliente.DrawMode = DrawMode.OwnerDrawVariable;
-            cbxCliente.DropDownHeight = 174;
-            cbxCliente.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbxCliente.DropDownWidth = 121;
-            cbxCliente.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            cbxCliente.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            cbxCliente.FormattingEnabled = true;
-            cbxCliente.Hint = "seleccione un cliente";
-            cbxCliente.IntegralHeight = false;
-            cbxCliente.ItemHeight = 43;
-            cbxCliente.Location = new Point(21, 326);
-            cbxCliente.MaxDropDownItems = 4;
-            cbxCliente.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            cbxCliente.Name = "cbxCliente";
-            cbxCliente.Size = new Size(263, 49);
-            cbxCliente.StartIndex = 0;
-            cbxCliente.TabIndex = 53;
-            // 
             // checkDescuento
             // 
             checkDescuento.AutoSize = true;
             checkDescuento.Depth = 0;
-            checkDescuento.Location = new Point(21, 124);
+            checkDescuento.Location = new Point(116, 124);
             checkDescuento.Margin = new Padding(0);
             checkDescuento.MouseLocation = new Point(-1, -1);
             checkDescuento.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -758,7 +732,7 @@
             txtCodigoProducto.Depth = 0;
             txtCodigoProducto.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             txtCodigoProducto.HideSelection = true;
-            txtCodigoProducto.Hint = "Ingrese o escanne el codigo del  producto a agregar";
+            txtCodigoProducto.Hint = "Ingrese o escaneé el codigo del  producto";
             txtCodigoProducto.LeadingIcon = null;
             txtCodigoProducto.Location = new Point(3, 3);
             txtCodigoProducto.MaxLength = 32767;
@@ -1100,7 +1074,6 @@
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCodigoProducto;
         private RJCodeAdvance.RJControls.RJButton btnAgregarProducto;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtIva;
-        private ReaLTaiizor.Controls.MaterialComboBox cbxCliente;
         private Label lblEcabezadoIzquierdo;
         private ReaLTaiizor.Controls.PoisonDataGridView tbResumen;
         private Panel panelContenedor;

@@ -8,7 +8,7 @@ namespace CapaVista
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new FormPrincipal(null, formConfiguraciones.Mod));
+            Application.Run(new FormPrincipal(null, true));
             //Application.Run(new formLogin());
         }
     }

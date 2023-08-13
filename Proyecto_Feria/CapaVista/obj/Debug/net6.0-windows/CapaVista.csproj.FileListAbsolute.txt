@@ -167,8 +167,6 @@ C:\Users\arqva\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVi
 C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\obj\Debug\net6.0-windows\CapaVista.FormVenta.formVentas.resources
 C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\obj\Debug\net6.0-windows\CapaVista.FormConfiguracion.formConfiguraciones.resources
 C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\obj\Debug\net6.0-windows\CapaVista.FormVentas.FormPagar.resources
-C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\obj\Debug\net6.0-windows\CapaVista.FormVentas.FormConfVenta.resources
-C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\obj\Debug\net6.0-windows\CapaVista.FormVentas.FormBuscarProductos.resources
 C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\obj\Debug\net6.0-windows\CapaVista.FormPrimerAcceso.FormaAjustesEntidad.resources
 C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\obj\Debug\net6.0-windows\CapaVista.FormPrimerAcceso.FormInicar.resources
 C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\obj\Debug\net6.0-windows\CapaVista.FormPrimerAcceso.FormUsuarioInicial.resources

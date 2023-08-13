@@ -8,24 +8,28 @@ namespace CapaVista
 {
     public partial class formInventario : MaterialForm
     {
+        bool Mod;
         Form formActivo = null;
         Button botonActivo = null;
-        public formInventario(Boolean Mod)
+        public formInventario(Boolean Dmod)
         {
             InitializeComponent();
+            Mod = Dmod;
+            cambiarModo(Dmod);
+        }
+        private void cambiarModo(bool modoOscuro)
+        {
             MaterialSkinManager manager;
             manager = MaterialSkinManager.Instance;
             manager.AddFormToManage(this);
             manager.EnforceBackcolorOnAllComponents = true;
-            if (Mod)
+            if (modoOscuro)
             {
                 manager.Theme = MaterialSkinManager.Themes.DARK;
-                manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.WHITE);
             }
-            if (!Mod)
+            if (!modoOscuro)
             {
                 manager.Theme = MaterialSkinManager.Themes.LIGHT;
-                manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.BLACK);
             }
         }
         private void abrirFormulario(Form form)
@@ -49,26 +53,21 @@ namespace CapaVista
         }
         private void btnProductos_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new formProductos(formConfiguraciones.Mod));
+            abrirFormulario(new formProductos(Mod));
         }
 
         private void btnCategorias_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new formCategoria(formConfiguraciones.Mod));
+            abrirFormulario(new formCategoria(Mod));
         }
 
         private void btnProveedores_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new formProveedor(formConfiguraciones.Mod));
+            abrirFormulario(new formProveedor(Mod));
         }
-
-        //Descripciones
         private void btnProductos_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(btnProductos, "Productos");
         }
 

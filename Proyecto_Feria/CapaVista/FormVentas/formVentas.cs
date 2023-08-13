@@ -16,22 +16,26 @@ namespace CapaVista.FormVenta
         ControlProducto controlProducto = new ControlProducto();
         ControlVenta controlVenta = new ControlVenta();
         List<Producto> lista = null;
-        public formVentas(bool Mod)
+        bool Mod;
+        public formVentas(bool Dmod)
         {
             InitializeComponent();
+            cambiarModo(Mod);
+            this.Mod = Dmod;
+        }
+        private void cambiarModo(bool modoOscuro)
+        {
             MaterialSkinManager manager;
             manager = MaterialSkinManager.Instance;
             manager.AddFormToManage(this);
             manager.EnforceBackcolorOnAllComponents = true;
-            if (Mod)
+            if (modoOscuro)
             {
                 manager.Theme = MaterialSkinManager.Themes.DARK;
-                manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.WHITE);
             }
-            if (!Mod)
+            if (!modoOscuro)
             {
                 manager.Theme = MaterialSkinManager.Themes.LIGHT;
-                manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.BLACK);
             }
         }
         private void formVentas_Load(object sender, EventArgs e)
@@ -77,7 +81,7 @@ namespace CapaVista.FormVenta
 
             Monto = 20;
             //Monto = float.Parse(txtTotal.Text);
-            FormPagar form = new FormPagar(formConfiguraciones.Mod);
+            FormPagar form = new FormPagar(Mod, Convert.ToDecimal(txtTotal));
             form.ShowDialog();
         }
         private void txtCodigoProducto_KeyPress(object sender, KeyPressEventArgs e)
