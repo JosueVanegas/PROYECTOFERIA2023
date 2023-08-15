@@ -26,5 +26,32 @@ namespace CapaDatos
             }
             return cantidadFilas;
         }
+        public List<int> TopClientes()
+        {
+            List<int> lista = new List<int>();
+            try
+            {
+                string query = "";
+                using (SqlConnection con = new conexion().conectar())
+                {
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        using(SqlDataReader  reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+
+                            }
+                        }
+                    }
+                }
+            }catch (Exception ex) 
+            {
+
+            }
+            return lista;
+        }
     }
 }

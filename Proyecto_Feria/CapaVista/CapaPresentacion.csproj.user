@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="FormConfiguracion\FormConfiguraciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormContabilidad\FormContabilidads.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormInformes\FormInformes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormInventario\FormCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormInventario\FormCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormInventario\FormProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormPlanilla\FormEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormInventario\FormInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormPlanilla\FormPlanilla.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormInventario\FormProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormPrimerAcceso\FormaAjustesEntidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormInicar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormPrimerAcceso\FormUsuarioInicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormsHerramientas\FormCalculadoraBasica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormsHerramientas\FormCalcularDescuento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormsHerramientas\FormGenerarCodigoBarra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormsHerramientas\FormHerramientas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormVentas\FormPagar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormVentas\FormVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

@@ -37,7 +37,7 @@ namespace CapaVista
             cambioModo = new ReaLTaiizor.Controls.CyberSwitch();
             tableLayoutPanel4 = new TableLayoutPanel();
             panel3 = new Panel();
-            imagenModo = new PictureBox();
+            moonPicture = new PictureBox();
             SolPicture = new PictureBox();
             tablePanel_Admin = new TableLayoutPanel();
             btnContabilidad = new RJCodeAdvance.RJControls.RJButton();
@@ -71,7 +71,7 @@ namespace CapaVista
             tableLayoutPanel5.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)imagenModo).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)moonPicture).BeginInit();
             ((System.ComponentModel.ISupportInitialize)SolPicture).BeginInit();
             tablePanel_Admin.SuspendLayout();
             tablePanelNombre_Vendedor.SuspendLayout();
@@ -176,7 +176,7 @@ namespace CapaVista
             // 
             // panel3
             // 
-            panel3.Controls.Add(imagenModo);
+            panel3.Controls.Add(moonPicture);
             panel3.Controls.Add(SolPicture);
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(3, 3);
@@ -184,17 +184,16 @@ namespace CapaVista
             panel3.Size = new Size(39, 37);
             panel3.TabIndex = 1;
             // 
-            // imagenModo
+            // moonPicture
             // 
-            imagenModo.Dock = DockStyle.Fill;
-            imagenModo.Image = (Image)resources.GetObject("imagenModo.Image");
-            imagenModo.Location = new Point(0, 0);
-            imagenModo.Name = "imagenModo";
-            imagenModo.Size = new Size(39, 37);
-            imagenModo.SizeMode = PictureBoxSizeMode.Zoom;
-            imagenModo.TabIndex = 7;
-            imagenModo.TabStop = false;
-            imagenModo.Visible = false;
+            moonPicture.Dock = DockStyle.Fill;
+            moonPicture.Image = (Image)resources.GetObject("moonPicture.Image");
+            moonPicture.Location = new Point(0, 0);
+            moonPicture.Name = "moonPicture";
+            moonPicture.Size = new Size(39, 37);
+            moonPicture.SizeMode = PictureBoxSizeMode.Zoom;
+            moonPicture.TabIndex = 7;
+            moonPicture.TabStop = false;
             // 
             // SolPicture
             // 
@@ -760,7 +759,7 @@ namespace CapaVista
             tableLayoutPanel5.ResumeLayout(false);
             tableLayoutPanel4.ResumeLayout(false);
             panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)imagenModo).EndInit();
+            ((System.ComponentModel.ISupportInitialize)moonPicture).EndInit();
             ((System.ComponentModel.ISupportInitialize)SolPicture).EndInit();
             tablePanel_Admin.ResumeLayout(false);
             tablePanelNombre_Vendedor.ResumeLayout(false);
@@ -803,7 +802,7 @@ namespace CapaVista
         private RJCodeAdvance.RJControls.RJButton rjButton4;
         private TableLayoutPanel tableLayoutPanel4;
         private Panel panel3;
-        private PictureBox imagenModo;
+        private PictureBox moonPicture;
         private PictureBox SolPicture;
         private TableLayoutPanel tableLayoutPanel3;
         private Label lblEncabezado2;

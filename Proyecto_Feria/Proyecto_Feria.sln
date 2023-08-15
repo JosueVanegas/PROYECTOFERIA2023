@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CapaControlador", ".vs\Capa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CapaDatos", ".vs\CapaDatos\CapaDatos.csproj", "{3BA66BC7-7B28-40CD-ADF0-3356690FC605}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaVista", "CapaVista\CapaVista.csproj", "{B959C186-52E5-412E-90A4-47D520B4A411}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CapaPresentacion", "CapaVista\CapaPresentacion.csproj", "{B959C186-52E5-412E-90A4-47D520B4A411}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

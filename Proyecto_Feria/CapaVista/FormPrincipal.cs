@@ -20,8 +20,7 @@ namespace CapaVista
         Boolean Mod;
         Form formActivo = null;
         Button botonActivo = null;
-        //Color fondoOscuro = Color.FromArgb();
-        //Color fondoClaro = Color.FromArgb();
+        bool EstadoDeBarraVertical = true;
         public FormPrincipal(Usuario usuario, Boolean DMod)
         {
             InitializeComponent();
@@ -68,12 +67,12 @@ namespace CapaVista
             Mod = cambioModo.Checked;
             if (cambioModo.Checked)
             {
-                imagenModo.Visible = true;
+                moonPicture.Visible = true;
                 SolPicture.Visible = false;
             }
             if (!cambioModo.Checked)
             {
-                imagenModo.Visible = false;
+                moonPicture.Visible = false;
                 SolPicture.Visible = true;
             }
             cambiarModo(Mod);
@@ -92,8 +91,6 @@ namespace CapaVista
         {
             abrirFormulario(new formConfiguraciones(Mod));
         }
-
-        bool EstadoDeBarraVertical = true;
         private void btnBarraVertical_Button_Click(object sender, EventArgs e)
         {
 
@@ -145,7 +142,7 @@ namespace CapaVista
 
         private void btnCalculos_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new FormCalculos.FormCalculos(Mod));
+            abrirFormulario(new FormCalculos.FormInformes(Mod));
         }
         private void btnInicio_MouseEnter(object sender, EventArgs e)
         {

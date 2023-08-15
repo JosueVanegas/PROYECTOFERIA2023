@@ -47,16 +47,10 @@
             btnFacturar = new RJCodeAdvance.RJControls.RJButton();
             lblTitulo = new Label();
             panelContenedorIzquierdo = new Panel();
-            panelDetalleVenta = new Panel();
-            nbrDescuento = new ReaLTaiizor.Controls.SkyNumeric();
-            lblEcabezadoIzquierdo = new Label();
-            txtTotal = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            txtIva = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            checkDescuento = new ReaLTaiizor.Controls.MaterialCheckBox();
             panelBusqueda = new Panel();
+            btnCerrarBusqueda = new Button();
             lblBuscar = new Label();
             txtBuscar = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            btnCerrarBusqueda = new Button();
             cbxBuscar = new ReaLTaiizor.Controls.MaterialComboBox();
             tbBusqueda = new ReaLTaiizor.Controls.PoisonDataGridView();
             Añadir = new DataGridViewButtonColumn();
@@ -66,6 +60,12 @@
             NombreP = new DataGridViewTextBoxColumn();
             PrecioP = new DataGridViewTextBoxColumn();
             CantidadP = new DataGridViewTextBoxColumn();
+            panelDetalleVenta = new Panel();
+            nbrDescuento = new ReaLTaiizor.Controls.SkyNumeric();
+            lblEcabezadoIzquierdo = new Label();
+            txtTotal = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            txtIva = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            checkDescuento = new ReaLTaiizor.Controls.MaterialCheckBox();
             tableLayoutPanel3 = new TableLayoutPanel();
             panel3 = new Panel();
             flowLayoutPanel2 = new FlowLayoutPanel();
@@ -97,9 +97,9 @@
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panelContenedorIzquierdo.SuspendLayout();
-            panelDetalleVenta.SuspendLayout();
             panelBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tbBusqueda).BeginInit();
+            panelDetalleVenta.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             panel3.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
@@ -293,7 +293,7 @@
             tableLayoutPanel2.ColumnCount = 1;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006237F));
             tableLayoutPanel2.Controls.Add(btnFacturar, 0, 0);
-            tableLayoutPanel2.Location = new Point(21, 424);
+            tableLayoutPanel2.Location = new Point(21, 436);
             tableLayoutPanel2.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
@@ -331,7 +331,7 @@
             lblTitulo.ForeColor = Color.FromArgb(63, 63, 70);
             lblTitulo.Location = new Point(3, 0);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(736, 58);
+            lblTitulo.Size = new Size(758, 58);
             lblTitulo.TabIndex = 41;
             lblTitulo.Text = "Vender productos";
             lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
@@ -340,13 +340,214 @@
             // 
             panelContenedorIzquierdo.BackColor = Color.White;
             panelContenedorIzquierdo.BackgroundImageLayout = ImageLayout.Stretch;
-            panelContenedorIzquierdo.Controls.Add(panelBusqueda);
             panelContenedorIzquierdo.Controls.Add(panelDetalleVenta);
+            panelContenedorIzquierdo.Controls.Add(panelBusqueda);
             panelContenedorIzquierdo.Dock = DockStyle.Right;
-            panelContenedorIzquierdo.Location = new Point(773, 24);
+            panelContenedorIzquierdo.Location = new Point(773, 0);
             panelContenedorIzquierdo.Name = "panelContenedorIzquierdo";
-            panelContenedorIzquierdo.Size = new Size(319, 542);
+            panelContenedorIzquierdo.Size = new Size(319, 566);
             panelContenedorIzquierdo.TabIndex = 50;
+            // 
+            // panelBusqueda
+            // 
+            panelBusqueda.Controls.Add(btnCerrarBusqueda);
+            panelBusqueda.Controls.Add(lblBuscar);
+            panelBusqueda.Controls.Add(txtBuscar);
+            panelBusqueda.Controls.Add(cbxBuscar);
+            panelBusqueda.Controls.Add(tbBusqueda);
+            panelBusqueda.Dock = DockStyle.Fill;
+            panelBusqueda.Location = new Point(0, 0);
+            panelBusqueda.Name = "panelBusqueda";
+            panelBusqueda.Size = new Size(319, 566);
+            panelBusqueda.TabIndex = 55;
+            // 
+            // btnCerrarBusqueda
+            // 
+            btnCerrarBusqueda.BackColor = Color.Red;
+            btnCerrarBusqueda.Dock = DockStyle.Bottom;
+            btnCerrarBusqueda.Image = (Image)resources.GetObject("btnCerrarBusqueda.Image");
+            btnCerrarBusqueda.Location = new Point(0, 30);
+            btnCerrarBusqueda.Name = "btnCerrarBusqueda";
+            btnCerrarBusqueda.Size = new Size(319, 41);
+            btnCerrarBusqueda.TabIndex = 62;
+            btnCerrarBusqueda.UseVisualStyleBackColor = false;
+            btnCerrarBusqueda.Click += btnCerrarBusqueda_Click_1;
+            // 
+            // lblBuscar
+            // 
+            lblBuscar.BackColor = Color.White;
+            lblBuscar.Dock = DockStyle.Bottom;
+            lblBuscar.Font = new Font("Microsoft Sans Serif", 27.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblBuscar.ForeColor = Color.FromArgb(63, 63, 70);
+            lblBuscar.Location = new Point(0, 71);
+            lblBuscar.Name = "lblBuscar";
+            lblBuscar.Size = new Size(319, 59);
+            lblBuscar.TabIndex = 42;
+            lblBuscar.Text = "Buscar";
+            lblBuscar.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // txtBuscar
+            // 
+            txtBuscar.AnimateReadOnly = false;
+            txtBuscar.AutoCompleteMode = AutoCompleteMode.None;
+            txtBuscar.AutoCompleteSource = AutoCompleteSource.None;
+            txtBuscar.BackgroundImageLayout = ImageLayout.None;
+            txtBuscar.CharacterCasing = CharacterCasing.Normal;
+            txtBuscar.Depth = 0;
+            txtBuscar.Dock = DockStyle.Bottom;
+            txtBuscar.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtBuscar.HideSelection = true;
+            txtBuscar.Hint = "Buscar";
+            txtBuscar.LeadingIcon = null;
+            txtBuscar.Location = new Point(0, 130);
+            txtBuscar.MaxLength = 32767;
+            txtBuscar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.PasswordChar = '\0';
+            txtBuscar.PrefixSuffixText = null;
+            txtBuscar.ReadOnly = false;
+            txtBuscar.RightToLeft = RightToLeft.No;
+            txtBuscar.SelectedText = "";
+            txtBuscar.SelectionLength = 0;
+            txtBuscar.SelectionStart = 0;
+            txtBuscar.ShortcutsEnabled = true;
+            txtBuscar.Size = new Size(319, 48);
+            txtBuscar.TabIndex = 63;
+            txtBuscar.TabStop = false;
+            txtBuscar.TextAlign = HorizontalAlignment.Left;
+            txtBuscar.TrailingIcon = null;
+            txtBuscar.UseSystemPasswordChar = false;
+            txtBuscar.TextChanged += txtBuscar_TextChanged;
+            // 
+            // cbxBuscar
+            // 
+            cbxBuscar.AutoResize = false;
+            cbxBuscar.BackColor = Color.FromArgb(255, 255, 255);
+            cbxBuscar.Depth = 0;
+            cbxBuscar.Dock = DockStyle.Bottom;
+            cbxBuscar.DrawMode = DrawMode.OwnerDrawVariable;
+            cbxBuscar.DropDownHeight = 174;
+            cbxBuscar.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxBuscar.DropDownWidth = 121;
+            cbxBuscar.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cbxBuscar.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cbxBuscar.FormattingEnabled = true;
+            cbxBuscar.Hint = "Buscar producto";
+            cbxBuscar.IntegralHeight = false;
+            cbxBuscar.ItemHeight = 43;
+            cbxBuscar.Items.AddRange(new object[] { "Codigo", "Nombre", "Precio" });
+            cbxBuscar.Location = new Point(0, 178);
+            cbxBuscar.MaxDropDownItems = 4;
+            cbxBuscar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            cbxBuscar.Name = "cbxBuscar";
+            cbxBuscar.Size = new Size(319, 49);
+            cbxBuscar.StartIndex = 0;
+            cbxBuscar.TabIndex = 60;
+            // 
+            // tbBusqueda
+            // 
+            tbBusqueda.AllowUserToAddRows = false;
+            tbBusqueda.AllowUserToOrderColumns = true;
+            tbBusqueda.AllowUserToResizeRows = false;
+            tbBusqueda.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            tbBusqueda.BackgroundColor = SystemColors.ControlDarkDark;
+            tbBusqueda.BorderStyle = BorderStyle.None;
+            tbBusqueda.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            tbBusqueda.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            tbBusqueda.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            tbBusqueda.ColumnHeadersHeight = 35;
+            tbBusqueda.Columns.AddRange(new DataGridViewColumn[] { Añadir, Img, IdP, CodigoP, NombreP, PrecioP, CantidadP });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.DarkGray;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.LightSkyBlue;
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            tbBusqueda.DefaultCellStyle = dataGridViewCellStyle2;
+            tbBusqueda.Dock = DockStyle.Bottom;
+            tbBusqueda.EnableHeadersVisualStyles = false;
+            tbBusqueda.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            tbBusqueda.GridColor = Color.Gray;
+            tbBusqueda.Location = new Point(0, 227);
+            tbBusqueda.Name = "tbBusqueda";
+            tbBusqueda.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.Silver;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            tbBusqueda.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            tbBusqueda.RowHeadersVisible = false;
+            tbBusqueda.RowHeadersWidth = 40;
+            tbBusqueda.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            tbBusqueda.RowTemplate.Height = 30;
+            tbBusqueda.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            tbBusqueda.Size = new Size(319, 339);
+            tbBusqueda.TabIndex = 55;
+            tbBusqueda.CellContentClick += tbBusqueda_CellContentClick;
+            tbBusqueda.CellPainting += tbBusqueda_CellPainting;
+            // 
+            // Añadir
+            // 
+            Añadir.HeaderText = "Añadir";
+            Añadir.Name = "Añadir";
+            Añadir.Width = 50;
+            // 
+            // Img
+            // 
+            Img.HeaderText = "Imagen";
+            Img.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            Img.Name = "Img";
+            Img.ReadOnly = true;
+            Img.Resizable = DataGridViewTriState.False;
+            Img.Visible = false;
+            Img.Width = 50;
+            // 
+            // IdP
+            // 
+            IdP.HeaderText = "Id";
+            IdP.Name = "IdP";
+            IdP.ReadOnly = true;
+            IdP.Visible = false;
+            IdP.Width = 10;
+            // 
+            // CodigoP
+            // 
+            CodigoP.HeaderText = "Codigo";
+            CodigoP.Name = "CodigoP";
+            CodigoP.ReadOnly = true;
+            CodigoP.Width = 120;
+            // 
+            // NombreP
+            // 
+            NombreP.HeaderText = "producto";
+            NombreP.Name = "NombreP";
+            NombreP.ReadOnly = true;
+            // 
+            // PrecioP
+            // 
+            PrecioP.HeaderText = "Precio";
+            PrecioP.Name = "PrecioP";
+            PrecioP.ReadOnly = true;
+            PrecioP.Width = 80;
+            // 
+            // CantidadP
+            // 
+            CantidadP.HeaderText = "Cantidad";
+            CantidadP.Name = "CantidadP";
+            CantidadP.ReadOnly = true;
+            CantidadP.Visible = false;
+            CantidadP.Width = 60;
             // 
             // panelDetalleVenta
             // 
@@ -360,7 +561,7 @@
             panelDetalleVenta.Dock = DockStyle.Fill;
             panelDetalleVenta.Location = new Point(0, 0);
             panelDetalleVenta.Name = "panelDetalleVenta";
-            panelDetalleVenta.Size = new Size(319, 542);
+            panelDetalleVenta.Size = new Size(319, 566);
             panelDetalleVenta.TabIndex = 55;
             // 
             // nbrDescuento
@@ -484,206 +685,6 @@
             checkDescuento.UseVisualStyleBackColor = true;
             checkDescuento.CheckedChanged += checkDescuento_CheckedChanged;
             // 
-            // panelBusqueda
-            // 
-            panelBusqueda.Controls.Add(lblBuscar);
-            panelBusqueda.Controls.Add(txtBuscar);
-            panelBusqueda.Controls.Add(btnCerrarBusqueda);
-            panelBusqueda.Controls.Add(cbxBuscar);
-            panelBusqueda.Controls.Add(tbBusqueda);
-            panelBusqueda.Dock = DockStyle.Fill;
-            panelBusqueda.Location = new Point(0, 0);
-            panelBusqueda.Name = "panelBusqueda";
-            panelBusqueda.Size = new Size(319, 542);
-            panelBusqueda.TabIndex = 55;
-            // 
-            // lblBuscar
-            // 
-            lblBuscar.BackColor = Color.White;
-            lblBuscar.Dock = DockStyle.Bottom;
-            lblBuscar.Font = new Font("Microsoft Sans Serif", 27.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblBuscar.ForeColor = Color.FromArgb(63, 63, 70);
-            lblBuscar.Location = new Point(0, 47);
-            lblBuscar.Name = "lblBuscar";
-            lblBuscar.Size = new Size(319, 59);
-            lblBuscar.TabIndex = 42;
-            lblBuscar.Text = "Buscar";
-            lblBuscar.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // txtBuscar
-            // 
-            txtBuscar.AnimateReadOnly = false;
-            txtBuscar.AutoCompleteMode = AutoCompleteMode.None;
-            txtBuscar.AutoCompleteSource = AutoCompleteSource.None;
-            txtBuscar.BackgroundImageLayout = ImageLayout.None;
-            txtBuscar.CharacterCasing = CharacterCasing.Normal;
-            txtBuscar.Depth = 0;
-            txtBuscar.Dock = DockStyle.Bottom;
-            txtBuscar.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtBuscar.HideSelection = true;
-            txtBuscar.Hint = "Buscar";
-            txtBuscar.LeadingIcon = null;
-            txtBuscar.Location = new Point(0, 106);
-            txtBuscar.MaxLength = 32767;
-            txtBuscar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            txtBuscar.Name = "txtBuscar";
-            txtBuscar.PasswordChar = '\0';
-            txtBuscar.PrefixSuffixText = null;
-            txtBuscar.ReadOnly = false;
-            txtBuscar.RightToLeft = RightToLeft.No;
-            txtBuscar.SelectedText = "";
-            txtBuscar.SelectionLength = 0;
-            txtBuscar.SelectionStart = 0;
-            txtBuscar.ShortcutsEnabled = true;
-            txtBuscar.Size = new Size(319, 48);
-            txtBuscar.TabIndex = 63;
-            txtBuscar.TabStop = false;
-            txtBuscar.TextAlign = HorizontalAlignment.Left;
-            txtBuscar.TrailingIcon = null;
-            txtBuscar.UseSystemPasswordChar = false;
-            txtBuscar.TextChanged += txtBuscar_TextChanged;
-            // 
-            // btnCerrarBusqueda
-            // 
-            btnCerrarBusqueda.BackColor = Color.Red;
-            btnCerrarBusqueda.Image = (Image)resources.GetObject("btnCerrarBusqueda.Image");
-            btnCerrarBusqueda.Location = new Point(271, 3);
-            btnCerrarBusqueda.Name = "btnCerrarBusqueda";
-            btnCerrarBusqueda.Size = new Size(43, 41);
-            btnCerrarBusqueda.TabIndex = 62;
-            btnCerrarBusqueda.UseVisualStyleBackColor = false;
-            btnCerrarBusqueda.Click += btnCerrarBusqueda_Click_1;
-            // 
-            // cbxBuscar
-            // 
-            cbxBuscar.AutoResize = false;
-            cbxBuscar.BackColor = Color.FromArgb(255, 255, 255);
-            cbxBuscar.Depth = 0;
-            cbxBuscar.Dock = DockStyle.Bottom;
-            cbxBuscar.DrawMode = DrawMode.OwnerDrawVariable;
-            cbxBuscar.DropDownHeight = 174;
-            cbxBuscar.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbxBuscar.DropDownWidth = 121;
-            cbxBuscar.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            cbxBuscar.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            cbxBuscar.FormattingEnabled = true;
-            cbxBuscar.Hint = "Buscar producto";
-            cbxBuscar.IntegralHeight = false;
-            cbxBuscar.ItemHeight = 43;
-            cbxBuscar.Items.AddRange(new object[] { "Codigo", "Nombre", "Precio" });
-            cbxBuscar.Location = new Point(0, 154);
-            cbxBuscar.MaxDropDownItems = 4;
-            cbxBuscar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            cbxBuscar.Name = "cbxBuscar";
-            cbxBuscar.Size = new Size(319, 49);
-            cbxBuscar.StartIndex = 0;
-            cbxBuscar.TabIndex = 60;
-            // 
-            // tbBusqueda
-            // 
-            tbBusqueda.AllowUserToAddRows = false;
-            tbBusqueda.AllowUserToOrderColumns = true;
-            tbBusqueda.AllowUserToResizeRows = false;
-            tbBusqueda.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            tbBusqueda.BackgroundColor = SystemColors.ControlDarkDark;
-            tbBusqueda.BorderStyle = BorderStyle.None;
-            tbBusqueda.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            tbBusqueda.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            tbBusqueda.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            tbBusqueda.ColumnHeadersHeight = 35;
-            tbBusqueda.Columns.AddRange(new DataGridViewColumn[] { Añadir, Img, IdP, CodigoP, NombreP, PrecioP, CantidadP });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.DarkGray;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = Color.LightSkyBlue;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            tbBusqueda.DefaultCellStyle = dataGridViewCellStyle2;
-            tbBusqueda.Dock = DockStyle.Bottom;
-            tbBusqueda.EnableHeadersVisualStyles = false;
-            tbBusqueda.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            tbBusqueda.GridColor = Color.Gray;
-            tbBusqueda.Location = new Point(0, 203);
-            tbBusqueda.Name = "tbBusqueda";
-            tbBusqueda.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.Silver;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            tbBusqueda.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            tbBusqueda.RowHeadersVisible = false;
-            tbBusqueda.RowHeadersWidth = 40;
-            tbBusqueda.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            tbBusqueda.RowTemplate.Height = 30;
-            tbBusqueda.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tbBusqueda.Size = new Size(319, 339);
-            tbBusqueda.TabIndex = 55;
-            tbBusqueda.CellContentClick += tbBusqueda_CellContentClick;
-            tbBusqueda.CellPainting += tbBusqueda_CellPainting;
-            // 
-            // Añadir
-            // 
-            Añadir.HeaderText = "Añadir";
-            Añadir.Name = "Añadir";
-            Añadir.Width = 50;
-            // 
-            // Img
-            // 
-            Img.HeaderText = "Imagen";
-            Img.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            Img.Name = "Img";
-            Img.ReadOnly = true;
-            Img.Resizable = DataGridViewTriState.False;
-            Img.Visible = false;
-            Img.Width = 50;
-            // 
-            // IdP
-            // 
-            IdP.HeaderText = "Id";
-            IdP.Name = "IdP";
-            IdP.ReadOnly = true;
-            IdP.Visible = false;
-            IdP.Width = 10;
-            // 
-            // CodigoP
-            // 
-            CodigoP.HeaderText = "Codigo";
-            CodigoP.Name = "CodigoP";
-            CodigoP.ReadOnly = true;
-            CodigoP.Width = 120;
-            // 
-            // NombreP
-            // 
-            NombreP.HeaderText = "producto";
-            NombreP.Name = "NombreP";
-            NombreP.ReadOnly = true;
-            // 
-            // PrecioP
-            // 
-            PrecioP.HeaderText = "Precio";
-            PrecioP.Name = "PrecioP";
-            PrecioP.ReadOnly = true;
-            PrecioP.Width = 80;
-            // 
-            // CantidadP
-            // 
-            CantidadP.HeaderText = "Cantidad";
-            CantidadP.Name = "CantidadP";
-            CantidadP.ReadOnly = true;
-            CantidadP.Visible = false;
-            CantidadP.Width = 60;
-            // 
             // tableLayoutPanel3
             // 
             tableLayoutPanel3.ColumnCount = 1;
@@ -691,13 +692,13 @@
             tableLayoutPanel3.Controls.Add(panel3, 0, 0);
             tableLayoutPanel3.Controls.Add(panelContenedor, 0, 1);
             tableLayoutPanel3.Dock = DockStyle.Fill;
-            tableLayoutPanel3.Location = new Point(3, 24);
+            tableLayoutPanel3.Location = new Point(3, 0);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 2;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 21.955719F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 78.04428F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel3.Size = new Size(770, 542);
+            tableLayoutPanel3.Size = new Size(770, 566);
             tableLayoutPanel3.TabIndex = 52;
             // 
             // panel3
@@ -707,7 +708,7 @@
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(3, 3);
             panel3.Name = "panel3";
-            panel3.Size = new Size(764, 113);
+            panel3.Size = new Size(764, 118);
             panel3.TabIndex = 53;
             // 
             // flowLayoutPanel2
@@ -817,9 +818,9 @@
             panelContenedor.Controls.Add(panel2);
             panelContenedor.Controls.Add(tbResumen);
             panelContenedor.Dock = DockStyle.Fill;
-            panelContenedor.Location = new Point(3, 122);
+            panelContenedor.Location = new Point(3, 127);
             panelContenedor.Name = "panelContenedor";
-            panelContenedor.Size = new Size(764, 417);
+            panelContenedor.Size = new Size(764, 436);
             panelContenedor.TabIndex = 54;
             // 
             // panel2
@@ -1016,28 +1017,28 @@
             // 
             // formVentas
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(1095, 569);
-            ControlBox = false;
             Controls.Add(tableLayoutPanel3);
             Controls.Add(panelContenedorIzquierdo);
-            FormStyle = ReaLTaiizor.Enum.Material.FormStyles.ActionBar_None;
+            FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
             Name = "formVentas";
-            Padding = new Padding(3, 24, 3, 3);
+            Padding = new Padding(3, 0, 3, 3);
             ShowIcon = false;
             ShowInTaskbar = false;
+            Sizable = false;
             Text = "formVentas";
+            WindowState = FormWindowState.Maximized;
             Load += formVentas_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             panelContenedorIzquierdo.ResumeLayout(false);
-            panelDetalleVenta.ResumeLayout(false);
-            panelDetalleVenta.PerformLayout();
             panelBusqueda.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)tbBusqueda).EndInit();
+            panelDetalleVenta.ResumeLayout(false);
+            panelDetalleVenta.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);
             panel3.ResumeLayout(false);
             flowLayoutPanel2.ResumeLayout(false);

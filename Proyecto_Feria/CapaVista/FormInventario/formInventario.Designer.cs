@@ -202,9 +202,9 @@
             rjCircularPictureBox1.BorderSize = 2;
             rjCircularPictureBox1.GradientAngle = 50F;
             rjCircularPictureBox1.Image = (Image)resources.GetObject("rjCircularPictureBox1.Image");
-            rjCircularPictureBox1.Location = new Point(398, 47);
+            rjCircularPictureBox1.Location = new Point(3, 3);
             rjCircularPictureBox1.Name = "rjCircularPictureBox1";
-            rjCircularPictureBox1.Size = new Size(388, 388);
+            rjCircularPictureBox1.Size = new Size(181, 181);
             rjCircularPictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             rjCircularPictureBox1.TabIndex = 0;
             rjCircularPictureBox1.TabStop = false;
