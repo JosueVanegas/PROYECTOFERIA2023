@@ -9,11 +9,12 @@ namespace CapaVista
 {
     public partial class FormInicio : MaterialForm
     {
-        ControlEstadistica cEstat = new ControlEstadistica();
+        ControlDashboard cEstat = new ControlDashboard();
         public FormInicio(Boolean Mod, Usuario Rol)
         {
             InitializeComponent();
             mostrarCantidades();
+            mostrarTopProductos();
 
             MaterialSkinManager manager;
 
@@ -65,6 +66,17 @@ namespace CapaVista
             txtDataClientes.Text = "Clientes registrados: " + cEstat.cantidadCategorias("CLIENTE");
             txtDataUsuarios.Text = "Usuarios registrados: " + cEstat.cantidadCategorias("USUARIO");
         }
+        private void mostrarTopProductos()
+        {
+            List<productosMasVendidos> productosVendidos = cEstat.productosTop();
 
+            foreach (var productoVendido in productosVendidos)
+            {
+                chartTopProductos.Series["Ventas"].Points.AddXY(productoVendido.nombre, productoVendido.cantidad);
+            }
+
+            chartTopProductos.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
+            chartTopProductos.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
+        }
     }
 }

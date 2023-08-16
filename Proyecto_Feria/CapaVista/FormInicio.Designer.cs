@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             RelojInicio = new ReaLTaiizor.Controls.ParrotClock();
             lblEncabezado = new Label();
             tbCantidades = new TableLayoutPanel();
@@ -38,8 +42,10 @@
             txtDataProveedor = new ReaLTaiizor.Controls.ParrotBanner();
             txtDataProducto = new ReaLTaiizor.Controls.ParrotBanner();
             txtDataEmpleado = new ReaLTaiizor.Controls.ParrotBanner();
+            chartTopProductos = new System.Windows.Forms.DataVisualization.Charting.Chart();
             tbCantidades.SuspendLayout();
             parrotGroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)chartTopProductos).BeginInit();
             SuspendLayout();
             // 
             // RelojInicio
@@ -94,6 +100,7 @@
             tbCantidades.Controls.Add(lblEncabezado, 1, 0);
             tbCantidades.Controls.Add(RelojInicio, 1, 1);
             tbCantidades.Controls.Add(parrotGroupBox1, 2, 1);
+            tbCantidades.Controls.Add(chartTopProductos, 0, 1);
             tbCantidades.Dock = DockStyle.Fill;
             tbCantidades.Location = new Point(3, 0);
             tbCantidades.Name = "tbCantidades";
@@ -200,7 +207,35 @@
             txtDataEmpleado.TabIndex = 44;
             txtDataEmpleado.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
-            // FrmInicio
+            // chartTopProductos
+            // 
+            chartArea1.Name = "ChartArea1";
+            chartTopProductos.ChartAreas.Add(chartArea1);
+            chartTopProductos.Dock = DockStyle.Fill;
+            legend1.Name = "Legend1";
+            chartTopProductos.Legends.Add(legend1);
+            chartTopProductos.Location = new Point(3, 68);
+            chartTopProductos.Name = "chartTopProductos";
+            chartTopProductos.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.Color = Color.Transparent;
+            series1.Font = new Font("Microsoft Tai Le", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            series1.Legend = "Legend1";
+            series1.Name = "Ventas";
+            series1.YValuesPerPoint = 2;
+            chartTopProductos.Series.Add(series1);
+            chartTopProductos.Size = new Size(278, 386);
+            chartTopProductos.TabIndex = 46;
+            chartTopProductos.Text = "chart1";
+            title1.Alignment = ContentAlignment.TopCenter;
+            title1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            title1.Name = "Title1";
+            title1.Text = "Top productos más vendidos";
+            title1.ToolTip = "Grafico de productos top";
+            chartTopProductos.Titles.Add(title1);
+            // 
+            // FormInicio
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -208,12 +243,12 @@
             ClientSize = new Size(905, 460);
             Controls.Add(tbCantidades);
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
-            Name = "FrmInicio";
+            Name = "FormInicio";
             Padding = new Padding(3, 0, 3, 3);
             Text = "Inicio";
             tbCantidades.ResumeLayout(false);
             parrotGroupBox1.ResumeLayout(false);
-            parrotGroupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)chartTopProductos).EndInit();
             ResumeLayout(false);
         }
 
@@ -231,5 +266,6 @@
         private ReaLTaiizor.Controls.ParrotBanner txtDataCategoria;
         private ReaLTaiizor.Controls.ParrotBanner txtDataUsuarios;
         private ReaLTaiizor.Controls.ParrotBanner txtDataClientes;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartTopProductos;
     }
 }

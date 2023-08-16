@@ -1,6 +1,7 @@
 ﻿
 using CapaControlador;
 using CapaDatos;
+using CapaPresentacion.FormInformes;
 using CapaVista.FormConfiguracion;
 using CapaVista.FormContabilidad;
 using CapaVista.FormPlanilla;
@@ -16,18 +17,19 @@ namespace CapaVista
 {
     public partial class FormPrincipal : MaterialForm
     {
-        Usuario user = null;
+        public Usuario user = null;
         Boolean Mod;
         Form formActivo = null;
         Button botonActivo = null;
         bool EstadoDeBarraVertical = true;
+        public FormPrincipal() { }
         public FormPrincipal(Usuario usuario, Boolean DMod)
         {
             InitializeComponent();
             this.user = usuario;
             cambiarModo(DMod);
             this.Mod = DMod;
-            // datosDeUsuarioActual();
+            datosDeUsuarioActual();
         }
         private void cambiarModo(bool modoOscuro)
         {
@@ -132,7 +134,7 @@ namespace CapaVista
         }
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new formVentas(Mod));
+            abrirFormulario(new formVentas(Mod,user));
         }
 
         private void btnContabilidad_Click(object sender, EventArgs e)
@@ -142,7 +144,7 @@ namespace CapaVista
 
         private void btnCalculos_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new FormCalculos.FormInformes(Mod));
+            abrirFormulario(new FormInformes(Mod));
         }
         private void btnInicio_MouseEnter(object sender, EventArgs e)
         {
@@ -185,7 +187,7 @@ namespace CapaVista
         private void btnCalculos_MouseHover(object sender, EventArgs e)
         {
             ToolTip toolTip = new ToolTip();
-            toolTip.SetToolTip(btnCalculos, "Calculos");
+            toolTip.SetToolTip(btnInformes, "Calculos");
         }
     }
 }

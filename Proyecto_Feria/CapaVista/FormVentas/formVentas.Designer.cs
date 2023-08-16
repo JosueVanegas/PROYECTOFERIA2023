@@ -47,6 +47,12 @@
             btnFacturar = new RJCodeAdvance.RJControls.RJButton();
             lblTitulo = new Label();
             panelContenedorIzquierdo = new Panel();
+            panelDetalleVenta = new Panel();
+            nbrDescuento = new ReaLTaiizor.Controls.SkyNumeric();
+            lblEcabezadoIzquierdo = new Label();
+            txtTotal = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            txtIva = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            checkDescuento = new ReaLTaiizor.Controls.MaterialCheckBox();
             panelBusqueda = new Panel();
             btnCerrarBusqueda = new Button();
             lblBuscar = new Label();
@@ -60,12 +66,6 @@
             NombreP = new DataGridViewTextBoxColumn();
             PrecioP = new DataGridViewTextBoxColumn();
             CantidadP = new DataGridViewTextBoxColumn();
-            panelDetalleVenta = new Panel();
-            nbrDescuento = new ReaLTaiizor.Controls.SkyNumeric();
-            lblEcabezadoIzquierdo = new Label();
-            txtTotal = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            txtIva = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            checkDescuento = new ReaLTaiizor.Controls.MaterialCheckBox();
             tableLayoutPanel3 = new TableLayoutPanel();
             panel3 = new Panel();
             flowLayoutPanel2 = new FlowLayoutPanel();
@@ -97,9 +97,9 @@
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panelContenedorIzquierdo.SuspendLayout();
+            panelDetalleVenta.SuspendLayout();
             panelBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tbBusqueda).BeginInit();
-            panelDetalleVenta.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             panel3.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
@@ -348,6 +348,143 @@
             panelContenedorIzquierdo.Size = new Size(319, 566);
             panelContenedorIzquierdo.TabIndex = 50;
             // 
+            // panelDetalleVenta
+            // 
+            panelDetalleVenta.Controls.Add(nbrDescuento);
+            panelDetalleVenta.Controls.Add(lblEcabezadoIzquierdo);
+            panelDetalleVenta.Controls.Add(tableLayoutPanel2);
+            panelDetalleVenta.Controls.Add(txtTotal);
+            panelDetalleVenta.Controls.Add(txtIva);
+            panelDetalleVenta.Controls.Add(checkDescuento);
+            panelDetalleVenta.Controls.Add(txtSubTotal);
+            panelDetalleVenta.Dock = DockStyle.Fill;
+            panelDetalleVenta.Location = new Point(0, 0);
+            panelDetalleVenta.Name = "panelDetalleVenta";
+            panelDetalleVenta.Size = new Size(319, 566);
+            panelDetalleVenta.TabIndex = 55;
+            // 
+            // nbrDescuento
+            // 
+            nbrDescuento.BackColor = Color.FromArgb(233, 233, 233);
+            nbrDescuento.BorderColorA = Color.FromArgb(220, 220, 220);
+            nbrDescuento.BorderColorB = Color.FromArgb(228, 228, 228);
+            nbrDescuento.BorderColorC = Color.FromArgb(191, 191, 191);
+            nbrDescuento.BorderColorD = Color.FromArgb(254, 254, 254);
+            nbrDescuento.BotTriangleColor = Color.FromArgb(27, 94, 137);
+            nbrDescuento.ButtonBackColorA = Color.FromArgb(245, 245, 245);
+            nbrDescuento.ButtonBackColorB = Color.FromArgb(232, 232, 232);
+            nbrDescuento.ButtonBorderColorA = Color.FromArgb(252, 252, 252);
+            nbrDescuento.ButtonBorderColorB = Color.FromArgb(190, 190, 190);
+            nbrDescuento.ButtonBorderColorC = Color.FromArgb(200, 167, 167, 167);
+            nbrDescuento.ButtonBorderColorD = Color.FromArgb(188, 188, 188);
+            nbrDescuento.ButtonBorderColorE = Color.FromArgb(252, 252, 252);
+            nbrDescuento.Enabled = false;
+            nbrDescuento.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            nbrDescuento.ForeColor = Color.FromArgb(27, 94, 137);
+            nbrDescuento.Location = new Point(21, 131);
+            nbrDescuento.Maximum = 100L;
+            nbrDescuento.Minimum = 0L;
+            nbrDescuento.Name = "nbrDescuento";
+            nbrDescuento.Size = new Size(92, 30);
+            nbrDescuento.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            nbrDescuento.TabIndex = 55;
+            nbrDescuento.TopTriangleColor = Color.FromArgb(27, 94, 137);
+            nbrDescuento.Value = 0L;
+            nbrDescuento.Click += nbrDescuento_Click;
+            // 
+            // lblEcabezadoIzquierdo
+            // 
+            lblEcabezadoIzquierdo.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblEcabezadoIzquierdo.ForeColor = SystemColors.ControlDarkDark;
+            lblEcabezadoIzquierdo.Location = new Point(21, 16);
+            lblEcabezadoIzquierdo.Name = "lblEcabezadoIzquierdo";
+            lblEcabezadoIzquierdo.Size = new Size(263, 53);
+            lblEcabezadoIzquierdo.TabIndex = 54;
+            lblEcabezadoIzquierdo.Text = "Informacion de venta";
+            lblEcabezadoIzquierdo.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // txtTotal
+            // 
+            txtTotal.AnimateReadOnly = true;
+            txtTotal.AutoCompleteMode = AutoCompleteMode.None;
+            txtTotal.AutoCompleteSource = AutoCompleteSource.None;
+            txtTotal.BackgroundImageLayout = ImageLayout.None;
+            txtTotal.CharacterCasing = CharacterCasing.Normal;
+            txtTotal.Depth = 0;
+            txtTotal.Enabled = false;
+            txtTotal.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTotal.HideSelection = true;
+            txtTotal.Hint = "Total a pagar";
+            txtTotal.LeadingIcon = null;
+            txtTotal.Location = new Point(21, 313);
+            txtTotal.MaxLength = 32767;
+            txtTotal.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtTotal.Name = "txtTotal";
+            txtTotal.PasswordChar = '\0';
+            txtTotal.PrefixSuffixText = null;
+            txtTotal.ReadOnly = true;
+            txtTotal.RightToLeft = RightToLeft.No;
+            txtTotal.SelectedText = "";
+            txtTotal.SelectionLength = 0;
+            txtTotal.SelectionStart = 0;
+            txtTotal.ShortcutsEnabled = true;
+            txtTotal.Size = new Size(263, 48);
+            txtTotal.TabIndex = 51;
+            txtTotal.TabStop = false;
+            txtTotal.TextAlign = HorizontalAlignment.Center;
+            txtTotal.TrailingIcon = null;
+            txtTotal.UseSystemPasswordChar = false;
+            // 
+            // txtIva
+            // 
+            txtIva.AnimateReadOnly = true;
+            txtIva.AutoCompleteMode = AutoCompleteMode.None;
+            txtIva.AutoCompleteSource = AutoCompleteSource.None;
+            txtIva.BackgroundImageLayout = ImageLayout.None;
+            txtIva.CharacterCasing = CharacterCasing.Normal;
+            txtIva.Depth = 0;
+            txtIva.Enabled = false;
+            txtIva.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtIva.HideSelection = true;
+            txtIva.Hint = "Iva";
+            txtIva.LeadingIcon = null;
+            txtIva.Location = new Point(21, 237);
+            txtIva.MaxLength = 32767;
+            txtIva.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtIva.Name = "txtIva";
+            txtIva.PasswordChar = '\0';
+            txtIva.PrefixSuffixText = null;
+            txtIva.ReadOnly = true;
+            txtIva.RightToLeft = RightToLeft.No;
+            txtIva.SelectedText = "";
+            txtIva.SelectionLength = 0;
+            txtIva.SelectionStart = 0;
+            txtIva.ShortcutsEnabled = true;
+            txtIva.Size = new Size(263, 48);
+            txtIva.TabIndex = 52;
+            txtIva.TabStop = false;
+            txtIva.TextAlign = HorizontalAlignment.Center;
+            txtIva.TrailingIcon = null;
+            txtIva.UseSystemPasswordChar = false;
+            // 
+            // checkDescuento
+            // 
+            checkDescuento.AutoSize = true;
+            checkDescuento.Depth = 0;
+            checkDescuento.Location = new Point(116, 124);
+            checkDescuento.Margin = new Padding(0);
+            checkDescuento.MouseLocation = new Point(-1, -1);
+            checkDescuento.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            checkDescuento.Name = "checkDescuento";
+            checkDescuento.ReadOnly = false;
+            checkDescuento.Ripple = true;
+            checkDescuento.Size = new Size(110, 37);
+            checkDescuento.TabIndex = 50;
+            checkDescuento.Text = "Descuento";
+            checkDescuento.UseAccentColor = false;
+            checkDescuento.UseVisualStyleBackColor = true;
+            checkDescuento.CheckedChanged += checkDescuento_CheckedChanged;
+            // 
             // panelBusqueda
             // 
             panelBusqueda.Controls.Add(btnCerrarBusqueda);
@@ -549,142 +686,6 @@
             CantidadP.Visible = false;
             CantidadP.Width = 60;
             // 
-            // panelDetalleVenta
-            // 
-            panelDetalleVenta.Controls.Add(nbrDescuento);
-            panelDetalleVenta.Controls.Add(lblEcabezadoIzquierdo);
-            panelDetalleVenta.Controls.Add(tableLayoutPanel2);
-            panelDetalleVenta.Controls.Add(txtTotal);
-            panelDetalleVenta.Controls.Add(txtIva);
-            panelDetalleVenta.Controls.Add(checkDescuento);
-            panelDetalleVenta.Controls.Add(txtSubTotal);
-            panelDetalleVenta.Dock = DockStyle.Fill;
-            panelDetalleVenta.Location = new Point(0, 0);
-            panelDetalleVenta.Name = "panelDetalleVenta";
-            panelDetalleVenta.Size = new Size(319, 566);
-            panelDetalleVenta.TabIndex = 55;
-            // 
-            // nbrDescuento
-            // 
-            nbrDescuento.BackColor = Color.FromArgb(233, 233, 233);
-            nbrDescuento.BorderColorA = Color.FromArgb(220, 220, 220);
-            nbrDescuento.BorderColorB = Color.FromArgb(228, 228, 228);
-            nbrDescuento.BorderColorC = Color.FromArgb(191, 191, 191);
-            nbrDescuento.BorderColorD = Color.FromArgb(254, 254, 254);
-            nbrDescuento.BotTriangleColor = Color.FromArgb(27, 94, 137);
-            nbrDescuento.ButtonBackColorA = Color.FromArgb(245, 245, 245);
-            nbrDescuento.ButtonBackColorB = Color.FromArgb(232, 232, 232);
-            nbrDescuento.ButtonBorderColorA = Color.FromArgb(252, 252, 252);
-            nbrDescuento.ButtonBorderColorB = Color.FromArgb(190, 190, 190);
-            nbrDescuento.ButtonBorderColorC = Color.FromArgb(200, 167, 167, 167);
-            nbrDescuento.ButtonBorderColorD = Color.FromArgb(188, 188, 188);
-            nbrDescuento.ButtonBorderColorE = Color.FromArgb(252, 252, 252);
-            nbrDescuento.Enabled = false;
-            nbrDescuento.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            nbrDescuento.ForeColor = Color.FromArgb(27, 94, 137);
-            nbrDescuento.Location = new Point(21, 131);
-            nbrDescuento.Maximum = 100L;
-            nbrDescuento.Minimum = 0L;
-            nbrDescuento.Name = "nbrDescuento";
-            nbrDescuento.Size = new Size(92, 30);
-            nbrDescuento.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            nbrDescuento.TabIndex = 55;
-            nbrDescuento.TopTriangleColor = Color.FromArgb(27, 94, 137);
-            nbrDescuento.Value = 0L;
-            // 
-            // lblEcabezadoIzquierdo
-            // 
-            lblEcabezadoIzquierdo.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblEcabezadoIzquierdo.ForeColor = SystemColors.ControlDarkDark;
-            lblEcabezadoIzquierdo.Location = new Point(21, 16);
-            lblEcabezadoIzquierdo.Name = "lblEcabezadoIzquierdo";
-            lblEcabezadoIzquierdo.Size = new Size(263, 53);
-            lblEcabezadoIzquierdo.TabIndex = 54;
-            lblEcabezadoIzquierdo.Text = "Informacion de venta";
-            lblEcabezadoIzquierdo.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // txtTotal
-            // 
-            txtTotal.AnimateReadOnly = true;
-            txtTotal.AutoCompleteMode = AutoCompleteMode.None;
-            txtTotal.AutoCompleteSource = AutoCompleteSource.None;
-            txtTotal.BackgroundImageLayout = ImageLayout.None;
-            txtTotal.CharacterCasing = CharacterCasing.Normal;
-            txtTotal.Depth = 0;
-            txtTotal.Enabled = false;
-            txtTotal.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTotal.HideSelection = true;
-            txtTotal.Hint = "Total a pagar";
-            txtTotal.LeadingIcon = null;
-            txtTotal.Location = new Point(21, 313);
-            txtTotal.MaxLength = 32767;
-            txtTotal.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            txtTotal.Name = "txtTotal";
-            txtTotal.PasswordChar = '\0';
-            txtTotal.PrefixSuffixText = null;
-            txtTotal.ReadOnly = true;
-            txtTotal.RightToLeft = RightToLeft.No;
-            txtTotal.SelectedText = "";
-            txtTotal.SelectionLength = 0;
-            txtTotal.SelectionStart = 0;
-            txtTotal.ShortcutsEnabled = true;
-            txtTotal.Size = new Size(263, 48);
-            txtTotal.TabIndex = 51;
-            txtTotal.TabStop = false;
-            txtTotal.TextAlign = HorizontalAlignment.Center;
-            txtTotal.TrailingIcon = null;
-            txtTotal.UseSystemPasswordChar = false;
-            // 
-            // txtIva
-            // 
-            txtIva.AnimateReadOnly = true;
-            txtIva.AutoCompleteMode = AutoCompleteMode.None;
-            txtIva.AutoCompleteSource = AutoCompleteSource.None;
-            txtIva.BackgroundImageLayout = ImageLayout.None;
-            txtIva.CharacterCasing = CharacterCasing.Normal;
-            txtIva.Depth = 0;
-            txtIva.Enabled = false;
-            txtIva.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtIva.HideSelection = true;
-            txtIva.Hint = "Iva";
-            txtIva.LeadingIcon = null;
-            txtIva.Location = new Point(21, 237);
-            txtIva.MaxLength = 32767;
-            txtIva.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            txtIva.Name = "txtIva";
-            txtIva.PasswordChar = '\0';
-            txtIva.PrefixSuffixText = null;
-            txtIva.ReadOnly = true;
-            txtIva.RightToLeft = RightToLeft.No;
-            txtIva.SelectedText = "";
-            txtIva.SelectionLength = 0;
-            txtIva.SelectionStart = 0;
-            txtIva.ShortcutsEnabled = true;
-            txtIva.Size = new Size(263, 48);
-            txtIva.TabIndex = 52;
-            txtIva.TabStop = false;
-            txtIva.TextAlign = HorizontalAlignment.Center;
-            txtIva.TrailingIcon = null;
-            txtIva.UseSystemPasswordChar = false;
-            // 
-            // checkDescuento
-            // 
-            checkDescuento.AutoSize = true;
-            checkDescuento.Depth = 0;
-            checkDescuento.Location = new Point(116, 124);
-            checkDescuento.Margin = new Padding(0);
-            checkDescuento.MouseLocation = new Point(-1, -1);
-            checkDescuento.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            checkDescuento.Name = "checkDescuento";
-            checkDescuento.ReadOnly = false;
-            checkDescuento.Ripple = true;
-            checkDescuento.Size = new Size(110, 37);
-            checkDescuento.TabIndex = 50;
-            checkDescuento.Text = "Descuento";
-            checkDescuento.UseAccentColor = false;
-            checkDescuento.UseVisualStyleBackColor = true;
-            checkDescuento.CheckedChanged += checkDescuento_CheckedChanged;
-            // 
             // tableLayoutPanel3
             // 
             tableLayoutPanel3.ColumnCount = 1;
@@ -815,8 +816,8 @@
             // panelContenedor
             // 
             panelContenedor.BackColor = Color.White;
-            panelContenedor.Controls.Add(panel2);
             panelContenedor.Controls.Add(tbResumen);
+            panelContenedor.Controls.Add(panel2);
             panelContenedor.Dock = DockStyle.Fill;
             panelContenedor.Location = new Point(3, 127);
             panelContenedor.Name = "panelContenedor";
@@ -1035,10 +1036,10 @@
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             panelContenedorIzquierdo.ResumeLayout(false);
-            panelBusqueda.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)tbBusqueda).EndInit();
             panelDetalleVenta.ResumeLayout(false);
             panelDetalleVenta.PerformLayout();
+            panelBusqueda.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)tbBusqueda).EndInit();
             tableLayoutPanel3.ResumeLayout(false);
             panel3.ResumeLayout(false);
             flowLayoutPanel2.ResumeLayout(false);

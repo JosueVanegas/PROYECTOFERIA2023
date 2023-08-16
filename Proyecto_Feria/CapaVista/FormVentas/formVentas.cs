@@ -2,6 +2,7 @@
 using CapaDatos;
 using CapaVista.FormConfiguracion;
 using CapaVista.FormVentas;
+using Microsoft.Win32;
 using ReaLTaiizor.Colors;
 using ReaLTaiizor.Forms;
 using ReaLTaiizor.Manager;
@@ -12,16 +13,28 @@ namespace CapaVista.FormVenta
 {
     public partial class formVentas : MaterialForm
     {
-        public static decimal Monto;
         ControlProducto controlProducto = new ControlProducto();
         ControlVenta controlVenta = new ControlVenta();
         List<Producto> lista = null;
+        Usuario user = new Usuario();
         bool Mod;
-        public formVentas(bool Dmod)
+        public formVentas(bool Dmod, Usuario user)
         {
             InitializeComponent();
             cambiarModo(Dmod);
             this.Mod = Dmod;
+            this.user = user;
+        }
+        private void limpiarTodo()
+        {
+            txtBuscar.Text = "";
+            txtIva.Text = "";
+            txtSubTotal.Text = "";
+            txtTotal.Text = "";
+            txtCodigoProducto.Text = "";
+            tbResumen.Rows.Clear();
+            limpiarEtiquetas();
+            mostrarProductosDisponible();
         }
         private void cambiarModo(bool modoOscuro)
         {
@@ -41,10 +54,6 @@ namespace CapaVista.FormVenta
         private void formVentas_Load(object sender, EventArgs e)
         {
             mostrarProductosDisponible();
-        }
-        private void mostrarClientes()
-        {
-            //hay que crear la entidad cliente
         }
         private void mostrarProductosDisponible()
         {
@@ -78,11 +87,43 @@ namespace CapaVista.FormVenta
 
         private void btnCash_Click(object sender, EventArgs e)
         {
+            if (txtTotal.Text != "")
+            {
+                  ResumenVenta resumen = new ResumenVenta
+                    {
+                        subtotal = Convert.ToDecimal(txtSubTotal.Text),
+                        iva = Convert.ToDecimal(txtIva.Text),
+                        total = Convert.ToDecimal(txtTotal.Text)
+                    };
+                    FormPagar form = new FormPagar(user, Mod, resumen, obtenerDetalleDeVenta());
+                    form.ShowDialog();
+                    limpiarTodo();
+            }
+            else
+            {
+                MessageBox.Show("No se puede facturar porque aun no se ha vendido nada");
+            }
+        }
+        private List<DetalleVenta> obtenerDetalleDeVenta()
+        {
+            List<DetalleVenta> lista = new List<DetalleVenta>();
 
-            Monto = 20;
-            //Monto = float.Parse(txtTotal.Text);
-            FormPagar form = new FormPagar(Mod, Convert.ToDecimal(txtTotal));
-            form.ShowDialog();
+            foreach (DataGridViewRow row in tbResumen.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    DetalleVenta detalle = new DetalleVenta
+                    {
+                        ID_VENTA = 0,
+                        ID_PRODUCTO = (int)row.Cells["Id"].Value,
+                        CANTIDAD = (int)row.Cells["Cantidad"].Value,
+                        SUBTOTAL = Convert.ToDecimal(row.Cells["SubTotal"].Value),
+                    };
+
+                    lista.Add(detalle);
+                }
+            }
+            return lista;
         }
         private void txtCodigoProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -203,9 +244,9 @@ namespace CapaVista.FormVenta
             {
                 MessageBox.Show("No se encuentra el producto con el Codigo de barra ingresado");
             }
-            recuentoSubTotal();
+            recuentoTotal();
         }
-        private void recuentoSubTotal()
+        private void recuentoTotal()
         {
             decimal subTotal = 0;
             decimal iva = 0;
@@ -222,13 +263,13 @@ namespace CapaVista.FormVenta
                         descuento = (nbrDescuento.Value * Convert.ToDecimal(0.01)) * subTotal;
                         subTotal = subTotal - descuento;
                         iva = Convert.ToDecimal(subTotal) * Convert.ToDecimal(0.15);
-                        total = subTotal - iva;
+                        total = subTotal + iva;
                     }
                 }
             }
-            txtSubTotal.Text = subTotal.ToString();
-            txtIva.Text = iva.ToString();
-            txtTotal.Text = total.ToString();
+            txtSubTotal.Text = subTotal.ToString("0.00");
+            txtIva.Text = iva.ToString("0.00");
+            txtTotal.Text = total.ToString("0.00");
         }
         private void limpiarEtiquetas()
         {
@@ -249,7 +290,7 @@ namespace CapaVista.FormVenta
                     limpiarEtiquetas();
                 }
             }
-            recuentoSubTotal();
+            recuentoTotal();
             if (tbResumen.Columns[e.ColumnIndex].Name == "btnVer")
             {
                 limpiarEtiquetas();
@@ -298,5 +339,16 @@ namespace CapaVista.FormVenta
                 e.Handled = true;
             }
         }
+
+        private void nbrDescuento_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nbrDescuento_Click(object sender, EventArgs e)
+        {
+            recuentoTotal();
+        }
     }
 }
+

@@ -43,7 +43,7 @@ namespace CapaVista
             btnContabilidad = new RJCodeAdvance.RJControls.RJButton();
             btnInventario = new RJCodeAdvance.RJControls.RJButton();
             btnPlanilla = new RJCodeAdvance.RJControls.RJButton();
-            btnCalculos = new RJCodeAdvance.RJControls.RJButton();
+            btnInformes = new RJCodeAdvance.RJControls.RJButton();
             btnVentas = new RJCodeAdvance.RJControls.RJButton();
             tablePanelNombre_Vendedor = new TableLayoutPanel();
             lblRol = new Label();
@@ -219,7 +219,7 @@ namespace CapaVista
             tablePanel_Admin.Controls.Add(btnContabilidad, 0, 0);
             tablePanel_Admin.Controls.Add(btnInventario, 0, 0);
             tablePanel_Admin.Controls.Add(btnPlanilla, 0, 0);
-            tablePanel_Admin.Controls.Add(btnCalculos, 3, 0);
+            tablePanel_Admin.Controls.Add(btnInformes, 3, 0);
             tablePanel_Admin.Controls.Add(btnVentas, 4, 0);
             tablePanel_Admin.Location = new Point(310, 13);
             tablePanel_Admin.Margin = new Padding(3, 2, 3, 2);
@@ -304,30 +304,30 @@ namespace CapaVista
             btnPlanilla.Click += btnPlanilla_Click;
             btnPlanilla.MouseHover += btnPlanilla_MouseHover;
             // 
-            // btnCalculos
+            // btnInformes
             // 
-            btnCalculos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnCalculos.BackColor = Color.FromArgb(21, 24, 31);
-            btnCalculos.BackgroundColor = Color.FromArgb(21, 24, 31);
-            btnCalculos.BackgroundImage = (Image)resources.GetObject("btnCalculos.BackgroundImage");
-            btnCalculos.BackgroundImageLayout = ImageLayout.Center;
-            btnCalculos.BorderColor = Color.PaleVioletRed;
-            btnCalculos.BorderRadius = 10;
-            btnCalculos.BorderSize = 0;
-            btnCalculos.FlatAppearance.BorderSize = 0;
-            btnCalculos.FlatStyle = FlatStyle.Flat;
-            btnCalculos.ForeColor = Color.White;
-            btnCalculos.Location = new Point(291, 2);
-            btnCalculos.Margin = new Padding(3, 2, 3, 2);
-            btnCalculos.Name = "btnCalculos";
-            btnCalculos.Size = new Size(90, 71);
-            btnCalculos.TabIndex = 4;
-            btnCalculos.Text = "Calculos";
-            btnCalculos.TextAlign = ContentAlignment.BottomCenter;
-            btnCalculos.TextColor = Color.White;
-            btnCalculos.UseVisualStyleBackColor = false;
-            btnCalculos.Click += btnCalculos_Click;
-            btnCalculos.MouseHover += btnCalculos_MouseHover;
+            btnInformes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnInformes.BackColor = Color.FromArgb(21, 24, 31);
+            btnInformes.BackgroundColor = Color.FromArgb(21, 24, 31);
+            btnInformes.BackgroundImage = (Image)resources.GetObject("btnInformes.BackgroundImage");
+            btnInformes.BackgroundImageLayout = ImageLayout.Center;
+            btnInformes.BorderColor = Color.PaleVioletRed;
+            btnInformes.BorderRadius = 10;
+            btnInformes.BorderSize = 0;
+            btnInformes.FlatAppearance.BorderSize = 0;
+            btnInformes.FlatStyle = FlatStyle.Flat;
+            btnInformes.ForeColor = Color.White;
+            btnInformes.Location = new Point(291, 2);
+            btnInformes.Margin = new Padding(3, 2, 3, 2);
+            btnInformes.Name = "btnInformes";
+            btnInformes.Size = new Size(90, 71);
+            btnInformes.TabIndex = 4;
+            btnInformes.Text = "Informes";
+            btnInformes.TextAlign = ContentAlignment.BottomCenter;
+            btnInformes.TextColor = Color.White;
+            btnInformes.UseVisualStyleBackColor = false;
+            btnInformes.Click += btnCalculos_Click;
+            btnInformes.MouseHover += btnCalculos_MouseHover;
             // 
             // btnVentas
             // 
@@ -778,7 +778,7 @@ namespace CapaVista
         private Panel panelAbajo;
         private TableLayoutPanel tablePanel_Admin;
         private RJCodeAdvance.RJControls.RJButton btnContabilidad;
-        private RJCodeAdvance.RJControls.RJButton btnCalculos;
+        private RJCodeAdvance.RJControls.RJButton btnInformes;
         private RJCodeAdvance.RJControls.RJButton btnInventario;
         private RJCodeAdvance.RJControls.RJButton btnPlanilla;
         private TableLayoutPanel panelVertical_Admin;
