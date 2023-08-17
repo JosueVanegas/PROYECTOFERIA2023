@@ -31,6 +31,8 @@ namespace CapaVista.FormVenta
             txtIva.Text = "";
             txtSubTotal.Text = "";
             txtTotal.Text = "";
+            txtTotalFinal.Text = "";
+            txtDescuento.Text = "";
             txtCodigoProducto.Text = "";
             tbResumen.Rows.Clear();
             limpiarEtiquetas();
@@ -68,7 +70,6 @@ namespace CapaVista.FormVenta
                     img = imagen;
 
                 }
-
                 tbBusqueda.Rows.Add("", img, p.id, p.codigo, p.nombre, p.PrecioVenta, p.cantidad);
             }
         }
@@ -89,15 +90,16 @@ namespace CapaVista.FormVenta
         {
             if (txtTotal.Text != "")
             {
-                  ResumenVenta resumen = new ResumenVenta
-                    {
-                        subtotal = Convert.ToDecimal(txtSubTotal.Text),
-                        iva = Convert.ToDecimal(txtIva.Text),
-                        total = Convert.ToDecimal(txtTotal.Text)
-                    };
-                    FormPagar form = new FormPagar(user, Mod, resumen, obtenerDetalleDeVenta());
-                    form.ShowDialog();
-                    limpiarTodo();
+                ResumenVenta resumen = new ResumenVenta
+                {
+                    descuento = Convert.ToDecimal(txtDescuento.Text),
+                    subtotal = Convert.ToDecimal(txtSubTotal.Text),
+                    iva = Convert.ToDecimal(txtIva.Text),
+                    total = Convert.ToDecimal(txtTotal.Text)
+                };
+                FormPagar form = new FormPagar(user, Mod, resumen, obtenerDetalleDeVenta());
+                form.ShowDialog();
+                limpiarTodo();
             }
             else
             {
@@ -116,18 +118,15 @@ namespace CapaVista.FormVenta
                     {
                         ID_VENTA = 0,
                         ID_PRODUCTO = (int)row.Cells["Id"].Value,
+                        NOMBRE = row.Cells["Nombre"].Value.ToString(),
                         CANTIDAD = (int)row.Cells["Cantidad"].Value,
+                        PRECIO = (decimal)row.Cells["PrecioVenta"].Value,
                         SUBTOTAL = Convert.ToDecimal(row.Cells["SubTotal"].Value),
                     };
-
                     lista.Add(detalle);
                 }
             }
             return lista;
-        }
-        private void txtCodigoProducto_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -179,6 +178,7 @@ namespace CapaVista.FormVenta
                     lblCodigo.Text = lblCodigo.Text + " " + tbBusqueda.Rows[indice].Cells["CodigoP"].Value.ToString();
                     lblNombre.Text = lblNombre.Text + " " + tbBusqueda.Rows[indice].Cells["NombreP"].Value.ToString();
                     lblPrecio.Text = lblPrecio.Text + " " + tbBusqueda.Rows[indice].Cells["PrecioP"].Value.ToString();
+                    lblStock.Text = lblStock.Text + " " + tbBusqueda.Rows[indice].Cells["CantidadP"].Value.ToString();
                     pktProducto.Image = (Image)tbBusqueda.Rows[indice].Cells["Img"].Value;
                 }
             }
@@ -216,7 +216,7 @@ namespace CapaVista.FormVenta
         {
             var producto = lista.FirstOrDefault(p => p.codigo == codigo);
             if (producto != null)
-            {
+            { 
                 int rowIndex = -1;
                 for (int i = 0; i < tbResumen.Rows.Count; i++)
                 {
@@ -230,14 +230,43 @@ namespace CapaVista.FormVenta
                 if (rowIndex >= 0)
                 {
                     int nuevaCantidad = 1 + Convert.ToInt32(tbResumen.Rows[rowIndex].Cells["Cantidad"].Value);
-                    decimal nuevoSubTotal = nuevaCantidad * producto.PrecioVenta;
-                    tbResumen.Rows[rowIndex].Cells["Cantidad"].Value = nuevaCantidad;
-                    tbResumen.Rows[rowIndex].Cells["SubTotal"].Value = nuevoSubTotal;
+
+                    if (producto.cantidad >= nuevaCantidad)
+                    {
+                        decimal nuevoSubTotal = nuevaCantidad * producto.PrecioVenta;
+                        tbResumen.Rows[rowIndex].Cells["Cantidad"].Value = nuevaCantidad;
+                        tbResumen.Rows[rowIndex].Cells["SubTotal"].Value = nuevoSubTotal;
+                        lblCantidad.Text = nuevaCantidad.ToString();
+                        limpiarEtiquetas();
+                        lblCantidad.Text = lblCantidad.Text + " " + nuevaCantidad;
+                        lblSubTotal.Text = lblSubTotal.Text + " " + nuevoSubTotal;
+                    }
+                    else
+                    {
+                        MessageBox.Show("El producto '" + producto.nombre + "' no dispone de la cantidad requerida\n" +
+                                    "Cantidad del producto en inventario: " + producto.cantidad + " cantidad requeridad: " + nuevaCantidad);
+                        limpiarEtiquetas();
+                        lblCantidad.Text = "Cantidad ordenada: " + (nuevaCantidad - 1).ToString();
+                        lblSubTotal.Text = "SubTotal: " + (producto.PrecioVenta * (nuevaCantidad - 1));
+                    }
                 }
                 else
                 {
                     tbResumen.Rows.Add("", "", producto.imagen, producto.id, producto.codigo, producto.nombre
-                        , producto.PrecioVenta, 1, producto.PrecioVenta);
+                    , producto.PrecioVenta, 1, producto.PrecioVenta);
+                    limpiarEtiquetas();
+                    lblCantidad.Text = lblCantidad.Text + " " + 1;
+                    lblSubTotal.Text = lblSubTotal.Text + " " + producto.PrecioVenta;
+                }
+                lblCodigo.Text = lblCodigo.Text + " " + producto.codigo;
+                lblNombre.Text = lblNombre.Text + " " + producto.nombre;
+                lblPrecio.Text = lblPrecio.Text + " " + producto.PrecioVenta;
+                lblStock.Text = lblStock.Text + " " + producto.cantidad;
+                txtSubTotal.Visible = true;
+                using (MemoryStream memoryStream = new MemoryStream(producto.imagen))
+                {
+                    Image imagen = Image.FromStream(memoryStream);
+                    pktProducto.Image = imagen;
                 }
             }
             else
@@ -261,15 +290,17 @@ namespace CapaVista.FormVenta
                         decimal valorCelda = Convert.ToDecimal(row.Cells["SubTotal"].Value);
                         subTotal += valorCelda;
                         descuento = (nbrDescuento.Value * Convert.ToDecimal(0.01)) * subTotal;
-                        subTotal = subTotal - descuento;
+                        subTotal = subTotal;
                         iva = Convert.ToDecimal(subTotal) * Convert.ToDecimal(0.15);
                         total = subTotal + iva;
                     }
                 }
             }
+            txtDescuento.Text = descuento.ToString("0.00");
             txtSubTotal.Text = subTotal.ToString("0.00");
             txtIva.Text = iva.ToString("0.00");
             txtTotal.Text = total.ToString("0.00");
+            txtTotalFinal.Text = (total - descuento).ToString("0.00");
         }
         private void limpiarEtiquetas()
         {
@@ -278,6 +309,8 @@ namespace CapaVista.FormVenta
             lblPrecio.Text = "Precio: ";
             lblCantidad.Text = "Cantidad ordenada: ";
             lblSubTotal.Text = "SubTotal: ";
+            lblStock.Text = "Cantidad en inventario: ";
+            pktProducto.Image = null;
         }
         private void tbResumen_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -297,18 +330,23 @@ namespace CapaVista.FormVenta
                 pktProducto.Image = null;
                 if (indice >= 0)
                 {
-                    lblCodigo.Text = lblCodigo.Text + " " + tbResumen.Rows[indice].Cells["Codigo"].Value.ToString();
-                    lblNombre.Text = lblNombre.Text + " " + tbResumen.Rows[indice].Cells["Nombre"].Value.ToString();
-                    lblPrecio.Text = lblPrecio.Text + " " + tbResumen.Rows[indice].Cells["PrecioVenta"].Value.ToString();
-                    lblCantidad.Text = lblCantidad.Text + " " + tbResumen.Rows[indice].Cells["Cantidad"].Value.ToString();
-                    lblSubTotal.Text = lblSubTotal.Text + " " + tbResumen.Rows[indice].Cells["SubTotal"].Value.ToString();
-                    byte[] imagenBytes = (byte[])tbResumen.Rows[indice].Cells["Imagen"].Value;
-                    using (MemoryStream memoryStream = new MemoryStream(imagenBytes))
-                    {
-                        Image imagen = Image.FromStream(memoryStream);
-                        pktProducto.Image = imagen;
-                    }
+                    rellenarEtiquetas(indice);
                 }
+            }
+        }
+        private void rellenarEtiquetas(int indice)
+        {
+            lblCodigo.Text = lblCodigo.Text + " " + tbResumen.Rows[indice].Cells["Codigo"].Value.ToString();
+            lblNombre.Text = lblNombre.Text + " " + tbResumen.Rows[indice].Cells["Nombre"].Value.ToString();
+            lblPrecio.Text = lblPrecio.Text + " " + tbResumen.Rows[indice].Cells["PrecioVenta"].Value.ToString();
+            lblCantidad.Text = lblCantidad.Text + " " + tbResumen.Rows[indice].Cells["Cantidad"].Value.ToString();
+            lblSubTotal.Text = lblSubTotal.Text + " " + tbResumen.Rows[indice].Cells["SubTotal"].Value.ToString();
+            lblStock.Text = lblStock.Text + " " + tbResumen.Rows[indice].Cells["Stock"].Value.ToString();
+            byte[] imagenBytes = (byte[])tbResumen.Rows[indice].Cells["Imagen"].Value;
+            using (MemoryStream memoryStream = new MemoryStream(imagenBytes))
+            {
+                Image imagen = Image.FromStream(memoryStream);
+                pktProducto.Image = imagen;
             }
         }
         private void tbResumen_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -339,13 +377,7 @@ namespace CapaVista.FormVenta
                 e.Handled = true;
             }
         }
-
-        private void nbrDescuento_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void nbrDescuento_Click(object sender, EventArgs e)
+        private void nbrDescuento_ValueChanged(object sender, EventArgs e)
         {
             recuentoTotal();
         }

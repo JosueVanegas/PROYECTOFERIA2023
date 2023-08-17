@@ -9,6 +9,8 @@ namespace CapaDatos
 {
     public class DataVenta
     {
+        public int idCreado = 0;
+        public string noFactura = string.Empty;
         public DataVenta() { }
 
         public string procesoDeVenta(infoVenta v,List<DetalleVenta> detalles)
@@ -37,7 +39,8 @@ namespace CapaDatos
         }
         public int registrarVenta(infoVenta v)
         {
-            int idCreado = 0;
+            idCreado = 0;
+            noFactura = string.Empty;
             try
             {
                 using (SqlConnection con = new conexion().conectar())
@@ -48,12 +51,15 @@ namespace CapaDatos
                         cmd.CommandType = System.Data.CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@ID_USUARIO", v.ID_USUARIO);
                         cmd.Parameters.AddWithValue("@ID_CLIENTE", v.ID_CLIENTE);
+                        cmd.Parameters.AddWithValue("@DESCUENTO", v.DESCUENTO);
                         cmd.Parameters.AddWithValue("@SUBTOTAL", v.SUBTOTAL);
                         cmd.Parameters.AddWithValue("@IVA", v.IVA);
                         cmd.Parameters.AddWithValue("@TOTAL", v.TOTAL);
                         cmd.Parameters.Add("ID_CREADO", System.Data.SqlDbType.Int).Direction = System.Data.ParameterDirection.Output;
+                        cmd.Parameters.Add("FACTURA", System.Data.SqlDbType.VarChar,30).Direction = System.Data.ParameterDirection.Output;
                         cmd.ExecuteNonQuery();
                         idCreado = (int)cmd.Parameters["ID_CREADO"].Value;
+                        noFactura = cmd.Parameters["FACTURA"].Value.ToString();
                     }
                 }
             }

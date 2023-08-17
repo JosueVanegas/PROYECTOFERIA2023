@@ -29,7 +29,7 @@ namespace CapaVista
             this.user = usuario;
             cambiarModo(DMod);
             this.Mod = DMod;
-            datosDeUsuarioActual();
+            //datosDeUsuarioActual();
         }
         private void cambiarModo(bool modoOscuro)
         {
@@ -134,7 +134,7 @@ namespace CapaVista
         }
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new formVentas(Mod,user));
+            abrirFormulario(new formVentas(Mod, user));
         }
 
         private void btnContabilidad_Click(object sender, EventArgs e)

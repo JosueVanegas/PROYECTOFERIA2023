@@ -15,32 +15,17 @@ namespace CapaVista
             InitializeComponent();
             mostrarCantidades();
             mostrarTopProductos();
-
             MaterialSkinManager manager;
-
             manager = MaterialSkinManager.Instance;
             manager.AddFormToManage(this);
             manager.EnforceBackcolorOnAllComponents = true;
             if (Mod)
             {
                 manager.Theme = MaterialSkinManager.Themes.DARK;
-                manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.WHITE);
-                RelojInicio.HexagonColor = Color.FromArgb(60, 60, 70);
-                RelojInicio.UnfilledHourColor = Color.FromArgb(60, 60, 70);
-                RelojInicio.UnfilledMinuteColor = Color.FromArgb(60, 60, 70);
-                RelojInicio.UnfilledSecondColor = Color.FromArgb(60, 60, 70);
-                RelojInicio.TimeColor = Color.White;
             }
             if (!Mod)
             {
                 manager.Theme = MaterialSkinManager.Themes.LIGHT;
-                manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.BLACK);
-                RelojInicio.HexagonColor = Color.FromArgb(242, 242, 242);
-                RelojInicio.UnfilledHourColor = Color.FromArgb(242, 242, 242);
-                RelojInicio.UnfilledMinuteColor = Color.FromArgb(242, 242, 242);
-                RelojInicio.UnfilledSecondColor = Color.FromArgb(242, 242, 242);
-                RelojInicio.TimeColor = Color.Black;
-
             }
             /*    if (Rol.oRol.descripcion == "Administrador" || Rol.oRol.descripcion == "Contador")
                 {
@@ -51,12 +36,9 @@ namespace CapaVista
                 {
                     parrotGroupBox1.Visible = false;
                 }*/
-
-            RelojInicio.Font = new Font("Impact", 36);
             lblEncabezado.Font = new Font(" Microsoft Sans Serif", 24);
-
+            panelGraficosBarra.BackColor = Color.White;
         }
-
         private void mostrarCantidades()
         {
             txtDataEmpleado.Text = "Empleados registrados: " + cEstat.cantidadCategorias("EMPLEADO");
@@ -74,9 +56,14 @@ namespace CapaVista
             {
                 chartTopProductos.Series["Ventas"].Points.AddXY(productoVendido.nombre, productoVendido.cantidad);
             }
-
+            chartTopProductos.Series["Ventas"]["PieLabelStyle"] = "Disabled";
             chartTopProductos.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
             chartTopProductos.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
+        }
+
+        private void lblEncabezado_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

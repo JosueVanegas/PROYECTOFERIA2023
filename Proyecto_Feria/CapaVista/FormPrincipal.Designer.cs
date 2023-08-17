@@ -49,11 +49,11 @@ namespace CapaVista
             lblRol = new Label();
             lblUsuario = new Label();
             panelVertical_Admin = new TableLayoutPanel();
+            btnBarraVertical = new RJCodeAdvance.RJControls.RJButton();
             btnInicio = new RJCodeAdvance.RJControls.RJButton();
             btnUsuarios = new RJCodeAdvance.RJControls.RJButton();
-            btnBarraVertical = new RJCodeAdvance.RJControls.RJButton();
-            btnHerramientas = new RJCodeAdvance.RJControls.RJButton();
             btnConfiguraciones = new RJCodeAdvance.RJControls.RJButton();
+            btnHerramientas = new RJCodeAdvance.RJControls.RJButton();
             tablepanelPanelContenedor = new TableLayoutPanel();
             panelContenedor = new Panel();
             panel2 = new Panel();
@@ -66,6 +66,13 @@ namespace CapaVista
             tableLayoutPanel3 = new TableLayoutPanel();
             lblEncabezado2 = new Label();
             lblEncabezado3 = new Label();
+            panel1 = new Panel();
+            tableLayoutPanel6 = new TableLayoutPanel();
+            cyberSwitch1 = new ReaLTaiizor.Controls.CyberSwitch();
+            tableLayoutPanel7 = new TableLayoutPanel();
+            panel4 = new Panel();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
             panelAbajo.SuspendLayout();
             panelModo.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
@@ -81,6 +88,11 @@ namespace CapaVista
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
+            panel1.SuspendLayout();
+            tableLayoutPanel6.SuspendLayout();
+            panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // panelAbajo
@@ -101,9 +113,9 @@ namespace CapaVista
             panelModo.Controls.Add(tableLayoutPanel5);
             panelModo.Controls.Add(tableLayoutPanel4);
             panelModo.Dock = DockStyle.Right;
-            panelModo.Location = new Point(898, 0);
+            panelModo.Location = new Point(909, 0);
             panelModo.Name = "panelModo";
-            panelModo.Size = new Size(165, 94);
+            panelModo.Size = new Size(154, 94);
             panelModo.TabIndex = 0;
             // 
             // tableLayoutPanel5
@@ -395,26 +407,50 @@ namespace CapaVista
             // panelVertical_Admin
             // 
             panelVertical_Admin.ColumnCount = 1;
-            panelVertical_Admin.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            panelVertical_Admin.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 98.0392151F));
+            panelVertical_Admin.Controls.Add(btnBarraVertical, 0, 1);
             panelVertical_Admin.Controls.Add(btnInicio, 0, 2);
             panelVertical_Admin.Controls.Add(btnUsuarios, 0, 5);
-            panelVertical_Admin.Controls.Add(btnBarraVertical, 0, 1);
-            panelVertical_Admin.Controls.Add(btnHerramientas, 0, 3);
             panelVertical_Admin.Controls.Add(btnConfiguraciones, 0, 4);
+            panelVertical_Admin.Controls.Add(btnHerramientas, 0, 3);
             panelVertical_Admin.Dock = DockStyle.Left;
             panelVertical_Admin.Location = new Point(0, 0);
             panelVertical_Admin.Margin = new Padding(3, 2, 3, 2);
             panelVertical_Admin.Name = "panelVertical_Admin";
             panelVertical_Admin.RowCount = 7;
-            panelVertical_Admin.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
-            panelVertical_Admin.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
-            panelVertical_Admin.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
-            panelVertical_Admin.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
-            panelVertical_Admin.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
-            panelVertical_Admin.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
-            panelVertical_Admin.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
-            panelVertical_Admin.Size = new Size(61, 565);
+            panelVertical_Admin.RowStyles.Add(new RowStyle(SizeType.Percent, 4.40867043F));
+            panelVertical_Admin.RowStyles.Add(new RowStyle(SizeType.Percent, 13.5300579F));
+            panelVertical_Admin.RowStyles.Add(new RowStyle(SizeType.Percent, 16.4122543F));
+            panelVertical_Admin.RowStyles.Add(new RowStyle(SizeType.Percent, 16.4122543F));
+            panelVertical_Admin.RowStyles.Add(new RowStyle(SizeType.Percent, 16.4122543F));
+            panelVertical_Admin.RowStyles.Add(new RowStyle(SizeType.Percent, 16.4122543F));
+            panelVertical_Admin.RowStyles.Add(new RowStyle(SizeType.Percent, 16.4122543F));
+            panelVertical_Admin.Size = new Size(66, 659);
             panelVertical_Admin.TabIndex = 2;
+            // 
+            // btnBarraVertical
+            // 
+            btnBarraVertical.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnBarraVertical.BackColor = Color.FromArgb(63, 63, 70);
+            btnBarraVertical.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnBarraVertical.BackgroundImage = (Image)resources.GetObject("btnBarraVertical.BackgroundImage");
+            btnBarraVertical.BackgroundImageLayout = ImageLayout.Center;
+            btnBarraVertical.BorderColor = Color.PaleVioletRed;
+            btnBarraVertical.BorderRadius = 10;
+            btnBarraVertical.BorderSize = 0;
+            btnBarraVertical.FlatAppearance.BorderSize = 0;
+            btnBarraVertical.FlatStyle = FlatStyle.Flat;
+            btnBarraVertical.ForeColor = Color.White;
+            btnBarraVertical.Location = new Point(3, 31);
+            btnBarraVertical.Margin = new Padding(3, 2, 3, 2);
+            btnBarraVertical.Name = "btnBarraVertical";
+            btnBarraVertical.Size = new Size(60, 85);
+            btnBarraVertical.TabIndex = 8;
+            btnBarraVertical.Text = "Menu";
+            btnBarraVertical.TextAlign = ContentAlignment.BottomCenter;
+            btnBarraVertical.TextColor = Color.White;
+            btnBarraVertical.UseVisualStyleBackColor = false;
+            btnBarraVertical.Click += btnBarraVertical_Button_Click;
             // 
             // btnInicio
             // 
@@ -429,11 +465,12 @@ namespace CapaVista
             btnInicio.FlatAppearance.BorderSize = 0;
             btnInicio.FlatStyle = FlatStyle.Flat;
             btnInicio.ForeColor = Color.White;
-            btnInicio.Location = new Point(3, 162);
+            btnInicio.Location = new Point(3, 120);
             btnInicio.Margin = new Padding(3, 2, 3, 2);
             btnInicio.Name = "btnInicio";
-            btnInicio.Size = new Size(55, 76);
+            btnInicio.Size = new Size(60, 104);
             btnInicio.TabIndex = 5;
+            btnInicio.Text = "Inicio";
             btnInicio.TextAlign = ContentAlignment.BottomCenter;
             btnInicio.TextColor = Color.White;
             btnInicio.UseVisualStyleBackColor = false;
@@ -453,63 +490,17 @@ namespace CapaVista
             btnUsuarios.FlatAppearance.BorderSize = 0;
             btnUsuarios.FlatStyle = FlatStyle.Flat;
             btnUsuarios.ForeColor = Color.White;
-            btnUsuarios.Location = new Point(3, 402);
+            btnUsuarios.Location = new Point(3, 444);
             btnUsuarios.Margin = new Padding(3, 2, 3, 2);
             btnUsuarios.Name = "btnUsuarios";
-            btnUsuarios.Size = new Size(55, 76);
+            btnUsuarios.Size = new Size(60, 104);
             btnUsuarios.TabIndex = 7;
+            btnUsuarios.Text = "usuarios";
             btnUsuarios.TextAlign = ContentAlignment.BottomCenter;
             btnUsuarios.TextColor = Color.White;
             btnUsuarios.UseVisualStyleBackColor = false;
             btnUsuarios.Click += btnUsuarios_Click;
             btnUsuarios.MouseHover += btnUsuarios_MouseHover;
-            // 
-            // btnBarraVertical
-            // 
-            btnBarraVertical.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnBarraVertical.BackColor = Color.FromArgb(63, 63, 70);
-            btnBarraVertical.BackgroundColor = Color.FromArgb(63, 63, 70);
-            btnBarraVertical.BackgroundImage = (Image)resources.GetObject("btnBarraVertical.BackgroundImage");
-            btnBarraVertical.BackgroundImageLayout = ImageLayout.Center;
-            btnBarraVertical.BorderColor = Color.PaleVioletRed;
-            btnBarraVertical.BorderRadius = 10;
-            btnBarraVertical.BorderSize = 0;
-            btnBarraVertical.FlatAppearance.BorderSize = 0;
-            btnBarraVertical.FlatStyle = FlatStyle.Flat;
-            btnBarraVertical.ForeColor = Color.White;
-            btnBarraVertical.Location = new Point(3, 82);
-            btnBarraVertical.Margin = new Padding(3, 2, 3, 2);
-            btnBarraVertical.Name = "btnBarraVertical";
-            btnBarraVertical.Size = new Size(55, 76);
-            btnBarraVertical.TabIndex = 8;
-            btnBarraVertical.TextAlign = ContentAlignment.BottomCenter;
-            btnBarraVertical.TextColor = Color.White;
-            btnBarraVertical.UseVisualStyleBackColor = false;
-            btnBarraVertical.Click += btnBarraVertical_Button_Click;
-            // 
-            // btnHerramientas
-            // 
-            btnHerramientas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnHerramientas.BackColor = Color.FromArgb(63, 63, 70);
-            btnHerramientas.BackgroundColor = Color.FromArgb(63, 63, 70);
-            btnHerramientas.BackgroundImage = (Image)resources.GetObject("btnHerramientas.BackgroundImage");
-            btnHerramientas.BackgroundImageLayout = ImageLayout.Center;
-            btnHerramientas.BorderColor = Color.PaleVioletRed;
-            btnHerramientas.BorderRadius = 10;
-            btnHerramientas.BorderSize = 0;
-            btnHerramientas.FlatAppearance.BorderSize = 0;
-            btnHerramientas.FlatStyle = FlatStyle.Flat;
-            btnHerramientas.ForeColor = Color.White;
-            btnHerramientas.Location = new Point(3, 242);
-            btnHerramientas.Margin = new Padding(3, 2, 3, 2);
-            btnHerramientas.Name = "btnHerramientas";
-            btnHerramientas.Size = new Size(55, 76);
-            btnHerramientas.TabIndex = 6;
-            btnHerramientas.TextAlign = ContentAlignment.BottomCenter;
-            btnHerramientas.TextColor = Color.White;
-            btnHerramientas.UseVisualStyleBackColor = false;
-            btnHerramientas.Click += btnHerramientas_Click;
-            btnHerramientas.MouseHover += btnHerramientas_MouseHover;
             // 
             // btnConfiguraciones
             // 
@@ -524,53 +515,77 @@ namespace CapaVista
             btnConfiguraciones.FlatAppearance.BorderSize = 0;
             btnConfiguraciones.FlatStyle = FlatStyle.Flat;
             btnConfiguraciones.ForeColor = Color.White;
-            btnConfiguraciones.Location = new Point(3, 322);
+            btnConfiguraciones.Location = new Point(3, 336);
             btnConfiguraciones.Margin = new Padding(3, 2, 3, 2);
             btnConfiguraciones.Name = "btnConfiguraciones";
-            btnConfiguraciones.Size = new Size(55, 76);
+            btnConfiguraciones.Size = new Size(60, 104);
             btnConfiguraciones.TabIndex = 9;
+            btnConfiguraciones.Text = "Empresa";
             btnConfiguraciones.TextAlign = ContentAlignment.BottomCenter;
             btnConfiguraciones.TextColor = Color.White;
             btnConfiguraciones.UseVisualStyleBackColor = false;
             btnConfiguraciones.Click += btnConfiguraciones_Click;
             btnConfiguraciones.MouseEnter += btnConfiguraciones_MouseEnter;
             // 
+            // btnHerramientas
+            // 
+            btnHerramientas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnHerramientas.BackColor = Color.FromArgb(63, 63, 70);
+            btnHerramientas.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnHerramientas.BackgroundImage = (Image)resources.GetObject("btnHerramientas.BackgroundImage");
+            btnHerramientas.BackgroundImageLayout = ImageLayout.Center;
+            btnHerramientas.BorderColor = Color.PaleVioletRed;
+            btnHerramientas.BorderRadius = 10;
+            btnHerramientas.BorderSize = 0;
+            btnHerramientas.FlatAppearance.BorderSize = 0;
+            btnHerramientas.FlatStyle = FlatStyle.Flat;
+            btnHerramientas.ForeColor = Color.White;
+            btnHerramientas.Location = new Point(3, 228);
+            btnHerramientas.Margin = new Padding(3, 2, 3, 2);
+            btnHerramientas.Name = "btnHerramientas";
+            btnHerramientas.Size = new Size(60, 104);
+            btnHerramientas.TabIndex = 6;
+            btnHerramientas.Text = "tools";
+            btnHerramientas.TextAlign = ContentAlignment.BottomCenter;
+            btnHerramientas.TextColor = Color.White;
+            btnHerramientas.UseVisualStyleBackColor = false;
+            btnHerramientas.Click += btnHerramientas_Click;
+            btnHerramientas.MouseHover += btnHerramientas_MouseHover;
+            // 
             // tablepanelPanelContenedor
             // 
-            tablepanelPanelContenedor.ColumnCount = 3;
-            tablepanelPanelContenedor.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 1.02459013F));
-            tablepanelPanelContenedor.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 98.0532761F));
-            tablepanelPanelContenedor.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 0.9221311F));
+            tablepanelPanelContenedor.ColumnCount = 2;
+            tablepanelPanelContenedor.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 6.491063F));
+            tablepanelPanelContenedor.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 93.508934F));
             tablepanelPanelContenedor.Controls.Add(panelContenedor, 1, 1);
             tablepanelPanelContenedor.Dock = DockStyle.Fill;
-            tablepanelPanelContenedor.Location = new Point(69, 24);
+            tablepanelPanelContenedor.Location = new Point(3, 24);
             tablepanelPanelContenedor.Margin = new Padding(3, 2, 3, 2);
             tablepanelPanelContenedor.Name = "tablepanelPanelContenedor";
             tablepanelPanelContenedor.RowCount = 3;
             tablepanelPanelContenedor.RowStyles.Add(new RowStyle(SizeType.Percent, 1F));
-            tablepanelPanelContenedor.RowStyles.Add(new RowStyle(SizeType.Percent, 98F));
-            tablepanelPanelContenedor.RowStyles.Add(new RowStyle(SizeType.Percent, 1F));
-            tablepanelPanelContenedor.Size = new Size(997, 565);
+            tablepanelPanelContenedor.RowStyles.Add(new RowStyle(SizeType.Percent, 84.97724F));
+            tablepanelPanelContenedor.RowStyles.Add(new RowStyle(SizeType.Percent, 14.1122913F));
+            tablepanelPanelContenedor.Size = new Size(1063, 659);
             tablepanelPanelContenedor.TabIndex = 3;
             // 
             // panelContenedor
             // 
             panelContenedor.BackColor = Color.FromArgb(21, 25, 31);
             panelContenedor.Dock = DockStyle.Fill;
-            panelContenedor.Location = new Point(13, 7);
+            panelContenedor.Location = new Point(72, 8);
             panelContenedor.Margin = new Padding(3, 2, 3, 2);
             panelContenedor.MinimumSize = new Size(564, 272);
             panelContenedor.Name = "panelContenedor";
-            panelContenedor.Size = new Size(971, 549);
+            panelContenedor.Size = new Size(988, 555);
             panelContenedor.TabIndex = 1;
             // 
             // panel2
             // 
             panel2.Controls.Add(panelVertical_Admin);
-            panel2.Dock = DockStyle.Left;
             panel2.Location = new Point(3, 24);
             panel2.Name = "panel2";
-            panel2.Size = new Size(66, 565);
+            panel2.Size = new Size(66, 659);
             panel2.TabIndex = 4;
             // 
             // tableLayoutPanel2
@@ -738,15 +753,121 @@ namespace CapaVista
             lblEncabezado3.Text = "tx";
             lblEncabezado3.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // panel1
+            // 
+            panel1.Controls.Add(tableLayoutPanel6);
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(200, 100);
+            panel1.TabIndex = 0;
+            // 
+            // tableLayoutPanel6
+            // 
+            tableLayoutPanel6.BackColor = Color.Transparent;
+            tableLayoutPanel6.ColumnCount = 1;
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel6.Controls.Add(cyberSwitch1, 0, 0);
+            tableLayoutPanel6.Location = new Point(19, 25);
+            tableLayoutPanel6.Name = "tableLayoutPanel6";
+            tableLayoutPanel6.RowCount = 1;
+            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel6.Size = new Size(78, 43);
+            tableLayoutPanel6.TabIndex = 18;
+            // 
+            // cyberSwitch1
+            // 
+            cyberSwitch1.Alpha = 50;
+            cyberSwitch1.BackColor = Color.Transparent;
+            cyberSwitch1.Background = true;
+            cyberSwitch1.Background_WidthPen = 2F;
+            cyberSwitch1.BackgroundPen = true;
+            cyberSwitch1.Checked = true;
+            cyberSwitch1.ColorBackground = Color.FromArgb(21, 25, 31);
+            cyberSwitch1.ColorBackground_1 = Color.FromArgb(37, 52, 68);
+            cyberSwitch1.ColorBackground_2 = Color.FromArgb(41, 63, 86);
+            cyberSwitch1.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
+            cyberSwitch1.ColorBackground_Value_1 = Color.FromArgb(28, 200, 238);
+            cyberSwitch1.ColorBackground_Value_2 = Color.FromArgb(100, 208, 232);
+            cyberSwitch1.ColorLighting = Color.FromArgb(29, 200, 238);
+            cyberSwitch1.ColorPen_1 = Color.FromArgb(37, 52, 68);
+            cyberSwitch1.ColorPen_2 = Color.FromArgb(41, 63, 86);
+            cyberSwitch1.ColorValue = Color.FromArgb(29, 200, 238);
+            cyberSwitch1.CyberSwitchStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            cyberSwitch1.Dock = DockStyle.Fill;
+            cyberSwitch1.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            cyberSwitch1.ForeColor = Color.FromArgb(245, 245, 245);
+            cyberSwitch1.Lighting = true;
+            cyberSwitch1.LinearGradient_Background = true;
+            cyberSwitch1.LinearGradient_Value = true;
+            cyberSwitch1.LinearGradientPen = false;
+            cyberSwitch1.Location = new Point(3, 3);
+            cyberSwitch1.Name = "cyberSwitch1";
+            cyberSwitch1.PenWidth = 10;
+            cyberSwitch1.RGB = false;
+            cyberSwitch1.Rounding = true;
+            cyberSwitch1.RoundingInt = 90;
+            cyberSwitch1.Size = new Size(72, 37);
+            cyberSwitch1.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            cyberSwitch1.TabIndex = 0;
+            cyberSwitch1.Tag = "Cyber";
+            cyberSwitch1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            cyberSwitch1.Timer_RGB = 300;
+            // 
+            // tableLayoutPanel7
+            // 
+            tableLayoutPanel7.BackColor = Color.Transparent;
+            tableLayoutPanel7.ColumnCount = 1;
+            tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel7.Location = new Point(0, 0);
+            tableLayoutPanel7.Name = "tableLayoutPanel7";
+            tableLayoutPanel7.RowCount = 1;
+            tableLayoutPanel7.Size = new Size(200, 100);
+            tableLayoutPanel7.TabIndex = 0;
+            // 
+            // panel4
+            // 
+            panel4.Controls.Add(pictureBox1);
+            panel4.Controls.Add(pictureBox2);
+            panel4.Dock = DockStyle.Fill;
+            panel4.Location = new Point(3, 3);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(194, 94);
+            panel4.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Dock = DockStyle.Fill;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(194, 94);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 7;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Dock = DockStyle.Fill;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(0, 0);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(194, 94);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 8;
+            pictureBox2.TabStop = false;
+            pictureBox2.Visible = false;
+            // 
             // FormPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(21, 25, 31);
             ClientSize = new Size(1069, 686);
-            Controls.Add(tablepanelPanelContenedor);
-            Controls.Add(panel2);
             Controls.Add(panelAbajo);
+            Controls.Add(panel2);
+            Controls.Add(tablepanelPanelContenedor);
+            FormStyle = ReaLTaiizor.Enum.Material.FormStyles.ActionBar_None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MinimumSize = new Size(1053, 647);
             Name = "FormPrincipal";
@@ -770,6 +891,11 @@ namespace CapaVista
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel3.PerformLayout();
+            panel1.ResumeLayout(false);
+            tableLayoutPanel6.ResumeLayout(false);
+            panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
@@ -811,5 +937,12 @@ namespace CapaVista
         private Panel panelModo;
         public ReaLTaiizor.Controls.CyberSwitch cambioModo;
         private Label lblRol;
+        private Panel panel1;
+        private TableLayoutPanel tableLayoutPanel6;
+        public ReaLTaiizor.Controls.CyberSwitch cyberSwitch1;
+        private TableLayoutPanel tableLayoutPanel7;
+        private Panel panel4;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
     }
 }

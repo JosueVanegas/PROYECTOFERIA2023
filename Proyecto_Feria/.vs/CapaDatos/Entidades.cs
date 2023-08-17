@@ -107,6 +107,7 @@
     }
     public class ResumenVenta
     {
+        public decimal descuento { get; set; }
         public decimal subtotal { get; set; }
         public decimal iva { get; set; }
         public decimal total { get; set; }
@@ -126,13 +127,16 @@
     {
         public int ID_VENTA { get; set; }
         public int ID_PRODUCTO { get; set; }
+        public string NOMBRE { get; set; }
         public int CANTIDAD { get; set; }
+        public decimal PRECIO { get; set; }
         public decimal SUBTOTAL { get; set; }
     }
     public class infoVenta
     {
         public int ID_CLIENTE { get; set; }
         public int ID_USUARIO { get; set; }
+        public decimal DESCUENTO { get; set; }
         public decimal SUBTOTAL { get; set; }
         public decimal IVA { get; set; }
         public decimal TOTAL { get; set; }

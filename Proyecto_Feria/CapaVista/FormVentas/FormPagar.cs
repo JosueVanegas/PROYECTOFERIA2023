@@ -7,6 +7,9 @@ using ReaLTaiizor.Util;
 using System.Text;
 using CapaControlador;
 using CapaDatos;
+using System.Drawing.Printing;
+using System.Reflection;
+using System.Drawing;
 
 namespace CapaVista.FormVentas
 {
@@ -47,9 +50,12 @@ namespace CapaVista.FormVentas
         }
         private void realizarResumen()
         {
+            txtDescuento.Text = resumen.descuento.ToString();
             txtSubTotal.Text = resumen.subtotal.ToString();
             txtIva.Text = resumen.iva.ToString();
             txtTotal.Text = resumen.total.ToString();
+            decimal totalFinal = Convert.ToDecimal(txtTotal.Text)-Convert.ToDecimal(txtDescuento.Text);
+            txtTotalFinal.Text = totalFinal.ToString("0.00") ;
         }
         private void mostrarClientes()
         {
@@ -64,27 +70,7 @@ namespace CapaVista.FormVentas
             }
         }
 
-        private void RealizarPago()
-        {
-            if (txtCliente.Text != "" && cliente != null && calcularCambio() == true)
-            {
-                infoVenta v = new infoVenta
-                {
-                    ID_CLIENTE = cliente.id,
-                    ID_USUARIO = user.id,
-                    IVA = resumen.iva,
-                    SUBTOTAL = resumen.subtotal,
-                    TOTAL = resumen.total,
-                };
-                MessageBox.Show(cVenta.procesoDeVenta(v, detalles));
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("seleccione el cliente de la lista de clientes o seleccione cliente comun");
-            }
 
-        }
         private void txtPagoTarjeta_KeyPress(object sender, KeyPressEventArgs e)
         {
             char keyPressed = e.KeyChar;
@@ -121,6 +107,106 @@ namespace CapaVista.FormVentas
             {
                 MessageBox.Show("Ingrese el pago del cliente");
             }
+        }
+        private void RealizarPago()
+        {
+            if (txtCliente.Text != "" && cliente != null && calcularCambio() == true)
+            {
+                try
+                {
+                    infoVenta v = new infoVenta
+                    {
+                        ID_CLIENTE = cliente.id,
+                        ID_USUARIO = user.id,
+                        DESCUENTO = resumen.descuento,
+                        IVA = resumen.iva,
+                        SUBTOTAL = resumen.subtotal,
+                        TOTAL = resumen.total,
+                    };
+                    MessageBox.Show(cVenta.procesoDeVenta(v, detalles));
+                    MessageBox.Show(imprimirFactura());
+                    this.Close();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("seleccione el cliente de la lista de clientes o seleccione cliente comun");
+            }
+
+        }
+        private string imprimirFactura()
+        {
+            string mensaje = "Factura realizada con exito";
+            try
+            {
+                pdImprimir = new PrintDocument();
+                PrinterSettings ps = new PrinterSettings();
+                pdImprimir.PrinterSettings = ps;
+                pdImprimir.PrintPage += imprimir;
+                PrintDialog printDialog = new PrintDialog();
+                printDialog.Document = pdImprimir;
+
+                if (printDialog.ShowDialog() == DialogResult.OK)
+                {
+                    pdImprimir.Print();
+                    Console.WriteLine("Factura impresa exitosamente.");
+                }
+                else
+                {
+                    Console.WriteLine("Impresión cancelada.");
+                }
+            }
+            catch (Exception ex)
+            {
+                mensaje = ex.Message;
+            }
+            return mensaje;
+        }
+        private void imprimir(object sender, PrintPageEventArgs e)
+        {
+            Font font = new Font("Courier New", 12);
+            float y = 20;
+
+            e.Graphics.DrawString($"-------------------Factura No:{new DataVenta().noFactura}-----------------", font, Brushes.Black, 100, y);
+            y += 20;
+            e.Graphics.DrawString($"Cliente:{cliente.nombre}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"Usuario en turno: {user.usuario}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString("------------------------------------detalles-------------------------------", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString("Descripcion                                                      Subtotal", font, Brushes.Black, 20, y);
+            y += 20;
+            foreach (var d in detalles)
+            {
+                e.Graphics.DrawString($"{d.ID_PRODUCTO} - {d.NOMBRE}   |   {d.SUBTOTAL}", font, Brushes.Black, 20, y);
+                y += 20;
+                e.Graphics.DrawString($"{d.CANTIDAD} x {d.PRECIO}", font, Brushes.Black, 20, y);
+                y += 20;
+            }
+            e.Graphics.DrawString("------------------------------------resumen--------------------------------", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"Subtotal:{txtSubTotal.Text}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"IVA: {txtIva.Text}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"Total antes de descuento: {txtTotal.Text}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"Descuento: {txtDescuento.Text}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"Total despues de descuento y deducciones: {txtTotalFinal.Text}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"Cambio: {txtCambioDeCompra.Text}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString("                           Gracias por preferirnos :)", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString("----------------------------------------------------------------------------", font, Brushes.Black, 20, y);
+            y += 20;
+            e.HasMorePages = false;
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -177,7 +263,8 @@ namespace CapaVista.FormVentas
                     string nombreObtenido = tbBusqueda.Rows[indice].Cells["Nombre"].Value.ToString();
                     cliente = new Cliente
                     {
-                        id = idObtenido
+                        id = idObtenido,
+                        nombre = nombreObtenido
                     };
                     txtCliente.Text = nombreObtenido;
                 }

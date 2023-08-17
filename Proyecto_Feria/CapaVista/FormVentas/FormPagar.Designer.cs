@@ -29,166 +29,88 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPagar));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             panel1 = new Panel();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            txtCliente = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            ckbClienteComun = new ReaLTaiizor.Controls.MaterialCheckBox();
-            btnPagar = new RJCodeAdvance.RJControls.RJButton();
-            btnCancelar = new RJCodeAdvance.RJControls.RJButton();
+            txtDescuento = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtCambioDeCompra = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             pictureBox1 = new PictureBox();
             label2 = new Label();
             txtTotal = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtIva = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            lblTitulo = new Label();
             txtSubTotal = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            txtCliente = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            ckbClienteComun = new ReaLTaiizor.Controls.MaterialCheckBox();
+            btnFacturar = new RJCodeAdvance.RJControls.RJButton();
+            btnCancelar = new RJCodeAdvance.RJControls.RJButton();
+            lblTitulo = new Label();
             txtPago = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             panelBusqueda = new Panel();
             lblBuscar = new Label();
             txtBuscar = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            btnCerrarBusqueda = new Button();
             cbxBuscar = new ReaLTaiizor.Controls.MaterialComboBox();
             tbBusqueda = new ReaLTaiizor.Controls.PoisonDataGridView();
             Seleccionar = new DataGridViewButtonColumn();
             Id = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
+            panel2 = new Panel();
+            pdImprimir = new System.Drawing.Printing.PrintDocument();
+            txtTotalFinal = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             panel1.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panelBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tbBusqueda).BeginInit();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
-            panel1.Controls.Add(flowLayoutPanel1);
-            panel1.Controls.Add(btnPagar);
-            panel1.Controls.Add(btnCancelar);
+            panel1.Controls.Add(txtTotalFinal);
+            panel1.Controls.Add(txtDescuento);
             panel1.Controls.Add(txtCambioDeCompra);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(txtTotal);
             panel1.Controls.Add(txtIva);
-            panel1.Controls.Add(lblTitulo);
             panel1.Controls.Add(txtSubTotal);
-            panel1.Controls.Add(txtPago);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(3, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(424, 487);
+            panel1.Size = new Size(269, 487);
             panel1.TabIndex = 54;
             // 
-            // flowLayoutPanel1
+            // txtDescuento
             // 
-            flowLayoutPanel1.Controls.Add(txtCliente);
-            flowLayoutPanel1.Controls.Add(ckbClienteComun);
-            flowLayoutPanel1.Dock = DockStyle.Top;
-            flowLayoutPanel1.Location = new Point(0, 149);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(424, 49);
-            flowLayoutPanel1.TabIndex = 55;
-            // 
-            // txtCliente
-            // 
-            txtCliente.AnimateReadOnly = true;
-            txtCliente.AutoCompleteMode = AutoCompleteMode.None;
-            txtCliente.AutoCompleteSource = AutoCompleteSource.None;
-            txtCliente.BackgroundImageLayout = ImageLayout.None;
-            txtCliente.CharacterCasing = CharacterCasing.Normal;
-            txtCliente.Depth = 0;
-            txtCliente.Enabled = false;
-            txtCliente.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtCliente.HideSelection = true;
-            txtCliente.Hint = "Cliente:";
-            txtCliente.LeadingIcon = null;
-            txtCliente.Location = new Point(3, 3);
-            txtCliente.MaxLength = 32767;
-            txtCliente.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            txtCliente.Name = "txtCliente";
-            txtCliente.PasswordChar = '\0';
-            txtCliente.PrefixSuffixText = null;
-            txtCliente.ReadOnly = true;
-            txtCliente.RightToLeft = RightToLeft.No;
-            txtCliente.SelectedText = "";
-            txtCliente.SelectionLength = 0;
-            txtCliente.SelectionStart = 0;
-            txtCliente.ShortcutsEnabled = true;
-            txtCliente.Size = new Size(252, 48);
-            txtCliente.TabIndex = 50;
-            txtCliente.TabStop = false;
-            txtCliente.TextAlign = HorizontalAlignment.Center;
-            txtCliente.TrailingIcon = null;
-            txtCliente.UseSystemPasswordChar = false;
-            txtCliente.KeyPress += txtBusquedaCliente_KeyPress;
-            // 
-            // ckbClienteComun
-            // 
-            ckbClienteComun.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            ckbClienteComun.Depth = 0;
-            ckbClienteComun.ImageAlign = ContentAlignment.BottomCenter;
-            ckbClienteComun.Location = new Point(258, 10);
-            ckbClienteComun.Margin = new Padding(0);
-            ckbClienteComun.MouseLocation = new Point(-1, -1);
-            ckbClienteComun.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            ckbClienteComun.Name = "ckbClienteComun";
-            ckbClienteComun.ReadOnly = false;
-            ckbClienteComun.Ripple = true;
-            ckbClienteComun.Size = new Size(166, 34);
-            ckbClienteComun.TabIndex = 51;
-            ckbClienteComun.Text = "Cliente comun";
-            ckbClienteComun.TextAlign = ContentAlignment.MiddleCenter;
-            ckbClienteComun.UseAccentColor = false;
-            ckbClienteComun.UseVisualStyleBackColor = true;
-            ckbClienteComun.CheckedChanged += ckbClienteComun_CheckedChanged;
-            // 
-            // btnPagar
-            // 
-            btnPagar.BackColor = Color.FromArgb(63, 63, 70);
-            btnPagar.BackgroundColor = Color.FromArgb(63, 63, 70);
-            btnPagar.BackgroundImageLayout = ImageLayout.Center;
-            btnPagar.BorderColor = Color.PaleVioletRed;
-            btnPagar.BorderRadius = 10;
-            btnPagar.BorderSize = 0;
-            btnPagar.FlatAppearance.BorderSize = 0;
-            btnPagar.FlatStyle = FlatStyle.Flat;
-            btnPagar.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            btnPagar.ForeColor = Color.White;
-            btnPagar.ImageAlign = ContentAlignment.MiddleRight;
-            btnPagar.Location = new Point(205, 338);
-            btnPagar.Margin = new Padding(3, 2, 3, 2);
-            btnPagar.Name = "btnPagar";
-            btnPagar.Size = new Size(206, 60);
-            btnPagar.TabIndex = 65;
-            btnPagar.Text = "PAGAR";
-            btnPagar.TextColor = Color.White;
-            btnPagar.UseVisualStyleBackColor = false;
-            btnPagar.Click += btnPagar_Click_1;
-            // 
-            // btnCancelar
-            // 
-            btnCancelar.BackColor = Color.FromArgb(63, 63, 70);
-            btnCancelar.BackgroundColor = Color.FromArgb(63, 63, 70);
-            btnCancelar.BackgroundImageLayout = ImageLayout.Center;
-            btnCancelar.BorderColor = Color.PaleVioletRed;
-            btnCancelar.BorderRadius = 10;
-            btnCancelar.BorderSize = 0;
-            btnCancelar.FlatAppearance.BorderSize = 0;
-            btnCancelar.FlatStyle = FlatStyle.Flat;
-            btnCancelar.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCancelar.ForeColor = Color.White;
-            btnCancelar.ImageAlign = ContentAlignment.MiddleRight;
-            btnCancelar.Location = new Point(204, 402);
-            btnCancelar.Margin = new Padding(3, 2, 3, 2);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(206, 60);
-            btnCancelar.TabIndex = 64;
-            btnCancelar.Text = "CANCELAR";
-            btnCancelar.TextColor = Color.White;
-            btnCancelar.UseVisualStyleBackColor = false;
-            btnCancelar.Click += btnCancelar_Click;
+            txtDescuento.AnimateReadOnly = true;
+            txtDescuento.AutoCompleteMode = AutoCompleteMode.None;
+            txtDescuento.AutoCompleteSource = AutoCompleteSource.None;
+            txtDescuento.BackgroundImageLayout = ImageLayout.None;
+            txtDescuento.CharacterCasing = CharacterCasing.Normal;
+            txtDescuento.Depth = 0;
+            txtDescuento.Enabled = false;
+            txtDescuento.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtDescuento.HideSelection = true;
+            txtDescuento.Hint = "Descuento";
+            txtDescuento.LeadingIcon = null;
+            txtDescuento.Location = new Point(32, 321);
+            txtDescuento.MaxLength = 32767;
+            txtDescuento.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtDescuento.Name = "txtDescuento";
+            txtDescuento.PasswordChar = '\0';
+            txtDescuento.PrefixSuffixText = null;
+            txtDescuento.ReadOnly = true;
+            txtDescuento.RightToLeft = RightToLeft.No;
+            txtDescuento.SelectedText = "";
+            txtDescuento.SelectionLength = 0;
+            txtDescuento.SelectionStart = 0;
+            txtDescuento.ShortcutsEnabled = true;
+            txtDescuento.Size = new Size(205, 48);
+            txtDescuento.TabIndex = 64;
+            txtDescuento.TabStop = false;
+            txtDescuento.TextAlign = HorizontalAlignment.Center;
+            txtDescuento.TrailingIcon = null;
+            txtDescuento.UseSystemPasswordChar = false;
             // 
             // txtCambioDeCompra
             // 
@@ -203,7 +125,7 @@
             txtCambioDeCompra.HideSelection = true;
             txtCambioDeCompra.Hint = "Cambio";
             txtCambioDeCompra.LeadingIcon = null;
-            txtCambioDeCompra.Location = new Point(3, 414);
+            txtCambioDeCompra.Location = new Point(32, 429);
             txtCambioDeCompra.MaxLength = 32767;
             txtCambioDeCompra.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtCambioDeCompra.Name = "txtCambioDeCompra";
@@ -215,7 +137,7 @@
             txtCambioDeCompra.SelectionLength = 0;
             txtCambioDeCompra.SelectionStart = 0;
             txtCambioDeCompra.ShortcutsEnabled = true;
-            txtCambioDeCompra.Size = new Size(172, 48);
+            txtCambioDeCompra.Size = new Size(205, 48);
             txtCambioDeCompra.TabIndex = 55;
             txtCambioDeCompra.TabStop = false;
             txtCambioDeCompra.TextAlign = HorizontalAlignment.Center;
@@ -228,7 +150,7 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(424, 149);
+            pictureBox1.Size = new Size(269, 130);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 56;
             pictureBox1.TabStop = false;
@@ -237,9 +159,9 @@
             // 
             label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = SystemColors.ControlDarkDark;
-            label2.Location = new Point(3, 212);
+            label2.Location = new Point(32, 133);
             label2.Name = "label2";
-            label2.Size = new Size(172, 24);
+            label2.Size = new Size(195, 27);
             label2.TabIndex = 63;
             label2.Text = "Resumen de venta";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -255,9 +177,9 @@
             txtTotal.Enabled = false;
             txtTotal.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             txtTotal.HideSelection = true;
-            txtTotal.Hint = "Total a pagar";
+            txtTotal.Hint = "total antes de descuento";
             txtTotal.LeadingIcon = null;
-            txtTotal.Location = new Point(3, 357);
+            txtTotal.Location = new Point(32, 267);
             txtTotal.MaxLength = 32767;
             txtTotal.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtTotal.Name = "txtTotal";
@@ -269,7 +191,7 @@
             txtTotal.SelectionLength = 0;
             txtTotal.SelectionStart = 0;
             txtTotal.ShortcutsEnabled = true;
-            txtTotal.Size = new Size(172, 48);
+            txtTotal.Size = new Size(205, 48);
             txtTotal.TabIndex = 61;
             txtTotal.TabStop = false;
             txtTotal.TextAlign = HorizontalAlignment.Center;
@@ -289,7 +211,7 @@
             txtIva.HideSelection = true;
             txtIva.Hint = "Iva";
             txtIva.LeadingIcon = null;
-            txtIva.Location = new Point(3, 303);
+            txtIva.Location = new Point(32, 213);
             txtIva.MaxLength = 32767;
             txtIva.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtIva.Name = "txtIva";
@@ -301,23 +223,12 @@
             txtIva.SelectionLength = 0;
             txtIva.SelectionStart = 0;
             txtIva.ShortcutsEnabled = true;
-            txtIva.Size = new Size(172, 48);
+            txtIva.Size = new Size(205, 48);
             txtIva.TabIndex = 62;
             txtIva.TabStop = false;
             txtIva.TextAlign = HorizontalAlignment.Center;
             txtIva.TrailingIcon = null;
             txtIva.UseSystemPasswordChar = false;
-            // 
-            // lblTitulo
-            // 
-            lblTitulo.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblTitulo.ForeColor = SystemColors.ControlDarkDark;
-            lblTitulo.Location = new Point(205, 212);
-            lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(193, 24);
-            lblTitulo.TabIndex = 58;
-            lblTitulo.Text = "Pago en proceso";
-            lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // txtSubTotal
             // 
@@ -332,7 +243,7 @@
             txtSubTotal.HideSelection = true;
             txtSubTotal.Hint = "Subtotal";
             txtSubTotal.LeadingIcon = null;
-            txtSubTotal.Location = new Point(3, 249);
+            txtSubTotal.Location = new Point(32, 159);
             txtSubTotal.MaxLength = 32767;
             txtSubTotal.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtSubTotal.Name = "txtSubTotal";
@@ -344,12 +255,122 @@
             txtSubTotal.SelectionLength = 0;
             txtSubTotal.SelectionStart = 0;
             txtSubTotal.ShortcutsEnabled = true;
-            txtSubTotal.Size = new Size(172, 48);
+            txtSubTotal.Size = new Size(205, 48);
             txtSubTotal.TabIndex = 60;
             txtSubTotal.TabStop = false;
             txtSubTotal.TextAlign = HorizontalAlignment.Center;
             txtSubTotal.TrailingIcon = null;
             txtSubTotal.UseSystemPasswordChar = false;
+            // 
+            // txtCliente
+            // 
+            txtCliente.AnimateReadOnly = true;
+            txtCliente.AutoCompleteMode = AutoCompleteMode.None;
+            txtCliente.AutoCompleteSource = AutoCompleteSource.None;
+            txtCliente.BackgroundImageLayout = ImageLayout.None;
+            txtCliente.CharacterCasing = CharacterCasing.Normal;
+            txtCliente.Depth = 0;
+            txtCliente.Enabled = false;
+            txtCliente.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtCliente.HideSelection = true;
+            txtCliente.Hint = "Cliente:";
+            txtCliente.LeadingIcon = null;
+            txtCliente.Location = new Point(6, 45);
+            txtCliente.MaxLength = 32767;
+            txtCliente.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtCliente.Name = "txtCliente";
+            txtCliente.PasswordChar = '\0';
+            txtCliente.PrefixSuffixText = null;
+            txtCliente.ReadOnly = true;
+            txtCliente.RightToLeft = RightToLeft.No;
+            txtCliente.SelectedText = "";
+            txtCliente.SelectionLength = 0;
+            txtCliente.SelectionStart = 0;
+            txtCliente.ShortcutsEnabled = true;
+            txtCliente.Size = new Size(294, 48);
+            txtCliente.TabIndex = 50;
+            txtCliente.TabStop = false;
+            txtCliente.TextAlign = HorizontalAlignment.Center;
+            txtCliente.TrailingIcon = null;
+            txtCliente.UseSystemPasswordChar = false;
+            txtCliente.KeyPress += txtBusquedaCliente_KeyPress;
+            // 
+            // ckbClienteComun
+            // 
+            ckbClienteComun.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            ckbClienteComun.Depth = 0;
+            ckbClienteComun.ImageAlign = ContentAlignment.BottomCenter;
+            ckbClienteComun.Location = new Point(6, 96);
+            ckbClienteComun.Margin = new Padding(0);
+            ckbClienteComun.MouseLocation = new Point(-1, -1);
+            ckbClienteComun.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            ckbClienteComun.Name = "ckbClienteComun";
+            ckbClienteComun.ReadOnly = false;
+            ckbClienteComun.Ripple = true;
+            ckbClienteComun.Size = new Size(297, 34);
+            ckbClienteComun.TabIndex = 51;
+            ckbClienteComun.Text = "Cliente comun";
+            ckbClienteComun.TextAlign = ContentAlignment.MiddleCenter;
+            ckbClienteComun.UseAccentColor = false;
+            ckbClienteComun.UseVisualStyleBackColor = true;
+            ckbClienteComun.CheckedChanged += ckbClienteComun_CheckedChanged;
+            // 
+            // btnFacturar
+            // 
+            btnFacturar.BackColor = Color.FromArgb(63, 63, 70);
+            btnFacturar.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnFacturar.BackgroundImageLayout = ImageLayout.Center;
+            btnFacturar.BorderColor = Color.PaleVioletRed;
+            btnFacturar.BorderRadius = 10;
+            btnFacturar.BorderSize = 0;
+            btnFacturar.FlatAppearance.BorderSize = 0;
+            btnFacturar.FlatStyle = FlatStyle.Flat;
+            btnFacturar.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            btnFacturar.ForeColor = Color.White;
+            btnFacturar.ImageAlign = ContentAlignment.MiddleRight;
+            btnFacturar.Location = new Point(42, 203);
+            btnFacturar.Margin = new Padding(3, 2, 3, 2);
+            btnFacturar.Name = "btnFacturar";
+            btnFacturar.Size = new Size(231, 60);
+            btnFacturar.TabIndex = 65;
+            btnFacturar.Text = "FACTURAR";
+            btnFacturar.TextColor = Color.White;
+            btnFacturar.UseVisualStyleBackColor = false;
+            btnFacturar.Click += btnPagar_Click_1;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.BackColor = Color.FromArgb(63, 63, 70);
+            btnCancelar.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnCancelar.BackgroundImageLayout = ImageLayout.Center;
+            btnCancelar.BorderColor = Color.PaleVioletRed;
+            btnCancelar.BorderRadius = 10;
+            btnCancelar.BorderSize = 0;
+            btnCancelar.FlatAppearance.BorderSize = 0;
+            btnCancelar.FlatStyle = FlatStyle.Flat;
+            btnCancelar.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCancelar.ForeColor = Color.White;
+            btnCancelar.ImageAlign = ContentAlignment.MiddleRight;
+            btnCancelar.Location = new Point(42, 267);
+            btnCancelar.Margin = new Padding(3, 2, 3, 2);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(231, 60);
+            btnCancelar.TabIndex = 64;
+            btnCancelar.Text = "CANCELAR";
+            btnCancelar.TextColor = Color.White;
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
+            // 
+            // lblTitulo
+            // 
+            lblTitulo.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTitulo.ForeColor = SystemColors.ControlDarkDark;
+            lblTitulo.Location = new Point(6, 15);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(193, 24);
+            lblTitulo.TabIndex = 58;
+            lblTitulo.Text = "Pago en proceso";
+            lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // txtPago
             // 
@@ -363,7 +384,7 @@
             txtPago.HideSelection = true;
             txtPago.Hint = "Pago del cliente";
             txtPago.LeadingIcon = null;
-            txtPago.Location = new Point(205, 249);
+            txtPago.Location = new Point(6, 141);
             txtPago.MaxLength = 32767;
             txtPago.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtPago.Name = "txtPago";
@@ -375,7 +396,7 @@
             txtPago.SelectionLength = 0;
             txtPago.SelectionStart = 0;
             txtPago.ShortcutsEnabled = true;
-            txtPago.Size = new Size(206, 48);
+            txtPago.Size = new Size(294, 48);
             txtPago.TabIndex = 57;
             txtPago.TabStop = false;
             txtPago.TextAlign = HorizontalAlignment.Center;
@@ -387,13 +408,12 @@
             // 
             panelBusqueda.Controls.Add(lblBuscar);
             panelBusqueda.Controls.Add(txtBuscar);
-            panelBusqueda.Controls.Add(btnCerrarBusqueda);
             panelBusqueda.Controls.Add(cbxBuscar);
             panelBusqueda.Controls.Add(tbBusqueda);
-            panelBusqueda.Dock = DockStyle.Fill;
-            panelBusqueda.Location = new Point(427, 0);
+            panelBusqueda.Dock = DockStyle.Right;
+            panelBusqueda.Location = new Point(306, 0);
             panelBusqueda.Name = "panelBusqueda";
-            panelBusqueda.Size = new Size(426, 487);
+            panelBusqueda.Size = new Size(275, 487);
             panelBusqueda.TabIndex = 56;
             // 
             // lblBuscar
@@ -402,11 +422,11 @@
             lblBuscar.Dock = DockStyle.Bottom;
             lblBuscar.Font = new Font("Microsoft Sans Serif", 27.75F, FontStyle.Regular, GraphicsUnit.Point);
             lblBuscar.ForeColor = Color.FromArgb(63, 63, 70);
-            lblBuscar.Location = new Point(0, 3);
+            lblBuscar.Location = new Point(0, 0);
             lblBuscar.Name = "lblBuscar";
-            lblBuscar.Size = new Size(426, 48);
+            lblBuscar.Size = new Size(275, 93);
             lblBuscar.TabIndex = 42;
-            lblBuscar.Text = "Buscar cliente especifico";
+            lblBuscar.Text = "Buscar cliente";
             lblBuscar.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // txtBuscar
@@ -422,7 +442,7 @@
             txtBuscar.HideSelection = true;
             txtBuscar.Hint = "Buscar";
             txtBuscar.LeadingIcon = null;
-            txtBuscar.Location = new Point(0, 51);
+            txtBuscar.Location = new Point(0, 93);
             txtBuscar.MaxLength = 32767;
             txtBuscar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtBuscar.Name = "txtBuscar";
@@ -434,23 +454,13 @@
             txtBuscar.SelectionLength = 0;
             txtBuscar.SelectionStart = 0;
             txtBuscar.ShortcutsEnabled = true;
-            txtBuscar.Size = new Size(426, 48);
+            txtBuscar.Size = new Size(275, 48);
             txtBuscar.TabIndex = 63;
             txtBuscar.TabStop = false;
             txtBuscar.TextAlign = HorizontalAlignment.Left;
             txtBuscar.TrailingIcon = null;
             txtBuscar.UseSystemPasswordChar = false;
             txtBuscar.TextChanged += txtBuscar_TextChanged;
-            // 
-            // btnCerrarBusqueda
-            // 
-            btnCerrarBusqueda.BackColor = Color.Red;
-            btnCerrarBusqueda.Image = (Image)resources.GetObject("btnCerrarBusqueda.Image");
-            btnCerrarBusqueda.Location = new Point(271, 3);
-            btnCerrarBusqueda.Name = "btnCerrarBusqueda";
-            btnCerrarBusqueda.Size = new Size(43, 41);
-            btnCerrarBusqueda.TabIndex = 62;
-            btnCerrarBusqueda.UseVisualStyleBackColor = false;
             // 
             // cbxBuscar
             // 
@@ -469,11 +479,11 @@
             cbxBuscar.IntegralHeight = false;
             cbxBuscar.ItemHeight = 43;
             cbxBuscar.Items.AddRange(new object[] { "Nombre" });
-            cbxBuscar.Location = new Point(0, 99);
+            cbxBuscar.Location = new Point(0, 141);
             cbxBuscar.MaxDropDownItems = 4;
             cbxBuscar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbxBuscar.Name = "cbxBuscar";
-            cbxBuscar.Size = new Size(426, 49);
+            cbxBuscar.Size = new Size(275, 49);
             cbxBuscar.StartIndex = 0;
             cbxBuscar.TabIndex = 60;
             // 
@@ -487,45 +497,45 @@
             tbBusqueda.BorderStyle = BorderStyle.None;
             tbBusqueda.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             tbBusqueda.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            tbBusqueda.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            tbBusqueda.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             tbBusqueda.ColumnHeadersHeight = 35;
             tbBusqueda.Columns.AddRange(new DataGridViewColumn[] { Seleccionar, Id, Nombre });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.DarkGray;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = Color.LightSkyBlue;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            tbBusqueda.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.DarkGray;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = Color.LightSkyBlue;
+            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            tbBusqueda.DefaultCellStyle = dataGridViewCellStyle5;
             tbBusqueda.Dock = DockStyle.Bottom;
             tbBusqueda.EnableHeadersVisualStyles = false;
             tbBusqueda.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbBusqueda.GridColor = Color.Gray;
-            tbBusqueda.Location = new Point(0, 148);
+            tbBusqueda.Location = new Point(0, 190);
             tbBusqueda.Name = "tbBusqueda";
             tbBusqueda.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.Silver;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            tbBusqueda.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.Silver;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            tbBusqueda.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             tbBusqueda.RowHeadersVisible = false;
             tbBusqueda.RowHeadersWidth = 40;
             tbBusqueda.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tbBusqueda.RowTemplate.Height = 30;
             tbBusqueda.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tbBusqueda.Size = new Size(426, 339);
+            tbBusqueda.Size = new Size(275, 297);
             tbBusqueda.TabIndex = 55;
             tbBusqueda.CellContentClick += tbBusqueda_CellContentClick;
             tbBusqueda.CellPainting += tbBusqueda_CellPainting;
@@ -550,6 +560,57 @@
             Nombre.ReadOnly = true;
             Nombre.Width = 400;
             // 
+            // panel2
+            // 
+            panel2.Controls.Add(ckbClienteComun);
+            panel2.Controls.Add(btnCancelar);
+            panel2.Controls.Add(btnFacturar);
+            panel2.Controls.Add(txtCliente);
+            panel2.Controls.Add(panelBusqueda);
+            panel2.Controls.Add(lblTitulo);
+            panel2.Controls.Add(txtPago);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(272, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(581, 487);
+            panel2.TabIndex = 57;
+            // 
+            // pdImprimir
+            // 
+            pdImprimir.PrintPage += imprimir;
+            // 
+            // txtTotalFinal
+            // 
+            txtTotalFinal.AnimateReadOnly = true;
+            txtTotalFinal.AutoCompleteMode = AutoCompleteMode.None;
+            txtTotalFinal.AutoCompleteSource = AutoCompleteSource.None;
+            txtTotalFinal.BackgroundImageLayout = ImageLayout.None;
+            txtTotalFinal.CharacterCasing = CharacterCasing.Normal;
+            txtTotalFinal.Depth = 0;
+            txtTotalFinal.Enabled = false;
+            txtTotalFinal.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTotalFinal.HideSelection = true;
+            txtTotalFinal.Hint = "total a pagar";
+            txtTotalFinal.LeadingIcon = null;
+            txtTotalFinal.Location = new Point(32, 375);
+            txtTotalFinal.MaxLength = 32767;
+            txtTotalFinal.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtTotalFinal.Name = "txtTotalFinal";
+            txtTotalFinal.PasswordChar = '\0';
+            txtTotalFinal.PrefixSuffixText = null;
+            txtTotalFinal.ReadOnly = true;
+            txtTotalFinal.RightToLeft = RightToLeft.No;
+            txtTotalFinal.SelectedText = "";
+            txtTotalFinal.SelectionLength = 0;
+            txtTotalFinal.SelectionStart = 0;
+            txtTotalFinal.ShortcutsEnabled = true;
+            txtTotalFinal.Size = new Size(205, 48);
+            txtTotalFinal.TabIndex = 65;
+            txtTotalFinal.TabStop = false;
+            txtTotalFinal.TextAlign = HorizontalAlignment.Center;
+            txtTotalFinal.TrailingIcon = null;
+            txtTotalFinal.UseSystemPasswordChar = false;
+            // 
             // FormPagar
             // 
             AllowDrop = true;
@@ -557,7 +618,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(856, 490);
             ControlBox = false;
-            Controls.Add(panelBusqueda);
+            Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
@@ -574,10 +635,10 @@
             Text = "FormPagar";
             Load += FormPagar_Load;
             panel1.ResumeLayout(false);
-            flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panelBusqueda.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)tbBusqueda).EndInit();
+            panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -587,7 +648,6 @@
         private Panel panel1;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCliente;
         private RJCodeAdvance.RJControls.RJButton rjButton14;
-        private FlowLayoutPanel flowLayoutPanel1;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCambioDeCompra;
         private Label lblTitulo;
         private PictureBox pictureBox1;
@@ -598,15 +658,18 @@
         private Panel panelBusqueda;
         private Label lblBuscar;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtBuscar;
-        private Button btnCerrarBusqueda;
         private ReaLTaiizor.Controls.MaterialComboBox cbxBuscar;
         private ReaLTaiizor.Controls.PoisonDataGridView tbBusqueda;
         private ReaLTaiizor.Controls.MaterialCheckBox ckbClienteComun;
-        private RJCodeAdvance.RJControls.RJButton btnPagar;
+        private RJCodeAdvance.RJControls.RJButton btnFacturar;
         private RJCodeAdvance.RJControls.RJButton btnCancelar;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtPago;
         private DataGridViewButtonColumn Seleccionar;
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn Nombre;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtDescuento;
+        private Panel panel2;
+        private System.Drawing.Printing.PrintDocument pdImprimir;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtTotalFinal;
     }
 }
