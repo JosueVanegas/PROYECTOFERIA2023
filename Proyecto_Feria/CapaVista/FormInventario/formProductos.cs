@@ -11,26 +11,10 @@ namespace CapaVista
     {
         ControlProducto cProd = new ControlProducto();
         string urlImagen = "";
-        public formProductos(Boolean Mod)
+        public formProductos()
         {
             InitializeComponent();
-            MaterialSkinManager manager;
-            manager = MaterialSkinManager.Instance;
-            manager.AddFormToManage(this);
-            manager.EnforceBackcolorOnAllComponents = true;
-            if (Mod)
-            {
-                manager.Theme = MaterialSkinManager.Themes.DARK;
-                manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.WHITE);
-                tbProductos.BackgroundColor = Color.FromArgb(50, 50, 50);
-            }
-            if (!Mod)
-            {
-                manager.Theme = MaterialSkinManager.Themes.LIGHT;
-                manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.BLACK);
-                tbProductos.BackgroundColor = Color.White;
 
-            }
         }
         private void formProductos_Load(object sender, EventArgs e)
         {

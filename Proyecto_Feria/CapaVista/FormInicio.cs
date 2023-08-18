@@ -10,23 +10,12 @@ namespace CapaVista
     public partial class FormInicio : MaterialForm
     {
         ControlDashboard cEstat = new ControlDashboard();
-        public FormInicio(Boolean Mod, Usuario Rol)
+        public FormInicio(Usuario Rol)
         {
             InitializeComponent();
             mostrarCantidades();
             mostrarTopProductos();
-            MaterialSkinManager manager;
-            manager = MaterialSkinManager.Instance;
-            manager.AddFormToManage(this);
-            manager.EnforceBackcolorOnAllComponents = true;
-            if (Mod)
-            {
-                manager.Theme = MaterialSkinManager.Themes.DARK;
-            }
-            if (!Mod)
-            {
-                manager.Theme = MaterialSkinManager.Themes.LIGHT;
-            }
+
             /*    if (Rol.oRol.descripcion == "Administrador" || Rol.oRol.descripcion == "Contador")
                 {
                     parrotGroupBox1.Visible = true;
@@ -55,6 +44,7 @@ namespace CapaVista
             foreach (var productoVendido in productosVendidos)
             {
                 chartTopProductos.Series["Ventas"].Points.AddXY(productoVendido.nombre, productoVendido.cantidad);
+                chartTopUsuario.Series["Ventas"].Points.AddXY(productoVendido.nombre, productoVendido.cantidad);
             }
             chartTopProductos.Series["Ventas"]["PieLabelStyle"] = "Disabled";
             chartTopProductos.ChartAreas[0].AxisX.MajorGrid.Enabled = false;

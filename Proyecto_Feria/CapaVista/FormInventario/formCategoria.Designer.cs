@@ -288,11 +288,12 @@
             txtBuscar.BackgroundImageLayout = ImageLayout.None;
             txtBuscar.CharacterCasing = CharacterCasing.Normal;
             txtBuscar.Depth = 0;
+            txtBuscar.Dock = DockStyle.Left;
             txtBuscar.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             txtBuscar.HideSelection = true;
             txtBuscar.Hint = "Buscar";
             txtBuscar.LeadingIcon = null;
-            txtBuscar.Location = new Point(350, 7);
+            txtBuscar.Location = new Point(351, 0);
             txtBuscar.MaxLength = 32767;
             txtBuscar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtBuscar.Name = "txtBuscar";
@@ -315,10 +316,11 @@
             // 
             // lblEncabezado
             // 
+            lblEncabezado.Dock = DockStyle.Left;
             lblEncabezado.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblEncabezado.Location = new Point(18, 7);
+            lblEncabezado.Location = new Point(0, 0);
             lblEncabezado.Name = "lblEncabezado";
-            lblEncabezado.Size = new Size(178, 48);
+            lblEncabezado.Size = new Size(197, 56);
             lblEncabezado.TabIndex = 17;
             lblEncabezado.Text = "Categorias registradas";
             lblEncabezado.TextAlign = ContentAlignment.MiddleLeft;
@@ -731,21 +733,21 @@
             // 
             // panel4
             // 
+            panel4.Controls.Add(txtBuscar);
             panel4.Controls.Add(cbxBuscar);
             panel4.Controls.Add(lblEncabezado);
-            panel4.Controls.Add(txtBuscar);
             panel4.Dock = DockStyle.Top;
             panel4.Location = new Point(321, 0);
             panel4.Name = "panel4";
-            panel4.Size = new Size(629, 73);
+            panel4.Size = new Size(629, 56);
             panel4.TabIndex = 21;
             // 
             // cbxBuscar
             // 
-            cbxBuscar.Anchor = AnchorStyles.Left;
             cbxBuscar.AutoResize = false;
             cbxBuscar.BackColor = Color.FromArgb(255, 255, 255);
             cbxBuscar.Depth = 0;
+            cbxBuscar.Dock = DockStyle.Left;
             cbxBuscar.DrawMode = DrawMode.OwnerDrawVariable;
             cbxBuscar.DropDownHeight = 174;
             cbxBuscar.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -757,7 +759,7 @@
             cbxBuscar.IntegralHeight = false;
             cbxBuscar.ItemHeight = 43;
             cbxBuscar.Items.AddRange(new object[] { "nombre", "estado", "fecha" });
-            cbxBuscar.Location = new Point(190, 7);
+            cbxBuscar.Location = new Point(197, 0);
             cbxBuscar.MaxDropDownItems = 4;
             cbxBuscar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbxBuscar.Name = "cbxBuscar";
@@ -770,7 +772,7 @@
             tbCategorias.AllowUserToAddRows = false;
             tbCategorias.AllowUserToOrderColumns = true;
             tbCategorias.AllowUserToResizeRows = false;
-            tbCategorias.Anchor = AnchorStyles.Left;
+            tbCategorias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tbCategorias.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             tbCategorias.BackgroundColor = Color.FromArgb(50, 50, 50);
             tbCategorias.BorderStyle = BorderStyle.None;
@@ -794,10 +796,11 @@
             dataGridViewCellStyle8.SelectionForeColor = Color.Black;
             dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
             tbCategorias.DefaultCellStyle = dataGridViewCellStyle8;
+            tbCategorias.Dock = DockStyle.Fill;
             tbCategorias.EnableHeadersVisualStyles = false;
             tbCategorias.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbCategorias.GridColor = Color.Gray;
-            tbCategorias.Location = new Point(339, 79);
+            tbCategorias.Location = new Point(321, 56);
             tbCategorias.Name = "tbCategorias";
             tbCategorias.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -813,7 +816,7 @@
             tbCategorias.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tbCategorias.RowTemplate.Height = 30;
             tbCategorias.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tbCategorias.Size = new Size(611, 407);
+            tbCategorias.Size = new Size(629, 433);
             tbCategorias.TabIndex = 22;
             tbCategorias.CellContentClick += tbCategorias_CellContentClick;
             tbCategorias.CellPainting += tbCategorias_CellPainting;
@@ -822,13 +825,11 @@
             // 
             btnEditar.HeaderText = "Editar";
             btnEditar.Name = "btnEditar";
-            btnEditar.Width = 50;
             // 
             // btnBorrar
             // 
             btnBorrar.HeaderText = "Eliminar";
             btnBorrar.Name = "btnBorrar";
-            btnBorrar.Width = 50;
             // 
             // id
             // 
@@ -842,21 +843,18 @@
             nombre.HeaderText = "nombre de categoria";
             nombre.Name = "nombre";
             nombre.ReadOnly = true;
-            nombre.Width = 220;
             // 
             // estado
             // 
             estado.HeaderText = "estado";
             estado.Name = "estado";
             estado.ReadOnly = true;
-            estado.Width = 130;
             // 
             // fecha
             // 
             fecha.HeaderText = "fecha de registro";
             fecha.Name = "fecha";
             fecha.ReadOnly = true;
-            fecha.Width = 200;
             // 
             // formCategoria
             // 

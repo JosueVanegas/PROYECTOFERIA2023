@@ -30,13 +30,14 @@
         {
             btnGenerar = new ReaLTaiizor.Controls.MaterialButton();
             btnGuardar = new ReaLTaiizor.Controls.MaterialButton();
-            materialFloatingActionButton1 = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
+            btnCerrar = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             panelCodigo = new Panel();
             txtCodigo = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             SuspendLayout();
             // 
             // btnGenerar
             // 
+            btnGenerar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnGenerar.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
             btnGenerar.Depth = 0;
             btnGenerar.HighEmphasis = true;
@@ -47,7 +48,7 @@
             btnGenerar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnGenerar.Name = "btnGenerar";
             btnGenerar.NoAccentTextColor = Color.Empty;
-            btnGenerar.Size = new Size(183, 36);
+            btnGenerar.Size = new Size(145, 36);
             btnGenerar.TabIndex = 0;
             btnGenerar.Text = "Generar Codigo";
             btnGenerar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -57,6 +58,7 @@
             // 
             // btnGuardar
             // 
+            btnGuardar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnGuardar.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
             btnGuardar.Depth = 0;
             btnGuardar.Enabled = false;
@@ -68,7 +70,7 @@
             btnGuardar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnGuardar.Name = "btnGuardar";
             btnGuardar.NoAccentTextColor = Color.Empty;
-            btnGuardar.Size = new Size(183, 36);
+            btnGuardar.Size = new Size(88, 36);
             btnGuardar.TabIndex = 1;
             btnGuardar.Text = "guardar";
             btnGuardar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -76,18 +78,20 @@
             btnGuardar.UseVisualStyleBackColor = true;
             btnGuardar.Click += btnGuardar_Click;
             // 
-            // materialFloatingActionButton1
+            // btnCerrar
             // 
-            materialFloatingActionButton1.Depth = 0;
-            materialFloatingActionButton1.Dock = DockStyle.Left;
-            materialFloatingActionButton1.Icon = null;
-            materialFloatingActionButton1.Location = new Point(3, 0);
-            materialFloatingActionButton1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialFloatingActionButton1.Name = "materialFloatingActionButton1";
-            materialFloatingActionButton1.Size = new Size(56, 447);
-            materialFloatingActionButton1.TabIndex = 2;
-            materialFloatingActionButton1.Text = "\r\n";
-            materialFloatingActionButton1.UseVisualStyleBackColor = true;
+            btnCerrar.BackColor = SystemColors.ActiveCaption;
+            btnCerrar.Depth = 0;
+            btnCerrar.Dock = DockStyle.Left;
+            btnCerrar.Icon = null;
+            btnCerrar.Location = new Point(3, 0);
+            btnCerrar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnCerrar.Name = "btnCerrar";
+            btnCerrar.Size = new Size(56, 447);
+            btnCerrar.TabIndex = 2;
+            btnCerrar.Text = "\r\n";
+            btnCerrar.UseVisualStyleBackColor = false;
+            btnCerrar.Click += btnCerrar_Click;
             // 
             // panelCodigo
             // 
@@ -135,7 +139,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(txtCodigo);
             Controls.Add(panelCodigo);
-            Controls.Add(materialFloatingActionButton1);
+            Controls.Add(btnCerrar);
             Controls.Add(btnGuardar);
             Controls.Add(btnGenerar);
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
@@ -149,7 +153,7 @@
 
         private ReaLTaiizor.Controls.MaterialButton btnGenerar;
         private ReaLTaiizor.Controls.MaterialButton btnGuardar;
-        private ReaLTaiizor.Controls.MaterialFloatingActionButton materialFloatingActionButton1;
+        private ReaLTaiizor.Controls.MaterialFloatingActionButton btnCerrar;
         private Panel panelCodigo;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCodigo;
     }

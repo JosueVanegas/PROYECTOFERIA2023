@@ -10,12 +10,11 @@ namespace CapaVista.FormPrimerAcceso
     public partial class FormaAjustesEntidad : MaterialForm
     {
         bool Acceso = true;
-        bool Mod;
-        public FormaAjustesEntidad(Boolean Dmod, Boolean Acceso)
+   
+        public FormaAjustesEntidad(Boolean Acceso)
         {
             InitializeComponent();
-            this.Acceso = Acceso;
-            this.Mod = Dmod;
+            
             EstadoDeLaEntidad(this.Acceso);
         }
         public Boolean EstadoDeLaEntidad(Boolean Acceso)
@@ -47,7 +46,7 @@ namespace CapaVista.FormPrimerAcceso
 
         private void btnUsuario_Click(object sender, EventArgs e)
         {
-            FormUsuarioInicial form = new FormUsuarioInicial(Mod);
+            FormUsuarioInicial form = new FormUsuarioInicial();
 
             form.ShowDialog();
         }

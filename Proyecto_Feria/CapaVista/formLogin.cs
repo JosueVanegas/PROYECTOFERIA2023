@@ -10,15 +10,10 @@ namespace CapaVista
 {
     public partial class formLogin : MaterialForm
     {
-        private readonly MaterialSkinManager manager;
+
         public formLogin()
         {
             InitializeComponent();
-            manager = MaterialSkinManager.Instance;
-            manager.AddFormToManage(this);
-            manager.Theme = MaterialSkinManager.Themes.DARK;
-            manager.EnforceBackcolorOnAllComponents = true;
-            manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.WHITE);
             lblConexion.Text = new ControlConexion().verificarConexion();
         }
 
@@ -36,7 +31,7 @@ namespace CapaVista
             Usuario user = cUsuarios.listarUsuarios().FirstOrDefault(u => u.usuario == txtUsuario.Text);
             if (acceder)
             {
-                FormPrincipal principal = new FormPrincipal(user,true);
+                FormPrincipal principal = new FormPrincipal(user);
                 principal.Show();
                 this.Hide();
                 principal.FormClosing += frm_closing;

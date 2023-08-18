@@ -20,29 +20,15 @@ namespace CapaVista.FormVentas
         Usuario user = new Usuario();
         List<DetalleVenta> detalles;
         ControlVenta cVenta = new ControlVenta();
-        public FormPagar(Usuario u, Boolean Mod, ResumenVenta r, List<DetalleVenta> d)
+        public FormPagar(Usuario u,  ResumenVenta r, List<DetalleVenta> d)
         {
             InitializeComponent();
             resumen = r;
             detalles = d;
             user = u;
-            cambiarModo(Mod);
+            
         }
-        private void cambiarModo(bool modoOscuro)
-        {
-            MaterialSkinManager manager;
-            manager = MaterialSkinManager.Instance;
-            manager.AddFormToManage(this);
-            manager.EnforceBackcolorOnAllComponents = true;
-            if (modoOscuro)
-            {
-                manager.Theme = MaterialSkinManager.Themes.DARK;
-            }
-            if (!modoOscuro)
-            {
-                manager.Theme = MaterialSkinManager.Themes.LIGHT;
-            }
-        }
+        
         private void FormPagar_Load(object sender, EventArgs e)
         {
             mostrarClientes();
@@ -247,7 +233,7 @@ namespace CapaVista.FormVentas
                 var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
                 var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
 
-                e.Graphics.DrawImage(CapaPresentacion.Properties.Resources.ojo, new Rectangle(x, y, w, h));
+                e.Graphics.DrawImage(CapaPresentacion.Properties.Resources.ojo, new System.Drawing.Rectangle(x, y, w, h));
                 e.Handled = true;
             }
         }

@@ -10,30 +10,15 @@ namespace CapaVista.FormPrimerAcceso
     {
         private System.Windows.Forms.Timer timer;
         private int secondsElapsed = 0;
-        bool Mod;
-        public FormInicar(Boolean Dmod)
+       
+        public FormInicar()
         {
 
             InitializeComponent();
             InitializeTimer();
-            cambiarModo(Dmod);
-            Mod = Dmod;
+            
         }
-        private void cambiarModo(bool modoOscuro)
-        {
-            MaterialSkinManager manager;
-            manager = MaterialSkinManager.Instance;
-            manager.AddFormToManage(this);
-            manager.EnforceBackcolorOnAllComponents = true;
-            if (modoOscuro)
-            {
-                manager.Theme = MaterialSkinManager.Themes.DARK;
-            }
-            if (!modoOscuro)
-            {
-                manager.Theme = MaterialSkinManager.Themes.LIGHT;
-            }
-        }
+      
         private void InitializeTimer()
         {
             timer = new System.Windows.Forms.Timer();
@@ -60,7 +45,7 @@ namespace CapaVista.FormPrimerAcceso
                 /// Josue para saber si es primer acceso
                 if (true)
                 {
-                    FormaAjustesEntidad forms = new FormaAjustesEntidad(Mod, true);
+                    FormaAjustesEntidad forms = new FormaAjustesEntidad(true);
 
                     forms.ShowDialog();
                 }

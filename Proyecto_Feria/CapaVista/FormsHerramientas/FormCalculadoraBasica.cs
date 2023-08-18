@@ -11,7 +11,7 @@ namespace CapaVista.FormsHerramientas
         private double numero1;
         private double numero2;
         private bool operadorPresionado;
-        public FormCalculadoraBasica(Boolean Mod)
+        public FormCalculadoraBasica()
         {
             InitializeComponent();
             btnNumber0.Tag = "0";
@@ -27,26 +27,7 @@ namespace CapaVista.FormsHerramientas
 
             btnAC.Tag = "AC";
             btnEliminar.Tag = "Eliminar";
-            MaterialSkinManager manager;
-            manager = MaterialSkinManager.Instance;
-            manager.AddFormToManage(this);
-            manager.EnforceBackcolorOnAllComponents = true;
-            if (Mod)
-            {
-                manager.Theme = MaterialSkinManager.Themes.DARK;
-                manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.WHITE);
-
-
-            }
-            if (!Mod)
-            {
-                {
-                    manager.Theme = MaterialSkinManager.Themes.LIGHT;
-                    manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.BLACK);
-
-                }
-
-            }
+            
         }
 
         // Método para realizar las operaciones

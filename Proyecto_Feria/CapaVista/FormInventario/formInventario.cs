@@ -1,4 +1,5 @@
 ﻿using CapaVista.FormConfiguracion;
+using CapaVista.FormInventario;
 using ReaLTaiizor.Colors;
 using ReaLTaiizor.Forms;
 using ReaLTaiizor.Manager;
@@ -8,30 +9,15 @@ namespace CapaVista
 {
     public partial class formInventario : MaterialForm
     {
-        bool Mod;
+
         Form formActivo = null;
         Button botonActivo = null;
-        public formInventario(Boolean Dmod)
+        public formInventario()
         {
             InitializeComponent();
-            Mod = Dmod;
-            cambiarModo(Dmod);
+
         }
-        private void cambiarModo(bool modoOscuro)
-        {
-            MaterialSkinManager manager;
-            manager = MaterialSkinManager.Instance;
-            manager.AddFormToManage(this);
-            manager.EnforceBackcolorOnAllComponents = true;
-            if (modoOscuro)
-            {
-                manager.Theme = MaterialSkinManager.Themes.DARK;
-            }
-            if (!modoOscuro)
-            {
-                manager.Theme = MaterialSkinManager.Themes.LIGHT;
-            }
-        }
+
         private void abrirFormulario(Form form)
         {
             if (this.panelContenedor.Controls.Count > 0)
@@ -49,21 +35,21 @@ namespace CapaVista
         }
         private void btnCompras_Click(object sender, EventArgs e)
         {
-
+            abrirFormulario(new FormCompras());
         }
         private void btnProductos_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new formProductos(Mod));
+            abrirFormulario(new formProductos());
         }
 
         private void btnCategorias_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new formCategoria(Mod));
+            abrirFormulario(new formCategoria());
         }
 
         private void btnProveedores_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new formProveedor(Mod));
+            abrirFormulario(new formProveedor());
         }
         private void btnProductos_MouseHover(object sender, EventArgs e)
         {

@@ -393,6 +393,7 @@
             tbProductos.AllowUserToAddRows = false;
             tbProductos.AllowUserToOrderColumns = true;
             tbProductos.AllowUserToResizeRows = false;
+            tbProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tbProductos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             tbProductos.BackgroundColor = Color.FromArgb(50, 50, 50);
             tbProductos.BorderStyle = BorderStyle.None;
@@ -445,13 +446,11 @@
             // 
             btnSeleccionar.HeaderText = "Editar";
             btnSeleccionar.Name = "btnSeleccionar";
-            btnSeleccionar.Width = 50;
             // 
             // btnBorrar
             // 
             btnBorrar.HeaderText = "eliminar";
             btnBorrar.Name = "btnBorrar";
-            btnBorrar.Width = 50;
             // 
             // Id
             // 
@@ -459,21 +458,18 @@
             Id.Name = "Id";
             Id.ReadOnly = true;
             Id.Visible = false;
-            Id.Width = 10;
             // 
             // Codigo
             // 
             Codigo.HeaderText = "Codigo de barra";
             Codigo.Name = "Codigo";
             Codigo.ReadOnly = true;
-            Codigo.Width = 120;
             // 
             // Nombre
             // 
             Nombre.HeaderText = "Nombre";
             Nombre.Name = "Nombre";
             Nombre.ReadOnly = true;
-            Nombre.Width = 150;
             // 
             // PrecioCompra
             // 
@@ -481,32 +477,27 @@
             PrecioCompra.Name = "PrecioCompra";
             PrecioCompra.ReadOnly = true;
             PrecioCompra.SortMode = DataGridViewColumnSortMode.NotSortable;
-            PrecioCompra.Width = 50;
             // 
             // PrecioVenta
             // 
             PrecioVenta.HeaderText = "Precio Venta";
             PrecioVenta.Name = "PrecioVenta";
             PrecioVenta.ReadOnly = true;
-            PrecioVenta.Width = 50;
             // 
             // Cantidad
             // 
             Cantidad.HeaderText = "Cantidad";
             Cantidad.Name = "Cantidad";
-            Cantidad.Width = 30;
             // 
             // ProveedorID
             // 
             ProveedorID.HeaderText = "Proveedor ID";
             ProveedorID.Name = "ProveedorID";
-            ProveedorID.Width = 10;
             // 
             // CategoriaID
             // 
             CategoriaID.HeaderText = "CategoriaID";
             CategoriaID.Name = "CategoriaID";
-            CategoriaID.Width = 10;
             // 
             // NombreProveedor
             // 

@@ -7,13 +7,11 @@ using ReaLTaiizor.Util;
 namespace CapaVista.FormPlanilla;
 
 public partial class formPlanilla : MaterialForm
-{
-    bool Mod;
-    public formPlanilla(Boolean Dmod)
+{ 
+    public formPlanilla()
     {
         InitializeComponent();
-        cambiarModo(Dmod);
-        Mod = Dmod;
+       
     }
     private void cambiarModo(bool modoOscuro)
     {
@@ -46,7 +44,7 @@ public partial class formPlanilla : MaterialForm
     }
     private void btnEmpleados_Click(object sender, EventArgs e)
     {
-        OpenFormInPanel(new formEmpleados(Mod));
+        OpenFormInPanel(new formEmpleados());
     }
     private void btnEmpleados_MouseHover(object sender, EventArgs e)
     {

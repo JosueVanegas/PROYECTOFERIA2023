@@ -10,26 +10,10 @@ namespace CapaVista
     {
 
 
-        public formEmpleados(Boolean Mod)
+        public formEmpleados()
         {
             InitializeComponent();
-            MaterialSkinManager manager;
-            manager = MaterialSkinManager.Instance;
-            manager.AddFormToManage(this);
-            manager.EnforceBackcolorOnAllComponents = true;
-            if (Mod)
-            {
-                manager.Theme = MaterialSkinManager.Themes.DARK;
-                manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.WHITE);
-                tbEmpleados.BackgroundColor = Color.FromArgb(50, 50, 50);
-            }
-            if (!Mod)
-            {
-                manager.Theme = MaterialSkinManager.Themes.LIGHT;
-                manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.BLACK);
-                tbEmpleados.BackgroundColor = Color.White;
-
-            }
+            
         }
 
 
@@ -164,9 +148,6 @@ namespace CapaVista
         {
             // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
-
-
             // Establecer el texto de la descripción
             toolTip.SetToolTip(btnLimpiar, "Limpiar");
         }

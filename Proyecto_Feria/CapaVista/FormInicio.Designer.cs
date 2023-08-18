@@ -59,7 +59,7 @@
             // 
             lblEncabezado.Dock = DockStyle.Top;
             lblEncabezado.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            lblEncabezado.ForeColor = SystemColors.Control;
+            lblEncabezado.ForeColor = Color.Black;
             lblEncabezado.Location = new Point(3, 0);
             lblEncabezado.Name = "lblEncabezado";
             lblEncabezado.Size = new Size(929, 65);
@@ -70,7 +70,7 @@
             // 
             // groupCantidades
             // 
-            groupCantidades.BorderColor = Color.DodgerBlue;
+            groupCantidades.BorderColor = Color.FromArgb(74, 121, 121);
             groupCantidades.BorderWidth = 1;
             groupCantidades.Controls.Add(txtDataUsuarios);
             groupCantidades.Controls.Add(txtDataClientes);
@@ -86,14 +86,14 @@
             groupCantidades.TabIndex = 45;
             groupCantidades.TabStop = false;
             groupCantidades.Text = "Cantidades de registros";
-            groupCantidades.TextColor = Color.DodgerBlue;
+            groupCantidades.TextColor = Color.FromArgb(74, 121, 121);
             // 
             // txtDataUsuarios
             // 
             txtDataUsuarios.BackColor = Color.Transparent;
-            txtDataUsuarios.BannerColor = SystemColors.ActiveCaption;
-            txtDataUsuarios.BorderColor = Color.White;
-            txtDataUsuarios.ForeColor = Color.White;
+            txtDataUsuarios.BannerColor = Color.FromArgb(74, 121, 121);
+            txtDataUsuarios.BorderColor = Color.Black;
+            txtDataUsuarios.ForeColor = Color.Black;
             txtDataUsuarios.Location = new Point(27, 325);
             txtDataUsuarios.Name = "txtDataUsuarios";
             txtDataUsuarios.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
@@ -104,9 +104,9 @@
             // txtDataClientes
             // 
             txtDataClientes.BackColor = Color.Transparent;
-            txtDataClientes.BannerColor = SystemColors.ActiveCaption;
-            txtDataClientes.BorderColor = Color.White;
-            txtDataClientes.ForeColor = Color.White;
+            txtDataClientes.BannerColor = Color.FromArgb(74, 121, 121);
+            txtDataClientes.BorderColor = Color.Black;
+            txtDataClientes.ForeColor = Color.Black;
             txtDataClientes.Location = new Point(27, 264);
             txtDataClientes.Name = "txtDataClientes";
             txtDataClientes.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
@@ -117,9 +117,9 @@
             // txtDataCategoria
             // 
             txtDataCategoria.BackColor = Color.Transparent;
-            txtDataCategoria.BannerColor = SystemColors.ActiveCaption;
-            txtDataCategoria.BorderColor = Color.White;
-            txtDataCategoria.ForeColor = Color.White;
+            txtDataCategoria.BannerColor = Color.FromArgb(74, 121, 121);
+            txtDataCategoria.BorderColor = Color.Black;
+            txtDataCategoria.ForeColor = Color.Black;
             txtDataCategoria.Location = new Point(27, 22);
             txtDataCategoria.Name = "txtDataCategoria";
             txtDataCategoria.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
@@ -130,9 +130,9 @@
             // txtDataProveedor
             // 
             txtDataProveedor.BackColor = Color.Transparent;
-            txtDataProveedor.BannerColor = SystemColors.ActiveCaption;
-            txtDataProveedor.BorderColor = Color.White;
-            txtDataProveedor.ForeColor = Color.White;
+            txtDataProveedor.BannerColor = Color.FromArgb(74, 121, 121);
+            txtDataProveedor.BorderColor = Color.Black;
+            txtDataProveedor.ForeColor = Color.Black;
             txtDataProveedor.Location = new Point(27, 203);
             txtDataProveedor.Name = "txtDataProveedor";
             txtDataProveedor.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
@@ -143,9 +143,9 @@
             // txtDataProducto
             // 
             txtDataProducto.BackColor = Color.Transparent;
-            txtDataProducto.BannerColor = SystemColors.ActiveCaption;
-            txtDataProducto.BorderColor = Color.White;
-            txtDataProducto.ForeColor = Color.White;
+            txtDataProducto.BannerColor = Color.FromArgb(74, 121, 121);
+            txtDataProducto.BorderColor = Color.Black;
+            txtDataProducto.ForeColor = Color.Black;
             txtDataProducto.Location = new Point(27, 142);
             txtDataProducto.Name = "txtDataProducto";
             txtDataProducto.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
@@ -156,9 +156,9 @@
             // txtDataEmpleado
             // 
             txtDataEmpleado.BackColor = Color.Transparent;
-            txtDataEmpleado.BannerColor = SystemColors.ActiveCaption;
-            txtDataEmpleado.BorderColor = Color.White;
-            txtDataEmpleado.ForeColor = Color.White;
+            txtDataEmpleado.BannerColor = Color.FromArgb(74, 121, 121);
+            txtDataEmpleado.BorderColor = Color.Black;
+            txtDataEmpleado.ForeColor = Color.Black;
             txtDataEmpleado.Location = new Point(27, 81);
             txtDataEmpleado.Name = "txtDataEmpleado";
             txtDataEmpleado.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
@@ -198,7 +198,6 @@
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series1.Color = Color.DimGray;
-            series1.IsValueShownAsLabel = true;
             series1.Legend = "Legend1";
             series1.Name = "Ventas";
             series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
@@ -260,7 +259,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(21, 25, 31);
+            BackColor = Color.White;
             ClientSize = new Size(935, 501);
             Controls.Add(chartTopUsuario);
             Controls.Add(panel2);

@@ -15,37 +15,24 @@ using ToolTip = System.Windows.Forms.ToolTip;
 
 namespace CapaVista
 {
-    public partial class FormPrincipal : MaterialForm
+    public partial class FormPrincipal : Form
     {
         public Usuario user = null;
-        Boolean Mod;
+
         Form formActivo = null;
         Button botonActivo = null;
         bool EstadoDeBarraVertical = true;
         public FormPrincipal() { }
-        public FormPrincipal(Usuario usuario, Boolean DMod)
+        public FormPrincipal(Usuario usuario)
         {
             InitializeComponent();
             this.user = usuario;
-            cambiarModo(DMod);
-            this.Mod = DMod;
+            reloj.Start();
+            panelVertical_Admin.BackColor = Color.FromArgb(74, 121, 121);
             //datosDeUsuarioActual();
         }
-        private void cambiarModo(bool modoOscuro)
-        {
-            MaterialSkinManager manager;
-            manager = MaterialSkinManager.Instance;
-            manager.AddFormToManage(this);
-            manager.EnforceBackcolorOnAllComponents = true;
-            if (modoOscuro)
-            {
-                manager.Theme = MaterialSkinManager.Themes.DARK;
-            }
-            if (!modoOscuro)
-            {
-                manager.Theme = MaterialSkinManager.Themes.LIGHT;
-            }
-        }
+
+
         private void datosDeUsuarioActual()
         {
             lblUsuario.Text = "USUARIO ACTUAL: " + this.user.usuario;
@@ -63,35 +50,20 @@ namespace CapaVista
             panelContenedor.Controls.Add(form);
             form.Show();
         }
-        public void cyberSwitch2_CheckedChanged()
-        {
 
-            Mod = cambioModo.Checked;
-            if (cambioModo.Checked)
-            {
-                moonPicture.Visible = true;
-                SolPicture.Visible = false;
-            }
-            if (!cambioModo.Checked)
-            {
-                moonPicture.Visible = false;
-                SolPicture.Visible = true;
-            }
-            cambiarModo(Mod);
-        }
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new formUsuarios(Mod));
+            abrirFormulario(new formUsuarios());
         }
 
         private void btnHerramientas_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new FormHerramientas(Mod, user));
+            abrirFormulario(new FormHerramientas(user));
         }
 
         private void btnConfiguraciones_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new formConfiguraciones(Mod));
+            abrirFormulario(new formConfiguraciones());
         }
         private void btnBarraVertical_Button_Click(object sender, EventArgs e)
         {
@@ -115,36 +87,36 @@ namespace CapaVista
 
         private void btnInventory_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new formInventario(Mod));
+            abrirFormulario(new formInventario());
         }
 
         private void btnPlanilla_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new formPlanilla(Mod));
+            abrirFormulario(new formPlanilla());
         }
 
         private void btnInicio_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new FormInicio(Mod, user));
+            abrirFormulario(new FormInicio(user));
         }
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            abrirFormulario(new FormInicio(Mod, user));
+            abrirFormulario(new FormInicio(user));
         }
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new formVentas(Mod, user));
+            abrirFormulario(new formVentas(user));
         }
 
         private void btnContabilidad_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new FormContabilidads(Mod));
+            abrirFormulario(new FormContabilidads());
         }
 
         private void btnCalculos_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new FormInformes(Mod));
+            abrirFormulario(new FormInformes());
         }
         private void btnInicio_MouseEnter(object sender, EventArgs e)
         {
@@ -188,6 +160,12 @@ namespace CapaVista
         {
             ToolTip toolTip = new ToolTip();
             toolTip.SetToolTip(btnInformes, "Calculos");
+        }
+
+        private void reloj_Tick(object sender, EventArgs e)
+        {
+            DateTime dateTime = DateTime.Now;
+            lblReloj.Text = dateTime.ToString();
         }
     }
 }

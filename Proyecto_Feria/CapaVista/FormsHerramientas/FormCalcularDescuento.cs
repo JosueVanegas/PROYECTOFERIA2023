@@ -7,29 +7,10 @@ namespace CapaVista.FormsHerramientas
 {
     public partial class FormCalcularDescuento : MaterialForm
     {
-        public FormCalcularDescuento(Boolean Mod)
+        public FormCalcularDescuento()
         {
             InitializeComponent();
-            MaterialSkinManager manager;
-            manager = MaterialSkinManager.Instance;
-            manager.AddFormToManage(this);
-            manager.EnforceBackcolorOnAllComponents = true;
-            if (Mod)
-            {
-                manager.Theme = MaterialSkinManager.Themes.DARK;
-                manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.WHITE);
-
-
-            }
-            if (!Mod)
-            {
-                {
-                    manager.Theme = MaterialSkinManager.Themes.LIGHT;
-                    manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.BLACK);
-
-                }
-
-            }
+            
 
         }
 

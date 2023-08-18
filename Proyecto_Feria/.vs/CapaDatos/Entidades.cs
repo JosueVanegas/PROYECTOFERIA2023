@@ -146,4 +146,22 @@
         public string nombre { get; set; }
         public int cantidad { get; set; }
     }
+    public class detalleCompra
+    {
+        public int idCompra { get; set; }
+        public int idProducto { get; set; }
+        public string nombre { get; set;}
+        public int cantiad { get; set; }
+        public decimal precio { get; set; }
+        public decimal total { get; set; }
+        public string fechaRegistro { get; set; }
+    }
+    public class compra
+    {
+        public int id { get; set; }
+        public string factura { get; set; }
+        public int idUsuario { get; set; }
+        public decimal total { get; set; }
+        public string fechaRegistro { get; set; }
+    }
 }

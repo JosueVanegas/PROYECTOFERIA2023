@@ -11,27 +11,12 @@ namespace CapaVista
     {
         ControlUsuario controlUsuario = new ControlUsuario();
         bool EmpleadoNulo = false;
-        public formUsuarios(Boolean Mod)
+        public formUsuarios()
         {
             InitializeComponent();
 
-            MaterialSkinManager manager;
-            manager = MaterialSkinManager.Instance;
-            manager.AddFormToManage(this);
-            manager.EnforceBackcolorOnAllComponents = true;
-            if (Mod)
-            {
-                manager.Theme = MaterialSkinManager.Themes.DARK;
-                manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.WHITE);
-                tbUsuarios.BackgroundColor = Color.FromArgb(50, 50, 50);
-            }
-            if (!Mod)
-            {
-                manager.Theme = MaterialSkinManager.Themes.LIGHT;
-                manager.ColorScheme = new MaterialColorScheme(MaterialPrimary.Cyan700, MaterialPrimary.Cyan700, MaterialPrimary.Indigo100, MaterialAccent.Cyan700, MaterialTextShade.BLACK);
-                tbUsuarios.BackgroundColor = Color.White;
-
-            }
+        
+            
 
         }
 

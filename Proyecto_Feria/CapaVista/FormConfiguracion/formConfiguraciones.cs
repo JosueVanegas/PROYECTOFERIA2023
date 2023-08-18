@@ -8,31 +8,16 @@ namespace CapaVista.FormConfiguracion
 {
     public partial class formConfiguraciones : MaterialForm
     {
-        bool Dmod;
-        public formConfiguraciones(bool Mod)
+     
+        public formConfiguraciones()
         {
             InitializeComponent();
-            cambiarModo(Mod);
-            Dmod = Mod;
+          
         }
-        private void cambiarModo(bool modoOscuro)
-        {
-            MaterialSkinManager manager;
-            manager = MaterialSkinManager.Instance;
-            manager.AddFormToManage(this);
-            manager.EnforceBackcolorOnAllComponents = true;
-            if (modoOscuro)
-            {
-                manager.Theme = MaterialSkinManager.Themes.DARK;
-            }
-            if (!modoOscuro)
-            {
-                manager.Theme = MaterialSkinManager.Themes.LIGHT;
-            }
-        }
+       
         private void btnEntidadEmpresa_Click(object sender, EventArgs e)
         {
-            FormaAjustesEntidad form = new FormaAjustesEntidad(Dmod, false);
+            FormaAjustesEntidad form = new FormaAjustesEntidad(false);
             form.ShowDialog();
         }
     }

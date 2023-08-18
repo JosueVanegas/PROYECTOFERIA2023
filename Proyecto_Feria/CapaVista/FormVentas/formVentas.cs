@@ -17,12 +17,9 @@ namespace CapaVista.FormVenta
         ControlVenta controlVenta = new ControlVenta();
         List<Producto> lista = null;
         Usuario user = new Usuario();
-        bool Mod;
-        public formVentas(bool Dmod, Usuario user)
+        public formVentas(Usuario user)
         {
             InitializeComponent();
-            cambiarModo(Dmod);
-            this.Mod = Dmod;
             this.user = user;
         }
         private void limpiarTodo()
@@ -38,21 +35,7 @@ namespace CapaVista.FormVenta
             limpiarEtiquetas();
             mostrarProductosDisponible();
         }
-        private void cambiarModo(bool modoOscuro)
-        {
-            MaterialSkinManager manager;
-            manager = MaterialSkinManager.Instance;
-            manager.AddFormToManage(this);
-            manager.EnforceBackcolorOnAllComponents = true;
-            if (modoOscuro)
-            {
-                manager.Theme = MaterialSkinManager.Themes.DARK;
-            }
-            if (!modoOscuro)
-            {
-                manager.Theme = MaterialSkinManager.Themes.LIGHT;
-            }
-        }
+
         private void formVentas_Load(object sender, EventArgs e)
         {
             mostrarProductosDisponible();
@@ -97,7 +80,7 @@ namespace CapaVista.FormVenta
                     iva = Convert.ToDecimal(txtIva.Text),
                     total = Convert.ToDecimal(txtTotal.Text)
                 };
-                FormPagar form = new FormPagar(user, Mod, resumen, obtenerDetalleDeVenta());
+                FormPagar form = new FormPagar(user, resumen, obtenerDetalleDeVenta());
                 form.ShowDialog();
                 limpiarTodo();
             }
@@ -216,7 +199,7 @@ namespace CapaVista.FormVenta
         {
             var producto = lista.FirstOrDefault(p => p.codigo == codigo);
             if (producto != null)
-            { 
+            {
                 int rowIndex = -1;
                 for (int i = 0; i < tbResumen.Rows.Count; i++)
                 {

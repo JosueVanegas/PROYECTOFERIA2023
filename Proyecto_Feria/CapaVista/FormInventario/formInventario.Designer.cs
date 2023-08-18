@@ -55,8 +55,7 @@
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.ColumnCount = 6;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
+            tableLayoutPanel1.ColumnCount = 5;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
@@ -88,10 +87,10 @@
             btnCompras.Font = new Font("Segoe UI", 12.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnCompras.ForeColor = Color.White;
             btnCompras.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCompras.Location = new Point(157, 2);
+            btnCompras.Location = new Point(188, 2);
             btnCompras.Margin = new Padding(3, 2, 3, 2);
             btnCompras.Name = "btnCompras";
-            btnCompras.Size = new Size(148, 48);
+            btnCompras.Size = new Size(179, 48);
             btnCompras.TabIndex = 12;
             btnCompras.Text = "Compras";
             btnCompras.TextAlign = ContentAlignment.MiddleRight;
@@ -114,10 +113,10 @@
             btnProveedores.ForeColor = Color.White;
             btnProveedores.Image = (Image)resources.GetObject("btnProveedores.Image");
             btnProveedores.ImageAlign = ContentAlignment.MiddleLeft;
-            btnProveedores.Location = new Point(465, 2);
+            btnProveedores.Location = new Point(558, 2);
             btnProveedores.Margin = new Padding(3, 2, 3, 2);
             btnProveedores.Name = "btnProveedores";
-            btnProveedores.Size = new Size(148, 48);
+            btnProveedores.Size = new Size(179, 48);
             btnProveedores.TabIndex = 11;
             btnProveedores.Text = "Proveedores";
             btnProveedores.TextAlign = ContentAlignment.MiddleRight;
@@ -141,10 +140,10 @@
             btnServicios.ForeColor = Color.White;
             btnServicios.Image = (Image)resources.GetObject("btnServicios.Image");
             btnServicios.ImageAlign = ContentAlignment.MiddleLeft;
-            btnServicios.Location = new Point(311, 2);
+            btnServicios.Location = new Point(373, 2);
             btnServicios.Margin = new Padding(3, 2, 3, 2);
             btnServicios.Name = "btnServicios";
-            btnServicios.Size = new Size(148, 48);
+            btnServicios.Size = new Size(179, 48);
             btnServicios.TabIndex = 10;
             btnServicios.Text = "Categorias";
             btnServicios.TextAlign = ContentAlignment.MiddleRight;
@@ -171,7 +170,7 @@
             btnProductos.Location = new Point(3, 2);
             btnProductos.Margin = new Padding(3, 2, 3, 2);
             btnProductos.Name = "btnProductos";
-            btnProductos.Size = new Size(148, 48);
+            btnProductos.Size = new Size(179, 48);
             btnProductos.TabIndex = 9;
             btnProductos.Text = "Productos";
             btnProductos.TextAlign = ContentAlignment.MiddleRight;
@@ -202,9 +201,9 @@
             rjCircularPictureBox1.BorderSize = 2;
             rjCircularPictureBox1.GradientAngle = 50F;
             rjCircularPictureBox1.Image = (Image)resources.GetObject("rjCircularPictureBox1.Image");
-            rjCircularPictureBox1.Location = new Point(3, 3);
+            rjCircularPictureBox1.Location = new Point(274, 35);
             rjCircularPictureBox1.Name = "rjCircularPictureBox1";
-            rjCircularPictureBox1.Size = new Size(181, 181);
+            rjCircularPictureBox1.Size = new Size(392, 392);
             rjCircularPictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             rjCircularPictureBox1.TabIndex = 0;
             rjCircularPictureBox1.TabStop = false;

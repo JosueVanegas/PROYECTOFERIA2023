@@ -56,10 +56,12 @@
             Pais = new DataGridViewTextBoxColumn();
             Ciudad = new DataGridViewTextBoxColumn();
             cbxBuscar = new ReaLTaiizor.Controls.MaterialComboBox();
+            panel2 = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tbProveedores).BeginInit();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -342,11 +344,12 @@
             txtBuscar.BackgroundImageLayout = ImageLayout.None;
             txtBuscar.CharacterCasing = CharacterCasing.Normal;
             txtBuscar.Depth = 0;
+            txtBuscar.Dock = DockStyle.Left;
             txtBuscar.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             txtBuscar.HideSelection = true;
             txtBuscar.Hint = "Buscar";
             txtBuscar.LeadingIcon = null;
-            txtBuscar.Location = new Point(642, 16);
+            txtBuscar.Location = new Point(356, 0);
             txtBuscar.MaxLength = 32767;
             txtBuscar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtBuscar.Name = "txtBuscar";
@@ -367,10 +370,11 @@
             // 
             // lblEncabezado
             // 
+            lblEncabezado.Dock = DockStyle.Left;
             lblEncabezado.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblEncabezado.Location = new Point(321, 15);
+            lblEncabezado.Location = new Point(0, 0);
             lblEncabezado.Name = "lblEncabezado";
-            lblEncabezado.Size = new Size(181, 48);
+            lblEncabezado.Size = new Size(228, 54);
             lblEncabezado.TabIndex = 22;
             lblEncabezado.Text = "Proveedores registrados";
             lblEncabezado.TextAlign = ContentAlignment.MiddleLeft;
@@ -381,6 +385,7 @@
             tbProveedores.AllowUserToOrderColumns = true;
             tbProveedores.AllowUserToResizeColumns = false;
             tbProveedores.AllowUserToResizeRows = false;
+            tbProveedores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tbProveedores.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             tbProveedores.BackgroundColor = Color.FromArgb(50, 50, 50);
             tbProveedores.BorderStyle = BorderStyle.None;
@@ -404,10 +409,11 @@
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             tbProveedores.DefaultCellStyle = dataGridViewCellStyle2;
+            tbProveedores.Dock = DockStyle.Fill;
             tbProveedores.EnableHeadersVisualStyles = false;
             tbProveedores.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbProveedores.GridColor = Color.FromArgb(255, 255, 255);
-            tbProveedores.Location = new Point(321, 70);
+            tbProveedores.Location = new Point(294, 54);
             tbProveedores.Name = "tbProveedores";
             tbProveedores.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -423,7 +429,7 @@
             tbProveedores.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tbProveedores.RowTemplate.Height = 30;
             tbProveedores.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tbProveedores.Size = new Size(650, 405);
+            tbProveedores.Size = new Size(680, 435);
             tbProveedores.TabIndex = 21;
             tbProveedores.CellContentClick += tbProveedores_CellContentClick;
             tbProveedores.CellPainting += tbProveedores_CellPainting;
@@ -432,13 +438,11 @@
             // 
             btnEditar.HeaderText = "Editar";
             btnEditar.Name = "btnEditar";
-            btnEditar.Width = 50;
             // 
             // btnBorrar
             // 
             btnBorrar.HeaderText = "Eliminar";
             btnBorrar.Name = "btnBorrar";
-            btnBorrar.Width = 50;
             // 
             // Id
             // 
@@ -452,7 +456,6 @@
             Empresa.HeaderText = "Empresa";
             Empresa.Name = "Empresa";
             Empresa.ReadOnly = true;
-            Empresa.Width = 150;
             // 
             // Contacto
             // 
@@ -463,7 +466,6 @@
             // 
             Numero.HeaderText = "Numero Telefonico";
             Numero.Name = "Numero";
-            Numero.Width = 150;
             // 
             // Pais
             // 
@@ -477,10 +479,10 @@
             // 
             // cbxBuscar
             // 
-            cbxBuscar.Anchor = AnchorStyles.Left;
             cbxBuscar.AutoResize = false;
             cbxBuscar.BackColor = Color.FromArgb(255, 255, 255);
             cbxBuscar.Depth = 0;
+            cbxBuscar.Dock = DockStyle.Left;
             cbxBuscar.DrawMode = DrawMode.OwnerDrawVariable;
             cbxBuscar.DropDownHeight = 174;
             cbxBuscar.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -491,7 +493,7 @@
             cbxBuscar.Hint = "buscar por";
             cbxBuscar.IntegralHeight = false;
             cbxBuscar.ItemHeight = 43;
-            cbxBuscar.Location = new Point(508, 16);
+            cbxBuscar.Location = new Point(228, 0);
             cbxBuscar.MaxDropDownItems = 4;
             cbxBuscar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbxBuscar.Name = "cbxBuscar";
@@ -499,15 +501,24 @@
             cbxBuscar.StartIndex = 0;
             cbxBuscar.TabIndex = 27;
             // 
+            // panel2
+            // 
+            panel2.Controls.Add(txtBuscar);
+            panel2.Controls.Add(cbxBuscar);
+            panel2.Controls.Add(lblEncabezado);
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(294, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(680, 54);
+            panel2.TabIndex = 28;
+            // 
             // formProveedor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(977, 492);
-            Controls.Add(cbxBuscar);
-            Controls.Add(txtBuscar);
-            Controls.Add(lblEncabezado);
             Controls.Add(tbProveedores);
+            Controls.Add(panel2);
             Controls.Add(panel1);
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
             Name = "formProveedor";
@@ -518,6 +529,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)tbProveedores).EndInit();
+            panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -547,5 +559,6 @@
         private DataGridViewTextBoxColumn Ciudad;
         private RJCodeAdvance.RJControls.RJButton btnLimpiar;
         private ReaLTaiizor.Controls.MaterialComboBox cbxBuscar;
+        private Panel panel2;
     }
 }

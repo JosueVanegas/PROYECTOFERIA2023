@@ -9,12 +9,11 @@ namespace CapaVista.FormsHerramientas
 {
     public partial class FormHerramientas : MaterialForm
     {
-        bool Mod;
-        public FormHerramientas(Boolean Dmod, Usuario Rol)
+       
+        public FormHerramientas( Usuario Rol)
         {
             InitializeComponent();
-            Mod = Dmod;
-            cambiarModo(Dmod);
+            
             btnbitacora.Visible = true;
             btnCalculadoraBasica.Visible = true;
             btnCalcularDescuento.Visible = true;
@@ -73,13 +72,13 @@ namespace CapaVista.FormsHerramientas
 
         private void btnCalculadoraBasica_Click(object sender, EventArgs e)
         {
-            FormCalculadoraBasica Ca = new FormCalculadoraBasica(Mod);
+            FormCalculadoraBasica Ca = new FormCalculadoraBasica();
             Ca.ShowDialog();
         }
 
         private void btnCalcularDescuento_Click(object sender, EventArgs e)
         {
-            FormCalcularDescuento Ca = new FormCalcularDescuento(Mod);
+            FormCalcularDescuento Ca = new FormCalcularDescuento();
             Ca.ShowDialog();
         }
 
