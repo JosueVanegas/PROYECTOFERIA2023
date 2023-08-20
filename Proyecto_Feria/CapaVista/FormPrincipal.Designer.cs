@@ -297,7 +297,7 @@ namespace CapaVista
             // 
             // panelVertical_Admin
             // 
-            panelVertical_Admin.BackColor = Color.DarkTurquoise;
+            panelVertical_Admin.BackColor = Color.FromArgb(74, 121, 121);
             panelVertical_Admin.ColumnCount = 1;
             panelVertical_Admin.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 98.0392151F));
             panelVertical_Admin.Controls.Add(btnBarraVertical, 0, 1);

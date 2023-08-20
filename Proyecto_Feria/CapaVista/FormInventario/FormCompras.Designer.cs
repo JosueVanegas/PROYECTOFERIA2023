@@ -145,8 +145,8 @@ namespace CapaVista.FormInventario
             // 
             // btnBuscarProducto
             // 
-            btnBuscarProducto.BackColor = Color.FromArgb(63, 63, 70);
-            btnBuscarProducto.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnBuscarProducto.BackColor = Color.FromArgb(74, 121, 121);
+            btnBuscarProducto.BackgroundColor = Color.FromArgb(74, 121, 121);
             btnBuscarProducto.BackgroundImageLayout = ImageLayout.Center;
             btnBuscarProducto.BorderColor = Color.PaleVioletRed;
             btnBuscarProducto.BorderRadius = 10;
@@ -169,8 +169,8 @@ namespace CapaVista.FormInventario
             // 
             // btnAgregarProducto
             // 
-            btnAgregarProducto.BackColor = Color.FromArgb(63, 63, 70);
-            btnAgregarProducto.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnAgregarProducto.BackColor = Color.FromArgb(74, 121, 121);
+            btnAgregarProducto.BackgroundColor = Color.FromArgb(74, 121, 121);
             btnAgregarProducto.BackgroundImageLayout = ImageLayout.Center;
             btnAgregarProducto.BorderColor = Color.PaleVioletRed;
             btnAgregarProducto.BorderRadius = 10;
@@ -230,7 +230,7 @@ namespace CapaVista.FormInventario
             tbDetalles.AllowUserToResizeRows = false;
             tbDetalles.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tbDetalles.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            tbDetalles.BackgroundColor = Color.FromArgb(50, 50, 50);
+            tbDetalles.BackgroundColor = Color.White;
             tbDetalles.BorderStyle = BorderStyle.None;
             tbDetalles.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             tbDetalles.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
@@ -347,8 +347,8 @@ namespace CapaVista.FormInventario
             // btnLimpiar
             // 
             btnLimpiar.Anchor = AnchorStyles.Left;
-            btnLimpiar.BackColor = Color.FromArgb(63, 63, 70);
-            btnLimpiar.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnLimpiar.BackColor = Color.FromArgb(74, 121, 121);
+            btnLimpiar.BackgroundColor = Color.FromArgb(74, 121, 121);
             btnLimpiar.BackgroundImage = (Image)resources.GetObject("btnLimpiar.BackgroundImage");
             btnLimpiar.BackgroundImageLayout = ImageLayout.Center;
             btnLimpiar.BorderColor = Color.PaleVioletRed;
@@ -371,8 +371,8 @@ namespace CapaVista.FormInventario
             // rjButton1
             // 
             rjButton1.Anchor = AnchorStyles.Left;
-            rjButton1.BackColor = Color.FromArgb(63, 63, 70);
-            rjButton1.BackgroundColor = Color.FromArgb(63, 63, 70);
+            rjButton1.BackColor = Color.FromArgb(74, 121, 121);
+            rjButton1.BackgroundColor = Color.FromArgb(74, 121, 121);
             rjButton1.BackgroundImage = (Image)resources.GetObject("rjButton1.BackgroundImage");
             rjButton1.BackgroundImageLayout = ImageLayout.Center;
             rjButton1.BorderColor = Color.PaleVioletRed;
@@ -677,7 +677,7 @@ namespace CapaVista.FormInventario
             tbBusqueda.AllowUserToOrderColumns = true;
             tbBusqueda.AllowUserToResizeRows = false;
             tbBusqueda.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            tbBusqueda.BackgroundColor = Color.FromArgb(63, 63, 63);
+            tbBusqueda.BackgroundColor = Color.White;
             tbBusqueda.BorderStyle = BorderStyle.None;
             tbBusqueda.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             tbBusqueda.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;

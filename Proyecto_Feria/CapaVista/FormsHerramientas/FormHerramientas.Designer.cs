@@ -88,8 +88,8 @@
             // 
             // btnCalculadoraBasica
             // 
-            btnCalculadoraBasica.BackColor = Color.FromArgb(63, 63, 70);
-            btnCalculadoraBasica.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnCalculadoraBasica.BackColor = Color.FromArgb(74, 121, 121);
+            btnCalculadoraBasica.BackgroundColor = Color.FromArgb(74, 121, 121);
             btnCalculadoraBasica.BackgroundImage = (Image)resources.GetObject("btnCalculadoraBasica.BackgroundImage");
             btnCalculadoraBasica.BackgroundImageLayout = ImageLayout.Center;
             btnCalculadoraBasica.BorderColor = Color.PaleVioletRed;
@@ -113,8 +113,8 @@
             // 
             // btnCalcularDescuento
             // 
-            btnCalcularDescuento.BackColor = Color.FromArgb(63, 63, 70);
-            btnCalcularDescuento.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnCalcularDescuento.BackColor = Color.FromArgb(74, 121, 121);
+            btnCalcularDescuento.BackgroundColor = Color.FromArgb(74, 121, 121);
             btnCalcularDescuento.BackgroundImage = (Image)resources.GetObject("btnCalcularDescuento.BackgroundImage");
             btnCalcularDescuento.BackgroundImageLayout = ImageLayout.Center;
             btnCalcularDescuento.BorderColor = Color.PaleVioletRed;
@@ -138,8 +138,8 @@
             // 
             // btnIR
             // 
-            btnIR.BackColor = Color.FromArgb(63, 63, 70);
-            btnIR.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnIR.BackColor = Color.FromArgb(74, 121, 121);
+            btnIR.BackgroundColor = Color.FromArgb(74, 121, 121);
             btnIR.BackgroundImage = (Image)resources.GetObject("btnIR.BackgroundImage");
             btnIR.BackgroundImageLayout = ImageLayout.Center;
             btnIR.BorderColor = Color.PaleVioletRed;
@@ -162,8 +162,8 @@
             // 
             // btnbitacora
             // 
-            btnbitacora.BackColor = Color.FromArgb(63, 63, 70);
-            btnbitacora.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnbitacora.BackColor = Color.FromArgb(74, 121, 121);
+            btnbitacora.BackgroundColor = Color.FromArgb(74, 121, 121);
             btnbitacora.BackgroundImage = (Image)resources.GetObject("btnbitacora.BackgroundImage");
             btnbitacora.BackgroundImageLayout = ImageLayout.Center;
             btnbitacora.BorderColor = Color.PaleVioletRed;
@@ -186,8 +186,8 @@
             // 
             // btnCalcularNomina
             // 
-            btnCalcularNomina.BackColor = Color.FromArgb(63, 63, 70);
-            btnCalcularNomina.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnCalcularNomina.BackColor = Color.FromArgb(74, 121, 121);
+            btnCalcularNomina.BackgroundColor = Color.FromArgb(74, 121, 121);
             btnCalcularNomina.BackgroundImage = (Image)resources.GetObject("btnCalcularNomina.BackgroundImage");
             btnCalcularNomina.BackgroundImageLayout = ImageLayout.Center;
             btnCalcularNomina.BorderColor = Color.PaleVioletRed;
@@ -210,8 +210,8 @@
             // 
             // btnGenerarCodigoBarra
             // 
-            btnGenerarCodigoBarra.BackColor = Color.FromArgb(63, 63, 70);
-            btnGenerarCodigoBarra.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnGenerarCodigoBarra.BackColor = Color.FromArgb(74, 121, 121);
+            btnGenerarCodigoBarra.BackgroundColor = Color.FromArgb(74, 121, 121);
             btnGenerarCodigoBarra.BackgroundImage = (Image)resources.GetObject("btnGenerarCodigoBarra.BackgroundImage");
             btnGenerarCodigoBarra.BackgroundImageLayout = ImageLayout.Center;
             btnGenerarCodigoBarra.BorderColor = Color.PaleVioletRed;

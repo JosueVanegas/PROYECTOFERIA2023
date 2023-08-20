@@ -55,6 +55,7 @@
             // 
             // tableLayoutPanel1
             // 
+            tableLayoutPanel1.BackColor = Color.FromArgb(74, 121, 121);
             tableLayoutPanel1.ColumnCount = 5;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
@@ -86,6 +87,7 @@
             btnCompras.FlatStyle = FlatStyle.Flat;
             btnCompras.Font = new Font("Segoe UI", 12.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnCompras.ForeColor = Color.White;
+            btnCompras.Image = (Image)resources.GetObject("btnCompras.Image");
             btnCompras.ImageAlign = ContentAlignment.MiddleLeft;
             btnCompras.Location = new Point(188, 2);
             btnCompras.Margin = new Padding(3, 2, 3, 2);
@@ -181,7 +183,7 @@
             // 
             // panelContenedor
             // 
-            panelContenedor.BackColor = Color.FromArgb(21, 25, 31);
+            panelContenedor.BackColor = Color.FromArgb(74, 121, 121);
             panelContenedor.Controls.Add(rjCircularPictureBox1);
             panelContenedor.Dock = DockStyle.Fill;
             panelContenedor.Location = new Point(3, 52);

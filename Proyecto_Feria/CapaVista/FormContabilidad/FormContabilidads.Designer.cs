@@ -37,8 +37,8 @@
             // 
             // tableLayoutPanel3
             // 
-            tableLayoutPanel3.ColumnCount = 6;
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
+            tableLayoutPanel3.BackColor = Color.FromArgb(74, 121, 121);
+            tableLayoutPanel3.ColumnCount = 5;
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
@@ -71,7 +71,7 @@
             btnContabilidad.Location = new Point(3, 2);
             btnContabilidad.Margin = new Padding(3, 2, 3, 2);
             btnContabilidad.Name = "btnContabilidad";
-            btnContabilidad.Size = new Size(148, 48);
+            btnContabilidad.Size = new Size(179, 48);
             btnContabilidad.TabIndex = 9;
             btnContabilidad.Text = "Contabilidad";
             btnContabilidad.TextAlign = ContentAlignment.MiddleRight;
@@ -80,7 +80,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(21, 25, 31);
+            panel1.BackColor = Color.FromArgb(74, 121, 121);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(3, 52);
             panel1.Margin = new Padding(3, 2, 3, 2);

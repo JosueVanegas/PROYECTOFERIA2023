@@ -387,7 +387,7 @@
             tbProveedores.AllowUserToResizeRows = false;
             tbProveedores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tbProveedores.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            tbProveedores.BackgroundColor = Color.FromArgb(50, 50, 50);
+            tbProveedores.BackgroundColor = Color.White;
             tbProveedores.BorderStyle = BorderStyle.None;
             tbProveedores.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             tbProveedores.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;

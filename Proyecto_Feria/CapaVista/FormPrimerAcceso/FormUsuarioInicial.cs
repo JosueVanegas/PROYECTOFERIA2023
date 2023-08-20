@@ -1,7 +1,4 @@
-﻿using ReaLTaiizor.Colors;
-using ReaLTaiizor.Forms;
-using ReaLTaiizor.Manager;
-using ReaLTaiizor.Util;
+﻿using ReaLTaiizor.Forms;
 
 namespace CapaVista.FormPrimerAcceso
 {
@@ -10,7 +7,7 @@ namespace CapaVista.FormPrimerAcceso
         public FormUsuarioInicial()
         {
             InitializeComponent();
-            
+
         }
         private void ckbVerContraseña_CheckedChanged(object sender)
         {

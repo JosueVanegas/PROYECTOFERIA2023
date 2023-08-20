@@ -1,7 +1,4 @@
-﻿using ReaLTaiizor.Colors;
-using ReaLTaiizor.Forms;
-using ReaLTaiizor.Manager;
-using ReaLTaiizor.Util;
+﻿using ReaLTaiizor.Forms;
 
 namespace CapaVista.FormContabilidad
 {
@@ -10,7 +7,7 @@ namespace CapaVista.FormContabilidad
         public FormContabilidads()
         {
             InitializeComponent();
-            
+
         }
     }
 }

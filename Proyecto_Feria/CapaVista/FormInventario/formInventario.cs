@@ -1,9 +1,5 @@
-﻿using CapaVista.FormConfiguracion;
-using CapaVista.FormInventario;
-using ReaLTaiizor.Colors;
+﻿using CapaVista.FormInventario;
 using ReaLTaiizor.Forms;
-using ReaLTaiizor.Manager;
-using ReaLTaiizor.Util;
 
 namespace CapaVista
 {

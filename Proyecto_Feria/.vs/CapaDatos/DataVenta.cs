@@ -1,9 +1,4 @@
 ﻿using Microsoft.Data.SqlClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CapaDatos
 {
@@ -13,15 +8,15 @@ namespace CapaDatos
         public string noFactura = string.Empty;
         public DataVenta() { }
 
-        public string procesoDeVenta(infoVenta v,List<DetalleVenta> detalles)
+        public string procesoDeVenta(infoVenta v, List<DetalleVenta> detalles)
         {
             string mensaje = "";
             try
             {
                 int id = registrarVenta(v);
-                if(id > 0)
+                if (id > 0)
                 {
-                    foreach(DetalleVenta d in detalles)
+                    foreach (DetalleVenta d in detalles)
                     {
                         registrarDetalleVenta(d, id);
                     }
@@ -31,7 +26,8 @@ namespace CapaDatos
                 {
                     mensaje = "NO se ha podido realizar el registro de la venta";
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 mensaje = ex.Message;
             }
@@ -56,20 +52,20 @@ namespace CapaDatos
                         cmd.Parameters.AddWithValue("@IVA", v.IVA);
                         cmd.Parameters.AddWithValue("@TOTAL", v.TOTAL);
                         cmd.Parameters.Add("ID_CREADO", System.Data.SqlDbType.Int).Direction = System.Data.ParameterDirection.Output;
-                        cmd.Parameters.Add("FACTURA", System.Data.SqlDbType.VarChar,30).Direction = System.Data.ParameterDirection.Output;
+                        cmd.Parameters.Add("FACTURA", System.Data.SqlDbType.VarChar, 30).Direction = System.Data.ParameterDirection.Output;
                         cmd.ExecuteNonQuery();
                         idCreado = (int)cmd.Parameters["ID_CREADO"].Value;
                         noFactura = cmd.Parameters["FACTURA"].Value.ToString();
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 idCreado = 0;
             }
             return idCreado;
         }
-        public void registrarDetalleVenta(DetalleVenta d ,int id)
+        public void registrarDetalleVenta(DetalleVenta d, int id)
         {
             try
             {
@@ -80,7 +76,7 @@ namespace CapaDatos
                         con.Open();
                         cmd.CommandType = System.Data.CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@ID_VENTA", id);
-                        cmd.Parameters.AddWithValue("@ID_PRODUCTO",d.ID_PRODUCTO);
+                        cmd.Parameters.AddWithValue("@ID_PRODUCTO", d.ID_PRODUCTO);
                         cmd.Parameters.AddWithValue("@CANTIDAD", d.CANTIDAD);
                         cmd.Parameters.AddWithValue("@SUBTOTAL", d.SUBTOTAL);
                         cmd.ExecuteNonQuery();
@@ -91,7 +87,7 @@ namespace CapaDatos
             {
             }
         }
-        
-      
+
+
     }
 }

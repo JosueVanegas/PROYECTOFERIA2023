@@ -46,8 +46,8 @@
             cbxEstado = new ReaLTaiizor.Controls.MaterialComboBox();
             LblInf = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
-            btnGuardar = new RJCodeAdvance.RJControls.RJButton();
             btnLimpiar = new RJCodeAdvance.RJControls.RJButton();
+            btnGuardar = new RJCodeAdvance.RJControls.RJButton();
             txtBuscar = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             lblEncabezado = new Label();
             panel2 = new Panel();
@@ -218,9 +218,9 @@
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006237F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006275F));
-            tableLayoutPanel1.Controls.Add(btnGuardar, 0, 0);
             tableLayoutPanel1.Controls.Add(btnLimpiar, 1, 0);
-            tableLayoutPanel1.Location = new Point(73, 187);
+            tableLayoutPanel1.Controls.Add(btnGuardar, 0, 0);
+            tableLayoutPanel1.Location = new Point(73, 195);
             tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
@@ -228,37 +228,11 @@
             tableLayoutPanel1.Size = new Size(160, 80);
             tableLayoutPanel1.TabIndex = 31;
             // 
-            // btnGuardar
-            // 
-            btnGuardar.Anchor = AnchorStyles.Left;
-            btnGuardar.BackColor = Color.FromArgb(63, 63, 70);
-            btnGuardar.BackgroundColor = Color.FromArgb(63, 63, 70);
-            btnGuardar.BackgroundImage = (Image)resources.GetObject("btnGuardar.BackgroundImage");
-            btnGuardar.BackgroundImageLayout = ImageLayout.Center;
-            btnGuardar.BorderColor = Color.PaleVioletRed;
-            btnGuardar.BorderRadius = 10;
-            btnGuardar.BorderSize = 0;
-            btnGuardar.FlatAppearance.BorderSize = 0;
-            btnGuardar.FlatStyle = FlatStyle.Flat;
-            btnGuardar.ForeColor = Color.White;
-            btnGuardar.ImageAlign = ContentAlignment.MiddleRight;
-            btnGuardar.Location = new Point(3, 2);
-            btnGuardar.Margin = new Padding(3, 2, 3, 2);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(71, 76);
-            btnGuardar.TabIndex = 11;
-            btnGuardar.Text = "Guardar";
-            btnGuardar.TextAlign = ContentAlignment.BottomCenter;
-            btnGuardar.TextColor = Color.White;
-            btnGuardar.UseVisualStyleBackColor = false;
-            btnGuardar.Click += btnGuardar_Click;
-            btnGuardar.MouseHover += btnGuardar_MouseHover;
-            // 
             // btnLimpiar
             // 
             btnLimpiar.Anchor = AnchorStyles.Left;
-            btnLimpiar.BackColor = Color.FromArgb(63, 63, 70);
-            btnLimpiar.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnLimpiar.BackColor = Color.FromArgb(74, 121, 121);
+            btnLimpiar.BackgroundColor = Color.FromArgb(74, 121, 121);
             btnLimpiar.BackgroundImage = (Image)resources.GetObject("btnLimpiar.BackgroundImage");
             btnLimpiar.BackgroundImageLayout = ImageLayout.Center;
             btnLimpiar.BorderColor = Color.PaleVioletRed;
@@ -279,6 +253,32 @@
             btnLimpiar.UseVisualStyleBackColor = false;
             btnLimpiar.Click += btnLimpiar_Click;
             btnLimpiar.MouseHover += btnLimpiar_MouseHover;
+            // 
+            // btnGuardar
+            // 
+            btnGuardar.Anchor = AnchorStyles.Left;
+            btnGuardar.BackColor = Color.FromArgb(74, 121, 121);
+            btnGuardar.BackgroundColor = Color.FromArgb(74, 121, 121);
+            btnGuardar.BackgroundImage = (Image)resources.GetObject("btnGuardar.BackgroundImage");
+            btnGuardar.BackgroundImageLayout = ImageLayout.Center;
+            btnGuardar.BorderColor = Color.PaleVioletRed;
+            btnGuardar.BorderRadius = 10;
+            btnGuardar.BorderSize = 0;
+            btnGuardar.FlatAppearance.BorderSize = 0;
+            btnGuardar.FlatStyle = FlatStyle.Flat;
+            btnGuardar.ForeColor = Color.White;
+            btnGuardar.ImageAlign = ContentAlignment.MiddleRight;
+            btnGuardar.Location = new Point(3, 2);
+            btnGuardar.Margin = new Padding(3, 2, 3, 2);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(71, 76);
+            btnGuardar.TabIndex = 11;
+            btnGuardar.Text = "Guardar";
+            btnGuardar.TextAlign = ContentAlignment.BottomCenter;
+            btnGuardar.TextColor = Color.White;
+            btnGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.Click += btnGuardar_Click;
+            btnGuardar.MouseHover += btnGuardar_MouseHover;
             // 
             // txtBuscar
             // 
@@ -774,7 +774,7 @@
             tbCategorias.AllowUserToResizeRows = false;
             tbCategorias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tbCategorias.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            tbCategorias.BackgroundColor = Color.FromArgb(50, 50, 50);
+            tbCategorias.BackgroundColor = Color.White;
             tbCategorias.BorderStyle = BorderStyle.None;
             tbCategorias.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             tbCategorias.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;

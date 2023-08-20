@@ -9,7 +9,7 @@ namespace CapaControlador
         {
             return dash.cantidadDeObjetosEnTabla(tabla);
         }
-         public List<productosMasVendidos> productosTop()
+        public List<productosMasVendidos> productosTop()
         {
             return dash.topProductos();
         }

@@ -165,8 +165,8 @@
             // 
             // btnCalcular
             // 
-            btnCalcular.BackColor = Color.FromArgb(63, 63, 70);
-            btnCalcular.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnCalcular.BackColor = Color.DarkSlateGray;
+            btnCalcular.BackgroundColor = Color.DarkSlateGray;
             btnCalcular.BackgroundImageLayout = ImageLayout.Center;
             btnCalcular.BorderColor = Color.PaleVioletRed;
             btnCalcular.BorderRadius = 20;
@@ -187,7 +187,7 @@
             btnCalcular.UseVisualStyleBackColor = false;
             btnCalcular.Click += btnCalcularDescuento_Click;
             // 
-            // CalcularDescuento
+            // FormCalcularDescuento
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -203,7 +203,7 @@
             MdiChildrenMinimizedAnchorBottom = false;
             MinimizeBox = false;
             MinimumSize = new Size(347, 380);
-            Name = "CalcularDescuento";
+            Name = "FormCalcularDescuento";
             Padding = new Padding(3, 24, 3, 3);
             ShowIcon = false;
             ShowInTaskbar = false;

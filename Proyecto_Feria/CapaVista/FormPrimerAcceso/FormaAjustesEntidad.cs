@@ -1,8 +1,4 @@
-﻿using CapaVista.FormConfiguracion;
-using ReaLTaiizor.Colors;
-using ReaLTaiizor.Forms;
-using ReaLTaiizor.Manager;
-using ReaLTaiizor.Util;
+﻿using ReaLTaiizor.Forms;
 using System.Text.RegularExpressions;
 
 namespace CapaVista.FormPrimerAcceso
@@ -10,11 +6,11 @@ namespace CapaVista.FormPrimerAcceso
     public partial class FormaAjustesEntidad : MaterialForm
     {
         bool Acceso = true;
-   
+
         public FormaAjustesEntidad(Boolean Acceso)
         {
             InitializeComponent();
-            
+
             EstadoDeLaEntidad(this.Acceso);
         }
         public Boolean EstadoDeLaEntidad(Boolean Acceso)

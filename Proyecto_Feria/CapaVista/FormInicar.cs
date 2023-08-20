@@ -1,8 +1,4 @@
-﻿using CapaVista.FormConfiguracion;
-using ReaLTaiizor.Colors;
-using ReaLTaiizor.Forms;
-using ReaLTaiizor.Manager;
-using ReaLTaiizor.Util;
+﻿using ReaLTaiizor.Forms;
 
 namespace CapaVista.FormPrimerAcceso
 {
@@ -10,15 +6,15 @@ namespace CapaVista.FormPrimerAcceso
     {
         private System.Windows.Forms.Timer timer;
         private int secondsElapsed = 0;
-       
+
         public FormInicar()
         {
 
             InitializeComponent();
             InitializeTimer();
-            
+
         }
-      
+
         private void InitializeTimer()
         {
             timer = new System.Windows.Forms.Timer();

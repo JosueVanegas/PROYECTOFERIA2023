@@ -1,16 +1,10 @@
-﻿
-using CapaControlador;
-using CapaDatos;
+﻿using CapaDatos;
 using CapaPresentacion.FormInformes;
 using CapaVista.FormConfiguracion;
 using CapaVista.FormContabilidad;
 using CapaVista.FormPlanilla;
 using CapaVista.FormsHerramientas;
 using CapaVista.FormVenta;
-using ReaLTaiizor.Colors;
-using ReaLTaiizor.Forms;
-using ReaLTaiizor.Manager;
-using ReaLTaiizor.Util;
 using ToolTip = System.Windows.Forms.ToolTip;
 
 namespace CapaVista

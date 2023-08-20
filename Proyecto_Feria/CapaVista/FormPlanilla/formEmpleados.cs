@@ -1,7 +1,4 @@
-﻿using ReaLTaiizor.Colors;
-using ReaLTaiizor.Forms;
-using ReaLTaiizor.Manager;
-using ReaLTaiizor.Util;
+﻿using ReaLTaiizor.Forms;
 using System.Text.RegularExpressions;
 
 namespace CapaVista
@@ -13,7 +10,7 @@ namespace CapaVista
         public formEmpleados()
         {
             InitializeComponent();
-            
+
         }
 
 

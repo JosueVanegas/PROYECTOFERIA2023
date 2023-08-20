@@ -75,7 +75,7 @@ namespace CapaVista
             tbUsuarios.AllowUserToResizeRows = false;
             tbUsuarios.Anchor = AnchorStyles.Left;
             tbUsuarios.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            tbUsuarios.BackgroundColor = Color.FromArgb(50, 50, 50);
+            tbUsuarios.BackgroundColor = Color.White;
             tbUsuarios.BorderStyle = BorderStyle.None;
             tbUsuarios.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             tbUsuarios.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
@@ -97,6 +97,7 @@ namespace CapaVista
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             tbUsuarios.DefaultCellStyle = dataGridViewCellStyle2;
+            tbUsuarios.EditMode = DataGridViewEditMode.EditProgrammatically;
             tbUsuarios.EnableHeadersVisualStyles = false;
             tbUsuarios.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbUsuarios.GridColor = Color.Gray;
@@ -274,8 +275,8 @@ namespace CapaVista
             // rjButton2
             // 
             rjButton2.Anchor = AnchorStyles.Left;
-            rjButton2.BackColor = Color.FromArgb(63, 63, 70);
-            rjButton2.BackgroundColor = Color.FromArgb(63, 63, 70);
+            rjButton2.BackColor = Color.FromArgb(74, 121, 121);
+            rjButton2.BackgroundColor = Color.FromArgb(74, 121, 121);
             rjButton2.BackgroundImage = (Image)resources.GetObject("rjButton2.BackgroundImage");
             rjButton2.BackgroundImageLayout = ImageLayout.Center;
             rjButton2.BorderColor = Color.PaleVioletRed;
@@ -299,8 +300,8 @@ namespace CapaVista
             // btnGuardar
             // 
             btnGuardar.Anchor = AnchorStyles.Left;
-            btnGuardar.BackColor = Color.FromArgb(63, 63, 70);
-            btnGuardar.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnGuardar.BackColor = Color.FromArgb(74, 121, 121);
+            btnGuardar.BackgroundColor = Color.FromArgb(74, 121, 121);
             btnGuardar.BackgroundImage = (Image)resources.GetObject("btnGuardar.BackgroundImage");
             btnGuardar.BackgroundImageLayout = ImageLayout.Center;
             btnGuardar.BorderColor = Color.PaleVioletRed;

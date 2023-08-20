@@ -1,7 +1,4 @@
-﻿using ReaLTaiizor.Colors;
-using ReaLTaiizor.Forms;
-using ReaLTaiizor.Manager;
-using ReaLTaiizor.Util;
+﻿using ReaLTaiizor.Forms;
 
 namespace CapaVista.FormsHerramientas
 {
@@ -10,7 +7,7 @@ namespace CapaVista.FormsHerramientas
         public FormCalcularDescuento()
         {
             InitializeComponent();
-            
+
 
         }
 

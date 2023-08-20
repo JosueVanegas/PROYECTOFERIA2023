@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPagar));
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panel1 = new Panel();
+            txtTotalFinal = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtDescuento = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtCambioDeCompra = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             pictureBox1 = new PictureBox();
@@ -56,7 +57,6 @@
             Nombre = new DataGridViewTextBoxColumn();
             panel2 = new Panel();
             pdImprimir = new System.Drawing.Printing.PrintDocument();
-            txtTotalFinal = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panelBusqueda.SuspendLayout();
@@ -79,6 +79,38 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(269, 487);
             panel1.TabIndex = 54;
+            // 
+            // txtTotalFinal
+            // 
+            txtTotalFinal.AnimateReadOnly = true;
+            txtTotalFinal.AutoCompleteMode = AutoCompleteMode.None;
+            txtTotalFinal.AutoCompleteSource = AutoCompleteSource.None;
+            txtTotalFinal.BackgroundImageLayout = ImageLayout.None;
+            txtTotalFinal.CharacterCasing = CharacterCasing.Normal;
+            txtTotalFinal.Depth = 0;
+            txtTotalFinal.Enabled = false;
+            txtTotalFinal.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTotalFinal.HideSelection = true;
+            txtTotalFinal.Hint = "total a pagar";
+            txtTotalFinal.LeadingIcon = null;
+            txtTotalFinal.Location = new Point(32, 375);
+            txtTotalFinal.MaxLength = 32767;
+            txtTotalFinal.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtTotalFinal.Name = "txtTotalFinal";
+            txtTotalFinal.PasswordChar = '\0';
+            txtTotalFinal.PrefixSuffixText = null;
+            txtTotalFinal.ReadOnly = true;
+            txtTotalFinal.RightToLeft = RightToLeft.No;
+            txtTotalFinal.SelectedText = "";
+            txtTotalFinal.SelectionLength = 0;
+            txtTotalFinal.SelectionStart = 0;
+            txtTotalFinal.ShortcutsEnabled = true;
+            txtTotalFinal.Size = new Size(205, 48);
+            txtTotalFinal.TabIndex = 65;
+            txtTotalFinal.TabStop = false;
+            txtTotalFinal.TextAlign = HorizontalAlignment.Center;
+            txtTotalFinal.TrailingIcon = null;
+            txtTotalFinal.UseSystemPasswordChar = false;
             // 
             // txtDescuento
             // 
@@ -275,7 +307,7 @@
             txtCliente.HideSelection = true;
             txtCliente.Hint = "Cliente:";
             txtCliente.LeadingIcon = null;
-            txtCliente.Location = new Point(6, 45);
+            txtCliente.Location = new Point(12, 82);
             txtCliente.MaxLength = 32767;
             txtCliente.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtCliente.Name = "txtCliente";
@@ -287,7 +319,7 @@
             txtCliente.SelectionLength = 0;
             txtCliente.SelectionStart = 0;
             txtCliente.ShortcutsEnabled = true;
-            txtCliente.Size = new Size(294, 48);
+            txtCliente.Size = new Size(280, 48);
             txtCliente.TabIndex = 50;
             txtCliente.TabStop = false;
             txtCliente.TextAlign = HorizontalAlignment.Center;
@@ -300,14 +332,14 @@
             ckbClienteComun.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             ckbClienteComun.Depth = 0;
             ckbClienteComun.ImageAlign = ContentAlignment.BottomCenter;
-            ckbClienteComun.Location = new Point(6, 96);
+            ckbClienteComun.Location = new Point(12, 144);
             ckbClienteComun.Margin = new Padding(0);
             ckbClienteComun.MouseLocation = new Point(-1, -1);
             ckbClienteComun.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             ckbClienteComun.Name = "ckbClienteComun";
             ckbClienteComun.ReadOnly = false;
             ckbClienteComun.Ripple = true;
-            ckbClienteComun.Size = new Size(297, 34);
+            ckbClienteComun.Size = new Size(283, 34);
             ckbClienteComun.TabIndex = 51;
             ckbClienteComun.Text = "Cliente comun";
             ckbClienteComun.TextAlign = ContentAlignment.MiddleCenter;
@@ -317,8 +349,8 @@
             // 
             // btnFacturar
             // 
-            btnFacturar.BackColor = Color.FromArgb(63, 63, 70);
-            btnFacturar.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnFacturar.BackColor = Color.FromArgb(74, 121, 121);
+            btnFacturar.BackgroundColor = Color.FromArgb(74, 121, 121);
             btnFacturar.BackgroundImageLayout = ImageLayout.Center;
             btnFacturar.BorderColor = Color.PaleVioletRed;
             btnFacturar.BorderRadius = 10;
@@ -328,10 +360,10 @@
             btnFacturar.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point);
             btnFacturar.ForeColor = Color.White;
             btnFacturar.ImageAlign = ContentAlignment.MiddleRight;
-            btnFacturar.Location = new Point(42, 203);
+            btnFacturar.Location = new Point(18, 255);
             btnFacturar.Margin = new Padding(3, 2, 3, 2);
             btnFacturar.Name = "btnFacturar";
-            btnFacturar.Size = new Size(231, 60);
+            btnFacturar.Size = new Size(274, 60);
             btnFacturar.TabIndex = 65;
             btnFacturar.Text = "FACTURAR";
             btnFacturar.TextColor = Color.White;
@@ -340,8 +372,8 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.BackColor = Color.FromArgb(63, 63, 70);
-            btnCancelar.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnCancelar.BackColor = Color.Red;
+            btnCancelar.BackgroundColor = Color.Red;
             btnCancelar.BackgroundImageLayout = ImageLayout.Center;
             btnCancelar.BorderColor = Color.PaleVioletRed;
             btnCancelar.BorderRadius = 10;
@@ -351,10 +383,10 @@
             btnCancelar.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point);
             btnCancelar.ForeColor = Color.White;
             btnCancelar.ImageAlign = ContentAlignment.MiddleRight;
-            btnCancelar.Location = new Point(42, 267);
+            btnCancelar.Location = new Point(18, 345);
             btnCancelar.Margin = new Padding(3, 2, 3, 2);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(231, 60);
+            btnCancelar.Size = new Size(274, 60);
             btnCancelar.TabIndex = 64;
             btnCancelar.Text = "CANCELAR";
             btnCancelar.TextColor = Color.White;
@@ -365,9 +397,9 @@
             // 
             lblTitulo.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             lblTitulo.ForeColor = SystemColors.ControlDarkDark;
-            lblTitulo.Location = new Point(6, 15);
+            lblTitulo.Location = new Point(93, 42);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(193, 24);
+            lblTitulo.Size = new Size(130, 24);
             lblTitulo.TabIndex = 58;
             lblTitulo.Text = "Pago en proceso";
             lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
@@ -384,7 +416,7 @@
             txtPago.HideSelection = true;
             txtPago.Hint = "Pago del cliente";
             txtPago.LeadingIcon = null;
-            txtPago.Location = new Point(6, 141);
+            txtPago.Location = new Point(12, 181);
             txtPago.MaxLength = 32767;
             txtPago.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtPago.Name = "txtPago";
@@ -396,7 +428,7 @@
             txtPago.SelectionLength = 0;
             txtPago.SelectionStart = 0;
             txtPago.ShortcutsEnabled = true;
-            txtPago.Size = new Size(294, 48);
+            txtPago.Size = new Size(280, 48);
             txtPago.TabIndex = 57;
             txtPago.TabStop = false;
             txtPago.TextAlign = HorizontalAlignment.Center;
@@ -493,28 +525,28 @@
             tbBusqueda.AllowUserToOrderColumns = true;
             tbBusqueda.AllowUserToResizeRows = false;
             tbBusqueda.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            tbBusqueda.BackgroundColor = SystemColors.ControlDarkDark;
+            tbBusqueda.BackgroundColor = Color.White;
             tbBusqueda.BorderStyle = BorderStyle.None;
             tbBusqueda.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             tbBusqueda.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            tbBusqueda.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            tbBusqueda.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             tbBusqueda.ColumnHeadersHeight = 35;
             tbBusqueda.Columns.AddRange(new DataGridViewColumn[] { Seleccionar, Id, Nombre });
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.DarkGray;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = Color.LightSkyBlue;
-            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            tbBusqueda.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.DarkGray;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.LightSkyBlue;
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            tbBusqueda.DefaultCellStyle = dataGridViewCellStyle2;
             tbBusqueda.Dock = DockStyle.Bottom;
             tbBusqueda.EnableHeadersVisualStyles = false;
             tbBusqueda.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
@@ -522,14 +554,14 @@
             tbBusqueda.Location = new Point(0, 190);
             tbBusqueda.Name = "tbBusqueda";
             tbBusqueda.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.Silver;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            tbBusqueda.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.Silver;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            tbBusqueda.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             tbBusqueda.RowHeadersVisible = false;
             tbBusqueda.RowHeadersWidth = 40;
             tbBusqueda.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -578,38 +610,6 @@
             // pdImprimir
             // 
             pdImprimir.PrintPage += imprimir;
-            // 
-            // txtTotalFinal
-            // 
-            txtTotalFinal.AnimateReadOnly = true;
-            txtTotalFinal.AutoCompleteMode = AutoCompleteMode.None;
-            txtTotalFinal.AutoCompleteSource = AutoCompleteSource.None;
-            txtTotalFinal.BackgroundImageLayout = ImageLayout.None;
-            txtTotalFinal.CharacterCasing = CharacterCasing.Normal;
-            txtTotalFinal.Depth = 0;
-            txtTotalFinal.Enabled = false;
-            txtTotalFinal.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTotalFinal.HideSelection = true;
-            txtTotalFinal.Hint = "total a pagar";
-            txtTotalFinal.LeadingIcon = null;
-            txtTotalFinal.Location = new Point(32, 375);
-            txtTotalFinal.MaxLength = 32767;
-            txtTotalFinal.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            txtTotalFinal.Name = "txtTotalFinal";
-            txtTotalFinal.PasswordChar = '\0';
-            txtTotalFinal.PrefixSuffixText = null;
-            txtTotalFinal.ReadOnly = true;
-            txtTotalFinal.RightToLeft = RightToLeft.No;
-            txtTotalFinal.SelectedText = "";
-            txtTotalFinal.SelectionLength = 0;
-            txtTotalFinal.SelectionStart = 0;
-            txtTotalFinal.ShortcutsEnabled = true;
-            txtTotalFinal.Size = new Size(205, 48);
-            txtTotalFinal.TabIndex = 65;
-            txtTotalFinal.TabStop = false;
-            txtTotalFinal.TextAlign = HorizontalAlignment.Center;
-            txtTotalFinal.TrailingIcon = null;
-            txtTotalFinal.UseSystemPasswordChar = false;
             // 
             // FormPagar
             // 

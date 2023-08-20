@@ -1,10 +1,6 @@
 ﻿using CapaControlador;
 using CapaDatos;
-using CapaVista.FormConfiguracion;
-using ReaLTaiizor.Colors;
 using ReaLTaiizor.Forms;
-using ReaLTaiizor.Manager;
-using ReaLTaiizor.Util;
 
 namespace CapaVista
 {

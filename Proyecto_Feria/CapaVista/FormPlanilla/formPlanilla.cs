@@ -1,17 +1,14 @@
-﻿using CapaVista.FormConfiguracion;
-using ReaLTaiizor.Colors;
-using ReaLTaiizor.Forms;
+﻿using ReaLTaiizor.Forms;
 using ReaLTaiizor.Manager;
-using ReaLTaiizor.Util;
 
 namespace CapaVista.FormPlanilla;
 
 public partial class formPlanilla : MaterialForm
-{ 
+{
     public formPlanilla()
     {
         InitializeComponent();
-       
+
     }
     private void cambiarModo(bool modoOscuro)
     {

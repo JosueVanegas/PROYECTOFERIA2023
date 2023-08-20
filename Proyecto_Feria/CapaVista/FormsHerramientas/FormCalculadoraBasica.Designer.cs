@@ -583,7 +583,7 @@
             rjButton1.UseVisualStyleBackColor = false;
             rjButton1.Click += btnOperador_Click;
             // 
-            // CalculadoraBasica
+            // FormCalculadoraBasica
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -599,7 +599,7 @@
             MdiChildrenMinimizedAnchorBottom = false;
             MinimizeBox = false;
             MinimumSize = new Size(376, 384);
-            Name = "CalculadoraBasica";
+            Name = "FormCalculadoraBasica";
             Padding = new Padding(3, 24, 3, 3);
             ShowIcon = false;
             ShowInTaskbar = false;

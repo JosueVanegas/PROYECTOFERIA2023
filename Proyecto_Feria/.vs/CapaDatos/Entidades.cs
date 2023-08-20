@@ -10,15 +10,15 @@
     //clases relacionadas con el login y nominas
     public class Empleado
     {
-        public int? id { get;  set; }
-        public string cedula { get;  set; }
-        public string nombres { get;  set; }
-        public string apellidos { get;  set; }
-        public string sexo { get;  set; }
-        public string telefono { get;  set; }
-        public string direccion { get;  set; }
-        public string correo { get;  set; }
-        public string fechaRegistro { get;  set; }
+        public int? id { get; set; }
+        public string cedula { get; set; }
+        public string nombres { get; set; }
+        public string apellidos { get; set; }
+        public string sexo { get; set; }
+        public string telefono { get; set; }
+        public string direccion { get; set; }
+        public string correo { get; set; }
+        public string fechaRegistro { get; set; }
 
         public override string ToString()
         {
@@ -27,9 +27,9 @@
     }
     public class Rol
     {
-        public int id { get;  set; }
-        public string descripcion { get;  set; }
-        public string fechaRegistro { get;  set; }
+        public int id { get; set; }
+        public string descripcion { get; set; }
+        public string fechaRegistro { get; set; }
 
         public override string ToString()
         {
@@ -38,8 +38,8 @@
     }
     public class Estado
     {
-        public bool estado { get;  set; }
-        public string descripcion { get;  set; }
+        public bool estado { get; set; }
+        public string descripcion { get; set; }
 
         public override string ToString()
         {
@@ -48,20 +48,20 @@
     }
     public class Usuario
     {
-        public int id { get;  set; }
-        public Empleado oEmpleado { get;  set; }
-        public string usuario { get;  set; }
-        public string clave { get;  set; }
-        public string fechaRegistro { get;  set; }
-        public Rol oRol { get;  set; }
+        public int id { get; set; }
+        public Empleado oEmpleado { get; set; }
+        public string usuario { get; set; }
+        public string clave { get; set; }
+        public string fechaRegistro { get; set; }
+        public Rol oRol { get; set; }
     }
     //clases relacionadas con los productos
     public class Categoria
     {
-        public int id { get;  set; }
-        public string nombre { get;  set; }
-        public Estado oEstado { get;  set; }
-        public string fechaRegistro { get;  set; }
+        public int id { get; set; }
+        public string nombre { get; set; }
+        public Estado oEstado { get; set; }
+        public string fechaRegistro { get; set; }
 
         public override string ToString()
         {
@@ -71,13 +71,13 @@
 
     public class Proveedor
     {
-        public int id { get;  set; }
-        public string nombreProveedor { get;  set; }
-        public string nombreContacto { get;  set; }
-        public string numeroContacto { get;  set; }
-        public string pais { get;  set; }
-        public string ciudad { get;  set; }
-        public string fechaRegistro { get;  set; }
+        public int id { get; set; }
+        public string nombreProveedor { get; set; }
+        public string nombreContacto { get; set; }
+        public string numeroContacto { get; set; }
+        public string pais { get; set; }
+        public string ciudad { get; set; }
+        public string fechaRegistro { get; set; }
 
         public override string ToString()
         {
@@ -87,23 +87,23 @@
 
     public class Producto
     {
-        public int id { get;  set; }
-        public string codigo { get;  set; }
-        public string nombre { get;  set; }
-        public byte[] imagen { get;  set; }
-        public decimal PrecioCompra { get;  set; }
-        public decimal PrecioVenta { get;  set; }
-        public int cantidad { get;  set; }
-        public Categoria oCategoria { get;  set; }
-        public Proveedor oProveedor { get;  set; }
+        public int id { get; set; }
+        public string codigo { get; set; }
+        public string nombre { get; set; }
+        public byte[] imagen { get; set; }
+        public decimal PrecioCompra { get; set; }
+        public decimal PrecioVenta { get; set; }
+        public int cantidad { get; set; }
+        public Categoria oCategoria { get; set; }
+        public Proveedor oProveedor { get; set; }
     }
     public class Cliente
     {
-        public int id { get;  set; }
-        public string nombre {get;   set;}
-        public string apellido { get;  set;}
-        public string telefono { get;  set; }
-        public string fechaRegistro { get;  set; }
+        public int id { get; set; }
+        public string nombre { get; set; }
+        public string apellido { get; set; }
+        public string telefono { get; set; }
+        public string fechaRegistro { get; set; }
     }
     public class ResumenVenta
     {
@@ -150,7 +150,7 @@
     {
         public int idCompra { get; set; }
         public int idProducto { get; set; }
-        public string nombre { get; set;}
+        public string nombre { get; set; }
         public int cantiad { get; set; }
         public decimal precio { get; set; }
         public decimal total { get; set; }

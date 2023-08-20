@@ -1,15 +1,7 @@
-﻿using CapaVista.FormConfiguracion;
-using CapaVista.FormVenta;
-using ReaLTaiizor.Colors;
-using ReaLTaiizor.Forms;
-using ReaLTaiizor.Manager;
-using ReaLTaiizor.Util;
-using System.Text;
-using CapaControlador;
+﻿using CapaControlador;
 using CapaDatos;
+using ReaLTaiizor.Forms;
 using System.Drawing.Printing;
-using System.Reflection;
-using System.Drawing;
 
 namespace CapaVista.FormVentas
 {
@@ -20,15 +12,15 @@ namespace CapaVista.FormVentas
         Usuario user = new Usuario();
         List<DetalleVenta> detalles;
         ControlVenta cVenta = new ControlVenta();
-        public FormPagar(Usuario u,  ResumenVenta r, List<DetalleVenta> d)
+        public FormPagar(Usuario u, ResumenVenta r, List<DetalleVenta> d)
         {
             InitializeComponent();
             resumen = r;
             detalles = d;
             user = u;
-            
+
         }
-        
+
         private void FormPagar_Load(object sender, EventArgs e)
         {
             mostrarClientes();
@@ -40,8 +32,8 @@ namespace CapaVista.FormVentas
             txtSubTotal.Text = resumen.subtotal.ToString();
             txtIva.Text = resumen.iva.ToString();
             txtTotal.Text = resumen.total.ToString();
-            decimal totalFinal = Convert.ToDecimal(txtTotal.Text)-Convert.ToDecimal(txtDescuento.Text);
-            txtTotalFinal.Text = totalFinal.ToString("0.00") ;
+            decimal totalFinal = Convert.ToDecimal(txtTotal.Text) - Convert.ToDecimal(txtDescuento.Text);
+            txtTotalFinal.Text = totalFinal.ToString("0.00");
         }
         private void mostrarClientes()
         {
@@ -113,7 +105,7 @@ namespace CapaVista.FormVentas
                     MessageBox.Show(imprimirFactura());
                     this.Close();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }

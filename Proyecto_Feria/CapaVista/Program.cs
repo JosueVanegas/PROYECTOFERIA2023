@@ -1,5 +1,3 @@
-using CapaVista.FormConfiguracion;
-
 namespace CapaVista
 {
     internal static class Program

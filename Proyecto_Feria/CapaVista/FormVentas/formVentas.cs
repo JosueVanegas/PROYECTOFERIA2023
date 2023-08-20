@@ -1,13 +1,7 @@
 ﻿using CapaControlador;
 using CapaDatos;
-using CapaVista.FormConfiguracion;
 using CapaVista.FormVentas;
-using Microsoft.Win32;
-using ReaLTaiizor.Colors;
 using ReaLTaiizor.Forms;
-using ReaLTaiizor.Manager;
-using ReaLTaiizor.Util;
-using System.Windows.Forms;
 
 namespace CapaVista.FormVenta
 {

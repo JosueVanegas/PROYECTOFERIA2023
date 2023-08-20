@@ -51,6 +51,7 @@
             // 
             // tableLayoutPanel1
             // 
+            tableLayoutPanel1.BackColor = Color.FromArgb(74, 121, 121);
             tableLayoutPanel1.ColumnCount = 6;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
@@ -96,7 +97,7 @@
             // 
             // panelContenedor
             // 
-            panelContenedor.BackColor = Color.FromArgb(21, 25, 31);
+            panelContenedor.BackColor = Color.FromArgb(74, 121, 121);
             panelContenedor.Dock = DockStyle.Fill;
             panelContenedor.Location = new Point(3, 52);
             panelContenedor.Margin = new Padding(3, 2, 3, 2);

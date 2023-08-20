@@ -1,19 +1,16 @@
 ﻿using CapaDatos;
-using CapaVista.FormConfiguracion;
-using ReaLTaiizor.Colors;
 using ReaLTaiizor.Forms;
 using ReaLTaiizor.Manager;
-using ReaLTaiizor.Util;
 
 namespace CapaVista.FormsHerramientas
 {
     public partial class FormHerramientas : MaterialForm
     {
-       
-        public FormHerramientas( Usuario Rol)
+
+        public FormHerramientas(Usuario Rol)
         {
             InitializeComponent();
-            
+
             btnbitacora.Visible = true;
             btnCalculadoraBasica.Visible = true;
             btnCalcularDescuento.Visible = true;

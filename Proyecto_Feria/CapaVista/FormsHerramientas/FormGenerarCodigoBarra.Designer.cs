@@ -28,75 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnGenerar = new ReaLTaiizor.Controls.MaterialButton();
-            btnGuardar = new ReaLTaiizor.Controls.MaterialButton();
-            btnCerrar = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             panelCodigo = new Panel();
             txtCodigo = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            rjButton1 = new RJCodeAdvance.RJControls.RJButton();
+            rjButton2 = new RJCodeAdvance.RJControls.RJButton();
             SuspendLayout();
-            // 
-            // btnGenerar
-            // 
-            btnGenerar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnGenerar.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btnGenerar.Depth = 0;
-            btnGenerar.HighEmphasis = true;
-            btnGenerar.Icon = null;
-            btnGenerar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnGenerar.Location = new Point(305, 256);
-            btnGenerar.Margin = new Padding(4, 6, 4, 6);
-            btnGenerar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnGenerar.Name = "btnGenerar";
-            btnGenerar.NoAccentTextColor = Color.Empty;
-            btnGenerar.Size = new Size(145, 36);
-            btnGenerar.TabIndex = 0;
-            btnGenerar.Text = "Generar Codigo";
-            btnGenerar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnGenerar.UseAccentColor = false;
-            btnGenerar.UseVisualStyleBackColor = true;
-            btnGenerar.Click += btnGenerar_Click;
-            // 
-            // btnGuardar
-            // 
-            btnGuardar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnGuardar.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btnGuardar.Depth = 0;
-            btnGuardar.Enabled = false;
-            btnGuardar.HighEmphasis = true;
-            btnGuardar.Icon = null;
-            btnGuardar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnGuardar.Location = new Point(305, 304);
-            btnGuardar.Margin = new Padding(4, 6, 4, 6);
-            btnGuardar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.NoAccentTextColor = Color.Empty;
-            btnGuardar.Size = new Size(88, 36);
-            btnGuardar.TabIndex = 1;
-            btnGuardar.Text = "guardar";
-            btnGuardar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnGuardar.UseAccentColor = false;
-            btnGuardar.UseVisualStyleBackColor = true;
-            btnGuardar.Click += btnGuardar_Click;
-            // 
-            // btnCerrar
-            // 
-            btnCerrar.BackColor = SystemColors.ActiveCaption;
-            btnCerrar.Depth = 0;
-            btnCerrar.Dock = DockStyle.Left;
-            btnCerrar.Icon = null;
-            btnCerrar.Location = new Point(3, 0);
-            btnCerrar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(56, 447);
-            btnCerrar.TabIndex = 2;
-            btnCerrar.Text = "\r\n";
-            btnCerrar.UseVisualStyleBackColor = false;
-            btnCerrar.Click += btnCerrar_Click;
             // 
             // panelCodigo
             // 
             panelCodigo.BackColor = Color.White;
-            panelCodigo.Location = new Point(233, 16);
+            panelCodigo.Location = new Point(53, 37);
             panelCodigo.Name = "panelCodigo";
             panelCodigo.Size = new Size(311, 168);
             panelCodigo.TabIndex = 3;
@@ -113,7 +54,7 @@
             txtCodigo.HideSelection = true;
             txtCodigo.Hint = "Ingrese el codigo de barra";
             txtCodigo.LeadingIcon = null;
-            txtCodigo.Location = new Point(287, 199);
+            txtCodigo.Location = new Point(96, 211);
             txtCodigo.MaxLength = 32767;
             txtCodigo.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtCodigo.Name = "txtCodigo";
@@ -132,29 +73,78 @@
             txtCodigo.TrailingIcon = null;
             txtCodigo.UseSystemPasswordChar = false;
             // 
+            // rjButton1
+            // 
+            rjButton1.BackColor = Color.DarkSlateGray;
+            rjButton1.BackgroundColor = Color.DarkSlateGray;
+            rjButton1.BackgroundImageLayout = ImageLayout.Center;
+            rjButton1.BorderColor = Color.PaleVioletRed;
+            rjButton1.BorderRadius = 17;
+            rjButton1.BorderSize = 0;
+            rjButton1.FlatAppearance.BorderSize = 0;
+            rjButton1.FlatStyle = FlatStyle.Flat;
+            rjButton1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            rjButton1.ForeColor = Color.White;
+            rjButton1.ImageAlign = ContentAlignment.MiddleRight;
+            rjButton1.Location = new Point(157, 314);
+            rjButton1.Margin = new Padding(3, 2, 3, 2);
+            rjButton1.Name = "rjButton1";
+            rjButton1.Size = new Size(112, 40);
+            rjButton1.TabIndex = 66;
+            rjButton1.Text = "Guardar";
+            rjButton1.TextAlign = ContentAlignment.BottomCenter;
+            rjButton1.TextColor = Color.White;
+            rjButton1.UseVisualStyleBackColor = false;
+            // 
+            // rjButton2
+            // 
+            rjButton2.BackColor = Color.DarkSlateGray;
+            rjButton2.BackgroundColor = Color.DarkSlateGray;
+            rjButton2.BackgroundImageLayout = ImageLayout.Center;
+            rjButton2.BorderColor = Color.PaleVioletRed;
+            rjButton2.BorderRadius = 17;
+            rjButton2.BorderSize = 0;
+            rjButton2.FlatAppearance.BorderSize = 0;
+            rjButton2.FlatStyle = FlatStyle.Flat;
+            rjButton2.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            rjButton2.ForeColor = Color.White;
+            rjButton2.ImageAlign = ContentAlignment.MiddleRight;
+            rjButton2.Location = new Point(121, 270);
+            rjButton2.Margin = new Padding(3, 2, 3, 2);
+            rjButton2.Name = "rjButton2";
+            rjButton2.Size = new Size(182, 40);
+            rjButton2.TabIndex = 67;
+            rjButton2.Text = "Generar Codigo";
+            rjButton2.TextAlign = ContentAlignment.BottomCenter;
+            rjButton2.TextColor = Color.White;
+            rjButton2.UseVisualStyleBackColor = false;
+            // 
             // FormGenerarCodigoBarra
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(406, 368);
+            Controls.Add(rjButton2);
+            Controls.Add(rjButton1);
             Controls.Add(txtCodigo);
             Controls.Add(panelCodigo);
-            Controls.Add(btnCerrar);
-            Controls.Add(btnGuardar);
-            Controls.Add(btnGenerar);
-            FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
+            FormStyle = ReaLTaiizor.Enum.Material.FormStyles.ActionBar_None;
+            MaximizeBox = false;
+            MaximumSize = new Size(800, 450);
+            MdiChildrenMinimizedAnchorBottom = false;
+            MinimizeBox = false;
             Name = "FormGenerarCodigoBarra";
-            Padding = new Padding(3, 0, 3, 3);
+            Padding = new Padding(3, 24, 3, 3);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private ReaLTaiizor.Controls.MaterialButton btnGenerar;
-        private ReaLTaiizor.Controls.MaterialButton btnGuardar;
-        private ReaLTaiizor.Controls.MaterialFloatingActionButton btnCerrar;
         private Panel panelCodigo;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCodigo;
+        private ReaLTaiizor.Controls.MaterialButton btnGuardar;
+        private ReaLTaiizor.Controls.MaterialButton btnGenerar;
+
+        private RJCodeAdvance.RJControls.RJButton rjButton1;
+        private RJCodeAdvance.RJControls.RJButton rjButton2;
     }
 }

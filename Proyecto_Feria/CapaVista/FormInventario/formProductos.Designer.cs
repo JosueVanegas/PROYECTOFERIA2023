@@ -104,8 +104,8 @@
             // btnSeleccionarImagen
             // 
             btnSeleccionarImagen.Anchor = AnchorStyles.Left;
-            btnSeleccionarImagen.BackColor = Color.FromArgb(63, 63, 70);
-            btnSeleccionarImagen.BackgroundColor = Color.FromArgb(63, 63, 70);
+            btnSeleccionarImagen.BackColor = Color.FromArgb(74, 121, 121);
+            btnSeleccionarImagen.BackgroundColor = Color.FromArgb(74, 121, 121);
             btnSeleccionarImagen.BackgroundImageLayout = ImageLayout.Center;
             btnSeleccionarImagen.BorderColor = Color.PaleVioletRed;
             btnSeleccionarImagen.BorderRadius = 10;
@@ -395,7 +395,7 @@
             tbProductos.AllowUserToResizeRows = false;
             tbProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tbProductos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            tbProductos.BackgroundColor = Color.FromArgb(50, 50, 50);
+            tbProductos.BackgroundColor = Color.White;
             tbProductos.BorderStyle = BorderStyle.None;
             tbProductos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             tbProductos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;

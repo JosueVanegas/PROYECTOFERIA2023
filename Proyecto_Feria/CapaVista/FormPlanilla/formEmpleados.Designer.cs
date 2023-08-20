@@ -169,8 +169,8 @@
             // rjButton1
             // 
             rjButton1.Anchor = AnchorStyles.Left;
-            rjButton1.BackColor = Color.FromArgb(63, 63, 70);
-            rjButton1.BackgroundColor = Color.FromArgb(63, 63, 70);
+            rjButton1.BackColor = Color.FromArgb(74, 121, 121);
+            rjButton1.BackgroundColor = Color.FromArgb(74, 121, 121);
             rjButton1.BackgroundImage = (Image)resources.GetObject("rjButton1.BackgroundImage");
             rjButton1.BackgroundImageLayout = ImageLayout.Center;
             rjButton1.BorderColor = Color.PaleVioletRed;
@@ -194,8 +194,8 @@
             // rjButton2
             // 
             rjButton2.Anchor = AnchorStyles.Left;
-            rjButton2.BackColor = Color.FromArgb(63, 63, 70);
-            rjButton2.BackgroundColor = Color.FromArgb(63, 63, 70);
+            rjButton2.BackColor = Color.FromArgb(74, 121, 121);
+            rjButton2.BackgroundColor = Color.FromArgb(74, 121, 121);
             rjButton2.BackgroundImage = (Image)resources.GetObject("rjButton2.BackgroundImage");
             rjButton2.BackgroundImageLayout = ImageLayout.Center;
             rjButton2.BorderColor = Color.PaleVioletRed;
@@ -219,8 +219,8 @@
             // rjButton3
             // 
             rjButton3.Anchor = AnchorStyles.Left;
-            rjButton3.BackColor = Color.FromArgb(63, 63, 70);
-            rjButton3.BackgroundColor = Color.FromArgb(63, 63, 70);
+            rjButton3.BackColor = Color.FromArgb(74, 121, 121);
+            rjButton3.BackgroundColor = Color.FromArgb(74, 121, 121);
             rjButton3.BackgroundImage = (Image)resources.GetObject("rjButton3.BackgroundImage");
             rjButton3.BackgroundImageLayout = ImageLayout.Center;
             rjButton3.BorderColor = Color.PaleVioletRed;
@@ -626,7 +626,7 @@
             tbEmpleados.AllowUserToResizeColumns = false;
             tbEmpleados.AllowUserToResizeRows = false;
             tbEmpleados.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            tbEmpleados.BackgroundColor = Color.FromArgb(50, 50, 50);
+            tbEmpleados.BackgroundColor = Color.White;
             tbEmpleados.BorderStyle = BorderStyle.None;
             tbEmpleados.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             tbEmpleados.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;

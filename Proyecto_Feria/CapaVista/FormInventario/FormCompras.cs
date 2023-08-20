@@ -1,8 +1,6 @@
-﻿using ReaLTaiizor.Forms;
-using ReaLTaiizor.Manager;
-using ReaLTaiizor;
+﻿using CapaControlador;
 using CapaDatos;
-using CapaControlador;
+using ReaLTaiizor.Forms;
 
 namespace CapaVista.FormInventario
 {
