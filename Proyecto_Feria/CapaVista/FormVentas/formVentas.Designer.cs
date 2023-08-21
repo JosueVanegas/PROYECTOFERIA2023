@@ -77,6 +77,15 @@
             flowLayoutPanel1 = new FlowLayoutPanel();
             panelContenedor = new Panel();
             tbResumen = new ReaLTaiizor.Controls.PoisonDataGridView();
+            panel2 = new Panel();
+            lblStock = new Label();
+            lblSubTotal = new Label();
+            label1 = new Label();
+            lblCantidad = new Label();
+            lblPrecio = new Label();
+            lblNombre = new Label();
+            lblCodigo = new Label();
+            pktProducto = new PictureBox();
             btnVer = new DataGridViewButtonColumn();
             btnQuitar = new DataGridViewButtonColumn();
             Imagen = new DataGridViewImageColumn();
@@ -87,15 +96,6 @@
             Cantidad = new DataGridViewTextBoxColumn();
             SubTotal = new DataGridViewTextBoxColumn();
             Stock = new DataGridViewTextBoxColumn();
-            panel2 = new Panel();
-            lblStock = new Label();
-            lblSubTotal = new Label();
-            label1 = new Label();
-            lblCantidad = new Label();
-            lblPrecio = new Label();
-            lblNombre = new Label();
-            lblCodigo = new Label();
-            pktProducto = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
@@ -927,74 +927,6 @@
             tbResumen.CellContentClick += tbResumen_CellContentClick;
             tbResumen.CellPainting += tbResumen_CellPainting;
             // 
-            // btnVer
-            // 
-            btnVer.HeaderText = "Detalles";
-            btnVer.Name = "btnVer";
-            btnVer.ReadOnly = true;
-            btnVer.Width = 50;
-            // 
-            // btnQuitar
-            // 
-            btnQuitar.HeaderText = "Eliminar";
-            btnQuitar.Name = "btnQuitar";
-            btnQuitar.Width = 50;
-            // 
-            // Imagen
-            // 
-            Imagen.HeaderText = "Imagen";
-            Imagen.Name = "Imagen";
-            Imagen.ReadOnly = true;
-            Imagen.Visible = false;
-            Imagen.Width = 150;
-            // 
-            // Id
-            // 
-            Id.HeaderText = "ID";
-            Id.Name = "Id";
-            Id.ReadOnly = true;
-            Id.Visible = false;
-            Id.Width = 10;
-            // 
-            // Codigo
-            // 
-            Codigo.HeaderText = "Codigo";
-            Codigo.Name = "Codigo";
-            Codigo.ReadOnly = true;
-            Codigo.Width = 150;
-            // 
-            // Nombre
-            // 
-            Nombre.HeaderText = "Nombre";
-            Nombre.Name = "Nombre";
-            Nombre.ReadOnly = true;
-            Nombre.Width = 250;
-            // 
-            // PrecioVenta
-            // 
-            PrecioVenta.HeaderText = "Precio Venta";
-            PrecioVenta.Name = "PrecioVenta";
-            PrecioVenta.ReadOnly = true;
-            // 
-            // Cantidad
-            // 
-            Cantidad.HeaderText = "Cantidad";
-            Cantidad.Name = "Cantidad";
-            // 
-            // SubTotal
-            // 
-            SubTotal.HeaderText = "SubTotal";
-            SubTotal.Name = "SubTotal";
-            SubTotal.ReadOnly = true;
-            SubTotal.Width = 130;
-            // 
-            // Stock
-            // 
-            Stock.HeaderText = "stock";
-            Stock.Name = "Stock";
-            Stock.ReadOnly = true;
-            Stock.Visible = false;
-            // 
             // panel2
             // 
             panel2.Controls.Add(lblStock);
@@ -1084,6 +1016,74 @@
             pktProducto.TabIndex = 0;
             pktProducto.TabStop = false;
             // 
+            // btnVer
+            // 
+            btnVer.HeaderText = "Detalles";
+            btnVer.Name = "btnVer";
+            btnVer.ReadOnly = true;
+            btnVer.Width = 50;
+            // 
+            // btnQuitar
+            // 
+            btnQuitar.HeaderText = "Eliminar";
+            btnQuitar.Name = "btnQuitar";
+            btnQuitar.Width = 50;
+            // 
+            // Imagen
+            // 
+            Imagen.HeaderText = "Imagen";
+            Imagen.Name = "Imagen";
+            Imagen.ReadOnly = true;
+            Imagen.Visible = false;
+            Imagen.Width = 150;
+            // 
+            // Id
+            // 
+            Id.HeaderText = "ID";
+            Id.Name = "Id";
+            Id.ReadOnly = true;
+            Id.Visible = false;
+            Id.Width = 10;
+            // 
+            // Codigo
+            // 
+            Codigo.HeaderText = "Codigo";
+            Codigo.Name = "Codigo";
+            Codigo.ReadOnly = true;
+            Codigo.Width = 150;
+            // 
+            // Nombre
+            // 
+            Nombre.HeaderText = "Nombre";
+            Nombre.Name = "Nombre";
+            Nombre.ReadOnly = true;
+            Nombre.Width = 250;
+            // 
+            // PrecioVenta
+            // 
+            PrecioVenta.HeaderText = "Precio Venta";
+            PrecioVenta.Name = "PrecioVenta";
+            PrecioVenta.ReadOnly = true;
+            // 
+            // Cantidad
+            // 
+            Cantidad.HeaderText = "Cantidad";
+            Cantidad.Name = "Cantidad";
+            // 
+            // SubTotal
+            // 
+            SubTotal.HeaderText = "SubTotal";
+            SubTotal.Name = "SubTotal";
+            SubTotal.ReadOnly = true;
+            SubTotal.Width = 130;
+            // 
+            // Stock
+            // 
+            Stock.HeaderText = "Stock";
+            Stock.Name = "Stock";
+            Stock.ReadOnly = true;
+            Stock.Width = 50;
+            // 
             // formVentas
             // 
             AutoScaleMode = AutoScaleMode.None;
@@ -1160,16 +1160,6 @@
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtDescuento;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtTotalFinal;
         private NumericUpDown nbrDescuento;
-        private DataGridViewButtonColumn btnVer;
-        private DataGridViewButtonColumn btnQuitar;
-        private DataGridViewImageColumn Imagen;
-        private DataGridViewTextBoxColumn Id;
-        private DataGridViewTextBoxColumn Codigo;
-        private DataGridViewTextBoxColumn Nombre;
-        private DataGridViewTextBoxColumn PrecioVenta;
-        private DataGridViewTextBoxColumn Cantidad;
-        private DataGridViewTextBoxColumn SubTotal;
-        private DataGridViewTextBoxColumn Stock;
         private Label lblStock;
         private Panel panelBusqueda;
         private Button btnCerrarBusqueda;
@@ -1184,5 +1174,15 @@
         private DataGridViewTextBoxColumn NombreP;
         private DataGridViewTextBoxColumn PrecioP;
         private DataGridViewTextBoxColumn CantidadP;
+        private DataGridViewButtonColumn btnVer;
+        private DataGridViewButtonColumn btnQuitar;
+        private DataGridViewImageColumn Imagen;
+        private DataGridViewTextBoxColumn Id;
+        private DataGridViewTextBoxColumn Codigo;
+        private DataGridViewTextBoxColumn Nombre;
+        private DataGridViewTextBoxColumn PrecioVenta;
+        private DataGridViewTextBoxColumn Cantidad;
+        private DataGridViewTextBoxColumn SubTotal;
+        private DataGridViewTextBoxColumn Stock;
     }
 }

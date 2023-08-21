@@ -29,37 +29,37 @@ namespace CapaVista.FormInventario
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCompras));
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle17 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle18 = new DataGridViewCellStyle();
             pnlContenedor = new Panel();
             pnlRegistroUsuario = new Panel();
-            panel4 = new Panel();
+            panel5 = new Panel();
             btnBuscarProducto = new RJCodeAdvance.RJControls.RJButton();
             btnAgregarProducto = new RJCodeAdvance.RJControls.RJButton();
             txtCodigoDeProducto = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             tbDetalles = new ReaLTaiizor.Controls.PoisonDataGridView();
-            dataGridViewButtonColumn2 = new DataGridViewButtonColumn();
+            btnEliminar = new DataGridViewButtonColumn();
             Id = new DataGridViewTextBoxColumn();
+            Codigo = new DataGridViewTextBoxColumn();
             Proveedor = new DataGridViewTextBoxColumn();
             Producto = new DataGridViewTextBoxColumn();
-            dataGridViewButtonColumn1 = new DataGridViewButtonColumn();
             Cantidad = new DataGridViewTextBoxColumn();
             PrecioCompra = new DataGridViewTextBoxColumn();
             Subtotal = new DataGridViewTextBoxColumn();
             IdProveedor = new DataGridViewTextBoxColumn();
             panel3 = new Panel();
             btnLimpiar = new RJCodeAdvance.RJControls.RJButton();
-            rjButton1 = new RJCodeAdvance.RJControls.RJButton();
+            btnGuardarCompra = new RJCodeAdvance.RJControls.RJButton();
             label2 = new Label();
-            txtId = new TextBox();
+            txtIdFactura = new TextBox();
             txtTotal = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtNofactura = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             lblTitulo = new Label();
@@ -95,7 +95,7 @@ namespace CapaVista.FormInventario
             panel1 = new Panel();
             pnlContenedor.SuspendLayout();
             pnlRegistroUsuario.SuspendLayout();
-            panel4.SuspendLayout();
+            panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tbDetalles).BeginInit();
             panel3.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -119,7 +119,7 @@ namespace CapaVista.FormInventario
             // pnlRegistroUsuario
             // 
             pnlRegistroUsuario.BackColor = Color.White;
-            pnlRegistroUsuario.Controls.Add(panel4);
+            pnlRegistroUsuario.Controls.Add(panel5);
             pnlRegistroUsuario.Controls.Add(tbDetalles);
             pnlRegistroUsuario.Controls.Add(panel3);
             pnlRegistroUsuario.Controls.Add(lblTitulo);
@@ -132,16 +132,16 @@ namespace CapaVista.FormInventario
             pnlRegistroUsuario.Size = new Size(594, 447);
             pnlRegistroUsuario.TabIndex = 6;
             // 
-            // panel4
+            // panel5
             // 
-            panel4.Controls.Add(btnBuscarProducto);
-            panel4.Controls.Add(btnAgregarProducto);
-            panel4.Controls.Add(txtCodigoDeProducto);
-            panel4.Dock = DockStyle.Top;
-            panel4.Location = new Point(0, 356);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(594, 57);
-            panel4.TabIndex = 43;
+            panel5.Controls.Add(btnBuscarProducto);
+            panel5.Controls.Add(btnAgregarProducto);
+            panel5.Controls.Add(txtCodigoDeProducto);
+            panel5.Dock = DockStyle.Top;
+            panel5.Location = new Point(0, 394);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(594, 49);
+            panel5.TabIndex = 44;
             // 
             // btnBuscarProducto
             // 
@@ -160,7 +160,7 @@ namespace CapaVista.FormInventario
             btnBuscarProducto.Location = new Point(443, 0);
             btnBuscarProducto.Margin = new Padding(3, 2, 3, 2);
             btnBuscarProducto.Name = "btnBuscarProducto";
-            btnBuscarProducto.Size = new Size(147, 57);
+            btnBuscarProducto.Size = new Size(147, 49);
             btnBuscarProducto.TabIndex = 40;
             btnBuscarProducto.Text = "Buscar Producto";
             btnBuscarProducto.TextColor = Color.White;
@@ -184,7 +184,7 @@ namespace CapaVista.FormInventario
             btnAgregarProducto.Location = new Point(283, 0);
             btnAgregarProducto.Margin = new Padding(3, 2, 3, 2);
             btnAgregarProducto.Name = "btnAgregarProducto";
-            btnAgregarProducto.Size = new Size(160, 57);
+            btnAgregarProducto.Size = new Size(160, 49);
             btnAgregarProducto.TabIndex = 39;
             btnAgregarProducto.Text = "Agregar Producto";
             btnAgregarProducto.TextColor = Color.White;
@@ -234,24 +234,24 @@ namespace CapaVista.FormInventario
             tbDetalles.BorderStyle = BorderStyle.None;
             tbDetalles.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             tbDetalles.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            tbDetalles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle10.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle10.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle10.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle10.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
+            tbDetalles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             tbDetalles.ColumnHeadersHeight = 35;
-            tbDetalles.Columns.AddRange(new DataGridViewColumn[] { dataGridViewButtonColumn2, Id, Proveedor, Producto, dataGridViewButtonColumn1, Cantidad, PrecioCompra, Subtotal, IdProveedor });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.DarkGray;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = Color.LightSkyBlue;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            tbDetalles.DefaultCellStyle = dataGridViewCellStyle2;
+            tbDetalles.Columns.AddRange(new DataGridViewColumn[] { btnEliminar, Id, Codigo, Proveedor, Producto, Cantidad, PrecioCompra, Subtotal, IdProveedor });
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = Color.DarkGray;
+            dataGridViewCellStyle11.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle11.ForeColor = Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = Color.LightSkyBlue;
+            dataGridViewCellStyle11.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
+            tbDetalles.DefaultCellStyle = dataGridViewCellStyle11;
             tbDetalles.Dock = DockStyle.Top;
             tbDetalles.EnableHeadersVisualStyles = false;
             tbDetalles.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
@@ -259,27 +259,29 @@ namespace CapaVista.FormInventario
             tbDetalles.Location = new Point(0, 188);
             tbDetalles.Name = "tbDetalles";
             tbDetalles.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.Silver;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            tbDetalles.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = Color.Silver;
+            dataGridViewCellStyle12.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle12.ForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle12.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle12.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.True;
+            tbDetalles.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             tbDetalles.RowHeadersVisible = false;
             tbDetalles.RowHeadersWidth = 40;
             tbDetalles.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tbDetalles.RowTemplate.Height = 30;
             tbDetalles.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tbDetalles.Size = new Size(594, 168);
+            tbDetalles.Size = new Size(594, 206);
             tbDetalles.TabIndex = 36;
+            tbDetalles.CellContentClick += tbDetalles_CellContentClick;
+            tbDetalles.CellPainting += tbDetalles_CellPainting;
             // 
-            // dataGridViewButtonColumn2
+            // btnEliminar
             // 
-            dataGridViewButtonColumn2.HeaderText = "Eliminar";
-            dataGridViewButtonColumn2.Name = "dataGridViewButtonColumn2";
-            dataGridViewButtonColumn2.ToolTipText = "eliminar";
+            btnEliminar.HeaderText = "Eliminar";
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.ToolTipText = "eliminar";
             // 
             // Id
             // 
@@ -287,6 +289,12 @@ namespace CapaVista.FormInventario
             Id.Name = "Id";
             Id.ReadOnly = true;
             Id.Visible = false;
+            // 
+            // Codigo
+            // 
+            Codigo.HeaderText = "Codigo";
+            Codigo.Name = "Codigo";
+            Codigo.ReadOnly = true;
             // 
             // Proveedor
             // 
@@ -299,12 +307,6 @@ namespace CapaVista.FormInventario
             Producto.HeaderText = "Producto";
             Producto.Name = "Producto";
             Producto.ReadOnly = true;
-            // 
-            // dataGridViewButtonColumn1
-            // 
-            dataGridViewButtonColumn1.HeaderText = "Agregar";
-            dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
-            dataGridViewButtonColumn1.ToolTipText = "Agregar";
             // 
             // Cantidad
             // 
@@ -333,9 +335,9 @@ namespace CapaVista.FormInventario
             // panel3
             // 
             panel3.Controls.Add(btnLimpiar);
-            panel3.Controls.Add(rjButton1);
+            panel3.Controls.Add(btnGuardarCompra);
             panel3.Controls.Add(label2);
-            panel3.Controls.Add(txtId);
+            panel3.Controls.Add(txtIdFactura);
             panel3.Controls.Add(txtTotal);
             panel3.Controls.Add(txtNofactura);
             panel3.Dock = DockStyle.Top;
@@ -358,39 +360,40 @@ namespace CapaVista.FormInventario
             btnLimpiar.FlatStyle = FlatStyle.Flat;
             btnLimpiar.ForeColor = Color.White;
             btnLimpiar.ImageAlign = ContentAlignment.MiddleRight;
-            btnLimpiar.Location = new Point(407, 30);
+            btnLimpiar.Location = new Point(456, 48);
             btnLimpiar.Margin = new Padding(3, 2, 3, 2);
             btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(69, 66);
+            btnLimpiar.Size = new Size(121, 83);
             btnLimpiar.TabIndex = 40;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.TextAlign = ContentAlignment.BottomCenter;
             btnLimpiar.TextColor = Color.White;
             btnLimpiar.UseVisualStyleBackColor = false;
             // 
-            // rjButton1
+            // btnGuardarCompra
             // 
-            rjButton1.Anchor = AnchorStyles.Left;
-            rjButton1.BackColor = Color.FromArgb(74, 121, 121);
-            rjButton1.BackgroundColor = Color.FromArgb(74, 121, 121);
-            rjButton1.BackgroundImage = (Image)resources.GetObject("rjButton1.BackgroundImage");
-            rjButton1.BackgroundImageLayout = ImageLayout.Center;
-            rjButton1.BorderColor = Color.PaleVioletRed;
-            rjButton1.BorderRadius = 10;
-            rjButton1.BorderSize = 0;
-            rjButton1.FlatAppearance.BorderSize = 0;
-            rjButton1.FlatStyle = FlatStyle.Flat;
-            rjButton1.ForeColor = Color.White;
-            rjButton1.ImageAlign = ContentAlignment.MiddleRight;
-            rjButton1.Location = new Point(324, 30);
-            rjButton1.Margin = new Padding(3, 2, 3, 2);
-            rjButton1.Name = "rjButton1";
-            rjButton1.Size = new Size(68, 66);
-            rjButton1.TabIndex = 39;
-            rjButton1.Text = "Guardar";
-            rjButton1.TextAlign = ContentAlignment.BottomCenter;
-            rjButton1.TextColor = Color.White;
-            rjButton1.UseVisualStyleBackColor = false;
+            btnGuardarCompra.Anchor = AnchorStyles.Left;
+            btnGuardarCompra.BackColor = Color.FromArgb(74, 121, 121);
+            btnGuardarCompra.BackgroundColor = Color.FromArgb(74, 121, 121);
+            btnGuardarCompra.BackgroundImage = (Image)resources.GetObject("btnGuardarCompra.BackgroundImage");
+            btnGuardarCompra.BackgroundImageLayout = ImageLayout.Center;
+            btnGuardarCompra.BorderColor = Color.PaleVioletRed;
+            btnGuardarCompra.BorderRadius = 10;
+            btnGuardarCompra.BorderSize = 0;
+            btnGuardarCompra.FlatAppearance.BorderSize = 0;
+            btnGuardarCompra.FlatStyle = FlatStyle.Flat;
+            btnGuardarCompra.ForeColor = Color.White;
+            btnGuardarCompra.ImageAlign = ContentAlignment.MiddleRight;
+            btnGuardarCompra.Location = new Point(309, 48);
+            btnGuardarCompra.Margin = new Padding(3, 2, 3, 2);
+            btnGuardarCompra.Name = "btnGuardarCompra";
+            btnGuardarCompra.Size = new Size(134, 83);
+            btnGuardarCompra.TabIndex = 39;
+            btnGuardarCompra.Text = "Guardar";
+            btnGuardarCompra.TextAlign = ContentAlignment.BottomCenter;
+            btnGuardarCompra.TextColor = Color.White;
+            btnGuardarCompra.UseVisualStyleBackColor = false;
+            btnGuardarCompra.Click += btnGuardarCompra_Click;
             // 
             // label2
             // 
@@ -398,19 +401,19 @@ namespace CapaVista.FormInventario
             label2.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(5, 13);
             label2.Name = "label2";
-            label2.Size = new Size(200, 32);
+            label2.Size = new Size(234, 32);
             label2.TabIndex = 43;
             label2.Text = "Datos generales";
             label2.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // txtId
+            // txtIdFactura
             // 
-            txtId.Location = new Point(255, 55);
-            txtId.Name = "txtId";
-            txtId.Size = new Size(28, 23);
-            txtId.TabIndex = 42;
-            txtId.Text = "1";
-            txtId.Visible = false;
+            txtIdFactura.Location = new Point(255, 55);
+            txtIdFactura.Name = "txtIdFactura";
+            txtIdFactura.Size = new Size(28, 23);
+            txtIdFactura.TabIndex = 42;
+            txtIdFactura.Text = "1";
+            txtIdFactura.Visible = false;
             // 
             // txtTotal
             // 
@@ -681,24 +684,24 @@ namespace CapaVista.FormInventario
             tbBusqueda.BorderStyle = BorderStyle.None;
             tbBusqueda.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             tbBusqueda.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            tbBusqueda.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle13.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle13.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle13.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle13.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle13.WrapMode = DataGridViewTriState.True;
+            tbBusqueda.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             tbBusqueda.ColumnHeadersHeight = 35;
             tbBusqueda.Columns.AddRange(new DataGridViewColumn[] { Añadir, IdP, CodigoP, NombreP, PrecioP, CantidadP });
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.DarkGray;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = Color.LightSkyBlue;
-            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            tbBusqueda.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = Color.DarkGray;
+            dataGridViewCellStyle14.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle14.ForeColor = Color.White;
+            dataGridViewCellStyle14.SelectionBackColor = Color.LightSkyBlue;
+            dataGridViewCellStyle14.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle14.WrapMode = DataGridViewTriState.False;
+            tbBusqueda.DefaultCellStyle = dataGridViewCellStyle14;
             tbBusqueda.Dock = DockStyle.Bottom;
             tbBusqueda.EnableHeadersVisualStyles = false;
             tbBusqueda.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
@@ -706,14 +709,14 @@ namespace CapaVista.FormInventario
             tbBusqueda.Location = new Point(0, 226);
             tbBusqueda.Name = "tbBusqueda";
             tbBusqueda.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.Silver;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            tbBusqueda.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = Color.Silver;
+            dataGridViewCellStyle15.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle15.ForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle15.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle15.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle15.WrapMode = DataGridViewTriState.True;
+            tbBusqueda.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             tbBusqueda.RowHeadersVisible = false;
             tbBusqueda.RowHeadersWidth = 40;
             tbBusqueda.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -769,7 +772,7 @@ namespace CapaVista.FormInventario
             // 
             // panelCompras
             // 
-            panelCompras.BackColor = Color.White;
+            panelCompras.BackColor = Color.LightGray;
             panelCompras.Controls.Add(lblEncabezado);
             panelCompras.Controls.Add(panel2);
             panelCompras.Controls.Add(tbCompras);
@@ -863,28 +866,28 @@ namespace CapaVista.FormInventario
             tbCompras.AllowUserToOrderColumns = true;
             tbCompras.AllowUserToResizeRows = false;
             tbCompras.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            tbCompras.BackgroundColor = Color.FromArgb(50, 50, 50);
+            tbCompras.BackgroundColor = Color.White;
             tbCompras.BorderStyle = BorderStyle.None;
             tbCompras.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             tbCompras.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle7.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle7.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            tbCompras.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle16.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle16.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle16.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle16.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle16.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle16.WrapMode = DataGridViewTriState.True;
+            tbCompras.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             tbCompras.ColumnHeadersHeight = 35;
             tbCompras.Columns.AddRange(new DataGridViewColumn[] { btnBorrar, IdCompra, NoFactura, IdUsuario, NombreUsuario, Total });
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = Color.DarkGray;
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle8.ForeColor = Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = Color.LightSkyBlue;
-            dataGridViewCellStyle8.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            tbCompras.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle17.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = Color.DarkGray;
+            dataGridViewCellStyle17.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle17.ForeColor = Color.White;
+            dataGridViewCellStyle17.SelectionBackColor = Color.LightSkyBlue;
+            dataGridViewCellStyle17.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle17.WrapMode = DataGridViewTriState.False;
+            tbCompras.DefaultCellStyle = dataGridViewCellStyle17;
             tbCompras.Dock = DockStyle.Bottom;
             tbCompras.EnableHeadersVisualStyles = false;
             tbCompras.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
@@ -892,14 +895,14 @@ namespace CapaVista.FormInventario
             tbCompras.Location = new Point(0, 124);
             tbCompras.Name = "tbCompras";
             tbCompras.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = Color.Silver;
-            dataGridViewCellStyle9.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle9.ForeColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle9.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            tbCompras.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle18.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = Color.Silver;
+            dataGridViewCellStyle18.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle18.ForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle18.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle18.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle18.WrapMode = DataGridViewTriState.True;
+            tbCompras.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             tbCompras.RowHeadersVisible = false;
             tbCompras.RowHeadersWidth = 40;
             tbCompras.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -955,8 +958,8 @@ namespace CapaVista.FormInventario
             // panel1
             // 
             panel1.BackColor = Color.White;
-            panel1.Controls.Add(panelBusqueda);
             panel1.Controls.Add(panelCompras);
+            panel1.Controls.Add(panelBusqueda);
             panel1.Dock = DockStyle.Right;
             panel1.Location = new Point(597, 0);
             panel1.Name = "panel1";
@@ -978,7 +981,7 @@ namespace CapaVista.FormInventario
             pnlContenedor.ResumeLayout(false);
             pnlRegistroUsuario.ResumeLayout(false);
             pnlRegistroUsuario.PerformLayout();
-            panel4.ResumeLayout(false);
+            panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)tbDetalles).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
@@ -1023,15 +1026,6 @@ namespace CapaVista.FormInventario
         private DataGridViewTextBoxColumn Total;
         private Panel panel1;
         private RJCodeAdvance.RJControls.RJButton btnAgregarProducto;
-        private DataGridViewButtonColumn dataGridViewButtonColumn2;
-        private DataGridViewTextBoxColumn Id;
-        private DataGridViewTextBoxColumn Proveedor;
-        private DataGridViewTextBoxColumn Producto;
-        private DataGridViewButtonColumn dataGridViewButtonColumn1;
-        private DataGridViewTextBoxColumn Cantidad;
-        private DataGridViewTextBoxColumn PrecioCompra;
-        private DataGridViewTextBoxColumn Subtotal;
-        private DataGridViewTextBoxColumn IdProveedor;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCodigoDeProducto;
         private RJCodeAdvance.RJControls.RJButton btnBuscarProducto;
         private Panel panel2;
@@ -1041,13 +1035,22 @@ namespace CapaVista.FormInventario
         private DataGridViewTextBoxColumn NombreP;
         private DataGridViewTextBoxColumn PrecioP;
         private DataGridViewTextBoxColumn CantidadP;
-        private Panel panel4;
         private Panel panel3;
         private RJCodeAdvance.RJControls.RJButton btnLimpiar;
-        private RJCodeAdvance.RJControls.RJButton rjButton1;
+        private RJCodeAdvance.RJControls.RJButton btnGuardarCompra;
         private Label label2;
-        private TextBox txtId;
+        private TextBox txtIdFactura;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtTotal;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtNofactura;
+        private Panel panel5;
+        private DataGridViewButtonColumn btnEliminar;
+        private DataGridViewTextBoxColumn Id;
+        private DataGridViewTextBoxColumn Codigo;
+        private DataGridViewTextBoxColumn Proveedor;
+        private DataGridViewTextBoxColumn Producto;
+        private DataGridViewTextBoxColumn Cantidad;
+        private DataGridViewTextBoxColumn PrecioCompra;
+        private DataGridViewTextBoxColumn Subtotal;
+        private DataGridViewTextBoxColumn IdProveedor;
     }
 }

@@ -69,6 +69,7 @@ namespace CapaVista
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             reloj = new System.Windows.Forms.Timer(components);
+            btnClientes = new RJCodeAdvance.RJControls.RJButton();
             panelAbajo.SuspendLayout();
             tablePanel_Admin.SuspendLayout();
             tablePanelNombre_Vendedor.SuspendLayout();
@@ -112,12 +113,14 @@ namespace CapaVista
             // tablePanel_Admin
             // 
             tablePanel_Admin.Anchor = AnchorStyles.Bottom;
-            tablePanel_Admin.ColumnCount = 5;
-            tablePanel_Admin.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tablePanel_Admin.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tablePanel_Admin.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tablePanel_Admin.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tablePanel_Admin.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tablePanel_Admin.ColumnCount = 6;
+            tablePanel_Admin.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
+            tablePanel_Admin.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
+            tablePanel_Admin.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
+            tablePanel_Admin.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
+            tablePanel_Admin.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
+            tablePanel_Admin.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
+            tablePanel_Admin.Controls.Add(btnClientes, 0, 0);
             tablePanel_Admin.Controls.Add(btnInventario, 0, 0);
             tablePanel_Admin.Controls.Add(btnPlanilla, 0, 0);
             tablePanel_Admin.Controls.Add(btnInformes, 3, 0);
@@ -128,7 +131,7 @@ namespace CapaVista
             tablePanel_Admin.Name = "tablePanel_Admin";
             tablePanel_Admin.RowCount = 1;
             tablePanel_Admin.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tablePanel_Admin.Size = new Size(481, 75);
+            tablePanel_Admin.Size = new Size(497, 75);
             tablePanel_Admin.TabIndex = 0;
             // 
             // btnInventario
@@ -144,10 +147,10 @@ namespace CapaVista
             btnInventario.FlatAppearance.BorderSize = 0;
             btnInventario.FlatStyle = FlatStyle.Flat;
             btnInventario.ForeColor = Color.Black;
-            btnInventario.Location = new Point(99, 2);
+            btnInventario.Location = new Point(85, 2);
             btnInventario.Margin = new Padding(3, 2, 3, 2);
             btnInventario.Name = "btnInventario";
-            btnInventario.Size = new Size(90, 71);
+            btnInventario.Size = new Size(76, 71);
             btnInventario.TabIndex = 3;
             btnInventario.Text = "Inventario";
             btnInventario.TextAlign = ContentAlignment.BottomCenter;
@@ -172,7 +175,7 @@ namespace CapaVista
             btnPlanilla.Location = new Point(3, 2);
             btnPlanilla.Margin = new Padding(3, 2, 3, 2);
             btnPlanilla.Name = "btnPlanilla";
-            btnPlanilla.Size = new Size(90, 71);
+            btnPlanilla.Size = new Size(76, 71);
             btnPlanilla.TabIndex = 2;
             btnPlanilla.Text = "Planilla";
             btnPlanilla.TextAlign = ContentAlignment.BottomCenter;
@@ -194,10 +197,10 @@ namespace CapaVista
             btnInformes.FlatAppearance.BorderSize = 0;
             btnInformes.FlatStyle = FlatStyle.Flat;
             btnInformes.ForeColor = Color.Black;
-            btnInformes.Location = new Point(291, 2);
+            btnInformes.Location = new Point(331, 2);
             btnInformes.Margin = new Padding(3, 2, 3, 2);
             btnInformes.Name = "btnInformes";
-            btnInformes.Size = new Size(90, 71);
+            btnInformes.Size = new Size(76, 71);
             btnInformes.TabIndex = 4;
             btnInformes.Text = "Informes";
             btnInformes.TextAlign = ContentAlignment.BottomCenter;
@@ -219,10 +222,10 @@ namespace CapaVista
             btnVentas.FlatAppearance.BorderSize = 0;
             btnVentas.FlatStyle = FlatStyle.Flat;
             btnVentas.ForeColor = Color.Black;
-            btnVentas.Location = new Point(387, 2);
+            btnVentas.Location = new Point(413, 2);
             btnVentas.Margin = new Padding(3, 2, 3, 2);
             btnVentas.Name = "btnVentas";
-            btnVentas.Size = new Size(91, 71);
+            btnVentas.Size = new Size(81, 71);
             btnVentas.TabIndex = 6;
             btnVentas.Text = "Ventas";
             btnVentas.TextAlign = ContentAlignment.BottomCenter;
@@ -243,10 +246,10 @@ namespace CapaVista
             btnContabilidad.FlatAppearance.BorderSize = 0;
             btnContabilidad.FlatStyle = FlatStyle.Flat;
             btnContabilidad.ForeColor = Color.Black;
-            btnContabilidad.Location = new Point(195, 2);
+            btnContabilidad.Location = new Point(249, 2);
             btnContabilidad.Margin = new Padding(3, 2, 3, 2);
             btnContabilidad.Name = "btnContabilidad";
-            btnContabilidad.Size = new Size(90, 71);
+            btnContabilidad.Size = new Size(76, 71);
             btnContabilidad.TabIndex = 5;
             btnContabilidad.Text = "Contaduria";
             btnContabilidad.TextAlign = ContentAlignment.BottomCenter;
@@ -756,6 +759,30 @@ namespace CapaVista
             reloj.Enabled = true;
             reloj.Tick += reloj_Tick;
             // 
+            // btnClientes
+            // 
+            btnClientes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnClientes.BackColor = Color.White;
+            btnClientes.BackgroundColor = Color.White;
+            btnClientes.BackgroundImage = (Image)resources.GetObject("btnClientes.BackgroundImage");
+            btnClientes.BackgroundImageLayout = ImageLayout.Center;
+            btnClientes.BorderColor = Color.PaleVioletRed;
+            btnClientes.BorderRadius = 10;
+            btnClientes.BorderSize = 0;
+            btnClientes.FlatAppearance.BorderSize = 0;
+            btnClientes.FlatStyle = FlatStyle.Flat;
+            btnClientes.ForeColor = Color.Black;
+            btnClientes.Location = new Point(167, 2);
+            btnClientes.Margin = new Padding(3, 2, 3, 2);
+            btnClientes.Name = "btnClientes";
+            btnClientes.Size = new Size(76, 71);
+            btnClientes.TabIndex = 7;
+            btnClientes.Text = "Clientes";
+            btnClientes.TextAlign = ContentAlignment.BottomCenter;
+            btnClientes.TextColor = Color.Black;
+            btnClientes.UseVisualStyleBackColor = false;
+            btnClientes.Click += btnClientes_Click;
+            // 
             // FormPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -830,5 +857,6 @@ namespace CapaVista
         private PictureBox pictureBox2;
         private System.Windows.Forms.Timer reloj;
         private Label lblReloj;
+        private RJCodeAdvance.RJControls.RJButton btnClientes;
     }
 }

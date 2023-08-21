@@ -23,6 +23,7 @@ namespace CapaVista
         {
             txtNombre.Text = string.Empty;
             txtIdCategoria.Text = string.Empty;
+            txtIdCategoria.Text = "1";
         }
         private void mostrarEstados()
         {
@@ -36,17 +37,11 @@ namespace CapaVista
             {
                 tbCategorias.Rows.Add("", "", c.id, c.nombre, c.oEstado.descripcion, c.fechaRegistro);
             }
-
         }
-
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (txtNombre.Text != "")
             {
-                if (txtIdCategoria.Text == "")
-                {
-                    txtIdCategoria.Text = "1";
-                }
                 MessageBox.Show(cCategoria.registraModificar(new Categoria
                 {
                     id = Convert.ToInt32(txtIdCategoria.Text),
@@ -148,9 +143,9 @@ namespace CapaVista
             {
                 if (indice >= 0)
                 {
-                    txtIdCategoria.Text = tbCategorias.Rows[e.RowIndex].Cells["id"].Value.ToString();
-                    txtNombre.Text = tbCategorias.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
-                    cbxEstado.Text = tbCategorias.Rows[e.RowIndex].Cells["estado"].Value.ToString();
+                    txtIdCategoria.Text = tbCategorias.Rows[indice].Cells["id"].Value.ToString();
+                    txtNombre.Text = tbCategorias.Rows[indice].Cells["nombre"].Value.ToString();
+                    cbxEstado.Text = tbCategorias.Rows[indice].Cells["estado"].Value.ToString();
                 }
             }
             if (tbCategorias.Columns[e.ColumnIndex].Name == "btnBorrar")

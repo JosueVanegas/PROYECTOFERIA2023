@@ -8,6 +8,7 @@ namespace CapaVista.FormInventario
     {
         Producto productoBuscado;
         List<Producto> lista;
+        ControlCompra cCompra = new ControlCompra();
         public FormCompras()
         {
             InitializeComponent();
@@ -79,7 +80,14 @@ namespace CapaVista.FormInventario
         }
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
-
+            if (txtCodigoDeProducto.Text != "")
+            {
+                agregarProducto(txtCodigoDeProducto.Text);
+            }
+            else
+            {
+                MessageBox.Show("No se encontro el producto con ese codigo");
+            }
         }
         private void agregarProducto(string codigo)
         {
@@ -89,7 +97,7 @@ namespace CapaVista.FormInventario
                 int rowIndex = -1;
                 for (int i = 0; i < tbDetalles.Rows.Count; i++)
                 {
-                    if (tbDetalles.Rows[i].Cells["Codigo"].Value != null &&
+                    if (tbDetalles.Rows[i].Cells["Codigo"].Value.ToString() != null &&
                         tbDetalles.Rows[i].Cells["Codigo"].Value.ToString() == codigo)
                     {
                         rowIndex = i;
@@ -99,23 +107,15 @@ namespace CapaVista.FormInventario
                 if (rowIndex >= 0)
                 {
                     int nuevaCantidad = 1 + Convert.ToInt32(tbDetalles.Rows[rowIndex].Cells["Cantidad"].Value);
-
-                    if (producto.cantidad >= nuevaCantidad)
-                    {
-                        decimal nuevoSubTotal = nuevaCantidad * producto.PrecioVenta;
-                        tbDetalles.Rows[rowIndex].Cells["Cantidad"].Value = nuevaCantidad;
-                        tbDetalles.Rows[rowIndex].Cells["SubTotal"].Value = nuevoSubTotal;
-                    }
-                    else
-                    {
-                        MessageBox.Show("El producto '" + producto.nombre + "' no dispone de la cantidad requerida\n" +
-                                    "Cantidad del producto en inventario: " + producto.cantidad + " cantidad requeridad: " + nuevaCantidad);
-                    }
+                    decimal nuevoSubTotal = nuevaCantidad * producto.PrecioVenta;
+                    tbDetalles.Rows[rowIndex].Cells["Cantidad"].Value = nuevaCantidad;
+                    tbDetalles.Rows[rowIndex].Cells["SubTotal"].Value = nuevoSubTotal;
                 }
                 else
                 {
-                    tbDetalles.Rows.Add("", "", producto.imagen, producto.id, producto.codigo, producto.nombre
-                    , producto.PrecioVenta, 1, producto.PrecioVenta);
+                    decimal total = producto.PrecioCompra * 1;
+                    tbDetalles.Rows.Add("", producto.id, producto.codigo, producto.oProveedor.nombreProveedor, producto.nombre, 1
+                    , producto.PrecioCompra, total, producto.oProveedor.id);
                 }
             }
             else
@@ -151,6 +151,41 @@ namespace CapaVista.FormInventario
         private void btnBuscarProducto_Click(object sender, EventArgs e)
         {
             panelCompras.SendToBack();
+        }
+        private void tbDetalles_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int indice = e.RowIndex;
+            if (tbDetalles.Columns[e.ColumnIndex].Name == "btnEliminar")
+            {
+                if (indice >= 0)
+                {
+
+                    if (MessageBox.Show("Desea eliminar el producto seleccionado? ", "Consulta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        tbDetalles.Rows.RemoveAt(indice);
+                    }
+                }
+            }
+        }
+        private void tbDetalles_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+            if (e.ColumnIndex == 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var w = CapaPresentacion.Properties.Resources.pen_circle.Width;
+                var h = CapaPresentacion.Properties.Resources.pen_circle.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(CapaPresentacion.Properties.Resources.eliminar, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
+        private void btnGuardarCompra_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -50,9 +50,12 @@ namespace CapaDatos
                 try
                 {
                     connection.Open();
-                    SqlCommand comand = new SqlCommand("PROC_REGISTRAR_PROVEEDOR", connection);
+                    SqlCommand comand = new SqlCommand("PROC_REGISTRAR_CLIENTE", connection);
                     comand.CommandType = CommandType.StoredProcedure;
-                    comand.Parameters.AddWithValue("@ID_PROVEEDOR", clie.id);
+                    comand.Parameters.AddWithValue("@ID_CLIENTE", clie.id);
+                    comand.Parameters.AddWithValue("@NOMBRE", clie.nombre);
+                    comand.Parameters.AddWithValue("@APELLIDO", clie.apellido);
+                    comand.Parameters.AddWithValue("@TELEFONO", clie.telefono);
                     comand.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
                     comand.ExecuteNonQuery();
@@ -74,9 +77,9 @@ namespace CapaDatos
                 try
                 {
                     con.Open();
-                    SqlCommand comand = new SqlCommand("PROC_ELIMINAR_PROVEEDOR", con);
+                    SqlCommand comand = new SqlCommand("PROC_ELIMINAR_CLIENTE", con);
                     comand.CommandType = CommandType.StoredProcedure;
-                    comand.Parameters.AddWithValue("@ID_PROVEEDOR", idC);
+                    comand.Parameters.AddWithValue("@ID_CLIENTE", idC);
                     comand.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     comand.ExecuteNonQuery();
 
@@ -84,7 +87,7 @@ namespace CapaDatos
                 }
                 catch (Exception ex)
                 {
-                    mensaje = "no se pudo eliminar el usuario. error: " + ex.Message;
+                    mensaje = "no se pudo eliminar el cliente. error: " + ex.Message;
                 }
             }
             return mensaje;

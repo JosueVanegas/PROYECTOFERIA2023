@@ -1,4 +1,5 @@
 ﻿using CapaDatos;
+using CapaPresentacion;
 using CapaPresentacion.FormInformes;
 using CapaVista.FormConfiguracion;
 using CapaVista.FormContabilidad;
@@ -160,6 +161,11 @@ namespace CapaVista
         {
             DateTime dateTime = DateTime.Now;
             lblReloj.Text = dateTime.ToString();
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new FormClientes());
         }
     }
 }

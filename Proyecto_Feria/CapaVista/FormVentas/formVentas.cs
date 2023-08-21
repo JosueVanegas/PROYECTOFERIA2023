@@ -230,7 +230,7 @@ namespace CapaVista.FormVenta
                 else
                 {
                     tbResumen.Rows.Add("", "", producto.imagen, producto.id, producto.codigo, producto.nombre
-                    , producto.PrecioVenta, 1, producto.PrecioVenta);
+                    , producto.PrecioVenta, 1, producto.PrecioVenta,producto.cantidad);
                     limpiarEtiquetas();
                     lblCantidad.Text = lblCantidad.Text + " " + 1;
                     lblSubTotal.Text = lblSubTotal.Text + " " + producto.PrecioVenta;

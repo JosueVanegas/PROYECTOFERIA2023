@@ -149,6 +149,7 @@
             txtIdCategoria.Name = "txtIdCategoria";
             txtIdCategoria.Size = new Size(35, 23);
             txtIdCategoria.TabIndex = 8;
+            txtIdCategoria.Text = "1";
             txtIdCategoria.Visible = false;
             // 
             // panel1
