@@ -150,18 +150,39 @@
     {
         public int idCompra { get; set; }
         public int idProducto { get; set; }
-        public string nombre { get; set; }
-        public int cantiad { get; set; }
-        public decimal precio { get; set; }
+        public int cantidad { get; set; }
         public decimal total { get; set; }
-        public string fechaRegistro { get; set; }
+    }
+    public class realizarCompra
+    {
+        public int ID_USUARIO { get; set; }
+        public decimal TOTAL { get; set; }
     }
     public class compra
     {
         public int id { get; set; }
         public string factura { get; set; }
         public int idUsuario { get; set; }
+        public string nombreUsuario { get; set; }
         public decimal total { get; set; }
         public string fechaRegistro { get; set; }
+    }
+
+    public class VentaNetoPorPeriodo
+    {
+        public string period { get; set; }
+        public decimal netSales { get; set; }
+    }
+    public class reporteVenta
+    {
+        public string No_Factura { get; set; }
+        public string Nombre_Cliente { get; set; }
+        public string Apellido_Cliente { get; set; }
+        public string Atendido_Por { get; set; }
+        public decimal Descuento { get; set; }
+        public decimal Subtotal { get; set; }
+        public decimal IVA { get; set; }
+        public decimal Total { get; set; }
+        public string Fecha { get; set; }
     }
 }

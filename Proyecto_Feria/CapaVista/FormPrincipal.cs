@@ -24,7 +24,7 @@ namespace CapaVista
             this.user = usuario;
             reloj.Start();
             panelVertical_Admin.BackColor = Color.FromArgb(74, 121, 121);
-            //datosDeUsuarioActual();
+            datosDeUsuarioActual();
         }
 
 
@@ -82,7 +82,7 @@ namespace CapaVista
 
         private void btnInventory_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new formInventario());
+            abrirFormulario(new formInventario(this.user));
         }
 
         private void btnPlanilla_Click(object sender, EventArgs e)

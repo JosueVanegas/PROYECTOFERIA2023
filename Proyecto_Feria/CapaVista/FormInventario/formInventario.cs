@@ -1,4 +1,5 @@
-﻿using CapaVista.FormInventario;
+﻿using CapaDatos;
+using CapaVista.FormInventario;
 using ReaLTaiizor.Forms;
 
 namespace CapaVista
@@ -8,10 +9,11 @@ namespace CapaVista
 
         Form formActivo = null;
         Button botonActivo = null;
-        public formInventario()
+        Usuario user;
+        public formInventario(Usuario user)
         {
             InitializeComponent();
-
+            this.user = user;
         }
 
         private void abrirFormulario(Form form)
@@ -31,7 +33,7 @@ namespace CapaVista
         }
         private void btnCompras_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new FormCompras());
+            abrirFormulario(new FormCompras(user));
         }
         private void btnProductos_Click(object sender, EventArgs e)
         {

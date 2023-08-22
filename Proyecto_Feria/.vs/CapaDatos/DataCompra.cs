@@ -5,13 +5,40 @@ namespace CapaDatos
 {
     public class DataCompra
     {
-        string mensaje = "";
+        public int idCreado = 0;
+        public string noFactura = string.Empty;
+        string mensaje = string.Empty;
         public DataCompra() { }
 
-        public List<compra> listarCategorias()
+        public string procesoDeCompra(realizarCompra rc, List<detalleCompra> detalles)
+        {
+            string mensaje = "";
+            try
+            {
+                int id = registrarCompra(rc);
+                if (id > 0)
+                {
+                    foreach (detalleCompra d in detalles)
+                    {
+                        registrarDetalleCompra(d, id);
+                    }
+                    mensaje = "Proceso de compra realizado con exito";
+                }
+                else
+                {
+                    mensaje = "No se ha podido realizar el registro de la compra";
+                }
+            }
+            catch (Exception ex)
+            {
+                mensaje = ex.Message;
+            }
+            return mensaje;
+        }
+        public List<compra> listarCompras()
         {
             List<compra> lista = new List<compra>();
-            string query = "SELECT * FROM COMPRA";
+            string query = "SELECT C.ID_COMPRA,C.NO_FACTURA,C.ID_USUARIO,U.USUARIO,C.TOTAL_COMPRA,C.FECHA_REGISTRO FROM COMPRA C INNER JOIN USUARIO U ON C.ID_USUARIO = U.ID_USUARIO ";
             using (var con = new conexion().conectar())
             {
                 try
@@ -27,10 +54,12 @@ namespace CapaDatos
                               
                                 lista.Add(new compra
                                 {
-                                    id = Convert.ToInt32(reader["ID_CATEGORIA"]),
-                                   total = 0,
-                                 
-                                    fechaRegistro = reader["FECHA_REGISTRO"].ToString()
+                                    id = Convert.ToInt32(reader["C.ID_COMPRA"]),
+                                    factura = reader["C.NO_FACTURA"].ToString(),
+                                    idUsuario = Convert.ToInt32(reader["C.ID_USUARIO"]),
+                                    nombreUsuario  = reader["U.USUARIO"].ToString(),
+                                    total = Convert.ToInt32(reader["C.TOTAL_COMPRA"]),
+                                    fechaRegistro = reader["C.FECHA_REGISTRO"].ToString()
                                 });
                             }
                         }
@@ -44,60 +73,54 @@ namespace CapaDatos
             }
             return lista;
         }
-
-        public string accionesCategoria(Categoria ca)
+        public int registrarCompra(realizarCompra c)
         {
+            idCreado = 0;
             using (SqlConnection con = new conexion().conectar())
             {
                 try
                 {
                     con.Open();
-                    using (SqlCommand cmd = new SqlCommand("PROC_REGISTRAR_CATEGORIA", con))
+                    using (SqlCommand cmd = new SqlCommand("PROC_REGISTRAR_COMPRA", con))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@ID_CATEGORIA", ca.id);
-                        cmd.Parameters.AddWithValue("@NOMBRE_CATEGORIA", ca.nombre);
-                        cmd.Parameters.AddWithValue("@ESTADO_CATEGORIA", ca.oEstado.estado);
-                        cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                        cmd.Parameters.AddWithValue("@ID_USUARIO", c.ID_USUARIO);
+                        cmd.Parameters.AddWithValue("@TOTAL_COMPRA", c.TOTAL);
+                        cmd.Parameters.Add("ID_CREADO", System.Data.SqlDbType.Int).Direction = System.Data.ParameterDirection.Output;
+                        cmd.Parameters.Add("NO_FACTURA", System.Data.SqlDbType.VarChar, 30).Direction = System.Data.ParameterDirection.Output;
                         cmd.ExecuteNonQuery();
-
-                        mensaje = cmd.Parameters["mensaje"].Value.ToString();
-
+                        idCreado = (int)cmd.Parameters["ID_CREADO"].Value;
+                        noFactura = cmd.Parameters["NO_FACTURA"].Value.ToString();
                     }
                 }
                 catch (Exception ex)
                 {
-                    mensaje = "Lo sentimos a ocurrido un \nerror : " + ex.Message;
+                    idCreado = 0;
                 }
             }
-            return mensaje;
+            return idCreado;
         }
-        public string eliminarCategoria(int id)
+        public void registrarDetalleCompra(detalleCompra d, int id)
         {
-            mensaje = "";
-            using (SqlConnection con = new conexion().conectar())
+            try
             {
-                try
+                using (SqlConnection con = new conexion().conectar())
                 {
-                    con.Open();
-                    using (SqlCommand cmd = new SqlCommand("PROC_ELIMINAR_CATEGORIA", con))
+                    using (SqlCommand cmd = new SqlCommand("PROC_REGISTRAR_DETALLE_COMPRA", con))
                     {
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@ID_CATEGORIA", id);
-                        cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                        con.Open();
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@ID_COMPRA", id);
+                        cmd.Parameters.AddWithValue("@ID_PRODUCTO", d.idProducto);
+                        cmd.Parameters.AddWithValue("@CANTIDAD", d.cantidad);
+                        cmd.Parameters.AddWithValue("@SUBTOTAL", d.total);
                         cmd.ExecuteNonQuery();
-
-                        mensaje = cmd.Parameters["mensaje"].Value.ToString();
-
                     }
                 }
-                catch (Exception ex)
-                {
-                    mensaje = "Lo sentimos a ocurrido un \nerror : " + ex.Message;
-                }
             }
-
-            return mensaje;
+            catch (Exception ex)
+            {
+            }
         }
     }
 }

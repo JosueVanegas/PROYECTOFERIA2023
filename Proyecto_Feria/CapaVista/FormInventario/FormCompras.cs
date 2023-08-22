@@ -9,14 +9,25 @@ namespace CapaVista.FormInventario
         Producto productoBuscado;
         List<Producto> lista;
         ControlCompra cCompra = new ControlCompra();
-        public FormCompras()
+        Usuario user;
+        public FormCompras(Usuario user)
         {
             InitializeComponent();
-
+            this.user = user;
         }
         private void FormCompras_Load(object sender, EventArgs e)
         {
             mostrarProductosDisponible();
+            mostrarCompras();
+        }
+        private void mostrarCompras()
+        {
+            List<compra> lista = cCompra.listarCompra();
+            tbCompras.Rows.Clear();
+            foreach (compra c in lista)
+            {
+                tbCompras.Rows.Add(c.id, c.factura, c.idUsuario, c.nombreUsuario, c.total);
+            }
         }
         private void mostrarProductosDisponible()
         {
@@ -185,7 +196,41 @@ namespace CapaVista.FormInventario
         }
         private void btnGuardarCompra_Click(object sender, EventArgs e)
         {
+            if (txtTotal.Text != "")
+            {
+                realizarCompra compra = new realizarCompra
+                {
+                    ID_USUARIO = user.id,
+                    TOTAL = Convert.ToDecimal(txtTotal.Text)
+                };
+                MessageBox.Show(cCompra.procesoCompra(compra, obtenerDetalles()));
+                mostrarCompras();
+                mostrarProductosDisponible();
+            }
+            else
+            {
+                MessageBox.Show("No se ha comprado nada");
+            }
+        }
+        private List<detalleCompra> obtenerDetalles()
+        {
+            List<detalleCompra> lista = new List<detalleCompra>();
 
+            foreach (DataGridViewRow row in tbDetalles.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    detalleCompra detalle = new detalleCompra
+                    {
+                        idCompra = 0,
+                        idProducto = (int)row.Cells["Id"].Value,
+                        cantidad = (int)row.Cells["Cantidad"].Value,
+                        total = (decimal)row.Cells["Subtotal"].Value,
+                    };
+                    lista.Add(detalle);
+                }
+            }
+            return lista;
         }
     }
 }

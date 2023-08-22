@@ -24,7 +24,7 @@ namespace CapaDatos
                 }
                 else
                 {
-                    mensaje = "NO se ha podido realizar el registro de la venta";
+                    mensaje = "No se ha podido realizar el registro de la venta";
                 }
             }
             catch (Exception ex)
@@ -87,7 +87,5 @@ namespace CapaDatos
             {
             }
         }
-
-
     }
 }
