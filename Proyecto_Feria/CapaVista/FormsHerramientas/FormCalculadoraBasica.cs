@@ -4,45 +4,46 @@ namespace CapaVista.FormsHerramientas
 {
     public partial class FormCalculadoraBasica : MaterialForm
     {
-        private string operador;
-        private double numero1;
-        private double numero2;
-        private bool operadorPresionado;
+         string operador;
+         decimal numero1;
+         decimal numero2;
         public FormCalculadoraBasica()
         {
             InitializeComponent();
-            btnNumber0.Tag = "0";
-            btnNumber1.Tag = "1";
-            btnNumber2.Tag = "2";
-            btnNumber3.Tag = "3";
-            btnNumber4.Tag = "4";
-            btnNumber5.Tag = "5";
-            btnNumber6.Tag = "6";
-            btnNumber7.Tag = "7";
-            btnNumber8.Tag = "8";
-            btnNumber9.Tag = "9";
-
-            btnAC.Tag = "AC";
-            btnEliminar.Tag = "Eliminar";
 
         }
 
         // Método para realizar las operaciones
-        private double RealizarOperacion(string operacion)
+        private void RealizarOperacion(string operacion)
         {
+            decimal total = 0;
+            numero2 = Convert.ToDecimal(txtResultado.Text);
+            txtProceso.Text += " " + numero2;
             switch (operacion)
             {
                 case "+":
-                    return numero1 + numero2;
+                    total = numero1 + numero2;
+                    txtResultado.Text = total.ToString();
+                    break;
                 case "-":
-                    return numero1 - numero2;
+                    total = numero1 - numero2;
+                    txtResultado.Text = total.ToString();
+                    break;
                 case "*":
-                    return numero1 * numero2;
+                    total = numero1 * numero2;
+                    txtResultado.Text = total.ToString();
+                    break;
                 case "/":
                     if (numero2 != 0)
-                        return numero1 / numero2;
+                    {
+                        total = numero1 / numero2;
+                        txtResultado.Text = total.ToString();
+                    }
                     else
-                        throw new DivideByZeroException("No se puede dividir entre cero.");
+                    {
+                        MessageBox.Show("No se puede dividir entre 0");
+                    }
+                    break;
                 default:
                     throw new ArgumentException("Operador no válido.");
             }
@@ -59,47 +60,125 @@ namespace CapaVista.FormsHerramientas
         }
         private void BtnNumero_Click(object sender, EventArgs e)
         {
-            Button boton = (Button)sender;
-
-
-            txtResultado.Text += boton.Tag.ToString();
-
+            if (txtResultado.Text.Length <= 10)
+            {
+                if (sender.Equals(btnNumber0))
+                {
+                    txtResultado.Text += "0";
+                }
+                if (sender.Equals(btnNumber1))
+                {
+                    txtResultado.Text += "1";
+                }
+                if (sender.Equals(btnNumber2))
+                {
+                    txtResultado.Text += "2";
+                }
+                if (sender.Equals(btnNumber3))
+                {
+                    txtResultado.Text += "3";
+                }
+                if (sender.Equals(btnNumber4))
+                {
+                    txtResultado.Text += "4";
+                }
+                if (sender.Equals(btnNumber5))
+                {
+                    txtResultado.Text += "5";
+                }
+                if (sender.Equals(btnNumber6))
+                {
+                    txtResultado.Text += "6";
+                }
+                if (sender.Equals(btnNumber7))
+                {
+                    txtResultado.Text += "7";
+                }
+                if (sender.Equals(btnNumber8))
+                {
+                    txtResultado.Text += "8";
+                }
+                if (sender.Equals(btnNumber9))
+                {
+                    txtResultado.Text += "9";
+                }
+            }
         }
         private void btnOperador_Click(object sender, EventArgs e)
         {
-            // Manejar el clic de los botones de operación (+, -, *, /)
-            if (double.TryParse(txtResultado.Text, out numero1))
+            if (sender.Equals(btnNumberMasMenos))
             {
-                Button botonOperador = (Button)sender;
-                operador = (String)botonOperador.Tag;
-                operadorPresionado = true;
-            }
-        }
-
-        private void btnIgual_Click(object sender, EventArgs e)
-        {
-            // Manejar el clic del botón de igual (=)
-            if (double.TryParse(txtResultado.Text, out numero2))
-            {
-                try
+                if (txtResultado.Text != "")
                 {
-                    double resultado = RealizarOperacion(operador);
-                    txtResultado.Text = resultado.ToString();
-                }
-                catch (Exception ex)
-                {
-                    txtResultado.Text = "Error: " + ex.Message;
+                    decimal n = Convert.ToDecimal(txtResultado.Text);
+                    n = n * -1;
+                    txtResultado.Text = n.ToString();
                 }
             }
-        }
+            if (sender.Equals(btnMas))
+            {
+                numero1 = Convert.ToDecimal(txtResultado.Text);
+                txtProceso.Text = numero1 + "+";
+                txtResultado.Text = "";
+                operador = "+";
+            }
+            if (sender.Equals(btnMenos))
+            {
+                numero1 = Convert.ToDecimal(txtResultado.Text);
+                txtProceso.Text = numero1 + "-";
+                txtResultado.Text = "";
+                operador = "-";
+            }
+            if (sender.Equals(btnMulti))
+            {
+                numero1 = Convert.ToDecimal(txtResultado.Text);
+                txtProceso.Text = numero1 + "*";
+                txtResultado.Text = "";
+                operador = "*";
+            }
+            if (sender.Equals(btnDiv))
+            {
+                numero1 = Convert.ToDecimal(txtResultado.Text);
+                txtProceso.Text = numero1 + "/";
+                txtResultado.Text = "";
+                operador = "/";
+            }
+            if (sender.Equals(btnIgual))
+            {
+                if (txtResultado.Text != "")
+                {
+                    if(operador == "+")
+                    {
+                        RealizarOperacion("+");
+                    }
+                    if (operador == "-")
+                    {
+                        RealizarOperacion("-");
+                    }
+                    if (operador == "*")
+                    {
+                        RealizarOperacion("*");
+                    }
+                    if (operador == "/")
+                    {
+                        RealizarOperacion("/");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ingrese el segundo valor");
+                }
+            }
 
+        }
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             // Manejar el clic del botón Limpiar (C)
             txtResultado.Text = "";
+            txtProceso.Text = "";
             numero1 = 0;
             numero2 = 0;
-            operadorPresionado = false;
+            operador = "";
         }
 
         private void CalculadoraBasica_Load(object sender, EventArgs e)
