@@ -197,6 +197,10 @@
               "target": "Package",
               "version": "[1.34.0, )"
             },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.1.1, )"
+            },
             "Microsoft.ReportingServices.ReportViewerControl.Winforms": {
               "target": "Package",
               "version": "[150.1586.0, )"
@@ -216,6 +220,14 @@
             "ReportingServicesInterfaces": {
               "target": "Package",
               "version": "[13.0.1601.5, )"
+            },
+            "SL.Common.NetCore.ReportView": {
+              "target": "Package",
+              "version": "[15.0.1405, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.5, )"
             },
             "WinForms.DataVisualization": {
               "target": "Package",

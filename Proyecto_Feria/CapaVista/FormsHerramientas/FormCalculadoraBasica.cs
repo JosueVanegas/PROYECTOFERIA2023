@@ -169,7 +169,6 @@ namespace CapaVista.FormsHerramientas
                     MessageBox.Show("Ingrese el segundo valor");
                 }
             }
-
         }
         private void btnLimpiar_Click(object sender, EventArgs e)
         {

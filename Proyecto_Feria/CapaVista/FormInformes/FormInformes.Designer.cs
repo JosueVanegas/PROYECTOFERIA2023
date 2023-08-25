@@ -28,46 +28,84 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            ((System.ComponentModel.ISupportInitialize)chart1).BeginInit();
+            reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            panel1 = new Panel();
+            rjButton1 = new RJCodeAdvance.RJControls.RJButton();
+            dataGridView1 = new DataGridView();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
-            // chart1
+            // reportViewer1
             // 
-            chartArea1.Name = "ChartArea1";
-            chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            chart1.Legends.Add(legend1);
-            chart1.Location = new Point(243, 42);
-            chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            chart1.Series.Add(series1);
-            chart1.Size = new Size(386, 300);
-            chart1.TabIndex = 0;
-            chart1.Text = "chart1";
+            reportViewer1.Dock = DockStyle.Fill;
+            reportViewer1.Location = new Point(233, 0);
+            reportViewer1.Name = "reportViewer1";
+            reportViewer1.ServerReport.BearerToken = null;
+            reportViewer1.Size = new Size(564, 447);
+            reportViewer1.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(dataGridView1);
+            panel1.Controls.Add(rjButton1);
+            panel1.Dock = DockStyle.Left;
+            panel1.Location = new Point(3, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(230, 447);
+            panel1.TabIndex = 1;
+            // 
+            // rjButton1
+            // 
+            rjButton1.BackColor = Color.MediumSlateBlue;
+            rjButton1.BackgroundColor = Color.MediumSlateBlue;
+            rjButton1.BorderColor = Color.PaleVioletRed;
+            rjButton1.BorderRadius = 0;
+            rjButton1.BorderSize = 0;
+            rjButton1.FlatAppearance.BorderSize = 0;
+            rjButton1.FlatStyle = FlatStyle.Flat;
+            rjButton1.ForeColor = Color.White;
+            rjButton1.Location = new Point(26, 123);
+            rjButton1.Name = "rjButton1";
+            rjButton1.Size = new Size(150, 40);
+            rjButton1.TabIndex = 0;
+            rjButton1.Text = "rjButton1";
+            rjButton1.TextColor = Color.White;
+            rjButton1.UseVisualStyleBackColor = false;
+            rjButton1.Click += rjButton1_Click;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(26, 180);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.Size = new Size(164, 150);
+            dataGridView1.TabIndex = 1;
             // 
             // FormInformes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(chart1);
+            Controls.Add(reportViewer1);
+            Controls.Add(panel1);
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
             Name = "FormInformes";
             Padding = new Padding(3, 0, 3, 3);
             StartPosition = FormStartPosition.Manual;
             Text = "FormInformes";
-            ((System.ComponentModel.ISupportInitialize)chart1).EndInit();
+            Load += FormInformes_Load;
+            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private Panel panel1;
+        private RJCodeAdvance.RJControls.RJButton rjButton1;
+        private DataGridView dataGridView1;
     }
 }

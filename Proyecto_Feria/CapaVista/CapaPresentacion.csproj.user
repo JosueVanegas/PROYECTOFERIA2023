@@ -74,4 +74,12 @@
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <None Update="DBPUNTO_DE_VENTADataSet.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="FormInformes\DataSet1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
 </Project>

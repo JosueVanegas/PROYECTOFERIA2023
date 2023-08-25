@@ -168,21 +168,5 @@
         public string fechaRegistro { get; set; }
     }
 
-    public class VentaNetoPorPeriodo
-    {
-        public string period { get; set; }
-        public decimal netSales { get; set; }
-    }
-    public class reporteVenta
-    {
-        public string No_Factura { get; set; }
-        public string Nombre_Cliente { get; set; }
-        public string Apellido_Cliente { get; set; }
-        public string Atendido_Por { get; set; }
-        public decimal Descuento { get; set; }
-        public decimal Subtotal { get; set; }
-        public decimal IVA { get; set; }
-        public decimal Total { get; set; }
-        public string Fecha { get; set; }
-    }
+   
 }
