@@ -210,9 +210,9 @@
             // 
             lblConexion.Font = new Font("Microsoft Sans Serif", 6F, FontStyle.Regular, GraphicsUnit.Point);
             lblConexion.ForeColor = SystemColors.ControlDarkDark;
-            lblConexion.Location = new Point(242, 253);
+            lblConexion.Location = new Point(272, 253);
             lblConexion.Name = "lblConexion";
-            lblConexion.Size = new Size(265, 44);
+            lblConexion.Size = new Size(210, 44);
             lblConexion.TabIndex = 7;
             // 
             // formLogin

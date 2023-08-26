@@ -3,6 +3,9 @@ using Microsoft.Data.SqlClient;
 using Microsoft.Reporting.WinForms;
 using ReaLTaiizor.Forms;
 using System.Data;
+using CapaPresentacion;
+using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
+using CapaDatos;
 
 namespace CapaPresentacion.FormInformes
 {
@@ -16,28 +19,28 @@ namespace CapaPresentacion.FormInformes
 
         private void FormInformes_Load(object sender, EventArgs e)
         {
-            this.reportViewer1.RefreshReport();
+
         }
 
         private void rjButton1_Click(object sender, EventArgs e)
         {
-            //DataTable dt = cInforme.datosDeVentas("15/08/2023", "25/08/2023");
-            //dataGridView1.DataSource = dt;
-          try
+            try
             {
-                DataTable dt = cInforme.datosDeVentas("15/08/2023", "25/08/2023");
-                reportViewer1.LocalReport.DataSources.Clear();
-                //volver a hacer el dataset y el reporte y probar de nuevo
-                ReportDataSource source = new ReportDataSource("DataSet1", dt);
-                reportViewer1.LocalReport.ReportPath = "C:\\Users\\Personal\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\CapaVista\\FormInformes\\InformeVentas.rdlc";
-                reportViewer1.LocalReport.DataSources.Add(source);
+                //  this.proC_ordenaR_fechA_ventaTableAdapter1.Fill(, "15/08/2023", "25/08/2023");
                 reportViewer1.RefreshReport();
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al obtener datos de ventas: " + ex.Message);
+                // Maneja cualquier excepción que pueda ocurrir.
+                MessageBox.Show("Error: " + ex.Message);
             }
-           
+
+
         }
     }
 }
+/*
+ * reportViewer1.LocalReport.ReportEmbeddedResource = "InformeVentas.rdlc";
+                ReportDataSource reportDataSource = new ReportDataSource("DataSet1", dataTable);
+                reportViewer1.LocalReport.DataSources.Add(reportDataSource);
+ */

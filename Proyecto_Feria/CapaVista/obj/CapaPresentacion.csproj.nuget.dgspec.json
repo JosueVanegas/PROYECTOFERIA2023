@@ -201,9 +201,9 @@
               "target": "Package",
               "version": "[5.1.1, )"
             },
-            "Microsoft.ReportingServices.ReportViewerControl.Winforms": {
+            "Microsoft.ReportingServices.ReportViewerControl.WinForms": {
               "target": "Package",
-              "version": "[150.1586.0, )"
+              "version": "[140.340.80, )"
             },
             "RJCodeAdvance.RJControls": {
               "target": "Package",
@@ -212,10 +212,6 @@
             "ReaLTaiizor": {
               "target": "Package",
               "version": "[3.7.9.4, )"
-            },
-            "ReportViewerCore.WinForms": {
-              "target": "Package",
-              "version": "[15.1.17, )"
             },
             "ReportingServicesInterfaces": {
               "target": "Package",

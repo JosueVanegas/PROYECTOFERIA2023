@@ -167,6 +167,4 @@
         public decimal total { get; set; }
         public string fechaRegistro { get; set; }
     }
-
-   
 }

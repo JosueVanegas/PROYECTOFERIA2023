@@ -28,67 +28,82 @@
         /// </summary>
         private void InitializeComponent()
         {
-            reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             panel1 = new Panel();
-            rjButton1 = new RJCodeAdvance.RJControls.RJButton();
-            dataGridView1 = new DataGridView();
+            btnPorSemana = new RJCodeAdvance.RJControls.RJButton();
+            panel2 = new Panel();
+            pkrFechaInicio = new RJCodeAdvance.RJControls.RJDatePicker();
+            reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panel2.SuspendLayout();
             SuspendLayout();
-            // 
-            // reportViewer1
-            // 
-            reportViewer1.Dock = DockStyle.Fill;
-            reportViewer1.Location = new Point(233, 0);
-            reportViewer1.Name = "reportViewer1";
-            reportViewer1.ServerReport.BearerToken = null;
-            reportViewer1.Size = new Size(564, 447);
-            reportViewer1.TabIndex = 0;
             // 
             // panel1
             // 
-            panel1.Controls.Add(dataGridView1);
-            panel1.Controls.Add(rjButton1);
+            panel1.Controls.Add(btnPorSemana);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(3, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(230, 447);
             panel1.TabIndex = 1;
             // 
-            // rjButton1
+            // btnPorSemana
             // 
-            rjButton1.BackColor = Color.MediumSlateBlue;
-            rjButton1.BackgroundColor = Color.MediumSlateBlue;
-            rjButton1.BorderColor = Color.PaleVioletRed;
-            rjButton1.BorderRadius = 0;
-            rjButton1.BorderSize = 0;
-            rjButton1.FlatAppearance.BorderSize = 0;
-            rjButton1.FlatStyle = FlatStyle.Flat;
-            rjButton1.ForeColor = Color.White;
-            rjButton1.Location = new Point(26, 123);
-            rjButton1.Name = "rjButton1";
-            rjButton1.Size = new Size(150, 40);
-            rjButton1.TabIndex = 0;
-            rjButton1.Text = "rjButton1";
-            rjButton1.TextColor = Color.White;
-            rjButton1.UseVisualStyleBackColor = false;
-            rjButton1.Click += rjButton1_Click;
+            btnPorSemana.BackColor = Color.MediumSlateBlue;
+            btnPorSemana.BackgroundColor = Color.MediumSlateBlue;
+            btnPorSemana.BorderColor = Color.PaleVioletRed;
+            btnPorSemana.BorderRadius = 0;
+            btnPorSemana.BorderSize = 0;
+            btnPorSemana.FlatAppearance.BorderSize = 0;
+            btnPorSemana.FlatStyle = FlatStyle.Flat;
+            btnPorSemana.ForeColor = Color.White;
+            btnPorSemana.Location = new Point(40, 61);
+            btnPorSemana.Name = "btnPorSemana";
+            btnPorSemana.Size = new Size(150, 40);
+            btnPorSemana.TabIndex = 0;
+            btnPorSemana.Text = "Reporte semanal";
+            btnPorSemana.TextColor = Color.White;
+            btnPorSemana.UseVisualStyleBackColor = false;
+            btnPorSemana.Click += rjButton1_Click;
             // 
-            // dataGridView1
+            // panel2
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(26, 180);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(164, 150);
-            dataGridView1.TabIndex = 1;
+            panel2.Controls.Add(pkrFechaInicio);
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(233, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(579, 61);
+            panel2.TabIndex = 3;
+            // 
+            // pkrFechaInicio
+            // 
+            pkrFechaInicio.BorderColor = Color.PaleVioletRed;
+            pkrFechaInicio.BorderSize = 0;
+            pkrFechaInicio.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            pkrFechaInicio.Location = new Point(102, 20);
+            pkrFechaInicio.MinimumSize = new Size(0, 35);
+            pkrFechaInicio.Name = "pkrFechaInicio";
+            pkrFechaInicio.Size = new Size(213, 35);
+            pkrFechaInicio.SkinColor = Color.Navy;
+            pkrFechaInicio.TabIndex = 0;
+            pkrFechaInicio.TextColor = Color.White;
+            // 
+            // reportViewer1
+            // 
+            reportViewer1.Dock = DockStyle.Fill;
+            reportViewer1.LocalReport.ReportEmbeddedResource = "";
+            reportViewer1.Location = new Point(233, 61);
+            reportViewer1.Name = "reportViewer1";
+            reportViewer1.ServerReport.BearerToken = null;
+            reportViewer1.Size = new Size(579, 386);
+            reportViewer1.TabIndex = 4;
             // 
             // FormInformes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(815, 450);
             Controls.Add(reportViewer1);
+            Controls.Add(panel2);
             Controls.Add(panel1);
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
             Name = "FormInformes";
@@ -97,15 +112,15 @@
             Text = "FormInformes";
             Load += FormInformes_Load;
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private Panel panel1;
-        private RJCodeAdvance.RJControls.RJButton rjButton1;
-        private DataGridView dataGridView1;
+        private RJCodeAdvance.RJControls.RJButton btnPorSemana;
+        private Panel panel2;
+        private RJCodeAdvance.RJControls.RJDatePicker pkrFechaInicio;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

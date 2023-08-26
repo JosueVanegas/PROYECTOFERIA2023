@@ -24,14 +24,14 @@ namespace CapaVista
             this.user = usuario;
             reloj.Start();
             panelVertical_Admin.BackColor = Color.FromArgb(74, 121, 121);
-            datosDeUsuarioActual();
+           // datosDeUsuarioActual();
         }
 
 
         private void datosDeUsuarioActual()
         {
-            lblUsuario.Text = "USUARIO ACTUAL: " + this.user.usuario;
-            lblRol.Text = "ROL DE USUARIO: " + this.user.oRol.descripcion;
+            lblUsuario.Text = "Usuario actual: " + this.user.usuario;
+            lblRol.Text = "Rol del usuario: " + this.user.oRol.descripcion;
         }
         private void abrirFormulario(Form form)
         {

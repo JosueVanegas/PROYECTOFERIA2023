@@ -35,6 +35,7 @@ namespace CapaVista
             panelAbajo = new Panel();
             lblReloj = new Label();
             tablePanel_Admin = new TableLayoutPanel();
+            btnClientes = new RJCodeAdvance.RJControls.RJButton();
             btnInventario = new RJCodeAdvance.RJControls.RJButton();
             btnPlanilla = new RJCodeAdvance.RJControls.RJButton();
             btnInformes = new RJCodeAdvance.RJControls.RJButton();
@@ -69,7 +70,6 @@ namespace CapaVista
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             reloj = new System.Windows.Forms.Timer(components);
-            btnClientes = new RJCodeAdvance.RJControls.RJButton();
             panelAbajo.SuspendLayout();
             tablePanel_Admin.SuspendLayout();
             tablePanelNombre_Vendedor.SuspendLayout();
@@ -133,6 +133,30 @@ namespace CapaVista
             tablePanel_Admin.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tablePanel_Admin.Size = new Size(497, 75);
             tablePanel_Admin.TabIndex = 0;
+            // 
+            // btnClientes
+            // 
+            btnClientes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnClientes.BackColor = Color.White;
+            btnClientes.BackgroundColor = Color.White;
+            btnClientes.BackgroundImage = (Image)resources.GetObject("btnClientes.BackgroundImage");
+            btnClientes.BackgroundImageLayout = ImageLayout.Center;
+            btnClientes.BorderColor = Color.PaleVioletRed;
+            btnClientes.BorderRadius = 10;
+            btnClientes.BorderSize = 0;
+            btnClientes.FlatAppearance.BorderSize = 0;
+            btnClientes.FlatStyle = FlatStyle.Flat;
+            btnClientes.ForeColor = Color.Black;
+            btnClientes.Location = new Point(167, 2);
+            btnClientes.Margin = new Padding(3, 2, 3, 2);
+            btnClientes.Name = "btnClientes";
+            btnClientes.Size = new Size(76, 71);
+            btnClientes.TabIndex = 7;
+            btnClientes.Text = "Clientes";
+            btnClientes.TextAlign = ContentAlignment.BottomCenter;
+            btnClientes.TextColor = Color.Black;
+            btnClientes.UseVisualStyleBackColor = false;
+            btnClientes.Click += btnClientes_Click;
             // 
             // btnInventario
             // 
@@ -277,25 +301,25 @@ namespace CapaVista
             // lblRol
             // 
             lblRol.Dock = DockStyle.Fill;
-            lblRol.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblRol.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             lblRol.ForeColor = Color.Black;
             lblRol.Location = new Point(3, 47);
             lblRol.Name = "lblRol";
             lblRol.Size = new Size(285, 47);
             lblRol.TabIndex = 53;
-            lblRol.Text = "ROL DE USUARIO:";
+            lblRol.Text = "Rol del usuario:";
             lblRol.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblUsuario
             // 
             lblUsuario.Dock = DockStyle.Fill;
-            lblUsuario.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblUsuario.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             lblUsuario.ForeColor = Color.Black;
             lblUsuario.Location = new Point(3, 0);
             lblUsuario.Name = "lblUsuario";
             lblUsuario.Size = new Size(285, 47);
             lblUsuario.TabIndex = 52;
-            lblUsuario.Text = "USUARIO ACTUAL:";
+            lblUsuario.Text = "Usuario actual:";
             lblUsuario.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // panelVertical_Admin
@@ -758,30 +782,6 @@ namespace CapaVista
             // 
             reloj.Enabled = true;
             reloj.Tick += reloj_Tick;
-            // 
-            // btnClientes
-            // 
-            btnClientes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnClientes.BackColor = Color.White;
-            btnClientes.BackgroundColor = Color.White;
-            btnClientes.BackgroundImage = (Image)resources.GetObject("btnClientes.BackgroundImage");
-            btnClientes.BackgroundImageLayout = ImageLayout.Center;
-            btnClientes.BorderColor = Color.PaleVioletRed;
-            btnClientes.BorderRadius = 10;
-            btnClientes.BorderSize = 0;
-            btnClientes.FlatAppearance.BorderSize = 0;
-            btnClientes.FlatStyle = FlatStyle.Flat;
-            btnClientes.ForeColor = Color.Black;
-            btnClientes.Location = new Point(167, 2);
-            btnClientes.Margin = new Padding(3, 2, 3, 2);
-            btnClientes.Name = "btnClientes";
-            btnClientes.Size = new Size(76, 71);
-            btnClientes.TabIndex = 7;
-            btnClientes.Text = "Clientes";
-            btnClientes.TextAlign = ContentAlignment.BottomCenter;
-            btnClientes.TextColor = Color.Black;
-            btnClientes.UseVisualStyleBackColor = false;
-            btnClientes.Click += btnClientes_Click;
             // 
             // FormPrincipal
             // 

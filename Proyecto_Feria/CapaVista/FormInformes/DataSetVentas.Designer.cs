@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace CapaPresentacion {
+namespace CapaPresentacion.FormInformes {
     
     
     /// <summary>
@@ -20,9 +20,9 @@ namespace CapaPresentacion {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("DBPUNTO_DE_VENTADataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("DataSetVentas")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class DBPUNTO_DE_VENTADataSet : global::System.Data.DataSet {
+    public partial class DataSetVentas : global::System.Data.DataSet {
         
         private PROC_ORDENAR_FECHA_VENTADataTable tablePROC_ORDENAR_FECHA_VENTA;
         
@@ -30,7 +30,7 @@ namespace CapaPresentacion {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public DBPUNTO_DE_VENTADataSet() {
+        public DataSetVentas() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace CapaPresentacion {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected DBPUNTO_DE_VENTADataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected DataSetVentas(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -127,7 +127,7 @@ namespace CapaPresentacion {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            DBPUNTO_DE_VENTADataSet cln = ((DBPUNTO_DE_VENTADataSet)(base.Clone()));
+            DataSetVentas cln = ((DataSetVentas)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -199,9 +199,9 @@ namespace CapaPresentacion {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "DBPUNTO_DE_VENTADataSet";
+            this.DataSetName = "DataSetVentas";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/DBPUNTO_DE_VENTADataSet.xsd";
+            this.Namespace = "http://tempuri.org/DataSetVentas.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tablePROC_ORDENAR_FECHA_VENTA = new PROC_ORDENAR_FECHA_VENTADataTable();
@@ -225,7 +225,7 @@ namespace CapaPresentacion {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            DBPUNTO_DE_VENTADataSet ds = new DBPUNTO_DE_VENTADataSet();
+            DataSetVentas ds = new DataSetVentas();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -281,17 +281,15 @@ namespace CapaPresentacion {
             
             private global::System.Data.DataColumn columnNO_FACTURA;
             
-            private global::System.Data.DataColumn columnNOMBRE;
-            
-            private global::System.Data.DataColumn columnAPELLIDO;
+            private global::System.Data.DataColumn columnNOMBRE_COMPLETO;
             
             private global::System.Data.DataColumn columnUSUARIO;
             
-            private global::System.Data.DataColumn columnDESCUENTO;
+            private global::System.Data.DataColumn columnIVA;
             
             private global::System.Data.DataColumn columnSUBTOTAL;
             
-            private global::System.Data.DataColumn columnIVA;
+            private global::System.Data.DataColumn columnDESCUENTO;
             
             private global::System.Data.DataColumn columnTOTAL;
             
@@ -340,17 +338,9 @@ namespace CapaPresentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn NOMBREColumn {
+            public global::System.Data.DataColumn NOMBRE_COMPLETOColumn {
                 get {
-                    return this.columnNOMBRE;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn APELLIDOColumn {
-                get {
-                    return this.columnAPELLIDO;
+                    return this.columnNOMBRE_COMPLETO;
                 }
             }
             
@@ -364,9 +354,9 @@ namespace CapaPresentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn DESCUENTOColumn {
+            public global::System.Data.DataColumn IVAColumn {
                 get {
-                    return this.columnDESCUENTO;
+                    return this.columnIVA;
                 }
             }
             
@@ -380,9 +370,9 @@ namespace CapaPresentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn IVAColumn {
+            public global::System.Data.DataColumn DESCUENTOColumn {
                 get {
-                    return this.columnIVA;
+                    return this.columnDESCUENTO;
                 }
             }
             
@@ -439,16 +429,15 @@ namespace CapaPresentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PROC_ORDENAR_FECHA_VENTARow AddPROC_ORDENAR_FECHA_VENTARow(string NO_FACTURA, string NOMBRE, string APELLIDO, string USUARIO, decimal DESCUENTO, decimal SUBTOTAL, decimal IVA, decimal TOTAL, string FECHA_REGISTRO) {
+            public PROC_ORDENAR_FECHA_VENTARow AddPROC_ORDENAR_FECHA_VENTARow(string NO_FACTURA, string NOMBRE_COMPLETO, string USUARIO, decimal IVA, decimal SUBTOTAL, decimal DESCUENTO, decimal TOTAL, string FECHA_REGISTRO) {
                 PROC_ORDENAR_FECHA_VENTARow rowPROC_ORDENAR_FECHA_VENTARow = ((PROC_ORDENAR_FECHA_VENTARow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         NO_FACTURA,
-                        NOMBRE,
-                        APELLIDO,
+                        NOMBRE_COMPLETO,
                         USUARIO,
-                        DESCUENTO,
-                        SUBTOTAL,
                         IVA,
+                        SUBTOTAL,
+                        DESCUENTO,
                         TOTAL,
                         FECHA_REGISTRO};
                 rowPROC_ORDENAR_FECHA_VENTARow.ItemArray = columnValuesArray;
@@ -474,12 +463,11 @@ namespace CapaPresentacion {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
                 this.columnNO_FACTURA = base.Columns["NO_FACTURA"];
-                this.columnNOMBRE = base.Columns["NOMBRE"];
-                this.columnAPELLIDO = base.Columns["APELLIDO"];
+                this.columnNOMBRE_COMPLETO = base.Columns["NOMBRE_COMPLETO"];
                 this.columnUSUARIO = base.Columns["USUARIO"];
-                this.columnDESCUENTO = base.Columns["DESCUENTO"];
-                this.columnSUBTOTAL = base.Columns["SUBTOTAL"];
                 this.columnIVA = base.Columns["IVA"];
+                this.columnSUBTOTAL = base.Columns["SUBTOTAL"];
+                this.columnDESCUENTO = base.Columns["DESCUENTO"];
                 this.columnTOTAL = base.Columns["TOTAL"];
                 this.columnFECHA_REGISTRO = base.Columns["FECHA_REGISTRO"];
             }
@@ -489,25 +477,23 @@ namespace CapaPresentacion {
             private void InitClass() {
                 this.columnNO_FACTURA = new global::System.Data.DataColumn("NO_FACTURA", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNO_FACTURA);
-                this.columnNOMBRE = new global::System.Data.DataColumn("NOMBRE", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNOMBRE);
-                this.columnAPELLIDO = new global::System.Data.DataColumn("APELLIDO", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAPELLIDO);
+                this.columnNOMBRE_COMPLETO = new global::System.Data.DataColumn("NOMBRE_COMPLETO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOMBRE_COMPLETO);
                 this.columnUSUARIO = new global::System.Data.DataColumn("USUARIO", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUSUARIO);
-                this.columnDESCUENTO = new global::System.Data.DataColumn("DESCUENTO", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDESCUENTO);
-                this.columnSUBTOTAL = new global::System.Data.DataColumn("SUBTOTAL", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSUBTOTAL);
                 this.columnIVA = new global::System.Data.DataColumn("IVA", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIVA);
+                this.columnSUBTOTAL = new global::System.Data.DataColumn("SUBTOTAL", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSUBTOTAL);
+                this.columnDESCUENTO = new global::System.Data.DataColumn("DESCUENTO", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDESCUENTO);
                 this.columnTOTAL = new global::System.Data.DataColumn("TOTAL", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTOTAL);
                 this.columnFECHA_REGISTRO = new global::System.Data.DataColumn("FECHA_REGISTRO", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFECHA_REGISTRO);
                 this.columnNO_FACTURA.MaxLength = 30;
-                this.columnNOMBRE.MaxLength = 50;
-                this.columnAPELLIDO.MaxLength = 50;
+                this.columnNOMBRE_COMPLETO.ReadOnly = true;
+                this.columnNOMBRE_COMPLETO.MaxLength = 101;
                 this.columnUSUARIO.MaxLength = 50;
                 this.columnFECHA_REGISTRO.MaxLength = 10;
             }
@@ -577,7 +563,7 @@ namespace CapaPresentacion {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DBPUNTO_DE_VENTADataSet ds = new DBPUNTO_DE_VENTADataSet();
+                DataSetVentas ds = new DataSetVentas();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -669,35 +655,18 @@ namespace CapaPresentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string NOMBRE {
+            public string NOMBRE_COMPLETO {
                 get {
                     try {
-                        return ((string)(this[this.tablePROC_ORDENAR_FECHA_VENTA.NOMBREColumn]));
+                        return ((string)(this[this.tablePROC_ORDENAR_FECHA_VENTA.NOMBRE_COMPLETOColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'NOMBRE\' de la tabla \'PROC_ORDENAR_FECHA_VENTA\' es DBNull." +
-                                "", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'NOMBRE_COMPLETO\' de la tabla \'PROC_ORDENAR_FECHA_VENTA\' e" +
+                                "s DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePROC_ORDENAR_FECHA_VENTA.NOMBREColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string APELLIDO {
-                get {
-                    try {
-                        return ((string)(this[this.tablePROC_ORDENAR_FECHA_VENTA.APELLIDOColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'APELLIDO\' de la tabla \'PROC_ORDENAR_FECHA_VENTA\' es DBNul" +
-                                "l.", e);
-                    }
-                }
-                set {
-                    this[this.tablePROC_ORDENAR_FECHA_VENTA.APELLIDOColumn] = value;
+                    this[this.tablePROC_ORDENAR_FECHA_VENTA.NOMBRE_COMPLETOColumn] = value;
                 }
             }
             
@@ -720,18 +689,17 @@ namespace CapaPresentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal DESCUENTO {
+            public decimal IVA {
                 get {
                     try {
-                        return ((decimal)(this[this.tablePROC_ORDENAR_FECHA_VENTA.DESCUENTOColumn]));
+                        return ((decimal)(this[this.tablePROC_ORDENAR_FECHA_VENTA.IVAColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'DESCUENTO\' de la tabla \'PROC_ORDENAR_FECHA_VENTA\' es DBNu" +
-                                "ll.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'IVA\' de la tabla \'PROC_ORDENAR_FECHA_VENTA\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePROC_ORDENAR_FECHA_VENTA.DESCUENTOColumn] = value;
+                    this[this.tablePROC_ORDENAR_FECHA_VENTA.IVAColumn] = value;
                 }
             }
             
@@ -754,17 +722,18 @@ namespace CapaPresentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal IVA {
+            public decimal DESCUENTO {
                 get {
                     try {
-                        return ((decimal)(this[this.tablePROC_ORDENAR_FECHA_VENTA.IVAColumn]));
+                        return ((decimal)(this[this.tablePROC_ORDENAR_FECHA_VENTA.DESCUENTOColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'IVA\' de la tabla \'PROC_ORDENAR_FECHA_VENTA\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'DESCUENTO\' de la tabla \'PROC_ORDENAR_FECHA_VENTA\' es DBNu" +
+                                "ll.", e);
                     }
                 }
                 set {
-                    this[this.tablePROC_ORDENAR_FECHA_VENTA.IVAColumn] = value;
+                    this[this.tablePROC_ORDENAR_FECHA_VENTA.DESCUENTOColumn] = value;
                 }
             }
             
@@ -815,26 +784,14 @@ namespace CapaPresentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsNOMBRENull() {
-                return this.IsNull(this.tablePROC_ORDENAR_FECHA_VENTA.NOMBREColumn);
+            public bool IsNOMBRE_COMPLETONull() {
+                return this.IsNull(this.tablePROC_ORDENAR_FECHA_VENTA.NOMBRE_COMPLETOColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetNOMBRENull() {
-                this[this.tablePROC_ORDENAR_FECHA_VENTA.NOMBREColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsAPELLIDONull() {
-                return this.IsNull(this.tablePROC_ORDENAR_FECHA_VENTA.APELLIDOColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetAPELLIDONull() {
-                this[this.tablePROC_ORDENAR_FECHA_VENTA.APELLIDOColumn] = global::System.Convert.DBNull;
+            public void SetNOMBRE_COMPLETONull() {
+                this[this.tablePROC_ORDENAR_FECHA_VENTA.NOMBRE_COMPLETOColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -851,14 +808,14 @@ namespace CapaPresentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsDESCUENTONull() {
-                return this.IsNull(this.tablePROC_ORDENAR_FECHA_VENTA.DESCUENTOColumn);
+            public bool IsIVANull() {
+                return this.IsNull(this.tablePROC_ORDENAR_FECHA_VENTA.IVAColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetDESCUENTONull() {
-                this[this.tablePROC_ORDENAR_FECHA_VENTA.DESCUENTOColumn] = global::System.Convert.DBNull;
+            public void SetIVANull() {
+                this[this.tablePROC_ORDENAR_FECHA_VENTA.IVAColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -875,14 +832,14 @@ namespace CapaPresentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsIVANull() {
-                return this.IsNull(this.tablePROC_ORDENAR_FECHA_VENTA.IVAColumn);
+            public bool IsDESCUENTONull() {
+                return this.IsNull(this.tablePROC_ORDENAR_FECHA_VENTA.DESCUENTOColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetIVANull() {
-                this[this.tablePROC_ORDENAR_FECHA_VENTA.IVAColumn] = global::System.Convert.DBNull;
+            public void SetDESCUENTONull() {
+                this[this.tablePROC_ORDENAR_FECHA_VENTA.DESCUENTOColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -945,7 +902,7 @@ namespace CapaPresentacion {
         }
     }
 }
-namespace CapaPresentacion.DBPUNTO_DE_VENTADataSetTableAdapters {
+namespace CapaPresentacion.FormInformes.DataSetVentasTableAdapters {
     
     
     /// <summary>
@@ -1070,12 +1027,11 @@ namespace CapaPresentacion.DBPUNTO_DE_VENTADataSetTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "PROC_ORDENAR_FECHA_VENTA";
             tableMapping.ColumnMappings.Add("NO_FACTURA", "NO_FACTURA");
-            tableMapping.ColumnMappings.Add("NOMBRE", "NOMBRE");
-            tableMapping.ColumnMappings.Add("APELLIDO", "APELLIDO");
+            tableMapping.ColumnMappings.Add("NOMBRE_COMPLETO", "NOMBRE_COMPLETO");
             tableMapping.ColumnMappings.Add("USUARIO", "USUARIO");
-            tableMapping.ColumnMappings.Add("DESCUENTO", "DESCUENTO");
-            tableMapping.ColumnMappings.Add("SUBTOTAL", "SUBTOTAL");
             tableMapping.ColumnMappings.Add("IVA", "IVA");
+            tableMapping.ColumnMappings.Add("SUBTOTAL", "SUBTOTAL");
+            tableMapping.ColumnMappings.Add("DESCUENTO", "DESCUENTO");
             tableMapping.ColumnMappings.Add("TOTAL", "TOTAL");
             tableMapping.ColumnMappings.Add("FECHA_REGISTRO", "FECHA_REGISTRO");
             this._adapter.TableMappings.Add(tableMapping);
@@ -1085,7 +1041,7 @@ namespace CapaPresentacion.DBPUNTO_DE_VENTADataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=PERSONAL;Initial Catalog=DBPUNTO_DE_VENTA;Integrated Security=True";
+            this._connection.ConnectionString = "Data Source=PERSONAL;Integrated Security=True";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1105,7 +1061,7 @@ namespace CapaPresentacion.DBPUNTO_DE_VENTADataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DBPUNTO_DE_VENTADataSet.PROC_ORDENAR_FECHA_VENTADataTable dataTable, string fechaInicio, string fechaFin) {
+        public virtual int Fill(DataSetVentas.PROC_ORDENAR_FECHA_VENTADataTable dataTable, string fechaInicio, string fechaFin) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((fechaInicio == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -1130,7 +1086,7 @@ namespace CapaPresentacion.DBPUNTO_DE_VENTADataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DBPUNTO_DE_VENTADataSet.PROC_ORDENAR_FECHA_VENTADataTable GetData(string fechaInicio, string fechaFin) {
+        public virtual DataSetVentas.PROC_ORDENAR_FECHA_VENTADataTable GetData(string fechaInicio, string fechaFin) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((fechaInicio == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -1144,7 +1100,7 @@ namespace CapaPresentacion.DBPUNTO_DE_VENTADataSetTableAdapters {
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = ((string)(fechaFin));
             }
-            DBPUNTO_DE_VENTADataSet.PROC_ORDENAR_FECHA_VENTADataTable dataTable = new DBPUNTO_DE_VENTADataSet.PROC_ORDENAR_FECHA_VENTADataTable();
+            DataSetVentas.PROC_ORDENAR_FECHA_VENTADataTable dataTable = new DataSetVentas.PROC_ORDENAR_FECHA_VENTADataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1218,7 +1174,7 @@ namespace CapaPresentacion.DBPUNTO_DE_VENTADataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateUpdatedRows(DBPUNTO_DE_VENTADataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DataSetVentas dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1228,7 +1184,7 @@ namespace CapaPresentacion.DBPUNTO_DE_VENTADataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateInsertedRows(DBPUNTO_DE_VENTADataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DataSetVentas dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1238,7 +1194,7 @@ namespace CapaPresentacion.DBPUNTO_DE_VENTADataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateDeletedRows(DBPUNTO_DE_VENTADataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DataSetVentas dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1272,7 +1228,7 @@ namespace CapaPresentacion.DBPUNTO_DE_VENTADataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public virtual int UpdateAll(DBPUNTO_DE_VENTADataSet dataSet) {
+        public virtual int UpdateAll(DataSetVentas dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

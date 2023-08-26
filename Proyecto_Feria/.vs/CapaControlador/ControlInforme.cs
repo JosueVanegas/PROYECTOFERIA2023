@@ -10,10 +10,11 @@ namespace CapaControlador
 {
     public class ControlInforme
     {
-        Datainforme dInfo = new Datainforme();
+        Datainforme dInforme = new Datainforme();
+        
         public DataTable datosDeVentas(string fechaInicio,string fechaFin)
         {
-            return dInfo.llenarInformeVentas(fechaInicio,fechaFin);
+            return dInforme.ObtenerDatosInformeVentas(fechaInicio,fechaFin);
         }
     }
 }

@@ -75,10 +75,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Update="DBPUNTO_DE_VENTADataSet.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Update="FormInformes\DataSet1.xsd">
+    <None Update="FormInformes\DataSetVentas.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
