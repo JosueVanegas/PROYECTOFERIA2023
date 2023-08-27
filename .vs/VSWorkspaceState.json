@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Proyecto_Feria"
+    "\\Proyecto_Feria",
+    "\\Proyecto_Feria\\CapaVista",
+    "\\Proyecto_Feria\\CapaVista\\FormInformes"
   ],
   "SelectedNode": "\\Proyecto_Feria\\Proyecto_Feria.sln",
   "PreviewInSolutionExplorer": false

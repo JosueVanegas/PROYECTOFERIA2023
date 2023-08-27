@@ -1,11 +1,7 @@
 ﻿using CapaControlador;
-using Microsoft.Data.SqlClient;
 using Microsoft.Reporting.WinForms;
 using ReaLTaiizor.Forms;
 using System.Data;
-using CapaPresentacion;
-using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
-using CapaDatos;
 
 namespace CapaPresentacion.FormInformes
 {
@@ -26,8 +22,19 @@ namespace CapaPresentacion.FormInformes
         {
             try
             {
-                //  this.proC_ordenaR_fechA_ventaTableAdapter1.Fill(, "15/08/2023", "25/08/2023");
-                reportViewer1.RefreshReport();
+                DataSetVentas ventasDataSet = new DataSetVentas();
+                DataTable ventasDataTable = cInforme.datosDeVentas("15/08/2023", "25/08/2023"); // Llama a tu método para obtener el DataTable
+
+                // Agrega el DataTable al conjunto de datos
+                ventasDataSet.Tables[0].Merge(ventasDataTable);
+
+                // Paso 2: Configurar el ReportViewer
+                this.reportViewer1.LocalReport.ReportPath = "InformeVentas.rdlc";
+                this.reportViewer1.LocalReport.DataSources.Clear();
+                this.reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", ventasDataSet.Tables[0]));
+
+                // Paso 3: Mostrar el ReportViewer
+                this.reportViewer1.RefreshReport();
             }
             catch (Exception ex)
             {

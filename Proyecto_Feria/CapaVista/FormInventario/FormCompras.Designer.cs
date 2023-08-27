@@ -990,7 +990,9 @@ namespace CapaVista.FormInventario
 
         #endregion
 
+#pragma warning disable CS0169 // El campo 'FormCompras.pnlOpciones' nunca se usa
         private Panel pnlOpciones;
+#pragma warning restore CS0169 // El campo 'FormCompras.pnlOpciones' nunca se usa
         private Panel pnlContenedor;
         private Panel pnlRegistroUsuario;
         private ReaLTaiizor.Controls.AirCheckBox ckbEmpleadoNulo;

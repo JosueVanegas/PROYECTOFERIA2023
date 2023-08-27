@@ -141,8 +141,12 @@
         #endregion
         private Panel panelCodigo;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCodigo;
+#pragma warning disable CS0169 // El campo 'FormGenerarCodigoBarra.btnGuardar' nunca se usa
         private ReaLTaiizor.Controls.MaterialButton btnGuardar;
+#pragma warning restore CS0169 // El campo 'FormGenerarCodigoBarra.btnGuardar' nunca se usa
+#pragma warning disable CS0169 // El campo 'FormGenerarCodigoBarra.btnGenerar' nunca se usa
         private ReaLTaiizor.Controls.MaterialButton btnGenerar;
+#pragma warning restore CS0169 // El campo 'FormGenerarCodigoBarra.btnGenerar' nunca se usa
 
         private RJCodeAdvance.RJControls.RJButton rjButton1;
         private RJCodeAdvance.RJControls.RJButton rjButton2;

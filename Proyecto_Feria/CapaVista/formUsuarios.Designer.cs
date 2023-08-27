@@ -599,7 +599,9 @@ namespace CapaVista
         private ReaLTaiizor.Controls.AirCheckBox ckbVerContraseña;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtConfirmarClave;
         private ReaLTaiizor.Controls.MaterialComboBox cbxBuscar;
+#pragma warning disable CS0169 // El campo 'formUsuarios.fecha_Registro' nunca se usa
         private DataGridViewTextBoxColumn fecha_Registro;
+#pragma warning restore CS0169 // El campo 'formUsuarios.fecha_Registro' nunca se usa
         private TableLayoutPanel tableLayoutPanel1;
         private RJCodeAdvance.RJControls.RJButton btnGuardar;
         private RJCodeAdvance.RJControls.RJButton rjButton2;

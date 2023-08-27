@@ -12,10 +12,8 @@ namespace CapaVista
 {
     public partial class FormPrincipal : Form
     {
-        public Usuario user = null;
-
+        public Usuario user;
         Form formActivo = null;
-        Button botonActivo = null;
         bool EstadoDeBarraVertical = true;
         public FormPrincipal() { }
         public FormPrincipal(Usuario usuario)
@@ -24,7 +22,8 @@ namespace CapaVista
             this.user = usuario;
             reloj.Start();
             panelVertical_Admin.BackColor = Color.FromArgb(74, 121, 121);
-           // datosDeUsuarioActual();
+            //datosDeUsuarioActual();
+            validarPermisos(this.user);
         }
 
 
@@ -32,6 +31,53 @@ namespace CapaVista
         {
             lblUsuario.Text = "Usuario actual: " + this.user.usuario;
             lblRol.Text = "Rol del usuario: " + this.user.oRol.descripcion;
+            validarPermisos(this.user);
+        }
+        private void validarPermisos(Usuario u)
+        {
+            switch (1)
+            {
+                case 1:
+                    permisosAdmin();
+                    break;
+                case 2:
+                    permisosVendedor();
+                    break;
+                case 3:
+                    permisosContador();
+                    break;
+                default:
+                    MessageBox.Show("Error al intentar establecer los permisos de usuario");
+                    break;
+            }
+        }
+        private void permisosAdmin()
+        {
+            btnBarraVertical.Enabled = true;
+            btnClientes.Enabled = true;
+            btnConfiguraciones.Enabled = true;
+            btnContabilidad.Enabled = true;
+            btnVentas.Enabled = true;
+            btnUsuarios.Enabled = true;
+            btnInicio.Enabled = true;
+            btnInformes.Enabled = true;
+            btnHerramientas.Enabled = true;
+            btnPlanilla.Enabled = true;
+            btnInventario.Enabled = true;
+        }
+        private void permisosVendedor()
+        {
+            btnVentas.Enabled = true;
+            btnInventario.Enabled = true;
+            btnHerramientas.Enabled = true;
+        }
+        private void permisosContador()
+        {
+            btnInformes.Enabled = true;
+            btnPlanilla.Enabled = true;
+            btnHerramientas.Enabled = true;
+            btnConfiguraciones.Enabled = true;
+            btnContabilidad.Enabled = true;
         }
         private void abrirFormulario(Form form)
         {

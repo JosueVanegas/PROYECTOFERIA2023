@@ -9,7 +9,9 @@ namespace CapaVista.FormVenta
     {
         ControlProducto controlProducto = new ControlProducto();
         ControlVenta controlVenta = new ControlVenta();
+#pragma warning disable CS8625 // No se puede convertir un literal NULL en un tipo de referencia que no acepta valores NULL.
         List<Producto> lista = null;
+#pragma warning restore CS8625 // No se puede convertir un literal NULL en un tipo de referencia que no acepta valores NULL.
         Usuario user = new Usuario();
         public formVentas(Usuario user)
         {
@@ -40,7 +42,9 @@ namespace CapaVista.FormVenta
             tbBusqueda.Rows.Clear();
             foreach (Producto p in lista)
             {
+#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                 Image img = null;
+#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                 using (MemoryStream memoryStream = new MemoryStream(p.imagen))
                 {
                     Image imagen = Image.FromStream(memoryStream);
@@ -91,6 +95,7 @@ namespace CapaVista.FormVenta
             {
                 if (!row.IsNewRow)
                 {
+#pragma warning disable CS8601 // Posible asignación de referencia nula
                     DetalleVenta detalle = new DetalleVenta
                     {
                         ID_VENTA = 0,
@@ -100,6 +105,7 @@ namespace CapaVista.FormVenta
                         PRECIO = (decimal)row.Cells["PrecioVenta"].Value,
                         SUBTOTAL = Convert.ToDecimal(row.Cells["SubTotal"].Value),
                     };
+#pragma warning restore CS8601 // Posible asignación de referencia nula
                     lista.Add(detalle);
                 }
             }
@@ -117,7 +123,9 @@ namespace CapaVista.FormVenta
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
+#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
             string nombre = cbxBuscar.SelectedItem.ToString();
+#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
             string columna = "";
             if (nombre == "Nombre")
             {
@@ -136,10 +144,12 @@ namespace CapaVista.FormVenta
             {
                 foreach (DataGridViewRow i in tbBusqueda.Rows)
                 {
+#pragma warning disable CS8602 // Desreferencia de una referencia posiblemente NULL.
                     if (i.Cells[columna].Value.ToString().Trim().ToUpper().Contains(txtBuscar.Text.Trim().ToUpper()))
                         i.Visible = true;
                     else
                         i.Visible = false;
+#pragma warning restore CS8602 // Desreferencia de una referencia posiblemente NULL.
                 }
             }
         }
@@ -267,7 +277,9 @@ namespace CapaVista.FormVenta
                         decimal valorCelda = Convert.ToDecimal(row.Cells["SubTotal"].Value);
                         subTotal += valorCelda;
                         descuento = (nbrDescuento.Value * Convert.ToDecimal(0.01)) * subTotal;
+#pragma warning disable CS1717 // Se ha asignado a la misma variable
                         subTotal = subTotal;
+#pragma warning restore CS1717 // Se ha asignado a la misma variable
                         iva = Convert.ToDecimal(subTotal) * Convert.ToDecimal(0.15);
                         total = subTotal + iva;
                     }

@@ -12,6 +12,7 @@ namespace CapaDatos
             List<Producto> lista = new List<Producto>();
             string query = "SELECT P.ID_PRODUCTO, P.CODIGO_PRODUCTO, P.NOMBRE_PRODUCTO, P.IMAGEN_PRODUCTO, P.PRECIO_COMPRA, P.PRECIO_VENTA, P.CANTIDAD_INVENTARIO, C.ID_CATEGORIA, C.NOMBRE_CATEGORIA, PP.ID_PROVEEDOR, PP.NOMBRE_EMPRESA FROM PRODUCTO P INNER JOIN CATEGORIA C ON P.ID_CATEGORIA = C.ID_CATEGORIA INNER JOIN PROVEEDOR PP ON P.ID_PROVEEDOR = PP.ID_PROVEEDOR";
 
+#pragma warning disable CS0168 // La variable está declarada pero nunca se usa
             try
             {
                 using (var con = new conexion().conectar())
@@ -23,6 +24,10 @@ namespace CapaDatos
                         {
                             while (reader.Read())
                             {
+#pragma warning disable CS8601 // Posible asignación de referencia nula
+#pragma warning disable CS8601 // Posible asignación de referencia nula
+#pragma warning disable CS8601 // Posible asignación de referencia nula
+#pragma warning disable CS8601 // Posible asignación de referencia nula
                                 Producto producto = new Producto
                                 {
                                     id = Convert.ToInt32(reader["ID_PRODUCTO"]),
@@ -43,6 +48,10 @@ namespace CapaDatos
                                         nombreProveedor = reader["NOMBRE_EMPRESA"].ToString()
                                     }
                                 };
+#pragma warning restore CS8601 // Posible asignación de referencia nula
+#pragma warning restore CS8601 // Posible asignación de referencia nula
+#pragma warning restore CS8601 // Posible asignación de referencia nula
+#pragma warning restore CS8601 // Posible asignación de referencia nula
                                 lista.Add(producto);
                             }
                         }
@@ -53,6 +62,7 @@ namespace CapaDatos
             {
                 lista = new List<Producto>();
             }
+#pragma warning restore CS0168 // La variable está declarada pero nunca se usa
             return lista;
         }
 
@@ -63,6 +73,7 @@ namespace CapaDatos
             using (var con = new conexion().conectar())
             {
                 con.Open();
+#pragma warning disable CS0168 // La variable está declarada pero nunca se usa
                 try
                 {
                     using (var cmd = new SqlCommand(query, con))
@@ -72,11 +83,13 @@ namespace CapaDatos
                         {
                             while (reader.Read())
                             {
+#pragma warning disable CS8601 // Posible asignación de referencia nula
                                 lista.Add(new Proveedor
                                 {
                                     id = Convert.ToInt32(reader["ID_PROVEEDOR"]),
                                     nombreProveedor = reader["NOMBRE_EMPRESA"].ToString()
                                 });
+#pragma warning restore CS8601 // Posible asignación de referencia nula
                             }
                         }
                     }
@@ -85,6 +98,7 @@ namespace CapaDatos
                 {
                     lista = new List<Proveedor>();
                 }
+#pragma warning restore CS0168 // La variable está declarada pero nunca se usa
             }
             return lista;
         }
@@ -95,6 +109,7 @@ namespace CapaDatos
             using (var con = new conexion().conectar())
             {
                 con.Open();
+#pragma warning disable CS0168 // La variable está declarada pero nunca se usa
                 try
                 {
                     using (var cmd = new SqlCommand(query, con))
@@ -104,11 +119,13 @@ namespace CapaDatos
                         {
                             while (reader.Read())
                             {
+#pragma warning disable CS8601 // Posible asignación de referencia nula
                                 lista.Add(new Categoria
                                 {
                                     id = Convert.ToInt32(reader["ID_CATEGORIA"]),
                                     nombre = reader["NOMBRE_CATEGORIA"].ToString()
                                 });
+#pragma warning restore CS8601 // Posible asignación de referencia nula
                             }
                         }
                     }
@@ -117,6 +134,7 @@ namespace CapaDatos
                 {
                     lista = new List<Categoria>();
                 }
+#pragma warning restore CS0168 // La variable está declarada pero nunca se usa
             }
             return lista;
         }
@@ -140,7 +158,9 @@ namespace CapaDatos
                         cmd.Parameters.AddWithValue("@ID_CATEGORIA", p.oCategoria.id);
                         cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                         cmd.ExecuteNonQuery();
+#pragma warning disable CS8601 // Posible asignación de referencia nula
                         mensaje = cmd.Parameters["mensaje"].Value.ToString();
+#pragma warning restore CS8601 // Posible asignación de referencia nula
                     }
                 }
             }
@@ -148,7 +168,9 @@ namespace CapaDatos
             {
                 mensaje = ex.Message;
             }
+#pragma warning disable CS8603 // Posible tipo de valor devuelto de referencia nulo
             return mensaje;
+#pragma warning restore CS8603 // Posible tipo de valor devuelto de referencia nulo
         }
         public string eliminarProducto(int id)
         {
@@ -163,7 +185,9 @@ namespace CapaDatos
                         cmd.Parameters.AddWithValue("@ID_PRODUCTO", id);
                         cmd.Parameters.Add("mensaje", System.Data.SqlDbType.VarChar, 150).Direction = ParameterDirection.Output;
                         cmd.ExecuteNonQuery();
+#pragma warning disable CS8601 // Posible asignación de referencia nula
                         mensaje = cmd.Parameters["mensaje"].Value.ToString();
+#pragma warning restore CS8601 // Posible asignación de referencia nula
                     }
                 }
             }
@@ -171,7 +195,9 @@ namespace CapaDatos
             {
                 mensaje = "No se pudo eliminar el producto.\n" + ex.Message;
             }
+#pragma warning disable CS8603 // Posible tipo de valor devuelto de referencia nulo
             return mensaje;
+#pragma warning restore CS8603 // Posible tipo de valor devuelto de referencia nulo
         }
     }
 }

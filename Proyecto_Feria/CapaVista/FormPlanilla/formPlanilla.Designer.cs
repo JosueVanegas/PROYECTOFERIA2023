@@ -168,8 +168,12 @@
 
         private Panel panelMenu;
         private TableLayoutPanel tableLayoutPanel1;
+#pragma warning disable CS0169 // El campo 'formPlanilla.btnProveedores' nunca se usa
         private RJCodeAdvance.RJControls.RJButton btnProveedores;
+#pragma warning restore CS0169 // El campo 'formPlanilla.btnProveedores' nunca se usa
+#pragma warning disable CS0169 // El campo 'formPlanilla.btnCategorias' nunca se usa
         private RJCodeAdvance.RJControls.RJButton btnCategorias;
+#pragma warning restore CS0169 // El campo 'formPlanilla.btnCategorias' nunca se usa
         private RJCodeAdvance.RJControls.RJButton btnEmpleados;
         public Panel panelContenedor;
         private TableLayoutPanel tableLayoutPanel2;

@@ -239,9 +239,15 @@ namespace CapaVista
             {
                 if (indice >= 0)
                 {
+#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                     string nombre = tbProductos.Rows[indice].Cells["Nombre"].Value.ToString();
+#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
+#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                     string valor = tbProductos.Rows[indice].Cells["Id"].Value.ToString();
+#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
+#pragma warning disable CS8604 // Posible argumento de referencia nulo
                     eliminarProducto(Convert.ToInt32(valor), nombre);
+#pragma warning restore CS8604 // Posible argumento de referencia nulo
                 }
             }
         }
@@ -299,16 +305,20 @@ namespace CapaVista
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
+#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
             string columna = cbxBuscar.SelectedItem.ToString();
+#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
 
             if (tbProductos.Rows.Count > 0)
             {
                 foreach (DataGridViewRow i in tbProductos.Rows)
                 {
+#pragma warning disable CS8602 // Desreferencia de una referencia posiblemente NULL.
                     if (i.Cells[columna].Value.ToString().Trim().ToUpper().Contains(txtBuscar.Text.Trim().ToUpper()))
                         i.Visible = true;
                     else
                         i.Visible = false;
+#pragma warning restore CS8602 // Desreferencia de una referencia posiblemente NULL.
                 }
             }
         }

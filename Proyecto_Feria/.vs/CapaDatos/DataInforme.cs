@@ -1,11 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Data.Common;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CapaDatos
 {
@@ -14,6 +8,7 @@ namespace CapaDatos
         public DataTable ObtenerDatosInformeVentas(string fechaInicio, string fechaFin)
         {
             DataTable dt = new DataTable();
+#pragma warning disable CS0168 // La variable está declarada pero nunca se usa
             try
             {
                 using (SqlConnection connection = new conexion().conectar())
@@ -27,14 +22,15 @@ namespace CapaDatos
                         cmd.Parameters.Add(new SqlParameter("@fechaFin", SqlDbType.VarChar, 10)).Value = fechaFin;
 
                         SqlDataAdapter da = new SqlDataAdapter(cmd);
-                        da.Fill(dt); 
+                        da.Fill(dt);
                     }
                 }
             }
             catch (Exception ex)
             {
-    
+
             }
+#pragma warning restore CS0168 // La variable está declarada pero nunca se usa
 
             return dt;
         }

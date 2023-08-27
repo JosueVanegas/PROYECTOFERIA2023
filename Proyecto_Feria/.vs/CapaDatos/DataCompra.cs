@@ -41,6 +41,7 @@ namespace CapaDatos
             string query = "SELECT C.ID_COMPRA,C.NO_FACTURA,C.ID_USUARIO,U.USUARIO,C.TOTAL_COMPRA,C.FECHA_REGISTRO FROM COMPRA C INNER JOIN USUARIO U ON C.ID_USUARIO = U.ID_USUARIO ";
             using (var con = new conexion().conectar())
             {
+#pragma warning disable CS0168 // La variable está declarada pero nunca se usa
                 try
                 {
                     con.Open();
@@ -51,16 +52,22 @@ namespace CapaDatos
                         {
                             while (reader.Read())
                             {
-                              
+
+#pragma warning disable CS8601 // Posible asignación de referencia nula
+#pragma warning disable CS8601 // Posible asignación de referencia nula
+#pragma warning disable CS8601 // Posible asignación de referencia nula
                                 lista.Add(new compra
                                 {
                                     id = Convert.ToInt32(reader["C.ID_COMPRA"]),
                                     factura = reader["C.NO_FACTURA"].ToString(),
                                     idUsuario = Convert.ToInt32(reader["C.ID_USUARIO"]),
-                                    nombreUsuario  = reader["U.USUARIO"].ToString(),
+                                    nombreUsuario = reader["U.USUARIO"].ToString(),
                                     total = Convert.ToInt32(reader["C.TOTAL_COMPRA"]),
                                     fechaRegistro = reader["C.FECHA_REGISTRO"].ToString()
                                 });
+#pragma warning restore CS8601 // Posible asignación de referencia nula
+#pragma warning restore CS8601 // Posible asignación de referencia nula
+#pragma warning restore CS8601 // Posible asignación de referencia nula
                             }
                         }
                     }
@@ -70,6 +77,7 @@ namespace CapaDatos
                 {
                     lista = new List<compra>();
                 }
+#pragma warning restore CS0168 // La variable está declarada pero nunca se usa
             }
             return lista;
         }
@@ -78,6 +86,7 @@ namespace CapaDatos
             idCreado = 0;
             using (SqlConnection con = new conexion().conectar())
             {
+#pragma warning disable CS0168 // La variable está declarada pero nunca se usa
                 try
                 {
                     con.Open();
@@ -90,18 +99,22 @@ namespace CapaDatos
                         cmd.Parameters.Add("NO_FACTURA", System.Data.SqlDbType.VarChar, 30).Direction = System.Data.ParameterDirection.Output;
                         cmd.ExecuteNonQuery();
                         idCreado = (int)cmd.Parameters["ID_CREADO"].Value;
+#pragma warning disable CS8601 // Posible asignación de referencia nula
                         noFactura = cmd.Parameters["NO_FACTURA"].Value.ToString();
+#pragma warning restore CS8601 // Posible asignación de referencia nula
                     }
                 }
                 catch (Exception ex)
                 {
                     idCreado = 0;
                 }
+#pragma warning restore CS0168 // La variable está declarada pero nunca se usa
             }
             return idCreado;
         }
         public void registrarDetalleCompra(detalleCompra d, int id)
         {
+#pragma warning disable CS0168 // La variable está declarada pero nunca se usa
             try
             {
                 using (SqlConnection con = new conexion().conectar())
@@ -121,6 +134,7 @@ namespace CapaDatos
             catch (Exception ex)
             {
             }
+#pragma warning restore CS0168 // La variable está declarada pero nunca se usa
         }
     }
 }

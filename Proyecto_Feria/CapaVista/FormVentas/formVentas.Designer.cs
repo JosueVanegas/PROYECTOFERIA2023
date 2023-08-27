@@ -1133,7 +1133,9 @@
         private TableLayoutPanel tableLayoutPanel2;
         private RJCodeAdvance.RJControls.RJButton btnFacturar;
         private Label lblTitulo;
+#pragma warning disable CS0169 // El campo 'formVentas.txtIdCategoria' nunca se usa
         private TextBox txtIdCategoria;
+#pragma warning restore CS0169 // El campo 'formVentas.txtIdCategoria' nunca se usa
         private Panel panelContenedorIzquierdo;
         private TableLayoutPanel tableLayoutPanel3;
         private FlowLayoutPanel flowLayoutPanel1;

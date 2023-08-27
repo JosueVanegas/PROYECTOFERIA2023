@@ -144,6 +144,7 @@ namespace CapaVista
             btnClientes.BorderColor = Color.PaleVioletRed;
             btnClientes.BorderRadius = 10;
             btnClientes.BorderSize = 0;
+            btnClientes.Enabled = false;
             btnClientes.FlatAppearance.BorderSize = 0;
             btnClientes.FlatStyle = FlatStyle.Flat;
             btnClientes.ForeColor = Color.Black;
@@ -168,6 +169,7 @@ namespace CapaVista
             btnInventario.BorderColor = Color.PaleVioletRed;
             btnInventario.BorderRadius = 10;
             btnInventario.BorderSize = 0;
+            btnInventario.Enabled = false;
             btnInventario.FlatAppearance.BorderSize = 0;
             btnInventario.FlatStyle = FlatStyle.Flat;
             btnInventario.ForeColor = Color.Black;
@@ -193,6 +195,7 @@ namespace CapaVista
             btnPlanilla.BorderColor = Color.PaleVioletRed;
             btnPlanilla.BorderRadius = 10;
             btnPlanilla.BorderSize = 0;
+            btnPlanilla.Enabled = false;
             btnPlanilla.FlatAppearance.BorderSize = 0;
             btnPlanilla.FlatStyle = FlatStyle.Flat;
             btnPlanilla.ForeColor = Color.Black;
@@ -218,6 +221,7 @@ namespace CapaVista
             btnInformes.BorderColor = Color.PaleVioletRed;
             btnInformes.BorderRadius = 10;
             btnInformes.BorderSize = 0;
+            btnInformes.Enabled = false;
             btnInformes.FlatAppearance.BorderSize = 0;
             btnInformes.FlatStyle = FlatStyle.Flat;
             btnInformes.ForeColor = Color.Black;
@@ -243,6 +247,7 @@ namespace CapaVista
             btnVentas.BorderColor = Color.PaleVioletRed;
             btnVentas.BorderRadius = 10;
             btnVentas.BorderSize = 0;
+            btnVentas.Enabled = false;
             btnVentas.FlatAppearance.BorderSize = 0;
             btnVentas.FlatStyle = FlatStyle.Flat;
             btnVentas.ForeColor = Color.Black;
@@ -267,6 +272,7 @@ namespace CapaVista
             btnContabilidad.BorderColor = Color.PaleVioletRed;
             btnContabilidad.BorderRadius = 10;
             btnContabilidad.BorderSize = 0;
+            btnContabilidad.Enabled = false;
             btnContabilidad.FlatAppearance.BorderSize = 0;
             btnContabilidad.FlatStyle = FlatStyle.Flat;
             btnContabilidad.ForeColor = Color.Black;
@@ -357,6 +363,7 @@ namespace CapaVista
             btnBarraVertical.BorderColor = Color.PaleVioletRed;
             btnBarraVertical.BorderRadius = 10;
             btnBarraVertical.BorderSize = 0;
+            btnBarraVertical.Enabled = false;
             btnBarraVertical.FlatAppearance.BorderSize = 0;
             btnBarraVertical.FlatStyle = FlatStyle.Flat;
             btnBarraVertical.ForeColor = Color.Black;
@@ -381,6 +388,7 @@ namespace CapaVista
             btnInicio.BorderColor = Color.PaleVioletRed;
             btnInicio.BorderRadius = 10;
             btnInicio.BorderSize = 0;
+            btnInicio.Enabled = false;
             btnInicio.FlatAppearance.BorderSize = 0;
             btnInicio.FlatStyle = FlatStyle.Flat;
             btnInicio.ForeColor = Color.Black;
@@ -406,6 +414,7 @@ namespace CapaVista
             btnUsuarios.BorderColor = Color.PaleVioletRed;
             btnUsuarios.BorderRadius = 10;
             btnUsuarios.BorderSize = 0;
+            btnUsuarios.Enabled = false;
             btnUsuarios.FlatAppearance.BorderSize = 0;
             btnUsuarios.FlatStyle = FlatStyle.Flat;
             btnUsuarios.ForeColor = Color.Black;
@@ -431,6 +440,7 @@ namespace CapaVista
             btnConfiguraciones.BorderColor = Color.PaleVioletRed;
             btnConfiguraciones.BorderRadius = 10;
             btnConfiguraciones.BorderSize = 0;
+            btnConfiguraciones.Enabled = false;
             btnConfiguraciones.FlatAppearance.BorderSize = 0;
             btnConfiguraciones.FlatStyle = FlatStyle.Flat;
             btnConfiguraciones.ForeColor = Color.Black;
@@ -456,6 +466,7 @@ namespace CapaVista
             btnHerramientas.BorderColor = Color.PaleVioletRed;
             btnHerramientas.BorderRadius = 10;
             btnHerramientas.BorderSize = 0;
+            btnHerramientas.Enabled = false;
             btnHerramientas.FlatAppearance.BorderSize = 0;
             btnHerramientas.FlatStyle = FlatStyle.Flat;
             btnHerramientas.ForeColor = Color.Black;
@@ -826,7 +837,9 @@ namespace CapaVista
         private RJCodeAdvance.RJControls.RJButton btnInventario;
         private RJCodeAdvance.RJControls.RJButton btnPlanilla;
         private TableLayoutPanel panelVertical_Admin;
+#pragma warning disable CS0169 // El campo 'FormPrincipal.rjButton8' nunca se usa
         private RJCodeAdvance.RJControls.RJButton rjButton8;
+#pragma warning restore CS0169 // El campo 'FormPrincipal.rjButton8' nunca se usa
         private RJCodeAdvance.RJControls.RJButton btnInicio;
         private RJCodeAdvance.RJControls.RJButton btnHerramientas;
         private RJCodeAdvance.RJControls.RJButton btnUsuarios;

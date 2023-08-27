@@ -280,8 +280,12 @@
 
         #endregion
         private Label lblEncabezado;
+#pragma warning disable CS0169 // El campo 'FormInicio.txtDataEmpleados' nunca se usa
         private ReaLTaiizor.Controls.ParrotBanner txtDataEmpleados;
+#pragma warning restore CS0169 // El campo 'FormInicio.txtDataEmpleados' nunca se usa
+#pragma warning disable CS0169 // El campo 'FormInicio.parrotPieGraph1' nunca se usa
         private ReaLTaiizor.Controls.ParrotPieGraph parrotPieGraph1;
+#pragma warning restore CS0169 // El campo 'FormInicio.parrotPieGraph1' nunca se usa
         private ReaLTaiizor.Controls.ParrotBanner txtDataEmpleado;
         private ReaLTaiizor.Controls.ParrotGroupBox groupCantidades;
         private ReaLTaiizor.Controls.ParrotBanner txtDataProveedor;

@@ -6,7 +6,6 @@ namespace CapaVista
 {
     public partial class formInventario : MaterialForm
     {
-
         Form formActivo = null;
         Button botonActivo = null;
         Usuario user;
@@ -15,7 +14,6 @@ namespace CapaVista
             InitializeComponent();
             this.user = user;
         }
-
         private void abrirFormulario(Form form)
         {
             if (this.panelContenedor.Controls.Count > 0)
@@ -71,6 +69,11 @@ namespace CapaVista
 
             // Establecer el texto de la descripción
             toolTip.SetToolTip(btnProveedores, "Proveedores");
+        }
+
+        private void formInventario_Load(object sender, EventArgs e)
+        {
+            abrirFormulario(new formProductos());
         }
     }
 }

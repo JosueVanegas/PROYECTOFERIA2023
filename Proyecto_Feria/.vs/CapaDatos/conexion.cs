@@ -11,6 +11,7 @@ namespace CapaDatos
             string mensaje = "";
             using (SqlConnection con = conectar())
             {
+#pragma warning disable CS0168 // La variable está declarada pero nunca se usa
                 try
                 {
                     con.Open();
@@ -20,6 +21,7 @@ namespace CapaDatos
                 {
                     mensaje = "lo sentimos no se a podido conectar a la base";
                 }
+#pragma warning restore CS0168 // La variable está declarada pero nunca se usa
             }
             return mensaje;
         }

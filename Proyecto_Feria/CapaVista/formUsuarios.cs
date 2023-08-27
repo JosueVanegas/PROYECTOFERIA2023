@@ -61,16 +61,24 @@ namespace CapaVista
         }
         private void registrarUsuario()
         {
+#pragma warning disable CS0219 // La variable está asignada pero nunca se usa su valor
             int rolU = 0;
-            Empleado emp;
+#pragma warning restore CS0219 // La variable está asignada pero nunca se usa su valor
+            comboEmpleado emp;
             if (validarCampos() == true)
             {
                 if (txtClave.Text == txtConfirmarClave.Text)
                 {
                     if (txtIdUsuario.Text == "")
                         txtIdUsuario.Text = "1";
-                    emp = cbxEmpleados.SelectedItem as Empleado;
+#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
+                    emp = cbxEmpleados.SelectedItem as comboEmpleado;
+#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
+#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                     Rol rol = cbxRol.SelectedItem as Rol;
+#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
+#pragma warning disable CS8601 // Posible asignación de referencia nula
+#pragma warning disable CS8601 // Posible asignación de referencia nula
                     Usuario user = new Usuario
                     {
                         id = Convert.ToInt32(txtIdUsuario.Text),
@@ -79,6 +87,8 @@ namespace CapaVista
                         clave = txtClave.Text,
                         oRol = rol,
                     };
+#pragma warning restore CS8601 // Posible asignación de referencia nula
+#pragma warning restore CS8601 // Posible asignación de referencia nula
                     MessageBox.Show(controlUsuario.registrar(user, EmpleadoNulo));
                     controlUsuario.encriptarClave(user);
                     limpiarCampos();
@@ -162,7 +172,9 @@ namespace CapaVista
                 {
                     txtIdUsuario.Text = tbUsuarios.Rows[indice].Cells["id"].Value.ToString();
                     txtUsuario.Text = tbUsuarios.Rows[indice].Cells["usuario"].Value.ToString();
+#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                     string rol = tbUsuarios.Rows[indice].Cells["rol"].Value.ToString();
+#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
 
                 }
             }
@@ -170,7 +182,9 @@ namespace CapaVista
             {
                 if (indice >= 0)
                 {
+#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                     string valor = tbUsuarios.Rows[indice].Cells["id"].Value.ToString();
+#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                     eliminarUsuario(Convert.ToInt32(valor));
                 }
             }
@@ -178,16 +192,20 @@ namespace CapaVista
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
+#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
             string columna = cbxBuscar.SelectedItem.ToString();
+#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
 
             if (tbUsuarios.Rows.Count > 0)
             {
                 foreach (DataGridViewRow i in tbUsuarios.Rows)
                 {
+#pragma warning disable CS8602 // Desreferencia de una referencia posiblemente NULL.
                     if (i.Cells[columna].Value.ToString().Trim().ToUpper().Contains(txtBuscar.Text.Trim().ToUpper()))
                         i.Visible = true;
                     else
                         i.Visible = false;
+#pragma warning restore CS8602 // Desreferencia de una referencia posiblemente NULL.
                 }
             }
         }

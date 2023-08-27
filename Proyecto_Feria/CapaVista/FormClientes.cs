@@ -1,14 +1,5 @@
 ﻿using CapaControlador;
 using CapaDatos;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
@@ -129,10 +120,12 @@ namespace CapaPresentacion
             {
                 foreach (DataGridViewRow i in tbClientes.Rows)
                 {
+#pragma warning disable CS8602 // Desreferencia de una referencia posiblemente NULL.
                     if (i.Cells[columna].Value.ToString().Trim().ToUpper().Contains(txtBuscar.Text.Trim().ToUpper()))
                         i.Visible = true;
                     else
                         i.Visible = false;
+#pragma warning restore CS8602 // Desreferencia de una referencia posiblemente NULL.
                 }
             }
         }

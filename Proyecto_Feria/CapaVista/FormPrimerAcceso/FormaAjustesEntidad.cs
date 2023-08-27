@@ -96,16 +96,20 @@ namespace CapaVista.FormPrimerAcceso
 
         private void cbxPais_SelectedIndexChanged(object sender, EventArgs e)
         {
+#pragma warning disable CS0252 // Posible comparación de referencias involuntaria: El lado de la mano izquierda necesita conversión
             if (cbxPais.SelectedValue == "Nicaragua")
             {
                 cbxDepartamento.Visible = true;
 
             }
+#pragma warning restore CS0252 // Posible comparación de referencias involuntaria: El lado de la mano izquierda necesita conversión
+#pragma warning disable CS0252 // Posible comparación de referencias involuntaria: El lado de la mano izquierda necesita conversión
             if (!(cbxPais.SelectedValue == "Nicaragua"))
             {
                 //SI no es de nicaragua ponele espacio en blanco xd
                 cbxDepartamento.Visible = false;
             }
+#pragma warning restore CS0252 // Posible comparación de referencias involuntaria: El lado de la mano izquierda necesita conversión
 
         }
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
@@ -120,7 +124,9 @@ namespace CapaVista.FormPrimerAcceso
             // Verificar la entrada solo al presionar la tecla de retorno
             if (e.KeyChar == (char)Keys.Enter)
             {
+#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                 System.Windows.Forms.TextBox textBox = sender as System.Windows.Forms.TextBox;
+#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                 if (textBox != null)
                 {
                     string input = textBox.Text.Trim();
@@ -157,7 +163,9 @@ namespace CapaVista.FormPrimerAcceso
             }
 
             // Verificar la longitud de la entrada
+#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
             System.Windows.Forms.TextBox textBox = sender as System.Windows.Forms.TextBox;
+#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
             if (textBox != null && textBox.Text.Length >= 8 && e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true; // Evita que se procese el carácter

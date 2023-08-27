@@ -4,10 +4,12 @@ namespace CapaVista.FormsHerramientas
 {
     public partial class FormCalculadoraBasica : MaterialForm
     {
-         string operador;
-         decimal numero1;
-         decimal numero2;
+        string operador;
+        decimal numero1;
+        decimal numero2;
+#pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
         public FormCalculadoraBasica()
+#pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
         {
             InitializeComponent();
 
@@ -147,7 +149,7 @@ namespace CapaVista.FormsHerramientas
             {
                 if (txtResultado.Text != "")
                 {
-                    if(operador == "+")
+                    if (operador == "+")
                     {
                         RealizarOperacion("+");
                     }

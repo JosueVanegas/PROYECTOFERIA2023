@@ -149,7 +149,9 @@ namespace CapaVista.FormVentas
             Font font = new Font("Courier New", 12);
             float y = 20;
 
+#pragma warning disable CS8602 // Desreferencia de una referencia posiblemente NULL.
             e.Graphics.DrawString($"-------------------Factura No:{new DataVenta().noFactura}-----------------", font, Brushes.Black, 100, y);
+#pragma warning restore CS8602 // Desreferencia de una referencia posiblemente NULL.
             y += 20;
             e.Graphics.DrawString($"Cliente:{cliente.nombre}", font, Brushes.Black, 20, y);
             y += 20;
@@ -200,15 +202,19 @@ namespace CapaVista.FormVentas
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
+#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
             string columna = cbxBuscar.SelectedItem.ToString();
+#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
             if (tbBusqueda.Rows.Count > 0)
             {
                 foreach (DataGridViewRow i in tbBusqueda.Rows)
                 {
+#pragma warning disable CS8602 // Desreferencia de una referencia posiblemente NULL.
                     if (i.Cells[columna].Value.ToString().Trim().ToUpper().Contains(txtBuscar.Text.Trim().ToUpper()))
                         i.Visible = true;
                     else
                         i.Visible = false;
+#pragma warning restore CS8602 // Desreferencia de una referencia posiblemente NULL.
                 }
             }
         }
@@ -238,12 +244,16 @@ namespace CapaVista.FormVentas
                 if (indice >= 0)
                 {
                     int idObtenido = (int)tbBusqueda.Rows[indice].Cells["Id"].Value;
+#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                     string nombreObtenido = tbBusqueda.Rows[indice].Cells["Nombre"].Value.ToString();
+#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
+#pragma warning disable CS8601 // Posible asignación de referencia nula
                     cliente = new Cliente
                     {
                         id = idObtenido,
                         nombre = nombreObtenido
                     };
+#pragma warning restore CS8601 // Posible asignación de referencia nula
                     txtCliente.Text = nombreObtenido;
                 }
             }

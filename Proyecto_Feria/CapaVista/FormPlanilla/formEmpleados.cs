@@ -1,5 +1,4 @@
 ﻿using ReaLTaiizor.Forms;
-using System.Text.RegularExpressions;
 
 namespace CapaVista
 {
@@ -10,43 +9,14 @@ namespace CapaVista
         public formEmpleados()
         {
             InitializeComponent();
-
+            DateTime fechaNacimientoMaxima = DateTime.Today.AddYears(-18);
+            FechaNacimientoCalendario.MaxDate = fechaNacimientoMaxima;
         }
 
-
-        private void txtNumeroCedula_TextChanged(object sender, EventArgs e)
-        {
-            string allowedPattern = @"^\d{0,3}(\d{0,6}(\d{0,4}[A-Za-z]?)?)?$"; // Patrón para validar la entrada parcial
-
-            string input = this.Text; // Obtiene el texto actual del control
-
-            if (!Regex.IsMatch(input, allowedPattern))
-            {
-                // Elimina cualquier carácter no válido
-                input = Regex.Replace(input, @"[^0-9A-Za-z]", "");
-
-                // Aplica el formato deseado
-                if (input.Length >= 3)
-                {
-                    input = input.Insert(3, "-");
-                }
-                if (input.Length >= 10)
-                {
-                    input = input.Insert(10, "-");
-                }
-                if (input.Length >= 15)
-                {
-                    input = input.Insert(15, "-");
-                }
-
-                this.Text = input; // Actualiza el texto del control
-
-            }
-        }
 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            if (!Char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Space)
             {
                 e.Handled = true; // Evita que se procese el carácter
             }
@@ -54,7 +24,7 @@ namespace CapaVista
 
         private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            if (!Char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Space)
             {
                 e.Handled = true; // Evita que se procese el carácter
             }
@@ -62,14 +32,12 @@ namespace CapaVista
 
         private void txtNumeroContacto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != '-')
             {
                 e.Handled = true; // Evita que se procese el carácter
             }
 
-            // Verificar la longitud de la entrada
-            System.Windows.Forms.TextBox textBox = sender as System.Windows.Forms.TextBox;
-            if (textBox != null && textBox.Text.Length >= 8 && e.KeyChar != (char)Keys.Back)
+            if (txtNumeroContacto != null && txtNumeroContacto.Text.Length >= 9 && e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true; // Evita que se procese el carácter
             }
@@ -77,35 +45,13 @@ namespace CapaVista
 
         private void materialTextBoxEdit1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Verificar la entrada solo al presionar la tecla de retorno
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                System.Windows.Forms.TextBox textBox = sender as System.Windows.Forms.TextBox;
-                if (textBox != null)
-                {
-                    string input = textBox.Text.Trim();
-                    if (IsValidEmail(input))
-                    {
-                        MessageBox.Show("Correo electrónico válido.");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Correo electrónico inválido.");
-                    }
-                }
-                bool IsValidEmail(string email)
-                {
-                    // Utilizar una expresión regular para validar el formato del correo electrónico
-                    string pattern = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
-                    Regex regex = new Regex(pattern);
-                    return regex.IsMatch(email);
-                }
-            }
+
+
         }
 
         private void txtDireccion_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            if (!Char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Space)
             {
                 e.Handled = true; // Evita que se procese el carácter
             }
@@ -158,13 +104,6 @@ namespace CapaVista
             toolTip.SetToolTip(btnEliminar, "Eliminar");
         }
 
-        private void PictureBox1_MouseEnter(object sender, EventArgs e)
-        {
-            // Mostrar el MonthCalendar y ajustarlo a la posición del PictureBox
-            FechaNacimientoCalendario.Visible = true;
-
-        }
-
 
         private void MonthCalendar1_DateSelected(object sender, DateRangeEventArgs e)
         {
@@ -179,16 +118,27 @@ namespace CapaVista
         {
             FechaNacimientoCalendario.Visible = false;
         }
-        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtFechadeNacimiento_MouseHover(object sender, EventArgs e)
         {
-            // Obtener el valor de la tecla presionada
-            char keyPressed = e.KeyChar;
+            FechaNacimientoCalendario.Visible = true;
+        }
 
-            // Verificar si la tecla presionada es diferente de Eliminar o Suprimir
-            if (keyPressed != (char)Keys.Delete && keyPressed != (char)Keys.Back)
+        private void txtFecha_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void txtSalario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtNumeroContacto != null && txtNumeroContacto.Text.Length >= 8 && !char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
             {
-                e.Handled = true; // Evitar que se procese el carácter
+                e.Handled = true;
             }
+            if (e.KeyChar == '.' && (sender as TextBox).Text.Contains('.'))
+            {
+                e.Handled = true;
+            }
+
         }
     }
 }

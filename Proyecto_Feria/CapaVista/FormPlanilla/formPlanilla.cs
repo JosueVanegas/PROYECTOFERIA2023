@@ -1,5 +1,4 @@
 ﻿using ReaLTaiizor.Forms;
-using ReaLTaiizor.Manager;
 
 namespace CapaVista.FormPlanilla;
 
@@ -8,22 +7,7 @@ public partial class formPlanilla : MaterialForm
     public formPlanilla()
     {
         InitializeComponent();
-
-    }
-    private void cambiarModo(bool modoOscuro)
-    {
-        MaterialSkinManager manager;
-        manager = MaterialSkinManager.Instance;
-        manager.AddFormToManage(this);
-        manager.EnforceBackcolorOnAllComponents = true;
-        if (modoOscuro)
-        {
-            manager.Theme = MaterialSkinManager.Themes.DARK;
-        }
-        if (!modoOscuro)
-        {
-            manager.Theme = MaterialSkinManager.Themes.LIGHT;
-        }
+        OpenFormInPanel(new formEmpleados());
     }
     private void OpenFormInPanel(object formHijo)
     {

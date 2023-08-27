@@ -96,7 +96,9 @@ namespace CapaVista
             {
                 if (indice >= 0)
                 {
+#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                     string valor = tbProveedores.Rows[indice].Cells["Id"].Value.ToString();
+#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                     eliminarProveedor(Convert.ToInt32(valor));
                 }
             }

@@ -21,6 +21,7 @@ namespace CapaDatos
             string query = "SELECT * FROM CATEGORIA";
             using (var con = new conexion().conectar())
             {
+#pragma warning disable CS0168 // La variable está declarada pero nunca se usa
                 try
                 {
                     con.Open();
@@ -46,6 +47,8 @@ namespace CapaDatos
                                     estado = sta,
                                     descripcion = descrip
                                 };
+#pragma warning disable CS8601 // Posible asignación de referencia nula
+#pragma warning disable CS8601 // Posible asignación de referencia nula
                                 lista.Add(new Categoria
                                 {
                                     id = Convert.ToInt32(reader["ID_CATEGORIA"]),
@@ -53,6 +56,8 @@ namespace CapaDatos
                                     oEstado = estado,
                                     fechaRegistro = reader["FECHA_REGISTRO"].ToString()
                                 });
+#pragma warning restore CS8601 // Posible asignación de referencia nula
+#pragma warning restore CS8601 // Posible asignación de referencia nula
                             }
                         }
                     }
@@ -62,6 +67,7 @@ namespace CapaDatos
                 {
                     lista = new List<Categoria>();
                 }
+#pragma warning restore CS0168 // La variable está declarada pero nunca se usa
             }
             return lista;
         }
@@ -82,7 +88,9 @@ namespace CapaDatos
                         cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                         cmd.ExecuteNonQuery();
 
+#pragma warning disable CS8601 // Posible asignación de referencia nula
                         mensaje = cmd.Parameters["mensaje"].Value.ToString();
+#pragma warning restore CS8601 // Posible asignación de referencia nula
 
                     }
                 }
@@ -91,7 +99,9 @@ namespace CapaDatos
                     mensaje = "Lo sentimos a ocurrido un \nerror : " + ex.Message;
                 }
             }
+#pragma warning disable CS8603 // Posible tipo de valor devuelto de referencia nulo
             return mensaje;
+#pragma warning restore CS8603 // Posible tipo de valor devuelto de referencia nulo
         }
         public string eliminarCategoria(int id)
         {
@@ -108,7 +118,9 @@ namespace CapaDatos
                         cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                         cmd.ExecuteNonQuery();
 
+#pragma warning disable CS8601 // Posible asignación de referencia nula
                         mensaje = cmd.Parameters["mensaje"].Value.ToString();
+#pragma warning restore CS8601 // Posible asignación de referencia nula
 
                     }
                 }
@@ -118,7 +130,9 @@ namespace CapaDatos
                 }
             }
 
+#pragma warning disable CS8603 // Posible tipo de valor devuelto de referencia nulo
             return mensaje;
+#pragma warning restore CS8603 // Posible tipo de valor devuelto de referencia nulo
         }
     }
 }

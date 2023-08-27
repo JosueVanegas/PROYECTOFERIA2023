@@ -36,11 +36,8 @@
             btnServicios = new RJCodeAdvance.RJControls.RJButton();
             btnProductos = new RJCodeAdvance.RJControls.RJButton();
             panelContenedor = new Panel();
-            rjCircularPictureBox1 = new RJCodeAdvance.RJControls.RJCircularPictureBox();
             panelMenu.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
-            panelContenedor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panelMenu
@@ -184,7 +181,6 @@
             // panelContenedor
             // 
             panelContenedor.BackColor = Color.FromArgb(74, 121, 121);
-            panelContenedor.Controls.Add(rjCircularPictureBox1);
             panelContenedor.Dock = DockStyle.Fill;
             panelContenedor.Location = new Point(3, 52);
             panelContenedor.Margin = new Padding(3, 2, 3, 2);
@@ -192,23 +188,6 @@
             panelContenedor.Name = "panelContenedor";
             panelContenedor.Size = new Size(930, 464);
             panelContenedor.TabIndex = 3;
-            // 
-            // rjCircularPictureBox1
-            // 
-            rjCircularPictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            rjCircularPictureBox1.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-            rjCircularPictureBox1.BorderColor = Color.RoyalBlue;
-            rjCircularPictureBox1.BorderColor2 = Color.HotPink;
-            rjCircularPictureBox1.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            rjCircularPictureBox1.BorderSize = 2;
-            rjCircularPictureBox1.GradientAngle = 50F;
-            rjCircularPictureBox1.Image = (Image)resources.GetObject("rjCircularPictureBox1.Image");
-            rjCircularPictureBox1.Location = new Point(274, 35);
-            rjCircularPictureBox1.Name = "rjCircularPictureBox1";
-            rjCircularPictureBox1.Size = new Size(392, 392);
-            rjCircularPictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            rjCircularPictureBox1.TabIndex = 0;
-            rjCircularPictureBox1.TabStop = false;
             // 
             // formInventario
             // 
@@ -222,10 +201,9 @@
             Name = "formInventario";
             Padding = new Padding(3, 0, 3, 3);
             Text = "formProductos";
+            Load += formInventario_Load;
             panelMenu.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
-            panelContenedor.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -238,6 +216,5 @@
         private RJCodeAdvance.RJControls.RJButton btnServicios;
         public Panel panelContenedor;
         private RJCodeAdvance.RJControls.RJButton btnCompras;
-        private RJCodeAdvance.RJControls.RJCircularPictureBox rjCircularPictureBox1;
     }
 }

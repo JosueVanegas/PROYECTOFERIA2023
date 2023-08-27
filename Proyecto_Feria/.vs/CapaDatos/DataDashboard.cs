@@ -30,6 +30,7 @@ namespace CapaDatos
         {
             List<productosMasVendidos> productosVendidos = new List<productosMasVendidos>();
 
+#pragma warning disable CS0168 // La variable está declarada pero nunca se usa
             try
             {
                 using (SqlConnection connection = new conexion().conectar())
@@ -47,14 +48,18 @@ namespace CapaDatos
 
                         while (reader.Read())
                         {
+#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                             string nombreProducto = reader["NombreProducto"].ToString();
+#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                             int totalVentas = Convert.ToInt32(reader["TotalVentas"]);
 
+#pragma warning disable CS8601 // Posible asignación de referencia nula
                             productosMasVendidos productoVendido = new productosMasVendidos
                             {
                                 nombre = nombreProducto,
                                 cantidad = totalVentas
                             };
+#pragma warning restore CS8601 // Posible asignación de referencia nula
 
                             productosVendidos.Add(productoVendido);
                         }
@@ -67,6 +72,7 @@ namespace CapaDatos
             {
                 productosVendidos = new List<productosMasVendidos>();
             }
+#pragma warning restore CS0168 // La variable está declarada pero nunca se usa
             return productosVendidos;
         }
     }

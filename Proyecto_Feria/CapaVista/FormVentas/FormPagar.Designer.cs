@@ -644,10 +644,14 @@
 
         #endregion
 
+#pragma warning disable CS0169 // El campo 'FormPagar.txtPagoEfectivo' nunca se usa
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtPagoEfectivo;
+#pragma warning restore CS0169 // El campo 'FormPagar.txtPagoEfectivo' nunca se usa
         private Panel panel1;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCliente;
+#pragma warning disable CS0169 // El campo 'FormPagar.rjButton14' nunca se usa
         private RJCodeAdvance.RJControls.RJButton rjButton14;
+#pragma warning restore CS0169 // El campo 'FormPagar.rjButton14' nunca se usa
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCambioDeCompra;
         private Label lblTitulo;
         private PictureBox pictureBox1;

@@ -80,10 +80,12 @@ namespace CapaVista
             {
                 foreach (DataGridViewRow i in tbCategorias.Rows)
                 {
+#pragma warning disable CS8602 // Desreferencia de una referencia posiblemente NULL.
                     if (i.Cells[columna].Value.ToString().Trim().ToUpper().Contains(txtBuscar.Text.Trim().ToUpper()))
                         i.Visible = true;
                     else
                         i.Visible = false;
+#pragma warning restore CS8602 // Desreferencia de una referencia posiblemente NULL.
                 }
             }
         }
@@ -152,7 +154,9 @@ namespace CapaVista
             {
                 if (indice >= 0)
                 {
+#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                     string valor = tbCategorias.Rows[indice].Cells["id"].Value.ToString();
+#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                     eliminarCategoria(Convert.ToInt32(valor));
                 }
             }

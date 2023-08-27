@@ -14,7 +14,7 @@ namespace CapaControlador
         {
             return dUser.listaRoles();
         }
-        public List<Empleado> listarEmpleados()
+        public List<comboEmpleado> listarEmpleados()
         {
             return dUser.listaEmpleados();
         }

@@ -11,6 +11,7 @@ namespace CapaDatos
         {
             string query = "SELECT * FROM PROVEEDOR";
             List<Proveedor> lista = new List<Proveedor>();
+#pragma warning disable CS0168 // La variable está declarada pero nunca se usa
             try
             {
                 using (SqlConnection con = new conexion().conectar())
@@ -23,6 +24,12 @@ namespace CapaDatos
                         {
                             while (reader.Read())
                             {
+#pragma warning disable CS8601 // Posible asignación de referencia nula
+#pragma warning disable CS8601 // Posible asignación de referencia nula
+#pragma warning disable CS8601 // Posible asignación de referencia nula
+#pragma warning disable CS8601 // Posible asignación de referencia nula
+#pragma warning disable CS8601 // Posible asignación de referencia nula
+#pragma warning disable CS8601 // Posible asignación de referencia nula
                                 lista.Add(new Proveedor
                                 {
                                     id = reader.GetInt32("ID_PROVEEDOR"),
@@ -33,6 +40,12 @@ namespace CapaDatos
                                     ciudad = reader["CIUDAD"].ToString(),
                                     fechaRegistro = reader["FECHA_REGISTRO"].ToString()
                                 });
+#pragma warning restore CS8601 // Posible asignación de referencia nula
+#pragma warning restore CS8601 // Posible asignación de referencia nula
+#pragma warning restore CS8601 // Posible asignación de referencia nula
+#pragma warning restore CS8601 // Posible asignación de referencia nula
+#pragma warning restore CS8601 // Posible asignación de referencia nula
+#pragma warning restore CS8601 // Posible asignación de referencia nula
                             }
                         }
                     }
@@ -42,6 +55,7 @@ namespace CapaDatos
             {
                 lista = new List<Proveedor>();
             }
+#pragma warning restore CS0168 // La variable está declarada pero nunca se usa
             return lista;
         }
         public string accionesProveedor(Proveedor prov)
@@ -63,14 +77,18 @@ namespace CapaDatos
 
                     comand.ExecuteNonQuery();
 
+#pragma warning disable CS8601 // Posible asignación de referencia nula
                     mensaje = comand.Parameters["mensaje"].Value.ToString();
+#pragma warning restore CS8601 // Posible asignación de referencia nula
                 }
                 catch (Exception ex)
                 {
                     mensaje = "Lo sentimos a ocurrido un \nerror : " + ex.Message;
                 }
             }
+#pragma warning disable CS8603 // Posible tipo de valor devuelto de referencia nulo
             return mensaje;
+#pragma warning restore CS8603 // Posible tipo de valor devuelto de referencia nulo
         }
         public string eliminarProveedor(int idP)
         {
@@ -86,14 +104,18 @@ namespace CapaDatos
                     comand.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     comand.ExecuteNonQuery();
 
+#pragma warning disable CS8601 // Posible asignación de referencia nula
                     mensaje = comand.Parameters["mensaje"].Value.ToString();
+#pragma warning restore CS8601 // Posible asignación de referencia nula
                 }
                 catch (Exception ex)
                 {
                     mensaje = "no se pudo eliminar el usuario. error: " + ex.Message;
                 }
             }
+#pragma warning disable CS8603 // Posible tipo de valor devuelto de referencia nulo
             return mensaje;
+#pragma warning restore CS8603 // Posible tipo de valor devuelto de referencia nulo
         }
     }
 }

@@ -24,13 +24,19 @@ namespace CapaVista
         {
             ControlUsuario cUsuarios = new ControlUsuario();
             bool acceder = cUsuarios.validarAcceso(txtUsuario.Text, txtContraseña.Text);
+#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
             Usuario user = cUsuarios.listarUsuarios().FirstOrDefault(u => u.usuario == txtUsuario.Text);
+#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
             if (acceder)
             {
+#pragma warning disable CS8604 // Posible argumento de referencia nulo
                 FormPrincipal principal = new FormPrincipal(user);
+#pragma warning restore CS8604 // Posible argumento de referencia nulo
                 principal.Show();
                 this.Hide();
+#pragma warning disable CS8622 // La nulabilidad de los tipos de referencia del tipo de parámetro no coincide con el delegado de destino (posiblemente debido a los atributos de nulabilidad).
                 principal.FormClosing += frm_closing;
+#pragma warning restore CS8622 // La nulabilidad de los tipos de referencia del tipo de parámetro no coincide con el delegado de destino (posiblemente debido a los atributos de nulabilidad).
                 txtContraseña.Text = "";
                 txtUsuario.Text = "";
                 ckbVerContraseña.Checked = false;
