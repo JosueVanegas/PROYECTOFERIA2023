@@ -6,6 +6,7 @@ using CapaVista.FormContabilidad;
 using CapaVista.FormPlanilla;
 using CapaVista.FormsHerramientas;
 using CapaVista.FormVenta;
+using System.Windows.Forms;
 using ToolTip = System.Windows.Forms.ToolTip;
 
 namespace CapaVista
@@ -22,8 +23,9 @@ namespace CapaVista
             this.user = usuario;
             reloj.Start();
             panelVertical_Admin.BackColor = Color.FromArgb(74, 121, 121);
-            //datosDeUsuarioActual();
-            validarPermisos(this.user);
+            datosDeUsuarioActual();
+            // validarPermisos(this.user);
+          
         }
 
 
@@ -35,7 +37,7 @@ namespace CapaVista
         }
         private void validarPermisos(Usuario u)
         {
-            switch (1)
+            switch (u.oRol.id)
             {
                 case 1:
                     permisosAdmin();

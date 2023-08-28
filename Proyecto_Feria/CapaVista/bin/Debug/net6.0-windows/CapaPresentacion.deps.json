@@ -12,11 +12,9 @@
           "CapaControlador": "1.0.0",
           "CapaDatos": "1.0.0",
           "Microsoft.Data.SqlClient": "5.1.1",
-          "Microsoft.ReportingServices.ReportViewerControl.Winforms": "140.340.80",
+          "QuestPDF": "2023.6.3",
           "RJCodeAdvance.RJControls": "1.0.0",
           "ReaLTaiizor": "3.7.9.4",
-          "ReportingServicesInterfaces": "13.0.1601.5",
-          "SL.Common.NetCore.ReportView": "15.0.1405",
           "System.Data.SqlClient": "4.8.5",
           "WinForms.DataVisualization": "1.8.0"
         },
@@ -55,6 +53,46 @@
           "lib/netstandard2.0/Azure.Identity.dll": {
             "assemblyVersion": "1.7.0.0",
             "fileVersion": "1.700.22.46903"
+          }
+        }
+      },
+      "HarfBuzzSharp/2.8.2.3": {
+        "dependencies": {
+          "HarfBuzzSharp.NativeAssets.Win32": "2.8.2.3",
+          "HarfBuzzSharp.NativeAssets.macOS": "2.8.2.3"
+        },
+        "runtime": {
+          "lib/net6.0/HarfBuzzSharp.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "2.8.2.3"
+          }
+        }
+      },
+      "HarfBuzzSharp.NativeAssets.macOS/2.8.2.3": {
+        "runtimeTargets": {
+          "runtimes/osx/native/libHarfBuzzSharp.dylib": {
+            "rid": "osx",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "HarfBuzzSharp.NativeAssets.Win32/2.8.2.3": {
+        "runtimeTargets": {
+          "runtimes/win-arm64/native/libHarfBuzzSharp.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/libHarfBuzzSharp.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/libHarfBuzzSharp.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -222,192 +260,11 @@
       },
       "Microsoft.NETCore.Platforms/1.1.0": {},
       "Microsoft.NETCore.Targets/1.1.0": {},
-      "Microsoft.ReportingServices.ReportViewerControl.Winforms/140.340.80": {
-        "dependencies": {
-          "Microsoft.SqlServer.Types": "14.0.314.76"
-        },
-        "runtime": {
-          "lib/net40/Microsoft.ReportViewer.Common.resources.dll": {
-            "assemblyVersion": "14.0.0.0",
-            "fileVersion": "14.0.340.80"
-          },
-          "lib/net40/Microsoft.ReportViewer.DataVisualization.resources.dll": {
-            "assemblyVersion": "14.0.0.0",
-            "fileVersion": "14.0.340.80"
-          },
-          "lib/net40/Microsoft.ReportViewer.Design.dll": {
-            "assemblyVersion": "14.0.0.0",
-            "fileVersion": "14.0.340.80"
-          },
-          "lib/net40/Microsoft.ReportViewer.Design.resources.dll": {
-            "assemblyVersion": "14.0.0.0",
-            "fileVersion": "14.0.340.80"
-          },
-          "lib/net40/Microsoft.ReportViewer.WinForms.resources.dll": {
-            "assemblyVersion": "14.0.0.0",
-            "fileVersion": "14.0.340.80"
-          }
-        },
-        "resources": {
-          "lib/net40/de/Microsoft.ReportViewer.Common.resources.dll": {
-            "locale": "de"
-          },
-          "lib/net40/de/Microsoft.ReportViewer.DataVisualization.resources.dll": {
-            "locale": "de"
-          },
-          "lib/net40/de/Microsoft.ReportViewer.Design.resources.dll": {
-            "locale": "de"
-          },
-          "lib/net40/de/Microsoft.ReportViewer.WinForms.resources.dll": {
-            "locale": "de"
-          },
-          "lib/net40/es/Microsoft.ReportViewer.Common.resources.dll": {
-            "locale": "es"
-          },
-          "lib/net40/es/Microsoft.ReportViewer.DataVisualization.resources.dll": {
-            "locale": "es"
-          },
-          "lib/net40/es/Microsoft.ReportViewer.Design.resources.dll": {
-            "locale": "es"
-          },
-          "lib/net40/es/Microsoft.ReportViewer.WinForms.resources.dll": {
-            "locale": "es"
-          },
-          "lib/net40/fr/Microsoft.ReportViewer.Common.resources.dll": {
-            "locale": "fr"
-          },
-          "lib/net40/fr/Microsoft.ReportViewer.DataVisualization.resources.dll": {
-            "locale": "fr"
-          },
-          "lib/net40/fr/Microsoft.ReportViewer.Design.resources.dll": {
-            "locale": "fr"
-          },
-          "lib/net40/fr/Microsoft.ReportViewer.WinForms.resources.dll": {
-            "locale": "fr"
-          },
-          "lib/net40/it/Microsoft.ReportViewer.Common.resources.dll": {
-            "locale": "it"
-          },
-          "lib/net40/it/Microsoft.ReportViewer.DataVisualization.resources.dll": {
-            "locale": "it"
-          },
-          "lib/net40/it/Microsoft.ReportViewer.Design.resources.dll": {
-            "locale": "it"
-          },
-          "lib/net40/it/Microsoft.ReportViewer.WinForms.resources.dll": {
-            "locale": "it"
-          },
-          "lib/net40/ja/Microsoft.ReportViewer.Common.resources.dll": {
-            "locale": "ja"
-          },
-          "lib/net40/ja/Microsoft.ReportViewer.DataVisualization.resources.dll": {
-            "locale": "ja"
-          },
-          "lib/net40/ja/Microsoft.ReportViewer.Design.resources.dll": {
-            "locale": "ja"
-          },
-          "lib/net40/ja/Microsoft.ReportViewer.WinForms.resources.dll": {
-            "locale": "ja"
-          },
-          "lib/net40/ko/Microsoft.ReportViewer.Common.resources.dll": {
-            "locale": "ko"
-          },
-          "lib/net40/ko/Microsoft.ReportViewer.DataVisualization.resources.dll": {
-            "locale": "ko"
-          },
-          "lib/net40/ko/Microsoft.ReportViewer.Design.resources.dll": {
-            "locale": "ko"
-          },
-          "lib/net40/ko/Microsoft.ReportViewer.WinForms.resources.dll": {
-            "locale": "ko"
-          },
-          "lib/net40/pt/Microsoft.ReportViewer.Common.resources.dll": {
-            "locale": "pt"
-          },
-          "lib/net40/pt/Microsoft.ReportViewer.DataVisualization.resources.dll": {
-            "locale": "pt"
-          },
-          "lib/net40/pt/Microsoft.ReportViewer.Design.resources.dll": {
-            "locale": "pt"
-          },
-          "lib/net40/pt/Microsoft.ReportViewer.WinForms.resources.dll": {
-            "locale": "pt"
-          },
-          "lib/net40/ru/Microsoft.ReportViewer.Common.resources.dll": {
-            "locale": "ru"
-          },
-          "lib/net40/ru/Microsoft.ReportViewer.DataVisualization.resources.dll": {
-            "locale": "ru"
-          },
-          "lib/net40/ru/Microsoft.ReportViewer.Design.resources.dll": {
-            "locale": "ru"
-          },
-          "lib/net40/ru/Microsoft.ReportViewer.WinForms.resources.dll": {
-            "locale": "ru"
-          },
-          "lib/net40/zh-CHS/Microsoft.ReportViewer.Common.resources.dll": {
-            "locale": "zh-CHS"
-          },
-          "lib/net40/zh-CHS/Microsoft.ReportViewer.DataVisualization.resources.dll": {
-            "locale": "zh-CHS"
-          },
-          "lib/net40/zh-CHS/Microsoft.ReportViewer.Design.resources.dll": {
-            "locale": "zh-CHS"
-          },
-          "lib/net40/zh-CHS/Microsoft.ReportViewer.WinForms.resources.dll": {
-            "locale": "zh-CHS"
-          },
-          "lib/net40/zh-CHT/Microsoft.ReportViewer.Common.resources.dll": {
-            "locale": "zh-CHT"
-          },
-          "lib/net40/zh-CHT/Microsoft.ReportViewer.DataVisualization.resources.dll": {
-            "locale": "zh-CHT"
-          },
-          "lib/net40/zh-CHT/Microsoft.ReportViewer.Design.resources.dll": {
-            "locale": "zh-CHT"
-          },
-          "lib/net40/zh-CHT/Microsoft.ReportViewer.WinForms.resources.dll": {
-            "locale": "zh-CHT"
-          },
-          "lib/net40/zh-HANS/Microsoft.ReportViewer.Common.resources.dll": {
-            "locale": "zh-Hans"
-          },
-          "lib/net40/zh-HANS/Microsoft.ReportViewer.DataVisualization.resources.dll": {
-            "locale": "zh-Hans"
-          },
-          "lib/net40/zh-HANS/Microsoft.ReportViewer.Design.resources.dll": {
-            "locale": "zh-Hans"
-          },
-          "lib/net40/zh-HANS/Microsoft.ReportViewer.WinForms.resources.dll": {
-            "locale": "zh-Hans"
-          },
-          "lib/net40/zh-HANT/Microsoft.ReportViewer.Common.resources.dll": {
-            "locale": "zh-Hant"
-          },
-          "lib/net40/zh-HANT/Microsoft.ReportViewer.DataVisualization.resources.dll": {
-            "locale": "zh-Hant"
-          },
-          "lib/net40/zh-HANT/Microsoft.ReportViewer.Design.resources.dll": {
-            "locale": "zh-Hant"
-          },
-          "lib/net40/zh-HANT/Microsoft.ReportViewer.WinForms.resources.dll": {
-            "locale": "zh-Hant"
-          }
-        }
-      },
       "Microsoft.SqlServer.Server/1.0.0": {
         "runtime": {
           "lib/netstandard2.0/Microsoft.SqlServer.Server.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
-          }
-        }
-      },
-      "Microsoft.SqlServer.Types/14.0.314.76": {
-        "runtime": {
-          "lib/net40/Microsoft.SqlServer.Types.dll": {
-            "assemblyVersion": "14.0.0.0",
-            "fileVersion": "2016.140.100.187"
           }
         }
       },
@@ -418,19 +275,23 @@
         }
       },
       "Microsoft.Win32.SystemEvents/6.0.0": {},
+      "QuestPDF/2023.6.3": {
+        "dependencies": {
+          "SkiaSharp": "2.88.3",
+          "SkiaSharp.HarfBuzz": "2.88.3"
+        },
+        "runtime": {
+          "lib/net6.0/QuestPDF.dll": {
+            "assemblyVersion": "2023.6.3.0",
+            "fileVersion": "2023.6.3.0"
+          }
+        }
+      },
       "ReaLTaiizor/3.7.9.4": {
         "runtime": {
           "lib/net6.0-windows7.0/ReaLTaiizor.dll": {
             "assemblyVersion": "3.7.9.4",
             "fileVersion": "3.7.9.4"
-          }
-        }
-      },
-      "ReportingServicesInterfaces/13.0.1601.5": {
-        "runtime": {
-          "lib/Microsoft.ReportingServices.Interfaces.dll": {
-            "assemblyVersion": "13.0.0.0",
-            "fileVersion": "13.0.1601.5"
           }
         }
       },
@@ -476,35 +337,55 @@
           }
         }
       },
-      "SL.Common.NetCore.ReportView/15.0.1405": {
+      "SkiaSharp/2.88.3": {
+        "dependencies": {
+          "SkiaSharp.NativeAssets.Win32": "2.88.3",
+          "SkiaSharp.NativeAssets.macOS": "2.88.3"
+        },
         "runtime": {
-          "Lib/net5.0/Microsoft.CodeAnalysis.VisualBasic.dll": {
-            "assemblyVersion": "3.6.0.0",
-            "fileVersion": "3.600.20.26904"
+          "lib/net6.0/SkiaSharp.dll": {
+            "assemblyVersion": "2.88.0.0",
+            "fileVersion": "2.88.3.0"
+          }
+        }
+      },
+      "SkiaSharp.HarfBuzz/2.88.3": {
+        "dependencies": {
+          "HarfBuzzSharp": "2.8.2.3",
+          "SkiaSharp": "2.88.3"
+        },
+        "runtime": {
+          "lib/net6.0/SkiaSharp.HarfBuzz.dll": {
+            "assemblyVersion": "2.88.0.0",
+            "fileVersion": "2.88.3.0"
+          }
+        }
+      },
+      "SkiaSharp.NativeAssets.macOS/2.88.3": {
+        "runtimeTargets": {
+          "runtimes/osx/native/libSkiaSharp.dylib": {
+            "rid": "osx",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "SkiaSharp.NativeAssets.Win32/2.88.3": {
+        "runtimeTargets": {
+          "runtimes/win-arm64/native/libSkiaSharp.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
           },
-          "Lib/net5.0/Microsoft.CodeAnalysis.dll": {
-            "assemblyVersion": "3.6.0.0",
-            "fileVersion": "3.600.20.26904"
+          "runtimes/win-x64/native/libSkiaSharp.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
           },
-          "Lib/net5.0/Microsoft.ReportViewer.Common.dll": {
-            "assemblyVersion": "15.0.1405.0",
-            "fileVersion": "15.0.1405.0"
-          },
-          "Lib/net5.0/Microsoft.ReportViewer.DataVisualization.dll": {
-            "assemblyVersion": "15.0.1405.0",
-            "fileVersion": "15.0.1404.0"
-          },
-          "Lib/net5.0/Microsoft.ReportViewer.NETCore.dll": {
-            "assemblyVersion": "15.0.1404.0",
-            "fileVersion": "15.0.1404.0"
-          },
-          "Lib/net5.0/Microsoft.ReportViewer.ProcessingObjectModel.dll": {
-            "assemblyVersion": "15.0.1405.0",
-            "fileVersion": "15.0.1405.0"
-          },
-          "Lib/net5.0/Microsoft.ReportViewer.WinForms.dll": {
-            "assemblyVersion": "15.0.1405.0",
-            "fileVersion": "15.0.1405.0"
+          "runtimes/win-x86/native/libSkiaSharp.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -707,6 +588,27 @@
       "path": "azure.identity/1.7.0",
       "hashPath": "azure.identity.1.7.0.nupkg.sha512"
     },
+    "HarfBuzzSharp/2.8.2.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8MwXm9J4dXHuTdzPo29nHgDbt4+6P+RrPrH/qrxcERf29cpLlFbjvP3eFPwHmdUrl4KL2SHEZi2ZuQ5ndeIL1w==",
+      "path": "harfbuzzsharp/2.8.2.3",
+      "hashPath": "harfbuzzsharp.2.8.2.3.nupkg.sha512"
+    },
+    "HarfBuzzSharp.NativeAssets.macOS/2.8.2.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uwz9pB3hMuxzI/bSkjVrsOJH7Wo1L+0Md5ZmEMDM/j7xDHtR9d3mfg/CfxhMIcTiUC4JgX49FZK0y2ojgu1dww==",
+      "path": "harfbuzzsharp.nativeassets.macos/2.8.2.3",
+      "hashPath": "harfbuzzsharp.nativeassets.macos.2.8.2.3.nupkg.sha512"
+    },
+    "HarfBuzzSharp.NativeAssets.Win32/2.8.2.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Wo6QpE4+a+PFVdfIBoLkLr4wq2uC0m9TZC8FAfy4ZnLsUc10WL0Egk9EBHHhDCeokNOXDse5YtvuTYtS/rbHfg==",
+      "path": "harfbuzzsharp.nativeassets.win32/2.8.2.3",
+      "hashPath": "harfbuzzsharp.nativeassets.win32.2.8.2.3.nupkg.sha512"
+    },
     "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
       "type": "package",
       "serviceable": true,
@@ -805,26 +707,12 @@
       "path": "microsoft.netcore.targets/1.1.0",
       "hashPath": "microsoft.netcore.targets.1.1.0.nupkg.sha512"
     },
-    "Microsoft.ReportingServices.ReportViewerControl.Winforms/140.340.80": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-yCf56FW5i5HyIxIi8GY1sAdtDBlihjPO6x7XT4Ux7Trm4iuM8Qr/dyZmSylHslrRYzds5zNSN9yRCgTqvgiCsQ==",
-      "path": "microsoft.reportingservices.reportviewercontrol.winforms/140.340.80",
-      "hashPath": "microsoft.reportingservices.reportviewercontrol.winforms.140.340.80.nupkg.sha512"
-    },
     "Microsoft.SqlServer.Server/1.0.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-N4KeF3cpcm1PUHym1RmakkzfkEv3GRMyofVv40uXsQhCQeglr2OHNcUk2WOG51AKpGO8ynGpo9M/kFXSzghwug==",
       "path": "microsoft.sqlserver.server/1.0.0",
       "hashPath": "microsoft.sqlserver.server.1.0.0.nupkg.sha512"
-    },
-    "Microsoft.SqlServer.Types/14.0.314.76": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-gAekCmSfjtRBaiuuRIqJJV6cfEsEbYY5vI7Ssoc5sYI04JcyPrZ4C8RC3z7K9xfpr9ejQAQ1AtfvtgqEnjmwOw==",
-      "path": "microsoft.sqlserver.types/14.0.314.76",
-      "hashPath": "microsoft.sqlserver.types.14.0.314.76.nupkg.sha512"
     },
     "Microsoft.Win32.Registry/4.7.0": {
       "type": "package",
@@ -840,19 +728,19 @@
       "path": "microsoft.win32.systemevents/6.0.0",
       "hashPath": "microsoft.win32.systemevents.6.0.0.nupkg.sha512"
     },
+    "QuestPDF/2023.6.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bZArca20Bwddp1zAEYI9wLN+A0m496at7x2MgfuBpvGhyAOwjq3jGMF9uD3VWP+lZEQYJc1cwP4S3U0hOHIIKQ==",
+      "path": "questpdf/2023.6.3",
+      "hashPath": "questpdf.2023.6.3.nupkg.sha512"
+    },
     "ReaLTaiizor/3.7.9.4": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-/nJpvt+mb1A2vpI8HzFn4vzdYJTlKN8WnzCDA5hwHAqJhvrRX5+grL/OBl0Mkl3sJrBvGHjgZQFJP4XnQQzGSA==",
       "path": "realtaiizor/3.7.9.4",
       "hashPath": "realtaiizor.3.7.9.4.nupkg.sha512"
-    },
-    "ReportingServicesInterfaces/13.0.1601.5": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-66D78i4IWVAwzjYmSXcHavdbORFfUHTE8Vkkj/IMOKOGQtqTgn0OX6hvhmkjOi9O2Zm/3zgBfUz52zgg2HT2pg==",
-      "path": "reportingservicesinterfaces/13.0.1601.5",
-      "hashPath": "reportingservicesinterfaces.13.0.1601.5.nupkg.sha512"
     },
     "RJCodeAdvance.RJControls/1.0.0": {
       "type": "package",
@@ -889,12 +777,33 @@
       "path": "runtime.win-x86.runtime.native.system.data.sqlclient.sni/4.4.0",
       "hashPath": "runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512"
     },
-    "SL.Common.NetCore.ReportView/15.0.1405": {
+    "SkiaSharp/2.88.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-g55EyAkTjbSNUaSJZ9Gayc9JsoMLC6uAChJQRHuwMO+8Z1ArYmwWD0i2hzJ+dWcYZGBeP890+/AYO+wyH/ljOw==",
-      "path": "sl.common.netcore.reportview/15.0.1405",
-      "hashPath": "sl.common.netcore.reportview.15.0.1405.nupkg.sha512"
+      "sha512": "sha512-GG8X3EdfwyBfwjl639UIiOVOKEdeoqDgYrz0P1MUCnefXt9cofN+AK8YB/v1+5cLMr03ieWCQdDmPqnFIzSxZw==",
+      "path": "skiasharp/2.88.3",
+      "hashPath": "skiasharp.2.88.3.nupkg.sha512"
+    },
+    "SkiaSharp.HarfBuzz/2.88.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hH6v4ltTb34eqn5tx1qLSAN7O+ppZCV5DnZw0FR7RwxXYqCeQYbBNgsaPyrZ1nkvtCDD1pH79taeO6SvqG+IAg==",
+      "path": "skiasharp.harfbuzz/2.88.3",
+      "hashPath": "skiasharp.harfbuzz.2.88.3.nupkg.sha512"
+    },
+    "SkiaSharp.NativeAssets.macOS/2.88.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CEbWAXMGFkPV3S1snBKK7jEG3+xud/9kmSAhu0BEUKKtlMdxx+Qal0U9bntQREM9QpqP5xLWZooodi8IlV8MEg==",
+      "path": "skiasharp.nativeassets.macos/2.88.3",
+      "hashPath": "skiasharp.nativeassets.macos.2.88.3.nupkg.sha512"
+    },
+    "SkiaSharp.NativeAssets.Win32/2.88.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MU4ASL8VAbTv5vSw1PoiWjjjpjtGhWtFYuJnrN4sNHFCePb2ohQij9JhSdqLLxk7RpRtWPdV93fbA53Pt+J0yw==",
+      "path": "skiasharp.nativeassets.win32/2.88.3",
+      "hashPath": "skiasharp.nativeassets.win32.2.88.3.nupkg.sha512"
     },
     "System.Configuration.ConfigurationManager/6.0.1": {
       "type": "package",

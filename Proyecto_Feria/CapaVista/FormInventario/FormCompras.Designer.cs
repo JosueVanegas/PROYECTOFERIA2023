@@ -86,12 +86,12 @@ namespace CapaVista.FormInventario
             cbxBuscarCompra = new ReaLTaiizor.Controls.MaterialComboBox();
             txtBuscarCompra = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             tbCompras = new ReaLTaiizor.Controls.PoisonDataGridView();
-            panel1 = new Panel();
             IdCompra = new DataGridViewTextBoxColumn();
             NoFactura = new DataGridViewTextBoxColumn();
             IdUsuario = new DataGridViewTextBoxColumn();
             NombreUsuario = new DataGridViewTextBoxColumn();
             Total = new DataGridViewTextBoxColumn();
+            panel1 = new Panel();
             pnlContenedor.SuspendLayout();
             pnlRegistroUsuario.SuspendLayout();
             panel5.SuspendLayout();
@@ -137,7 +137,7 @@ namespace CapaVista.FormInventario
             panel5.Controls.Add(btnAgregarProducto);
             panel5.Controls.Add(txtCodigoDeProducto);
             panel5.Dock = DockStyle.Top;
-            panel5.Location = new Point(0, 394);
+            panel5.Location = new Point(0, 388);
             panel5.Name = "panel5";
             panel5.Size = new Size(594, 49);
             panel5.TabIndex = 44;
@@ -271,7 +271,7 @@ namespace CapaVista.FormInventario
             tbDetalles.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tbDetalles.RowTemplate.Height = 30;
             tbDetalles.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tbDetalles.Size = new Size(594, 206);
+            tbDetalles.Size = new Size(594, 200);
             tbDetalles.TabIndex = 36;
             tbDetalles.CellContentClick += tbDetalles_CellContentClick;
             tbDetalles.CellPainting += tbDetalles_CellPainting;
@@ -423,6 +423,7 @@ namespace CapaVista.FormInventario
             txtTotal.BackgroundImageLayout = ImageLayout.None;
             txtTotal.CharacterCasing = CharacterCasing.Normal;
             txtTotal.Depth = 0;
+            txtTotal.Enabled = false;
             txtTotal.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Regular, GraphicsUnit.Point);
             txtTotal.HideSelection = true;
             txtTotal.Hint = "Total de compra";
@@ -911,17 +912,6 @@ namespace CapaVista.FormInventario
             tbCompras.Size = new Size(429, 323);
             tbCompras.TabIndex = 22;
             // 
-            // panel1
-            // 
-            panel1.BackColor = Color.White;
-            panel1.Controls.Add(panelCompras);
-            panel1.Controls.Add(panelBusqueda);
-            panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(597, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(429, 447);
-            panel1.TabIndex = 24;
-            // 
             // IdCompra
             // 
             IdCompra.HeaderText = "IdCompra";
@@ -958,6 +948,17 @@ namespace CapaVista.FormInventario
             Total.HeaderText = "Total";
             Total.Name = "Total";
             Total.ReadOnly = true;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.White;
+            panel1.Controls.Add(panelCompras);
+            panel1.Controls.Add(panelBusqueda);
+            panel1.Dock = DockStyle.Right;
+            panel1.Location = new Point(597, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(429, 447);
+            panel1.TabIndex = 24;
             // 
             // FormCompras
             // 

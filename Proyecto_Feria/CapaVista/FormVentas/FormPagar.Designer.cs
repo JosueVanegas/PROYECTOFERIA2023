@@ -57,6 +57,7 @@
             Nombre = new DataGridViewTextBoxColumn();
             panel2 = new Panel();
             pdImprimir = new System.Drawing.Printing.PrintDocument();
+            cbxImpresoras = new ReaLTaiizor.Controls.MaterialComboBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panelBusqueda.SuspendLayout();
@@ -360,7 +361,7 @@
             btnFacturar.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point);
             btnFacturar.ForeColor = Color.White;
             btnFacturar.ImageAlign = ContentAlignment.MiddleRight;
-            btnFacturar.Location = new Point(18, 255);
+            btnFacturar.Location = new Point(21, 321);
             btnFacturar.Margin = new Padding(3, 2, 3, 2);
             btnFacturar.Name = "btnFacturar";
             btnFacturar.Size = new Size(274, 60);
@@ -383,7 +384,7 @@
             btnCancelar.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point);
             btnCancelar.ForeColor = Color.White;
             btnCancelar.ImageAlign = ContentAlignment.MiddleRight;
-            btnCancelar.Location = new Point(18, 345);
+            btnCancelar.Location = new Point(18, 389);
             btnCancelar.Margin = new Padding(3, 2, 3, 2);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(274, 60);
@@ -594,6 +595,7 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(cbxImpresoras);
             panel2.Controls.Add(ckbClienteComun);
             panel2.Controls.Add(btnCancelar);
             panel2.Controls.Add(btnFacturar);
@@ -611,6 +613,30 @@
             // 
             pdImprimir.PrintPage += imprimir;
             // 
+            // cbxImpresoras
+            // 
+            cbxImpresoras.AutoResize = false;
+            cbxImpresoras.BackColor = Color.FromArgb(255, 255, 255);
+            cbxImpresoras.Depth = 0;
+            cbxImpresoras.DrawMode = DrawMode.OwnerDrawVariable;
+            cbxImpresoras.DropDownHeight = 174;
+            cbxImpresoras.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxImpresoras.DropDownWidth = 121;
+            cbxImpresoras.Font = new Font("Roboto Medium", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cbxImpresoras.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cbxImpresoras.FormattingEnabled = true;
+            cbxImpresoras.Hint = "Seleccione la impresora";
+            cbxImpresoras.IntegralHeight = false;
+            cbxImpresoras.ItemHeight = 43;
+            cbxImpresoras.Location = new Point(12, 235);
+            cbxImpresoras.MaxDropDownItems = 4;
+            cbxImpresoras.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            cbxImpresoras.Name = "cbxImpresoras";
+            cbxImpresoras.Size = new Size(280, 49);
+            cbxImpresoras.StartIndex = 0;
+            cbxImpresoras.TabIndex = 66;
+            cbxImpresoras.SelectedIndexChanged += cbxImpresoras_SelectedIndexChanged;
+            // 
             // FormPagar
             // 
             AllowDrop = true;
@@ -620,7 +646,7 @@
             ControlBox = false;
             Controls.Add(panel2);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
             MaximizeBox = false;
             MaximumSize = new Size(856, 490);
@@ -675,5 +701,6 @@
         private Panel panel2;
         private System.Drawing.Printing.PrintDocument pdImprimir;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtTotalFinal;
+        private ReaLTaiizor.Controls.MaterialComboBox cbxImpresoras;
     }
 }

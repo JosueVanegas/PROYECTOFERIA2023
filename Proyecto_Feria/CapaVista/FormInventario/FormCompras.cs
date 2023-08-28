@@ -12,11 +12,7 @@ namespace CapaVista.FormInventario
         List<Producto> lista;
         ControlCompra cCompra = new ControlCompra();
         Usuario user;
-#pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-#pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
         public FormCompras(Usuario user)
-#pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-#pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
         {
             InitializeComponent();
             this.user = user;
@@ -74,9 +70,7 @@ namespace CapaVista.FormInventario
         }
         private void txtBuscarProducto_TextChanged(object sender, EventArgs e)
         {
-#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
             string nombre = cbxBuscarProducto.SelectedItem.ToString();
-#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
             string columna = "";
             if (nombre == "Nombre")
             {
@@ -90,12 +84,10 @@ namespace CapaVista.FormInventario
             {
                 foreach (DataGridViewRow i in tbBusqueda.Rows)
                 {
-#pragma warning disable CS8602 // Desreferencia de una referencia posiblemente NULL.
                     if (i.Cells[columna].Value.ToString().Trim().ToUpper().Contains(txtBuscarProducto.Text.Trim().ToUpper()))
                         i.Visible = true;
                     else
                         i.Visible = false;
-#pragma warning restore CS8602 // Desreferencia de una referencia posiblemente NULL.
                 }
             }
         }
@@ -148,15 +140,9 @@ namespace CapaVista.FormInventario
         private void recuentoTotal()
         {
             decimal subTotal = 0;
-#pragma warning disable CS0219 // La variable está asignada pero nunca se usa su valor
             decimal iva = 0;
-#pragma warning restore CS0219 // La variable está asignada pero nunca se usa su valor
-#pragma warning disable CS0219 // La variable está asignada pero nunca se usa su valor
             decimal descuento = 0;
-#pragma warning restore CS0219 // La variable está asignada pero nunca se usa su valor
-#pragma warning disable CS0219 // La variable está asignada pero nunca se usa su valor
             decimal total = 0;
-#pragma warning restore CS0219 // La variable está asignada pero nunca se usa su valor
             if (tbDetalles.RowCount > 0)
             {
                 foreach (DataGridViewRow row in tbDetalles.Rows)

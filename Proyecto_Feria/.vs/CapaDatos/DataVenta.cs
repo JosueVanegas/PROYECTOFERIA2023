@@ -8,6 +8,10 @@ namespace CapaDatos
         public string noFactura = string.Empty;
         public DataVenta() { }
 
+        public string tomarFactura()
+        {
+            return noFactura;
+        }
         public string procesoDeVenta(infoVenta v, List<DetalleVenta> detalles)
         {
             string mensaje = "";
@@ -56,22 +60,19 @@ namespace CapaDatos
                         cmd.Parameters.Add("FACTURA", System.Data.SqlDbType.VarChar, 30).Direction = System.Data.ParameterDirection.Output;
                         cmd.ExecuteNonQuery();
                         idCreado = (int)cmd.Parameters["ID_CREADO"].Value;
-#pragma warning disable CS8601 // Posible asignación de referencia nula
                         noFactura = cmd.Parameters["FACTURA"].Value.ToString();
-#pragma warning restore CS8601 // Posible asignación de referencia nula
                     }
                 }
             }
             catch (Exception ex)
             {
                 idCreado = 0;
+                noFactura = string.Empty;
             }
-#pragma warning restore CS0168 // La variable está declarada pero nunca se usa
             return idCreado;
         }
         public void registrarDetalleVenta(DetalleVenta d, int id)
         {
-#pragma warning disable CS0168 // La variable está declarada pero nunca se usa
             try
             {
                 using (SqlConnection con = new conexion().conectar())
@@ -91,7 +92,6 @@ namespace CapaDatos
             catch (Exception ex)
             {
             }
-#pragma warning restore CS0168 // La variable está declarada pero nunca se usa
         }
     }
 }

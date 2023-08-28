@@ -7,7 +7,7 @@ namespace CapaControlador
     {
         Datainforme dInforme = new Datainforme();
 
-        public DataTable datosDeVentas(string fechaInicio, string fechaFin)
+        public List<informeVentas> datosDeVentas(string fechaInicio, string fechaFin)
         {
             return dInforme.ObtenerDatosInformeVentas(fechaInicio, fechaFin);
         }

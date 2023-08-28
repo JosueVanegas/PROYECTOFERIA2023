@@ -201,9 +201,9 @@
               "target": "Package",
               "version": "[5.1.1, )"
             },
-            "Microsoft.ReportingServices.ReportViewerControl.WinForms": {
+            "QuestPDF": {
               "target": "Package",
-              "version": "[140.340.80, )"
+              "version": "[2023.6.3, )"
             },
             "RJCodeAdvance.RJControls": {
               "target": "Package",
@@ -212,14 +212,6 @@
             "ReaLTaiizor": {
               "target": "Package",
               "version": "[3.7.9.4, )"
-            },
-            "ReportingServicesInterfaces": {
-              "target": "Package",
-              "version": "[13.0.1601.5, )"
-            },
-            "SL.Common.NetCore.ReportView": {
-              "target": "Package",
-              "version": "[15.0.1405, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",

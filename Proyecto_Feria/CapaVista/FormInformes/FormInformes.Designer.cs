@@ -32,7 +32,6 @@
             btnPorSemana = new RJCodeAdvance.RJControls.RJButton();
             panel2 = new Panel();
             pkrFechaInicio = new RJCodeAdvance.RJControls.RJDatePicker();
-            reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -87,22 +86,11 @@
             pkrFechaInicio.TabIndex = 0;
             pkrFechaInicio.TextColor = Color.White;
             // 
-            // reportViewer1
-            // 
-            reportViewer1.Dock = DockStyle.Fill;
-            reportViewer1.LocalReport.ReportEmbeddedResource = "";
-            reportViewer1.Location = new Point(233, 61);
-            reportViewer1.Name = "reportViewer1";
-            reportViewer1.ServerReport.BearerToken = null;
-            reportViewer1.Size = new Size(579, 386);
-            reportViewer1.TabIndex = 4;
-            // 
             // FormInformes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(815, 450);
-            Controls.Add(reportViewer1);
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
@@ -121,6 +109,5 @@
         private RJCodeAdvance.RJControls.RJButton btnPorSemana;
         private Panel panel2;
         private RJCodeAdvance.RJControls.RJDatePicker pkrFechaInicio;
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using CapaControlador;
 using CapaDatos;
+using Microsoft.IdentityModel.Tokens;
 using ReaLTaiizor.Forms;
 using System.Drawing.Printing;
 
@@ -12,6 +13,7 @@ namespace CapaVista.FormVentas
         Usuario user = new Usuario();
         List<DetalleVenta> detalles;
         ControlVenta cVenta = new ControlVenta();
+        string impresoraSeleccionada = string.Empty;
         public FormPagar(Usuario u, ResumenVenta r, List<DetalleVenta> d)
         {
             InitializeComponent();
@@ -25,6 +27,7 @@ namespace CapaVista.FormVentas
         {
             mostrarClientes();
             realizarResumen();
+            CargarImpresorasDisponibles();
         }
         private void realizarResumen()
         {
@@ -61,7 +64,7 @@ namespace CapaVista.FormVentas
         private bool calcularCambio()
         {
             bool continuar = false;
-            decimal total = Convert.ToDecimal(txtTotal.Text);
+            decimal total = Convert.ToDecimal(txtTotalFinal.Text);
             decimal pago = Convert.ToDecimal(txtPago.Text);
             if (pago >= total)
             {
@@ -88,26 +91,30 @@ namespace CapaVista.FormVentas
         }
         private void RealizarPago()
         {
-            if (txtCliente.Text != "" && cliente != null && calcularCambio() == true)
+            if (txtCliente.Text != "" && cliente != null)
             {
-                try
+                if (calcularCambio() == true)
                 {
-                    infoVenta v = new infoVenta
+                    try
                     {
-                        ID_CLIENTE = cliente.id,
-                        ID_USUARIO = user.id,
-                        DESCUENTO = resumen.descuento,
-                        IVA = resumen.iva,
-                        SUBTOTAL = resumen.subtotal,
-                        TOTAL = resumen.total,
-                    };
-                    MessageBox.Show(cVenta.procesoDeVenta(v, detalles));
-                    MessageBox.Show(imprimirFactura());
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
+                        infoVenta v = new infoVenta
+                        {
+                            ID_CLIENTE = cliente.id,
+                            ID_USUARIO = user.id,
+                            DESCUENTO = resumen.descuento,
+                            IVA = resumen.iva,
+                            SUBTOTAL = resumen.subtotal,
+                            TOTAL = resumen.total,
+                        };
+
+                            MessageBox.Show(cVenta.procesoDeVenta(v, detalles));
+                            MessageBox.Show(imprimirFactura());
+                            this.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
             }
             else
@@ -118,24 +125,30 @@ namespace CapaVista.FormVentas
         }
         private string imprimirFactura()
         {
-            string mensaje = "Factura realizada con exito";
+            string mensaje = "Factura generada e impresa con éxito";
             try
             {
-                pdImprimir = new PrintDocument();
-                PrinterSettings ps = new PrinterSettings();
-                pdImprimir.PrinterSettings = ps;
-                pdImprimir.PrintPage += imprimir;
-                PrintDialog printDialog = new PrintDialog();
-                printDialog.Document = pdImprimir;
+                int numeroPaginas = 2;
+                string factura = cVenta.tomarNoFactura();
 
-                if (printDialog.ShowDialog() == DialogResult.OK)
+                if (factura != "")
                 {
-                    pdImprimir.Print();
-                    Console.WriteLine("Factura impresa exitosamente.");
-                }
-                else
-                {
-                    Console.WriteLine("Impresión cancelada.");
+                    if (impresoraSeleccionada != "")
+                    {
+                        string nombreArchivo = @"C:\Users\Personal\Desktop\Factura_" + factura + ".pdf";
+
+                        pdImprimir = new PrintDocument();
+                        pdImprimir.PrinterSettings.PrinterName = impresoraSeleccionada;
+                        pdImprimir.PrinterSettings.PrintToFile = true;
+                        pdImprimir.PrinterSettings.PrintFileName = nombreArchivo;
+
+                        pdImprimir.PrintPage += imprimir;
+
+                        for (int i = 0; i < numeroPaginas; i++)
+                        {
+                            pdImprimir.Print();
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -144,6 +157,7 @@ namespace CapaVista.FormVentas
             }
             return mensaje;
         }
+
         private void imprimir(object sender, PrintPageEventArgs e)
         {
             Font font = new Font("Courier New", 12);
@@ -159,11 +173,13 @@ namespace CapaVista.FormVentas
             y += 20;
             e.Graphics.DrawString("------------------------------------detalles-------------------------------", font, Brushes.Black, 20, y);
             y += 20;
-            e.Graphics.DrawString("Descripcion                                                      Subtotal", font, Brushes.Black, 20, y);
+            e.Graphics.DrawString("Descripcion Subtotal", font, Brushes.Black, 20, y);
+            e.Graphics.DrawString("Subtotal", font, Brushes.Black, 200, y);
             y += 20;
             foreach (var d in detalles)
             {
                 e.Graphics.DrawString($"{d.ID_PRODUCTO} - {d.NOMBRE}   |   {d.SUBTOTAL}", font, Brushes.Black, 20, y);
+                e.Graphics.DrawString($"{d.SUBTOTAL}", font, Brushes.Black, 200, y);
                 y += 20;
                 e.Graphics.DrawString($"{d.CANTIDAD} x {d.PRECIO}", font, Brushes.Black, 20, y);
                 y += 20;
@@ -269,6 +285,20 @@ namespace CapaVista.FormVentas
             else
             {
                 txtCliente.Text = "";
+            }
+        }
+
+        private void cbxImpresoras_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            impresoraSeleccionada = cbxImpresoras.SelectedItem.ToString();
+        }
+        private void CargarImpresorasDisponibles()
+        {
+            PrinterSettings.StringCollection impresoras = PrinterSettings.InstalledPrinters;
+
+            foreach (string impresora in impresoras)
+            {
+                cbxImpresoras.Items.Add(impresora);
             }
         }
     }

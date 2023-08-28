@@ -41,7 +41,6 @@ namespace CapaDatos
             string query = "SELECT C.ID_COMPRA,C.NO_FACTURA,C.ID_USUARIO,U.USUARIO,C.TOTAL_COMPRA,C.FECHA_REGISTRO FROM COMPRA C INNER JOIN USUARIO U ON C.ID_USUARIO = U.ID_USUARIO ";
             using (var con = new conexion().conectar())
             {
-#pragma warning disable CS0168 // La variable está declarada pero nunca se usa
                 try
                 {
                     con.Open();
@@ -52,22 +51,15 @@ namespace CapaDatos
                         {
                             while (reader.Read())
                             {
-
-#pragma warning disable CS8601 // Posible asignación de referencia nula
-#pragma warning disable CS8601 // Posible asignación de referencia nula
-#pragma warning disable CS8601 // Posible asignación de referencia nula
                                 lista.Add(new compra
                                 {
-                                    id = Convert.ToInt32(reader["C.ID_COMPRA"]),
-                                    factura = reader["C.NO_FACTURA"].ToString(),
-                                    idUsuario = Convert.ToInt32(reader["C.ID_USUARIO"]),
-                                    nombreUsuario = reader["U.USUARIO"].ToString(),
-                                    total = Convert.ToInt32(reader["C.TOTAL_COMPRA"]),
-                                    fechaRegistro = reader["C.FECHA_REGISTRO"].ToString()
+                                    id = Convert.ToInt32(reader[0]),
+                                    factura = reader[1].ToString(),
+                                    idUsuario = Convert.ToInt32(reader[2]),
+                                    nombreUsuario = reader[3].ToString(),
+                                    total = Convert.ToInt32(reader[4]),
+                                    fechaRegistro = reader[5].ToString()
                                 });
-#pragma warning restore CS8601 // Posible asignación de referencia nula
-#pragma warning restore CS8601 // Posible asignación de referencia nula
-#pragma warning restore CS8601 // Posible asignación de referencia nula
                             }
                         }
                     }
@@ -77,7 +69,6 @@ namespace CapaDatos
                 {
                     lista = new List<compra>();
                 }
-#pragma warning restore CS0168 // La variable está declarada pero nunca se usa
             }
             return lista;
         }

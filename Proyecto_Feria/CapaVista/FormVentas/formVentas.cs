@@ -202,7 +202,7 @@ namespace CapaVista.FormVenta
         private void agregarProducto(string codigo)
         {
             var producto = lista.FirstOrDefault(p => p.codigo == codigo);
-            if (producto != null)
+            if (producto.cantidad != 0)
             {
                 int rowIndex = -1;
                 for (int i = 0; i < tbResumen.Rows.Count; i++)
@@ -258,7 +258,7 @@ namespace CapaVista.FormVenta
             }
             else
             {
-                MessageBox.Show("No se encuentra el producto con el Codigo de barra ingresado");
+                MessageBox.Show("El producto no dispone de stock suficiente");
             }
             recuentoTotal();
         }
@@ -277,9 +277,7 @@ namespace CapaVista.FormVenta
                         decimal valorCelda = Convert.ToDecimal(row.Cells["SubTotal"].Value);
                         subTotal += valorCelda;
                         descuento = (nbrDescuento.Value * Convert.ToDecimal(0.01)) * subTotal;
-#pragma warning disable CS1717 // Se ha asignado a la misma variable
                         subTotal = subTotal;
-#pragma warning restore CS1717 // Se ha asignado a la misma variable
                         iva = Convert.ToDecimal(subTotal) * Convert.ToDecimal(0.15);
                         total = subTotal + iva;
                     }
