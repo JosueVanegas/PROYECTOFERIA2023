@@ -71,14 +71,9 @@ namespace CapaVista
                 {
                     if (txtIdUsuario.Text == "")
                         txtIdUsuario.Text = "1";
-#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                     emp = cbxEmpleados.SelectedItem as comboEmpleado;
-#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
-#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                     Rol rol = cbxRol.SelectedItem as Rol;
-#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
-#pragma warning disable CS8601 // Posible asignación de referencia nula
-#pragma warning disable CS8601 // Posible asignación de referencia nula
+
                     Usuario user = new Usuario
                     {
                         id = Convert.ToInt32(txtIdUsuario.Text),
@@ -87,8 +82,6 @@ namespace CapaVista
                         clave = txtClave.Text,
                         oRol = rol,
                     };
-#pragma warning restore CS8601 // Posible asignación de referencia nula
-#pragma warning restore CS8601 // Posible asignación de referencia nula
                     MessageBox.Show(controlUsuario.registrar(user, EmpleadoNulo));
                     controlUsuario.encriptarClave(user);
                     limpiarCampos();

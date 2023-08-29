@@ -52,7 +52,7 @@
     <Compile Update="FormsHerramientas\FormCalculadoraBasica.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormsHerramientas\FormCalcularDescuento.cs">
+    <Compile Update="FormsHerramientas\FormCalculadoraNomina.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormsHerramientas\FormGenerarCodigoBarra.cs">

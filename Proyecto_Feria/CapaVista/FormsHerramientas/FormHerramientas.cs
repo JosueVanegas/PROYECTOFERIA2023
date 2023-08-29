@@ -1,6 +1,8 @@
 ﻿using CapaDatos;
+using CapaPresentacion.FormsHerramientas;
 using ReaLTaiizor.Forms;
 using ReaLTaiizor.Manager;
+using static iTextSharp.awt.geom.Point2D;
 
 namespace CapaVista.FormsHerramientas
 {
@@ -13,76 +15,26 @@ namespace CapaVista.FormsHerramientas
 
             btnbitacora.Visible = true;
             btnCalculadoraBasica.Visible = true;
-            btnCalcularDescuento.Visible = true;
 
             btnCalcularNomina.Visible = true;
-            btnIR.Visible = true;
             btnGenerarCodigoBarra.Visible = true;
-            /*
-            if (Rol.oRol.descripcion == "Administrador")
-            {
-                btnbitacora.Visible = true;
-                btnCalculadoraBasica.Visible = true;
-                btnCalcularDescuento.Visible = true;
-                
-                btnCalcularNomina.Visible = true;
-                btnIR.Visible = true;
-                
-            }
-            if (Rol.oRol.descripcion == "Contador")
-            {
-                btnbitacora.Visible = true;
-                btnCalculadoraBasica.Visible = true;
-                btnCalcularDescuento.Visible = true;
-                
-                btnCalcularNomina.Visible = true;
-                btnIR.Visible = true;
-                
-            }
-            if (Rol.oRol.descripcion == "Vendedor")
-            {
-                btnbitacora.Visible = true;
-                btnCalculadoraBasica.Visible = true;
-                btnCalcularDescuento.Visible = true;
-            
-                btnCalcularNomina.Visible = false;
-                btnIR.Visible = false;
-               
-            }*/
-
         }
-        private void cambiarModo(bool modoOscuro)
-        {
-            MaterialSkinManager manager;
-            manager = MaterialSkinManager.Instance;
-            manager.AddFormToManage(this);
-            manager.EnforceBackcolorOnAllComponents = true;
-            if (modoOscuro)
-            {
-                manager.Theme = MaterialSkinManager.Themes.DARK;
-            }
-            if (!modoOscuro)
-            {
-                manager.Theme = MaterialSkinManager.Themes.LIGHT;
-            }
-        }
-
         private void btnCalculadoraBasica_Click(object sender, EventArgs e)
         {
             FormCalculadoraBasica Ca = new FormCalculadoraBasica();
-            Ca.ShowDialog();
-        }
-
-        private void btnCalcularDescuento_Click(object sender, EventArgs e)
-        {
-            FormCalcularDescuento Ca = new FormCalcularDescuento();
-            Ca.ShowDialog();
+            Ca.Show();
         }
 
         private void btnGenerarCodigoBarra_Click(object sender, EventArgs e)
         {
             FormGenerarCodigoBarra GeneradorCodigo = new FormGenerarCodigoBarra();
             GeneradorCodigo.ShowDialog();
+        }
+
+        private void btnCalcularNomina_Click(object sender, EventArgs e)
+        {
+            FormCalculadoraNomina calNom = new FormCalculadoraNomina();
+            calNom.Show();
         }
     }
 }

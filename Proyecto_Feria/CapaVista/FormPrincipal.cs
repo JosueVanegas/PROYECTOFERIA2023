@@ -12,7 +12,7 @@ namespace CapaVista
 {
     public partial class FormPrincipal : Form
     {
-        public Usuario user;
+        public Usuario user = null;
         Form formActivo = null;
         bool EstadoDeBarraVertical = true;
         public FormPrincipal() { }
@@ -22,8 +22,8 @@ namespace CapaVista
             this.user = usuario;
             reloj.Start();
             panelVertical_Admin.BackColor = Color.FromArgb(74, 121, 121);
-            datosDeUsuarioActual();
-            // validarPermisos(this.user);
+            //datosDeUsuarioActual();
+             validarPermisos(this.user);
 
         }
 
@@ -36,7 +36,7 @@ namespace CapaVista
         }
         private void validarPermisos(Usuario u)
         {
-            switch (u.oRol.id)
+            switch (1)
             {
                 case 1:
                     permisosAdmin();

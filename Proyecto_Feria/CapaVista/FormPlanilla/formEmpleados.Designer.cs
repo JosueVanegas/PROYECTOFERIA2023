@@ -29,17 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formEmpleados));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panel1 = new Panel();
             txtCargo = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             FechaNacimientoCalendario = new MonthCalendar();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            btnGuardar = new RJCodeAdvance.RJControls.RJButton();
+            btnLimpiar = new RJCodeAdvance.RJControls.RJButton();
             txtSalario = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtFechadeNacimiento = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            tableLayoutPanel2 = new TableLayoutPanel();
-            rjButton1 = new RJCodeAdvance.RJControls.RJButton();
-            rjButton3 = new RJCodeAdvance.RJControls.RJButton();
             txtDireccion = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtCorreo = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             cbxProveedor = new ReaLTaiizor.Controls.MaterialComboBox();
@@ -47,29 +44,16 @@
             txtNumeroCedula = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtNumeroContacto = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             tableLayoutPanel1 = new TableLayoutPanel();
-            btnGuardar = new RJCodeAdvance.RJControls.RJButton();
-            btnEliminar = new RJCodeAdvance.RJControls.RJButton();
-            btnLimpiar = new RJCodeAdvance.RJControls.RJButton();
             lblTitulo = new Label();
             txtNombre = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtId = new TextBox();
             pictureBox1 = new PictureBox();
             txtBuscar = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             lblEncabezado = new Label();
-            tbEmpleados = new ReaLTaiizor.Controls.PoisonDataGridView();
-            btnEditar = new DataGridViewButtonColumn();
-            id = new DataGridViewTextBoxColumn();
-            nombreEmpresa = new DataGridViewTextBoxColumn();
-            NombreContacto = new DataGridViewTextBoxColumn();
-            NumeroContacto = new DataGridViewTextBoxColumn();
-            Pais = new DataGridViewTextBoxColumn();
-            Ciudad = new DataGridViewTextBoxColumn();
             panel2 = new Panel();
             panel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
-            tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)tbEmpleados).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -78,9 +62,9 @@
             panel1.BackColor = Color.White;
             panel1.Controls.Add(txtCargo);
             panel1.Controls.Add(FechaNacimientoCalendario);
+            panel1.Controls.Add(tableLayoutPanel2);
             panel1.Controls.Add(txtSalario);
             panel1.Controls.Add(txtFechadeNacimiento);
-            panel1.Controls.Add(tableLayoutPanel2);
             panel1.Controls.Add(txtDireccion);
             panel1.Controls.Add(txtCorreo);
             panel1.Controls.Add(cbxProveedor);
@@ -94,7 +78,7 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(3, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(393, 496);
+            panel1.Size = new Size(402, 496);
             panel1.TabIndex = 20;
             // 
             // txtCargo
@@ -138,6 +122,73 @@
             FechaNacimientoCalendario.Visible = false;
             FechaNacimientoCalendario.DateSelected += MonthCalendar1_DateSelected;
             FechaNacimientoCalendario.MouseLeave += FechaNacimientoCalendario_MouseLeave;
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.Anchor = AnchorStyles.Left;
+            tableLayoutPanel2.ColumnCount = 2;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.Controls.Add(btnGuardar, 0, 0);
+            tableLayoutPanel2.Controls.Add(btnLimpiar, 1, 0);
+            tableLayoutPanel2.Location = new Point(106, 401);
+            tableLayoutPanel2.Margin = new Padding(3, 2, 3, 2);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Size = new Size(155, 70);
+            tableLayoutPanel2.TabIndex = 41;
+            // 
+            // btnGuardar
+            // 
+            btnGuardar.Anchor = AnchorStyles.Left;
+            btnGuardar.BackColor = Color.FromArgb(74, 121, 121);
+            btnGuardar.BackgroundColor = Color.FromArgb(74, 121, 121);
+            btnGuardar.BackgroundImage = (Image)resources.GetObject("btnGuardar.BackgroundImage");
+            btnGuardar.BackgroundImageLayout = ImageLayout.Center;
+            btnGuardar.BorderColor = Color.PaleVioletRed;
+            btnGuardar.BorderRadius = 10;
+            btnGuardar.BorderSize = 0;
+            btnGuardar.FlatAppearance.BorderSize = 0;
+            btnGuardar.FlatStyle = FlatStyle.Flat;
+            btnGuardar.ForeColor = Color.White;
+            btnGuardar.ImageAlign = ContentAlignment.MiddleRight;
+            btnGuardar.Location = new Point(3, 2);
+            btnGuardar.Margin = new Padding(3, 2, 3, 2);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(71, 66);
+            btnGuardar.TabIndex = 11;
+            btnGuardar.Text = "Guardar";
+            btnGuardar.TextAlign = ContentAlignment.BottomCenter;
+            btnGuardar.TextColor = Color.White;
+            btnGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.Click += btnGuardar_Click;
+            btnGuardar.MouseHover += btnGuardar_MouseHover;
+            // 
+            // btnLimpiar
+            // 
+            btnLimpiar.Anchor = AnchorStyles.Left;
+            btnLimpiar.BackColor = Color.FromArgb(74, 121, 121);
+            btnLimpiar.BackgroundColor = Color.FromArgb(74, 121, 121);
+            btnLimpiar.BackgroundImage = (Image)resources.GetObject("btnLimpiar.BackgroundImage");
+            btnLimpiar.BackgroundImageLayout = ImageLayout.Center;
+            btnLimpiar.BorderColor = Color.PaleVioletRed;
+            btnLimpiar.BorderRadius = 10;
+            btnLimpiar.BorderSize = 0;
+            btnLimpiar.FlatAppearance.BorderSize = 0;
+            btnLimpiar.FlatStyle = FlatStyle.Flat;
+            btnLimpiar.ForeColor = Color.White;
+            btnLimpiar.ImageAlign = ContentAlignment.MiddleRight;
+            btnLimpiar.Location = new Point(80, 2);
+            btnLimpiar.Margin = new Padding(3, 2, 3, 2);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(72, 66);
+            btnLimpiar.TabIndex = 12;
+            btnLimpiar.Text = "Limpiar";
+            btnLimpiar.TextAlign = ContentAlignment.BottomCenter;
+            btnLimpiar.TextColor = Color.White;
+            btnLimpiar.UseVisualStyleBackColor = false;
+            btnLimpiar.MouseHover += btnLimpiar_MouseHover;
             // 
             // txtSalario
             // 
@@ -203,72 +254,6 @@
             txtFechadeNacimiento.UseSystemPasswordChar = false;
             txtFechadeNacimiento.KeyPress += txtFecha_KeyPress;
             txtFechadeNacimiento.MouseHover += txtFechadeNacimiento_MouseHover;
-            // 
-            // tableLayoutPanel2
-            // 
-            tableLayoutPanel2.Anchor = AnchorStyles.Left;
-            tableLayoutPanel2.ColumnCount = 2;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Controls.Add(rjButton1, 0, 0);
-            tableLayoutPanel2.Controls.Add(rjButton3, 1, 0);
-            tableLayoutPanel2.Location = new Point(104, 384);
-            tableLayoutPanel2.Margin = new Padding(3, 2, 3, 2);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 1;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(155, 70);
-            tableLayoutPanel2.TabIndex = 41;
-            // 
-            // rjButton1
-            // 
-            rjButton1.Anchor = AnchorStyles.Left;
-            rjButton1.BackColor = Color.FromArgb(74, 121, 121);
-            rjButton1.BackgroundColor = Color.FromArgb(74, 121, 121);
-            rjButton1.BackgroundImage = (Image)resources.GetObject("rjButton1.BackgroundImage");
-            rjButton1.BackgroundImageLayout = ImageLayout.Center;
-            rjButton1.BorderColor = Color.PaleVioletRed;
-            rjButton1.BorderRadius = 10;
-            rjButton1.BorderSize = 0;
-            rjButton1.FlatAppearance.BorderSize = 0;
-            rjButton1.FlatStyle = FlatStyle.Flat;
-            rjButton1.ForeColor = Color.White;
-            rjButton1.ImageAlign = ContentAlignment.MiddleRight;
-            rjButton1.Location = new Point(3, 2);
-            rjButton1.Margin = new Padding(3, 2, 3, 2);
-            rjButton1.Name = "rjButton1";
-            rjButton1.Size = new Size(71, 66);
-            rjButton1.TabIndex = 11;
-            rjButton1.Text = "Guardar";
-            rjButton1.TextAlign = ContentAlignment.BottomCenter;
-            rjButton1.TextColor = Color.White;
-            rjButton1.UseVisualStyleBackColor = false;
-            rjButton1.MouseHover += btnGuardar_MouseHover;
-            // 
-            // rjButton3
-            // 
-            rjButton3.Anchor = AnchorStyles.Left;
-            rjButton3.BackColor = Color.FromArgb(74, 121, 121);
-            rjButton3.BackgroundColor = Color.FromArgb(74, 121, 121);
-            rjButton3.BackgroundImage = (Image)resources.GetObject("rjButton3.BackgroundImage");
-            rjButton3.BackgroundImageLayout = ImageLayout.Center;
-            rjButton3.BorderColor = Color.PaleVioletRed;
-            rjButton3.BorderRadius = 10;
-            rjButton3.BorderSize = 0;
-            rjButton3.FlatAppearance.BorderSize = 0;
-            rjButton3.FlatStyle = FlatStyle.Flat;
-            rjButton3.ForeColor = Color.White;
-            rjButton3.ImageAlign = ContentAlignment.MiddleRight;
-            rjButton3.Location = new Point(80, 2);
-            rjButton3.Margin = new Padding(3, 2, 3, 2);
-            rjButton3.Name = "rjButton3";
-            rjButton3.Size = new Size(72, 66);
-            rjButton3.TabIndex = 12;
-            rjButton3.Text = "Limpiar";
-            rjButton3.TextAlign = ContentAlignment.BottomCenter;
-            rjButton3.TextColor = Color.White;
-            rjButton3.UseVisualStyleBackColor = false;
-            rjButton3.MouseHover += btnLimpiar_MouseHover;
             // 
             // txtDireccion
             // 
@@ -459,9 +444,6 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006237F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006275F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006275F));
-            tableLayoutPanel1.Controls.Add(btnGuardar, 0, 0);
-            tableLayoutPanel1.Controls.Add(btnEliminar, 2, 0);
-            tableLayoutPanel1.Controls.Add(btnLimpiar, 1, 0);
             tableLayoutPanel1.Location = new Point(28, 584);
             tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -469,78 +451,6 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Size = new Size(234, 80);
             tableLayoutPanel1.TabIndex = 31;
-            // 
-            // btnGuardar
-            // 
-            btnGuardar.Anchor = AnchorStyles.Left;
-            btnGuardar.BackColor = Color.FromArgb(63, 63, 70);
-            btnGuardar.BackgroundColor = Color.FromArgb(63, 63, 70);
-            btnGuardar.BackgroundImage = (Image)resources.GetObject("btnGuardar.BackgroundImage");
-            btnGuardar.BackgroundImageLayout = ImageLayout.Center;
-            btnGuardar.BorderColor = Color.PaleVioletRed;
-            btnGuardar.BorderRadius = 10;
-            btnGuardar.BorderSize = 0;
-            btnGuardar.FlatAppearance.BorderSize = 0;
-            btnGuardar.FlatStyle = FlatStyle.Flat;
-            btnGuardar.ForeColor = Color.White;
-            btnGuardar.ImageAlign = ContentAlignment.MiddleRight;
-            btnGuardar.Location = new Point(3, 2);
-            btnGuardar.Margin = new Padding(3, 2, 3, 2);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(71, 76);
-            btnGuardar.TabIndex = 11;
-            btnGuardar.Text = "Guardar";
-            btnGuardar.TextAlign = ContentAlignment.BottomCenter;
-            btnGuardar.TextColor = Color.White;
-            btnGuardar.UseVisualStyleBackColor = false;
-            // 
-            // btnEliminar
-            // 
-            btnEliminar.Anchor = AnchorStyles.Left;
-            btnEliminar.BackColor = Color.FromArgb(63, 63, 70);
-            btnEliminar.BackgroundColor = Color.FromArgb(63, 63, 70);
-            btnEliminar.BackgroundImage = (Image)resources.GetObject("btnEliminar.BackgroundImage");
-            btnEliminar.BackgroundImageLayout = ImageLayout.Center;
-            btnEliminar.BorderColor = Color.PaleVioletRed;
-            btnEliminar.BorderRadius = 10;
-            btnEliminar.BorderSize = 0;
-            btnEliminar.FlatAppearance.BorderSize = 0;
-            btnEliminar.FlatStyle = FlatStyle.Flat;
-            btnEliminar.ForeColor = Color.White;
-            btnEliminar.ImageAlign = ContentAlignment.MiddleRight;
-            btnEliminar.Location = new Point(158, 2);
-            btnEliminar.Margin = new Padding(3, 2, 3, 2);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(73, 76);
-            btnEliminar.TabIndex = 10;
-            btnEliminar.Text = "Eliminar";
-            btnEliminar.TextAlign = ContentAlignment.BottomCenter;
-            btnEliminar.TextColor = Color.White;
-            btnEliminar.UseVisualStyleBackColor = false;
-            // 
-            // btnLimpiar
-            // 
-            btnLimpiar.Anchor = AnchorStyles.Left;
-            btnLimpiar.BackColor = Color.FromArgb(63, 63, 70);
-            btnLimpiar.BackgroundColor = Color.FromArgb(63, 63, 70);
-            btnLimpiar.BackgroundImage = (Image)resources.GetObject("btnLimpiar.BackgroundImage");
-            btnLimpiar.BackgroundImageLayout = ImageLayout.Center;
-            btnLimpiar.BorderColor = Color.PaleVioletRed;
-            btnLimpiar.BorderRadius = 10;
-            btnLimpiar.BorderSize = 0;
-            btnLimpiar.FlatAppearance.BorderSize = 0;
-            btnLimpiar.FlatStyle = FlatStyle.Flat;
-            btnLimpiar.ForeColor = Color.White;
-            btnLimpiar.ImageAlign = ContentAlignment.MiddleRight;
-            btnLimpiar.Location = new Point(80, 2);
-            btnLimpiar.Margin = new Padding(3, 2, 3, 2);
-            btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(72, 76);
-            btnLimpiar.TabIndex = 12;
-            btnLimpiar.Text = "Limpiar";
-            btnLimpiar.TextAlign = ContentAlignment.BottomCenter;
-            btnLimpiar.TextColor = Color.White;
-            btnLimpiar.UseVisualStyleBackColor = false;
             // 
             // lblTitulo
             // 
@@ -649,98 +559,6 @@
             lblEncabezado.Text = "Empleados registradas";
             lblEncabezado.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // tbEmpleados
-            // 
-            tbEmpleados.AllowUserToAddRows = false;
-            tbEmpleados.AllowUserToOrderColumns = true;
-            tbEmpleados.AllowUserToResizeColumns = false;
-            tbEmpleados.AllowUserToResizeRows = false;
-            tbEmpleados.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            tbEmpleados.BackgroundColor = Color.White;
-            tbEmpleados.BorderStyle = BorderStyle.None;
-            tbEmpleados.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            tbEmpleados.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            tbEmpleados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            tbEmpleados.ColumnHeadersHeight = 40;
-            tbEmpleados.Columns.AddRange(new DataGridViewColumn[] { btnEditar, id, nombreEmpresa, NombreContacto, NumeroContacto, Pais, Ciudad });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            tbEmpleados.DefaultCellStyle = dataGridViewCellStyle2;
-            tbEmpleados.Dock = DockStyle.Fill;
-            tbEmpleados.EnableHeadersVisualStyles = false;
-            tbEmpleados.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            tbEmpleados.GridColor = Color.FromArgb(255, 255, 255);
-            tbEmpleados.Location = new Point(396, 49);
-            tbEmpleados.Name = "tbEmpleados";
-            tbEmpleados.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            tbEmpleados.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            tbEmpleados.RowHeadersVisible = false;
-            tbEmpleados.RowHeadersWidth = 40;
-            tbEmpleados.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            tbEmpleados.RowTemplate.Height = 30;
-            tbEmpleados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tbEmpleados.Size = new Size(522, 447);
-            tbEmpleados.TabIndex = 38;
-            // 
-            // btnEditar
-            // 
-            btnEditar.HeaderText = "Editar";
-            btnEditar.Name = "btnEditar";
-            btnEditar.Width = 50;
-            // 
-            // id
-            // 
-            id.HeaderText = "Id";
-            id.Name = "id";
-            id.ReadOnly = true;
-            id.Visible = false;
-            // 
-            // nombreEmpresa
-            // 
-            nombreEmpresa.HeaderText = "Empresa";
-            nombreEmpresa.Name = "nombreEmpresa";
-            nombreEmpresa.ReadOnly = true;
-            nombreEmpresa.Width = 130;
-            // 
-            // NombreContacto
-            // 
-            NombreContacto.HeaderText = "Contacto";
-            NombreContacto.Name = "NombreContacto";
-            // 
-            // NumeroContacto
-            // 
-            NumeroContacto.HeaderText = "Numero Telefonico";
-            NumeroContacto.Name = "NumeroContacto";
-            // 
-            // Pais
-            // 
-            Pais.HeaderText = "Pais";
-            Pais.Name = "Pais";
-            // 
-            // Ciudad
-            // 
-            Ciudad.HeaderText = "Ciudad";
-            Ciudad.Name = "Ciudad";
-            // 
             // panel2
             // 
             panel2.BackColor = Color.White;
@@ -748,9 +566,9 @@
             panel2.Controls.Add(lblEncabezado);
             panel2.Controls.Add(pictureBox1);
             panel2.Dock = DockStyle.Top;
-            panel2.Location = new Point(396, 0);
+            panel2.Location = new Point(405, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(522, 49);
+            panel2.Size = new Size(513, 49);
             panel2.TabIndex = 41;
             // 
             // formEmpleados
@@ -758,19 +576,17 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(921, 499);
-            Controls.Add(tbEmpleados);
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
             Name = "formEmpleados";
             Padding = new Padding(3, 0, 3, 3);
             Text = "formEmpleados";
+            Load += formEmpleados_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
-            tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)tbEmpleados).EndInit();
             panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -782,9 +598,6 @@
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtNumeroContacto;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtNumeroCedula;
         private TableLayoutPanel tableLayoutPanel1;
-        private RJCodeAdvance.RJControls.RJButton btnGuardar;
-        private RJCodeAdvance.RJControls.RJButton btnEliminar;
-        private RJCodeAdvance.RJControls.RJButton btnLimpiar;
         private Label lblTitulo;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtNombre;
         private TextBox txtId;
@@ -795,17 +608,9 @@
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtDireccion;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtBuscar;
         private Label lblEncabezado;
-        private ReaLTaiizor.Controls.PoisonDataGridView tbEmpleados;
-        private DataGridViewButtonColumn btnEditar;
-        private DataGridViewTextBoxColumn id;
-        private DataGridViewTextBoxColumn nombreEmpresa;
-        private DataGridViewTextBoxColumn NombreContacto;
-        private DataGridViewTextBoxColumn NumeroContacto;
-        private DataGridViewTextBoxColumn Pais;
-        private DataGridViewTextBoxColumn Ciudad;
         private TableLayoutPanel tableLayoutPanel2;
-        private RJCodeAdvance.RJControls.RJButton rjButton1;
-        private RJCodeAdvance.RJControls.RJButton rjButton3;
+        private RJCodeAdvance.RJControls.RJButton btnGuardar;
+        private RJCodeAdvance.RJControls.RJButton btnLimpiar;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtFechadeNacimiento;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtSalario;
         private Panel panel2;

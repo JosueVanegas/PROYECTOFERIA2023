@@ -1,11 +1,13 @@
-﻿using ReaLTaiizor.Forms;
+﻿using CapaControlador;
+using CapaDatos;
+using ReaLTaiizor.Forms;
 
 namespace CapaVista
 {
     public partial class formEmpleados : MaterialForm
     {
 
-
+        ControlEmpleados cEmp = new ControlEmpleados();
         public formEmpleados()
         {
             InitializeComponent();
@@ -95,14 +97,6 @@ namespace CapaVista
             toolTip.SetToolTip(btnLimpiar, "Limpiar");
         }
 
-        private void btnEliminar_MouseHover(object sender, EventArgs e)
-        {
-            // Crear un objeto ToolTip
-            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
-            // Establecer el texto de la descripción
-            toolTip.SetToolTip(btnEliminar, "Eliminar");
-        }
 
 
         private void MonthCalendar1_DateSelected(object sender, DateRangeEventArgs e)
@@ -138,6 +132,21 @@ namespace CapaVista
             {
                 e.Handled = true;
             }
+
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void formEmpleados_Load(object sender, EventArgs e)
+        {
+            mostrarEmpleado();
+        }
+        private void mostrarEmpleado()
+        {
+            List<Empleado> lista = cEmp.listarEmpleados();
 
         }
     }

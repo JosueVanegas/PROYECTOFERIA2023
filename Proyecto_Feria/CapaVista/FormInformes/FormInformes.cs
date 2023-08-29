@@ -1,12 +1,9 @@
 ﻿using CapaControlador;
 using CapaDatos;
-using Microcharts;
-using Microsoft.AspNetCore.Mvc;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
 using ReaLTaiizor.Forms;
-using SkiaSharp;
 using System.Diagnostics;
 
 namespace CapaPresentacion.FormInformes
@@ -92,88 +89,9 @@ namespace CapaPresentacion.FormInformes
             }
 
         }
-        private void ReporteMesPasado_Click(object sender, EventArgs e)
-        {
-            DateTime now = DateTime.Now;
-
-            // Obtener el primer día del mes pasado
-            DateTime firstDayOfLastMonth = new DateTime(now.Year, now.Month, 1).AddMonths(-1);
-
-            // Obtener el último día del mes pasado
-            DateTime lastDayOfLastMonth = new DateTime(now.Year, now.Month, 1).AddDays(-1);
-
-            // Formatear las fechas en el formato "dd/MM/yyyy 00:00:00" y "dd/MM/yyyy 23:59:59"
-            string startOfLastMonthFormatted = firstDayOfLastMonth.ToString("dd/MM/yyyy");
-            string endOfLastMonthFormatted = lastDayOfLastMonth.ToString("dd/MM/yyyy");
 
 
-            try
-            {
-                QuestPDF.Settings.License = LicenseType.Community;
-                crearInforme(startOfLastMonthFormatted.ToString(), endOfLastMonthFormatted.ToString());
-            }
-            catch (Exception ex)
-            {
-                // Maneja cualquier excepción que pueda ocurrir.
-                MessageBox.Show("Error: " + ex.Message);
-            }
 
-        }
-        private void ReportePrimerSemestre_Click(object sender, EventArgs e)
-        {
-            DateTime now = DateTime.Now;
-
-            // Obtener el primer día del año
-            DateTime firstDayOfYear = new DateTime(now.Year, 1, 1);
-
-            // Obtener el último día del primer semestre (30 de junio)
-            DateTime lastDayOfFirstHalf = new DateTime(now.Year, 6, 30).Date.AddHours(23).AddMinutes(59).AddSeconds(59);
-
-            // Formatear las fechas en el formato "dd/MM/yyyy HH:mm:ss"
-            string startOfFirstHalfFormatted = firstDayOfYear.ToString("dd/MM/yyyy");
-            string endOfFirstHalfFormatted = lastDayOfFirstHalf.ToString("dd/MM/yyyy");
-
-
-            try
-            {
-                QuestPDF.Settings.License = LicenseType.Community;
-                crearInforme(startOfFirstHalfFormatted.ToString(), endOfFirstHalfFormatted.ToString());
-            }
-            catch (Exception ex)
-            {
-                // Maneja cualquier excepción que pueda ocurrir.
-                MessageBox.Show("Error: " + ex.Message);
-            }
-
-        }
-        private void ReporteSegundoSemestre_Click(object sender, EventArgs e)
-        {
-
-            DateTime now = DateTime.Now;
-
-            // Obtener el primer día del segundo semestre (1 de julio)
-            DateTime firstDayOfSecondHalf = new DateTime(now.Year, 7, 1);
-
-            // Obtener el último día del año
-            DateTime lastDayOfYear = new DateTime(now.Year, 12, 31).Date.AddHours(23).AddMinutes(59).AddSeconds(59);
-
-            // Formatear las fechas en el formato "dd/MM/yyyy HH:mm:ss"
-            string startOfSecondHalfFormatted = firstDayOfSecondHalf.ToString("dd/MM/yyyy");
-            string endOfSecondHalfFormatted = lastDayOfYear.ToString("dd/MM/yyyy");
-            ;
-
-            try
-            {
-                QuestPDF.Settings.License = LicenseType.Community;
-                crearInforme(startOfSecondHalfFormatted.ToString(), endOfSecondHalfFormatted.ToString());
-            }
-            catch (Exception ex)
-            {
-                // Maneja cualquier excepción que pueda ocurrir.
-                MessageBox.Show("Error: " + ex.Message);
-            }
-
-        }
         private void ReporteAñoActual_Click(object sender, EventArgs e)
         {
 
@@ -203,35 +121,7 @@ namespace CapaPresentacion.FormInformes
             }
 
         }
-        private void ReporteAñoPasado_Click(object sender, EventArgs e)
-        {
 
-            DateTime now = DateTime.Now;
-
-            // Obtener el primer día del año pasado (1 de enero)
-            DateTime firstDayOfLastYear = new DateTime(now.Year - 1, 1, 1);
-
-            // Obtener el último día del año pasado (31 de diciembre)
-            DateTime lastDayOfLastYear = new DateTime(now.Year - 1, 12, 31).Date.AddHours(23).AddMinutes(59).AddSeconds(59);
-
-            // Formatear las fechas en el formato "dd/MM/yyyy HH:mm:ss"
-            string startOfLastYearFormatted = firstDayOfLastYear.ToString("dd/MM/yyyy");
-            string endOfLastYearFormatted = lastDayOfLastYear.ToString("dd/MM/yyyy");
-
-
-
-            try
-            {
-                QuestPDF.Settings.License = LicenseType.Community;
-                crearInforme(startOfLastYearFormatted.ToString(), endOfLastYearFormatted.ToString());
-            }
-            catch (Exception ex)
-            {
-                // Maneja cualquier excepción que pueda ocurrir.
-                MessageBox.Show("Error: " + ex.Message);
-            }
-
-        }
         private void ReporteFechaPersonaizado_Click(object sender, EventArgs e)
         {
             DateTime FechaInicio = pkrFechaInicio.Value;
@@ -280,6 +170,16 @@ namespace CapaPresentacion.FormInformes
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
+        private void PanelRangoreport_MouseLeave(object sender, EventArgs e)
+        {
+            PanelRangoreport.Visible = false;
+        }
+        private void btnEleccionTipoReport_MouseHover(object sender, EventArgs e)
+        {
+            PanelRangoreport.Visible = true;
+        }
+
         private void crearInforme(string fechaInicio_, string fechaFinal_)
         {
 
@@ -320,57 +220,60 @@ namespace CapaPresentacion.FormInformes
                             txt.Span(fechaFinal).FontSize(15);
                         });
                         col.Item().LineHorizontal(0.5f);
-                        //configuracion del grafico
-                        var entries = new[]
-                        {
-                          new ChartEntry(22)
-                            {
-                            Label = "cliente ejemplo 1",
-                            ValueLabel = "34",
-                            Color = SKColor.Parse("#2c3e50")
-                            },
-                            new ChartEntry(32)
+                        /*
+                         *   //configuracion del grafico
+                          var entries = new[]
                           {
-                             Label = "cliente ejemplo 2",
-                            ValueLabel = "32",
-                            Color = SKColor.Parse("#77d065")
-                         }
-                     };
-                        //dibujando el grafico en el pdf
-                        col.Item().Column(column =>
-                        {
-                            var titleStyle = TextStyle
-                              .Default
-                             .FontSize(20)
-                             .SemiBold()
-                               .FontColor(Colors.Blue.Medium);
-
-                            column
-                                .Item()
-                                .PaddingBottom(10)
-                                .Text("Chart example")
-                             .Style(titleStyle);
-
-                            column
-                          .Item()
-                       .Border(1)
-                       .ExtendHorizontal()
-                       .Height(300)
-                          .Canvas((canvas, size) =>
-                          {
-                              var chart = new BarChart
+                            new ChartEntry(22)
                               {
-                                  Entries = entries,
+                              Label = "cliente ejemplo 1",
+                              ValueLabel = "34",
+                              Color = SKColor.Parse("#2c3e50")
+                              },
+                              new ChartEntry(32)
+                            {
+                               Label = "cliente ejemplo 2",
+                              ValueLabel = "32",
+                              Color = SKColor.Parse("#77d065")
+                           }
+                       };
+                          //dibujando el grafico en el pdf
+                          col.Item().Column(column =>
+                          {
+                              var titleStyle = TextStyle
+                                .Default
+                               .FontSize(20)
+                               .SemiBold()
+                                 .FontColor(Colors.Blue.Medium);
 
-                                  LabelOrientation = Microcharts.Orientation.Horizontal,
-                                  ValueLabelOrientation = Microcharts.Orientation.Horizontal,
+                              column
+                                  .Item()
+                                  .PaddingBottom(10)
+                                  .Text("Chart example")
+                               .Style(titleStyle);
 
-                                  IsAnimated = false,
-                              };
+                              column
+                            .Item()
+                         .Border(1)
+                         .ExtendHorizontal()
+                         .Height(300)
+                            .Canvas((canvas, size) =>
+                            {
+                                var chart = new BarChart
+                                {
+                                    Entries = entries,
 
-                              chart.DrawContent(canvas, (int)size.Width, (int)size.Height);
-                          });
-                        });
+                                    LabelOrientation = Microcharts.Orientation.Horizontal,
+                                    ValueLabelOrientation = Microcharts.Orientation.Horizontal,
+
+                                    IsAnimated = false,
+                                };
+
+                                chart.DrawContent(canvas, (int)size.Width, (int)size.Height);
+                            })   ;
+                    });
+                        */
+
                         //tabla
                         col.Item().Table(tab =>
                         {
@@ -424,11 +327,6 @@ namespace CapaPresentacion.FormInformes
                     });
                 });
             });
-            //dox.GeneratePdfAndShow();
-
-            //https://www.questpdf.com/getting-started.html
-
-            //investiga como generar el pdf
 
             var filePath = "invoice.pdf";
             dox.GeneratePdf(filePath);
@@ -436,15 +334,11 @@ namespace CapaPresentacion.FormInformes
 
             Process.Start("explorer.exe", filePath);
         }
-        void ComposeContent(IContainer container)
+
+        private void PanelRangoreport_MouseEnter(object sender, EventArgs e)
         {
-            container.PaddingVertical(40).Column(column =>
-            {
-                column.Spacing(5);
-            });
+            PanelRangoreport.Visible = true;
         }
-
-
     }
 }
 

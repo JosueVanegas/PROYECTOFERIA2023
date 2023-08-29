@@ -124,7 +124,7 @@ namespace CapaDatos
         public List<comboEmpleado> listaEmpleados()
         {
             List<comboEmpleado> lista = new List<comboEmpleado>();
-            string query = "SELECT ID_EMPLEADO,NOMBRE,APELLIDO FROM EMPLEADO";
+            string query = "SELECT ID_EMPLEADO,NOMBRE,APELLIDO,SALARIO_POR_HORA FROM EMPLEADO";
             using (var con = new conexion().conectar())
             {
 #pragma warning disable CS0168 // La variable está declarada pero nunca se usa
@@ -144,7 +144,8 @@ namespace CapaDatos
                                 {
                                     id = Convert.ToInt32(reader["ID_EMPLEADO"]),
                                     nombres = reader["NOMBRE"].ToString(),
-                                    apellidos = reader["APELLIDO"].ToString()
+                                    apellidos = reader["APELLIDO"].ToString(),
+                                    salario = Convert.ToDecimal(reader["SALARIO_POR_HORA"])
                                 });
 #pragma warning restore CS8601 // Posible asignación de referencia nula
 #pragma warning restore CS8601 // Posible asignación de referencia nula

@@ -23,9 +23,19 @@ namespace CapaDatos
                             {
                                 lista.Add(new Empleado
                                 {
-                                    id = Convert.ToInt32(reader["ID_EMPLEADO"]),
-                                    nombres = reader["NOMBRE"].ToString(),
-                                    apellidos = reader["APELLIDO"].ToString()
+                                    id = Convert.ToInt32(reader[0]),
+                                    cedula = reader[1].ToString(),
+                                    nombres = reader[2].ToString(),
+                                    apellidos = reader[3].ToString(),
+                                    sexo = reader[4].ToString(),
+                                    nacimiento = reader[5].ToString(),
+                                    telefono = reader[6].ToString(),
+                                    direccion = reader[7].ToString(),
+                                    correo = reader[8].ToString(),
+                                    cargo = reader[9].ToString(),
+                                    salario = Convert.ToDecimal(reader[10]),
+                                    fechaRegistro = reader[9].ToString()
+                                    
                                 });
                             }
                         }
