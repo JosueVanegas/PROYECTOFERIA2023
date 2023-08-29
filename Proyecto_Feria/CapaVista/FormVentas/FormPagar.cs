@@ -1,6 +1,5 @@
 ﻿using CapaControlador;
 using CapaDatos;
-using Microsoft.IdentityModel.Tokens;
 using ReaLTaiizor.Forms;
 using System.Drawing.Printing;
 
@@ -107,9 +106,9 @@ namespace CapaVista.FormVentas
                             TOTAL = resumen.total,
                         };
 
-                            MessageBox.Show(cVenta.procesoDeVenta(v, detalles));
-                            MessageBox.Show(imprimirFactura());
-                            this.Close();
+                        MessageBox.Show(cVenta.procesoDeVenta(v, detalles));
+                        MessageBox.Show(imprimirFactura());
+                        this.Close();
                     }
                     catch (Exception ex)
                     {

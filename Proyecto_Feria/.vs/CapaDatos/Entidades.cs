@@ -38,12 +38,12 @@
         public string fechaRegistro { get; set; }
 #pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
 
-        
+
     }
     public class comboEmpleado
     {
         public int? id { get; set; }
-         public string nombres { get; set; }
+        public string nombres { get; set; }
         public string apellidos { get; set; }
         public override string ToString()
         {
@@ -147,15 +147,15 @@
     public class Producto
     {
         public int id { get; set; }
- public string codigo { get; set; }
-   public string nombre { get; set; }
-   public byte[] imagen { get; set; }
-   public decimal PrecioCompra { get; set; }
+        public string codigo { get; set; }
+        public string nombre { get; set; }
+        public byte[] imagen { get; set; }
+        public decimal PrecioCompra { get; set; }
         public decimal PrecioVenta { get; set; }
         public int cantidad { get; set; }
-    public Categoria oCategoria { get; set; }
-    public Proveedor oProveedor { get; set; }
-}
+        public Categoria oCategoria { get; set; }
+        public Proveedor oProveedor { get; set; }
+    }
     public class Cliente
     {
         public int id { get; set; }

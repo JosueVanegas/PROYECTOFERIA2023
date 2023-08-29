@@ -1,5 +1,4 @@
 ﻿using CapaDatos;
-using System.Data;
 
 namespace CapaControlador
 {

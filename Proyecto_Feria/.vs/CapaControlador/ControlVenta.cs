@@ -7,7 +7,7 @@ namespace CapaControlador
         DataVenta dVenta = new DataVenta();
         public ControlVenta()
         {
-           
+
         }
         public string procesoDeVenta(infoVenta v, List<DetalleVenta> detalles)
         {
