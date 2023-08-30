@@ -61,11 +61,14 @@ namespace CapaVista
             txtBuscar = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             pnlContenedor = new Panel();
             pnlOpciones = new Panel();
+            pictureBox2 = new PictureBox();
             materialDrawer1 = new ReaLTaiizor.Controls.MaterialDrawer();
             ((System.ComponentModel.ISupportInitialize)tbUsuarios).BeginInit();
             pnlRegistroUsuario.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             pnlContenedor.SuspendLayout();
+            pnlOpciones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // tbUsuarios
@@ -262,8 +265,8 @@ namespace CapaVista
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006237F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006275F));
-            tableLayoutPanel1.Controls.Add(rjButton2, 1, 0);
             tableLayoutPanel1.Controls.Add(btnGuardar, 0, 0);
+            tableLayoutPanel1.Controls.Add(rjButton2, 1, 0);
             tableLayoutPanel1.Location = new Point(49, 321);
             tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -296,6 +299,7 @@ namespace CapaVista
             rjButton2.TextColor = Color.White;
             rjButton2.UseVisualStyleBackColor = false;
             rjButton2.Click += btnLimpiar_Click;
+            rjButton2.MouseHover += rjButton2_MouseHover;
             // 
             // btnGuardar
             // 
@@ -321,6 +325,7 @@ namespace CapaVista
             btnGuardar.TextColor = Color.White;
             btnGuardar.UseVisualStyleBackColor = false;
             btnGuardar.Click += btnAgregar_Click;
+            btnGuardar.MouseHover += btnGuardar_MouseHover;
             // 
             // txtConfirmarClave
             // 
@@ -434,6 +439,7 @@ namespace CapaVista
             txtClave.TextAlign = HorizontalAlignment.Center;
             txtClave.TrailingIcon = null;
             txtClave.UseSystemPasswordChar = false;
+            txtClave.KeyPress += txtClave_KeyPress;
             // 
             // txtUsuario
             // 
@@ -466,6 +472,7 @@ namespace CapaVista
             txtUsuario.TextAlign = HorizontalAlignment.Center;
             txtUsuario.TrailingIcon = null;
             txtUsuario.UseSystemPasswordChar = false;
+            txtUsuario.KeyPress += txtUsuario_KeyPress;
             // 
             // cbxBuscar
             // 
@@ -491,6 +498,7 @@ namespace CapaVista
             cbxBuscar.Size = new Size(154, 49);
             cbxBuscar.StartIndex = 0;
             cbxBuscar.TabIndex = 7;
+            cbxBuscar.MouseHover += cbxBuscar_MouseHover;
             // 
             // txtBuscar
             // 
@@ -523,6 +531,7 @@ namespace CapaVista
             txtBuscar.TextAlign = HorizontalAlignment.Center;
             txtBuscar.TrailingIcon = null;
             txtBuscar.UseSystemPasswordChar = false;
+            txtBuscar.KeyPress += txtBuscar_KeyPress;
             txtBuscar.TextChanged += txtBuscar_TextChanged;
             // 
             // pnlContenedor
@@ -535,10 +544,22 @@ namespace CapaVista
             // 
             // pnlOpciones
             // 
+            pnlOpciones.Controls.Add(pictureBox2);
             pnlOpciones.Location = new Point(6, 5);
             pnlOpciones.Name = "pnlOpciones";
             pnlOpciones.Size = new Size(284, 36);
             pnlOpciones.TabIndex = 17;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(237, -4);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(47, 40);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 77;
+            pictureBox2.TabStop = false;
+            pictureBox2.MouseHover += pictureBox2_MouseHover;
             // 
             // materialDrawer1
             // 
@@ -584,6 +605,8 @@ namespace CapaVista
             pnlRegistroUsuario.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
             pnlContenedor.ResumeLayout(false);
+            pnlOpciones.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
@@ -620,5 +643,6 @@ namespace CapaVista
         private DataGridViewTextBoxColumn clave;
         private DataGridViewTextBoxColumn idEmpleado;
         private ReaLTaiizor.Controls.AirCheckBox ckbEmpleadoNulo;
+        private PictureBox pictureBox2;
     }
 }

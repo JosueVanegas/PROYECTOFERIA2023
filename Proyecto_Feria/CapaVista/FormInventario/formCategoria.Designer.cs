@@ -42,6 +42,7 @@
             txtNombre = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtIdCategoria = new TextBox();
             panel1 = new Panel();
+            pictureBox4 = new PictureBox();
             pictureBox1 = new PictureBox();
             cbxEstado = new ReaLTaiizor.Controls.MaterialComboBox();
             LblInf = new Label();
@@ -86,6 +87,7 @@
             estado = new DataGridViewTextBoxColumn();
             fecha = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -155,6 +157,7 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(pictureBox4);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(cbxEstado);
             panel1.Controls.Add(LblInf);
@@ -167,6 +170,17 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(318, 489);
             panel1.TabIndex = 18;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(198, 24);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(47, 40);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 34;
+            pictureBox4.TabStop = false;
+            pictureBox4.MouseHover += pictureBox4_MouseHover;
             // 
             // pictureBox1
             // 
@@ -767,6 +781,7 @@
             cbxBuscar.Size = new Size(154, 49);
             cbxBuscar.StartIndex = 0;
             cbxBuscar.TabIndex = 21;
+            cbxBuscar.MouseHover += cbxBuscar_MouseHover;
             // 
             // tbCategorias
             // 
@@ -874,6 +889,7 @@
             Load += formCategorias_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
@@ -937,5 +953,6 @@
         private DataGridViewTextBoxColumn nombre;
         private DataGridViewTextBoxColumn estado;
         private DataGridViewTextBoxColumn fecha;
+        private PictureBox pictureBox4;
     }
 }

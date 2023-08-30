@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formEmpleados));
             panel1 = new Panel();
+            pictureBox4 = new PictureBox();
             txtCargo = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            FechaNacimientoCalendario = new MonthCalendar();
             tableLayoutPanel2 = new TableLayoutPanel();
             btnGuardar = new RJCodeAdvance.RJControls.RJButton();
             btnLimpiar = new RJCodeAdvance.RJControls.RJButton();
@@ -47,11 +47,13 @@
             lblTitulo = new Label();
             txtNombre = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtId = new TextBox();
+            FechaNacimientoCalendario = new MonthCalendar();
             pictureBox1 = new PictureBox();
             txtBuscar = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             lblEncabezado = new Label();
             panel2 = new Panel();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -60,8 +62,8 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(pictureBox4);
             panel1.Controls.Add(txtCargo);
-            panel1.Controls.Add(FechaNacimientoCalendario);
             panel1.Controls.Add(tableLayoutPanel2);
             panel1.Controls.Add(txtSalario);
             panel1.Controls.Add(txtFechadeNacimiento);
@@ -81,6 +83,17 @@
             panel1.Size = new Size(402, 496);
             panel1.TabIndex = 20;
             // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(203, 13);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(47, 40);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 46;
+            pictureBox4.TabStop = false;
+            pictureBox4.MouseHover += pictureBox1_MouseHover;
+            // 
             // txtCargo
             // 
             txtCargo.AnimateReadOnly = true;
@@ -93,7 +106,7 @@
             txtCargo.HideSelection = true;
             txtCargo.Hint = "Cargo del empleado";
             txtCargo.LeadingIcon = null;
-            txtCargo.Location = new Point(3, 197);
+            txtCargo.Location = new Point(3, 239);
             txtCargo.MaxLength = 32767;
             txtCargo.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtCargo.Name = "txtCargo";
@@ -111,17 +124,6 @@
             txtCargo.TextAlign = HorizontalAlignment.Center;
             txtCargo.TrailingIcon = null;
             txtCargo.UseSystemPasswordChar = false;
-            // 
-            // FechaNacimientoCalendario
-            // 
-            FechaNacimientoCalendario.FirstDayOfWeek = Day.Monday;
-            FechaNacimientoCalendario.Location = new Point(136, 279);
-            FechaNacimientoCalendario.Name = "FechaNacimientoCalendario";
-            FechaNacimientoCalendario.ShowTodayCircle = false;
-            FechaNacimientoCalendario.TabIndex = 21;
-            FechaNacimientoCalendario.Visible = false;
-            FechaNacimientoCalendario.DateSelected += MonthCalendar1_DateSelected;
-            FechaNacimientoCalendario.MouseLeave += FechaNacimientoCalendario_MouseLeave;
             // 
             // tableLayoutPanel2
             // 
@@ -202,7 +204,7 @@
             txtSalario.HideSelection = true;
             txtSalario.Hint = "Salario";
             txtSalario.LeadingIcon = null;
-            txtSalario.Location = new Point(3, 251);
+            txtSalario.Location = new Point(3, 293);
             txtSalario.MaxLength = 32767;
             txtSalario.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtSalario.Name = "txtSalario";
@@ -234,7 +236,7 @@
             txtFechadeNacimiento.HideSelection = true;
             txtFechadeNacimiento.Hint = "Fecha de Nacimiento";
             txtFechadeNacimiento.LeadingIcon = null;
-            txtFechadeNacimiento.Location = new Point(186, 251);
+            txtFechadeNacimiento.Location = new Point(186, 293);
             txtFechadeNacimiento.MaxLength = 32767;
             txtFechadeNacimiento.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtFechadeNacimiento.Name = "txtFechadeNacimiento";
@@ -267,7 +269,7 @@
             txtDireccion.HideSelection = true;
             txtDireccion.Hint = "direccion de vivienda";
             txtDireccion.LeadingIcon = null;
-            txtDireccion.Location = new Point(186, 196);
+            txtDireccion.Location = new Point(186, 238);
             txtDireccion.MaxLength = 32767;
             txtDireccion.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtDireccion.Name = "txtDireccion";
@@ -299,7 +301,7 @@
             txtCorreo.HideSelection = true;
             txtCorreo.Hint = "Correo Electronico";
             txtCorreo.LeadingIcon = null;
-            txtCorreo.Location = new Point(186, 143);
+            txtCorreo.Location = new Point(186, 185);
             txtCorreo.MaxLength = 32767;
             txtCorreo.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtCorreo.Name = "txtCorreo";
@@ -334,7 +336,7 @@
             cbxProveedor.IntegralHeight = false;
             cbxProveedor.ItemHeight = 43;
             cbxProveedor.Items.AddRange(new object[] { "Hombre", "Mujer" });
-            cbxProveedor.Location = new Point(186, 88);
+            cbxProveedor.Location = new Point(186, 130);
             cbxProveedor.MaxDropDownItems = 4;
             cbxProveedor.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbxProveedor.Name = "cbxProveedor";
@@ -354,7 +356,7 @@
             txtApellido.HideSelection = true;
             txtApellido.Hint = "Apellido";
             txtApellido.LeadingIcon = null;
-            txtApellido.Location = new Point(186, 34);
+            txtApellido.Location = new Point(186, 76);
             txtApellido.MaxLength = 32767;
             txtApellido.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtApellido.Name = "txtApellido";
@@ -386,7 +388,7 @@
             txtNumeroCedula.HideSelection = true;
             txtNumeroCedula.Hint = "No.Cedula";
             txtNumeroCedula.LeadingIcon = null;
-            txtNumeroCedula.Location = new Point(3, 87);
+            txtNumeroCedula.Location = new Point(3, 129);
             txtNumeroCedula.MaxLength = 32767;
             txtNumeroCedula.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtNumeroCedula.Name = "txtNumeroCedula";
@@ -417,7 +419,7 @@
             txtNumeroContacto.HideSelection = true;
             txtNumeroContacto.Hint = "# Telefonico";
             txtNumeroContacto.LeadingIcon = null;
-            txtNumeroContacto.Location = new Point(3, 143);
+            txtNumeroContacto.Location = new Point(3, 185);
             txtNumeroContacto.MaxLength = 32767;
             txtNumeroContacto.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtNumeroContacto.Name = "txtNumeroContacto";
@@ -435,7 +437,7 @@
             txtNumeroContacto.TextAlign = HorizontalAlignment.Center;
             txtNumeroContacto.TrailingIcon = null;
             txtNumeroContacto.UseSystemPasswordChar = false;
-            txtNumeroContacto.KeyPress += txtNumeroContacto_KeyPress;
+            txtNumeroContacto.KeyPress += txtCorreo_KeyPress;
             // 
             // tableLayoutPanel1
             // 
@@ -456,7 +458,7 @@
             // 
             lblTitulo.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             lblTitulo.ForeColor = SystemColors.ControlDarkDark;
-            lblTitulo.Location = new Point(0, 0);
+            lblTitulo.Location = new Point(0, 23);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(193, 30);
             lblTitulo.TabIndex = 7;
@@ -475,7 +477,7 @@
             txtNombre.HideSelection = true;
             txtNombre.Hint = "Nombre";
             txtNombre.LeadingIcon = null;
-            txtNombre.Location = new Point(3, 33);
+            txtNombre.Location = new Point(3, 75);
             txtNombre.MaxLength = 32767;
             txtNombre.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtNombre.Name = "txtNombre";
@@ -497,11 +499,22 @@
             // 
             // txtId
             // 
-            txtId.Location = new Point(199, 3);
+            txtId.Location = new Point(319, 29);
             txtId.Name = "txtId";
             txtId.Size = new Size(35, 23);
             txtId.TabIndex = 8;
             txtId.Visible = false;
+            // 
+            // FechaNacimientoCalendario
+            // 
+            FechaNacimientoCalendario.FirstDayOfWeek = Day.Monday;
+            FechaNacimientoCalendario.Location = new Point(206, 325);
+            FechaNacimientoCalendario.Name = "FechaNacimientoCalendario";
+            FechaNacimientoCalendario.ShowTodayCircle = false;
+            FechaNacimientoCalendario.TabIndex = 21;
+            FechaNacimientoCalendario.Visible = false;
+            FechaNacimientoCalendario.DateSelected += MonthCalendar1_DateSelected;
+            FechaNacimientoCalendario.MouseLeave += FechaNacimientoCalendario_MouseLeave;
             // 
             // pictureBox1
             // 
@@ -513,7 +526,6 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 36;
             pictureBox1.TabStop = false;
-            pictureBox1.MouseHover += pictureBox1_MouseHover;
             // 
             // txtBuscar
             // 
@@ -577,6 +589,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(921, 499);
             Controls.Add(panel2);
+            Controls.Add(FechaNacimientoCalendario);
             Controls.Add(panel1);
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
             Name = "formEmpleados";
@@ -585,6 +598,7 @@
             Load += formEmpleados_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
@@ -615,5 +629,6 @@
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtSalario;
         private Panel panel2;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCargo;
+        private PictureBox pictureBox4;
     }
 }

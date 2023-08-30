@@ -300,6 +300,75 @@ namespace CapaVista.FormVentas
                 cbxImpresoras.Items.Add(impresora);
             }
         }
+
+        private void pictureBox4_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+            // Establecer el icono de información (puedes cambiar el icono si lo deseas)
+            toolTip.ToolTipIcon = ToolTipIcon.Info;
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(pictureBox4, "Datos de los totales de la facturar");
+        }
+
+        private void pictureBox2_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+            // Establecer el icono de información (puedes cambiar el icono si lo deseas)
+            toolTip.ToolTipIcon = ToolTipIcon.Info;
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(pictureBox2, "Para continuar con la Facturación\n" +
+                                            "-Ingrese los datos del Cliente Si es un Cliente X\n" +
+                                            "-Ingrese una cantidad mayor o igual al total de la factura\n" +
+                                            " y asi poder cancelar la deuda\n");
+        }
+
+        private void ckbClienteComun_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+            // Establecer el icono de información (puedes cambiar el icono si lo deseas)
+            toolTip.ToolTipIcon = ToolTipIcon.Info;
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(ckbClienteComun, "Es una Cliente Anomino o comun cuando no se quiere poner el nombre del Cliente");
+        }
+
+        private void cbxBuscar_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(cbxBuscar, "Para una busqueda mas efeciente se pueden realizar busqueda por filtros");
+        }
+
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Space)
+            {
+                e.Handled = true; // Evita que se procese el carácter
+            }
+        }
+
+        private void pictureBox3_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+            toolTip.ToolTipIcon = ToolTipIcon.Info;
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(pictureBox3, "Si deseas usar un cliente que esta registrado puede seleccionar desde la tabla");
+        }
     }
 }
 

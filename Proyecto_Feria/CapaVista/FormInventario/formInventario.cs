@@ -70,6 +70,14 @@ namespace CapaVista
             // Establecer el texto de la descripción
             toolTip.SetToolTip(btnProveedores, "Proveedores");
         }
+        private void btnCompras_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(btnCompras, "Compras");
+        }
 
         private void formInventario_Load(object sender, EventArgs e)
         {

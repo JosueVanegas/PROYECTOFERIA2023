@@ -234,5 +234,130 @@ namespace CapaVista.FormInventario
             }
             return lista;
         }
+        private void btnGuardar_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(btnGuardar, "Guardar");
+        }
+
+        private void btnLimpiar_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(btnLimpiar, "Limpiar");
+        }
+
+        private void lblEncabezado_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(lblEncabezado, "Registro de cada una de las compras realizadas a proveeedores");
+        }
+
+        private void cbxBuscarCompra_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(cbxBuscarCompra, "Para una busqueda mas efeciente se pueden realizar busqueda por filtros");
+        }
+
+        private void cbxBuscarProducto_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(cbxBuscarProducto, "Para una busqueda mas efeciente se pueden realizar busqueda por filtros");
+        }
+
+        private void btnCerrarBusqueda_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(btnCerrarBusqueda, "Cerrar Busqueda de Productos");
+        }
+
+        private void btnAgregarProducto_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(btnAgregarProducto, "Agregar un producto en la compra ");
+        }
+
+        private void btnBuscarProducto_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(btnBuscarProducto, "Busqueda de Productos");
+        }
+
+        private void lblTitulo_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+            toolTip.ToolTipIcon = ToolTipIcon.Info;
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(pictureBox4, "Bienvenido al area de Compras a Proveedores:\n" +
+                                          "Para Agregar un nuevo Producto :\n" +
+                                          "1.Debemos haber creado el registro de un producto en el area de productos.\n" +
+                                          "2.Debemos haber creado el registro de un proveedor en el area de proveedores\n" +
+                                          "Como realizar una compra a proveedor: \n" +
+                                          "1.'Buscar Productos' en Productos.\n" +
+                                          "2.'Añadir' el producto a la compra.(Genera el codigo del producto)\n" +
+                                          "3.'Agregar' Las cantidades necesarias del producto a la compra.\n" +
+                                          "4.'Guardar' Registro al finalizar compras a proveedores.\n" +
+                                          "Si desea Cancelar Comprar click en 'Limpiar'\n" +
+                                          "Si desea eliminar un producto durante la compra click en 'Eliminar'");
+        }
+        private void txtCodigoDeProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter no es un número o la tecla de retroceso (Backspace)
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Evita que se procese el carácter
+            }
+        }
+
+        private void txtBuscarProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter no es una letra, número, guión o espacio, ni la tecla de retroceso (Backspace)
+            if (!Char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != '-' && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Evita que se procese el carácter
+            }
+        }
     }
 }

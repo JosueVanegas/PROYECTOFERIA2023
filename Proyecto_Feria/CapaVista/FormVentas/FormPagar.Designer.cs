@@ -33,6 +33,7 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panel1 = new Panel();
+            pictureBox4 = new PictureBox();
             txtTotalFinal = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtDescuento = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtCambioDeCompra = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
@@ -48,6 +49,7 @@
             lblTitulo = new Label();
             txtPago = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             panelBusqueda = new Panel();
+            pictureBox3 = new PictureBox();
             lblBuscar = new Label();
             txtBuscar = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             cbxBuscar = new ReaLTaiizor.Controls.MaterialComboBox();
@@ -56,17 +58,22 @@
             Id = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
             panel2 = new Panel();
-            pdImprimir = new System.Drawing.Printing.PrintDocument();
+            pictureBox2 = new PictureBox();
             cbxImpresoras = new ReaLTaiizor.Controls.MaterialComboBox();
+            pdImprimir = new System.Drawing.Printing.PrintDocument();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panelBusqueda.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)tbBusqueda).BeginInit();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.Controls.Add(pictureBox4);
             panel1.Controls.Add(txtTotalFinal);
             panel1.Controls.Add(txtDescuento);
             panel1.Controls.Add(txtCambioDeCompra);
@@ -80,6 +87,17 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(269, 487);
             panel1.TabIndex = 54;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(12, 26);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(47, 40);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 74;
+            pictureBox4.TabStop = false;
+            pictureBox4.MouseHover += pictureBox4_MouseHover;
             // 
             // txtTotalFinal
             // 
@@ -347,6 +365,7 @@
             ckbClienteComun.UseAccentColor = false;
             ckbClienteComun.UseVisualStyleBackColor = true;
             ckbClienteComun.CheckedChanged += ckbClienteComun_CheckedChanged;
+            ckbClienteComun.MouseHover += ckbClienteComun_MouseHover;
             // 
             // btnFacturar
             // 
@@ -439,6 +458,7 @@
             // 
             // panelBusqueda
             // 
+            panelBusqueda.Controls.Add(pictureBox3);
             panelBusqueda.Controls.Add(lblBuscar);
             panelBusqueda.Controls.Add(txtBuscar);
             panelBusqueda.Controls.Add(cbxBuscar);
@@ -448,6 +468,17 @@
             panelBusqueda.Name = "panelBusqueda";
             panelBusqueda.Size = new Size(275, 487);
             panelBusqueda.TabIndex = 56;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(234, 0);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(38, 36);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 76;
+            pictureBox3.TabStop = false;
+            pictureBox3.MouseHover += pictureBox3_MouseHover;
             // 
             // lblBuscar
             // 
@@ -493,6 +524,7 @@
             txtBuscar.TextAlign = HorizontalAlignment.Left;
             txtBuscar.TrailingIcon = null;
             txtBuscar.UseSystemPasswordChar = false;
+            txtBuscar.KeyPress += txtBuscar_KeyPress;
             txtBuscar.TextChanged += txtBuscar_TextChanged;
             // 
             // cbxBuscar
@@ -519,6 +551,7 @@
             cbxBuscar.Size = new Size(275, 49);
             cbxBuscar.StartIndex = 0;
             cbxBuscar.TabIndex = 60;
+            cbxBuscar.MouseHover += cbxBuscar_MouseHover;
             // 
             // tbBusqueda
             // 
@@ -595,6 +628,7 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(pictureBox2);
             panel2.Controls.Add(cbxImpresoras);
             panel2.Controls.Add(ckbClienteComun);
             panel2.Controls.Add(btnCancelar);
@@ -609,9 +643,16 @@
             panel2.Size = new Size(581, 487);
             panel2.TabIndex = 57;
             // 
-            // pdImprimir
+            // pictureBox2
             // 
-            pdImprimir.PrintPage += imprimir;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(12, 26);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(47, 40);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 75;
+            pictureBox2.TabStop = false;
+            pictureBox2.MouseHover += pictureBox2_MouseHover;
             // 
             // cbxImpresoras
             // 
@@ -622,7 +663,7 @@
             cbxImpresoras.DropDownHeight = 174;
             cbxImpresoras.DropDownStyle = ComboBoxStyle.DropDownList;
             cbxImpresoras.DropDownWidth = 121;
-            cbxImpresoras.Font = new Font("Roboto Medium", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cbxImpresoras.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
             cbxImpresoras.ForeColor = Color.FromArgb(222, 0, 0, 0);
             cbxImpresoras.FormattingEnabled = true;
             cbxImpresoras.Hint = "Seleccione la impresora";
@@ -636,6 +677,10 @@
             cbxImpresoras.StartIndex = 0;
             cbxImpresoras.TabIndex = 66;
             cbxImpresoras.SelectedIndexChanged += cbxImpresoras_SelectedIndexChanged;
+            // 
+            // pdImprimir
+            // 
+            pdImprimir.PrintPage += imprimir;
             // 
             // FormPagar
             // 
@@ -661,10 +706,13 @@
             Text = "FormPagar";
             Load += FormPagar_Load;
             panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panelBusqueda.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)tbBusqueda).EndInit();
             panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
@@ -702,5 +750,8 @@
         private System.Drawing.Printing.PrintDocument pdImprimir;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtTotalFinal;
         private ReaLTaiizor.Controls.MaterialComboBox cbxImpresoras;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox2;
     }
 }

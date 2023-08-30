@@ -56,6 +56,7 @@ namespace CapaVista.FormInventario
             Subtotal = new DataGridViewTextBoxColumn();
             IdProveedor = new DataGridViewTextBoxColumn();
             panel3 = new Panel();
+            pictureBox4 = new PictureBox();
             btnLimpiar = new RJCodeAdvance.RJControls.RJButton();
             btnGuardarCompra = new RJCodeAdvance.RJControls.RJButton();
             label2 = new Label();
@@ -97,6 +98,7 @@ namespace CapaVista.FormInventario
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tbDetalles).BeginInit();
             panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             panelBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tbBusqueda).BeginInit();
@@ -165,6 +167,7 @@ namespace CapaVista.FormInventario
             btnBuscarProducto.TextColor = Color.White;
             btnBuscarProducto.UseVisualStyleBackColor = false;
             btnBuscarProducto.Click += btnBuscarProducto_Click;
+            btnBuscarProducto.MouseHover += btnBuscarProducto_MouseHover;
             // 
             // btnAgregarProducto
             // 
@@ -189,6 +192,7 @@ namespace CapaVista.FormInventario
             btnAgregarProducto.TextColor = Color.White;
             btnAgregarProducto.UseVisualStyleBackColor = false;
             btnAgregarProducto.Click += btnAgregarProducto_Click;
+            btnAgregarProducto.MouseHover += btnAgregarProducto_MouseHover;
             // 
             // txtCodigoDeProducto
             // 
@@ -221,6 +225,7 @@ namespace CapaVista.FormInventario
             txtCodigoDeProducto.TextAlign = HorizontalAlignment.Center;
             txtCodigoDeProducto.TrailingIcon = null;
             txtCodigoDeProducto.UseSystemPasswordChar = false;
+            txtCodigoDeProducto.KeyPress += txtCodigoDeProducto_KeyPress;
             // 
             // tbDetalles
             // 
@@ -333,6 +338,7 @@ namespace CapaVista.FormInventario
             // 
             // panel3
             // 
+            panel3.Controls.Add(pictureBox4);
             panel3.Controls.Add(btnLimpiar);
             panel3.Controls.Add(btnGuardarCompra);
             panel3.Controls.Add(label2);
@@ -344,6 +350,17 @@ namespace CapaVista.FormInventario
             panel3.Name = "panel3";
             panel3.Size = new Size(594, 156);
             panel3.TabIndex = 42;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(245, 97);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(47, 40);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 46;
+            pictureBox4.TabStop = false;
+            pictureBox4.MouseHover += lblTitulo_MouseHover;
             // 
             // btnLimpiar
             // 
@@ -368,6 +385,7 @@ namespace CapaVista.FormInventario
             btnLimpiar.TextAlign = ContentAlignment.BottomCenter;
             btnLimpiar.TextColor = Color.White;
             btnLimpiar.UseVisualStyleBackColor = false;
+            btnLimpiar.MouseHover += btnLimpiar_MouseHover;
             // 
             // btnGuardarCompra
             // 
@@ -393,6 +411,7 @@ namespace CapaVista.FormInventario
             btnGuardarCompra.TextColor = Color.White;
             btnGuardarCompra.UseVisualStyleBackColor = false;
             btnGuardarCompra.Click += btnGuardarCompra_Click;
+            btnGuardarCompra.MouseHover += btnGuardar_MouseHover;
             // 
             // label2
             // 
@@ -603,6 +622,7 @@ namespace CapaVista.FormInventario
             btnCerrarBusqueda.TabIndex = 62;
             btnCerrarBusqueda.UseVisualStyleBackColor = false;
             btnCerrarBusqueda.Click += btnCerrarBusqueda_Click;
+            btnCerrarBusqueda.MouseHover += btnCerrarBusqueda_MouseHover;
             // 
             // lblBuscar
             // 
@@ -648,6 +668,7 @@ namespace CapaVista.FormInventario
             txtBuscarProducto.TextAlign = HorizontalAlignment.Left;
             txtBuscarProducto.TrailingIcon = null;
             txtBuscarProducto.UseSystemPasswordChar = false;
+            txtBuscarProducto.KeyPress += txtBuscarProducto_KeyPress;
             txtBuscarProducto.TextChanged += txtBuscarProducto_TextChanged;
             // 
             // cbxBuscarProducto
@@ -674,6 +695,7 @@ namespace CapaVista.FormInventario
             cbxBuscarProducto.Size = new Size(429, 49);
             cbxBuscarProducto.StartIndex = 0;
             cbxBuscarProducto.TabIndex = 60;
+            cbxBuscarProducto.MouseHover += cbxBuscarProducto_MouseHover;
             // 
             // tbBusqueda
             // 
@@ -793,6 +815,7 @@ namespace CapaVista.FormInventario
             lblEncabezado.TabIndex = 23;
             lblEncabezado.Text = "Compras realizadas";
             lblEncabezado.TextAlign = ContentAlignment.MiddleCenter;
+            lblEncabezado.MouseHover += lblEncabezado_MouseHover;
             // 
             // panel2
             // 
@@ -828,6 +851,7 @@ namespace CapaVista.FormInventario
             cbxBuscarCompra.Size = new Size(108, 49);
             cbxBuscarCompra.StartIndex = 0;
             cbxBuscarCompra.TabIndex = 24;
+            cbxBuscarCompra.MouseHover += cbxBuscarCompra_MouseHover;
             // 
             // txtBuscarCompra
             // 
@@ -979,6 +1003,7 @@ namespace CapaVista.FormInventario
             ((System.ComponentModel.ISupportInitialize)tbDetalles).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             panelBusqueda.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)tbBusqueda).EndInit();
@@ -1047,5 +1072,6 @@ namespace CapaVista.FormInventario
         private DataGridViewTextBoxColumn IdUsuario;
         private DataGridViewTextBoxColumn NombreUsuario;
         private DataGridViewTextBoxColumn Total;
+        private PictureBox pictureBox4;
     }
 }

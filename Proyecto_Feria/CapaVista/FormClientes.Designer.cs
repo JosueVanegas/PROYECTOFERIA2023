@@ -33,6 +33,7 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panel1 = new Panel();
+            pictureBox2 = new PictureBox();
             txtApellido = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtTelefono = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             tableLayoutPanel1 = new TableLayoutPanel();
@@ -54,6 +55,7 @@
             Telefono = new DataGridViewTextBoxColumn();
             Fecha = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tbClientes).BeginInit();
@@ -62,6 +64,7 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(txtApellido);
             panel1.Controls.Add(txtTelefono);
             panel1.Controls.Add(tableLayoutPanel1);
@@ -73,6 +76,17 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(318, 509);
             panel1.TabIndex = 19;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(190, 18);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(47, 40);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 76;
+            pictureBox2.TabStop = false;
+            pictureBox2.MouseHover += pictureBox2_MouseHover;
             // 
             // txtApellido
             // 
@@ -86,7 +100,7 @@
             txtApellido.HideSelection = true;
             txtApellido.Hint = "Ingrese el apellido";
             txtApellido.LeadingIcon = null;
-            txtApellido.Location = new Point(14, 135);
+            txtApellido.Location = new Point(16, 142);
             txtApellido.MaxLength = 32767;
             txtApellido.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtApellido.Name = "txtApellido";
@@ -104,6 +118,7 @@
             txtApellido.TextAlign = HorizontalAlignment.Center;
             txtApellido.TrailingIcon = null;
             txtApellido.UseSystemPasswordChar = false;
+            txtApellido.KeyPress += txtApellido_KeyPress;
             // 
             // txtTelefono
             // 
@@ -117,7 +132,7 @@
             txtTelefono.HideSelection = true;
             txtTelefono.Hint = "Ingrese el teléfono";
             txtTelefono.LeadingIcon = null;
-            txtTelefono.Location = new Point(16, 189);
+            txtTelefono.Location = new Point(16, 205);
             txtTelefono.MaxLength = 32767;
             txtTelefono.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtTelefono.Name = "txtTelefono";
@@ -135,6 +150,7 @@
             txtTelefono.TextAlign = HorizontalAlignment.Center;
             txtTelefono.TrailingIcon = null;
             txtTelefono.UseSystemPasswordChar = false;
+            txtTelefono.KeyPress += txtTelefono_KeyPress;
             // 
             // tableLayoutPanel1
             // 
@@ -243,6 +259,7 @@
             txtNombre.TextAlign = HorizontalAlignment.Center;
             txtNombre.TrailingIcon = null;
             txtNombre.UseSystemPasswordChar = false;
+            txtNombre.KeyPress += txtNombre_KeyPress;
             // 
             // txtId
             // 
@@ -321,6 +338,7 @@
             cbxBuscar.Size = new Size(154, 49);
             cbxBuscar.StartIndex = 0;
             cbxBuscar.TabIndex = 21;
+            cbxBuscar.MouseHover += cbxBuscar_MouseHover;
             // 
             // lblEncabezado
             // 
@@ -441,6 +459,7 @@
             Load += FormClientes_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)tbClientes).EndInit();
@@ -470,5 +489,6 @@
         private DataGridViewTextBoxColumn Apellido;
         private DataGridViewTextBoxColumn Telefono;
         private DataGridViewTextBoxColumn Fecha;
+        private PictureBox pictureBox2;
     }
 }

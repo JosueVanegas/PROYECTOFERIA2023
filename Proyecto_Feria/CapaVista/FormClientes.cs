@@ -1,5 +1,6 @@
 ﻿using CapaControlador;
 using CapaDatos;
+using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
@@ -127,6 +128,66 @@ namespace CapaPresentacion
                         i.Visible = false;
 #pragma warning restore CS8602 // Desreferencia de una referencia posiblemente NULL.
                 }
+            }
+        }
+
+        private void pictureBox2_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+            toolTip.ToolTipIcon = ToolTipIcon.Info;
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(pictureBox2, "Area de Registro de Cliente\n" +
+                                            "Si desea Registrar un Cliente:\n" +
+                                            "1.Ingrese el nombre del Cliente\n" +
+                                            "2.Ingrese el apellido del Cliente\n" +
+                                            "3.Ingrese el numero de telefono\n" +
+                                            "'Guardar' en los registros\n" +
+                                            "Si desea Cancelar la creción del Producto click 'Limpiar'\n" +
+                                            "Si desea editar un producto creado click 'Editar'\n" +
+                                            "Si desea eliminar un producto creado click 'Eliminar'");
+        }
+
+        private void cbxBuscar_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(cbxBuscar, "Para una busqueda mas efeciente se pueden realizar busqueda por filtros");
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Space)
+            {
+                e.Handled = true; // Evita que se procese el carácter
+            }
+        }
+
+        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Space)
+            {
+                e.Handled = true; // Evita que se procese el carácter
+            }
+        }
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter no es un número o la tecla de retroceso (Backspace)
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Evita que se procese el carácter
+            }
+
+            // Limitar la longitud del texto a 6 dígitos
+            if (txtNombre.Text.Length >= 6 && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Evita que se procese el carácter si ya hay 6 dígitos
             }
         }
     }

@@ -36,5 +36,17 @@ namespace CapaVista.FormsHerramientas
             FormCalculadoraNomina calNom = new FormCalculadoraNomina();
             calNom.Show();
         }
+
+        private void pictureBox4_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+            // Establecer el icono de información (puedes cambiar el icono si lo deseas)
+            toolTip.ToolTipIcon = ToolTipIcon.Info;
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(pictureBox4, "Bienvenido a la seccion de Herramienta de apoyo para nuestas tareas laborales");
+        }
     }
 }

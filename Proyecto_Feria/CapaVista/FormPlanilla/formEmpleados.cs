@@ -32,23 +32,17 @@ namespace CapaVista
             }
         }
 
-        private void txtNumeroContacto_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtCorreo_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != '-')
             {
                 e.Handled = true; // Evita que se procese el carácter
             }
 
-            if (txtNumeroContacto != null && txtNumeroContacto.Text.Length >= 9 && e.KeyChar != (char)Keys.Back)
+            if (txtNumeroContacto != null && txtNumeroContacto.Text.Length >= 8 && e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true; // Evita que se procese el carácter
             }
-        }
-
-        private void materialTextBoxEdit1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-
         }
 
         private void txtDireccion_KeyPress(object sender, KeyPressEventArgs e)
@@ -76,7 +70,22 @@ namespace CapaVista
             toolTip.ToolTipIcon = ToolTipIcon.Info;
 
             // Establecer el texto de la descripción
-            toolTip.SetToolTip(pictureBox1, "Descripción del PictureBox");
+            toolTip.SetToolTip(pictureBox4, "Area de Regsitro de Empleados\n" +
+                                            "Como Agregar un Empleado:\n" +
+                                            "1. Ingresar el Nombre.\n" +
+                                            "2. Ingresar el Apellido.\n" +
+                                            "3. Ingresar el Numero de Cedula.\n" +
+                                            "4. Seleccione el Sexo.\n" +
+                                            "3. Ingresar el Numero Telefonico.\n" +
+                                            "3. Ingresar el Correo Electronico Personal.\n" +
+                                            "3. Ingresar el cargo del Empleado.\n" +
+                                            "3. Ingresar el Dirrecion de Vivienda.\n" +
+                                            "3. Ingresar el Salario.\n" +
+                                            "3. Ingresar el seleccione fecha de nacimiento.\n" +
+                                            ". 'Guardar' el producto en los registros.\n" +
+                                            "Si desea Cancelar la creción del Producto click 'Limpiar'\n" +
+                                            "Si desea editar un producto creado click 'Editar'\n" +
+                                            "Si desea eliminar un producto creado click 'Eliminar'");
         }
         private void btnGuardar_MouseHover(object sender, EventArgs e)
         {

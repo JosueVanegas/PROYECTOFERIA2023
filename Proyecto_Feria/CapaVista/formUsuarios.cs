@@ -1,6 +1,8 @@
 ﻿using CapaControlador;
 using CapaDatos;
 using ReaLTaiizor.Forms;
+using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CapaVista
 {
@@ -217,6 +219,87 @@ namespace CapaVista
                 EmpleadoNulo = false;
                 MessageBox.Show("el empleado es activo");
             }
+        }
+
+        private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter no es una letra o número ni la tecla de retroceso (Backspace)
+            if (!Char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Evita que se procese el carácter
+            }
+        }
+
+        private void txtClave_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter no es una letra o número ni la tecla de retroceso (Backspace)
+            if (!Char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Evita que se procese el carácter
+            }
+        }
+
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter no es una letra, número, guión o espacio, ni la tecla de retroceso (Backspace)
+            if (!Char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != '-' && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Evita que se procese el carácter
+            }
+        }
+
+        private void cbxBuscar_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(cbxBuscar, "Para una busqueda mas efeciente se pueden realizar busqueda por filtros");
+        }
+
+        private void pictureBox2_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+            toolTip.ToolTipIcon = ToolTipIcon.Info;
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(pictureBox2, "Bienvenido al area de Usuario de accesos:\n" +
+                                          "Para crear un Usuario :\n" +
+                                          "1. Ingrese el nombre del Usuario\n" +
+                                          "2. Ingrese Clave de Usuario\n" +
+                                          "3. Compruebe la clave de usuario\n" +
+                                          "4. Seleccione el Rol del Empleado\n" +
+                                          "5. Seleccione el Empleado\n" +
+                                          "6. 'Guardar' en los registros de usuarios\n" +
+                                          "Si desea Editar un usuario click en 'Editar\n" +
+                                          "Si desea Cancelar la creacion de un usuario click en 'Limpiar'\n" +
+                                          "Si desea Eliminar un usuario click en 'Eliminar'");
+        }
+
+        private void btnGuardar_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(btnGuardar, "Guardar");
+        }
+
+        private void rjButton2_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(rjButton2, "limpiar");
         }
     }
 }

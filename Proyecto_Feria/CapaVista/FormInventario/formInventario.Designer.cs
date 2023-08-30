@@ -96,6 +96,7 @@
             btnCompras.TextColor = Color.White;
             btnCompras.UseVisualStyleBackColor = false;
             btnCompras.Click += btnCompras_Click;
+            btnCompras.MouseHover += btnCompras_MouseHover;
             // 
             // btnProveedores
             // 
@@ -188,6 +189,7 @@
             panelContenedor.Name = "panelContenedor";
             panelContenedor.Size = new Size(930, 464);
             panelContenedor.TabIndex = 3;
+            panelContenedor.MouseHover += btnCompras_MouseHover;
             // 
             // formInventario
             // 

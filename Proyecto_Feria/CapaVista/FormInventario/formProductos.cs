@@ -322,6 +322,46 @@ namespace CapaVista
                 }
             }
         }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter no es una letra, número, guión o espacio, ni la tecla de retroceso (Backspace)
+            if (!Char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != '-' && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Evita que se procese el carácter
+            }
+        }
+
+        private void pictureBox4_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+            toolTip.ToolTipIcon = ToolTipIcon.Info;
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(pictureBox4, "Area de Creación de Productos\n" +
+                                            "Como Agregar un Producto:\n" +
+                                            "1. Seleccionar una imagen cualquiera del producto\n" +
+                                            "2. Ingresar Codigo de Barra\n" +
+                                            "3. Ingresar el nombre del producto.\n" +
+                                            "4. Ingresar el precio de compra y venta.\n" +
+                                            "5. Seleccionar el Proveedor(Se crean en el Area de proveedores)\n" +
+                                            "6. Seleccionar la Categoria(Se crean en el Area de Categoria)\n" +
+                                            "7. 'Guardar' el producto en los registros.\n" +
+                                            "Si desea Cancelar la creción del Producto click 'Limpiar'\n" +
+                                            "Si desea editar un producto creado click 'Editar'\n" +
+                                            "Si desea eliminar un producto creado click 'Eliminar'");
+        }
+
+        private void cbxBuscar_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(cbxBuscar, "Para una busqueda mas efeciente se pueden realizar busqueda por filtros");
+        }
     }
 
 }

@@ -148,6 +148,24 @@ namespace CapaVista.FormPrimerAcceso
                 }
             }
         }
+        private void pictureBox1_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+            // Establecer el icono de información (puedes cambiar el icono si lo deseas)
+            toolTip.ToolTipIcon = ToolTipIcon.Info;
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(pictureBox4, "Bienvenido a la configuracion de la Identidad\n" +
+                                            "Para Configurar la entidad de la empresa:\n" +
+                                            "1. Seleccionar el logotipo de la identidad\n" +
+                                            "2. Ingresar el nombre de la Entidad" +
+                                            "3. Ingresar el Paies ( si ha seleccionado nicaragua Selecione el Departamento)\n" +
+                                            "4. Ingrese el correo electronico de la empresa\n" +
+                                            "5. Ingrese el numero telefonico de la empresa\n" +
+                                            "'Guarda' La informacion de la Entidad");
+        }
         private void txtDireccion_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
@@ -170,6 +188,21 @@ namespace CapaVista.FormPrimerAcceso
             {
                 e.Handled = true; // Evita que se procese el carácter
             }
+        }
+
+        private void lblUsuario_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+            // Establecer el icono de información (puedes cambiar el icono si lo deseas)
+            toolTip.ToolTipIcon = ToolTipIcon.Info;
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(lblUsuario, "Si es primer acceso, por favor crear un usuario de Tipo \n" +
+                                           "administrador para poder acceder al programa y sus funciones");
+            toolTip.SetToolTip(btnUsuario, "Si es primer acceso, por favor crear un usuario de Tipo \n" +
+                                           "administrador para poder acceder al programa y sus funciones");
         }
     }
 }

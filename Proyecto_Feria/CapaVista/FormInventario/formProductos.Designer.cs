@@ -33,6 +33,7 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panel1 = new Panel();
+            pictureBox4 = new PictureBox();
             imagenProducto = new PictureBox();
             btnSeleccionarImagen = new RJCodeAdvance.RJControls.RJButton();
             txtCodigoBarra = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
@@ -65,6 +66,7 @@
             cbxBuscar = new ReaLTaiizor.Controls.MaterialComboBox();
             panelBusqueda = new Panel();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)imagenProducto).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tbProductos).BeginInit();
@@ -74,6 +76,7 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(pictureBox4);
             panel1.Controls.Add(imagenProducto);
             panel1.Controls.Add(btnSeleccionarImagen);
             panel1.Controls.Add(txtCodigoBarra);
@@ -90,6 +93,17 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(286, 489);
             panel1.TabIndex = 20;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(158, 46);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(47, 40);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 44;
+            pictureBox4.TabStop = false;
+            pictureBox4.MouseHover += pictureBox4_MouseHover;
             // 
             // imagenProducto
             // 
@@ -378,6 +392,7 @@
             txtNombre.TextAlign = HorizontalAlignment.Center;
             txtNombre.TrailingIcon = null;
             txtNombre.UseSystemPasswordChar = false;
+            txtNombre.KeyPress += txtNombre_KeyPress;
             // 
             // txtIdProducto
             // 
@@ -587,6 +602,7 @@
             cbxBuscar.Size = new Size(128, 49);
             cbxBuscar.StartIndex = 0;
             cbxBuscar.TabIndex = 26;
+            cbxBuscar.MouseHover += cbxBuscar_MouseHover;
             // 
             // panelBusqueda
             // 
@@ -614,6 +630,7 @@
             Load += formProductos_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)imagenProducto).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)tbProductos).EndInit();
@@ -655,5 +672,6 @@
         private DataGridViewTextBoxColumn NombreCategoria;
         private DataGridViewTextBoxColumn Imagen;
         private Panel panelBusqueda;
+        private PictureBox pictureBox4;
     }
 }

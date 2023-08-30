@@ -36,18 +36,20 @@
             btnbitacora = new RJCodeAdvance.RJControls.RJButton();
             btnGenerarCodigoBarra = new RJCodeAdvance.RJControls.RJButton();
             btnCalcularNomina = new RJCodeAdvance.RJControls.RJButton();
+            pictureBox4 = new PictureBox();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Controls.Add(pictureBox1);
             flowLayoutPanel1.Dock = DockStyle.Right;
-            flowLayoutPanel1.Location = new Point(649, 0);
+            flowLayoutPanel1.Location = new Point(677, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(284, 509);
+            flowLayoutPanel1.Size = new Size(256, 509);
             flowLayoutPanel1.TabIndex = 3;
             // 
             // pictureBox1
@@ -55,7 +57,7 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(3, 3);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(263, 506);
+            pictureBox1.Size = new Size(230, 506);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -69,7 +71,7 @@
             tableLayoutPanel1.Controls.Add(btnbitacora, 0, 1);
             tableLayoutPanel1.Controls.Add(btnGenerarCodigoBarra, 1, 1);
             tableLayoutPanel1.Controls.Add(btnCalcularNomina, 1, 0);
-            tableLayoutPanel1.Location = new Point(21, 12);
+            tableLayoutPanel1.Location = new Point(6, 14);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 16.6666679F));
@@ -82,7 +84,6 @@
             // 
             btnCalculadoraBasica.BackColor = Color.FromArgb(74, 121, 121);
             btnCalculadoraBasica.BackgroundColor = Color.FromArgb(74, 121, 121);
-            btnCalculadoraBasica.BackgroundImage = (Image)resources.GetObject("btnCalculadoraBasica.BackgroundImage");
             btnCalculadoraBasica.BackgroundImageLayout = ImageLayout.Center;
             btnCalculadoraBasica.BorderColor = Color.PaleVioletRed;
             btnCalculadoraBasica.BorderRadius = 10;
@@ -91,7 +92,7 @@
             btnCalculadoraBasica.FlatAppearance.BorderSize = 0;
             btnCalculadoraBasica.FlatStyle = FlatStyle.Flat;
             btnCalculadoraBasica.ForeColor = Color.White;
-            btnCalculadoraBasica.ImageAlign = ContentAlignment.MiddleRight;
+            btnCalculadoraBasica.Image = (Image)resources.GetObject("btnCalculadoraBasica.Image");
             btnCalculadoraBasica.Location = new Point(3, 2);
             btnCalculadoraBasica.Margin = new Padding(3, 2, 3, 2);
             btnCalculadoraBasica.Name = "btnCalculadoraBasica";
@@ -108,7 +109,6 @@
             // 
             btnbitacora.BackColor = Color.FromArgb(74, 121, 121);
             btnbitacora.BackgroundColor = Color.FromArgb(74, 121, 121);
-            btnbitacora.BackgroundImage = (Image)resources.GetObject("btnbitacora.BackgroundImage");
             btnbitacora.BackgroundImageLayout = ImageLayout.Center;
             btnbitacora.BorderColor = Color.PaleVioletRed;
             btnbitacora.BorderRadius = 10;
@@ -117,7 +117,7 @@
             btnbitacora.FlatAppearance.BorderSize = 0;
             btnbitacora.FlatStyle = FlatStyle.Flat;
             btnbitacora.ForeColor = Color.White;
-            btnbitacora.ImageAlign = ContentAlignment.MiddleRight;
+            btnbitacora.Image = (Image)resources.GetObject("btnbitacora.Image");
             btnbitacora.Location = new Point(3, 240);
             btnbitacora.Margin = new Padding(3, 2, 3, 2);
             btnbitacora.Name = "btnbitacora";
@@ -133,7 +133,6 @@
             // 
             btnGenerarCodigoBarra.BackColor = Color.FromArgb(74, 121, 121);
             btnGenerarCodigoBarra.BackgroundColor = Color.FromArgb(74, 121, 121);
-            btnGenerarCodigoBarra.BackgroundImage = (Image)resources.GetObject("btnGenerarCodigoBarra.BackgroundImage");
             btnGenerarCodigoBarra.BackgroundImageLayout = ImageLayout.Center;
             btnGenerarCodigoBarra.BorderColor = Color.PaleVioletRed;
             btnGenerarCodigoBarra.BorderRadius = 10;
@@ -142,7 +141,7 @@
             btnGenerarCodigoBarra.FlatAppearance.BorderSize = 0;
             btnGenerarCodigoBarra.FlatStyle = FlatStyle.Flat;
             btnGenerarCodigoBarra.ForeColor = Color.White;
-            btnGenerarCodigoBarra.ImageAlign = ContentAlignment.MiddleRight;
+            btnGenerarCodigoBarra.Image = (Image)resources.GetObject("btnGenerarCodigoBarra.Image");
             btnGenerarCodigoBarra.Location = new Point(302, 240);
             btnGenerarCodigoBarra.Margin = new Padding(3, 2, 3, 2);
             btnGenerarCodigoBarra.Name = "btnGenerarCodigoBarra";
@@ -159,7 +158,6 @@
             // 
             btnCalcularNomina.BackColor = Color.FromArgb(74, 121, 121);
             btnCalcularNomina.BackgroundColor = Color.FromArgb(74, 121, 121);
-            btnCalcularNomina.BackgroundImage = (Image)resources.GetObject("btnCalcularNomina.BackgroundImage");
             btnCalcularNomina.BackgroundImageLayout = ImageLayout.Center;
             btnCalcularNomina.BorderColor = Color.PaleVioletRed;
             btnCalcularNomina.BorderRadius = 10;
@@ -168,7 +166,7 @@
             btnCalcularNomina.FlatAppearance.BorderSize = 0;
             btnCalcularNomina.FlatStyle = FlatStyle.Flat;
             btnCalcularNomina.ForeColor = Color.White;
-            btnCalcularNomina.ImageAlign = ContentAlignment.MiddleRight;
+            btnCalcularNomina.Image = (Image)resources.GetObject("btnCalcularNomina.Image");
             btnCalcularNomina.Location = new Point(302, 2);
             btnCalcularNomina.Margin = new Padding(3, 2, 3, 2);
             btnCalcularNomina.Name = "btnCalcularNomina";
@@ -181,11 +179,23 @@
             btnCalcularNomina.Visible = false;
             btnCalcularNomina.Click += btnCalcularNomina_Click;
             // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(620, 16);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(47, 40);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 72;
+            pictureBox4.TabStop = false;
+            pictureBox4.MouseHover += pictureBox4_MouseHover;
+            // 
             // FormHerramientas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(936, 512);
+            Controls.Add(pictureBox4);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(tableLayoutPanel1);
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
@@ -195,6 +205,7 @@
             flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
         }
 
@@ -207,5 +218,6 @@
         private RJCodeAdvance.RJControls.RJButton btnCalcularNomina;
         private RJCodeAdvance.RJControls.RJButton btnbitacora;
         private RJCodeAdvance.RJControls.RJButton btnGenerarCodigoBarra;
+        private PictureBox pictureBox4;
     }
 }

@@ -98,7 +98,13 @@ namespace CapaVista
             toolTip.ToolTipIcon = ToolTipIcon.Info;
 
             // Establecer el texto de la descripción
-            toolTip.SetToolTip(pictureBox1, "Descripción del PictureBox");
+            toolTip.SetToolTip(pictureBox1, "Area de Categoria del Producto\n" +
+                                            "Como Agregar una categoria:\n" +
+                                            "1.Ingrese Nombre de la categoria\n" +
+                                            "2.Seleccione el estado de la categoria\n" +
+                                            "3.'Guardar' Categoria.\n" +
+                                            "Si desea Cancelar creacion de categaria click 'Limpiar'\n" +
+                                            "Si desea Editar una categoria registrada click en 'Editar' en la tabla");
         }
 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
@@ -137,6 +143,16 @@ namespace CapaVista
 
             // Establecer el texto de la descripción
             toolTip.SetToolTip(btnLimpiar, "Limpiar");
+        }
+        private void cbxBuscar_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(cbxBuscar, "Para una busqueda mas efeciente se pueden realizar busqueda por filtros");
         }
         private void tbCategorias_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -188,6 +204,22 @@ namespace CapaVista
                 e.Graphics.DrawImage(CapaPresentacion.Properties.Resources.eliminar, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
+        }
+
+        private void pictureBox4_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(pictureBox4, "Area de Categoria del Producto\n" +
+                                            "Como Agregar una categoria:\n" +
+                                            "1.Ingrese Nombre de la categoria\n" +
+                                            "2.Seleccione el estado de la categoria\n" +
+                                            "3.'Guardar' Categoria.\n" +
+                                            "Si desea Cancelar creacion de categaria click 'Limpiar'\n" +
+                                            "Si desea Editar una categoria registrada click en 'Editar' en la tabla");
+
         }
     }
 }

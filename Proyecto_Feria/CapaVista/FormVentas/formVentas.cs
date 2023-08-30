@@ -368,6 +368,111 @@ namespace CapaVista.FormVenta
         {
             recuentoTotal();
         }
+
+        private void txtCodigoProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter no es un número ni la tecla de retroceso (Backspace)
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Evita que se procese el carácter
+            }
+        }
+
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter no es una letra, número, guión o espacio, ni la tecla de retroceso (Backspace)
+            if (!Char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != '-' && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Evita que se procese el carácter
+            }
+
+        }
+
+        private void cbxBuscar_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(cbxBuscar, "Para una busqueda mas efeciente se pueden realizar busqueda por filtros");
+        }
+
+        private void btnCerrarBusqueda_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(btnCerrarBusqueda, "Cerrar Busqueda de Productos");
+        }
+
+        private void btnAgregarProducto_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(btnAgregarProducto, "Agregar un producto en la compra ");
+        }
+
+        private void btnBuscar_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(btnBuscar, "Busqueda de Productos");
+        }
+
+        private void checkDescuento_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(checkDescuento, "Si desea aplicar descuento a esta factura has\n" +
+                                               "click y pon el cuanto sera el descuento");
+        }
+
+        private void pictureBox4_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+            toolTip.ToolTipIcon = ToolTipIcon.Info;
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(pictureBox4, "Bienvenido al area de Ventas:\n" +
+                                          "Para realizar una venta :\n" +
+                                          "1.'Buscar Productos' en Inventario.\n" +
+                                          "2.'Añadir' el producto a la compra.(Genera el codigo del producto)\n" +
+                                          "3.'Agregar' Las cantidades necesarias del producto a la compra.\n" +
+                                          "4. Una termines de seleccionar los productos para realizar la venta a 'facturar'.\n" +
+                                          "Si desea Cancelar la venta click en 'Limpiar'\n" +
+                                          "Si desea eliminar un producto durante la venta click en 'Eliminar'");
+        }
+
+        private void btnFacturar_MouseHover(object sender, EventArgs e)
+        {
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(btnFacturar, "Se desea finalizar la venta y desea pagar click 'Facturar'");
+        }
     }
 }
+
 

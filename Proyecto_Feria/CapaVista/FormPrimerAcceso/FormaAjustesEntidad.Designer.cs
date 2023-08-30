@@ -41,7 +41,9 @@
             txtCorreo = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             materialTextBoxEdit2 = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             cbxDepartamento = new ReaLTaiizor.Controls.MaterialComboBox();
+            pictureBox4 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureEmpresa).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
             // pictureEmpresa
@@ -141,6 +143,7 @@
             btnUsuario.UseVisualStyleBackColor = false;
             btnUsuario.Visible = false;
             btnUsuario.Click += btnUsuario_Click;
+            btnUsuario.MouseHover += lblUsuario_MouseHover;
             // 
             // lblUsuario
             // 
@@ -153,6 +156,7 @@
             lblUsuario.Text = "Creacion de Usuarios";
             lblUsuario.TextAlign = ContentAlignment.MiddleCenter;
             lblUsuario.Visible = false;
+            lblUsuario.MouseHover += lblUsuario_MouseHover;
             // 
             // btnGuardar
             // 
@@ -332,12 +336,24 @@
             cbxDepartamento.TabIndex = 70;
             cbxDepartamento.Visible = false;
             // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(731, 40);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(47, 40);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 71;
+            pictureBox4.TabStop = false;
+            pictureBox4.MouseHover += pictureBox1_MouseHover;
+            // 
             // FormaAjustesEntidad
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoValidate = AutoValidate.EnableAllowFocusChange;
             ClientSize = new Size(800, 450);
+            Controls.Add(pictureBox4);
             Controls.Add(cbxDepartamento);
             Controls.Add(materialTextBoxEdit2);
             Controls.Add(txtCorreo);
@@ -358,6 +374,7 @@
             Padding = new Padding(3, 24, 3, 3);
             Text = "FormaAjustesEntidad";
             ((System.ComponentModel.ISupportInitialize)pictureEmpresa).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
         }
 
@@ -375,5 +392,6 @@
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCorreo;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit materialTextBoxEdit2;
         private ReaLTaiizor.Controls.MaterialComboBox cbxDepartamento;
+        private PictureBox pictureBox4;
     }
 }
