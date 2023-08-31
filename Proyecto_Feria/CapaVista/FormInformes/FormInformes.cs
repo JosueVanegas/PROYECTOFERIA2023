@@ -18,7 +18,8 @@ namespace CapaPresentacion.FormInformes
 
         private void FormInformes_Load(object sender, EventArgs e)
         {
-
+            pkrFechaFin.MaxDate = DateTime.Now;
+            pkrFechaInicio.MaxDate = DateTime.Now;
         }
 
         private void ReporteHoy_Click(object sender, EventArgs e)
@@ -75,8 +76,8 @@ namespace CapaPresentacion.FormInformes
             DateTime firstDayOfMonth = new DateTime(now.Year, now.Month, 1);
 
             // Formatear las fechas en el formato "dd/MM/yyyy HH:mm:ss"
-            string startOfMonthFormatted = firstDayOfMonth.ToString("dd/MM/yyyy 00:00:00");
-            string endOfMonthFormatted = now.ToString("dd/MM/yyyy HH:mm:ss");
+            string startOfMonthFormatted = firstDayOfMonth.ToString("dd/MM/yyyy");
+            string endOfMonthFormatted = now.ToString("dd/MM/yyyy");
             try
             {
                 QuestPDF.Settings.License = LicenseType.Community;
@@ -173,10 +174,26 @@ namespace CapaPresentacion.FormInformes
 
         private void PanelRangoreport_MouseLeave(object sender, EventArgs e)
         {
-            PanelRangoreport.Visible = false;
+            // Oculta el panel solo si el mouse ya no está sobre el panel ni los botones dentro del panel.
+            if (!PanelRangoreport.ClientRectangle.Contains(PanelRangoreport.PointToClient(MousePosition)))
+            {
+                PanelRangoreport.Visible = false;
+            }
         }
+
         private void btnEleccionTipoReport_MouseHover(object sender, EventArgs e)
         {
+            PanelRangoreport.Visible = true;
+        }
+
+        private void btnInforVentas_MouseEnter(object sender, EventArgs e)
+        {
+            PanelRangoreport.Visible = true;
+        }
+
+        private void PanelRangoreport_MouseEnter(object sender, EventArgs e)
+        {
+            // Asegura que el panel permanezca visible cuando el mouse está sobre el panel.
             PanelRangoreport.Visible = true;
         }
 
@@ -335,10 +352,28 @@ namespace CapaPresentacion.FormInformes
             Process.Start("explorer.exe", filePath);
         }
 
-        private void PanelRangoreport_MouseEnter(object sender, EventArgs e)
+        private void pictureBox2_MouseHover(object sender, EventArgs e)
         {
-            PanelRangoreport.Visible = true;
+            // Crear un objeto ToolTip
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+
+            toolTip.ToolTipIcon = ToolTipIcon.Info;
+
+            // Establecer el texto de la descripción
+            toolTip.SetToolTip(pictureBox2, "Generacion de Informes\n" +
+                                            "Informes que se pueden Generar:\n" +
+                                            "1.Informe de las Ventas a detalles \n" +
+                                            "2.Informe de Compras realizadas a Proveedores\n" +
+                                            "3.Informe de Inventario de los Productos\n" +
+                                            "4.Informe de Nomina de los Empleados\n" +
+                                            "Como Generarlos: \n" +
+                                            "1. Coloque el mouse en el informe que sea generar.\n" +
+                                            "2. Seleccione con un click el periodo deseado\n" +
+                                            "En el periodo Personalizado Seleccionar Fecha de \n" +
+                                            "inicio y Fecha de finalizacion del Periodo\n");
         }
+
+
     }
 }
 

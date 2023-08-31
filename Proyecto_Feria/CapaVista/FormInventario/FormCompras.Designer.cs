@@ -385,6 +385,7 @@ namespace CapaVista.FormInventario
             btnLimpiar.TextAlign = ContentAlignment.BottomCenter;
             btnLimpiar.TextColor = Color.White;
             btnLimpiar.UseVisualStyleBackColor = false;
+            btnLimpiar.Click += btnLimpiar_Click;
             btnLimpiar.MouseHover += btnLimpiar_MouseHover;
             // 
             // btnGuardarCompra
@@ -843,12 +844,12 @@ namespace CapaVista.FormInventario
             cbxBuscarCompra.Hint = "buscar por";
             cbxBuscarCompra.IntegralHeight = false;
             cbxBuscarCompra.ItemHeight = 43;
-            cbxBuscarCompra.Items.AddRange(new object[] { "id", "usuario", "rol", "fecha" });
+            cbxBuscarCompra.Items.AddRange(new object[] { "NoFactura", "NombreUsuario" });
             cbxBuscarCompra.Location = new Point(292, 0);
             cbxBuscarCompra.MaxDropDownItems = 4;
             cbxBuscarCompra.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbxBuscarCompra.Name = "cbxBuscarCompra";
-            cbxBuscarCompra.Size = new Size(108, 49);
+            cbxBuscarCompra.Size = new Size(134, 49);
             cbxBuscarCompra.StartIndex = 0;
             cbxBuscarCompra.TabIndex = 24;
             cbxBuscarCompra.MouseHover += cbxBuscarCompra_MouseHover;
@@ -884,6 +885,7 @@ namespace CapaVista.FormInventario
             txtBuscarCompra.TextAlign = HorizontalAlignment.Center;
             txtBuscarCompra.TrailingIcon = null;
             txtBuscarCompra.UseSystemPasswordChar = false;
+            txtBuscarCompra.TextChanged += txtBuscar_TextChanged;
             // 
             // tbCompras
             // 

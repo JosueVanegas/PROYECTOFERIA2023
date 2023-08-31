@@ -17,6 +17,13 @@ namespace CapaVista.FormInventario
             InitializeComponent();
             this.user = user;
         }
+        private void limpiarCampos()
+        {
+            txtNofactura.Text = "";
+            txtTotal.Text = "";
+            tbDetalles.RowCount = 0;
+            txtCodigoDeProducto.Text = "";
+        }
         private void FormCompras_Load(object sender, EventArgs e)
         {
             mostrarProductosDisponible();
@@ -88,6 +95,25 @@ namespace CapaVista.FormInventario
                         i.Visible = true;
                     else
                         i.Visible = false;
+                }
+            }
+        }
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
+            string columna = cbxBuscarCompra.SelectedItem.ToString();
+#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
+
+            if (tbCompras.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow i in tbCompras.Rows)
+                {
+#pragma warning disable CS8602 // Desreferencia de una referencia posiblemente NULL.
+                    if (i.Cells[columna].Value.ToString().Trim().ToUpper().Contains(txtBuscarCompra.Text.Trim().ToUpper()))
+                        i.Visible = true;
+                    else
+                        i.Visible = false;
+#pragma warning restore CS8602 // Desreferencia de una referencia posiblemente NULL.
                 }
             }
         }
@@ -208,6 +234,7 @@ namespace CapaVista.FormInventario
                 MessageBox.Show(cCompra.procesoCompra(compra, obtenerDetalles()));
                 mostrarCompras();
                 mostrarProductosDisponible();
+                limpiarCampos();
             }
             else
             {
@@ -358,6 +385,11 @@ namespace CapaVista.FormInventario
             {
                 e.Handled = true; // Evita que se procese el carácter
             }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            limpiarCampos();
         }
     }
 }

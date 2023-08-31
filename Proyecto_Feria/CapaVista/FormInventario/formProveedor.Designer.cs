@@ -296,6 +296,7 @@
             btnLimpiar.TextAlign = ContentAlignment.BottomCenter;
             btnLimpiar.TextColor = Color.White;
             btnLimpiar.UseVisualStyleBackColor = false;
+            btnLimpiar.Click += btnLimpiar_Click;
             btnLimpiar.MouseHover += btnLimpiar_MouseHover;
             // 
             // lblTitulo

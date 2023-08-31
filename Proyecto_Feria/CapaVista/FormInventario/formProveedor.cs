@@ -182,5 +182,10 @@ namespace CapaVista
             // Establecer el texto de la descripción
             toolTip.SetToolTip(cbxBuscar, "Para una busqueda mas efeciente se pueden realizar busqueda por filtros");
         }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            limpiarCampos();
+        }
     }
 }
