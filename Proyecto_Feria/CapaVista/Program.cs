@@ -14,9 +14,7 @@ namespace CapaVista
         [STAThread]
         static void Main()
         {
-            //documento para poder modificar
             /*
-             * 
              * ControlInforme cInformes = new ControlInforme();
             string fechaInicio = "15/08/2023";
             string fechaFinal = "27/08/2023";
@@ -157,7 +155,8 @@ namespace CapaVista
                      });
                  });
              }).ShowInPreviewer();
-             */
+              */
+
 
             ApplicationConfiguration.Initialize();
             Application.Run(new FormPrincipal(null));

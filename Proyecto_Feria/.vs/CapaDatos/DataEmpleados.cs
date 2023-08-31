@@ -5,6 +5,7 @@ namespace CapaDatos
 {
     public class DataEmpleados
     {
+        string mensaje = "";
         public List<Empleado> listaEmpleados()
         {
             List<Empleado> lista = new List<Empleado>();
@@ -34,8 +35,7 @@ namespace CapaDatos
                                     correo = reader[8].ToString(),
                                     cargo = reader[9].ToString(),
                                     salario = Convert.ToDecimal(reader[10]),
-                                    fechaRegistro = reader[9].ToString()
-                                    
+                                    fechaRegistro = reader[11].ToString()
                                 });
                             }
                         }
@@ -47,6 +47,59 @@ namespace CapaDatos
                 }
             }
             return lista;
+        }
+        public string accionesEmpleados(Empleado emp)
+        {
+            using (SqlConnection connection = new conexion().conectar())
+            {
+                try
+                {
+                    connection.Open();
+                    SqlCommand comand = new SqlCommand("PROC_REGISTRAR_EMPLEADO", connection);
+                    comand.CommandType = CommandType.StoredProcedure;
+                    comand.Parameters.AddWithValue("@ID_EMPLEADO", emp.id);
+                    comand.Parameters.AddWithValue("@CEDULA", emp.cedula);
+                    comand.Parameters.AddWithValue("@NOMBRE", emp.nombres);
+                    comand.Parameters.AddWithValue("@APELLIDO", emp.apellidos);
+                    comand.Parameters.AddWithValue("@SEXO", emp.sexo);
+                    comand.Parameters.AddWithValue("@FECHA_NACIMIENTO", emp.nacimiento);
+                    comand.Parameters.AddWithValue("@TELEFONO", emp.telefono);
+                    comand.Parameters.AddWithValue("@DIRECCION", emp.direccion);
+                    comand.Parameters.AddWithValue("@CORREO", emp.correo);
+                    comand.Parameters.AddWithValue("@CARGO ", emp.cargo);
+                    comand.Parameters.AddWithValue("@SALARIO", emp.salario);
+                    comand.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    comand.ExecuteNonQuery();
+                    mensaje = comand.Parameters["mensaje"].Value.ToString();
+                }
+                catch (Exception ex)
+                {
+                    mensaje = "Lo sentimos a ocurrido un \nerror : " + ex.Message;
+                }
+            }
+            return mensaje;
+        }
+        public string eliminarEmpleado(int id)
+        {
+
+            using (SqlConnection con = new conexion().conectar())
+            {
+                try
+                {
+                    con.Open();
+                    SqlCommand comand = new SqlCommand("PROC_ELIMINAR_EMPLEADO", con);
+                    comand.CommandType = CommandType.StoredProcedure;
+                    comand.Parameters.AddWithValue("@ID_EMPLEADO", id);
+                    comand.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    comand.ExecuteNonQuery();
+                    mensaje = comand.Parameters["mensaje"].Value.ToString();
+                }
+                catch (Exception ex)
+                {
+                    mensaje = "no se pudo eliminar el empleado. error: " + ex.Message;
+                }
+            }
+            return mensaje;
         }
     }
 }

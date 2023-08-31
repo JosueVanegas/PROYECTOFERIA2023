@@ -10,5 +10,13 @@ namespace CapaControlador
         {
             return dEmp.listaEmpleados();
         }
+        public string registrarEmpleados(Empleado e)
+        {
+            return dEmp.accionesEmpleados(e);
+        }
+        public string eliminarEmpleado(int id)
+        {
+            return dEmp.eliminarEmpleado(id);
+        }
     }
 }
