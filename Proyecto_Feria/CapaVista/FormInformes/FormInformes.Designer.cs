@@ -36,7 +36,7 @@
             panel2 = new Panel();
             pictureBox2 = new PictureBox();
             lblEncabezado = new Label();
-            rjButton3 = new RJCodeAdvance.RJControls.RJButton();
+            btnNomina = new RJCodeAdvance.RJControls.RJButton();
             btnInforVentas = new RJCodeAdvance.RJControls.RJButton();
             PanelRangoreport = new Panel();
             btn15Dias = new RJCodeAdvance.RJControls.RJButton();
@@ -46,7 +46,7 @@
             btnAyer = new RJCodeAdvance.RJControls.RJButton();
             btnSemanaActual = new RJCodeAdvance.RJControls.RJButton();
             btninfoCompras = new RJCodeAdvance.RJControls.RJButton();
-            rjButton6 = new RJCodeAdvance.RJControls.RJButton();
+            btnInventario = new RJCodeAdvance.RJControls.RJButton();
             pictureBox1 = new PictureBox();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
@@ -68,9 +68,6 @@
             pkrFechaInicio.SkinColor = Color.DarkCyan;
             pkrFechaInicio.TabIndex = 0;
             pkrFechaInicio.TextColor = Color.White;
-            pkrFechaInicio.MouseEnter += btnInforVentas_MouseEnter;
-            pkrFechaInicio.MouseLeave += PanelRangoreport_MouseLeave;
-            pkrFechaInicio.MouseHover += btnEleccionTipoReport_MouseHover;
             // 
             // pkrFechaFin
             // 
@@ -87,9 +84,6 @@
             pkrFechaFin.TabIndex = 4;
             pkrFechaFin.TextColor = Color.White;
             pkrFechaFin.Value = new DateTime(2023, 8, 30, 0, 0, 0, 0);
-            pkrFechaFin.MouseEnter += btnInforVentas_MouseEnter;
-            pkrFechaFin.MouseLeave += PanelRangoreport_MouseLeave;
-            pkrFechaFin.MouseHover += btnEleccionTipoReport_MouseHover;
             // 
             // btnPersonalizado
             // 
@@ -109,9 +103,6 @@
             btnPersonalizado.TextColor = Color.White;
             btnPersonalizado.UseVisualStyleBackColor = false;
             btnPersonalizado.Click += ReporteFechaPersonaizado_Click;
-            btnPersonalizado.MouseEnter += btnInforVentas_MouseEnter;
-            btnPersonalizado.MouseLeave += PanelRangoreport_MouseLeave;
-            btnPersonalizado.MouseHover += btnEleccionTipoReport_MouseHover;
             // 
             // panel3
             // 
@@ -122,19 +113,16 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(238, 130);
             panel3.TabIndex = 11;
-            panel3.MouseEnter += btnInforVentas_MouseEnter;
-            panel3.MouseLeave += PanelRangoreport_MouseLeave;
-            panel3.MouseHover += btnEleccionTipoReport_MouseHover;
             // 
             // panel2
             // 
             panel2.Controls.Add(pictureBox2);
             panel2.Controls.Add(lblEncabezado);
-            panel2.Controls.Add(rjButton3);
+            panel2.Controls.Add(btnNomina);
             panel2.Controls.Add(btnInforVentas);
             panel2.Controls.Add(PanelRangoreport);
             panel2.Controls.Add(btninfoCompras);
-            panel2.Controls.Add(rjButton6);
+            panel2.Controls.Add(btnInventario);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(3, 0);
             panel2.Name = "panel2";
@@ -162,26 +150,26 @@
             lblEncabezado.Text = "Generacion de Informe";
             lblEncabezado.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // rjButton3
+            // btnNomina
             // 
-            rjButton3.BackColor = Color.FromArgb(74, 121, 121);
-            rjButton3.BackgroundColor = Color.FromArgb(74, 121, 121);
-            rjButton3.BorderColor = Color.PaleVioletRed;
-            rjButton3.BorderRadius = 10;
-            rjButton3.BorderSize = 0;
-            rjButton3.FlatAppearance.BorderSize = 0;
-            rjButton3.FlatStyle = FlatStyle.Flat;
-            rjButton3.ForeColor = Color.White;
-            rjButton3.Image = (Image)resources.GetObject("rjButton3.Image");
-            rjButton3.Location = new Point(16, 350);
-            rjButton3.Name = "rjButton3";
-            rjButton3.Size = new Size(207, 80);
-            rjButton3.TabIndex = 1;
-            rjButton3.Text = "Nomina";
-            rjButton3.TextAlign = ContentAlignment.BottomCenter;
-            rjButton3.TextColor = Color.White;
-            rjButton3.UseVisualStyleBackColor = false;
-            rjButton3.MouseEnter += btnInforVentas_MouseEnter;
+            btnNomina.BackColor = Color.FromArgb(74, 121, 121);
+            btnNomina.BackgroundColor = Color.FromArgb(74, 121, 121);
+            btnNomina.BorderColor = Color.PaleVioletRed;
+            btnNomina.BorderRadius = 10;
+            btnNomina.BorderSize = 0;
+            btnNomina.FlatAppearance.BorderSize = 0;
+            btnNomina.FlatStyle = FlatStyle.Flat;
+            btnNomina.ForeColor = Color.White;
+            btnNomina.Image = (Image)resources.GetObject("btnNomina.Image");
+            btnNomina.Location = new Point(16, 350);
+            btnNomina.Name = "btnNomina";
+            btnNomina.Size = new Size(207, 80);
+            btnNomina.TabIndex = 1;
+            btnNomina.Text = "Nomina";
+            btnNomina.TextAlign = ContentAlignment.BottomCenter;
+            btnNomina.TextColor = Color.White;
+            btnNomina.UseVisualStyleBackColor = false;
+            btnNomina.Click += PanelRangoreport_Click;
             // 
             // btnInforVentas
             // 
@@ -202,7 +190,7 @@
             btnInforVentas.TextAlign = ContentAlignment.BottomCenter;
             btnInforVentas.TextColor = Color.White;
             btnInforVentas.UseVisualStyleBackColor = false;
-            btnInforVentas.MouseEnter += btnInforVentas_MouseEnter;
+            btnInforVentas.Click += PanelRangoreport_Click;
             // 
             // PanelRangoreport
             // 
@@ -219,9 +207,6 @@
             PanelRangoreport.Size = new Size(258, 427);
             PanelRangoreport.TabIndex = 1;
             PanelRangoreport.Visible = false;
-            PanelRangoreport.MouseEnter += btnInforVentas_MouseEnter;
-            PanelRangoreport.MouseLeave += PanelRangoreport_MouseLeave;
-            PanelRangoreport.MouseHover += btnEleccionTipoReport_MouseHover;
             // 
             // btn15Dias
             // 
@@ -240,9 +225,7 @@
             btn15Dias.Text = "Ultimos 15 Dias";
             btn15Dias.TextColor = Color.White;
             btn15Dias.UseVisualStyleBackColor = false;
-            btn15Dias.MouseEnter += btnInforVentas_MouseEnter;
-            btn15Dias.MouseLeave += PanelRangoreport_MouseLeave;
-            btn15Dias.MouseHover += btnEleccionTipoReport_MouseHover;
+            btn15Dias.Click += btn15Dias_Click;
             // 
             // btnAñoActual
             // 
@@ -262,9 +245,6 @@
             btnAñoActual.TextColor = Color.White;
             btnAñoActual.UseVisualStyleBackColor = false;
             btnAñoActual.Click += ReporteAñoActual_Click;
-            btnAñoActual.MouseEnter += btnInforVentas_MouseEnter;
-            btnAñoActual.MouseLeave += PanelRangoreport_MouseLeave;
-            btnAñoActual.MouseHover += btnEleccionTipoReport_MouseHover;
             // 
             // btnMesActual
             // 
@@ -284,9 +264,6 @@
             btnMesActual.TextColor = Color.White;
             btnMesActual.UseVisualStyleBackColor = false;
             btnMesActual.Click += ReporteMesActual_Click;
-            btnMesActual.MouseEnter += btnInforVentas_MouseEnter;
-            btnMesActual.MouseLeave += PanelRangoreport_MouseLeave;
-            btnMesActual.MouseHover += btnEleccionTipoReport_MouseHover;
             // 
             // btnHoy
             // 
@@ -306,9 +283,6 @@
             btnHoy.TextColor = Color.White;
             btnHoy.UseVisualStyleBackColor = false;
             btnHoy.Click += ReporteHoy_Click;
-            btnHoy.MouseEnter += btnInforVentas_MouseEnter;
-            btnHoy.MouseLeave += PanelRangoreport_MouseLeave;
-            btnHoy.MouseHover += btnEleccionTipoReport_MouseHover;
             // 
             // btnAyer
             // 
@@ -328,9 +302,6 @@
             btnAyer.TextColor = Color.White;
             btnAyer.UseVisualStyleBackColor = false;
             btnAyer.Click += ReporteAyer_Click;
-            btnAyer.MouseEnter += btnInforVentas_MouseEnter;
-            btnAyer.MouseLeave += PanelRangoreport_MouseLeave;
-            btnAyer.MouseHover += btnEleccionTipoReport_MouseHover;
             // 
             // btnSemanaActual
             // 
@@ -350,9 +321,6 @@
             btnSemanaActual.TextColor = Color.White;
             btnSemanaActual.UseVisualStyleBackColor = false;
             btnSemanaActual.Click += FechaUltimaSemana_Click;
-            btnSemanaActual.MouseEnter += btnInforVentas_MouseEnter;
-            btnSemanaActual.MouseLeave += PanelRangoreport_MouseLeave;
-            btnSemanaActual.MouseHover += btnEleccionTipoReport_MouseHover;
             // 
             // btninfoCompras
             // 
@@ -373,28 +341,28 @@
             btninfoCompras.TextAlign = ContentAlignment.BottomCenter;
             btninfoCompras.TextColor = Color.White;
             btninfoCompras.UseVisualStyleBackColor = false;
-            btninfoCompras.MouseEnter += btnInforVentas_MouseEnter;
+            btninfoCompras.Click += PanelRangoreport_Click;
             // 
-            // rjButton6
+            // btnInventario
             // 
-            rjButton6.BackColor = Color.FromArgb(74, 121, 121);
-            rjButton6.BackgroundColor = Color.FromArgb(74, 121, 121);
-            rjButton6.BorderColor = Color.PaleVioletRed;
-            rjButton6.BorderRadius = 10;
-            rjButton6.BorderSize = 0;
-            rjButton6.FlatAppearance.BorderSize = 0;
-            rjButton6.FlatStyle = FlatStyle.Flat;
-            rjButton6.ForeColor = Color.White;
-            rjButton6.Image = (Image)resources.GetObject("rjButton6.Image");
-            rjButton6.Location = new Point(16, 264);
-            rjButton6.Name = "rjButton6";
-            rjButton6.Size = new Size(207, 80);
-            rjButton6.TabIndex = 0;
-            rjButton6.Text = "Informe de inventario";
-            rjButton6.TextAlign = ContentAlignment.BottomCenter;
-            rjButton6.TextColor = Color.White;
-            rjButton6.UseVisualStyleBackColor = false;
-            rjButton6.MouseEnter += btnInforVentas_MouseEnter;
+            btnInventario.BackColor = Color.FromArgb(74, 121, 121);
+            btnInventario.BackgroundColor = Color.FromArgb(74, 121, 121);
+            btnInventario.BorderColor = Color.PaleVioletRed;
+            btnInventario.BorderRadius = 10;
+            btnInventario.BorderSize = 0;
+            btnInventario.FlatAppearance.BorderSize = 0;
+            btnInventario.FlatStyle = FlatStyle.Flat;
+            btnInventario.ForeColor = Color.White;
+            btnInventario.Image = (Image)resources.GetObject("btnInventario.Image");
+            btnInventario.Location = new Point(16, 264);
+            btnInventario.Name = "btnInventario";
+            btnInventario.Size = new Size(207, 80);
+            btnInventario.TabIndex = 0;
+            btnInventario.Text = "Informe de inventario";
+            btnInventario.TextAlign = ContentAlignment.BottomCenter;
+            btnInventario.TextColor = Color.White;
+            btnInventario.UseVisualStyleBackColor = false;
+            btnInventario.Click += PanelRangoreport_Click;
             // 
             // pictureBox1
             // 
@@ -435,10 +403,10 @@
         private RJCodeAdvance.RJControls.RJButton btnPersonalizado;
         private Panel panel3;
         private Panel panel2;
-        private RJCodeAdvance.RJControls.RJButton rjButton3;
+        private RJCodeAdvance.RJControls.RJButton btnNomina;
         private RJCodeAdvance.RJControls.RJButton btnInforVentas;
         private RJCodeAdvance.RJControls.RJButton btninfoCompras;
-        private RJCodeAdvance.RJControls.RJButton rjButton6;
+        private RJCodeAdvance.RJControls.RJButton btnInventario;
         private Panel PanelRangoreport;
         private RJCodeAdvance.RJControls.RJButton btn15Dias;
         private RJCodeAdvance.RJControls.RJButton btnAñoActual;
