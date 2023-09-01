@@ -24,7 +24,7 @@ namespace CapaPresentacion.FormInformes
         private void FormInformes_Load(object sender, EventArgs e)
         {
             pkrFechaFin.MaxDate = DateTime.Now;
-            pkrFechaInicio.MaxDate = DateTime.Now;
+            pkrFechaInicio.MaxDate = pkrFechaFin.Value;
         }
 
         private void ReporteHoy_Click(object sender, EventArgs e)
@@ -36,8 +36,8 @@ namespace CapaPresentacion.FormInformes
             DateTime startOfToday = now.Date;
 
             // Formatear las fechas en el formato "dd/MM/yyyy HH:mm:ss"
-            string startOfTodayFormatted = startOfToday.ToString("dd/MM/yyyy");
-            string endOfTodayFormatted = now.ToString("dd/MM/yyyy");
+            string startOfTodayFormatted = startOfToday.ToString("yyyy-MM-dd");
+            string endOfTodayFormatted = now.ToString("yyyy-MM-dd");
 
 
             if (Ventas)
@@ -46,7 +46,6 @@ namespace CapaPresentacion.FormInformes
                 try
                 {
                     QuestPDF.Settings.License = LicenseType.Community;
-                    MessageBox.Show("Error: Esta operación solo es válida para el botón btnventas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     ReportesTipo.VentasCrearReporte_Hoy_Ayer_Mes_15Dias(startOfTodayFormatted.ToString(), endOfTodayFormatted.ToString());
                     Ventas = false;
                 }
@@ -119,8 +118,8 @@ namespace CapaPresentacion.FormInformes
             DateTime startOfYesterday = now.Date.AddDays(-1);
 
             // Formatear las fechas en el formato "dd/MM/yyyy "
-            string startOfYesterdayFormatted = startOfYesterday.ToString("dd/MM/yyyy");
-            string endOfYesterdayFormatted = now.ToString("dd/MM/yyyy");
+            string startOfYesterdayFormatted = startOfYesterday.ToString("yyyy-MM-dd");
+            string endOfYesterdayFormatted = now.ToString("yyyy-MM-dd");
 
             if (Ventas)
             {
@@ -199,8 +198,8 @@ namespace CapaPresentacion.FormInformes
             DateTime firstDayOfMonth = new DateTime(now.Year, now.Month, 1);
 
             // Formatear las fechas en el formato "dd/MM/yyyy HH:mm:ss"
-            string startOfMonthFormatted = firstDayOfMonth.ToString("dd/MM/yyyy");
-            string endOfMonthFormatted = now.ToString("dd/MM/yyyy");
+            string startOfMonthFormatted = firstDayOfMonth.ToString("yyyy-MM-dd");
+            string endOfMonthFormatted = now.ToString("yyyy-MM-dd");
 
             if (Ventas)
             {
@@ -282,8 +281,8 @@ namespace CapaPresentacion.FormInformes
             DateTime lastDayOfYear = new DateTime(now.Year, 12, 31).Date.AddHours(23).AddMinutes(59).AddSeconds(59);
 
             // Formatear las fechas en el formato "dd/MM/yyyy HH:mm:ss"
-            string startOfYearFormatted = firstDayOfYear.ToString("dd/MM/yyyy");
-            string endOfYearFormatted = lastDayOfYear.ToString("dd/MM/yyyy");
+            string startOfYearFormatted = firstDayOfYear.ToString("yyyy-MM-dd");
+            string endOfYearFormatted = lastDayOfYear.ToString("yyyy-MM-dd");
 
 
             if (Ventas)
@@ -354,13 +353,13 @@ namespace CapaPresentacion.FormInformes
             PanelRangoreport.Visible = panelVisible; // Aplicar el estado de visibilidad actual al panel
 
         }
-
         private void ReporteFechaPersonaizado_Click(object sender, EventArgs e)
         {
             DateTime FechaInicio = pkrFechaInicio.Value;
 
             DateTime FechaFinal = pkrFechaFin.Value;
-
+            string fi = FechaInicio.ToString("yyyy-MM-dd");
+            string ff = FechaFinal.ToString("yyyy-MM-dd");
 
             if (Ventas)
             {
@@ -369,7 +368,7 @@ namespace CapaPresentacion.FormInformes
                 {
                     QuestPDF.Settings.License = LicenseType.Community;
                     MessageBox.Show("Error: Esta operación solo es válida para el botón btnventas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    ReportesTipo.VentasCrearReporte_Hoy_Ayer_Mes_15Dias(FechaInicio.ToString(), FechaFinal.ToString());
+                    ReportesTipo.VentasCrearReporte_Hoy_Ayer_Mes_15Dias(fi,ff);
                     Ventas = false;
                 }
                 catch (Exception ex)
@@ -430,8 +429,6 @@ namespace CapaPresentacion.FormInformes
             PanelRangoreport.Visible = panelVisible; // Aplicar el estado de visibilidad actual al panel
 
         }
-
-        //"15/08/2023", "27/08/2023"
         private void FechaUltimaSemana_Click(object sender, EventArgs e)
         {
             DateTime today = DateTime.Today;
@@ -440,11 +437,11 @@ namespace CapaPresentacion.FormInformes
             DateTime startOfLastWeek = today.AddDays(-7);
 
             // Calcular la fecha de fin de la última semana (hoy menos un día)
-            DateTime endOfLastWeek = today.AddDays(-1);
+            DateTime endOfLastWeek = today.AddDays(0);
 
             // Formatear las fechas en el formato "dd/MM/yyyy"
-            string startOfLastWeekFormatted = startOfLastWeek.ToString("dd/MM/yyyy");
-            string endOfLastWeekFormatted = endOfLastWeek.ToString("dd/MM/yyyy");
+            string startOfLastWeekFormatted = startOfLastWeek.ToString("yyyy-MM-dd");
+            string endOfLastWeekFormatted = endOfLastWeek.ToString("yyyy-MM-dd");
 
 
 
@@ -516,7 +513,7 @@ namespace CapaPresentacion.FormInformes
             PanelRangoreport.Visible = panelVisible; // Aplicar el estado de visibilidad actual al panel
         }
 
-        private bool panelVisible = false; // Variable para realizar un seguimiento de la visibilidad del panel
+        private bool panelVisible = false;
 
         private void PanelRangoreport_Click(object sender, EventArgs e)
         {
@@ -564,12 +561,8 @@ namespace CapaPresentacion.FormInformes
 
         private void pictureBox2_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
             toolTip.ToolTipIcon = ToolTipIcon.Info;
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(pictureBox2, "Generacion de Informes\n" +
                                             "Informes que se pueden Generar:\n" +
                                             "1.Informe de las Ventas a detalles \n" +
@@ -591,8 +584,8 @@ namespace CapaPresentacion.FormInformes
             DateTime last15Days = now.AddDays(-15);
 
             // Formatear las fechas en el formato "dd/MM/yyyy HH:mm:ss"
-            string startFormatted = last15Days.ToString("dd/MM/yyyy");
-            string endFormatted = now.ToString("dd/MM/yyyy");
+            string startFormatted = last15Days.ToString("yyyy-MM-dd");
+            string endFormatted = now.ToString("yyyy-MM-dd");
 
 
             if (Ventas)
