@@ -26,11 +26,10 @@ namespace CapaDatos
             }
             return cantidadFilas;
         }
-        public List<productosMasVendidos> topProductos()
+        public List<graficaProductos> datosGraficaProductosMasVendidos()
         {
-            List<productosMasVendidos> productosVendidos = new List<productosMasVendidos>();
+            List<graficaProductos> productosVendidos = new List<graficaProductos>();
 
-#pragma warning disable CS0168 // La variable está declarada pero nunca se usa
             try
             {
                 using (SqlConnection connection = new conexion().conectar())
@@ -48,18 +47,13 @@ namespace CapaDatos
 
                         while (reader.Read())
                         {
-#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                             string nombreProducto = reader["NombreProducto"].ToString();
-#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                             int totalVentas = Convert.ToInt32(reader["TotalVentas"]);
-
-#pragma warning disable CS8601 // Posible asignación de referencia nula
-                            productosMasVendidos productoVendido = new productosMasVendidos
+                            graficaProductos productoVendido = new graficaProductos
                             {
                                 nombre = nombreProducto,
                                 cantidad = totalVentas
                             };
-#pragma warning restore CS8601 // Posible asignación de referencia nula
 
                             productosVendidos.Add(productoVendido);
                         }
@@ -70,11 +64,70 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                productosVendidos = new List<productosMasVendidos>();
+                productosVendidos = new List<graficaProductos>();
             }
-#pragma warning restore CS0168 // La variable está declarada pero nunca se usa
+
             return productosVendidos;
+        }
+        public List<graficaVentas> datosGraficaVentas(string fechaInicio, string fechaFinal)
+        {
+            List<graficaVentas> lista = new List<graficaVentas>();
+            try
+            {
+                using (SqlConnection connection = new conexion().conectar())
+                {
+                    connection.Open();
+
+                    string query = "SELECT FECHA_REGISTRO,TOTAL FROM VENTA where CONVERT(DATE, FECHA_REGISTRO, 103) " +
+                        "BETWEEN '" + fechaInicio + "' AND '" + fechaFinal + "' order by ID_VENTA asc";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            string fechaRegistro = reader[0].ToString();
+                            int totalVentas = Convert.ToInt32(reader[1]);
+                            graficaVentas valor = new graficaVentas
+                            {
+                                fecha = fechaRegistro,
+                                total = totalVentas
+                            };
+
+                            lista.Add(valor);
+                        }
+
+                        reader.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lista = new List<graficaVentas>();
+            }
+            return lista;
+        }
+        public decimal valorInventario()
+        {
+            decimal valor = 0;
+            string sqlQuery = "SELECT SUM(CANTIDAD_INVENTARIO * PRECIO_COMPRA) AS VALORINVETARIO FROM PRODUCTO";
+            using (SqlConnection connection = new conexion().conectar())
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(sqlQuery, connection))
+                {
+                    object result = command.ExecuteScalar();
+                    if (result != DBNull.Value)
+                    {
+                        valor = Convert.ToDecimal(result);
+                    }
+
+                }
+            }
+            return valor;
         }
     }
 }
+
 

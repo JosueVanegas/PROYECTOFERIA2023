@@ -23,7 +23,7 @@ namespace CapaVista
             reloj.Start();
             panelVertical_Admin.BackColor = Color.FromArgb(74, 121, 121);
             //datosDeUsuarioActual();
-             validarPermisos(this.user);
+            validarPermisos(this.user);
 
         }
 

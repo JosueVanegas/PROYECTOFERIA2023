@@ -9,9 +9,25 @@ namespace CapaControlador
         {
             return dash.cantidadDeObjetosEnTabla(tabla);
         }
-        public List<productosMasVendidos> productosTop()
+        public List<graficaProductos> datosGraficaProductos()
         {
-            return dash.topProductos();
+            return dash.datosGraficaProductosMasVendidos();
+        }
+        public List<graficaVentas> datosGraficaVentas(string fechaInicio,string fechaFin)
+        {
+        
+             if(fechaFin != null && fechaInicio != null)
+             {
+                 return dash.datosGraficaVentas(fechaInicio, fechaFin);
+             }
+             else
+             {
+                 return new List<graficaVentas>();
+             }
+        }
+        public string valorInventario()
+        {
+            return dash.valorInventario().ToString("0.00");
         }
     }
 }

@@ -49,8 +49,8 @@ namespace CapaVista
             ckbEmpleadoNulo = new ReaLTaiizor.Controls.AirCheckBox();
             cbxEmpleados = new ReaLTaiizor.Controls.MaterialComboBox();
             tableLayoutPanel1 = new TableLayoutPanel();
-            rjButton2 = new RJCodeAdvance.RJControls.RJButton();
             btnGuardar = new RJCodeAdvance.RJControls.RJButton();
+            rjButton2 = new RJCodeAdvance.RJControls.RJButton();
             txtConfirmarClave = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             ckbVerContraseña = new ReaLTaiizor.Controls.AirCheckBox();
             txtIdUsuario = new TextBox();
@@ -77,6 +77,7 @@ namespace CapaVista
             tbUsuarios.AllowUserToOrderColumns = true;
             tbUsuarios.AllowUserToResizeRows = false;
             tbUsuarios.Anchor = AnchorStyles.Left;
+            tbUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tbUsuarios.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             tbUsuarios.BackgroundColor = Color.White;
             tbUsuarios.BorderStyle = BorderStyle.None;
@@ -130,14 +131,12 @@ namespace CapaVista
             btnEditar.HeaderText = "Editar";
             btnEditar.Name = "btnEditar";
             btnEditar.ToolTipText = "editar";
-            btnEditar.Width = 50;
             // 
             // btnBorrar
             // 
             btnBorrar.HeaderText = "Eliminar";
             btnBorrar.Name = "btnBorrar";
             btnBorrar.ToolTipText = "eliminar";
-            btnBorrar.Width = 50;
             // 
             // id
             // 
@@ -145,14 +144,12 @@ namespace CapaVista
             id.Name = "id";
             id.ReadOnly = true;
             id.Visible = false;
-            id.Width = 10;
             // 
             // usuario
             // 
             usuario.HeaderText = "Nombre de Usuario";
             usuario.Name = "usuario";
             usuario.ReadOnly = true;
-            usuario.Width = 200;
             // 
             // rol
             // 
@@ -160,14 +157,12 @@ namespace CapaVista
             rol.Name = "rol";
             rol.ReadOnly = true;
             rol.SortMode = DataGridViewColumnSortMode.NotSortable;
-            rol.Width = 150;
             // 
             // fecha
             // 
             fecha.HeaderText = "Fecha de Registro";
             fecha.Name = "fecha";
             fecha.ReadOnly = true;
-            fecha.Width = 200;
             // 
             // idRol
             // 
@@ -275,32 +270,6 @@ namespace CapaVista
             tableLayoutPanel1.Size = new Size(152, 70);
             tableLayoutPanel1.TabIndex = 30;
             // 
-            // rjButton2
-            // 
-            rjButton2.Anchor = AnchorStyles.Left;
-            rjButton2.BackColor = Color.FromArgb(74, 121, 121);
-            rjButton2.BackgroundColor = Color.FromArgb(74, 121, 121);
-            rjButton2.BackgroundImage = (Image)resources.GetObject("rjButton2.BackgroundImage");
-            rjButton2.BackgroundImageLayout = ImageLayout.Center;
-            rjButton2.BorderColor = Color.PaleVioletRed;
-            rjButton2.BorderRadius = 10;
-            rjButton2.BorderSize = 0;
-            rjButton2.FlatAppearance.BorderSize = 0;
-            rjButton2.FlatStyle = FlatStyle.Flat;
-            rjButton2.ForeColor = Color.White;
-            rjButton2.ImageAlign = ContentAlignment.MiddleRight;
-            rjButton2.Location = new Point(78, 2);
-            rjButton2.Margin = new Padding(3, 2, 3, 2);
-            rjButton2.Name = "rjButton2";
-            rjButton2.Size = new Size(71, 66);
-            rjButton2.TabIndex = 12;
-            rjButton2.Text = "Limpiar";
-            rjButton2.TextAlign = ContentAlignment.BottomCenter;
-            rjButton2.TextColor = Color.White;
-            rjButton2.UseVisualStyleBackColor = false;
-            rjButton2.Click += btnLimpiar_Click;
-            rjButton2.MouseHover += rjButton2_MouseHover;
-            // 
             // btnGuardar
             // 
             btnGuardar.Anchor = AnchorStyles.Left;
@@ -326,6 +295,32 @@ namespace CapaVista
             btnGuardar.UseVisualStyleBackColor = false;
             btnGuardar.Click += btnAgregar_Click;
             btnGuardar.MouseHover += btnGuardar_MouseHover;
+            // 
+            // rjButton2
+            // 
+            rjButton2.Anchor = AnchorStyles.Left;
+            rjButton2.BackColor = Color.FromArgb(74, 121, 121);
+            rjButton2.BackgroundColor = Color.FromArgb(74, 121, 121);
+            rjButton2.BackgroundImage = (Image)resources.GetObject("rjButton2.BackgroundImage");
+            rjButton2.BackgroundImageLayout = ImageLayout.Center;
+            rjButton2.BorderColor = Color.PaleVioletRed;
+            rjButton2.BorderRadius = 10;
+            rjButton2.BorderSize = 0;
+            rjButton2.FlatAppearance.BorderSize = 0;
+            rjButton2.FlatStyle = FlatStyle.Flat;
+            rjButton2.ForeColor = Color.White;
+            rjButton2.ImageAlign = ContentAlignment.MiddleRight;
+            rjButton2.Location = new Point(78, 2);
+            rjButton2.Margin = new Padding(3, 2, 3, 2);
+            rjButton2.Name = "rjButton2";
+            rjButton2.Size = new Size(71, 66);
+            rjButton2.TabIndex = 12;
+            rjButton2.Text = "Limpiar";
+            rjButton2.TextAlign = ContentAlignment.BottomCenter;
+            rjButton2.TextColor = Color.White;
+            rjButton2.UseVisualStyleBackColor = false;
+            rjButton2.Click += btnLimpiar_Click;
+            rjButton2.MouseHover += rjButton2_MouseHover;
             // 
             // txtConfirmarClave
             // 

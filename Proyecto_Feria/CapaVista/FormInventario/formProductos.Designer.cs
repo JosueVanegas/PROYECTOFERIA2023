@@ -48,6 +48,10 @@
             txtNombre = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtIdProducto = new TextBox();
             tbProductos = new ReaLTaiizor.Controls.PoisonDataGridView();
+            txtBuscar = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            lblEncabezado = new Label();
+            cbxBuscar = new ReaLTaiizor.Controls.MaterialComboBox();
+            panelBusqueda = new Panel();
             btnSeleccionar = new DataGridViewButtonColumn();
             btnBorrar = new DataGridViewButtonColumn();
             Id = new DataGridViewTextBoxColumn();
@@ -61,10 +65,6 @@
             NombreProveedor = new DataGridViewTextBoxColumn();
             NombreCategoria = new DataGridViewTextBoxColumn();
             Imagen = new DataGridViewTextBoxColumn();
-            txtBuscar = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            lblEncabezado = new Label();
-            cbxBuscar = new ReaLTaiizor.Controls.MaterialComboBox();
-            panelBusqueda = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)imagenProducto).BeginInit();
@@ -408,7 +408,6 @@
             tbProductos.AllowUserToAddRows = false;
             tbProductos.AllowUserToOrderColumns = true;
             tbProductos.AllowUserToResizeRows = false;
-            tbProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tbProductos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             tbProductos.BackgroundColor = Color.White;
             tbProductos.BorderStyle = BorderStyle.None;
@@ -456,82 +455,6 @@
             tbProductos.TabIndex = 21;
             tbProductos.CellContentClick += tbProductos_CellContentClick;
             tbProductos.CellPainting += tbProductos_CellPainting;
-            // 
-            // btnSeleccionar
-            // 
-            btnSeleccionar.HeaderText = "Editar";
-            btnSeleccionar.Name = "btnSeleccionar";
-            // 
-            // btnBorrar
-            // 
-            btnBorrar.HeaderText = "eliminar";
-            btnBorrar.Name = "btnBorrar";
-            // 
-            // Id
-            // 
-            Id.HeaderText = "ID";
-            Id.Name = "Id";
-            Id.ReadOnly = true;
-            Id.Visible = false;
-            // 
-            // Codigo
-            // 
-            Codigo.HeaderText = "Codigo de barra";
-            Codigo.Name = "Codigo";
-            Codigo.ReadOnly = true;
-            // 
-            // Nombre
-            // 
-            Nombre.HeaderText = "Nombre";
-            Nombre.Name = "Nombre";
-            Nombre.ReadOnly = true;
-            // 
-            // PrecioCompra
-            // 
-            PrecioCompra.HeaderText = "Precio Compra";
-            PrecioCompra.Name = "PrecioCompra";
-            PrecioCompra.ReadOnly = true;
-            PrecioCompra.SortMode = DataGridViewColumnSortMode.NotSortable;
-            // 
-            // PrecioVenta
-            // 
-            PrecioVenta.HeaderText = "Precio Venta";
-            PrecioVenta.Name = "PrecioVenta";
-            PrecioVenta.ReadOnly = true;
-            // 
-            // Cantidad
-            // 
-            Cantidad.HeaderText = "Cantidad";
-            Cantidad.Name = "Cantidad";
-            // 
-            // ProveedorID
-            // 
-            ProveedorID.HeaderText = "Proveedor ID";
-            ProveedorID.Name = "ProveedorID";
-            // 
-            // CategoriaID
-            // 
-            CategoriaID.HeaderText = "CategoriaID";
-            CategoriaID.Name = "CategoriaID";
-            // 
-            // NombreProveedor
-            // 
-            NombreProveedor.HeaderText = "Proveedor";
-            NombreProveedor.Name = "NombreProveedor";
-            NombreProveedor.ReadOnly = true;
-            // 
-            // NombreCategoria
-            // 
-            NombreCategoria.HeaderText = "Categoria";
-            NombreCategoria.Name = "NombreCategoria";
-            NombreCategoria.ReadOnly = true;
-            // 
-            // Imagen
-            // 
-            Imagen.HeaderText = "imagen";
-            Imagen.Name = "Imagen";
-            Imagen.ReadOnly = true;
-            Imagen.Visible = false;
             // 
             // txtBuscar
             // 
@@ -615,6 +538,95 @@
             panelBusqueda.Size = new Size(654, 54);
             panelBusqueda.TabIndex = 27;
             // 
+            // btnSeleccionar
+            // 
+            btnSeleccionar.HeaderText = "Editar";
+            btnSeleccionar.Name = "btnSeleccionar";
+            btnSeleccionar.Width = 59;
+            // 
+            // btnBorrar
+            // 
+            btnBorrar.HeaderText = "eliminar";
+            btnBorrar.Name = "btnBorrar";
+            btnBorrar.Width = 60;
+            // 
+            // Id
+            // 
+            Id.HeaderText = "ID";
+            Id.Name = "Id";
+            Id.ReadOnly = true;
+            Id.Visible = false;
+            // 
+            // Codigo
+            // 
+            Codigo.HeaderText = "Codigo de barra";
+            Codigo.Name = "Codigo";
+            Codigo.ReadOnly = true;
+            Codigo.Width = 59;
+            // 
+            // Nombre
+            // 
+            Nombre.HeaderText = "Nombre";
+            Nombre.Name = "Nombre";
+            Nombre.ReadOnly = true;
+            Nombre.Width = 60;
+            // 
+            // PrecioCompra
+            // 
+            PrecioCompra.HeaderText = "Precio Compra";
+            PrecioCompra.Name = "PrecioCompra";
+            PrecioCompra.ReadOnly = true;
+            PrecioCompra.SortMode = DataGridViewColumnSortMode.NotSortable;
+            PrecioCompra.Width = 59;
+            // 
+            // PrecioVenta
+            // 
+            PrecioVenta.HeaderText = "Precio Venta";
+            PrecioVenta.Name = "PrecioVenta";
+            PrecioVenta.ReadOnly = true;
+            PrecioVenta.Width = 60;
+            // 
+            // Cantidad
+            // 
+            Cantidad.HeaderText = "Cantidad";
+            Cantidad.Name = "Cantidad";
+            Cantidad.Width = 59;
+            // 
+            // ProveedorID
+            // 
+            ProveedorID.HeaderText = "Proveedor ID";
+            ProveedorID.Name = "ProveedorID";
+            ProveedorID.Visible = false;
+            ProveedorID.Width = 60;
+            // 
+            // CategoriaID
+            // 
+            CategoriaID.HeaderText = "CategoriaID";
+            CategoriaID.Name = "CategoriaID";
+            CategoriaID.Visible = false;
+            CategoriaID.Width = 59;
+            // 
+            // NombreProveedor
+            // 
+            NombreProveedor.HeaderText = "Proveedor";
+            NombreProveedor.Name = "NombreProveedor";
+            NombreProveedor.ReadOnly = true;
+            NombreProveedor.Width = 60;
+            // 
+            // NombreCategoria
+            // 
+            NombreCategoria.HeaderText = "Categoria";
+            NombreCategoria.Name = "NombreCategoria";
+            NombreCategoria.ReadOnly = true;
+            NombreCategoria.Width = 59;
+            // 
+            // Imagen
+            // 
+            Imagen.HeaderText = "imagen";
+            Imagen.Name = "Imagen";
+            Imagen.ReadOnly = true;
+            Imagen.Visible = false;
+            // 
             // formProductos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -658,6 +670,8 @@
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCodigoBarra;
         private RJCodeAdvance.RJControls.RJButton btnSeleccionarImagen;
         private PictureBox imagenProducto;
+        private Panel panelBusqueda;
+        private PictureBox pictureBox4;
         private DataGridViewButtonColumn btnSeleccionar;
         private DataGridViewButtonColumn btnBorrar;
         private DataGridViewTextBoxColumn Id;
@@ -671,7 +685,5 @@
         private DataGridViewTextBoxColumn NombreProveedor;
         private DataGridViewTextBoxColumn NombreCategoria;
         private DataGridViewTextBoxColumn Imagen;
-        private Panel panelBusqueda;
-        private PictureBox pictureBox4;
     }
 }
