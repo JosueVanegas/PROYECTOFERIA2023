@@ -590,6 +590,7 @@
             // 
             Cantidad.HeaderText = "Cantidad";
             Cantidad.Name = "Cantidad";
+            Cantidad.ReadOnly = true;
             Cantidad.Width = 59;
             // 
             // ProveedorID

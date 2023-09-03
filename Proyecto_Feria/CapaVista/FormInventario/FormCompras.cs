@@ -180,7 +180,9 @@ namespace CapaVista.FormInventario
                     }
                 }
             }
+            iva = subTotal * Convert.ToDecimal(0.15);
             txtTotal.Text = subTotal.ToString("0.00");
+            txtIva.Text = iva.ToString("0.00");
         }
         private void btnCerrarBusqueda_Click(object sender, EventArgs e)
         {
@@ -229,6 +231,7 @@ namespace CapaVista.FormInventario
                 realizarCompra compra = new realizarCompra
                 {
                     ID_USUARIO = user.id,
+                    iva = Convert.ToDecimal(txtIva.Text),
                     TOTAL = Convert.ToDecimal(txtTotal.Text)
                 };
                 MessageBox.Show(cCompra.procesoCompra(compra, obtenerDetalles()));

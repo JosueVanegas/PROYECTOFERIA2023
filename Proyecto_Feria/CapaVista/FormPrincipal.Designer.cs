@@ -205,7 +205,7 @@ namespace CapaVista
             btnPlanilla.Name = "btnPlanilla";
             btnPlanilla.Size = new Size(74, 71);
             btnPlanilla.TabIndex = 2;
-            btnPlanilla.Text = "Planilla";
+            btnPlanilla.Text = "Empleados";
             btnPlanilla.TextAlign = ContentAlignment.BottomCenter;
             btnPlanilla.TextColor = Color.Black;
             btnPlanilla.UseVisualStyleBackColor = false;
@@ -336,7 +336,7 @@ namespace CapaVista
             // 
             panelVertical_Admin.BackColor = Color.FromArgb(74, 121, 121);
             panelVertical_Admin.ColumnCount = 1;
-            panelVertical_Admin.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 98.0392151F));
+            panelVertical_Admin.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             panelVertical_Admin.Controls.Add(btnBarraVertical, 0, 1);
             panelVertical_Admin.Controls.Add(btnInicio, 0, 2);
             panelVertical_Admin.Controls.Add(btnUsuarios, 0, 5);
@@ -347,13 +347,13 @@ namespace CapaVista
             panelVertical_Admin.Margin = new Padding(4, 2, 4, 2);
             panelVertical_Admin.Name = "panelVertical_Admin";
             panelVertical_Admin.RowCount = 7;
-            panelVertical_Admin.RowStyles.Add(new RowStyle(SizeType.Percent, 4.40867043F));
+            panelVertical_Admin.RowStyles.Add(new RowStyle(SizeType.Percent, 4.40867F));
             panelVertical_Admin.RowStyles.Add(new RowStyle(SizeType.Percent, 13.5300579F));
             panelVertical_Admin.RowStyles.Add(new RowStyle(SizeType.Percent, 16.4122543F));
             panelVertical_Admin.RowStyles.Add(new RowStyle(SizeType.Percent, 16.4122543F));
             panelVertical_Admin.RowStyles.Add(new RowStyle(SizeType.Percent, 16.4122543F));
             panelVertical_Admin.RowStyles.Add(new RowStyle(SizeType.Percent, 16.4122543F));
-            panelVertical_Admin.RowStyles.Add(new RowStyle(SizeType.Percent, 16.4122543F));
+            panelVertical_Admin.RowStyles.Add(new RowStyle(SizeType.Percent, 16.41225F));
             panelVertical_Admin.Size = new Size(66, 659);
             panelVertical_Admin.TabIndex = 2;
             // 
@@ -479,7 +479,7 @@ namespace CapaVista
             btnHerramientas.Name = "btnHerramientas";
             btnHerramientas.Size = new Size(58, 104);
             btnHerramientas.TabIndex = 6;
-            btnHerramientas.Text = "tools";
+            btnHerramientas.Text = "Herramientas";
             btnHerramientas.TextAlign = ContentAlignment.BottomCenter;
             btnHerramientas.TextColor = Color.Black;
             btnHerramientas.UseVisualStyleBackColor = false;

@@ -134,12 +134,12 @@ namespace CapaVista
 
         private void btnPlanilla_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new formPlanilla());
+            abrirFormulario(new FormContenedorEmpleados());
         }
 
         private void btnInicio_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new FormInicio(user));
+           // abrirFormulario(new FormInicio(user));
         }
 
         private void FrmPrincipal_Load(object sender, EventArgs e)

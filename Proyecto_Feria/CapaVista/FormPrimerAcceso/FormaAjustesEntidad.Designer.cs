@@ -33,15 +33,16 @@
             lblTitulo = new Label();
             cbxPais = new ReaLTaiizor.Controls.MaterialComboBox();
             btnCambiar = new RJCodeAdvance.RJControls.RJButton();
-            btnUsuario = new RJCodeAdvance.RJControls.RJButton();
-            lblUsuario = new Label();
             btnGuardar = new RJCodeAdvance.RJControls.RJButton();
             txtDireccion = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtNombreEmpresa = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtCorreo = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            materialTextBoxEdit2 = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            txtTelefono = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             cbxDepartamento = new ReaLTaiizor.Controls.MaterialComboBox();
             pictureBox4 = new PictureBox();
+            txtRubro = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            pickerFecha = new ReaLTaiizor.Controls.PoisonDateTime();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureEmpresa).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
@@ -54,9 +55,9 @@
             pictureEmpresa.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
             pictureEmpresa.BorderSize = 2;
             pictureEmpresa.GradientAngle = 50F;
-            pictureEmpresa.Location = new Point(40, 77);
+            pictureEmpresa.Location = new Point(23, 106);
             pictureEmpresa.Name = "pictureEmpresa";
-            pictureEmpresa.Size = new Size(148, 148);
+            pictureEmpresa.Size = new Size(187, 187);
             pictureEmpresa.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureEmpresa.TabIndex = 0;
             pictureEmpresa.TabStop = false;
@@ -69,7 +70,7 @@
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(421, 48);
             lblTitulo.TabIndex = 51;
-            lblTitulo.Text = "Configuracion sobre la Entidad";
+            lblTitulo.Text = "Información sobre la Empresa";
             lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // cbxPais
@@ -82,21 +83,21 @@
             cbxPais.DropDownHeight = 174;
             cbxPais.DropDownStyle = ComboBoxStyle.DropDownList;
             cbxPais.DropDownWidth = 121;
+            cbxPais.Enabled = false;
             cbxPais.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
             cbxPais.ForeColor = Color.FromArgb(222, 0, 0, 0);
             cbxPais.FormattingEnabled = true;
-            cbxPais.Hint = "Seleccione su Pais";
+            cbxPais.Hint = "Seleccione su País";
             cbxPais.IntegralHeight = false;
             cbxPais.ItemHeight = 43;
-            cbxPais.Items.AddRange(new object[] { "", "Nicaragua", "Afganistán", "Albania", "Alemania", "Andorra", "Angola", "Antigua y Barbuda", "Arabia Saudita", "Argelia", "Argentina", "Armenia", "Australia", "Austria", "Azerbaiyán", "Bahamas", "Bangladés", "Barbados", "Baréin", "Bélgica", "Belice", "Benín", "Bielorrusia", "Birmania (Myanmar)", "Bolivia", "Bosnia y Herzegovina", "Botsuana", "Brasil", "Brunéi", "Bulgaria", "Burkina Faso", "Burundi", "Bután", "Cabo Verde", "Camboya", "Camerún", "Canadá", "Catar", "Chad", "Chile", "China", "Chipre", "Ciudad del Vaticano (Santa Sede)", "Colombia", "Comoras", "Corea del Norte", "Corea del Sur", "Costa de Marfil", "Costa Rica", "Croacia", "Cuba", "Dinamarca", "Dominica", "Ecuador", "Egipto", "El Salvador", "Emiratos Árabes Unidos", "Eritrea", "Eslovaquia", "Eslovenia", "España", "Estados Unidos de América", "Estonia", "Etiopía", "Filipinas", "Finlandia", "Fiyi", "Francia", "Gabón", "Gambia", "Georgia", "Ghana", "Granada", "Grecia", "Guatemala", "Guyana", "Guinea", "Guinea-Bissau", "Guinea Ecuatorial", "Haití", "Honduras", "Hungría", "India", "Indonesia", "Irak", "Irán", "Irlanda", "Islandia", "Islas Marshall", "Islas Salomón", "Israel", "Italia", "Jamaica", "Japón", "Jordania", "Kazajistán", "Kenia", "Kirguistán", "Kiribati", "Kuwait", "Laos", "Lesoto", "Letonia", "Líbano", "Liberia", "Libia", "Liechtenstein", "Lituania", "Luxemburgo", "Macedonia del Norte", "Madagascar", "Malasia", "Malaui", "Maldivas", "Malí", "Malta", "Marruecos", "Mauricio", "Mauritania", "México", "Micronesia", "Moldavia", "Mónaco", "Mongolia", "Montenegro", "Mozambique", "Namibia", "Nauru", "Nepal", "Nicaragua", "Níger", "Nigeria", "Noruega", "Nueva Zelanda", "Omán", "Países Bajos (Holanda)", "Pakistán", "Palaos", "Panamá", "Papúa Nueva Guinea", "Paraguay", "Perú", "Polonia", "Portugal", "Reino Unido", "República Centroafricana", "República Checa", "República del Congo", "República Democrática del Congo (RDC)", "República Dominicana", "Ruanda", "Rumanía", "Rusia", "Samoa", "San Cristóbal y Nieves", "San Marino", "San Vicente y las Granadinas", "Santa Lucía", "Santo Tomé y Príncipe", "Senegal", "Serbia", "Seychelles", "Sierra Leona", "Singapur", "Siria", "Somalia", "Sri Lanka", "Suazilandia (Esuatini)", "Sudáfrica", "Sudán", "Sudán del Sur", "Suecia", "Suiza", "Surinam", "Tailandia", "Tanzania", "Tayikistán", "Timor Oriental", "Togo", "Tonga", "Trinidad y Tobago", "Túnez", "Turkmenistán", "Turquía", "Tuvalu", "Ucrania", "Uganda", "Uruguay", "Uzbekistán", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Yibuti", "Zambia", "Zimbabue" });
-            cbxPais.Location = new Point(233, 234);
+            cbxPais.Items.AddRange(new object[] { "Nicaragua" });
+            cbxPais.Location = new Point(521, 160);
             cbxPais.MaxDropDownItems = 4;
             cbxPais.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbxPais.Name = "cbxPais";
-            cbxPais.Size = new Size(264, 49);
+            cbxPais.Size = new Size(246, 49);
             cbxPais.StartIndex = 0;
             cbxPais.TabIndex = 59;
-            cbxPais.SelectedIndexChanged += cbxPais_SelectedIndexChanged;
             // 
             // btnCambiar
             // 
@@ -111,52 +112,15 @@
             btnCambiar.FlatStyle = FlatStyle.Flat;
             btnCambiar.Font = new Font("Microsoft JhengHei", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnCambiar.ForeColor = Color.White;
-            btnCambiar.Location = new Point(52, 230);
+            btnCambiar.Location = new Point(55, 298);
             btnCambiar.Margin = new Padding(3, 2, 3, 2);
             btnCambiar.Name = "btnCambiar";
-            btnCambiar.Size = new Size(124, 39);
+            btnCambiar.Size = new Size(124, 36);
             btnCambiar.TabIndex = 60;
             btnCambiar.Text = "Cambiar";
             btnCambiar.TextColor = Color.White;
             btnCambiar.UseVisualStyleBackColor = false;
-            // 
-            // btnUsuario
-            // 
-            btnUsuario.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnUsuario.BackColor = Color.FromArgb(63, 63, 70);
-            btnUsuario.BackgroundColor = Color.FromArgb(63, 63, 70);
-            btnUsuario.BackgroundImage = (Image)resources.GetObject("btnUsuario.BackgroundImage");
-            btnUsuario.BackgroundImageLayout = ImageLayout.Center;
-            btnUsuario.BorderColor = Color.PaleVioletRed;
-            btnUsuario.BorderRadius = 10;
-            btnUsuario.BorderSize = 0;
-            btnUsuario.FlatAppearance.BorderSize = 0;
-            btnUsuario.FlatStyle = FlatStyle.Flat;
-            btnUsuario.ForeColor = Color.White;
-            btnUsuario.Location = new Point(138, 313);
-            btnUsuario.Margin = new Padding(3, 2, 3, 2);
-            btnUsuario.Name = "btnUsuario";
-            btnUsuario.Size = new Size(60, 55);
-            btnUsuario.TabIndex = 62;
-            btnUsuario.TextAlign = ContentAlignment.MiddleLeft;
-            btnUsuario.TextColor = Color.White;
-            btnUsuario.UseVisualStyleBackColor = false;
-            btnUsuario.Visible = false;
-            btnUsuario.Click += btnUsuario_Click;
-            btnUsuario.MouseHover += lblUsuario_MouseHover;
-            // 
-            // lblUsuario
-            // 
-            lblUsuario.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblUsuario.ForeColor = SystemColors.ControlDarkDark;
-            lblUsuario.Location = new Point(36, 313);
-            lblUsuario.Name = "lblUsuario";
-            lblUsuario.Size = new Size(96, 48);
-            lblUsuario.TabIndex = 63;
-            lblUsuario.Text = "Creacion de Usuarios";
-            lblUsuario.TextAlign = ContentAlignment.MiddleCenter;
-            lblUsuario.Visible = false;
-            lblUsuario.MouseHover += lblUsuario_MouseHover;
+            btnCambiar.Click += btnCambiar_Click;
             // 
             // btnGuardar
             // 
@@ -171,10 +135,10 @@
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.Font = new Font("Microsoft JhengHei", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnGuardar.ForeColor = Color.White;
-            btnGuardar.Location = new Point(424, 362);
+            btnGuardar.Location = new Point(411, 351);
             btnGuardar.Margin = new Padding(3, 2, 3, 2);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(149, 49);
+            btnGuardar.Size = new Size(224, 46);
             btnGuardar.TabIndex = 65;
             btnGuardar.Text = "Guardar";
             btnGuardar.TextColor = Color.White;
@@ -193,7 +157,7 @@
             txtDireccion.HideSelection = true;
             txtDireccion.Hint = "Ingrese la dirreccion de la Empresa";
             txtDireccion.LeadingIcon = null;
-            txtDireccion.Location = new Point(233, 177);
+            txtDireccion.Location = new Point(233, 215);
             txtDireccion.MaxLength = 32767;
             txtDireccion.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtDireccion.Name = "txtDireccion";
@@ -205,7 +169,7 @@
             txtDireccion.SelectionLength = 0;
             txtDireccion.SelectionStart = 0;
             txtDireccion.ShortcutsEnabled = true;
-            txtDireccion.Size = new Size(516, 48);
+            txtDireccion.Size = new Size(282, 48);
             txtDireccion.TabIndex = 67;
             txtDireccion.TabStop = false;
             txtDireccion.TextAlign = HorizontalAlignment.Center;
@@ -225,7 +189,7 @@
             txtNombreEmpresa.HideSelection = true;
             txtNombreEmpresa.Hint = "Ingrese el nombre de la Empresa";
             txtNombreEmpresa.LeadingIcon = null;
-            txtNombreEmpresa.Location = new Point(233, 120);
+            txtNombreEmpresa.Location = new Point(233, 106);
             txtNombreEmpresa.MaxLength = 32767;
             txtNombreEmpresa.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtNombreEmpresa.Name = "txtNombreEmpresa";
@@ -237,7 +201,7 @@
             txtNombreEmpresa.SelectionLength = 0;
             txtNombreEmpresa.SelectionStart = 0;
             txtNombreEmpresa.ShortcutsEnabled = true;
-            txtNombreEmpresa.Size = new Size(516, 48);
+            txtNombreEmpresa.Size = new Size(282, 48);
             txtNombreEmpresa.TabIndex = 66;
             txtNombreEmpresa.TabStop = false;
             txtNombreEmpresa.TextAlign = HorizontalAlignment.Center;
@@ -255,9 +219,9 @@
             txtCorreo.Depth = 0;
             txtCorreo.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             txtCorreo.HideSelection = true;
-            txtCorreo.Hint = "Ingrese el correo electronico";
+            txtCorreo.Hint = "Ingrese el correo electrónico";
             txtCorreo.LeadingIcon = null;
-            txtCorreo.Location = new Point(233, 289);
+            txtCorreo.Location = new Point(233, 269);
             txtCorreo.MaxLength = 32767;
             txtCorreo.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtCorreo.Name = "txtCorreo";
@@ -277,38 +241,37 @@
             txtCorreo.UseSystemPasswordChar = false;
             txtCorreo.KeyPress += materialTextBoxEdit1_KeyPress;
             // 
-            // materialTextBoxEdit2
+            // txtTelefono
             // 
-            materialTextBoxEdit2.AnimateReadOnly = true;
-            materialTextBoxEdit2.AutoCompleteMode = AutoCompleteMode.None;
-            materialTextBoxEdit2.AutoCompleteSource = AutoCompleteSource.None;
-            materialTextBoxEdit2.BackgroundImageLayout = ImageLayout.None;
-            materialTextBoxEdit2.CharacterCasing = CharacterCasing.Normal;
-            materialTextBoxEdit2.Depth = 0;
-            materialTextBoxEdit2.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            materialTextBoxEdit2.HideSelection = true;
-            materialTextBoxEdit2.Hint = "Ingrese el numero telefonico";
-            materialTextBoxEdit2.LeadingIcon = null;
-            materialTextBoxEdit2.Location = new Point(521, 289);
-            materialTextBoxEdit2.MaxLength = 32767;
-            materialTextBoxEdit2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            materialTextBoxEdit2.Name = "materialTextBoxEdit2";
-            materialTextBoxEdit2.PasswordChar = '\0';
-            materialTextBoxEdit2.PrefixSuffixText = null;
-            materialTextBoxEdit2.ReadOnly = false;
-            materialTextBoxEdit2.RightToLeft = RightToLeft.No;
-            materialTextBoxEdit2.SelectedText = "";
-            materialTextBoxEdit2.SelectionLength = 0;
-            materialTextBoxEdit2.SelectionStart = 0;
-            materialTextBoxEdit2.ShortcutsEnabled = true;
-            materialTextBoxEdit2.Size = new Size(228, 48);
-            materialTextBoxEdit2.TabIndex = 69;
-            materialTextBoxEdit2.TabStop = false;
-            materialTextBoxEdit2.TextAlign = HorizontalAlignment.Center;
-            materialTextBoxEdit2.TrailingIcon = null;
-            materialTextBoxEdit2.UseSystemPasswordChar = false;
-            materialTextBoxEdit2.Visible = false;
-            materialTextBoxEdit2.KeyPress += txtNumeroContacto_KeyPress;
+            txtTelefono.AnimateReadOnly = true;
+            txtTelefono.AutoCompleteMode = AutoCompleteMode.None;
+            txtTelefono.AutoCompleteSource = AutoCompleteSource.None;
+            txtTelefono.BackgroundImageLayout = ImageLayout.None;
+            txtTelefono.CharacterCasing = CharacterCasing.Normal;
+            txtTelefono.Depth = 0;
+            txtTelefono.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTelefono.HideSelection = true;
+            txtTelefono.Hint = "Ingrese el numero telefonico";
+            txtTelefono.LeadingIcon = null;
+            txtTelefono.Location = new Point(521, 216);
+            txtTelefono.MaxLength = 32767;
+            txtTelefono.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtTelefono.Name = "txtTelefono";
+            txtTelefono.PasswordChar = '\0';
+            txtTelefono.PrefixSuffixText = null;
+            txtTelefono.ReadOnly = false;
+            txtTelefono.RightToLeft = RightToLeft.No;
+            txtTelefono.SelectedText = "";
+            txtTelefono.SelectionLength = 0;
+            txtTelefono.SelectionStart = 0;
+            txtTelefono.ShortcutsEnabled = true;
+            txtTelefono.Size = new Size(246, 48);
+            txtTelefono.TabIndex = 69;
+            txtTelefono.TabStop = false;
+            txtTelefono.TextAlign = HorizontalAlignment.Center;
+            txtTelefono.TrailingIcon = null;
+            txtTelefono.UseSystemPasswordChar = false;
+            txtTelefono.KeyPress += txtNumeroContacto_KeyPress;
             // 
             // cbxDepartamento
             // 
@@ -326,15 +289,14 @@
             cbxDepartamento.Hint = "Seleccione su Departamento";
             cbxDepartamento.IntegralHeight = false;
             cbxDepartamento.ItemHeight = 43;
-            cbxDepartamento.Items.AddRange(new object[] { "Boaco", "Carazo", "Chinandega", "Chontales", "Estelí", "Granada", "Jinotega", "León", "Madriz", "Managua", "Masaya", "Matagalpa", "Nueva Segovia", "Rivas", "Río San Juan", "Región Autónoma de la Costa Caribe Norte (RACCN)", "Región Autónoma de la Costa Caribe Sur (RACCS)" });
-            cbxDepartamento.Location = new Point(503, 234);
+            cbxDepartamento.Items.AddRange(new object[] { "Managua", "Boaco", "Carazo", "Chinandega", "Chontales", "Estelí", "Granada", "Jinotega", "León", "Madriz", "Masaya", "Matagalpa", "Nueva Segovia", "Rivas", "Río San Juan", "Región Autónoma de la Costa Caribe Norte (RACCN)", "Región Autónoma de la Costa Caribe Sur (RACCS)" });
+            cbxDepartamento.Location = new Point(521, 105);
             cbxDepartamento.MaxDropDownItems = 4;
             cbxDepartamento.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbxDepartamento.Name = "cbxDepartamento";
             cbxDepartamento.Size = new Size(246, 49);
             cbxDepartamento.StartIndex = 0;
             cbxDepartamento.TabIndex = 70;
-            cbxDepartamento.Visible = false;
             // 
             // pictureBox4
             // 
@@ -347,21 +309,73 @@
             pictureBox4.TabStop = false;
             pictureBox4.MouseHover += pictureBox1_MouseHover;
             // 
+            // txtRubro
+            // 
+            txtRubro.AnimateReadOnly = true;
+            txtRubro.AutoCompleteMode = AutoCompleteMode.None;
+            txtRubro.AutoCompleteSource = AutoCompleteSource.None;
+            txtRubro.BackgroundImageLayout = ImageLayout.None;
+            txtRubro.CharacterCasing = CharacterCasing.Normal;
+            txtRubro.Depth = 0;
+            txtRubro.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtRubro.HideSelection = true;
+            txtRubro.Hint = "ingrese el rubro de la empresa";
+            txtRubro.LeadingIcon = null;
+            txtRubro.Location = new Point(233, 161);
+            txtRubro.MaxLength = 32767;
+            txtRubro.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtRubro.Name = "txtRubro";
+            txtRubro.PasswordChar = '\0';
+            txtRubro.PrefixSuffixText = null;
+            txtRubro.ReadOnly = false;
+            txtRubro.RightToLeft = RightToLeft.No;
+            txtRubro.SelectedText = "";
+            txtRubro.SelectionLength = 0;
+            txtRubro.SelectionStart = 0;
+            txtRubro.ShortcutsEnabled = true;
+            txtRubro.Size = new Size(282, 48);
+            txtRubro.TabIndex = 72;
+            txtRubro.TabStop = false;
+            txtRubro.TextAlign = HorizontalAlignment.Center;
+            txtRubro.TrailingIcon = null;
+            txtRubro.UseSystemPasswordChar = false;
+            // 
+            // pickerFecha
+            // 
+            pickerFecha.CalendarFont = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            pickerFecha.Location = new Point(522, 288);
+            pickerFecha.MinimumSize = new Size(0, 29);
+            pickerFecha.Name = "pickerFecha";
+            pickerFecha.Size = new Size(248, 29);
+            pickerFecha.TabIndex = 73;
+            pickerFecha.UseCustomForeColor = true;
+            pickerFecha.Value = new DateTime(2023, 9, 2, 9, 45, 42, 0);
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(525, 270);
+            label1.Name = "label1";
+            label1.Size = new Size(245, 15);
+            label1.TabIndex = 74;
+            label1.Text = "Seleccione la fecha de creación del negocio   ";
+            // 
             // FormaAjustesEntidad
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoValidate = AutoValidate.EnableAllowFocusChange;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 447);
+            Controls.Add(label1);
+            Controls.Add(pickerFecha);
+            Controls.Add(txtRubro);
             Controls.Add(pictureBox4);
             Controls.Add(cbxDepartamento);
-            Controls.Add(materialTextBoxEdit2);
+            Controls.Add(txtTelefono);
             Controls.Add(txtCorreo);
             Controls.Add(txtDireccion);
             Controls.Add(txtNombreEmpresa);
             Controls.Add(btnGuardar);
-            Controls.Add(lblUsuario);
-            Controls.Add(btnUsuario);
             Controls.Add(btnCambiar);
             Controls.Add(cbxPais);
             Controls.Add(lblTitulo);
@@ -373,9 +387,11 @@
             Name = "FormaAjustesEntidad";
             Padding = new Padding(3, 24, 3, 3);
             Text = "FormaAjustesEntidad";
+            Load += FormaAjustesEntidad_Load;
             ((System.ComponentModel.ISupportInitialize)pictureEmpresa).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -384,14 +400,15 @@
         private Label lblTitulo;
         private ReaLTaiizor.Controls.MaterialComboBox cbxPais;
         private RJCodeAdvance.RJControls.RJButton btnCambiar;
-        private RJCodeAdvance.RJControls.RJButton btnUsuario;
-        private Label lblUsuario;
         private RJCodeAdvance.RJControls.RJButton btnGuardar;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtDireccion;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtNombreEmpresa;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCorreo;
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit materialTextBoxEdit2;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtTelefono;
         private ReaLTaiizor.Controls.MaterialComboBox cbxDepartamento;
         private PictureBox pictureBox4;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtRubro;
+        private ReaLTaiizor.Controls.PoisonDateTime pickerFecha;
+        private Label label1;
     }
 }

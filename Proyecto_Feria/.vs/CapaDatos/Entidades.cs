@@ -1,13 +1,20 @@
-﻿namespace CapaDatos
+﻿using System.Security.Cryptography;
+
+namespace CapaDatos
 {
     public class Entidades
     {
     }
-    public class empresa
+    public class Empresa
     {
-#pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
         public string nombre { get; set; }
-#pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
+        public string rubro { get; set;}
+        public string departamento { get; set; }
+        public string direccion { get; set; }
+        public string email { get; set; }
+        public string telefono { get; set; }
+        public string fechaFundacion { get; set; }
+        public byte[] imagen { get; set; }
     }
     //clases relacionadas con el login y nominas
     public class Empleado
@@ -39,12 +46,8 @@
     public class Rol
     {
         public int id { get; set; }
-#pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
         public string descripcion { get; set; }
-#pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-#pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-        public string fechaRegistro { get; set; }
-#pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
+       public string fechaRegistro { get; set; }
 
         public override string ToString()
         {
@@ -54,10 +57,7 @@
     public class Estado
     {
         public bool estado { get; set; }
-#pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-        public string descripcion { get; set; }
-#pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-
+      public string descripcion { get; set; }
         public override string ToString()
         {
             return descripcion;
@@ -220,6 +220,7 @@
     public class realizarCompra
     {
         public int ID_USUARIO { get; set; }
+        public decimal iva { get; set; }
         public decimal TOTAL { get; set; }
     }
     public class compra
@@ -231,7 +232,7 @@
         public int idUsuario { get; set; }
 #pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
         public string nombreUsuario { get; set; }
-#pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
+        public decimal iva { get; set; }
         public decimal total { get; set; }
 #pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
         public string fechaRegistro { get; set; }

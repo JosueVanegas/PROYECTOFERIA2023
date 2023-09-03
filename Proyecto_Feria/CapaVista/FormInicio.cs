@@ -16,6 +16,7 @@ namespace CapaVista
             mostrarCantidades();
             mostrarTopProductos();
             mostrarVentasSemanaActual();
+            mostrarDatosEmpresa();
             mostrarStockProductos();
             mostrarValorInventario();
             dtFechaFinal.Enabled = true;
@@ -71,6 +72,10 @@ namespace CapaVista
 
             lblCantidadVentas.Text = cantidadVentas.ToString();
             lblTotalVentas.Text = totalVentas.ToString("0.00");
+            if (cantidadVentas == 0 && totalVentas == 0)
+            {
+                MessageBox.Show("No se realizaron ventas en el periodo seleccionado");
+            }
         }
         private void mostrarValorInventario()
         {
@@ -84,23 +89,36 @@ namespace CapaVista
             string fechaFinal = dateTime.ToString("yyyy-MM-dd");
             mostrarVentas(fechaInicio, fechaFinal);
         }
-
         private void dpFechaInicio_ValueChanged(object sender, EventArgs e)
         {
             dtFechaFinal.MinDate = dpFechaInicio.Value;
         }
-
         private void dtFechaFinal_ValueChanged(object sender, EventArgs e)
         {
 
 
         }
-
-        private void btnOrdenarDatos_Click(object sender, EventArgs e)
+        private void btnSeleccionarRango_Click(object sender, EventArgs e)
         {
             string fechaInicio = dpFechaInicio.Value.ToString("yyyy-MM-dd");
             string fechaFinal = dtFechaFinal.Value.ToString("yyyy-MM-dd");
             mostrarVentas(fechaInicio, fechaFinal);
+        }
+        private void mostrarDatosEmpresa()
+        {
+            Empresa emp = new ControlEmpresa().datosEmpresa();
+            if (emp != null)
+            {
+                if (emp.imagen != null)
+                {
+                    lblNombreEmpresa.Text = emp.nombre;
+                    using (MemoryStream memoryStream = new MemoryStream(emp.imagen))
+                    {
+                        Image imagen = Image.FromStream(memoryStream);
+                        pictureLogoEmpresa.Image = imagen;
+                    }
+                }
+            }
         }
     }
 }

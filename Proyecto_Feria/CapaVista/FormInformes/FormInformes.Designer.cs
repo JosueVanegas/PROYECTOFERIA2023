@@ -48,11 +48,13 @@
             btninfoCompras = new RJCodeAdvance.RJControls.RJButton();
             btnInventario = new RJCodeAdvance.RJControls.RJButton();
             pictureBox1 = new PictureBox();
+            pictureBox3 = new PictureBox();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             PanelRangoreport.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // pkrFechaInicio
@@ -64,10 +66,11 @@
             pkrFechaInicio.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
             pkrFechaInicio.MinimumSize = new Size(0, 35);
             pkrFechaInicio.Name = "pkrFechaInicio";
-            pkrFechaInicio.Size = new Size(231, 35);
+            pkrFechaInicio.Size = new Size(145, 35);
             pkrFechaInicio.SkinColor = Color.DarkCyan;
             pkrFechaInicio.TabIndex = 0;
             pkrFechaInicio.TextColor = Color.White;
+            pkrFechaInicio.ValueChanged += pkrFechaInicio_ValueChanged;
             // 
             // pkrFechaFin
             // 
@@ -79,7 +82,7 @@
             pkrFechaFin.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
             pkrFechaFin.MinimumSize = new Size(0, 35);
             pkrFechaFin.Name = "pkrFechaFin";
-            pkrFechaFin.Size = new Size(231, 35);
+            pkrFechaFin.Size = new Size(145, 35);
             pkrFechaFin.SkinColor = Color.LightSlateGray;
             pkrFechaFin.TabIndex = 4;
             pkrFechaFin.TextColor = Color.White;
@@ -95,7 +98,7 @@
             btnPersonalizado.FlatAppearance.BorderSize = 0;
             btnPersonalizado.FlatStyle = FlatStyle.Flat;
             btnPersonalizado.ForeColor = Color.White;
-            btnPersonalizado.Location = new Point(42, 85);
+            btnPersonalizado.Location = new Point(3, 85);
             btnPersonalizado.Name = "btnPersonalizado";
             btnPersonalizado.Size = new Size(150, 40);
             btnPersonalizado.TabIndex = 8;
@@ -111,7 +114,7 @@
             panel3.Controls.Add(btnPersonalizado);
             panel3.Location = new Point(13, 293);
             panel3.Name = "panel3";
-            panel3.Size = new Size(238, 130);
+            panel3.Size = new Size(148, 130);
             panel3.TabIndex = 11;
             // 
             // panel2
@@ -124,9 +127,9 @@
             panel2.Controls.Add(btninfoCompras);
             panel2.Controls.Add(btnInventario);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(3, 0);
+            panel2.Location = new Point(232, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(809, 439);
+            panel2.Size = new Size(479, 499);
             panel2.TabIndex = 12;
             // 
             // pictureBox2
@@ -218,7 +221,7 @@
             btn15Dias.FlatAppearance.BorderSize = 0;
             btn15Dias.FlatStyle = FlatStyle.Flat;
             btn15Dias.ForeColor = Color.White;
-            btn15Dias.Location = new Point(11, 204);
+            btn15Dias.Location = new Point(11, 157);
             btn15Dias.Name = "btn15Dias";
             btn15Dias.Size = new Size(150, 40);
             btn15Dias.TabIndex = 7;
@@ -256,7 +259,7 @@
             btnMesActual.FlatAppearance.BorderSize = 0;
             btnMesActual.FlatStyle = FlatStyle.Flat;
             btnMesActual.ForeColor = Color.White;
-            btnMesActual.Location = new Point(11, 157);
+            btnMesActual.Location = new Point(11, 202);
             btnMesActual.Name = "btnMesActual";
             btnMesActual.Size = new Size(150, 40);
             btnMesActual.TabIndex = 1;
@@ -317,7 +320,7 @@
             btnSemanaActual.Name = "btnSemanaActual";
             btnSemanaActual.Size = new Size(150, 40);
             btnSemanaActual.TabIndex = 0;
-            btnSemanaActual.Text = "Semana Actual";
+            btnSemanaActual.Text = "Semana actual";
             btnSemanaActual.TextColor = Color.White;
             btnSemanaActual.UseVisualStyleBackColor = false;
             btnSemanaActual.Click += FechaUltimaSemana_Click;
@@ -368,21 +371,33 @@
             // 
             pictureBox1.Dock = DockStyle.Right;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(502, 0);
+            pictureBox1.Location = new Point(711, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(310, 439);
+            pictureBox1.Size = new Size(101, 499);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 13;
             pictureBox1.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Dock = DockStyle.Left;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(3, 0);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(229, 499);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 14;
+            pictureBox3.TabStop = false;
             // 
             // FormInformes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(815, 442);
-            Controls.Add(pictureBox1);
+            ClientSize = new Size(815, 502);
             Controls.Add(panel2);
+            Controls.Add(pictureBox3);
+            Controls.Add(pictureBox1);
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
             Name = "FormInformes";
             Padding = new Padding(3, 0, 3, 3);
@@ -394,6 +409,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             PanelRangoreport.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
         }
 
@@ -417,5 +433,6 @@
         private PictureBox pictureBox1;
         private Label lblEncabezado;
         private PictureBox pictureBox2;
+        private PictureBox pictureBox3;
     }
 }

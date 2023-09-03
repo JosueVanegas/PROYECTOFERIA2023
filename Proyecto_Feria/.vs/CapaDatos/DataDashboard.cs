@@ -111,20 +111,25 @@ namespace CapaDatos
         public decimal valorInventario()
         {
             decimal valor = 0;
-            string sqlQuery = "SELECT SUM(CANTIDAD_INVENTARIO * PRECIO_COMPRA) AS VALORINVETARIO FROM PRODUCTO";
+            decimal valorInventario = 0;
+            decimal costoInventario = 0;
+            string query = "SELECT SUM(CANTIDAD_INVENTARIO*PRECIO_VENTA) AS VALOR_INVENTARIO,SUM(CANTIDAD_INVENTARIO*PRECIO_COMPRA) AS COSTO_INVETARIO FROM PRODUCTO";
             using (SqlConnection connection = new conexion().conectar())
             {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand(sqlQuery, connection))
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    object result = command.ExecuteScalar();
-                    if (result != DBNull.Value)
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        valor = Convert.ToDecimal(result);
+                        if (reader.Read())
+                        {
+                        valorInventario = reader.GetDecimal(0);
+                        costoInventario = reader.GetDecimal(1);
+                        }
                     }
-
                 }
             }
+            valor = valorInventario - costoInventario;
             return valor;
         }
     }

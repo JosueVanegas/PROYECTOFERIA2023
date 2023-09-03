@@ -5,13 +5,14 @@ using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
 using ReaLTaiizor.Forms;
 using System.Diagnostics;
+using System.Globalization;
 
 namespace CapaPresentacion.FormInformes
 {
     public partial class FormInformes : MaterialForm
     {
         ControlInforme cInforme = new ControlInforme();
-
+        ReportesTipo reportes = new ReportesTipo();
         Boolean Ventas = false;
         Boolean Inventario = false;
         Boolean Compras = false;
@@ -23,21 +24,13 @@ namespace CapaPresentacion.FormInformes
 
         private void FormInformes_Load(object sender, EventArgs e)
         {
-            pkrFechaFin.MaxDate = DateTime.Now;
-            pkrFechaInicio.MaxDate = pkrFechaFin.Value;
+
         }
 
         private void ReporteHoy_Click(object sender, EventArgs e)
         {
-
             DateTime now = DateTime.Now;
-
-            // Establecer la hora a las 00:00:00 (medianoche) de hoy
-            DateTime startOfToday = now.Date;
-
-            // Formatear las fechas en el formato "dd/MM/yyyy HH:mm:ss"
-            string startOfTodayFormatted = startOfToday.ToString("yyyy-MM-dd");
-            string endOfTodayFormatted = now.ToString("yyyy-MM-dd");
+            string hoy = now.ToString("yyyy-MM-dd");
 
 
             if (Ventas)
@@ -46,7 +39,7 @@ namespace CapaPresentacion.FormInformes
                 try
                 {
                     QuestPDF.Settings.License = LicenseType.Community;
-                    ReportesTipo.VentasCrearReporte_Hoy_Ayer_Mes_15Dias(startOfTodayFormatted.ToString(), endOfTodayFormatted.ToString());
+                    reportes.crearReporteVentas(hoy, hoy,"Informe de ventas del dia de hoy",false,false);
                     Ventas = false;
                 }
                 catch (Exception ex)
@@ -60,7 +53,6 @@ namespace CapaPresentacion.FormInformes
                 try
                 {
                     QuestPDF.Settings.License = LicenseType.Community;
-                    ReportesTipo.InventarioCrearReporte_Hoy_Ayer_Mes_15Dias(startOfTodayFormatted.ToString(), endOfTodayFormatted.ToString());
                     Inventario = false;
 
                 }
@@ -75,7 +67,6 @@ namespace CapaPresentacion.FormInformes
                 try
                 {
                     QuestPDF.Settings.License = LicenseType.Community;
-                    ReportesTipo.ComprasCrearReporte_Hoy_Ayer_Mes_15Dias(startOfTodayFormatted.ToString(), endOfTodayFormatted.ToString());
                     Compras = false;
                 }
 
@@ -91,7 +82,6 @@ namespace CapaPresentacion.FormInformes
                 try
                 {
                     QuestPDF.Settings.License = LicenseType.Community;
-                    ReportesTipo.NominaCrearReporte_Hoy_Ayer_Mes_15Dias(startOfTodayFormatted.ToString(), endOfTodayFormatted.ToString());
                     Nomina = false;
                 }
 
@@ -111,15 +101,9 @@ namespace CapaPresentacion.FormInformes
         }
         private void ReporteAyer_Click(object sender, EventArgs e)
         {
-
             DateTime now = DateTime.Now;
-
-            // Restar un día a la fecha y establecer la hora a las 00:00:00
-            DateTime startOfYesterday = now.Date.AddDays(-1);
-
-            // Formatear las fechas en el formato "dd/MM/yyyy "
-            string startOfYesterdayFormatted = startOfYesterday.ToString("yyyy-MM-dd");
-            string endOfYesterdayFormatted = now.ToString("yyyy-MM-dd");
+            DateTime date = now.Date.AddDays(-1);
+            string ayer = date.ToString("yyyy-MM-dd");
 
             if (Ventas)
             {
@@ -127,13 +111,10 @@ namespace CapaPresentacion.FormInformes
                 try
                 {
                     QuestPDF.Settings.License = LicenseType.Community;
-                    MessageBox.Show("Error: Esta operación solo es válida para el botón btnventas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    ReportesTipo.VentasCrearReporte_Hoy_Ayer_Mes_15Dias(startOfYesterdayFormatted.ToString(), endOfYesterdayFormatted.ToString());
-                    Ventas = false;
+                    reportes.crearReporteVentas(ayer, ayer, "Informe de ventas de ayer",false,false);
                 }
                 catch (Exception ex)
                 {
-                    // Maneja cualquier excepción que pueda ocurrir.
                     MessageBox.Show("Error: " + ex.Message);
                 }
             }
@@ -142,13 +123,9 @@ namespace CapaPresentacion.FormInformes
                 try
                 {
                     QuestPDF.Settings.License = LicenseType.Community;
-                    ReportesTipo.InventarioCrearReporte_Hoy_Ayer_Mes_15Dias(startOfYesterdayFormatted.ToString(), endOfYesterdayFormatted.ToString());
-                    Inventario = false;
-
                 }
                 catch (Exception ex)
                 {
-                    // Maneja cualquier excepción que pueda ocurrir.
                     MessageBox.Show("Error: " + ex.Message);
                 }
             }
@@ -157,37 +134,27 @@ namespace CapaPresentacion.FormInformes
                 try
                 {
                     QuestPDF.Settings.License = LicenseType.Community;
-                    ReportesTipo.ComprasCrearReporte_Hoy_Ayer_Mes_15Dias(startOfYesterdayFormatted.ToString(), endOfYesterdayFormatted.ToString());
                     Compras = false;
                 }
-
                 catch (Exception ex)
                 {
-                    // Maneja cualquier excepción que pueda ocurrir.
                     MessageBox.Show("Error: " + ex.Message);
                 }
-
             }
             if (Nomina)
             {
                 try
                 {
                     QuestPDF.Settings.License = LicenseType.Community;
-                    ReportesTipo.NominaCrearReporte_Hoy_Ayer_Mes_15Dias(startOfYesterdayFormatted.ToString(), endOfYesterdayFormatted.ToString());
                     Nomina = false;
                 }
-
                 catch (Exception ex)
                 {
-                    // Maneja cualquier excepción que pueda ocurrir.
                     MessageBox.Show("Error: " + ex.Message);
                 }
-
             }
-            panelVisible = !panelVisible; // Cambiar el estado de la visibilidad
-
-            PanelRangoreport.Visible = panelVisible; // Aplicar el estado de visibilidad actual al panel
-
+            panelVisible = !panelVisible;
+            PanelRangoreport.Visible = panelVisible;
         }
         private void ReporteMesActual_Click(object sender, EventArgs e)
         {
@@ -198,17 +165,16 @@ namespace CapaPresentacion.FormInformes
             DateTime firstDayOfMonth = new DateTime(now.Year, now.Month, 1);
 
             // Formatear las fechas en el formato "dd/MM/yyyy HH:mm:ss"
-            string startOfMonthFormatted = firstDayOfMonth.ToString("yyyy-MM-dd");
-            string endOfMonthFormatted = now.ToString("yyyy-MM-dd");
-
+            string inicio = firstDayOfMonth.ToString("yyyy-MM-dd");
+            string fin = now.ToString("yyyy-MM-dd");
+            CultureInfo cultureInfo = new CultureInfo("es-ES");
             if (Ventas)
             {
 
                 try
                 {
                     QuestPDF.Settings.License = LicenseType.Community;
-                    MessageBox.Show("Error: Esta operación solo es válida para el botón btnventas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    ReportesTipo.VentasCrearReporte_Hoy_Ayer_Mes_15Dias(startOfMonthFormatted.ToString(), endOfMonthFormatted.ToString());
+                    reportes.crearReporteVentas(inicio,fin,"Informe de ventas del mes de "+now.ToString("MMMM")+" del "+now.Year,false,false);
                     Ventas = false;
                 }
                 catch (Exception ex)
@@ -222,7 +188,7 @@ namespace CapaPresentacion.FormInformes
                 try
                 {
                     QuestPDF.Settings.License = LicenseType.Community;
-                    ReportesTipo.InventarioCrearReporte_Hoy_Ayer_Mes_15Dias(startOfMonthFormatted.ToString(), endOfMonthFormatted.ToString());
+
                     Inventario = false;
 
                 }
@@ -237,7 +203,6 @@ namespace CapaPresentacion.FormInformes
                 try
                 {
                     QuestPDF.Settings.License = LicenseType.Community;
-                    ReportesTipo.ComprasCrearReporte_Hoy_Ayer_Mes_15Dias(startOfMonthFormatted.ToString(), endOfMonthFormatted.ToString());
                     Compras = false;
                 }
 
@@ -253,7 +218,6 @@ namespace CapaPresentacion.FormInformes
                 try
                 {
                     QuestPDF.Settings.License = LicenseType.Community;
-                    ReportesTipo.NominaCrearReporte_Hoy_Ayer_Mes_15Dias(startOfMonthFormatted.ToString(), endOfMonthFormatted.ToString());
                     Nomina = false;
                 }
 
@@ -281,8 +245,8 @@ namespace CapaPresentacion.FormInformes
             DateTime lastDayOfYear = new DateTime(now.Year, 12, 31).Date.AddHours(23).AddMinutes(59).AddSeconds(59);
 
             // Formatear las fechas en el formato "dd/MM/yyyy HH:mm:ss"
-            string startOfYearFormatted = firstDayOfYear.ToString("yyyy-MM-dd");
-            string endOfYearFormatted = lastDayOfYear.ToString("yyyy-MM-dd");
+            string inicio = firstDayOfYear.ToString("yyyy-MM-dd");
+            string final = lastDayOfYear.ToString("yyyy-MM-dd");
 
 
             if (Ventas)
@@ -291,8 +255,7 @@ namespace CapaPresentacion.FormInformes
                 try
                 {
                     QuestPDF.Settings.License = LicenseType.Community;
-                    MessageBox.Show("Error: Esta operación solo es válida para el botón btnventas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    ReportesTipo.VentasCrearReporteAnual(startOfYearFormatted.ToString(), endOfYearFormatted.ToString());
+                    reportes.crearReporteVentas(inicio,final,"",true,true);
                     Ventas = false;
                 }
                 catch (Exception ex)
@@ -306,7 +269,7 @@ namespace CapaPresentacion.FormInformes
                 try
                 {
                     QuestPDF.Settings.License = LicenseType.Community;
-                    ReportesTipo.InventarioCrearReporteAnual(startOfYearFormatted.ToString(), endOfYearFormatted.ToString());
+
                     Inventario = false;
 
                 }
@@ -321,7 +284,6 @@ namespace CapaPresentacion.FormInformes
                 try
                 {
                     QuestPDF.Settings.License = LicenseType.Community;
-                    ReportesTipo.ComprasCrearReporteAnual(startOfYearFormatted.ToString(), endOfYearFormatted.ToString());
                     Compras = false;
                 }
 
@@ -337,7 +299,7 @@ namespace CapaPresentacion.FormInformes
                 try
                 {
                     QuestPDF.Settings.License = LicenseType.Community;
-                    ReportesTipo.NominaReporteAnual(startOfYearFormatted.ToString(), endOfYearFormatted.ToString());
+
                     Nomina = false;
                 }
 
@@ -367,13 +329,11 @@ namespace CapaPresentacion.FormInformes
                 try
                 {
                     QuestPDF.Settings.License = LicenseType.Community;
-                    MessageBox.Show("Error: Esta operación solo es válida para el botón btnventas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    ReportesTipo.VentasCrearReporte_Hoy_Ayer_Mes_15Dias(fi,ff);
+                    reportes.crearReporteVentas(fi, ff,"",false,false);
                     Ventas = false;
                 }
                 catch (Exception ex)
                 {
-                    // Maneja cualquier excepción que pueda ocurrir.
                     MessageBox.Show("Error: " + ex.Message);
                 }
             }
@@ -382,13 +342,11 @@ namespace CapaPresentacion.FormInformes
                 try
                 {
                     QuestPDF.Settings.License = LicenseType.Community;
-                    ReportesTipo.InventarioCrearReporte_Hoy_Ayer_Mes_15Dias(FechaInicio.ToString(), FechaFinal.ToString());
                     Inventario = false;
 
                 }
                 catch (Exception ex)
                 {
-                    // Maneja cualquier excepción que pueda ocurrir.
                     MessageBox.Show("Error: " + ex.Message);
                 }
             }
@@ -397,7 +355,6 @@ namespace CapaPresentacion.FormInformes
                 try
                 {
                     QuestPDF.Settings.License = LicenseType.Community;
-                    ReportesTipo.ComprasCrearReporte_Hoy_Ayer_Mes_15Dias(FechaInicio.ToString(), FechaFinal.ToString());
                     Compras = false;
                 }
 
@@ -413,7 +370,6 @@ namespace CapaPresentacion.FormInformes
                 try
                 {
                     QuestPDF.Settings.License = LicenseType.Community;
-                    ReportesTipo.NominaCrearReporte_Hoy_Ayer_Mes_15Dias(FechaInicio.ToString(), FechaFinal.ToString());
                     Nomina = false;
                 }
 
@@ -432,32 +388,20 @@ namespace CapaPresentacion.FormInformes
         private void FechaUltimaSemana_Click(object sender, EventArgs e)
         {
             DateTime today = DateTime.Today;
-
-            // Calcular la fecha de inicio de la última semana (hace 7 días)
             DateTime startOfLastWeek = today.AddDays(-7);
-
-            // Calcular la fecha de fin de la última semana (hoy menos un día)
             DateTime endOfLastWeek = today.AddDays(0);
-
-            // Formatear las fechas en el formato "dd/MM/yyyy"
-            string startOfLastWeekFormatted = startOfLastWeek.ToString("yyyy-MM-dd");
-            string endOfLastWeekFormatted = endOfLastWeek.ToString("yyyy-MM-dd");
-
-
-
+            string fInicio = startOfLastWeek.ToString("yyyy-MM-dd");
+            string ffin = endOfLastWeek.ToString("yyyy-MM-dd");
             if (Ventas)
             {
-
                 try
                 {
                     QuestPDF.Settings.License = LicenseType.Community;
-                    MessageBox.Show("Error: Esta operación solo es válida para el botón btnventas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    ReportesTipo.VentasCrearReporteSemanalActual(startOfLastWeekFormatted.ToString(), endOfLastWeekFormatted.ToString());
+                    reportes.crearReporteVentas(fInicio, ffin,"",true,false);
                     Ventas = false;
                 }
                 catch (Exception ex)
                 {
-                    // Maneja cualquier excepción que pueda ocurrir.
                     MessageBox.Show("Error: " + ex.Message);
                 }
             }
@@ -466,13 +410,12 @@ namespace CapaPresentacion.FormInformes
                 try
                 {
                     QuestPDF.Settings.License = LicenseType.Community;
-                    ReportesTipo.InventarioCrearReporteSemanalActual(startOfLastWeekFormatted.ToString(), endOfLastWeekFormatted.ToString());
+                    // reportes.InventarioCrearReporteSemanalActual(startOfLastWeekFormatted.ToString(), endOfLastWeekFormatted.ToString());
                     Inventario = false;
 
                 }
                 catch (Exception ex)
                 {
-                    // Maneja cualquier excepción que pueda ocurrir.
                     MessageBox.Show("Error: " + ex.Message);
                 }
             }
@@ -481,13 +424,11 @@ namespace CapaPresentacion.FormInformes
                 try
                 {
                     QuestPDF.Settings.License = LicenseType.Community;
-                    ReportesTipo.ComprasCrearReporteSemanalActual(startOfLastWeekFormatted.ToString(), endOfLastWeekFormatted.ToString());
                     Compras = false;
                 }
 
                 catch (Exception ex)
                 {
-                    // Maneja cualquier excepción que pueda ocurrir.
                     MessageBox.Show("Error: " + ex.Message);
                 }
 
@@ -497,65 +438,46 @@ namespace CapaPresentacion.FormInformes
                 try
                 {
                     QuestPDF.Settings.License = LicenseType.Community;
-                    ReportesTipo.NominaCrearReporteSemanalActual(startOfLastWeekFormatted.ToString(), endOfLastWeekFormatted.ToString());
                     Nomina = false;
                 }
 
                 catch (Exception ex)
                 {
-                    // Maneja cualquier excepción que pueda ocurrir.
                     MessageBox.Show("Error: " + ex.Message);
                 }
 
             }
-            panelVisible = !panelVisible; // Cambiar el estado de la visibilidad
+            panelVisible = !panelVisible;
 
-            PanelRangoreport.Visible = panelVisible; // Aplicar el estado de visibilidad actual al panel
+            PanelRangoreport.Visible = panelVisible;
         }
 
         private bool panelVisible = false;
 
         private void PanelRangoreport_Click(object sender, EventArgs e)
         {
-            panelVisible = !panelVisible; // Cambiar el estado de la visibilidad
-
-            PanelRangoreport.Visible = panelVisible; // Aplicar el estado de visibilidad actual al panel
-
+            panelVisible = !panelVisible;
+            PanelRangoreport.Visible = panelVisible;
             Button boton = sender as Button;
-
-            // Supongamos que btnventas es otro botón que quieres comparar
+            Ventas = false;
+            Inventario = false;
+            Compras = false;
+            Nomina = false;
             if (boton != null && boton == btnInforVentas)
             {
                 Ventas = true;
-                Inventario = false;
-                Compras = false;
-                Nomina = false;
-
             }
             if (boton != null && boton == btnInventario)
             {
-                Ventas = false;
                 Inventario = true;
-                Compras = false;
-                Nomina = false;
-
             }
-
             if (boton != null && boton == btninfoCompras)
             {
-                Ventas = false;
-                Inventario = false;
                 Compras = true;
-                Nomina = false;
-
             }
             if (boton != null && boton == btnNomina)
             {
-                Ventas = false;
-                Inventario = false;
-                Compras = false;
                 Nomina = true;
-
             }
         }
 
@@ -584,8 +506,8 @@ namespace CapaPresentacion.FormInformes
             DateTime last15Days = now.AddDays(-15);
 
             // Formatear las fechas en el formato "dd/MM/yyyy HH:mm:ss"
-            string startFormatted = last15Days.ToString("yyyy-MM-dd");
-            string endFormatted = now.ToString("yyyy-MM-dd");
+            string inicio = last15Days.ToString("yyyy-MM-dd");
+            string final = now.ToString("yyyy-MM-dd");
 
 
             if (Ventas)
@@ -594,8 +516,7 @@ namespace CapaPresentacion.FormInformes
                 try
                 {
                     QuestPDF.Settings.License = LicenseType.Community;
-                    MessageBox.Show("Error: Esta operación solo es válida para el botón btnventas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    ReportesTipo.VentasCrearReporte_Hoy_Ayer_Mes_15Dias(startFormatted.ToString(), endFormatted.ToString());
+                    reportes.crearReporteVentas(inicio,final,"",false,false);
                     Ventas = false;
                 }
                 catch (Exception ex)
@@ -609,7 +530,7 @@ namespace CapaPresentacion.FormInformes
                 try
                 {
                     QuestPDF.Settings.License = LicenseType.Community;
-                    ReportesTipo.InventarioCrearReporte_Hoy_Ayer_Mes_15Dias(startFormatted.ToString(), endFormatted.ToString());
+
                     Inventario = false;
 
                 }
@@ -624,7 +545,7 @@ namespace CapaPresentacion.FormInformes
                 try
                 {
                     QuestPDF.Settings.License = LicenseType.Community;
-                    ReportesTipo.ComprasCrearReporte_Hoy_Ayer_Mes_15Dias(startFormatted.ToString(), endFormatted.ToString());
+
                     Compras = false;
                 }
 
@@ -640,7 +561,7 @@ namespace CapaPresentacion.FormInformes
                 try
                 {
                     QuestPDF.Settings.License = LicenseType.Community;
-                    ReportesTipo.NominaCrearReporte_Hoy_Ayer_Mes_15Dias(startFormatted.ToString(), endFormatted.ToString());
+
                     Nomina = false;
                 }
 
@@ -654,6 +575,11 @@ namespace CapaPresentacion.FormInformes
             panelVisible = !panelVisible; // Cambiar el estado de la visibilidad
 
             PanelRangoreport.Visible = panelVisible; // Aplicar el estado de visibilidad actual al panel
+        }
+
+        private void pkrFechaInicio_ValueChanged(object sender, EventArgs e)
+        {
+            pkrFechaFin.MinDate = pkrFechaInicio.Value;
         }
     }
 }
