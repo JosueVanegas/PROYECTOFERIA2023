@@ -19,8 +19,8 @@ using System.Threading.Tasks;
 
 namespace CapaPresentacion.FormInformes
 {
-    public class  ReportesTipo
-   
+    public class ReportesTipo
+
     {
         public ReportesTipo() { }
         ControlInforme cInformes = new ControlInforme();
@@ -32,7 +32,7 @@ namespace CapaPresentacion.FormInformes
         string fechaInicio = "";
         string fechaFinal = "";
         string tituloRango = "";
-        
+
         //kerlint el pie de pagina y el encabezado es igual en todos los reportes asi que es mejor hacerlos en metodos para solo llamarlos enves de copiar todo
         void Encabezado(IContainer content)
         {
@@ -80,7 +80,7 @@ namespace CapaPresentacion.FormInformes
 
                 column.Item().AlignCenter().Text(txt =>
                 {
-                    if(tituloRango != "")
+                    if (tituloRango != "")
                     {
                         txt.Span(tituloRango).FontSize(15);
                     }
@@ -128,7 +128,7 @@ namespace CapaPresentacion.FormInformes
                             });
                         }
                     }
-                    else 
+                    else
                     {
                         Dictionary<DayOfWeek, decimal> totalesPorDiaSemana = new Dictionary<DayOfWeek, decimal>
                         {
@@ -159,7 +159,7 @@ namespace CapaPresentacion.FormInformes
                             });
                         }
                     }
-                    
+
                     //dibujando el grafico en el pdf
                     column.Item().Column(column =>
                     {
@@ -169,12 +169,12 @@ namespace CapaPresentacion.FormInformes
                          .SemiBold()
                            .FontColor(Colors.Blue.Medium);
                         string rango = "semanales";
-                        if(anual== true)
+                        if (anual == true)
                         { rango = "anuales"; }
                         column
                             .Item()
                             .PaddingBottom(1)
-                            .Text("Grafica de ventas "+rango)
+                            .Text("Grafica de ventas " + rango)
                          .Style(titleStyle);
 
                         column
@@ -216,7 +216,7 @@ namespace CapaPresentacion.FormInformes
                         columns.RelativeColumn(2);
                         columns.RelativeColumn(3);
                     });
-                    
+
                     tab.Header(het =>
                     {
                         het.Cell().Border(1).Background(transparentBlue).Padding(1).Text("No.Factura").FontSize(10);
@@ -252,10 +252,10 @@ namespace CapaPresentacion.FormInformes
                     {
                         col.Item().AlignRight().Text(txt =>
                         {
-                            txt.Span("IVA: "+iva + " C$").FontSize(15);
-                            txt.Span("      Subtotal: "+subTotal+" C$").FontSize(15);
-                            txt.Span("      Descuento: "+descuento + " C$").FontSize(15);
-                            txt.Span("      Total: "+Total + " C$").FontSize(15);
+                            txt.Span("IVA: " + iva + " C$").FontSize(15);
+                            txt.Span("      Subtotal: " + subTotal + " C$").FontSize(15);
+                            txt.Span("      Descuento: " + descuento + " C$").FontSize(15);
+                            txt.Span("      Total: " + Total + " C$").FontSize(15);
                         });
                     });
                 });
@@ -338,9 +338,17 @@ namespace CapaPresentacion.FormInformes
                 });
             });
         }
+        void contenidoCompras(IContainer content)
+        {
+
+        }
+        void contenidonomina(IContainer content)
+        {
+
+        }
 
         //para reportes de ventas
-        public void crearReporteVentas(string desde, string hasta,string tituloRango,bool conGrafica,bool anualreporteAnual)
+        public void crearReporteVentas(string desde, string hasta, string tituloRango, bool conGrafica, bool anualreporteAnual)
         {
             this.fechaInicio = desde;
             fechaFinal = hasta;
@@ -349,51 +357,59 @@ namespace CapaPresentacion.FormInformes
             anual = anualreporteAnual;
             var dox = QuestPDF.Fluent.Document.Create(doc =>
             {
-                    doc.Page(page =>
-                    {
-                        page.Size(PageSizes.Letter);
-                        page.Margin(10);
-                        page.DefaultTextStyle(TextStyle.Default.FontSize(16));
-                        page.PageColor(Colors.White);
-                        page.Background().AlignTop().ExtendHorizontal().Height(100).Background(transparentBlue);
-                        page.Foreground().AlignBottom().ExtendHorizontal().Height(50).Background(transparentBlue);
-                        //estructura ordenada el heater y footer se repite en todos los reportes
-                        page.Header().Element(Encabezado);
-                        page.Content().Element(contenidoVentas);
-                        page.Footer().Element(piePagina);
-                    });
+                doc.Page(page =>
+                {
+                    page.Size(PageSizes.Letter);
+                    page.Margin(10);
+                    page.DefaultTextStyle(TextStyle.Default.FontSize(16));
+                    page.PageColor(Colors.White);
+                    page.Background().AlignTop().ExtendHorizontal().Height(100).Background(transparentBlue);
+                    page.Foreground().AlignBottom().ExtendHorizontal().Height(50).Background(transparentBlue);
+                    //estructura ordenada el heater y footer se repite en todos los reportes
+                    page.Header().Element(Encabezado);
+                    page.Content().Element(contenidoVentas);
+                    page.Footer().Element(piePagina);
                 });
-                var filePath = "invoice.pdf";
-                dox.GeneratePdf(filePath);
-                Process.Start("explorer.exe", filePath);
-        }
-       
-        public void crearReporteInventario()
-        {
-            var dox = QuestPDF.Fluent.Document.Create(doc =>
-            {
-               doc.Page(page =>
-               {
-                  page.Size(PageSizes.Letter);
-                  page.Margin(10);
-                  page.DefaultTextStyle(TextStyle.Default.FontSize(16));
-                  page.PageColor(Colors.White);
-                  page.Background().AlignTop().ExtendHorizontal().Height(100).Background(colorFondoInventario);
-                  page.Header().Element(Encabezado);
-                  page.Footer().Element(piePagina);
-                  page.Content().Element(contenidoInventario);
-               });
             });
             var filePath = "invoice.pdf";
             dox.GeneratePdf(filePath);
             Process.Start("explorer.exe", filePath);
-            
         }
+        public void crearReporteCompras()
+        {
+
+        }
+        public void crearReporteNomina()
+        {
+
+        }
+        public void crearReporteInventario()
+        {
+            var dox = QuestPDF.Fluent.Document.Create(doc =>
+            {
+                doc.Page(page =>
+                {
+                    page.Size(PageSizes.Letter);
+                    page.Margin(10);
+                    page.DefaultTextStyle(TextStyle.Default.FontSize(16));
+                    page.PageColor(Colors.White);
+                    page.Background().AlignTop().ExtendHorizontal().Height(100).Background(colorFondoInventario);
+                    page.Header().Element(Encabezado);
+                    page.Footer().Element(piePagina);
+                    page.Content().Element(contenidoInventario);
+                });
+            });
+            var filePath = "invoice.pdf";
+            dox.GeneratePdf(filePath);
+            Process.Start("explorer.exe", filePath);
+
+        }
+
         public void exportarAExcelInventario()
         {
             List<informeInventario> lista = cInformes.datosInventario();
             IWorkbook workbook = new XSSFWorkbook();
-            ISheet hoja = workbook.CreateSheet("inventario "+DateTime.Now.ToString("dd/MM/yyyy"));
+            ISheet hoja = workbook.CreateSheet("inventario " + DateTime.Now.ToString("dd/MM/yyyy"));
             IRow filaEncabezados = hoja.CreateRow(0);
             filaEncabezados.CreateCell(0).SetCellValue("Codigo");
             filaEncabezados.CreateCell(1).SetCellValue("Producto");
@@ -431,6 +447,14 @@ namespace CapaPresentacion.FormInformes
 
                 MessageBox.Show("Los datos se han exportado exitosamente a Excel.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+        public void exportarAExcelCompras()
+        {
+
+        }
+        public void exportarAExcelNomina()
+        {
+
         }
         public void exportarAExcelVentas(string fechaInicio,string fechaFinal)
         {

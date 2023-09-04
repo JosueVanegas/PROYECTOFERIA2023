@@ -85,6 +85,75 @@ namespace CapaDatos
             }
             return lista;
         }
+
+        public nomina calcularnomina(Empleado e, int horasTrabajadas, int horasExtras)
+        {
+            nomina no = new nomina();
+            decimal valorhoras = e.salarioHora;
+            decimal valorHorasExtras = valorhoras * 2;
+            no.trabajador = e.nombres + " " + e.apellidos;
+            no.cargo = e.cargo;
+            no.salarioHora = valorhoras;
+            no.horastrabajadas = horasTrabajadas;
+            no.montoHorasTrabajadas = Convert.ToDecimal(horasTrabajadas) *valorhoras;
+            no.horasExtras = horasExtras;
+            no.montoHorasExtras = Convert.ToDecimal(horasExtras) * valorHorasExtras;
+            no.salarioDevengado = no.montoHorasTrabajadas + no.montoHorasExtras;
+            no.inss = no.salarioDevengado * Convert.ToDecimal(0.07);
+            no.ir = calcularIR(no.salarioDevengado);
+            no.totalDeducciones = no.inss + no.ir;
+            no.salarioNeto = no.salarioDevengado - no.totalDeducciones;
+            return no;
+        }
+        private decimal calcularIR(decimal salariodevengado)
+        {
+            decimal salario = 0, INSS = 0, IR = 0, suma = 0, NETO, impuestoBase = 0, porcetajeAplicable = 0, sobreExceso = 0;
+            if (salariodevengado!= 0)
+            {
+                salario = salariodevengado;
+
+                INSS = salario * Convert.ToDecimal(0.07);
+                suma = salario - INSS;
+                suma = suma * 12;
+
+                if ((suma >= Convert.ToDecimal(0.01)) && (suma <= 100000))
+                {
+                    impuestoBase = 0;
+                    porcetajeAplicable = 0;
+                    sobreExceso = 0;
+                }
+                else if ((suma > 100000) && (suma <= 200000))
+                {
+                    impuestoBase = 0;
+                    porcetajeAplicable = Convert.ToDecimal(0.15);
+                    sobreExceso = 100000;
+                }
+                else if ((suma > 200000) && (suma <= 350000))
+                {
+                    impuestoBase = 15000;
+                    porcetajeAplicable = Convert.ToDecimal(0.20);
+                    sobreExceso = 200000;
+                }
+                else if ((suma > 350000) && (suma <= 500000))
+                {
+                    impuestoBase = 45000;
+                    porcetajeAplicable = Convert.ToDecimal(0.25);
+                    sobreExceso = 350000;
+                }
+                else if (suma > 500000)
+                {
+                    impuestoBase = 82500;
+                    porcetajeAplicable = Convert.ToDecimal(0.30);
+                    sobreExceso = 500000;
+                }
+                suma = suma - sobreExceso;
+                suma = suma * porcetajeAplicable;
+                suma = suma + impuestoBase;
+
+                IR = suma / 12;
+            }
+            return IR;
+        }
     }
 }
 

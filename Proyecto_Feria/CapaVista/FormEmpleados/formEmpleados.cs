@@ -168,7 +168,7 @@ namespace CapaVista
                     correo = txtCorreo.Text,
                     direccion = txtDireccion.Text,
                     cargo = txtCargo.Text,
-                    salario = Convert.ToDecimal(txtSalario.Text),
+                    salarioHora = Convert.ToDecimal(txtSalario.Text),
                     telefono = txtTelefono.Text
 
                 };
@@ -200,7 +200,7 @@ namespace CapaVista
             foreach (Empleado e in lista)
             {
                 tbEmpleados.Rows.Add("", "", e.id, e.cedula, e.nombres, e.apellidos, e.sexo, e.nacimiento, e.telefono
-                    , e.direccion, e.correo, e.cargo, e.salario, e.fechaRegistro);
+                    , e.direccion, e.correo, e.cargo, e.salarioHora, e.fechaRegistro);
             }
         }
         private void eliminarEmpleado(int id)

@@ -14,5 +14,9 @@ namespace CapaControlador
         {
             return dInforme.ObtenerDatosInformeInventario();
         }
+        public nomina calcularnomina(Empleado empleado,int horasTrabajadas,int horasExtras)
+        {
+            return dInforme.calcularnomina(empleado, horasTrabajadas, horasExtras);
+        }
     }
 }

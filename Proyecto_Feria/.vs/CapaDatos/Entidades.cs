@@ -29,7 +29,7 @@ namespace CapaDatos
       public string direccion { get; set; }
       public string correo { get; set; }
       public string cargo { get; set; }
-      public decimal salario { get; set; }
+      public decimal salarioHora { get; set; }
       public string fechaRegistro { get; set; }
     }
     public class comboEmpleado
@@ -86,15 +86,9 @@ namespace CapaDatos
     public class Categoria
     {
         public int id { get; set; }
-#pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-        public string nombre { get; set; }
-#pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-#pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-        public Estado oEstado { get; set; }
-#pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-#pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-        public string fechaRegistro { get; set; }
-#pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
+ public string nombre { get; set; }
+ public Estado oEstado { get; set; }
+  public string fechaRegistro { get; set; }
 
         public override string ToString()
         {
@@ -105,24 +99,12 @@ namespace CapaDatos
     public class Proveedor
     {
         public int id { get; set; }
-#pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-        public string nombreProveedor { get; set; }
-#pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-#pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-        public string nombreContacto { get; set; }
-#pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-#pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-        public string numeroContacto { get; set; }
-#pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-#pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-        public string pais { get; set; }
-#pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-#pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-        public string ciudad { get; set; }
-#pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-#pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-        public string fechaRegistro { get; set; }
-#pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
+ public string nombreProveedor { get; set; }
+ public string nombreContacto { get; set; }
+public string numeroContacto { get; set; }
+ public string pais { get; set; }
+public string ciudad { get; set; }
+public string fechaRegistro { get; set; }
 
         public override string ToString()
         {
@@ -144,19 +126,11 @@ namespace CapaDatos
     }
     public class Cliente
     {
-        public int id { get; set; }
-#pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-        public string nombre { get; set; }
-#pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-#pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-        public string apellido { get; set; }
-#pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-#pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-        public string telefono { get; set; }
-#pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-#pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-        public string fechaRegistro { get; set; }
-#pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
+ public int id { get; set; }
+ public string nombre { get; set; }
+ public string apellido { get; set; }
+ public string telefono { get; set; }
+ public string fechaRegistro { get; set; }
     }
     public class ResumenVenta
     {
@@ -261,5 +235,20 @@ namespace CapaDatos
         public decimal precioVenta { get; set; }
         public int cantidad { get; set; }
         public string fecha { get; set; }
+    }
+    public class nomina
+    {
+        public string trabajador { get; set; }
+        public string cargo { get; set; }
+        public decimal salarioHora { get; set; }
+        public int horastrabajadas { get; set; }
+        public decimal montoHorasTrabajadas { get; set; }
+        public int horasExtras { get; set; }
+        public decimal montoHorasExtras { get; set; }
+        public decimal salarioDevengado { get; set; }
+        public decimal inss { get; set; }
+        public decimal ir { get; set; }
+        public decimal totalDeducciones { get; set; }
+        public decimal salarioNeto { get; set; }
     }
 }

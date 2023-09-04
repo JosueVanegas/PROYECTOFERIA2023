@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaControlador;
 using CapaDatos;
-using static iTextSharp.awt.geom.Point2D;
 
 namespace CapaPresentacion.FormsHerramientas
 {

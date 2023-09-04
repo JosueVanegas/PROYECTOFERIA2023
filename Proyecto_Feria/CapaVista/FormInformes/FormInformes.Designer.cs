@@ -282,7 +282,7 @@
             btnNomina.TextAlign = ContentAlignment.BottomCenter;
             btnNomina.TextColor = Color.White;
             btnNomina.UseVisualStyleBackColor = false;
-            btnNomina.Click += PanelRangoreport_Click;
+            btnNomina.Click += btnNomina_Click;
             // 
             // btnInforVentas
             // 

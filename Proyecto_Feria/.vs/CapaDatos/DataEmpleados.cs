@@ -34,7 +34,7 @@ namespace CapaDatos
                                     direccion = reader[7].ToString(),
                                     correo = reader[8].ToString(),
                                     cargo = reader[9].ToString(),
-                                    salario = Convert.ToDecimal(reader[10]),
+                                    salarioHora = Convert.ToDecimal(reader[10]),
                                     fechaRegistro = reader[11].ToString()
                                 });
                             }
@@ -67,7 +67,7 @@ namespace CapaDatos
                     comand.Parameters.AddWithValue("@DIRECCION", emp.direccion);
                     comand.Parameters.AddWithValue("@CORREO", emp.correo);
                     comand.Parameters.AddWithValue("@CARGO ", emp.cargo);
-                    comand.Parameters.AddWithValue("@SALARIO", emp.salario);
+                    comand.Parameters.AddWithValue("@SALARIO", emp.salarioHora);
                     comand.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     comand.ExecuteNonQuery();
                     mensaje = comand.Parameters["mensaje"].Value.ToString();

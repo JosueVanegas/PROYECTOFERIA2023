@@ -583,5 +583,11 @@ namespace CapaPresentacion.FormInformes
                 excel = true;
             }
         }
+
+        private void btnNomina_Click(object sender, EventArgs e)
+        {
+            FormRealizarNomina frn = new FormRealizarNomina(excel);
+            frn.ShowDialog();
+        }
     }
 }
