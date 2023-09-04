@@ -16,6 +16,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuestPDF.Infrastructure;
 using IContainer = QuestPDF.Infrastructure.IContainer;
+using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
 
 namespace CapaPresentacion.FormInformes
 {
@@ -78,8 +80,15 @@ namespace CapaPresentacion.FormInformes
                 }
                 if(nominas.Count > 0)
                 {
-                    QuestPDF.Settings.License = LicenseType.Community;
-                    crearPdf();
+                    if(excel == true)
+                    {
+                        exportarAExcelInventario();
+                    }
+                    else
+                    {
+                        QuestPDF.Settings.License = LicenseType.Community;
+                        crearPdf();
+                    } 
                 }
                 else
                 {
@@ -244,7 +253,56 @@ namespace CapaPresentacion.FormInformes
                 });
             });
         }
+        public void exportarAExcelInventario()
+        {
+            IWorkbook workbook = new XSSFWorkbook();
+            ISheet hoja = workbook.CreateSheet("Nómina periodo " + DateTime.Now.ToString("dd_MM_yyyy"));
+            IRow filaEncabezados = hoja.CreateRow(0);
+            filaEncabezados.CreateCell(0).SetCellValue("Nombre del trabajador");
+            filaEncabezados.CreateCell(1).SetCellValue("Cargo");
+            filaEncabezados.CreateCell(2).SetCellValue("Salario hora");
+            filaEncabezados.CreateCell(3).SetCellValue("Horas trabajadas");
+            filaEncabezados.CreateCell(4).SetCellValue("Monto horas trabajadas");
+            filaEncabezados.CreateCell(5).SetCellValue("Horas extras trabajadas");
+            filaEncabezados.CreateCell(6).SetCellValue("Monto horas extras");
+            filaEncabezados.CreateCell(7).SetCellValue("Salario devengado");
+            filaEncabezados.CreateCell(8).SetCellValue("INNS laboral");
+            filaEncabezados.CreateCell(9).SetCellValue("IR laboral");
+            filaEncabezados.CreateCell(10).SetCellValue("Total en deducción");
+            filaEncabezados.CreateCell(11).SetCellValue("Salario neto a recibir");
+            for (int i = 0; i < nominas.Count; i++)
+            {
+                IRow fila = hoja.CreateRow(i + 1);
+                fila.CreateCell(0).SetCellValue(nominas[i].trabajador);
+                fila.CreateCell(1).SetCellValue(nominas[i].cargo);
+                fila.CreateCell(2).SetCellValue((double)nominas[i].salarioHora);
+                fila.CreateCell(3).SetCellValue((int)nominas[i].horastrabajadas);
+                fila.CreateCell(4).SetCellValue((double)nominas[i].montoHorasTrabajadas);
+                fila.CreateCell(5).SetCellValue((int)nominas[i].horasExtras);
+                fila.CreateCell(6).SetCellValue((double)nominas[i].montoHorasExtras);
+                fila.CreateCell(7).SetCellValue((double)nominas[i].salarioDevengado);
+                fila.CreateCell(8).SetCellValue((double)nominas[i].inss);
+                fila.CreateCell(9).SetCellValue((double)nominas[i].ir);
+                fila.CreateCell(10).SetCellValue((double)nominas[i].totalDeducciones);
+                fila.CreateCell(11).SetCellValue((double)nominas[i].salarioNeto);
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                hoja.AutoSizeColumn(i);
+            }
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Archivos de Excel|*.xlsx";
 
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                using (var fs = new FileStream(saveFileDialog.FileName, FileMode.Create))
+                {
+                    workbook.Write(fs);
+                }
+
+                MessageBox.Show("Los datos se han exportado exitosamente a Excel.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow fila in tbEmpleados.Rows)

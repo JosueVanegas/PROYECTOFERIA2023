@@ -29,18 +29,31 @@
         private void InitializeComponent()
         {
             panelCodigo = new Panel();
+            imagenCodigo = new PictureBox();
             txtCodigo = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             rjButton1 = new RJCodeAdvance.RJControls.RJButton();
-            rjButton2 = new RJCodeAdvance.RJControls.RJButton();
+            panelCodigo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)imagenCodigo).BeginInit();
             SuspendLayout();
             // 
             // panelCodigo
             // 
             panelCodigo.BackColor = Color.White;
+            panelCodigo.Controls.Add(imagenCodigo);
             panelCodigo.Location = new Point(53, 37);
             panelCodigo.Name = "panelCodigo";
             panelCodigo.Size = new Size(311, 168);
             panelCodigo.TabIndex = 3;
+            // 
+            // imagenCodigo
+            // 
+            imagenCodigo.Dock = DockStyle.Fill;
+            imagenCodigo.Location = new Point(0, 0);
+            imagenCodigo.Name = "imagenCodigo";
+            imagenCodigo.Size = new Size(311, 168);
+            imagenCodigo.SizeMode = PictureBoxSizeMode.StretchImage;
+            imagenCodigo.TabIndex = 0;
+            imagenCodigo.TabStop = false;
             // 
             // txtCodigo
             // 
@@ -54,7 +67,7 @@
             txtCodigo.HideSelection = true;
             txtCodigo.Hint = "Ingrese el codigo de barra";
             txtCodigo.LeadingIcon = null;
-            txtCodigo.Location = new Point(96, 211);
+            txtCodigo.Location = new Point(53, 211);
             txtCodigo.MaxLength = 32767;
             txtCodigo.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtCodigo.Name = "txtCodigo";
@@ -66,12 +79,13 @@
             txtCodigo.SelectionLength = 0;
             txtCodigo.SelectionStart = 0;
             txtCodigo.ShortcutsEnabled = true;
-            txtCodigo.Size = new Size(221, 48);
+            txtCodigo.Size = new Size(311, 48);
             txtCodigo.TabIndex = 4;
             txtCodigo.TabStop = false;
             txtCodigo.TextAlign = HorizontalAlignment.Center;
             txtCodigo.TrailingIcon = null;
             txtCodigo.UseSystemPasswordChar = false;
+            txtCodigo.TextChanged += txtCodigo_TextChanged;
             // 
             // rjButton1
             // 
@@ -86,45 +100,22 @@
             rjButton1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             rjButton1.ForeColor = Color.White;
             rjButton1.ImageAlign = ContentAlignment.MiddleRight;
-            rjButton1.Location = new Point(157, 314);
+            rjButton1.Location = new Point(130, 264);
             rjButton1.Margin = new Padding(3, 2, 3, 2);
             rjButton1.Name = "rjButton1";
-            rjButton1.Size = new Size(112, 40);
+            rjButton1.Size = new Size(156, 39);
             rjButton1.TabIndex = 66;
             rjButton1.Text = "Guardar";
             rjButton1.TextAlign = ContentAlignment.BottomCenter;
             rjButton1.TextColor = Color.White;
             rjButton1.UseVisualStyleBackColor = false;
-            // 
-            // rjButton2
-            // 
-            rjButton2.BackColor = Color.DarkSlateGray;
-            rjButton2.BackgroundColor = Color.DarkSlateGray;
-            rjButton2.BackgroundImageLayout = ImageLayout.Center;
-            rjButton2.BorderColor = Color.PaleVioletRed;
-            rjButton2.BorderRadius = 17;
-            rjButton2.BorderSize = 0;
-            rjButton2.FlatAppearance.BorderSize = 0;
-            rjButton2.FlatStyle = FlatStyle.Flat;
-            rjButton2.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            rjButton2.ForeColor = Color.White;
-            rjButton2.ImageAlign = ContentAlignment.MiddleRight;
-            rjButton2.Location = new Point(121, 270);
-            rjButton2.Margin = new Padding(3, 2, 3, 2);
-            rjButton2.Name = "rjButton2";
-            rjButton2.Size = new Size(182, 40);
-            rjButton2.TabIndex = 67;
-            rjButton2.Text = "Generar Codigo";
-            rjButton2.TextAlign = ContentAlignment.BottomCenter;
-            rjButton2.TextColor = Color.White;
-            rjButton2.UseVisualStyleBackColor = false;
+            rjButton1.Click += btnGuardar_Click;
             // 
             // FormGenerarCodigoBarra
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(406, 368);
-            Controls.Add(rjButton2);
             Controls.Add(rjButton1);
             Controls.Add(txtCodigo);
             Controls.Add(panelCodigo);
@@ -135,6 +126,8 @@
             MinimizeBox = false;
             Name = "FormGenerarCodigoBarra";
             Padding = new Padding(3, 24, 3, 3);
+            panelCodigo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)imagenCodigo).EndInit();
             ResumeLayout(false);
         }
 
@@ -149,6 +142,6 @@
 #pragma warning restore CS0169 // El campo 'FormGenerarCodigoBarra.btnGenerar' nunca se usa
 
         private RJCodeAdvance.RJControls.RJButton rjButton1;
-        private RJCodeAdvance.RJControls.RJButton rjButton2;
+        private PictureBox imagenCodigo;
     }
 }

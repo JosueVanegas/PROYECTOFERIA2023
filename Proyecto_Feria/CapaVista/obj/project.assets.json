@@ -46,15 +46,6 @@
           }
         }
       },
-      "BouncyCastle/1.8.9": {
-        "type": "package",
-        "compile": {
-          "lib/BouncyCastle.Crypto.dll": {}
-        },
-        "runtime": {
-          "lib/BouncyCastle.Crypto.dll": {}
-        }
-      },
       "BouncyCastle.Cryptography/2.2.1": {
         "type": "package",
         "compile": {
@@ -134,18 +125,6 @@
             "assetType": "native",
             "rid": "win-x86"
           }
-        }
-      },
-      "iTextSharp/5.5.13.3": {
-        "type": "package",
-        "dependencies": {
-          "BouncyCastle": "1.8.9"
-        },
-        "compile": {
-          "lib/itextsharp.dll": {}
-        },
-        "runtime": {
-          "lib/itextsharp.dll": {}
         }
       },
       "MathNet.Numerics.Signed/4.15.0": {
@@ -1328,6 +1307,15 @@
           }
         }
       },
+      "Zen.Barcode.Rendering.Framework/3.1.10729.1": {
+        "type": "package",
+        "compile": {
+          "lib/Zen.Barcode.Core.dll": {}
+        },
+        "runtime": {
+          "lib/Zen.Barcode.Core.dll": {}
+        }
+      },
       "CapaControlador/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -1398,19 +1386,6 @@
         "azureicon.png",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
-      ]
-    },
-    "BouncyCastle/1.8.9": {
-      "sha512": "axnBgvdD5n+FnEG6efk/tfKuMFru7R/EoISH9zjh319yb3HD24TEHSAbNN/lTRT2ulOGRxDgOsCjkuk08iwWPg==",
-      "type": "package",
-      "path": "bouncycastle/1.8.9",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "bouncycastle.1.8.9.nupkg.sha512",
-        "bouncycastle.nuspec",
-        "lib/BouncyCastle.Crypto.dll"
       ]
     },
     "BouncyCastle.Cryptography/2.2.1": {
@@ -1584,22 +1559,6 @@
         "runtimes/win-arm64/native/libHarfBuzzSharp.dll",
         "runtimes/win-x64/native/libHarfBuzzSharp.dll",
         "runtimes/win-x86/native/libHarfBuzzSharp.dll"
-      ]
-    },
-    "iTextSharp/5.5.13.3": {
-      "sha512": "vtnMhTEJdZFCkLqaQLjD8aqTBIVKHPrSFuSXnxbLEJlvE/j/l88fvG9wtsejXTmhtErMo0lA9T2LdfdfbwplYw==",
-      "type": "package",
-      "path": "itextsharp/5.5.13.3",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.md",
-        "gnu-agpl-v3.0.md",
-        "itextsharp.5.5.13.3.nupkg.sha512",
-        "itextsharp.nuspec",
-        "lib/iTextSharp.xml",
-        "lib/itextsharp.dll",
-        "notice.txt"
       ]
     },
     "MathNet.Numerics.Signed/4.15.0": {
@@ -3679,6 +3638,23 @@
         "winforms.datavisualization.nuspec"
       ]
     },
+    "Zen.Barcode.Rendering.Framework/3.1.10729.1": {
+      "sha512": "84Oi15A4V8eOY7BA51iLhbThxB/bGSxNS0baxbWfhpBcZoF5NBRR4QHrEbDg2VoPI+s2DA82qaO1Z2/TMDo7sg==",
+      "type": "package",
+      "path": "zen.barcode.rendering.framework/3.1.10729.1",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.txt",
+        "lib/Zen.Barcode.Core.dll",
+        "tools/BarcodeRender.exe",
+        "tools/BarcodeRender.exe.config",
+        "tools/Zen.Barcode.Core.dll",
+        "zen.barcode.rendering.framework.3.1.10729.1.nupkg.sha512",
+        "zen.barcode.rendering.framework.nuspec"
+      ]
+    },
     "CapaControlador/1.0.0": {
       "type": "project",
       "path": "../.vs/CapaControlador/CapaControlador.csproj",
@@ -3704,7 +3680,7 @@
       "ReaLTaiizor >= 3.7.9.4",
       "System.Data.SqlClient >= 4.8.5",
       "WinForms.DataVisualization >= 1.8.0",
-      "iTextSharp >= 5.5.13.3"
+      "Zen.Barcode.Rendering.Framework >= 3.1.10729.1"
     ]
   },
   "packageFolders": {
@@ -3798,9 +3774,9 @@
             "target": "Package",
             "version": "[1.8.0, )"
           },
-          "iTextSharp": {
+          "Zen.Barcode.Rendering.Framework": {
             "target": "Package",
-            "version": "[5.5.13.3, )"
+            "version": "[3.1.10729.1, )"
           }
         },
         "imports": [
@@ -3831,28 +3807,18 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "El paquete \"BouncyCastle 1.8.9\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net6.0-windows7.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
-      "libraryId": "BouncyCastle",
-      "targetGraphs": [
-        "net6.0-windows7.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "El paquete \"iTextSharp 5.5.13.3\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net6.0-windows7.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
-      "libraryId": "iTextSharp",
-      "targetGraphs": [
-        "net6.0-windows7.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
       "message": "El paquete \"RJCodeAdvance.RJControls 1.0.0\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net6.0-windows7.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
       "libraryId": "RJCodeAdvance.RJControls",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "El paquete \"Zen.Barcode.Rendering.Framework 3.1.10729.1\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net6.0-windows7.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "libraryId": "Zen.Barcode.Rendering.Framework",
       "targetGraphs": [
         "net6.0-windows7.0"
       ]

@@ -40,14 +40,6 @@
           }
         }
       },
-      "BouncyCastle/1.8.9": {
-        "runtime": {
-          "lib/BouncyCastle.Crypto.dll": {
-            "assemblyVersion": "1.8.9.0",
-            "fileVersion": "1.8.20343.1"
-          }
-        }
-      },
       "BouncyCastle.Cryptography/2.2.1": {
         "runtime": {
           "lib/net6.0/BouncyCastle.Cryptography.dll": {
@@ -101,17 +93,6 @@
             "rid": "win-x86",
             "assetType": "native",
             "fileVersion": "0.0.0.0"
-          }
-        }
-      },
-      "iTextSharp/5.5.13.3": {
-        "dependencies": {
-          "BouncyCastle": "1.8.9"
-        },
-        "runtime": {
-          "lib/itextsharp.dll": {
-            "assemblyVersion": "5.5.13.3",
-            "fileVersion": "5.5.13.3"
           }
         }
       },
@@ -945,6 +926,14 @@
             "fileVersion": "1.8.0.0"
           }
         }
+      },
+      "Zen.Barcode.Rendering.Framework/3.1.10729.1": {
+        "runtime": {
+          "lib/Zen.Barcode.Core.dll": {
+            "assemblyVersion": "3.1.0.0",
+            "fileVersion": "3.1.10729.65535"
+          }
+        }
       }
     }
   },
@@ -962,13 +951,6 @@
       "sha512": "sha512-eHEiCO/8+MfNc9nH5dVew/+FvxdaGrkRL4OMNwIz0W79+wtJyEoeRlXJ3SrXhoy9XR58geBYKmzMR83VO7bcAw==",
       "path": "azure.identity/1.7.0",
       "hashPath": "azure.identity.1.7.0.nupkg.sha512"
-    },
-    "BouncyCastle/1.8.9": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-axnBgvdD5n+FnEG6efk/tfKuMFru7R/EoISH9zjh319yb3HD24TEHSAbNN/lTRT2ulOGRxDgOsCjkuk08iwWPg==",
-      "path": "bouncycastle/1.8.9",
-      "hashPath": "bouncycastle.1.8.9.nupkg.sha512"
     },
     "BouncyCastle.Cryptography/2.2.1": {
       "type": "package",
@@ -1004,13 +986,6 @@
       "sha512": "sha512-Wo6QpE4+a+PFVdfIBoLkLr4wq2uC0m9TZC8FAfy4ZnLsUc10WL0Egk9EBHHhDCeokNOXDse5YtvuTYtS/rbHfg==",
       "path": "harfbuzzsharp.nativeassets.win32/2.8.2.3",
       "hashPath": "harfbuzzsharp.nativeassets.win32.2.8.2.3.nupkg.sha512"
-    },
-    "iTextSharp/5.5.13.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-vtnMhTEJdZFCkLqaQLjD8aqTBIVKHPrSFuSXnxbLEJlvE/j/l88fvG9wtsejXTmhtErMo0lA9T2LdfdfbwplYw==",
-      "path": "itextsharp/5.5.13.3",
-      "hashPath": "itextsharp.5.5.13.3.nupkg.sha512"
     },
     "MathNet.Numerics.Signed/4.15.0": {
       "type": "package",
@@ -1494,6 +1469,13 @@
       "sha512": "sha512-+L0hJaW1kq78Z4HQlIhq8Jmsuz8n9rRaJgTdwLwzYItgiL6U9zNgM+RWRBsD3pSUw1QRMy7GlpZI/+XMmnXCmA==",
       "path": "winforms.datavisualization/1.8.0",
       "hashPath": "winforms.datavisualization.1.8.0.nupkg.sha512"
+    },
+    "Zen.Barcode.Rendering.Framework/3.1.10729.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-84Oi15A4V8eOY7BA51iLhbThxB/bGSxNS0baxbWfhpBcZoF5NBRR4QHrEbDg2VoPI+s2DA82qaO1Z2/TMDo7sg==",
+      "path": "zen.barcode.rendering.framework/3.1.10729.1",
+      "hashPath": "zen.barcode.rendering.framework.3.1.10729.1.nupkg.sha512"
     }
   }
 }

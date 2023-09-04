@@ -89,8 +89,6 @@ C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\Cap
 C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\bin\Debug\net6.0-windows\runtimes\win-arm64\native\libSkiaSharp.dll
 C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\bin\Debug\net6.0-windows\runtimes\win-x64\native\libSkiaSharp.dll
 C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\bin\Debug\net6.0-windows\runtimes\win-x86\native\libSkiaSharp.dll
-C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
-C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\bin\Debug\net6.0-windows\itextsharp.dll
 C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\bin\Debug\net6.0-windows\Microcharts.dll
 C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Http.Abstractions.dll
 C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Http.Features.dll
@@ -115,3 +113,4 @@ C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\Cap
 C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\bin\Debug\net6.0-windows\System.Security.Cryptography.Xml.dll
 C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\obj\Debug\net6.0-windows\CapaPresentacion.FormInformes.FormRealizarNomina.resources
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\bin\Debug\net6.0-windows\Zen.Barcode.Core.dll

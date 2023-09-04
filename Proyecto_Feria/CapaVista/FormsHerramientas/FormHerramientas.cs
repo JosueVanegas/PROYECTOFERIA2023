@@ -2,7 +2,6 @@
 using CapaPresentacion.FormsHerramientas;
 using ReaLTaiizor.Forms;
 using ReaLTaiizor.Manager;
-using static iTextSharp.awt.geom.Point2D;
 
 namespace CapaVista.FormsHerramientas
 {

@@ -342,10 +342,6 @@ namespace CapaPresentacion.FormInformes
         {
 
         }
-        void contenidonomina(IContainer content)
-        {
-
-        }
 
         //para reportes de ventas
         public void crearReporteVentas(string desde, string hasta, string tituloRango, bool conGrafica, bool anualreporteAnual)
