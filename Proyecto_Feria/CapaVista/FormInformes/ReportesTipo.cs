@@ -1,6 +1,9 @@
 ﻿using CapaControlador;
 using CapaDatos;
 using Microcharts;
+using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
+using Org.BouncyCastle.Utilities.Collections;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
@@ -21,18 +24,15 @@ namespace CapaPresentacion.FormInformes
     {
         public ReportesTipo() { }
         ControlInforme cInformes = new ControlInforme();
+        Empresa empresa = new ControlEmpresa().datosEmpresa();
+        const string colorFondoInventario = "#FA523B";
         const string transparentBlue = "#662196f3";
         bool grafica = false;
         bool anual = false;
         string fechaInicio = "";
         string fechaFinal = "";
         string tituloRango = "";
-        Empresa empresa = new ControlEmpresa().datosEmpresa();
-        decimal subTotal = 0;
-        decimal descuento = 0;
-        decimal iva = 0;
-        decimal Total = 0;
-
+        
         //kerlint el pie de pagina y el encabezado es igual en todos los reportes asi que es mejor hacerlos en metodos para solo llamarlos enves de copiar todo
         void Encabezado(IContainer content)
         {
@@ -69,10 +69,10 @@ namespace CapaPresentacion.FormInformes
         }
         void contenidoVentas(IContainer content)
         {
-            subTotal = 0 ;
-            iva = 0;
-            descuento = 0;
-            Total = 0;
+            decimal subTotal = 0;
+            decimal descuento = 0;
+            decimal iva = 0;
+            decimal Total = 0;
             List<informeVentas> lista = cInformes.datosDeVentas(fechaInicio, fechaFinal);
             content.PaddingVertical(25).Column(column =>
             {
@@ -261,6 +261,83 @@ namespace CapaPresentacion.FormInformes
                 });
             });
         }
+        void contenidoInventario(IContainer content)
+        {
+            decimal valorRealInventario = 0;
+            decimal valorDeseadoInventario = 0;
+            decimal utilidadEsperada = 0;
+            List<informeInventario> lista = cInformes.datosInventario();
+            content.PaddingVertical(25).Column(column =>
+            {
+                column.Item().AlignCenter().Text("Reporte de inventario").FontSize(25);
+                column.Item().AlignCenter().Text(txt =>
+                {
+
+                    txt.Span(tituloRango).FontSize(15);
+
+                });
+                column.Spacing(30);
+
+                column.Item().LineHorizontal(0.5f);
+                column.Item().AlignCenter().Text("Detalles del inventario").FontSize(15);
+
+                //tabla
+                column.Item().Background(Colors.Grey.Lighten3).Table(tab =>
+                {
+                    tab.ColumnsDefinition(columns =>
+                    {
+                        columns.RelativeColumn(3);
+                        columns.RelativeColumn(5);
+                        columns.RelativeColumn(3);
+                        columns.RelativeColumn(3);
+                        columns.RelativeColumn(3);
+                        columns.RelativeColumn(3);
+                        columns.RelativeColumn(2);
+                        columns.RelativeColumn(2);
+                    });
+
+                    tab.Header(het =>
+                    {
+                        het.Cell().Border(1).Background(colorFondoInventario).Padding(1).Text("Codigo").FontSize(10);
+                        het.Cell().Border(1).Background(colorFondoInventario).Padding(1).Text("Producto").FontSize(10);
+                        het.Cell().Border(1).Background(colorFondoInventario).Padding(1).Text("Categoria").FontSize(10);
+                        het.Cell().Border(1).Background(colorFondoInventario).Padding(1).Text("Proveedor").FontSize(10);
+                        het.Cell().Border(1).Background(colorFondoInventario).Padding(1).Text("Precio de compra").FontSize(10);
+                        het.Cell().Border(1).Background(colorFondoInventario).Padding(1).Text("Precio de    venta").FontSize(10);
+                        het.Cell().Border(1).Background(colorFondoInventario).Padding(1).Text("Stock").FontSize(10);
+                        het.Cell().Border(1).Background(colorFondoInventario).Padding(1).Text("Fecha de registro").FontSize(10);
+
+                    });
+                    foreach (informeInventario i in lista)
+                    {
+
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.codigo).FontSize(10);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.producto).FontSize(11);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.categoria).FontSize(11);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.proveedor).FontSize(12);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.precioCompra).FontSize(12);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.precioVenta).FontSize(12);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.cantidad).FontSize(12);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.fecha).FontSize(10);
+                        valorRealInventario += i.precioCompra * Convert.ToDecimal(i.cantidad);
+                        valorDeseadoInventario += i.precioVenta * Convert.ToDecimal(i.cantidad);
+                    }
+                });
+                utilidadEsperada = valorDeseadoInventario - valorRealInventario;
+                column.Item().Row(row =>
+                {
+                    row.RelativeItem().Column(col =>
+                    {
+                        col.Item().AlignCenter().Text(txt =>
+                        {
+                            txt.Span("Valor en inventario: " + valorRealInventario + " C$").FontSize(15);
+                            txt.Span("      Valor potencial: " + valorDeseadoInventario + " C$").FontSize(15);
+                            txt.Span("      Ganancia potencial: " + utilidadEsperada + " C$").FontSize(15);
+                        });
+                    });
+                });
+            });
+        }
 
         //para reportes de ventas
         public void crearReporteVentas(string desde, string hasta,string tituloRango,bool conGrafica,bool anualreporteAnual)
@@ -293,9 +370,111 @@ namespace CapaPresentacion.FormInformes
        
         public void crearReporteInventario()
         {
-
+            var dox = QuestPDF.Fluent.Document.Create(doc =>
+            {
+               doc.Page(page =>
+               {
+                  page.Size(PageSizes.Letter);
+                  page.Margin(10);
+                  page.DefaultTextStyle(TextStyle.Default.FontSize(16));
+                  page.PageColor(Colors.White);
+                  page.Background().AlignTop().ExtendHorizontal().Height(100).Background(colorFondoInventario);
+                  page.Header().Element(Encabezado);
+                  page.Footer().Element(piePagina);
+                  page.Content().Element(contenidoInventario);
+               });
+            });
+            var filePath = "invoice.pdf";
+            dox.GeneratePdf(filePath);
+            Process.Start("explorer.exe", filePath);
+            
         }
-       
+        public void exportarAExcelInventario()
+        {
+            List<informeInventario> lista = cInformes.datosInventario();
+            IWorkbook workbook = new XSSFWorkbook();
+            ISheet hoja = workbook.CreateSheet("inventario "+DateTime.Now.ToString("dd/MM/yyyy"));
+            IRow filaEncabezados = hoja.CreateRow(0);
+            filaEncabezados.CreateCell(0).SetCellValue("Codigo");
+            filaEncabezados.CreateCell(1).SetCellValue("Producto");
+            filaEncabezados.CreateCell(2).SetCellValue("Categoria");
+            filaEncabezados.CreateCell(3).SetCellValue("Proveedor");
+            filaEncabezados.CreateCell(4).SetCellValue("Precio de compra");
+            filaEncabezados.CreateCell(5).SetCellValue("Precio de venta");
+            filaEncabezados.CreateCell(6).SetCellValue("cantidad en inventario");
+            filaEncabezados.CreateCell(7).SetCellValue("Fecha de registro");
+            for (int i = 0; i < lista.Count; i++)
+            {
+                IRow fila = hoja.CreateRow(i + 1);
+                fila.CreateCell(0).SetCellValue(lista[i].codigo);
+                fila.CreateCell(1).SetCellValue(lista[i].producto);
+                fila.CreateCell(2).SetCellValue(lista[i].categoria);
+                fila.CreateCell(3).SetCellValue(lista[i].proveedor);
+                fila.CreateCell(4).SetCellValue((double)lista[i].precioCompra);
+                fila.CreateCell(5).SetCellValue((double)lista[i].precioVenta);
+                fila.CreateCell(6).SetCellValue((double)lista[i].cantidad);
+                fila.CreateCell(7).SetCellValue(lista[i].fecha);
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                hoja.AutoSizeColumn(i);
+            }
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Archivos de Excel|*.xlsx";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                using (var fs = new FileStream(saveFileDialog.FileName, FileMode.Create))
+                {
+                    workbook.Write(fs);
+                }
+
+                MessageBox.Show("Los datos se han exportado exitosamente a Excel.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+        public void exportarAExcelVentas(string fechaInicio,string fechaFinal)
+        {
+            List<informeVentas> lista = cInformes.datosDeVentas(fechaInicio, fechaFinal);
+            IWorkbook workbook = new XSSFWorkbook();
+            ISheet hoja = workbook.CreateSheet("Ventas");
+            IRow filaEncabezados = hoja.CreateRow(0);
+            filaEncabezados.CreateCell(0).SetCellValue("No de factura");
+            filaEncabezados.CreateCell(1).SetCellValue("Nombre del cliente");
+            filaEncabezados.CreateCell(2).SetCellValue("usuario en turno");
+            filaEncabezados.CreateCell(3).SetCellValue("IVA");
+            filaEncabezados.CreateCell(4).SetCellValue("Subtotal");
+            filaEncabezados.CreateCell(5).SetCellValue("Descuento(c$)");
+            filaEncabezados.CreateCell(6).SetCellValue("Total");
+            filaEncabezados.CreateCell(7).SetCellValue("fecha");
+            for (int i = 0; i < lista.Count; i++)
+            {
+                IRow fila = hoja.CreateRow(i + 1);
+                fila.CreateCell(0).SetCellValue(lista[i].noFactura);
+                fila.CreateCell(1).SetCellValue(lista[i].nombreCliente);
+                fila.CreateCell(2).SetCellValue(lista[i].nombreEmpleado);
+                fila.CreateCell(3).SetCellValue((int)lista[i].iva);
+                fila.CreateCell(4).SetCellValue((double)lista[i].subtotal);
+                fila.CreateCell(5).SetCellValue((double)lista[i].descuento);
+                fila.CreateCell(6).SetCellValue((double)lista[i].total);
+                fila.CreateCell(7).SetCellValue(lista[i].fecha);
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                hoja.AutoSizeColumn(i);
+            }
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Archivos de Excel|*.xlsx";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                using (var fs = new FileStream(saveFileDialog.FileName, FileMode.Create))
+                {
+                    workbook.Write(fs);
+                }
+
+                MessageBox.Show("Los datos se han exportado exitosamente a Excel.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 
 }

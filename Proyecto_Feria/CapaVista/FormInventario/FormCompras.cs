@@ -200,11 +200,11 @@ namespace CapaVista.FormInventario
             {
                 if (indice >= 0)
                 {
-
                     if (MessageBox.Show("Desea eliminar el producto seleccionado? ", "Consulta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         tbDetalles.Rows.RemoveAt(indice);
                     }
+                    recuentoTotal();
                 }
             }
         }
@@ -257,6 +257,7 @@ namespace CapaVista.FormInventario
                         idCompra = 0,
                         idProducto = (int)row.Cells["Id"].Value,
                         cantidad = (int)row.Cells["Cantidad"].Value,
+                        precioCompra = (decimal)row.Cells["PrecioCompra"].Value,
                         total = (decimal)row.Cells["Subtotal"].Value,
                     };
                     lista.Add(detalle);

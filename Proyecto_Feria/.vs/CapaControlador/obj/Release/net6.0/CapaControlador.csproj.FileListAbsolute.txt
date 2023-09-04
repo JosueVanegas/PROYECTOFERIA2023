@@ -1,0 +1,15 @@
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaControlador\bin\Release\net6.0\CapaControlador.deps.json
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaControlador\bin\Release\net6.0\CapaControlador.dll
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaControlador\bin\Release\net6.0\CapaControlador.pdb
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaControlador\bin\Release\net6.0\CapaDatos.dll
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaControlador\bin\Release\net6.0\CapaDatos.pdb
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaControlador\obj\Release\net6.0\CapaControlador.csproj.AssemblyReference.cache
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaControlador\obj\Release\net6.0\CapaControlador.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaControlador\obj\Release\net6.0\CapaControlador.AssemblyInfoInputs.cache
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaControlador\obj\Release\net6.0\CapaControlador.AssemblyInfo.cs
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaControlador\obj\Release\net6.0\CapaControlador.csproj.CoreCompileInputs.cache
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaControlador\obj\Release\net6.0\CapaControlador.csproj.CopyComplete
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaControlador\obj\Release\net6.0\CapaControlador.dll
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaControlador\obj\Release\net6.0\refint\CapaControlador.dll
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaControlador\obj\Release\net6.0\CapaControlador.pdb
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaControlador\obj\Release\net6.0\ref\CapaControlador.dll

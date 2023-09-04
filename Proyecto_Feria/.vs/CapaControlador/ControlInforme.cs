@@ -10,5 +10,9 @@ namespace CapaControlador
         {
             return dInforme.ObtenerDatosInformeVentas(fechaInicio, fechaFin);
         }
+        public List<informeInventario> datosInventario()
+        {
+            return dInforme.ObtenerDatosInformeInventario();
+        }
     }
 }

@@ -6,6 +6,8 @@ using QuestPDF.Infrastructure;
 using ReaLTaiizor.Forms;
 using System.Diagnostics;
 using System.Globalization;
+using System.Windows.Forms.DataVisualization.Charting;
+using System.Windows.Forms;
 
 namespace CapaPresentacion.FormInformes
 {
@@ -13,6 +15,7 @@ namespace CapaPresentacion.FormInformes
     {
         ControlInforme cInforme = new ControlInforme();
         ReportesTipo reportes = new ReportesTipo();
+        bool excel = false;
         Boolean Ventas = false;
         Boolean Inventario = false;
         Boolean Compras = false;
@@ -24,7 +27,7 @@ namespace CapaPresentacion.FormInformes
 
         private void FormInformes_Load(object sender, EventArgs e)
         {
-
+            tgExcel.Checked = true;
         }
 
         private void ReporteHoy_Click(object sender, EventArgs e)
@@ -38,23 +41,16 @@ namespace CapaPresentacion.FormInformes
 
                 try
                 {
-                    QuestPDF.Settings.License = LicenseType.Community;
-                    reportes.crearReporteVentas(hoy, hoy,"Informe de ventas del dia de hoy",false,false);
+                    if (excel == true)
+                    {
+                        reportes.exportarAExcelVentas(hoy, hoy);
+                    }
+                    else
+                    {
+                        QuestPDF.Settings.License = LicenseType.Community;
+                        reportes.crearReporteVentas(hoy, hoy, "Informe de ventas del dia de hoy " + now.ToString($"dddd dd MMMM año yyyy"), false, false);
+                    }
                     Ventas = false;
-                }
-                catch (Exception ex)
-                {
-                    // Maneja cualquier excepción que pueda ocurrir.
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-            }
-            if (Inventario)
-            {
-                try
-                {
-                    QuestPDF.Settings.License = LicenseType.Community;
-                    Inventario = false;
-
                 }
                 catch (Exception ex)
                 {
@@ -110,19 +106,16 @@ namespace CapaPresentacion.FormInformes
 
                 try
                 {
-                    QuestPDF.Settings.License = LicenseType.Community;
-                    reportes.crearReporteVentas(ayer, ayer, "Informe de ventas de ayer",false,false);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-            }
-            if (Inventario)
-            {
-                try
-                {
-                    QuestPDF.Settings.License = LicenseType.Community;
+                    if (excel == true)
+                    {
+                        reportes.exportarAExcelVentas(ayer, ayer);
+                    }
+                    else
+                    {
+                        QuestPDF.Settings.License = LicenseType.Community;
+                        reportes.crearReporteVentas(ayer, ayer, "Informe de ventas de ayer " + date.ToString($"dddd dd MMMM año yyyy"), false, false);
+                    }
+                    Ventas = false;
                 }
                 catch (Exception ex)
                 {
@@ -170,27 +163,19 @@ namespace CapaPresentacion.FormInformes
             CultureInfo cultureInfo = new CultureInfo("es-ES");
             if (Ventas)
             {
-
                 try
                 {
-                    QuestPDF.Settings.License = LicenseType.Community;
-                    reportes.crearReporteVentas(inicio,fin,"Informe de ventas del mes de "+now.ToString("MMMM")+" del "+now.Year,false,false);
+                    if (excel == true)
+                    {
+                        reportes.exportarAExcelVentas(inicio, fin);
+                    }
+                    else
+                    {
+                        QuestPDF.Settings.License = LicenseType.Community;
+                        reportes.crearReporteVentas(inicio, fin, "Informe de ventas del mes de " + now.ToString("MMMM") + " del " + now.Year, false, false);
+
+                    }
                     Ventas = false;
-                }
-                catch (Exception ex)
-                {
-                    // Maneja cualquier excepción que pueda ocurrir.
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-            }
-            if (Inventario)
-            {
-                try
-                {
-                    QuestPDF.Settings.License = LicenseType.Community;
-
-                    Inventario = false;
-
                 }
                 catch (Exception ex)
                 {
@@ -254,24 +239,16 @@ namespace CapaPresentacion.FormInformes
 
                 try
                 {
-                    QuestPDF.Settings.License = LicenseType.Community;
-                    reportes.crearReporteVentas(inicio,final,"",true,true);
+                    if (excel == true)
+                    {
+                        reportes.exportarAExcelVentas(inicio, final);
+                    }
+                    else
+                    {
+                        QuestPDF.Settings.License = LicenseType.Community;
+                        reportes.crearReporteVentas(inicio, final, "", true, true);
+                    }
                     Ventas = false;
-                }
-                catch (Exception ex)
-                {
-                    // Maneja cualquier excepción que pueda ocurrir.
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-            }
-            if (Inventario)
-            {
-                try
-                {
-                    QuestPDF.Settings.License = LicenseType.Community;
-
-                    Inventario = false;
-
                 }
                 catch (Exception ex)
                 {
@@ -328,22 +305,16 @@ namespace CapaPresentacion.FormInformes
 
                 try
                 {
-                    QuestPDF.Settings.License = LicenseType.Community;
-                    reportes.crearReporteVentas(fi, ff,"",false,false);
+                    if (excel == true)
+                    {
+                        reportes.exportarAExcelVentas(fi, ff);
+                    }
+                    else
+                    {
+                        QuestPDF.Settings.License = LicenseType.Community;
+                        reportes.crearReporteVentas(fi, ff, "", false, false);
+                    }
                     Ventas = false;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-            }
-            if (Inventario)
-            {
-                try
-                {
-                    QuestPDF.Settings.License = LicenseType.Community;
-                    Inventario = false;
-
                 }
                 catch (Exception ex)
                 {
@@ -396,8 +367,15 @@ namespace CapaPresentacion.FormInformes
             {
                 try
                 {
-                    QuestPDF.Settings.License = LicenseType.Community;
-                    reportes.crearReporteVentas(fInicio, ffin,"",true,false);
+                    if (excel == true)
+                    {
+                        reportes.exportarAExcelVentas(fInicio, ffin);
+                    }
+                    else
+                    {
+                        QuestPDF.Settings.License = LicenseType.Community;
+                        reportes.crearReporteVentas(fInicio, ffin, "", true, false);
+                    }
                     Ventas = false;
                 }
                 catch (Exception ex)
@@ -405,20 +383,7 @@ namespace CapaPresentacion.FormInformes
                     MessageBox.Show("Error: " + ex.Message);
                 }
             }
-            if (Inventario)
-            {
-                try
-                {
-                    QuestPDF.Settings.License = LicenseType.Community;
-                    // reportes.InventarioCrearReporteSemanalActual(startOfLastWeekFormatted.ToString(), endOfLastWeekFormatted.ToString());
-                    Inventario = false;
 
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-            }
             if (Compras)
             {
                 try
@@ -467,10 +432,6 @@ namespace CapaPresentacion.FormInformes
             {
                 Ventas = true;
             }
-            if (boton != null && boton == btnInventario)
-            {
-                Inventario = true;
-            }
             if (boton != null && boton == btninfoCompras)
             {
                 Compras = true;
@@ -501,7 +462,6 @@ namespace CapaPresentacion.FormInformes
         private void btn15Dias_Click(object sender, EventArgs e)
         {
             DateTime now = DateTime.Now;
-
             // Obtener la fecha actual menos 15 días
             DateTime last15Days = now.AddDays(-15);
 
@@ -512,27 +472,19 @@ namespace CapaPresentacion.FormInformes
 
             if (Ventas)
             {
-
                 try
                 {
-                    QuestPDF.Settings.License = LicenseType.Community;
-                    reportes.crearReporteVentas(inicio,final,"",false,false);
+                    if (excel == true)
+                    {
+                        reportes.exportarAExcelVentas(inicio, final);
+                    }
+                    else
+                    {
+                        QuestPDF.Settings.License = LicenseType.Community;
+
+                        reportes.crearReporteVentas(inicio, final, "", false, false);
+                    }
                     Ventas = false;
-                }
-                catch (Exception ex)
-                {
-                    // Maneja cualquier excepción que pueda ocurrir.
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-            }
-            if (Inventario)
-            {
-                try
-                {
-                    QuestPDF.Settings.License = LicenseType.Community;
-
-                    Inventario = false;
-
                 }
                 catch (Exception ex)
                 {
@@ -581,6 +533,55 @@ namespace CapaPresentacion.FormInformes
         {
             pkrFechaFin.MinDate = pkrFechaInicio.Value;
         }
+
+        private void btnInventario_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (excel == true)
+                {
+                    reportes.exportarAExcelInventario();
+                }
+                else
+                {
+                    QuestPDF.Settings.License = LicenseType.Community;
+                    reportes.crearReporteInventario();
+                }
+                Inventario = false;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void tgExcel_CheckedChanged(object sender, EventArgs e)
+        {
+            if (tgExcel.Checked == true)
+            {
+                tgPdf.Checked = false;
+                excel = true;
+            }
+            else
+            {
+                tgPdf.Checked = true;
+                excel = false;
+            }
+        }
+
+        private void tgPdf_CheckedChanged(object sender, EventArgs e)
+        {
+            if (tgPdf.Checked == true)
+            {
+                tgExcel.Checked = false;
+                excel = false;
+            }
+            else
+            {
+                tgExcel.Checked = true;
+                excel = true;
+            }
+        }
     }
 }
-

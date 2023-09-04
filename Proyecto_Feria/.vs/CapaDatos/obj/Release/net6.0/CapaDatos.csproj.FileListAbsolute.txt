@@ -1,0 +1,12 @@
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaDatos\bin\Release\net6.0\CapaDatos.deps.json
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaDatos\bin\Release\net6.0\CapaDatos.dll
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaDatos\bin\Release\net6.0\CapaDatos.pdb
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaDatos\obj\Release\net6.0\CapaDatos.csproj.AssemblyReference.cache
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaDatos\obj\Release\net6.0\CapaDatos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaDatos\obj\Release\net6.0\CapaDatos.AssemblyInfoInputs.cache
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaDatos\obj\Release\net6.0\CapaDatos.AssemblyInfo.cs
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaDatos\obj\Release\net6.0\CapaDatos.csproj.CoreCompileInputs.cache
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaDatos\obj\Release\net6.0\CapaDatos.dll
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaDatos\obj\Release\net6.0\refint\CapaDatos.dll
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaDatos\obj\Release\net6.0\CapaDatos.pdb
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaDatos\obj\Release\net6.0\ref\CapaDatos.dll

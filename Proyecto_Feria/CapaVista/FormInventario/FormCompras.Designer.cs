@@ -88,13 +88,13 @@ namespace CapaVista.FormInventario
             cbxBuscarCompra = new ReaLTaiizor.Controls.MaterialComboBox();
             txtBuscarCompra = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             tbCompras = new ReaLTaiizor.Controls.PoisonDataGridView();
-            panel1 = new Panel();
             IdCompra = new DataGridViewTextBoxColumn();
             NoFactura = new DataGridViewTextBoxColumn();
             IdUsuario = new DataGridViewTextBoxColumn();
             NombreUsuario = new DataGridViewTextBoxColumn();
             Iva = new DataGridViewTextBoxColumn();
             Total = new DataGridViewTextBoxColumn();
+            panel1 = new Panel();
             pnlContenedor.SuspendLayout();
             pnlRegistroUsuario.SuspendLayout();
             panel5.SuspendLayout();
@@ -974,17 +974,6 @@ namespace CapaVista.FormInventario
             tbCompras.Size = new Size(429, 323);
             tbCompras.TabIndex = 22;
             // 
-            // panel1
-            // 
-            panel1.BackColor = Color.White;
-            panel1.Controls.Add(panelCompras);
-            panel1.Controls.Add(panelBusqueda);
-            panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(597, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(429, 447);
-            panel1.TabIndex = 24;
-            // 
             // IdCompra
             // 
             IdCompra.HeaderText = "IdCompra";
@@ -1027,6 +1016,17 @@ namespace CapaVista.FormInventario
             Total.HeaderText = "Total";
             Total.Name = "Total";
             Total.ReadOnly = true;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.White;
+            panel1.Controls.Add(panelCompras);
+            panel1.Controls.Add(panelBusqueda);
+            panel1.Dock = DockStyle.Right;
+            panel1.Location = new Point(597, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(429, 447);
+            panel1.TabIndex = 24;
             // 
             // FormCompras
             // 

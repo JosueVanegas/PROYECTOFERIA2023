@@ -24,10 +24,7 @@ namespace CapaVista
             panelVertical_Admin.BackColor = Color.FromArgb(74, 121, 121);
             //datosDeUsuarioActual();
             validarPermisos(this.user);
-
         }
-
-
         private void datosDeUsuarioActual()
         {
             lblUsuario.Text = "Usuario actual: " + this.user.usuario;
@@ -139,7 +136,7 @@ namespace CapaVista
 
         private void btnInicio_Click(object sender, EventArgs e)
         {
-           // abrirFormulario(new FormInicio(user));
+           abrirFormulario(new FormInicio(user));
         }
 
         private void FrmPrincipal_Load(object sender, EventArgs e)

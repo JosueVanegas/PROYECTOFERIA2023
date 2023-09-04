@@ -215,6 +215,7 @@ namespace CapaDatos
         public int idCompra { get; set; }
         public int idProducto { get; set; }
         public int cantidad { get; set; }
+        public decimal precioCompra { get; set; }
         public decimal total { get; set; }
     }
     public class realizarCompra
@@ -248,6 +249,17 @@ namespace CapaDatos
         public decimal subtotal { get; set; }
         public decimal descuento { get; set; }
         public decimal total { get; set; }
+        public string fecha { get; set; }
+    }
+    public class informeInventario
+    {
+        public string codigo { get; set; }
+        public string producto { get; set; }
+        public string categoria { get; set; }
+        public string proveedor { get; set; }
+        public decimal precioCompra { get; set; }
+        public decimal precioVenta { get; set; }
+        public int cantidad { get; set; }
         public string fecha { get; set; }
     }
 }

@@ -24,6 +24,7 @@
     <PackageReference Include="Microcharts" Version="0.9.5.9" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
+    <PackageReference Include="NPOI" Version="2.6.1" />
     <PackageReference Include="QuestPDF" Version="2023.6.3" />
     <PackageReference Include="ReaLTaiizor" Version="3.7.9.4" />
     <PackageReference Include="RJCodeAdvance.RJControls" Version="1.0.0" />

@@ -209,6 +209,10 @@
               "target": "Package",
               "version": "[5.1.1, )"
             },
+            "NPOI": {
+              "target": "Package",
+              "version": "[2.6.1, )"
+            },
             "QuestPDF": {
               "target": "Package",
               "version": "[2023.6.3, )"

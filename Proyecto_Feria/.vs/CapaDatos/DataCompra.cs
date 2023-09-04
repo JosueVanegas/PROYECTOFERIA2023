@@ -119,6 +119,7 @@ namespace CapaDatos
                         cmd.Parameters.AddWithValue("@ID_COMPRA", id);
                         cmd.Parameters.AddWithValue("@ID_PRODUCTO", d.idProducto);
                         cmd.Parameters.AddWithValue("@CANTIDAD", d.cantidad);
+                        cmd.Parameters.AddWithValue("@PRECIOCOMPRA", d.precioCompra);
                         cmd.Parameters.AddWithValue("@SUBTOTAL", d.total);
                         cmd.ExecuteNonQuery();
                     }
