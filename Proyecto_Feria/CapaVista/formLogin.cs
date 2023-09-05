@@ -9,8 +9,10 @@ namespace CapaVista
 
         public formLogin()
         {
+            this.Cursor = Cursors.WaitCursor;
             InitializeComponent();
             lblConexion.Text = new ControlConexion().verificarConexion();
+            this.Cursor = Cursors.Default;
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -24,19 +26,14 @@ namespace CapaVista
         {
             ControlUsuario cUsuarios = new ControlUsuario();
             bool acceder = cUsuarios.validarAcceso(txtUsuario.Text, txtContraseña.Text);
-#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
             Usuario user = cUsuarios.listarUsuarios().FirstOrDefault(u => u.usuario == txtUsuario.Text);
-#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
+            this.Cursor = Cursors.WaitCursor;
             if (acceder)
             {
-#pragma warning disable CS8604 // Posible argumento de referencia nulo
                 FormPrincipal principal = new FormPrincipal(user);
-#pragma warning restore CS8604 // Posible argumento de referencia nulo
                 principal.Show();
                 this.Hide();
-#pragma warning disable CS8622 // La nulabilidad de los tipos de referencia del tipo de parámetro no coincide con el delegado de destino (posiblemente debido a los atributos de nulabilidad).
                 principal.FormClosing += frm_closing;
-#pragma warning restore CS8622 // La nulabilidad de los tipos de referencia del tipo de parámetro no coincide con el delegado de destino (posiblemente debido a los atributos de nulabilidad).
                 txtContraseña.Text = "";
                 txtUsuario.Text = "";
                 ckbVerContraseña.Checked = false;
@@ -46,6 +43,7 @@ namespace CapaVista
                 MessageBox.Show("Usuario y/o contraseña incorrecta");
                 ckbVerContraseña.Checked = false;
             }
+            this.Cursor = Cursors.Default;
         }
         public void frm_closing(object sender, FormClosingEventArgs e)
         {

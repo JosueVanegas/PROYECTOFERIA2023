@@ -124,6 +124,15 @@ public string fechaRegistro { get; set; }
         public Categoria oCategoria { get; set; }
         public Proveedor oProveedor { get; set; }
     }
+    public class comboProducto
+    {
+        public string codigo { get; set; }
+        public string nombre { get; set; }
+        public override string ToString()
+        {
+            return nombre;
+        }
+    }
     public class Cliente
     {
  public int id { get; set; }
@@ -132,6 +141,7 @@ public string fechaRegistro { get; set; }
  public string telefono { get; set; }
  public string fechaRegistro { get; set; }
     }
+    //RELACIONADOS CON EL PROCESO DE COMPRA Y VENTA
     public class ResumenVenta
     {
         public decimal descuento { get; set; }
@@ -211,6 +221,7 @@ public string fechaRegistro { get; set; }
 #pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
     }
 
+    //RELACIONADAS CON INFORMES
     public class informeVentas
     {
         public string noFactura { get; set; }
@@ -255,5 +266,14 @@ public string fechaRegistro { get; set; }
         public decimal ir { get; set; }
         public decimal totalDeducciones { get; set; }
         public decimal salarioNeto { get; set; }
+    }
+
+    public class movimientoProducto
+    {
+        public string fecha { get; set; }
+        public string tipo { get; set; }
+        public int cantidad { get;set; }
+        public decimal precio { get; set; }
+        public decimal total { get; set; }
     }
 }

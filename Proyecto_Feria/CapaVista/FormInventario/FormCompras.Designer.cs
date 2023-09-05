@@ -979,8 +979,8 @@ namespace CapaVista.FormInventario
             // panel1
             // 
             panel1.BackColor = Color.White;
-            panel1.Controls.Add(panelCompras);
             panel1.Controls.Add(panelBusqueda);
+            panel1.Controls.Add(panelCompras);
             panel1.Dock = DockStyle.Right;
             panel1.Location = new Point(597, 0);
             panel1.Name = "panel1";

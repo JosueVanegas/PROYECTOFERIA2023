@@ -24,9 +24,11 @@ namespace CapaVista.FormVentas
 
         private void FormPagar_Load(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             mostrarClientes();
             realizarResumen();
             CargarImpresorasDisponibles();
+            this.Cursor = Cursors.Default;
         }
         private void realizarResumen()
         {
@@ -113,6 +115,7 @@ namespace CapaVista.FormVentas
         }
         private string imprimirFactura()
         {
+            this.Cursor = Cursors.WaitCursor;
             string mensaje = "Factura generada e impresa con éxito";
             try
             {
@@ -156,6 +159,7 @@ namespace CapaVista.FormVentas
                 mensaje = ex.Message;
             }
             return mensaje;
+            this.Cursor = Cursors.Default;
         }
 
         private void imprimir(object sender, PrintPageEventArgs e)
@@ -269,16 +273,12 @@ namespace CapaVista.FormVentas
                 if (indice >= 0)
                 {
                     int idObtenido = (int)tbBusqueda.Rows[indice].Cells["Id"].Value;
-#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
-                    string nombreObtenido = tbBusqueda.Rows[indice].Cells["Nombre"].Value.ToString();
-#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
-#pragma warning disable CS8601 // Posible asignación de referencia nula
+                    string nombreObtenido = tbBusqueda.Rows[indice].Cells["Nombre"].Value.ToString(); 
                     cliente = new Cliente
                     {
                         id = idObtenido,
                         nombre = nombreObtenido
                     };
-#pragma warning restore CS8601 // Posible asignación de referencia nula
                     txtCliente.Text = nombreObtenido;
                 }
             }
@@ -313,25 +313,15 @@ namespace CapaVista.FormVentas
 
         private void pictureBox4_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
-            // Establecer el icono de información (puedes cambiar el icono si lo deseas)
             toolTip.ToolTipIcon = ToolTipIcon.Info;
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(pictureBox4, "Datos de los totales de la facturar");
         }
 
         private void pictureBox2_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
-            // Establecer el icono de información (puedes cambiar el icono si lo deseas)
             toolTip.ToolTipIcon = ToolTipIcon.Info;
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(pictureBox2, "Para continuar con la Facturación\n" +
                                             "-Ingrese los datos del Cliente Si es un Cliente X\n" +
                                             "-Ingrese una cantidad mayor o igual al total de la factura\n" +
@@ -340,24 +330,14 @@ namespace CapaVista.FormVentas
 
         private void ckbClienteComun_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
-            // Establecer el icono de información (puedes cambiar el icono si lo deseas)
             toolTip.ToolTipIcon = ToolTipIcon.Info;
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(ckbClienteComun, "Es una Cliente Anomino o comun cuando no se quiere poner el nombre del Cliente");
         }
 
         private void cbxBuscar_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
-
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(cbxBuscar, "Para una busqueda mas efeciente se pueden realizar busqueda por filtros");
         }
 
@@ -365,18 +345,14 @@ namespace CapaVista.FormVentas
         {
             if (!Char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Space)
             {
-                e.Handled = true; // Evita que se procese el carácter
+                e.Handled = true; 
             }
         }
 
         private void pictureBox3_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
             toolTip.ToolTipIcon = ToolTipIcon.Info;
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(pictureBox3, "Si deseas usar un cliente que esta registrado puede seleccionar desde la tabla");
         }
     }

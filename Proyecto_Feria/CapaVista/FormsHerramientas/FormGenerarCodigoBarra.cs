@@ -1,14 +1,27 @@
 ﻿using ReaLTaiizor.Forms;
 using BarcodeLib;
 using System.Windows.Forms;
+using CapaControlador;
+using CapaDatos;
 
 namespace CapaVista.FormsHerramientas
 {
     public partial class FormGenerarCodigoBarra : MaterialForm
     {
+        ControlProducto cP = new ControlProducto();
         public FormGenerarCodigoBarra()
         {
             InitializeComponent();
+        }
+        private void FormGenerarCodigoBarra_Load(object sender, EventArgs e)
+        {
+            cbxProductos.DataSource = cP.listarComboProductos();
+        }
+        private void cbxProductos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboProducto combo = cbxProductos.SelectedItem as comboProducto;
+            txtCodigo.Text = combo.codigo;
+            txtTitulo.Text = combo.nombre;
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -38,7 +51,7 @@ namespace CapaVista.FormsHerramientas
                 Barcode codigo = new Barcode();
                 codigo.IncludeLabel = true;
                 codigo.LabelPosition = LabelPositions.BOTTOMCENTER;
-                Image imgCodigo = codigo.Encode(BarcodeLib.TYPE.CODE128, txtCodigo.Text, Color.Black, Color.White, 290, 120);
+                Image imgCodigo = codigo.Encode(BarcodeLib.TYPE.CODE128, txtCodigo.Text, Color.Black, Color.White, 300, 120);
                 Bitmap imagenTitulo = convertirTextoImagen(txtTitulo.Text.Trim(), 300, Color.White);
 
                 int alto_imagen_nuevo = imagenCodigo.Height + imagenTitulo.Height;

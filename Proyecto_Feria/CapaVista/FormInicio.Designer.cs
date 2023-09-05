@@ -39,7 +39,7 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            lblEncabezado = new Label();
+            lblNombreEmpresa = new Label();
             chartTopUsuario = new System.Windows.Forms.DataVisualization.Charting.Chart();
             chartTopProductos = new System.Windows.Forms.DataVisualization.Charting.Chart();
             panelGraficosBarra = new Panel();
@@ -65,7 +65,6 @@
             dtFechaFinal = new ReaLTaiizor.Controls.PoisonDateTime();
             dpFechaInicio = new ReaLTaiizor.Controls.PoisonDateTime();
             panel12 = new Panel();
-            lblNombreEmpresa = new Label();
             panel2 = new Panel();
             lblTituloGraficaVentas = new Label();
             panel3 = new Panel();
@@ -115,17 +114,16 @@
             ((System.ComponentModel.ISupportInitialize)tbStock).BeginInit();
             SuspendLayout();
             // 
-            // lblEncabezado
+            // lblNombreEmpresa
             // 
-            lblEncabezado.Dock = DockStyle.Left;
-            lblEncabezado.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            lblEncabezado.ForeColor = Color.Black;
-            lblEncabezado.Location = new Point(0, 0);
-            lblEncabezado.Name = "lblEncabezado";
-            lblEncabezado.Size = new Size(398, 64);
-            lblEncabezado.TabIndex = 40;
-            lblEncabezado.Text = "Sistema Auxiliar de ventas";
-            lblEncabezado.TextAlign = ContentAlignment.MiddleLeft;
+            lblNombreEmpresa.Dock = DockStyle.Left;
+            lblNombreEmpresa.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            lblNombreEmpresa.ForeColor = Color.Black;
+            lblNombreEmpresa.Location = new Point(0, 0);
+            lblNombreEmpresa.Name = "lblNombreEmpresa";
+            lblNombreEmpresa.Size = new Size(398, 64);
+            lblNombreEmpresa.TabIndex = 40;
+            lblNombreEmpresa.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // chartTopUsuario
             // 
@@ -252,9 +250,9 @@
             panel6.Controls.Add(panel9);
             panel6.Controls.Add(panel8);
             panel6.Dock = DockStyle.Top;
-            panel6.Location = new Point(252, 64);
+            panel6.Location = new Point(140, 64);
             panel6.Name = "panel6";
-            panel6.Size = new Size(881, 57);
+            panel6.Size = new Size(993, 57);
             panel6.TabIndex = 44;
             // 
             // panel10
@@ -421,11 +419,11 @@
             panel5.Controls.Add(panel11);
             panel5.Controls.Add(btnSeleccionarRango);
             panel5.Controls.Add(panel7);
-            panel5.Controls.Add(lblEncabezado);
+            panel5.Controls.Add(lblNombreEmpresa);
             panel5.Dock = DockStyle.Top;
-            panel5.Location = new Point(252, 0);
+            panel5.Location = new Point(140, 0);
             panel5.Name = "panel5";
-            panel5.Size = new Size(881, 64);
+            panel5.Size = new Size(993, 64);
             panel5.TabIndex = 43;
             // 
             // panel11
@@ -492,24 +490,11 @@
             // panel12
             // 
             panel12.Controls.Add(pictureLogoEmpresa);
-            panel12.Controls.Add(lblNombreEmpresa);
             panel12.Dock = DockStyle.Left;
             panel12.Location = new Point(0, 0);
             panel12.Name = "panel12";
-            panel12.Size = new Size(252, 130);
+            panel12.Size = new Size(140, 130);
             panel12.TabIndex = 45;
-            // 
-            // lblNombreEmpresa
-            // 
-            lblNombreEmpresa.Dock = DockStyle.Right;
-            lblNombreEmpresa.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblNombreEmpresa.ForeColor = Color.Black;
-            lblNombreEmpresa.Location = new Point(133, 0);
-            lblNombreEmpresa.Name = "lblNombreEmpresa";
-            lblNombreEmpresa.Size = new Size(119, 130);
-            lblNombreEmpresa.TabIndex = 47;
-            lblNombreEmpresa.Text = "\r\n";
-            lblNombreEmpresa.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // panel2
             // 
@@ -1012,7 +997,6 @@
         }
 
         #endregion
-        private Label lblEncabezado;
 #pragma warning disable CS0169 // El campo 'FormInicio.txtDataEmpleados' nunca se usa
         private ReaLTaiizor.Controls.ParrotBanner txtDataEmpleados;
 #pragma warning restore CS0169 // El campo 'FormInicio.txtDataEmpleados' nunca se usa

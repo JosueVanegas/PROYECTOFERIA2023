@@ -77,7 +77,7 @@ namespace CapaPresentacion.FormInformes
                 }
 
             }
-            panelVisible = !panelVisible; 
+            panelVisible = !panelVisible;
 
             PanelRangoreport.Visible = panelVisible;
 
@@ -437,7 +437,7 @@ namespace CapaPresentacion.FormInformes
                 }
 
             }
-            panelVisible = !panelVisible; 
+            panelVisible = !panelVisible;
             PanelRangoreport.Visible = panelVisible;
         }
 
@@ -500,6 +500,12 @@ namespace CapaPresentacion.FormInformes
         {
             FormRealizarNomina frn = new FormRealizarNomina(excel);
             frn.ShowDialog();
+        }
+
+        private void btnMovimientoProductos_Click(object sender, EventArgs e)
+        {
+            FormMovimientoProducto form = new FormMovimientoProducto();
+            form.ShowDialog();
         }
     }
 }

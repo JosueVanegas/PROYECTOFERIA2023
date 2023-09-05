@@ -18,6 +18,10 @@ namespace CapaControlador
         {
             return dInforme.ObtenerDatosInformeCompras(fechaInicio, fechaFin);
         }
+        public List<movimientoProducto> datosMovientoInventario(int idProducto,string fechaInicio, string fechaFin)
+        {
+            return dInforme.ObtenerDatosInformeMovimientoProducto(idProducto,fechaInicio,fechaFin);
+        }
         public nomina calcularnomina(Empleado empleado,int horasTrabajadas,int horasExtras)
         {
             return dInforme.calcularnomina(empleado, horasTrabajadas, horasExtras);

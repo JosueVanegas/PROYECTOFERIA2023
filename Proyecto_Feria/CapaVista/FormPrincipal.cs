@@ -2,7 +2,6 @@
 using CapaPresentacion;
 using CapaPresentacion.FormInformes;
 using CapaVista.FormConfiguracion;
-using CapaVista.FormContabilidad;
 using CapaVista.FormPlanilla;
 using CapaVista.FormsHerramientas;
 using CapaVista.FormVenta;
@@ -12,6 +11,7 @@ namespace CapaVista
 {
     public partial class FormPrincipal : Form
     {
+        private Size sizeInicial;
         public Usuario user = null;
         Form formActivo = null;
         bool EstadoDeBarraVertical = true;
@@ -19,11 +19,14 @@ namespace CapaVista
         public FormPrincipal(Usuario usuario)
         {
             InitializeComponent();
+            this.Cursor = Cursors.WaitCursor;
             this.user = usuario;
             reloj.Start();
-            panelVertical_Admin.BackColor = Color.FromArgb(74, 121, 121);
+            sizeInicial = panelContenedor.Size;
             //datosDeUsuarioActual();
             validarPermisos(this.user);
+            this.Cursor = Cursors.Default;
+
         }
         private void datosDeUsuarioActual()
         {
@@ -54,7 +57,6 @@ namespace CapaVista
             btnBarraVertical.Enabled = true;
             btnClientes.Enabled = true;
             btnConfiguraciones.Enabled = true;
-            btnContabilidad.Enabled = true;
             btnVentas.Enabled = true;
             btnUsuarios.Enabled = true;
             btnInicio.Enabled = true;
@@ -75,7 +77,6 @@ namespace CapaVista
             btnPlanilla.Enabled = true;
             btnHerramientas.Enabled = true;
             btnConfiguraciones.Enabled = true;
-            btnContabilidad.Enabled = true;
         }
         private void abrirFormulario(Form form)
         {
@@ -147,12 +148,6 @@ namespace CapaVista
         {
             abrirFormulario(new formVentas(user));
         }
-
-        private void btnContabilidad_Click(object sender, EventArgs e)
-        {
-            abrirFormulario(new FormContabilidads());
-        }
-
         private void btnCalculos_Click(object sender, EventArgs e)
         {
             abrirFormulario(new FormInformes());
@@ -189,12 +184,6 @@ namespace CapaVista
             ToolTip toolTip = new ToolTip();
             toolTip.SetToolTip(btnPlanilla, "Planilla");
         }
-        private void btnContabilidad_MouseHover(object sender, EventArgs e)
-        {
-            ToolTip toolTip = new ToolTip();
-            toolTip.SetToolTip(btnContabilidad, "Contabilidad");
-        }
-
         private void btnCalculos_MouseHover(object sender, EventArgs e)
         {
             ToolTip toolTip = new ToolTip();
@@ -204,12 +193,17 @@ namespace CapaVista
         private void reloj_Tick(object sender, EventArgs e)
         {
             DateTime dateTime = DateTime.Now;
-            lblReloj.Text = dateTime.ToString();
+            lblReloj.Text = dateTime.ToString("dddd dd/MM/yyyy hh:mm:ss tt");
         }
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
             abrirFormulario(new FormClientes());
+        }
+
+        private void panelContenedor_SizeChanged(object sender, EventArgs e)
+        {
+            panelContenedor.Size = sizeInicial;
         }
     }
 }

@@ -57,6 +57,7 @@
             btnInventario = new RJCodeAdvance.RJControls.RJButton();
             pictureBox1 = new PictureBox();
             pictureBox3 = new PictureBox();
+            btnMovimientoProductos = new RJCodeAdvance.RJControls.RJButton();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)hopePictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)hopePictureBox1).BeginInit();
@@ -122,6 +123,7 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(btnMovimientoProductos);
             panel2.Controls.Add(label5);
             panel2.Controls.Add(hopePictureBox2);
             panel2.Controls.Add(tgPdf);
@@ -276,7 +278,7 @@
             btnNomina.Image = (Image)resources.GetObject("btnNomina.Image");
             btnNomina.Location = new Point(176, 246);
             btnNomina.Name = "btnNomina";
-            btnNomina.Size = new Size(156, 71);
+            btnNomina.Size = new Size(164, 71);
             btnNomina.TabIndex = 1;
             btnNomina.Text = "Nomina";
             btnNomina.TextAlign = ContentAlignment.BottomCenter;
@@ -297,7 +299,7 @@
             btnInforVentas.Image = (Image)resources.GetObject("btnInforVentas.Image");
             btnInforVentas.Location = new Point(176, 92);
             btnInforVentas.Name = "btnInforVentas";
-            btnInforVentas.Size = new Size(156, 71);
+            btnInforVentas.Size = new Size(164, 71);
             btnInforVentas.TabIndex = 3;
             btnInforVentas.Text = "Informe de ventas";
             btnInforVentas.TextAlign = ContentAlignment.BottomCenter;
@@ -462,7 +464,7 @@
             btninfoCompras.Image = (Image)resources.GetObject("btninfoCompras.Image");
             btninfoCompras.Location = new Point(176, 169);
             btninfoCompras.Name = "btninfoCompras";
-            btninfoCompras.Size = new Size(156, 71);
+            btninfoCompras.Size = new Size(164, 71);
             btninfoCompras.TabIndex = 5;
             btninfoCompras.Text = "Informe de compras";
             btninfoCompras.TextAlign = ContentAlignment.BottomCenter;
@@ -483,7 +485,7 @@
             btnInventario.Image = (Image)resources.GetObject("btnInventario.Image");
             btnInventario.Location = new Point(176, 323);
             btnInventario.Name = "btnInventario";
-            btnInventario.Size = new Size(156, 71);
+            btnInventario.Size = new Size(164, 71);
             btnInventario.TabIndex = 0;
             btnInventario.Text = "Informe de inventario";
             btnInventario.TextAlign = ContentAlignment.BottomCenter;
@@ -512,6 +514,27 @@
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 14;
             pictureBox3.TabStop = false;
+            // 
+            // btnMovimientoProductos
+            // 
+            btnMovimientoProductos.BackColor = Color.FromArgb(74, 121, 121);
+            btnMovimientoProductos.BackgroundColor = Color.FromArgb(74, 121, 121);
+            btnMovimientoProductos.BorderColor = Color.PaleVioletRed;
+            btnMovimientoProductos.BorderRadius = 10;
+            btnMovimientoProductos.BorderSize = 0;
+            btnMovimientoProductos.FlatAppearance.BorderSize = 0;
+            btnMovimientoProductos.FlatStyle = FlatStyle.Flat;
+            btnMovimientoProductos.ForeColor = Color.White;
+            btnMovimientoProductos.Image = (Image)resources.GetObject("btnMovimientoProductos.Image");
+            btnMovimientoProductos.Location = new Point(176, 400);
+            btnMovimientoProductos.Name = "btnMovimientoProductos";
+            btnMovimientoProductos.Size = new Size(164, 71);
+            btnMovimientoProductos.TabIndex = 87;
+            btnMovimientoProductos.Text = "Movimientos de productos";
+            btnMovimientoProductos.TextAlign = ContentAlignment.BottomCenter;
+            btnMovimientoProductos.TextColor = Color.White;
+            btnMovimientoProductos.UseVisualStyleBackColor = false;
+            btnMovimientoProductos.Click += btnMovimientoProductos_Click;
             // 
             // FormInformes
             // 
@@ -568,5 +591,6 @@
         private RJCodeAdvance.RJControls.RJToggleButton tgExcel;
         private Label label3;
         private Label label2;
+        private RJCodeAdvance.RJControls.RJButton btnMovimientoProductos;
     }
 }

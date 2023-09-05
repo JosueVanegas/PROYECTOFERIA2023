@@ -7,10 +7,10 @@
     <Compile Update="FormConfiguracion\FormConfiguraciones.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormContabilidad\FormContabilidads.cs">
+    <Compile Update="FormInformes\FormInformes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormInformes\FormInformes.cs">
+    <Compile Update="FormInformes\FormMovimientoProducto.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormInformes\FormRealizarNomina.cs">

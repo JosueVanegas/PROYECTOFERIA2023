@@ -54,7 +54,38 @@ namespace CapaDatos
             }
             return lista;
         }
-
+        public List<comboProducto> listarComboProductos()
+        {
+            List<comboProducto> lista = new List<comboProducto>();
+            string query = "SELECT CODIGO_PRODUCTO,NOMBRE_PRODUCTO FROM PRODUCTO";
+            try
+            {
+                using (var con = new conexion().conectar())
+                {
+                    con.Open();
+                    using (var cmd = new SqlCommand(query, con))
+                    {
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                comboProducto producto = new comboProducto
+                                {
+                                    codigo = reader[0].ToString(),
+                                    nombre = reader[1].ToString(),
+                                };
+                                lista.Add(producto);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lista = new List<comboProducto>();
+            }
+            return lista;
+        }
         public List<Proveedor> listarProveedores()
         {
             List<Proveedor> lista = new List<Proveedor>();

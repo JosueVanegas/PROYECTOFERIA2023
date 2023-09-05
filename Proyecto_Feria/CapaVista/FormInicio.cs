@@ -12,6 +12,7 @@ namespace CapaVista
         ControlProducto cProducto = new ControlProducto();
         public FormInicio(Usuario Rol)
         {
+            this.Cursor = Cursors.WaitCursor;
             InitializeComponent();
             mostrarCantidades();
             mostrarTopProductos();
@@ -20,6 +21,7 @@ namespace CapaVista
             mostrarStockProductos();
             mostrarValorInventario();
             dtFechaFinal.Enabled = true;
+            this.Cursor = Cursors.Default;
         }
         private void mostrarCantidades()
         {
