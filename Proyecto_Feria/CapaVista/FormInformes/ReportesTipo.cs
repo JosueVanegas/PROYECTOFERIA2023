@@ -1,6 +1,7 @@
 ﻿using CapaControlador;
 using CapaDatos;
 using Microcharts;
+using NPOI.SS.Formula.Functions;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 using Org.BouncyCastle.Utilities.Collections;
@@ -340,7 +341,205 @@ namespace CapaPresentacion.FormInformes
         }
         void contenidoCompras(IContainer content)
         {
+            List<informeCompras> lista = cInformes.datosCompras(fechaInicio, fechaFinal);
+            decimal Total = 0;
+            content.PaddingVertical(25).Column(column =>
+            {
+                column.Item().AlignCenter().Text("Reporte de Compras").FontSize(25);
+                column.Item().AlignCenter().Text(txt =>
+                {
+                    if (tituloRango != "")
+                    {
+                        txt.Span(tituloRango).FontSize(15);
+                    }
+                    else
+                    {
+                        txt.Span("Desde: ").FontSize(15);
+                        txt.Span(fechaInicio).FontSize(15);
+                        txt.Span(" hasta: ").FontSize(15);
+                        txt.Span(fechaFinal).FontSize(15);
+                    }
+                });
+                column.Spacing(30);
 
+                column.Item().LineHorizontal(0.5f);
+                //configuracion del grafico
+                if (grafica == true)
+                {
+                    var entries = new List<ChartEntry>();
+                    CultureInfo cultureInfo = new CultureInfo("es-ES");
+                    if (anual == true)
+                    {
+                        Dictionary<int, decimal> totalsByMonth = new Dictionary<int, decimal>();
+
+                        // Inicializar el diccionario con todos los meses del año.
+                        for (int month = 1; month <= 12; month++)
+                        {
+                            totalsByMonth[month] = 0.0m;
+                        }
+                        foreach (var compra in lista)
+                        {
+                            DateTime fechaCompra = DateTime.Parse(compra.fecha);
+                            int month = fechaCompra.Month;
+
+                            // Sumar el monto total de la venta al mes correspondiente en el diccionario.
+                            totalsByMonth[month] += compra.total;
+                        }
+                        foreach (var kvp in totalsByMonth)
+                        {
+                            string nombreMes = cultureInfo.DateTimeFormat.GetMonthName(kvp.Key);
+                            entries.Add(new ChartEntry((float)kvp.Value)
+                            {
+                                Label = nombreMes,
+                                ValueLabel = kvp.Value.ToString("0.00"),
+                                Color = SKColor.Parse("#87CEEB")
+                            });
+                        }
+                    }
+                    else
+                    {
+                        Dictionary<DayOfWeek, decimal> totalesPorDiaSemana = new Dictionary<DayOfWeek, decimal>
+                        {
+                            { DayOfWeek.Sunday, 0.0m },
+                            { DayOfWeek.Monday, 0.0m },
+                            { DayOfWeek.Tuesday, 0.0m },
+                            { DayOfWeek.Wednesday, 0.0m },
+                            { DayOfWeek.Thursday, 0.0m },
+                            { DayOfWeek.Friday, 0.0m },
+                            { DayOfWeek.Saturday, 0.0m }
+                        };
+
+                        foreach (var i in lista)
+                        {
+                            DateTime date = DateTime.Parse(i.fecha);
+                            DayOfWeek dayOfWeek = date.DayOfWeek;
+
+                            // Sumar el monto total de la venta al día correspondiente en el diccionario.
+                            totalesPorDiaSemana[dayOfWeek] += i.total;
+                        }
+                        foreach (var td in totalesPorDiaSemana)
+                        {
+                            entries.Add(new ChartEntry((float)td.Value)
+                            {
+                                Label = td.Key.ToString(),
+                                ValueLabel = td.Value.ToString("0.00"),
+                                Color = SKColor.Parse("#87CEEB")
+                            });
+                        }
+                    }
+
+                    //dibujando el grafico en el pdf
+                    column.Item().Column(column =>
+                    {
+                        var titleStyle = TextStyle
+                          .Default
+                         .FontSize(20)
+                         .SemiBold()
+                           .FontColor(Colors.Blue.Medium);
+                        string rango = "semanales";
+                        if (anual == true)
+                        { rango = "anuales"; }
+                        column
+                            .Item()
+                            .PaddingBottom(1)
+                            .Text("Grafica de compras " + rango)
+                         .Style(titleStyle);
+
+                        column
+                      .Item()
+                   .Border(1)
+                   .ExtendHorizontal()
+                   .Height(300)
+                      .Canvas((canvas, size) =>
+                      {
+                          var chart = new BarChart
+                          {
+                              Entries = entries,
+
+                              LabelOrientation = Microcharts.Orientation.Horizontal,
+                              ValueLabelOrientation = Microcharts.Orientation.Horizontal,
+
+                              IsAnimated = false,
+                          };
+
+                          chart.DrawContent(canvas, (int)size.Width, (int)size.Height);
+                      });
+                    });
+                    column.Spacing(10);
+                }
+
+                column.Item().AlignCenter().Text("Detalles de las compras").FontSize(15);
+
+                //tabla
+                column.Item().Background(Colors.Grey.Lighten3).Table(tab =>
+                {
+                    tab.ColumnsDefinition(columns =>
+                    {
+                        columns.RelativeColumn(4);
+                        columns.RelativeColumn(3);
+                        columns.RelativeColumn(7);
+                        columns.RelativeColumn(3);
+                        columns.RelativeColumn(3);
+                    });
+
+                    tab.Header(het =>
+                    {
+                        het.Cell().Border(1).Background(transparentBlue).Padding(1).Text("No.Factura").FontSize(10);
+                        het.Cell().Border(1).Background(transparentBlue).Padding(1).Text("Usuario en turno").FontSize(10);
+                        het.Cell().Border(1).Background(transparentBlue).Padding(1).Text("Nombre del usuario").FontSize(10);
+                        het.Cell().Border(1).Background(transparentBlue).Padding(1).Text("Total").FontSize(10);
+                        het.Cell().Border(1).Background(transparentBlue).Padding(1).Text("Fecha").FontSize(10);
+
+                    });
+                    foreach (informeCompras i in lista)
+                    {
+
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.factura).FontSize(11);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.usuario).FontSize(11);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.empleado).FontSize(11);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.total).FontSize(11);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.fecha).FontSize(11);
+                        Total += i.total;
+                    }
+                });
+                column.Item().Row(row =>
+                {
+                    row.RelativeItem().Column(col =>
+                    {
+                        col.Item().AlignRight().Text(txt =>
+                        {
+                            txt.Span("      Total: " + Total + " C$").FontSize(15);
+                        });
+                    });
+                });
+            });
+        }
+        public void crearReporteCompras(string desde, string hasta, string tituloRango, bool conGrafica, bool anualreporteAnual)
+        {
+            this.fechaInicio = desde;
+            fechaFinal = hasta;
+            this.tituloRango = tituloRango;
+            grafica = conGrafica;
+            anual = anualreporteAnual;
+            var dox = QuestPDF.Fluent.Document.Create(doc =>
+            {
+                doc.Page(page =>
+                {
+                    page.Size(PageSizes.Letter);
+                    page.Margin(10);
+                    page.DefaultTextStyle(TextStyle.Default.FontSize(16));
+                    page.PageColor(Colors.White);
+                    page.Background().AlignTop().ExtendHorizontal().Height(100).Background(transparentBlue);
+                    page.Foreground().AlignBottom().ExtendHorizontal().Height(50).Background(transparentBlue);
+                    //estructura ordenada el heater y footer se repite en todos los reportes
+                    page.Header().Element(Encabezado);
+                    page.Content().Element(contenidoCompras);
+                    page.Footer().Element(piePagina);
+                });
+            });
+            var filePath = "invoice.pdf";
+            dox.GeneratePdf(filePath);
+            Process.Start("explorer.exe", filePath);
         }
 
         //para reportes de ventas
@@ -371,15 +570,8 @@ namespace CapaPresentacion.FormInformes
             dox.GeneratePdf(filePath);
             Process.Start("explorer.exe", filePath);
         }
-        public void crearReporteCompras()
-        {
-
-        }
-        public void crearReporteNomina()
-        {
-
-        }
-        public void crearReporteInventario()
+        //para compras
+       public void crearReporteInventario()
         {
             var dox = QuestPDF.Fluent.Document.Create(doc =>
             {
@@ -405,7 +597,7 @@ namespace CapaPresentacion.FormInformes
         {
             List<informeInventario> lista = cInformes.datosInventario();
             IWorkbook workbook = new XSSFWorkbook();
-            ISheet hoja = workbook.CreateSheet("inventario " + DateTime.Now.ToString("dd/MM/yyyy"));
+            ISheet hoja = workbook.CreateSheet("inventario " + DateTime.Now.ToString("dd_MM_yyyy"));
             IRow filaEncabezados = hoja.CreateRow(0);
             filaEncabezados.CreateCell(0).SetCellValue("Codigo");
             filaEncabezados.CreateCell(1).SetCellValue("Producto");
@@ -444,13 +636,42 @@ namespace CapaPresentacion.FormInformes
                 MessageBox.Show("Los datos se han exportado exitosamente a Excel.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-        public void exportarAExcelCompras()
+        public void exportarAExcelCompras(string fechaInicio, string fechaFinal)
         {
+            List<informeCompras> lista = cInformes.datosCompras(fechaInicio, fechaFinal);
+            IWorkbook workbook = new XSSFWorkbook();
+            ISheet hoja = workbook.CreateSheet("Compras");
+            IRow filaEncabezados = hoja.CreateRow(0);
+            filaEncabezados.CreateCell(0).SetCellValue("No.factura");
+            filaEncabezados.CreateCell(1).SetCellValue("Usuario en turno");
+            filaEncabezados.CreateCell(2).SetCellValue("Nombre del usuario");
+            filaEncabezados.CreateCell(3).SetCellValue("Total (C$)");
+            filaEncabezados.CreateCell(7).SetCellValue("fecha");
+            for (int i = 0; i < lista.Count; i++)
+            {
+                IRow fila = hoja.CreateRow(i + 1);
+                fila.CreateCell(0).SetCellValue(lista[i].factura);
+                fila.CreateCell(1).SetCellValue(lista[i].usuario);
+                fila.CreateCell(2).SetCellValue(lista[i].empleado);
+                fila.CreateCell(3).SetCellValue((double)lista[i].total);
+                fila.CreateCell(7).SetCellValue(lista[i].fecha);
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                hoja.AutoSizeColumn(i);
+            }
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Archivos de Excel|*.xlsx";
 
-        }
-        public void exportarAExcelNomina()
-        {
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                using (var fs = new FileStream(saveFileDialog.FileName, FileMode.Create))
+                {
+                    workbook.Write(fs);
+                }
 
+                MessageBox.Show("Los datos se han exportado exitosamente a Excel.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
         public void exportarAExcelVentas(string fechaInicio,string fechaFinal)
         {

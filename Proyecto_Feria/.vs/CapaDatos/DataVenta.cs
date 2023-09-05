@@ -83,6 +83,7 @@ namespace CapaDatos
                         cmd.CommandType = System.Data.CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@ID_VENTA", id);
                         cmd.Parameters.AddWithValue("@ID_PRODUCTO", d.ID_PRODUCTO);
+                        cmd.Parameters.AddWithValue("@PRECIOVENTA", d.PRECIO);
                         cmd.Parameters.AddWithValue("@CANTIDAD", d.CANTIDAD);
                         cmd.Parameters.AddWithValue("@SUBTOTAL", d.SUBTOTAL);
                         cmd.ExecuteNonQuery();

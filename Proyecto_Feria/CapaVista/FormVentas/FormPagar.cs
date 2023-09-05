@@ -96,17 +96,6 @@ namespace CapaVista.FormVentas
                 {
                     try
                     {
-                        infoVenta v = new infoVenta
-                        {
-                            ID_CLIENTE = cliente.id,
-                            ID_USUARIO = user.id,
-                            DESCUENTO = resumen.descuento,
-                            IVA = resumen.iva,
-                            SUBTOTAL = resumen.subtotal,
-                            TOTAL = resumen.total,
-                        };
-
-                        MessageBox.Show(cVenta.procesoDeVenta(v, detalles));
                         MessageBox.Show(imprimirFactura());
                         this.Close();
                     }
@@ -128,13 +117,25 @@ namespace CapaVista.FormVentas
             try
             {
                 int numeroPaginas = 2;
+                infoVenta v = new infoVenta
+                {
+                    ID_CLIENTE = cliente.id,
+                    ID_USUARIO = user.id,
+                    DESCUENTO = resumen.descuento,
+                    IVA = resumen.iva,
+                    SUBTOTAL = resumen.subtotal,
+                    TOTAL = resumen.total,
+                };
+                MessageBox.Show(cVenta.procesoDeVenta(v, detalles));
                 string factura = cVenta.tomarNoFactura();
 
                 if (factura != "")
                 {
                     if (impresoraSeleccionada != "")
                     {
-                        string nombreArchivo = @"C:\Users\Personal\Desktop\Factura_" + factura + ".pdf";
+                        string carpetaDocumentos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                        string nombreArchivo = Path.Combine(carpetaDocumentos, "Factura_" + factura + ".pdf");
+
 
                         pdImprimir = new PrintDocument();
                         pdImprimir.PrinterSettings.PrinterName = impresoraSeleccionada;
@@ -159,12 +160,19 @@ namespace CapaVista.FormVentas
 
         private void imprimir(object sender, PrintPageEventArgs e)
         {
+            Empresa empresa = new ControlEmpresa().datosEmpresa();
             Font font = new Font("Courier New", 12);
             float y = 20;
 
-#pragma warning disable CS8602 // Desreferencia de una referencia posiblemente NULL.
-            e.Graphics.DrawString($"-------------------Factura No:{new DataVenta().noFactura}-----------------", font, Brushes.Black, 100, y);
-#pragma warning restore CS8602 // Desreferencia de una referencia posiblemente NULL.
+            e.Graphics.DrawString($"                        {empresa.nombre}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"Factura No: {new DataVenta().noFactura}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"Dirección: {empresa.direccion +" " +empresa.departamento}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"Email: {empresa.email}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"Teléfono: {empresa.telefono}", font, Brushes.Black, 20, y);
             y += 20;
             e.Graphics.DrawString($"Cliente:{cliente.nombre}", font, Brushes.Black, 20, y);
             y += 20;
@@ -172,13 +180,13 @@ namespace CapaVista.FormVentas
             y += 20;
             e.Graphics.DrawString("------------------------------------detalles-------------------------------", font, Brushes.Black, 20, y);
             y += 20;
-            e.Graphics.DrawString("Descripcion Subtotal", font, Brushes.Black, 20, y);
-            e.Graphics.DrawString("Subtotal", font, Brushes.Black, 200, y);
+            e.Graphics.DrawString("Descripcion", font, Brushes.Black, 20, y);
+            e.Graphics.DrawString("Subtotal", font, Brushes.Black, 700, y);
             y += 20;
             foreach (var d in detalles)
             {
-                e.Graphics.DrawString($"{d.ID_PRODUCTO} - {d.NOMBRE}   |   {d.SUBTOTAL}", font, Brushes.Black, 20, y);
-                e.Graphics.DrawString($"{d.SUBTOTAL}", font, Brushes.Black, 200, y);
+                e.Graphics.DrawString($"{d.NOMBRE}", font, Brushes.Black, 20, y);
+                e.Graphics.DrawString($"{d.SUBTOTAL}", font, Brushes.Black, 700, y);
                 y += 20;
                 e.Graphics.DrawString($"{d.CANTIDAD} x {d.PRECIO}", font, Brushes.Black, 20, y);
                 y += 20;
@@ -196,6 +204,8 @@ namespace CapaVista.FormVentas
             e.Graphics.DrawString($"Total despues de descuento y deducciones: {txtTotalFinal.Text}", font, Brushes.Black, 20, y);
             y += 20;
             e.Graphics.DrawString($"Cambio: {txtCambioDeCompra.Text}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString("                     ******NOTA: No se aceptan devoluciones*****", font, Brushes.Black, 20, y);
             y += 20;
             e.Graphics.DrawString("                           Gracias por preferirnos :)", font, Brushes.Black, 20, y);
             y += 20;

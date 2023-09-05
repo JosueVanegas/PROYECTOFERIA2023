@@ -38,7 +38,7 @@ namespace CapaDatos
         public List<compra> listarCompras()
         {
             List<compra> lista = new List<compra>();
-            string query = "SELECT C.ID_COMPRA,C.NO_FACTURA,C.ID_USUARIO,U.USUARIO,C.IVA_PAGADO,C.TOTAL_COMPRA,C.FECHA_REGISTRO FROM COMPRA C INNER JOIN USUARIO U ON C.ID_USUARIO = U.ID_USUARIO ";
+            string query = "SELECT C.ID_COMPRA,C.NO_FACTURA,C.ID_USUARIO,U.USUARIO,C.TOTAL_COMPRA,C.FECHA_REGISTRO FROM COMPRA C INNER JOIN USUARIO U ON C.ID_USUARIO = U.ID_USUARIO ";
             using (var con = new conexion().conectar())
             {
                 try
@@ -57,9 +57,8 @@ namespace CapaDatos
                                     factura = reader[1].ToString(),
                                     idUsuario = Convert.ToInt32(reader[2]),
                                     nombreUsuario = reader[3].ToString(),
-                                    iva = Convert.ToDecimal(reader[4]),
-                                    total = Convert.ToDecimal(reader[5]),
-                                    fechaRegistro = reader[6].ToString()
+                                    total = Convert.ToDecimal(reader[4]),
+                                    fechaRegistro = reader[5].ToString()
                                 });
                             }
                         }
@@ -87,7 +86,6 @@ namespace CapaDatos
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@ID_USUARIO", c.ID_USUARIO);
                         cmd.Parameters.AddWithValue("@TOTAL_COMPRA", c.TOTAL);
-                        cmd.Parameters.AddWithValue("@IVA_PAGADO", c.iva);
                         cmd.Parameters.Add("ID_CREADO", System.Data.SqlDbType.Int).Direction = System.Data.ParameterDirection.Output;
                         cmd.Parameters.Add("NO_FACTURA", System.Data.SqlDbType.VarChar, 30).Direction = System.Data.ParameterDirection.Output;
                         cmd.ExecuteNonQuery();

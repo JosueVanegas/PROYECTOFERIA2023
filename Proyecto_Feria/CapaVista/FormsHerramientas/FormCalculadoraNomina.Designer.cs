@@ -28,38 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            cbxEmpleados = new ReaLTaiizor.Controls.MaterialComboBox();
             txtSalarioNeto = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtInss = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtIr = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtNetoARecibir = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             lblDeducciones = new Label();
+            label1 = new Label();
             SuspendLayout();
-            // 
-            // cbxEmpleados
-            // 
-            cbxEmpleados.Anchor = AnchorStyles.Left;
-            cbxEmpleados.AutoResize = false;
-            cbxEmpleados.BackColor = Color.FromArgb(255, 255, 255);
-            cbxEmpleados.Depth = 0;
-            cbxEmpleados.DrawMode = DrawMode.OwnerDrawVariable;
-            cbxEmpleados.DropDownHeight = 174;
-            cbxEmpleados.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbxEmpleados.DropDownWidth = 121;
-            cbxEmpleados.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            cbxEmpleados.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            cbxEmpleados.FormattingEnabled = true;
-            cbxEmpleados.Hint = "seleccione un empleado para tomar el salario";
-            cbxEmpleados.IntegralHeight = false;
-            cbxEmpleados.ItemHeight = 43;
-            cbxEmpleados.Location = new Point(26, 12);
-            cbxEmpleados.MaxDropDownItems = 4;
-            cbxEmpleados.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            cbxEmpleados.Name = "cbxEmpleados";
-            cbxEmpleados.Size = new Size(373, 49);
-            cbxEmpleados.StartIndex = 0;
-            cbxEmpleados.TabIndex = 32;
-            cbxEmpleados.SelectedIndexChanged += cbxEmpleados_SelectedIndexChanged;
             // 
             // txtSalarioNeto
             // 
@@ -71,9 +46,9 @@
             txtSalarioNeto.Depth = 0;
             txtSalarioNeto.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtSalarioNeto.HideSelection = true;
-            txtSalarioNeto.Hint = "Ingrese el salario o seleccione un empleado";
+            txtSalarioNeto.Hint = "ingrese un salario devengado";
             txtSalarioNeto.LeadingIcon = null;
-            txtSalarioNeto.Location = new Point(26, 67);
+            txtSalarioNeto.Location = new Point(6, 77);
             txtSalarioNeto.MaxLength = 32767;
             txtSalarioNeto.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtSalarioNeto.Name = "txtSalarioNeto";
@@ -85,7 +60,7 @@
             txtSalarioNeto.SelectionLength = 0;
             txtSalarioNeto.SelectionStart = 0;
             txtSalarioNeto.ShortcutsEnabled = true;
-            txtSalarioNeto.Size = new Size(373, 48);
+            txtSalarioNeto.Size = new Size(240, 48);
             txtSalarioNeto.TabIndex = 33;
             txtSalarioNeto.TabStop = false;
             txtSalarioNeto.TextAlign = HorizontalAlignment.Left;
@@ -107,7 +82,7 @@
             txtInss.HideSelection = true;
             txtInss.Hint = "INSS:";
             txtInss.LeadingIcon = null;
-            txtInss.Location = new Point(26, 236);
+            txtInss.Location = new Point(6, 188);
             txtInss.MaxLength = 32767;
             txtInss.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtInss.Name = "txtInss";
@@ -119,11 +94,11 @@
             txtInss.SelectionLength = 0;
             txtInss.SelectionStart = 0;
             txtInss.ShortcutsEnabled = true;
-            txtInss.Size = new Size(226, 48);
+            txtInss.Size = new Size(240, 48);
             txtInss.TabIndex = 34;
             txtInss.TabStop = false;
             txtInss.Text = "0.00";
-            txtInss.TextAlign = HorizontalAlignment.Left;
+            txtInss.TextAlign = HorizontalAlignment.Center;
             txtInss.TrailingIcon = null;
             txtInss.UseSystemPasswordChar = false;
             // 
@@ -140,7 +115,7 @@
             txtIr.HideSelection = true;
             txtIr.Hint = "IR:";
             txtIr.LeadingIcon = null;
-            txtIr.Location = new Point(26, 290);
+            txtIr.Location = new Point(6, 242);
             txtIr.MaxLength = 32767;
             txtIr.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtIr.Name = "txtIr";
@@ -152,11 +127,11 @@
             txtIr.SelectionLength = 0;
             txtIr.SelectionStart = 0;
             txtIr.ShortcutsEnabled = true;
-            txtIr.Size = new Size(226, 48);
+            txtIr.Size = new Size(240, 48);
             txtIr.TabIndex = 35;
             txtIr.TabStop = false;
             txtIr.Text = "0.00";
-            txtIr.TextAlign = HorizontalAlignment.Left;
+            txtIr.TextAlign = HorizontalAlignment.Center;
             txtIr.TrailingIcon = null;
             txtIr.UseSystemPasswordChar = false;
             // 
@@ -173,7 +148,7 @@
             txtNetoARecibir.HideSelection = true;
             txtNetoARecibir.Hint = "SALARIO NETO A PAGAR:";
             txtNetoARecibir.LeadingIcon = null;
-            txtNetoARecibir.Location = new Point(26, 344);
+            txtNetoARecibir.Location = new Point(6, 296);
             txtNetoARecibir.MaxLength = 32767;
             txtNetoARecibir.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtNetoARecibir.Name = "txtNetoARecibir";
@@ -185,48 +160,61 @@
             txtNetoARecibir.SelectionLength = 0;
             txtNetoARecibir.SelectionStart = 0;
             txtNetoARecibir.ShortcutsEnabled = true;
-            txtNetoARecibir.Size = new Size(226, 48);
+            txtNetoARecibir.Size = new Size(240, 48);
             txtNetoARecibir.TabIndex = 36;
             txtNetoARecibir.TabStop = false;
             txtNetoARecibir.Text = "0.00";
-            txtNetoARecibir.TextAlign = HorizontalAlignment.Left;
+            txtNetoARecibir.TextAlign = HorizontalAlignment.Center;
             txtNetoARecibir.TrailingIcon = null;
             txtNetoARecibir.UseSystemPasswordChar = false;
             // 
             // lblDeducciones
             // 
             lblDeducciones.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblDeducciones.Location = new Point(26, 192);
+            lblDeducciones.Location = new Point(6, 144);
             lblDeducciones.Name = "lblDeducciones";
-            lblDeducciones.Size = new Size(373, 41);
+            lblDeducciones.Size = new Size(240, 41);
             lblDeducciones.TabIndex = 37;
             lblDeducciones.Text = "Deducciones:";
+            lblDeducciones.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            label1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(6, 36);
+            label1.Name = "label1";
+            label1.Size = new Size(240, 38);
+            label1.TabIndex = 38;
+            label1.Text = "Salario devengado:";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // FormCalculadoraNomina
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(411, 450);
+            ClientSize = new Size(260, 367);
+            Controls.Add(label1);
             Controls.Add(lblDeducciones);
             Controls.Add(txtNetoARecibir);
             Controls.Add(txtIr);
             Controls.Add(txtInss);
             Controls.Add(txtSalarioNeto);
-            Controls.Add(cbxEmpleados);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormStyle = ReaLTaiizor.Enum.Material.FormStyles.ActionBar_None;
             Name = "FormCalculadoraNomina";
+            Padding = new Padding(3, 24, 3, 3);
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Calculadora de deducciones";
             Load += FormCalculadoraNomina_Load;
             ResumeLayout(false);
         }
 
         #endregion
-
-        private ReaLTaiizor.Controls.MaterialComboBox cbxEmpleados;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtSalarioNeto;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtInss;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtIr;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtNetoARecibir;
         private Label lblDeducciones;
+        private Label label1;
     }
 }

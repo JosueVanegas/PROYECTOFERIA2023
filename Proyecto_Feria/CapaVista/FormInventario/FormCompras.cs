@@ -100,20 +100,15 @@ namespace CapaVista.FormInventario
         }
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
             string columna = cbxBuscarCompra.SelectedItem.ToString();
-#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
-
             if (tbCompras.Rows.Count > 0)
             {
                 foreach (DataGridViewRow i in tbCompras.Rows)
                 {
-#pragma warning disable CS8602 // Desreferencia de una referencia posiblemente NULL.
                     if (i.Cells[columna].Value.ToString().Trim().ToUpper().Contains(txtBuscarCompra.Text.Trim().ToUpper()))
                         i.Visible = true;
                     else
                         i.Visible = false;
-#pragma warning restore CS8602 // Desreferencia de una referencia posiblemente NULL.
                 }
             }
         }
@@ -166,7 +161,6 @@ namespace CapaVista.FormInventario
         private void recuentoTotal()
         {
             decimal subTotal = 0;
-            decimal iva = 0;
             decimal descuento = 0;
             decimal total = 0;
             if (tbDetalles.RowCount > 0)
@@ -180,9 +174,7 @@ namespace CapaVista.FormInventario
                     }
                 }
             }
-            iva = subTotal * Convert.ToDecimal(0.15);
             txtTotal.Text = subTotal.ToString("0.00");
-            txtIva.Text = iva.ToString("0.00");
         }
         private void btnCerrarBusqueda_Click(object sender, EventArgs e)
         {
@@ -231,7 +223,6 @@ namespace CapaVista.FormInventario
                 realizarCompra compra = new realizarCompra
                 {
                     ID_USUARIO = user.id,
-                    iva = Convert.ToDecimal(txtIva.Text),
                     TOTAL = Convert.ToDecimal(txtTotal.Text)
                 };
                 MessageBox.Show(cCompra.procesoCompra(compra, obtenerDetalles()));

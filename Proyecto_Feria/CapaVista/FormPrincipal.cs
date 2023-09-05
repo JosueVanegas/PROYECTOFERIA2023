@@ -136,7 +136,7 @@ namespace CapaVista
 
         private void btnInicio_Click(object sender, EventArgs e)
         {
-           abrirFormulario(new FormInicio(user));
+            abrirFormulario(new FormInicio(user));
         }
 
         private void FrmPrincipal_Load(object sender, EventArgs e)

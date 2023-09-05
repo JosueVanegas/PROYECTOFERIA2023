@@ -183,7 +183,7 @@
             chartTopProductos.Location = new Point(0, 0);
             chartTopProductos.Name = "chartTopProductos";
             chartTopProductos.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            chartTopProductos.PaletteCustomColors = new Color[] { Color.Cyan, Color.SteelBlue, Color.MidnightBlue, Color.DarkCyan, Color.MediumSpringGreen, Color.SeaGreen };
+            chartTopProductos.PaletteCustomColors = new Color[] { Color.DarkSlateBlue, Color.SteelBlue, Color.MidnightBlue, Color.DarkCyan, Color.Navy, Color.SeaGreen };
             series2.BackSecondaryColor = Color.Transparent;
             series2.BorderColor = Color.DimGray;
             series2.ChartArea = "ChartArea1";

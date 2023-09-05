@@ -3,8 +3,9 @@
     "",
     "\\Proyecto_Feria",
     "\\Proyecto_Feria\\CapaVista",
-    "\\Proyecto_Feria\\CapaVista\\FormInformes"
+    "\\Proyecto_Feria\\CapaVista\\FormInformes",
+    "\\Proyecto_Feria\\CapaVista\\FormsHerramientas"
   ],
-  "SelectedNode": "\\Proyecto_Feria\\Proyecto_Feria.sln",
+  "SelectedNode": "\\Proyecto_Feria\\CapaVista\\FormsHerramientas\\FormHerramientas.cs",
   "PreviewInSolutionExplorer": false
 }

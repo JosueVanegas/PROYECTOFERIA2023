@@ -61,7 +61,7 @@ namespace CapaPresentacion.FormInformes
         }
         private void btnRealizarNomina_Click(object sender, EventArgs e)
         {
-            if(validarEntradas() != true)
+            if (validarEntradas() != true)
             {
                 nominas = new List<nomina>();
                 foreach (DataGridViewRow fila in tbEmpleados.Rows)
@@ -78,9 +78,9 @@ namespace CapaPresentacion.FormInformes
                         nominas.Add(n);
                     }
                 }
-                if(nominas.Count > 0)
+                if (nominas.Count > 0)
                 {
-                    if(excel == true)
+                    if (excel == true)
                     {
                         exportarAExcelInventario();
                     }
@@ -88,7 +88,7 @@ namespace CapaPresentacion.FormInformes
                     {
                         QuestPDF.Settings.License = LicenseType.Community;
                         crearPdf();
-                    } 
+                    }
                 }
                 else
                 {
@@ -103,7 +103,7 @@ namespace CapaPresentacion.FormInformes
         }
         private bool validarEntradas()
         {
-            bool hayVacia = false; 
+            bool hayVacia = false;
 
             foreach (DataGridViewRow fila in tbEmpleados.Rows)
             {
@@ -118,7 +118,7 @@ namespace CapaPresentacion.FormInformes
         }
         private void crearPdf()
         {
-            
+
             var dox = QuestPDF.Fluent.Document.Create(doc =>
             {
                 doc.Page(page =>
@@ -222,22 +222,22 @@ namespace CapaPresentacion.FormInformes
                         het.Cell().Border(1).Background(colorFondoNomina).Padding(1).Text("Total deducciones").FontSize(10);
                         het.Cell().Border(1).Background(colorFondoNomina).Padding(1).Text("Neto a recibir").FontSize(10);
                     });
-                    
+
                     foreach (nomina i in nominas)
                     {
 
                         tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.trabajador).FontSize(9);
                         tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.cargo).FontSize(9);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.salarioHora).FontSize(9);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.salarioHora.ToString("0.00")).FontSize(9);
                         tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.horastrabajadas).FontSize(9);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.montoHorasTrabajadas).FontSize(9);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.montoHorasTrabajadas.ToString("0.00")).FontSize(9);
                         tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.horasExtras).FontSize(9);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.montoHorasExtras).FontSize(9);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.salarioDevengado).FontSize(9);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.inss).FontSize(9);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.ir).FontSize(9);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.totalDeducciones).FontSize(9);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.salarioNeto).FontSize(9);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.montoHorasExtras.ToString("0.00")).FontSize(9);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.salarioDevengado.ToString("0.00")).FontSize(9);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.inss.ToString("0.00")).FontSize(9);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.ir.ToString("0.00")).FontSize(9);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.totalDeducciones.ToString("0.00")).FontSize(9);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.salarioNeto.ToString("0.00")).FontSize(9);
                         totalPagarNomina += i.salarioNeto;
                     }
                 });
@@ -247,7 +247,7 @@ namespace CapaPresentacion.FormInformes
                     {
                         col.Item().AlignCenter().Text(txt =>
                         {
-                            txt.Span("Total a pagar en nómina: "+ totalPagarNomina + " C$").FontSize(15);
+                            txt.Span("Total a pagar en nómina: " + totalPagarNomina.ToString("0.00") + " C$").FontSize(15);
                         });
                     });
                 });
@@ -352,7 +352,7 @@ namespace CapaPresentacion.FormInformes
 
         private void txthorasExtras_KeyPress(object sender, KeyPressEventArgs e)
         {
-            char key= e.KeyChar;
+            char key = e.KeyChar;
             if (!Char.IsDigit(key) && key != (char)Keys.Back)
             {
                 e.Handled = true;

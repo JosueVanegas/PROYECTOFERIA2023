@@ -85,7 +85,43 @@ namespace CapaDatos
             }
             return lista;
         }
-
+        public List<informeCompras> ObtenerDatosInformeCompras(string fechaInicio, string fechaFin)
+        {
+            List<informeCompras> lista = new List<informeCompras>();
+            try
+            {
+                using (SqlConnection connection = new conexion().conectar())
+                {
+                    connection.Open();
+                    string procedure = "PROC_ORDENAR_FECHA_COMPRA";
+                    using (SqlCommand cmd = new SqlCommand(procedure, connection))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add(new SqlParameter("@fechaInicio", SqlDbType.VarChar, 10)).Value = fechaInicio;
+                        cmd.Parameters.Add(new SqlParameter("@fechaFin", SqlDbType.VarChar, 10)).Value = fechaFin;
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                lista.Add(new informeCompras
+                                {
+                                    factura = reader[0].ToString(),
+                                    usuario = reader[1].ToString(),
+                                    empleado = reader[2].ToString(),
+                                    total = Convert.ToDecimal(reader[3]),
+                                    fecha = reader[4].ToString()
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lista = new List<informeCompras>();
+            }
+            return lista;
+        }
         public nomina calcularnomina(Empleado e, int horasTrabajadas, int horasExtras)
         {
             nomina no = new nomina();

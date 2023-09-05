@@ -158,9 +158,7 @@ public string fechaRegistro { get; set; }
     {
         public int ID_VENTA { get; set; }
         public int ID_PRODUCTO { get; set; }
-#pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
         public string NOMBRE { get; set; }
-#pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
         public int CANTIDAD { get; set; }
         public decimal PRECIO { get; set; }
         public decimal SUBTOTAL { get; set; }
@@ -195,7 +193,6 @@ public string fechaRegistro { get; set; }
     public class realizarCompra
     {
         public int ID_USUARIO { get; set; }
-        public decimal iva { get; set; }
         public decimal TOTAL { get; set; }
     }
     public class compra
@@ -234,6 +231,14 @@ public string fechaRegistro { get; set; }
         public decimal precioCompra { get; set; }
         public decimal precioVenta { get; set; }
         public int cantidad { get; set; }
+        public string fecha { get; set; }
+    }
+    public class informeCompras
+    {
+        public string factura { get; set;}
+        public string usuario { get; set;}
+        public string empleado { get; set; }
+        public decimal total { get; set; }
         public string fecha { get; set; }
     }
     public class nomina

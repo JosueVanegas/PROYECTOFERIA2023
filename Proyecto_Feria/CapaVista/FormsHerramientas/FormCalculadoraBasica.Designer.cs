@@ -639,6 +639,7 @@
             ShowIcon = false;
             ShowInTaskbar = false;
             Sizable = false;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "CalculadoraBasica";
             Load += CalculadoraBasica_Load;
             tableLayoutPanel3.ResumeLayout(false);

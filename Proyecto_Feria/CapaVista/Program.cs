@@ -7,7 +7,9 @@ using QuestPDF.Infrastructure;
 using QuestPDF.Previewer;
 using SkiaSharp;
 using System.Data.Common;
+using System.Diagnostics;
 using System.Globalization;
+using static NPOI.HSSF.Util.HSSFColor;
 
 namespace CapaVista
 {
@@ -18,9 +20,11 @@ namespace CapaVista
         static void Main()
         {
             
+            
+            
             ApplicationConfiguration.Initialize();
-           Application.Run(new FormPrincipal(null));
-          // Application.Run(new formLogin());
+          Application.Run(new FormPrincipal(null));
+            //Application.Run(new formLogin());
         }
 
     }

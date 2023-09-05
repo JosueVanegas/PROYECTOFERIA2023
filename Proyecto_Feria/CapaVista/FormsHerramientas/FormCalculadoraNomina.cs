@@ -9,32 +9,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaControlador;
 using CapaDatos;
+using ReaLTaiizor.Forms;
 
 namespace CapaPresentacion.FormsHerramientas
 {
-    public partial class FormCalculadoraNomina : Form
+    public partial class FormCalculadoraNomina : MaterialForm
     {
 
         public FormCalculadoraNomina()
         {
             InitializeComponent();
         }
-
         private void FormCalculadoraNomina_Load(object sender, EventArgs e)
         {
-            mostrarEmpleados();
         }
-        private void mostrarEmpleados()
-        {
-            cbxEmpleados.DataSource = new ControlUsuario().listarEmpleados();
-        }
-
-        private void cbxEmpleados_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            comboEmpleado emp = cbxEmpleados.SelectedItem as comboEmpleado;
-            txtSalarioNeto.Text = emp.salario.ToString("0.00");
-        }
-
         private void txtSalarioNeto_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (txtSalarioNeto != null && txtSalarioNeto.Text.Length >= 8 && !char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
@@ -105,7 +93,7 @@ namespace CapaPresentacion.FormsHerramientas
             }
             else
             {
-               txtInss.Text = "0.00";
+                txtInss.Text = "0.00";
                 txtIr.Text = "0.00";
                 txtNetoARecibir.Text = "0.00";
             }

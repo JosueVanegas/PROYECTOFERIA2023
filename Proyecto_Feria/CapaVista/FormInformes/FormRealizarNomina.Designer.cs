@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRealizarNomina));
             label1 = new Label();
             txtEmpleado = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
@@ -47,14 +47,21 @@
             btnRealizarNomina = new RJCodeAdvance.RJControls.RJButton();
             lblId = new Label();
             btnGuardar = new RJCodeAdvance.RJControls.RJButton();
+            panel1 = new Panel();
+            panel2 = new Panel();
+            panel3 = new Panel();
             ((System.ComponentModel.ISupportInitialize)tbEmpleados).BeginInit();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
+            label1.Dock = DockStyle.Left;
             label1.Font = new Font("Microsoft Tai Le", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(20, 26);
+            label1.Location = new Point(0, 0);
             label1.Name = "label1";
             label1.Size = new Size(323, 30);
             label1.TabIndex = 0;
@@ -68,12 +75,13 @@
             txtEmpleado.BackgroundImageLayout = ImageLayout.None;
             txtEmpleado.CharacterCasing = CharacterCasing.Normal;
             txtEmpleado.Depth = 0;
+            txtEmpleado.Dock = DockStyle.Left;
             txtEmpleado.Enabled = false;
             txtEmpleado.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtEmpleado.HideSelection = true;
             txtEmpleado.Hint = "nombre del trabajador";
             txtEmpleado.LeadingIcon = null;
-            txtEmpleado.Location = new Point(20, 59);
+            txtEmpleado.Location = new Point(0, 0);
             txtEmpleado.MaxLength = 32767;
             txtEmpleado.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtEmpleado.Name = "txtEmpleado";
@@ -100,11 +108,12 @@
             txtHorasTrabajadas.BackgroundImageLayout = ImageLayout.None;
             txtHorasTrabajadas.CharacterCasing = CharacterCasing.Normal;
             txtHorasTrabajadas.Depth = 0;
+            txtHorasTrabajadas.Dock = DockStyle.Left;
             txtHorasTrabajadas.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtHorasTrabajadas.HideSelection = true;
             txtHorasTrabajadas.Hint = "horas trabajadas";
             txtHorasTrabajadas.LeadingIcon = null;
-            txtHorasTrabajadas.Location = new Point(298, 59);
+            txtHorasTrabajadas.Location = new Point(272, 0);
             txtHorasTrabajadas.MaxLength = 32767;
             txtHorasTrabajadas.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtHorasTrabajadas.Name = "txtHorasTrabajadas";
@@ -132,11 +141,12 @@
             txthorasExtras.BackgroundImageLayout = ImageLayout.None;
             txthorasExtras.CharacterCasing = CharacterCasing.Normal;
             txthorasExtras.Depth = 0;
+            txthorasExtras.Dock = DockStyle.Left;
             txthorasExtras.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txthorasExtras.HideSelection = true;
             txthorasExtras.Hint = "horas extras";
             txthorasExtras.LeadingIcon = null;
-            txthorasExtras.Location = new Point(464, 59);
+            txthorasExtras.Location = new Point(432, 0);
             txthorasExtras.MaxLength = 32767;
             txthorasExtras.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txthorasExtras.Name = "txthorasExtras";
@@ -166,44 +176,44 @@
             tbEmpleados.BorderStyle = BorderStyle.None;
             tbEmpleados.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             tbEmpleados.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle7.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle7.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            tbEmpleados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            tbEmpleados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             tbEmpleados.ColumnHeadersHeight = 35;
             tbEmpleados.Columns.AddRange(new DataGridViewColumn[] { btnEditar, Id, Trabajador, Salariohora, HorasTrabajadas, HorasExtras });
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = Color.DarkGray;
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle8.ForeColor = Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = Color.LightSkyBlue;
-            dataGridViewCellStyle8.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            tbEmpleados.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.DarkGray;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.LightSkyBlue;
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            tbEmpleados.DefaultCellStyle = dataGridViewCellStyle2;
             tbEmpleados.EnableHeadersVisualStyles = false;
             tbEmpleados.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbEmpleados.GridColor = Color.Gray;
-            tbEmpleados.Location = new Point(20, 142);
+            tbEmpleados.Location = new Point(36, 3);
             tbEmpleados.Name = "tbEmpleados";
             tbEmpleados.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = Color.Silver;
-            dataGridViewCellStyle9.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle9.ForeColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle9.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            tbEmpleados.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.Silver;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            tbEmpleados.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             tbEmpleados.RowHeadersVisible = false;
             tbEmpleados.RowHeadersWidth = 40;
             tbEmpleados.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tbEmpleados.RowTemplate.Height = 30;
             tbEmpleados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tbEmpleados.Size = new Size(760, 297);
+            tbEmpleados.Size = new Size(769, 263);
             tbEmpleados.TabIndex = 43;
             tbEmpleados.CellContentClick += tbEmpleados_CellContentClick;
             tbEmpleados.CellPainting += tbEmpleados_CellPainting;
@@ -257,17 +267,18 @@
             // btnCerrarBusqueda
             // 
             btnCerrarBusqueda.BackColor = Color.Red;
+            btnCerrarBusqueda.Dock = DockStyle.Right;
             btnCerrarBusqueda.Image = (Image)resources.GetObject("btnCerrarBusqueda.Image");
-            btnCerrarBusqueda.Location = new Point(752, 3);
+            btnCerrarBusqueda.Location = new Point(808, 0);
             btnCerrarBusqueda.Name = "btnCerrarBusqueda";
-            btnCerrarBusqueda.Size = new Size(34, 36);
+            btnCerrarBusqueda.Size = new Size(34, 35);
             btnCerrarBusqueda.TabIndex = 63;
             btnCerrarBusqueda.UseVisualStyleBackColor = false;
             btnCerrarBusqueda.Click += btnCerrarBusqueda_Click;
             // 
             // btnRealizarNomina
             // 
-            btnRealizarNomina.Anchor = AnchorStyles.None;
+            btnRealizarNomina.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnRealizarNomina.BackColor = Color.FromArgb(74, 121, 121);
             btnRealizarNomina.BackgroundColor = Color.FromArgb(74, 121, 121);
             btnRealizarNomina.BackgroundImage = (Image)resources.GetObject("btnRealizarNomina.BackgroundImage");
@@ -279,10 +290,10 @@
             btnRealizarNomina.FlatStyle = FlatStyle.Flat;
             btnRealizarNomina.ForeColor = Color.White;
             btnRealizarNomina.ImageAlign = ContentAlignment.MiddleRight;
-            btnRealizarNomina.Location = new Point(571, 444);
+            btnRealizarNomina.Location = new Point(323, 271);
             btnRealizarNomina.Margin = new Padding(3, 2, 3, 2);
             btnRealizarNomina.Name = "btnRealizarNomina";
-            btnRealizarNomina.Size = new Size(209, 66);
+            btnRealizarNomina.Size = new Size(217, 62);
             btnRealizarNomina.TabIndex = 64;
             btnRealizarNomina.Text = "Realizar nomina";
             btnRealizarNomina.TextAlign = ContentAlignment.BottomCenter;
@@ -293,8 +304,9 @@
             // lblId
             // 
             lblId.AutoSize = true;
+            lblId.Dock = DockStyle.Left;
             lblId.Font = new Font("Microsoft Tai Le", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblId.Location = new Point(349, 34);
+            lblId.Location = new Point(323, 0);
             lblId.Name = "lblId";
             lblId.Size = new Size(17, 19);
             lblId.TabIndex = 65;
@@ -303,51 +315,88 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.Anchor = AnchorStyles.None;
             btnGuardar.BackColor = Color.DarkCyan;
             btnGuardar.BackgroundColor = Color.DarkCyan;
             btnGuardar.BackgroundImageLayout = ImageLayout.Center;
             btnGuardar.BorderColor = Color.PaleVioletRed;
             btnGuardar.BorderRadius = 10;
             btnGuardar.BorderSize = 0;
+            btnGuardar.Dock = DockStyle.Left;
             btnGuardar.FlatAppearance.BorderSize = 0;
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.Font = new Font("Microsoft Tai Le", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnGuardar.ForeColor = Color.White;
             btnGuardar.ImageAlign = ContentAlignment.MiddleRight;
-            btnGuardar.Location = new Point(621, 58);
+            btnGuardar.Location = new Point(583, 0);
             btnGuardar.Margin = new Padding(3, 2, 3, 2);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(106, 49);
+            btnGuardar.Size = new Size(142, 51);
             btnGuardar.TabIndex = 66;
             btnGuardar.Text = "guardar";
             btnGuardar.TextColor = Color.White;
             btnGuardar.UseVisualStyleBackColor = false;
             btnGuardar.Click += btnGuardar_Click;
             // 
+            // panel1
+            // 
+            panel1.Controls.Add(lblId);
+            panel1.Controls.Add(btnCerrarBusqueda);
+            panel1.Controls.Add(label1);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(3, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(842, 35);
+            panel1.TabIndex = 67;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = SystemColors.ControlLight;
+            panel2.Controls.Add(btnGuardar);
+            panel2.Controls.Add(txthorasExtras);
+            panel2.Controls.Add(txtHorasTrabajadas);
+            panel2.Controls.Add(txtEmpleado);
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(3, 35);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(842, 51);
+            panel2.TabIndex = 68;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = SystemColors.InactiveCaption;
+            panel3.Controls.Add(tbEmpleados);
+            panel3.Controls.Add(btnRealizarNomina);
+            panel3.Dock = DockStyle.Fill;
+            panel3.Location = new Point(3, 86);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(842, 369);
+            panel3.TabIndex = 69;
+            // 
             // FormRealizarNomina
             // 
             AutoScaleMode = AutoScaleMode.None;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            ClientSize = new Size(804, 515);
-            Controls.Add(btnGuardar);
-            Controls.Add(lblId);
-            Controls.Add(btnRealizarNomina);
-            Controls.Add(btnCerrarBusqueda);
-            Controls.Add(tbEmpleados);
-            Controls.Add(txthorasExtras);
-            Controls.Add(txtHorasTrabajadas);
-            Controls.Add(txtEmpleado);
-            Controls.Add(label1);
+            BackColor = SystemColors.GradientActiveCaption;
+            ClientSize = new Size(848, 458);
+            Controls.Add(panel3);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
+            MdiChildrenMinimizedAnchorBottom = false;
+            MinimizeBox = false;
             Name = "FormRealizarNomina";
             Padding = new Padding(3, 0, 3, 3);
+            Sizable = false;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormRealizarNomina";
             Load += FormRealizarNomina_Load;
             ((System.ComponentModel.ISupportInitialize)tbEmpleados).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel3.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -367,5 +416,8 @@
         private DataGridViewTextBoxColumn HorasExtras;
         private Label lblId;
         private RJCodeAdvance.RJControls.RJButton btnGuardar;
+        private Panel panel1;
+        private Panel panel2;
+        private Panel panel3;
     }
 }

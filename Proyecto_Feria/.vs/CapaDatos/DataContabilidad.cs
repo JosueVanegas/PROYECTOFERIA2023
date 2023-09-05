@@ -2,5 +2,10 @@
 {
     public class DataContabilidad
     {
+        public void calcularEstadoResultado()
+        {
+
+        }
     }
+    
 }

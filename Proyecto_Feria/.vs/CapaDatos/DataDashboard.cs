@@ -112,8 +112,7 @@ namespace CapaDatos
         {
             decimal valor = 0;
             decimal valorInventario = 0;
-            decimal costoInventario = 0;
-            string query = "SELECT SUM(CANTIDAD_INVENTARIO*PRECIO_VENTA) AS VALOR_INVENTARIO,SUM(CANTIDAD_INVENTARIO*PRECIO_COMPRA) AS COSTO_INVETARIO FROM PRODUCTO";
+            string query = "SELECT SUM(CANTIDAD_INVENTARIO*PRECIO_COMPRA) AS VALOR_INVETARIO FROM PRODUCTO";
             using (SqlConnection connection = new conexion().conectar())
             {
                 connection.Open();
@@ -124,12 +123,11 @@ namespace CapaDatos
                         if (reader.Read())
                         {
                         valorInventario = reader.GetDecimal(0);
-                        costoInventario = reader.GetDecimal(1);
                         }
                     }
                 }
             }
-            valor = valorInventario - costoInventario;
+            valor = valorInventario;
             return valor;
         }
     }

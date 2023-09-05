@@ -335,14 +335,15 @@
             // lblTitulo
             // 
             lblTitulo.BackColor = Color.White;
-            lblTitulo.Font = new Font("Microsoft Sans Serif", 39.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTitulo.Dock = DockStyle.Top;
+            lblTitulo.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
             lblTitulo.ForeColor = Color.FromArgb(63, 63, 70);
             lblTitulo.Location = new Point(3, 0);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(758, 58);
             lblTitulo.TabIndex = 41;
-            lblTitulo.Text = "Vender productos";
-            lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
+            lblTitulo.Text = "Realizar venta";
+            lblTitulo.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // panelContenedorIzquierdo
             // 

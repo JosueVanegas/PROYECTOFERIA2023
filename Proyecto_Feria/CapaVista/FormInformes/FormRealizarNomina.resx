@@ -153,13 +153,10 @@
         0ztaJ/IAAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="btnRealizarNomina.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="btnRealizarNomina.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        qQAAAKkBq7NRIgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAIHSURBVEhLtdVN
+        qAAAAKgBefSzxgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAIHSURBVEhLtdVN
         iE1hHMfxw4JskNCEyFt5mdhIamoWysYGG8pGSVnaqNkoFmxIktUskI2NZpoh7xJlYyWUhYWiRkpoMA3y
         9v3e+3+mx23OPae5+dWnnt+555znvDxnpmjJMtzDV9zFUlRlCW7DY+5jOUrjyf9k7qAqN5Af8wCl+YJ8
         58+oygfkx4xjGiaNjyXfuc4dXEd+TNs78B14Uu/E51r3HdyCx/iI276D/5bZOI+P8Da9mkuYi6rMwUX4
