@@ -29,23 +29,96 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ReaLTaiizor.Forms;
+using System.Collections;
+using Aspose.Pdf.Operators;
 
 namespace CapaPresentacion.FormInformes
 {
     public partial class FormMovimientoProducto : MaterialForm
     {
-        string tituloRango = "Informe realizado el " + DateTime.Now.ToString($"dddd dd MMMM año yyyy");
         Empresa empresa = new ControlEmpresa().datosEmpresa();
         string colorFondoMovimiento = "#97C2BF";
-        string fInicio = "";
-        string ffin = "";
-        public FormMovimientoProducto()
+        int idProducto = 0;
+        string fechaInicio = "";
+        string fechaFinal = "";
+        bool excel = false;
+        public FormMovimientoProducto(string fechaInicio, string fechaFinal, bool excel)
         {
             InitializeComponent();
             this.Cursor = Cursors.WaitCursor;
+            this.fechaInicio = fechaInicio;
+            this.fechaFinal = fechaFinal;
+            this.excel = excel;
+            mostrarProductosDisponible();
             this.Cursor = Cursors.Default;
+            txtFechaInicio.Text = fechaInicio;
+            txtFechaFin.Text = fechaFinal;
         }
+        private void mostrarProductosDisponible()
+        {
+            List<Producto> lista = new ControlProducto().listarProductos();
+            tbBusqueda.Rows.Clear();
+            foreach (Producto p in lista)
+            {
+                tbBusqueda.Rows.Add("", p.id, p.codigo, p.nombre);
+            }
+        }
+        private void btnRealizarInforme_Click(object sender, EventArgs e)
+        {
+            if (txtId.Text != "0" && txtCodigo.Text != "")
+            {
+                if (excel == true)
+                {
+                    exportarExcel();
+                }
+                else
+                {
+                    crearReporteMovimientoProducto();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Seleccione el producto a realizar los movimiento en el periodo");
+            }
+        }
+        private void exportarExcel()
+        {
+            List<movimientoProducto> lista = new ControlInforme().datosMovientoInventario(idProducto, fechaInicio, fechaFinal);
+            IWorkbook workbook = new XSSFWorkbook();
+            ISheet hoja = workbook.CreateSheet("movimiento_producto");
+            IRow filaEncabezados = hoja.CreateRow(0);
+            filaEncabezados.CreateCell(0).SetCellValue("Fecha");
+            filaEncabezados.CreateCell(1).SetCellValue("Tipo de movimiento");
+            filaEncabezados.CreateCell(2).SetCellValue("cantidad");
+            filaEncabezados.CreateCell(3).SetCellValue("precio unitario");
+            filaEncabezados.CreateCell(4).SetCellValue("Total");
 
+            for (int i = 0; i < lista.Count; i++)
+            {
+                IRow fila = hoja.CreateRow(i + 1);
+                fila.CreateCell(0).SetCellValue(lista[i].fecha);
+                fila.CreateCell(1).SetCellValue(lista[i].tipo);
+                fila.CreateCell(2).SetCellValue(lista[i].cantidad);
+                fila.CreateCell(3).SetCellValue((double)lista[i].precio);
+                fila.CreateCell(4).SetCellValue((double)lista[i].total);
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                hoja.AutoSizeColumn(i);
+            }
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Archivos de Excel|*.xlsx";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                using (var fs = new FileStream(saveFileDialog.FileName, FileMode.Create))
+                {
+                    workbook.Write(fs);
+                }
+
+                MessageBox.Show("Los datos se han exportado exitosamente a Excel.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
         private void crearReporteMovimientoProducto()
         {
 
@@ -64,6 +137,10 @@ namespace CapaPresentacion.FormInformes
                     page.Content().Element(contenidoMovimiento);
                 });
             });
+            QuestPDF.Settings.License = LicenseType.Community;
+            var filePath = "invoice.pdf";
+            doc.GeneratePdf(filePath);
+            Process.Start("explorer.exe", filePath);
         }
         void Encabezado(QuestPDF.Infrastructure.IContainer content)
         {
@@ -100,21 +177,20 @@ namespace CapaPresentacion.FormInformes
         }
         void contenidoMovimiento(QuestPDF.Infrastructure.IContainer content)
         {
+            string tituloRango = "Informe realizado desde " + fechaInicio +" hasta "+fechaFinal;
             decimal saldoActual = 0;
             decimal totalCompras = 0;
             decimal totalVentas = 0;
-            List<movimientoProducto> lista = new ControlInforme().datosMovientoInventario(1, fInicio, ffin);
+            List<movimientoProducto> lista = new ControlInforme().datosMovientoInventario(Convert.ToInt32(txtId.Text), fechaInicio, fechaFinal);
             content.PaddingVertical(25).Column(column =>
             {
                 column.Item().AlignCenter().Text("Informe de movimientos de producto").FontSize(18);
-                column.Item().PaddingLeft(100).AlignLeft().Text("Codigo: ").FontSize(15);
-                column.Item().PaddingLeft(100).AlignLeft().Text("Nombre: ").FontSize(15);
+                column.Item().PaddingLeft(100).AlignLeft().Text("Codigo: " + txtCodigo.Text).FontSize(15);
+                column.Item().PaddingLeft(100).AlignLeft().Text("Nombre: " + txtNombre.Text).FontSize(15);
                 column.Item().LineHorizontal(0.5f);
                 column.Item().AlignCenter().Text(txt =>
                 {
-
                     txt.Span(tituloRango).FontSize(15);
-
                 });
                 column.Spacing(30);
 
@@ -154,7 +230,7 @@ namespace CapaPresentacion.FormInformes
                             {
                                 totalVentas += i.total;
                             }
-                            saldoActual += totalCompras - totalVentas;
+                            saldoActual +=  totalVentas - totalCompras;
                         }
                     });
                     column.Item().Row(row =>
@@ -171,6 +247,61 @@ namespace CapaPresentacion.FormInformes
                     });
                 });
             });
+        }
+
+        private void tbBusqueda_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int indice = e.RowIndex;
+            if (tbBusqueda.Columns[e.ColumnIndex].Name == "Añadir")
+            {
+                if (indice >= 0)
+                {
+                    txtId.Text = tbBusqueda.Rows[indice].Cells[1].Value.ToString();
+                    txtCodigo.Text = tbBusqueda.Rows[indice].Cells[2].Value.ToString();
+                    txtNombre.Text = tbBusqueda.Rows[indice].Cells[3].Value.ToString();
+                }
+            }
+        }
+
+        private void tbBusqueda_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+            if (e.ColumnIndex == 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var w = CapaPresentacion.Properties.Resources.pen_circle.Width;
+                var h = CapaPresentacion.Properties.Resources.pen_circle.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(CapaPresentacion.Properties.Resources.ojo, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
+
+        private void txtBuscarProducto_TextChanged(object sender, EventArgs e)
+        {
+            string nombre = cbxBuscarProducto.SelectedItem.ToString();
+            string columna = "";
+            if (nombre == "Nombre")
+            {
+                columna = "NombreP";
+            }
+            if (nombre == "Codigo")
+            {
+                columna = "CodigoP";
+            }
+            if (tbBusqueda.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow i in tbBusqueda.Rows)
+                {
+                    if (i.Cells[columna].Value.ToString().Trim().ToUpper().Contains(txtBuscarProducto.Text.Trim().ToUpper()))
+                        i.Visible = true;
+                    else
+                        i.Visible = false;
+                }
+            }
         }
     }
 }

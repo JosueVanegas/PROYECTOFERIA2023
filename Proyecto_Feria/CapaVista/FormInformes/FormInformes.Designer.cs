@@ -33,6 +33,7 @@
             pkrFechaFin = new RJCodeAdvance.RJControls.RJDatePicker();
             btnPersonalizado = new RJCodeAdvance.RJControls.RJButton();
             panel2 = new Panel();
+            btnMovimientoProductos = new RJCodeAdvance.RJControls.RJButton();
             label5 = new Label();
             hopePictureBox2 = new ReaLTaiizor.Controls.HopePictureBox();
             tgPdf = new RJCodeAdvance.RJControls.RJToggleButton();
@@ -57,7 +58,6 @@
             btnInventario = new RJCodeAdvance.RJControls.RJButton();
             pictureBox1 = new PictureBox();
             pictureBox3 = new PictureBox();
-            btnMovimientoProductos = new RJCodeAdvance.RJControls.RJButton();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)hopePictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)hopePictureBox1).BeginInit();
@@ -144,6 +144,27 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(567, 590);
             panel2.TabIndex = 12;
+            // 
+            // btnMovimientoProductos
+            // 
+            btnMovimientoProductos.BackColor = Color.FromArgb(74, 121, 121);
+            btnMovimientoProductos.BackgroundColor = Color.FromArgb(74, 121, 121);
+            btnMovimientoProductos.BorderColor = Color.PaleVioletRed;
+            btnMovimientoProductos.BorderRadius = 10;
+            btnMovimientoProductos.BorderSize = 0;
+            btnMovimientoProductos.FlatAppearance.BorderSize = 0;
+            btnMovimientoProductos.FlatStyle = FlatStyle.Flat;
+            btnMovimientoProductos.ForeColor = Color.White;
+            btnMovimientoProductos.Image = (Image)resources.GetObject("btnMovimientoProductos.Image");
+            btnMovimientoProductos.Location = new Point(176, 400);
+            btnMovimientoProductos.Name = "btnMovimientoProductos";
+            btnMovimientoProductos.Size = new Size(164, 71);
+            btnMovimientoProductos.TabIndex = 87;
+            btnMovimientoProductos.Text = "Movimientos de productos";
+            btnMovimientoProductos.TextAlign = ContentAlignment.BottomCenter;
+            btnMovimientoProductos.TextColor = Color.White;
+            btnMovimientoProductos.UseVisualStyleBackColor = false;
+            btnMovimientoProductos.Click += PanelRangoreport_Click;
             // 
             // label5
             // 
@@ -514,27 +535,6 @@
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 14;
             pictureBox3.TabStop = false;
-            // 
-            // btnMovimientoProductos
-            // 
-            btnMovimientoProductos.BackColor = Color.FromArgb(74, 121, 121);
-            btnMovimientoProductos.BackgroundColor = Color.FromArgb(74, 121, 121);
-            btnMovimientoProductos.BorderColor = Color.PaleVioletRed;
-            btnMovimientoProductos.BorderRadius = 10;
-            btnMovimientoProductos.BorderSize = 0;
-            btnMovimientoProductos.FlatAppearance.BorderSize = 0;
-            btnMovimientoProductos.FlatStyle = FlatStyle.Flat;
-            btnMovimientoProductos.ForeColor = Color.White;
-            btnMovimientoProductos.Image = (Image)resources.GetObject("btnMovimientoProductos.Image");
-            btnMovimientoProductos.Location = new Point(176, 400);
-            btnMovimientoProductos.Name = "btnMovimientoProductos";
-            btnMovimientoProductos.Size = new Size(164, 71);
-            btnMovimientoProductos.TabIndex = 87;
-            btnMovimientoProductos.Text = "Movimientos de productos";
-            btnMovimientoProductos.TextAlign = ContentAlignment.BottomCenter;
-            btnMovimientoProductos.TextColor = Color.White;
-            btnMovimientoProductos.UseVisualStyleBackColor = false;
-            btnMovimientoProductos.Click += btnMovimientoProductos_Click;
             // 
             // FormInformes
             // 

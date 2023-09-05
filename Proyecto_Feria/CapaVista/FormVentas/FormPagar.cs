@@ -1,6 +1,9 @@
-﻿using CapaControlador;
+﻿using Aspose.Pdf.Facades;
+using CapaControlador;
 using CapaDatos;
+using MathNet.Numerics;
 using ReaLTaiizor.Forms;
+using System.Diagnostics;
 using System.Drawing.Printing;
 
 namespace CapaVista.FormVentas
@@ -12,16 +15,15 @@ namespace CapaVista.FormVentas
         Usuario user = new Usuario();
         List<DetalleVenta> detalles;
         ControlVenta cVenta = new ControlVenta();
-        string impresoraSeleccionada = string.Empty;
+        string impresora = "";
+        string factura = "";
         public FormPagar(Usuario u, ResumenVenta r, List<DetalleVenta> d)
         {
             InitializeComponent();
             resumen = r;
             detalles = d;
             user = u;
-
         }
-
         private void FormPagar_Load(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
@@ -115,53 +117,71 @@ namespace CapaVista.FormVentas
         }
         private string imprimirFactura()
         {
-            this.Cursor = Cursors.WaitCursor;
             string mensaje = "Factura generada e impresa con éxito";
+            factura = "";
             try
             {
-                int numeroPaginas = 2;
-                infoVenta v = new infoVenta
+                PrintDialog printDialog = new PrintDialog();
+                printDialog.UseEXDialog = true;
+                DialogResult confirmResult = MessageBox.Show("¿Estas seguro de realizar la venta?", "Confirmar", MessageBoxButtons.YesNo);
+
+                if (confirmResult == DialogResult.Yes)
                 {
-                    ID_CLIENTE = cliente.id,
-                    ID_USUARIO = user.id,
-                    DESCUENTO = resumen.descuento,
-                    IVA = resumen.iva,
-                    SUBTOTAL = resumen.subtotal,
-                    TOTAL = resumen.total,
-                };
-                MessageBox.Show(cVenta.procesoDeVenta(v, detalles));
-                string factura = cVenta.tomarNoFactura();
-
-                if (factura != "")
-                {
-                    if (impresoraSeleccionada != "")
-                    {
-                        string carpetaDocumentos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-                        string nombreArchivo = Path.Combine(carpetaDocumentos, "Factura_" + factura + ".pdf");
-
-
-                        pdImprimir = new PrintDocument();
-                        pdImprimir.PrinterSettings.PrinterName = impresoraSeleccionada;
-                        pdImprimir.PrinterSettings.PrintToFile = true;
-                        pdImprimir.PrinterSettings.PrintFileName = nombreArchivo;
-
-                        pdImprimir.PrintPage += imprimir;
-
-                        for (int i = 0; i < numeroPaginas; i++)
+                    this.Cursor = Cursors.WaitCursor;
+                        infoVenta v = new infoVenta
                         {
-                            pdImprimir.Print();
+                            ID_CLIENTE = cliente.id,
+                            ID_USUARIO = user.id,
+                            DESCUENTO = resumen.descuento,
+                            IVA = resumen.iva,
+                            SUBTOTAL = resumen.subtotal,
+                            TOTAL = resumen.total,
+                        };
+                        factura = cVenta.procesoDeVenta(v, detalles);
+                        MessageBox.Show(cVenta.retornarMensaje());
+                    if (!string.IsNullOrEmpty(factura))
+                    {
+                        if (impresora != "")
+                        {
+                            string carpetaDocumentos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                            string nombreArchivo = Path.Combine(carpetaDocumentos, "Factura_" + factura + ".pdf");
+
+
+                            pdImprimir = new PrintDocument();
+                            pdImprimir.PrinterSettings.PrinterName = impresora;
+                            pdImprimir.PrinterSettings.PrintToFile = true;
+                            pdImprimir.PrinterSettings.PrintFileName = nombreArchivo;
+
+                            pdImprimir.PrintPage += imprimir;
+
+                            for (int i = 0; i < 1; i++)
+                            {
+                                pdImprimir.Print();
+                            }
+                            mensaje = "Factura generada e impresa con éxito se guardo en en: "+nombreArchivo;
+                        }
+                        else
+                        {
+                            mensaje = "No se ha seleccionado ninguna impresora";
                         }
                     }
+                }
+                else
+                {
+                    mensaje = "Venta cancelada";
                 }
             }
             catch (Exception ex)
             {
                 mensaje = ex.Message;
             }
-            return mensaje;
-            this.Cursor = Cursors.Default;
-        }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
 
+            return mensaje;
+        }
         private void imprimir(object sender, PrintPageEventArgs e)
         {
             Empresa empresa = new ControlEmpresa().datosEmpresa();
@@ -172,13 +192,13 @@ namespace CapaVista.FormVentas
             y += 20;
             e.Graphics.DrawString($"Factura No: {new DataVenta().noFactura}", font, Brushes.Black, 20, y);
             y += 20;
-            e.Graphics.DrawString($"Dirección: {empresa.direccion +" " +empresa.departamento}", font, Brushes.Black, 20, y);
+            e.Graphics.DrawString($"Dirección: {empresa.direccion + " " + empresa.departamento}", font, Brushes.Black, 20, y);
             y += 20;
             e.Graphics.DrawString($"Email: {empresa.email}", font, Brushes.Black, 20, y);
             y += 20;
             e.Graphics.DrawString($"Teléfono: {empresa.telefono}", font, Brushes.Black, 20, y);
             y += 20;
-            e.Graphics.DrawString($"Cliente:{cliente.nombre}", font, Brushes.Black, 20, y);
+            e.Graphics.DrawString($"Cliente:{txtCliente.Text}", font, Brushes.Black, 20, y);
             y += 20;
             e.Graphics.DrawString($"Usuario en turno: {user.usuario}", font, Brushes.Black, 20, y);
             y += 20;
@@ -231,23 +251,18 @@ namespace CapaVista.FormVentas
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
             string columna = cbxBuscar.SelectedItem.ToString();
-#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
             if (tbBusqueda.Rows.Count > 0)
             {
                 foreach (DataGridViewRow i in tbBusqueda.Rows)
                 {
-#pragma warning disable CS8602 // Desreferencia de una referencia posiblemente NULL.
                     if (i.Cells[columna].Value.ToString().Trim().ToUpper().Contains(txtBuscar.Text.Trim().ToUpper()))
                         i.Visible = true;
                     else
                         i.Visible = false;
-#pragma warning restore CS8602 // Desreferencia de una referencia posiblemente NULL.
                 }
             }
         }
-
         private void tbBusqueda_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.RowIndex < 0)
@@ -273,7 +288,7 @@ namespace CapaVista.FormVentas
                 if (indice >= 0)
                 {
                     int idObtenido = (int)tbBusqueda.Rows[indice].Cells["Id"].Value;
-                    string nombreObtenido = tbBusqueda.Rows[indice].Cells["Nombre"].Value.ToString(); 
+                    string nombreObtenido = tbBusqueda.Rows[indice].Cells["Nombre"].Value.ToString();
                     cliente = new Cliente
                     {
                         id = idObtenido,
@@ -296,11 +311,6 @@ namespace CapaVista.FormVentas
                 txtCliente.Text = "";
             }
         }
-
-        private void cbxImpresoras_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            impresoraSeleccionada = cbxImpresoras.SelectedItem.ToString();
-        }
         private void CargarImpresorasDisponibles()
         {
             PrinterSettings.StringCollection impresoras = PrinterSettings.InstalledPrinters;
@@ -309,6 +319,7 @@ namespace CapaVista.FormVentas
             {
                 cbxImpresoras.Items.Add(impresora);
             }
+            cbxImpresoras.SelectedIndex = 3;
         }
 
         private void pictureBox4_MouseHover(object sender, EventArgs e)
@@ -345,7 +356,7 @@ namespace CapaVista.FormVentas
         {
             if (!Char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Space)
             {
-                e.Handled = true; 
+                e.Handled = true;
             }
         }
 
@@ -354,6 +365,11 @@ namespace CapaVista.FormVentas
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
             toolTip.ToolTipIcon = ToolTipIcon.Info;
             toolTip.SetToolTip(pictureBox3, "Si deseas usar un cliente que esta registrado puede seleccionar desde la tabla");
+        }
+
+        private void cbxImpresoras_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            impresora = cbxImpresoras.SelectedItem.ToString();
         }
     }
 }

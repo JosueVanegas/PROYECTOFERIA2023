@@ -9,6 +9,8 @@ using System.Globalization;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Windows.Forms;
 using NPOI.SS.Formula.Functions;
+using Aspose.Pdf;
+using MathNet.Numerics;
 
 namespace CapaPresentacion.FormInformes
 {
@@ -17,10 +19,11 @@ namespace CapaPresentacion.FormInformes
         ControlInforme cInforme = new ControlInforme();
         ReportesTipo reportes = new ReportesTipo();
         bool excel = false;
-        Boolean Ventas = false;
-        Boolean Inventario = false;
-        Boolean Compras = false;
-        Boolean Nomina = false;
+        bool Ventas = false;
+        bool Inventario = false;
+        bool Compras = false;
+        bool Nomina = false;
+        bool movimiento = false;
         public FormInformes()
         {
             InitializeComponent();
@@ -69,6 +72,22 @@ namespace CapaPresentacion.FormInformes
                         reportes.crearReporteCompras(hoy, hoy, "Informe de ventas del dia de hoy " + now.ToString($"dddd dd MMMM año yyyy"), false, false);
                     }
                     Compras = false;
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+
+            }
+            if (movimiento)
+            {
+                try
+                {
+
+                    FormMovimientoProducto form = new FormMovimientoProducto(hoy,hoy,excel);
+                    form.ShowDialog();
+                    movimiento = false;
                 }
 
                 catch (Exception ex)
@@ -131,6 +150,22 @@ namespace CapaPresentacion.FormInformes
                     MessageBox.Show("Error: " + ex.Message);
                 }
             }
+            if (movimiento)
+            {
+                try
+                {
+
+                    FormMovimientoProducto form = new FormMovimientoProducto(ayer, ayer, excel);
+                    form.ShowDialog();
+                    movimiento = false;
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+
+            }
             panelVisible = !panelVisible;
             PanelRangoreport.Visible = panelVisible;
         }
@@ -182,6 +217,22 @@ namespace CapaPresentacion.FormInformes
                 catch (Exception ex)
                 {
                     // Maneja cualquier excepción que pueda ocurrir.
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+
+            }
+            if (movimiento)
+            {
+                try
+                {
+
+                    FormMovimientoProducto form = new FormMovimientoProducto(inicio, fin, excel);
+                    form.ShowDialog();
+                    movimiento = false;
+                }
+
+                catch (Exception ex)
+                {
                     MessageBox.Show("Error: " + ex.Message);
                 }
 
@@ -238,7 +289,21 @@ namespace CapaPresentacion.FormInformes
 
                 catch (Exception ex)
                 {
-                    // Maneja cualquier excepción que pueda ocurrir.
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+            if (movimiento)
+            {
+                try
+                {
+
+                    FormMovimientoProducto form = new FormMovimientoProducto(inicio, final, excel);
+                    form.ShowDialog();
+                    movimiento = false;
+                }
+
+                catch (Exception ex)
+                {
                     MessageBox.Show("Error: " + ex.Message);
                 }
 
@@ -290,13 +355,28 @@ namespace CapaPresentacion.FormInformes
 
                 catch (Exception ex)
                 {
-                    // Maneja cualquier excepción que pueda ocurrir.
                     MessageBox.Show("Error: " + ex.Message);
                 }
             }
-            panelVisible = !panelVisible; // Cambiar el estado de la visibilidad
+            if (movimiento)
+            {
+                try
+                {
 
-            PanelRangoreport.Visible = panelVisible; // Aplicar el estado de visibilidad actual al panel
+                    FormMovimientoProducto form = new FormMovimientoProducto(fi, ff, excel);
+                    form.ShowDialog();
+                    movimiento = false;
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+
+            }
+            panelVisible = !panelVisible; 
+
+            PanelRangoreport.Visible = panelVisible; 
 
         }
         private void FechaUltimaSemana_Click(object sender, EventArgs e)
@@ -348,53 +428,26 @@ namespace CapaPresentacion.FormInformes
                     MessageBox.Show("Error: " + ex.Message);
                 }
             }
+            if (movimiento)
+            {
+                try
+                {
+
+                    FormMovimientoProducto form = new FormMovimientoProducto(fInicio, ffin, excel);
+                    form.ShowDialog();
+                    movimiento = false;
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+
+            }
             panelVisible = !panelVisible;
 
             PanelRangoreport.Visible = panelVisible;
         }
-
-        private bool panelVisible = false;
-
-        private void PanelRangoreport_Click(object sender, EventArgs e)
-        {
-            panelVisible = !panelVisible;
-            PanelRangoreport.Visible = panelVisible;
-            Button boton = sender as Button;
-            Ventas = false;
-            Compras = false;
-            Nomina = false;
-            if (boton != null && boton == btnInforVentas)
-            {
-                Ventas = true;
-            }
-            if (boton != null && boton == btninfoCompras)
-            {
-                Compras = true;
-            }
-            if (boton != null && boton == btnNomina)
-            {
-                Nomina = true;
-            }
-        }
-
-        private void pictureBox2_MouseHover(object sender, EventArgs e)
-        {
-            //kerlint campia el tooltip de esto que ya no tiene nada que ver con el contenido del form
-            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-            toolTip.ToolTipIcon = ToolTipIcon.Info;
-            toolTip.SetToolTip(pictureBox2, "Generacion de Informes\n" +
-                                            "Informes que se pueden Generar:\n" +
-                                            "1.Informe de las Ventas a detalles \n" +
-                                            "2.Informe de Compras realizadas a Proveedores\n" +
-                                            "3.Informe de Inventario de los Productos\n" +
-                                            "4.Informe de Nomina de los Empleados\n" +
-                                            "Como Generarlos: \n" +
-                                            "1. Seleccione con un click el informe que sea generar.\n" +
-                                            "2. Seleccione con un click el periodo deseado\n" +
-                                            "En el periodo Personalizado Seleccionar Fecha de \n" +
-                                            "inicio y Fecha de finalizacion del Periodo\n");
-        }
-
         private void btn15Dias_Click(object sender, EventArgs e)
         {
             DateTime now = DateTime.Now;
@@ -426,9 +479,31 @@ namespace CapaPresentacion.FormInformes
             {
                 try
                 {
-                    QuestPDF.Settings.License = LicenseType.Community;
-
+                    if (excel == true)
+                    {
+                        reportes.exportarAExcelCompras(inicio, final);
+                    }
+                    else
+                    {
+                        QuestPDF.Settings.License = LicenseType.Community;
+                        reportes.crearReporteCompras(inicio, final, "", true, false);
+                    }
                     Compras = false;
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+            if (movimiento)
+            {
+                try
+                {
+
+                    FormMovimientoProducto form = new FormMovimientoProducto(inicio, final, excel);
+                    form.ShowDialog();
+                    movimiento = false;
                 }
 
                 catch (Exception ex)
@@ -440,6 +515,55 @@ namespace CapaPresentacion.FormInformes
             panelVisible = !panelVisible;
             PanelRangoreport.Visible = panelVisible;
         }
+
+        private bool panelVisible = false;
+
+        private void PanelRangoreport_Click(object sender, EventArgs e)
+        {
+            panelVisible = !panelVisible;
+            PanelRangoreport.Visible = panelVisible;
+            Button boton = sender as Button;
+            Ventas = false;
+            Compras = false;
+            Nomina = false;
+            movimiento = false;
+            if (boton != null && boton == btnInforVentas)
+            {
+                Ventas = true;
+            }
+            if (boton != null && boton == btninfoCompras)
+            {
+                Compras = true;
+            }
+            if (boton != null && boton == btnNomina)
+            {
+                Nomina = true;
+            }
+            if (boton != null && boton == btnMovimientoProductos)
+            {
+                movimiento = true;
+            }
+        }
+
+        private void pictureBox2_MouseHover(object sender, EventArgs e)
+        {
+            //kerlint campia el tooltip de esto que ya no tiene nada que ver con el contenido del form
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+            toolTip.ToolTipIcon = ToolTipIcon.Info;
+            toolTip.SetToolTip(pictureBox2, "Generacion de Informes\n" +
+                                            "Informes que se pueden Generar:\n" +
+                                            "1.Informe de las Ventas a detalles \n" +
+                                            "2.Informe de Compras realizadas a Proveedores\n" +
+                                            "3.Informe de Inventario de los Productos\n" +
+                                            "4.Informe de Nomina de los Empleados\n" +
+                                            "Como Generarlos: \n" +
+                                            "1. Seleccione con un click el informe que sea generar.\n" +
+                                            "2. Seleccione con un click el periodo deseado\n" +
+                                            "En el periodo Personalizado Seleccionar Fecha de \n" +
+                                            "inicio y Fecha de finalizacion del Periodo\n");
+        }
+
+     
 
         private void pkrFechaInicio_ValueChanged(object sender, EventArgs e)
         {
@@ -500,12 +624,6 @@ namespace CapaPresentacion.FormInformes
         {
             FormRealizarNomina frn = new FormRealizarNomina(excel);
             frn.ShowDialog();
-        }
-
-        private void btnMovimientoProductos_Click(object sender, EventArgs e)
-        {
-            FormMovimientoProducto form = new FormMovimientoProducto();
-            form.ShowDialog();
         }
     }
 }

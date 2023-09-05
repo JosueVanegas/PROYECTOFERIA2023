@@ -11,7 +11,6 @@ namespace CapaVista
 {
     public partial class FormPrincipal : Form
     {
-        private Size sizeInicial;
         public Usuario user = null;
         Form formActivo = null;
         bool EstadoDeBarraVertical = true;
@@ -22,8 +21,7 @@ namespace CapaVista
             this.Cursor = Cursors.WaitCursor;
             this.user = usuario;
             reloj.Start();
-            sizeInicial = panelContenedor.Size;
-            //datosDeUsuarioActual();
+            datosDeUsuarioActual();
             validarPermisos(this.user);
             this.Cursor = Cursors.Default;
 
@@ -36,7 +34,7 @@ namespace CapaVista
         }
         private void validarPermisos(Usuario u)
         {
-            switch (1)
+            switch (u.oRol.id)
             {
                 case 1:
                     permisosAdmin();
@@ -199,11 +197,6 @@ namespace CapaVista
         private void btnClientes_Click(object sender, EventArgs e)
         {
             abrirFormulario(new FormClientes());
-        }
-
-        private void panelContenedor_SizeChanged(object sender, EventArgs e)
-        {
-            panelContenedor.Size = sizeInicial;
         }
     }
 }

@@ -6,15 +6,12 @@ namespace CapaDatos
     {
         public int idCreado = 0;
         public string noFactura = string.Empty;
+        public string mensaje = "";
         public DataVenta() { }
 
-        public string tomarFactura()
-        {
-            return noFactura;
-        }
         public string procesoDeVenta(infoVenta v, List<DetalleVenta> detalles)
         {
-            string mensaje = "";
+            mensaje = "";
             try
             {
                 int id = registrarVenta(v);
@@ -35,7 +32,7 @@ namespace CapaDatos
             {
                 mensaje = ex.Message;
             }
-            return mensaje;
+            return noFactura;
         }
         public int registrarVenta(infoVenta v)
         {
