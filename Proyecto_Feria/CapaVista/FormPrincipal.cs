@@ -21,7 +21,7 @@ namespace CapaVista
             this.Cursor = Cursors.WaitCursor;
             this.user = usuario;
             reloj.Start();
-            datosDeUsuarioActual();
+           // datosDeUsuarioActual();
             validarPermisos(this.user);
             this.Cursor = Cursors.Default;
 
@@ -34,7 +34,7 @@ namespace CapaVista
         }
         private void validarPermisos(Usuario u)
         {
-            switch (u.oRol.id)
+            switch (1)
             {
                 case 1:
                     permisosAdmin();

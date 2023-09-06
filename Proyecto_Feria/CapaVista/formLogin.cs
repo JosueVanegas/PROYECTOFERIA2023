@@ -12,7 +12,25 @@ namespace CapaVista
             this.Cursor = Cursors.WaitCursor;
             InitializeComponent();
             lblConexion.Text = new ControlConexion().verificarConexion();
+            cargarLogoEmpresa();
             this.Cursor = Cursors.Default;
+
+        }
+        private void cargarLogoEmpresa()
+        {
+            Empresa empresa = new ControlEmpresa().datosEmpresa();
+            if (empresa != null)
+            {
+                if (empresa.imagen != null)
+                {
+                    txtNombreEmpresa.Text = empresa.nombre;
+                    using (MemoryStream ms = new MemoryStream(empresa.imagen))
+                    {
+                        Image imagen = Image.FromStream(ms);
+                        imgLogoEmpresa.Image = imagen;
+                    }
+                }
+            }
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -48,6 +66,7 @@ namespace CapaVista
         public void frm_closing(object sender, FormClosingEventArgs e)
         {
             this.Show();
+            cargarLogoEmpresa();
         }
 
         private void ckbVerContraseña_CheckedChanged(object sender)

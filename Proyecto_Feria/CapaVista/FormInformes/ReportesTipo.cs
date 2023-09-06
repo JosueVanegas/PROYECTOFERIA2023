@@ -49,10 +49,10 @@ namespace CapaPresentacion.FormInformes
                 });
                 row.RelativeItem().Border(0).Background(Colors.Transparent).Height(80).Column(col =>
                 {
-                    col.Item().AlignCenter().Text(empresa.nombre).FontSize(28).Bold();
-                    col.Item().AlignCenter().Text("Teléfono: " + empresa.telefono).FontSize(7);
-                    col.Item().AlignCenter().Text("Correo electronico: " + empresa.email).FontSize(7);
-                    col.Item().AlignCenter().Text("Direccion: " + empresa.direccion + "/" + empresa.departamento).FontSize(7);
+                    col.Item().AlignCenter().Text(empresa.nombre).FontSize(14).Bold();
+                    col.Item().AlignCenter().Text("Teléfono: " + empresa.telefono).FontSize(5);
+                    col.Item().AlignCenter().Text("Correo electronico: " + empresa.email).FontSize(5);
+                    col.Item().AlignCenter().Text("Direccion: " + empresa.direccion + "/" + empresa.departamento).FontSize(5);
                 });
                 row.RelativeItem().Border(0).Background(Colors.Transparent).Height(80);
             });

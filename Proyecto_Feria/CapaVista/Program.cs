@@ -21,7 +21,7 @@ namespace CapaVista
         {
            
             ApplicationConfiguration.Initialize();
-              //Application.Run(new FormPrincipal(null));
+             // Application.Run(new FormPrincipal(null));
               Application.Run(new formLogin());
         }
 

@@ -55,7 +55,7 @@ namespace CapaVista
         }
         private void limpiarCampos()
         {
-            urlImagen = "--";
+            urlImagen = "";
             txtIdProducto.Text = "0";
             txtNombre.Text = "";
             txtCodigoBarra.Text = "";

@@ -67,13 +67,20 @@ namespace CapaPresentacion.FormInformes
         {
             if (txtId.Text != "0" && txtCodigo.Text != "")
             {
-                if (excel == true)
+                try
                 {
-                    exportarExcel();
+                    if (excel == true)
+                    {
+                        exportarExcel();
+                    }
+                    else
+                    {
+                        crearReporteMovimientoProducto();
+                    }
                 }
-                else
+                catch(Exception ex)
                 {
-                    crearReporteMovimientoProducto();
+                    MessageBox.Show(ex.Message);
                 }
             }
             else
@@ -128,7 +135,6 @@ namespace CapaPresentacion.FormInformes
                 {
                     page.Size(PageSizes.Letter);
                     page.Margin(10);
-
                     page.DefaultTextStyle(TextStyle.Default.FontSize(12));
                     page.PageColor(Colors.White);
                     page.Background().AlignTop().ExtendHorizontal().Height(100).Background(colorFondoMovimiento);
@@ -156,7 +162,7 @@ namespace CapaPresentacion.FormInformes
                 });
                 row.RelativeItem().Border(0).Background(Colors.Transparent).Height(80).Column(col =>
                 {
-                    col.Item().AlignCenter().Text(empresa.nombre).FontSize(28).Bold();
+                    col.Item().ScaleToFit().AlignCenter().Text(empresa.nombre).FontSize(15).Bold();
                     col.Item().AlignCenter().Text("Teléfono: " + empresa.telefono).FontSize(7);
                     col.Item().AlignCenter().Text("Correo electronico: " + empresa.email).FontSize(7);
                     col.Item().AlignCenter().Text("Direccion: " + empresa.direccion + "/" + empresa.departamento).FontSize(7);
