@@ -2,6 +2,7 @@
 using CapaControlador;
 using CapaDatos;
 using MathNet.Numerics;
+using NPOI.SS.UserModel;
 using ReaLTaiizor.Forms;
 using System.Diagnostics;
 using System.Drawing.Printing;
@@ -59,11 +60,36 @@ namespace CapaVista.FormVentas
         {
             char keyPressed = e.KeyChar;
             string textoActual = txtPago.Text.Replace(" ", "");
-            if (!char.IsDigit(keyPressed) && textoActual.Length >= 9 && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
+
+            // Permitir solo dígitos y las teclas "Backspace" y "Delete"
+            if (!char.IsDigit(keyPressed) && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
             {
-                e.Handled = true;
+                e.Handled = true; // Ignorar el carácter si no es un dígito o las teclas "Backspace" o "Delete"
+            }
+
+            // Verificar si la longitud del texto es mayor o igual a 9
+            if (textoActual.Length >= 9 && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
+            {
+                e.Handled = true; // Ignorar el carácter si se supera la longitud máxima
+            }
+
+            // Validar el punto decimal
+            if (keyPressed == '.' && textoActual.Contains("."))
+            {
+                e.Handled = true; // Ignorar el carácter si ya hay un punto decimal
+            }
+
+            // Validar los dos decimales después del punto
+            if (textoActual.Contains("."))
+            {
+                int indexPunto = textoActual.IndexOf(".");
+                if (textoActual.Length - indexPunto > 2 && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
+                {
+                    e.Handled = true; // Ignorar el carácter si ya hay dos decimales después del punto
+                }
             }
         }
+
         private bool calcularCambio()
         {
             bool continuar = false;
@@ -139,32 +165,45 @@ namespace CapaVista.FormVentas
                         };
                         factura = cVenta.procesoDeVenta(v, detalles);
                         MessageBox.Show(cVenta.retornarMensaje());
-                    if (!string.IsNullOrEmpty(factura))
-                    {
-                        if (impresora != "")
-                        {
-                            string carpetaDocumentos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-                            string nombreArchivo = Path.Combine(carpetaDocumentos, "Factura_" + factura + ".pdf");
 
+                    printdirect(v);
+                    //if (!string.IsNullOrEmpty(factura))
+                    //{
+                    //    if (impresora != "")
+                    //    {
 
-                            pdImprimir = new PrintDocument();
-                            pdImprimir.PrinterSettings.PrinterName = impresora;
-                            pdImprimir.PrinterSettings.PrintToFile = true;
-                            pdImprimir.PrinterSettings.PrintFileName = nombreArchivo;
+                    //        ////Aqui es donde me falta es lo del tamaño como lo ajusto aqui donde tambien tenia dudas  
+                    //        ///
+                    //        string carpetaDocumentos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                    //        string nombreArchivo = Path.Combine(carpetaDocumentos, "Factura_" + factura);
+                    //       //string nombreArchivo = Path.Combine(carpetaDocumentos, "Factura_" + factura + ".pdf");
+                    //        ////////  la linea de abajo era lo que estaba probando ahora del 80mm ahora en la tarde
+                    //    //    System.Drawing.Printing.PaperSize paperSize = new System.Drawing.Printing.PaperSize("Custom", Convert.ToInt32(80 / 25.4) * 100, Convert.ToInt32(210 / 25.4) * 100);
+                    //        ///////////pero estaba probando lo del 80mm xd y ahi si no se xd
+                    //        ///no toques porfa
+                    //        ///
+                    //        pdImprimir = new PrintDocument();
+                    //        pdImprimir.PrinterSettings.PrinterName = impresora;
+                    //         // si esta linea puedo generar
+                    //        ////////////////
+                    //     //   pdImprimir.DefaultPageSettings.PaperSize = paperSize;
+                    //        ///////////////
+                    //        pdImprimir.PrinterSettings.PrintToFile = true;
+                    //        pdImprimir.PrinterSettings.PrintFileName = nombreArchivo;
 
-                            pdImprimir.PrintPage += imprimir;
+                    //        pdImprimir.PrintPage += imprimir;
 
-                            for (int i = 0; i < 1; i++)
-                            {
-                                pdImprimir.Print();
-                            }
-                            mensaje = "Factura generada e impresa con éxito se guardo en en: "+nombreArchivo;
-                        }
-                        else
-                        {
-                            mensaje = "No se ha seleccionado ninguna impresora";
-                        }
-                    }
+                    //        for (int i = 0; i < 1; i++)
+                    //        {
+                    //            pdImprimir.Print();
+                    //        }
+                    //        mensaje = "Factura generada e impresa con éxito se guardo en en: "+nombreArchivo;
+                    //    }
+                    //    else
+                    //    {
+                    //        mensaje = "No se ha seleccionado ninguna impresora";
+                    //    }
+                    //}
                 }
                 else
                 {
@@ -182,13 +221,223 @@ namespace CapaVista.FormVentas
 
             return mensaje;
         }
+
+
+
+      public void d()
+        {/*
+            Empresa empresa = new ControlEmpresa().datosEmpresa();
+            Font font = new Font("Courier New", 12);
+            float y = 20;
+
+            e.Graphics.DrawString($"        {empresa.nombre}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"Factura No: {new DataVenta().noFactura}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"Dirección: {empresa.direccion + " " + empresa.departamento}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"Email: {empresa.email}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"Teléfono: {empresa.telefono}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"Cliente:{txtCliente.Text}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"Usuario en turno: {user.usuario}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString("------------------------------------detalles-------------------------------", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString("Descripcion", font, Brushes.Black, 20, y);
+            e.Graphics.DrawString("Subtotal", font, Brushes.Black, 700, y);
+            y += 20;
+            foreach (var d in detalles)
+            {
+                e.Graphics.DrawString($"{d.NOMBRE}", font, Brushes.Black, 20, y);
+                e.Graphics.DrawString($"{d.SUBTOTAL}", font, Brushes.Black, 700, y);
+                y += 20;
+                e.Graphics.DrawString($"{d.CANTIDAD} x {d.PRECIO}", font, Brushes.Black, 20, y);
+                y += 20;
+            }
+            e.Graphics.DrawString("------------------------------------resumen--------------------------------", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"Subtotal:{txtSubTotal.Text}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"IVA: {txtIva.Text}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"Total antes de descuento: {txtTotal.Text}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"Descuento: {txtDescuento.Text}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"Total despues de descuento y deducciones: {txtTotalFinal.Text}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"Cambio: {txtCambioDeCompra.Text}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString("                     ******NOTA: No se aceptan devoluciones*****", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString("                           Gracias por preferirnos :)", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString("----------------------------------------------------------------------------", font, Brushes.Black, 20, y);
+            y += 20;
+            e.HasMorePages = false;*/
+        }
+
+
+
+        //TODO
+        //el select de las impresoras ya no seria necesario supongo PORQUE SE ESTA IMPRIMIENDO POR DEFECTO LA PREDETERMINADA
+        //AJUSTAR EL TEXTO PARA QUE SE AJUSTE AL VOUCHER DE LA HOJA (ESTO VAS A TENER QUE HACERLO A MANO NO HAY DE OTRA, A MENOS QUE SE CAMBIE A CRYSTAL REPORT PERO NO HAY TIEMPO)
+        //EN ESTA LINEA PODES DARLE MAS ESPACIO PARA QUE SE SEPAREN UNA ABAJO DE LA LINEA ANTERIOR yPos += (int) titleFont.GetHeight()+5;//dar un poco mas de enter SUMANDOLE +5 O +10 ETC
+        //NOTA LAS CLASES SE DEBEN NOMBRAR EN MAYUSCULA infoVenta ->InfoVenta
+
+        private void printdirect(infoVenta venta)//metodo para imprimir en la impresora que esta predeterminaad en windows, hay que poner el pOS80 COMO PREDETERMINADA!
+        {
+            Empresa empresa = new ControlEmpresa().datosEmpresa();
+           
+            float y = 20;
+
+            PrintDocument printDocument = new PrintDocument();
+            printDocument.PrintPage += (sender, e) => {
+                // Configura las fuentes y los tamaños adecuados
+                Font titleFont = new Font("Arial", 8);
+                Font contentFont = new Font("Arial", 8);
+
+
+                // Definir el margen izquierdo y la posición actual en la página
+                int marginLeft = 8;
+                int marginTop = 8;
+                int yPos = marginTop;
+
+                // Imprimir el encabezado
+                string encabezado = $"{empresa.nombre}";
+                e.Graphics.DrawString(encabezado, titleFont, Brushes.Black, 100, yPos);
+                yPos += (int)titleFont.GetHeight()+5;//dar un poco mas de enter
+
+                string facturaInfo = $"Factura No: {new DataVenta().noFactura}";
+                e.Graphics.DrawString(facturaInfo, contentFont, Brushes.Black, marginLeft, yPos);
+                yPos += (int)contentFont.GetHeight()+5;
+
+                string direccion = $"Dirección: {empresa.direccion + " " + empresa.departamento}";
+                e.Graphics.DrawString(direccion, contentFont, Brushes.Black, marginLeft, yPos);
+                yPos += (int)contentFont.GetHeight()+5;
+
+                string email = $"Email:{empresa.email}";
+                e.Graphics.DrawString(email, contentFont, Brushes.Black, marginLeft, yPos);
+                yPos += (int)contentFont.GetHeight();
+
+                string telefono = $"Teléfono: {empresa.telefono}";
+                e.Graphics.DrawString(telefono, contentFont, Brushes.Black, marginLeft, yPos);
+                yPos += (int)contentFont.GetHeight();
+
+                string cliente = $"Cliente: {txtCliente.Text}";
+                e.Graphics.DrawString(cliente, contentFont, Brushes.Black, marginLeft, yPos);
+                yPos += (int)contentFont.GetHeight();
+
+                string usuario = $"Usuario en turno: {user.usuario}";
+                e.Graphics.DrawString(usuario, contentFont, Brushes.Black, marginLeft, yPos);
+                yPos += (int)contentFont.GetHeight();
+
+                // Separador
+                yPos += 10;
+                e.Graphics.DrawLine(new Pen(Brushes.Black), marginLeft, yPos, 380, yPos);
+                yPos += 20;
+
+                // Detalles
+                string detallesHeader = "-----------------------------detalles-------------------------------";
+                e.Graphics.DrawString(detallesHeader, contentFont, Brushes.Black, marginLeft, yPos);
+                yPos += (int)contentFont.GetHeight();
+                yPos += 10;
+                e.Graphics.DrawString("Descripcion" ,contentFont, Brushes.Black, marginLeft, yPos);
+                e.Graphics.DrawString($"Subtotal", contentFont, Brushes.Black, 230, yPos);
+                e.Graphics.DrawString($"Cantidad x Precio", contentFont, Brushes.Black, 110, yPos);
+                yPos += (int)contentFont.GetHeight();
+                yPos += 20;
+                e.Graphics.DrawLine(new Pen(Brushes.Black), marginLeft, yPos, 380, yPos);
+                yPos += 20;
+
+                yPos += (int)contentFont.GetHeight();
+                foreach (var d in detalles)
+                {
+
+                    e.Graphics.DrawString($"{d.NOMBRE}", contentFont, Brushes.Black, marginLeft, yPos);
+                    e.Graphics.DrawString($"{d.SUBTOTAL}", contentFont, Brushes.Black, 240, yPos);
+                    e.Graphics.DrawString($"{d.CANTIDAD} x {d.PRECIO}", contentFont, Brushes.Black, 130, yPos);
+
+                    /*    e.Graphics.DrawString($"{d.NOMBRE}", font, Brushes.Black, 20, y);
+                        e.Graphics.DrawString($"{d.SUBTOTAL}", font, Brushes.Black, 700, y);
+                        y += 20;
+                        e.Graphics.DrawString($"{d.CANTIDAD} x {d.PRECIO}", font, Brushes.Black, 20, y);*/
+                    yPos += (int)contentFont.GetHeight();
+                }
+
+                // Separador
+                yPos += 10;
+                e.Graphics.DrawLine(new Pen(Brushes.Black), marginLeft, yPos, 380, yPos);
+                yPos += 20;
+
+                // Resumen
+                
+
+                string subtotal = $"Subtotal:";
+                e.Graphics.DrawString(subtotal, contentFont, Brushes.Black, 80, yPos);
+                e.Graphics.DrawString($"{txtSubTotal.Text}", contentFont, Brushes.Black, 240, yPos);
+
+                yPos += (int)contentFont.GetHeight();
+
+                string iva = $"IVA: ";
+                e.Graphics.DrawString($"{txtIva.Text}", contentFont, Brushes.Black, 240, yPos);
+                e.Graphics.DrawString(iva, contentFont, Brushes.Black, 80, yPos);
+                yPos += (int)contentFont.GetHeight();
+
+                string totalAntesDescuento = $"Total antes de descuento: ";
+                e.Graphics.DrawString(totalAntesDescuento, contentFont, Brushes.Black, 80, yPos);
+                e.Graphics.DrawString($"{txtTotal.Text}", contentFont, Brushes.Black, 240, yPos);
+                yPos += (int)contentFont.GetHeight();
+
+                string descuento = $"Descuento: ";
+                e.Graphics.DrawString(descuento, contentFont, Brushes.Black, 80, yPos);
+                e.Graphics.DrawString($"{txtDescuento.Text}", contentFont, Brushes.Black, 240, yPos);
+                yPos += (int)contentFont.GetHeight();
+             
+                string totalDespuesDescuento = $"Total Despues de descuento: ";
+                e.Graphics.DrawString(totalDespuesDescuento, contentFont, Brushes.Black, 80, yPos);
+                e.Graphics.DrawString($"{txtTotalFinal.Text}", contentFont, Brushes.Black, 240, yPos);
+                yPos += (int)contentFont.GetHeight();
+
+                string cambio = $"Cambio: ";
+                e.Graphics.DrawString(cambio, contentFont, Brushes.Black, 80, yPos);
+                e.Graphics.DrawString($"{txtCambioDeCompra.Text}", contentFont, Brushes.Black, 240, yPos);
+                yPos += (int)contentFont.GetHeight();
+                yPos += 10;
+                e.Graphics.DrawLine(new Pen(Brushes.Black), marginLeft, yPos, 380, yPos);
+                yPos += 20;
+
+                string nota = "         ******NOTA: No se aceptan devoluciones******";
+                e.Graphics.DrawString(nota, contentFont, Brushes.Black, marginLeft, yPos);
+                yPos += (int)contentFont.GetHeight();
+
+                // Mensaje de agradecimiento
+                string agradecimiento = "                     Gracias por preferirnos :)";
+                e.Graphics.DrawString(agradecimiento, contentFont, Brushes.Black, marginLeft, yPos);
+                yPos += (int)contentFont.GetHeight();
+
+                // Línea divisoria final
+                yPos += 10;
+                e.Graphics.DrawLine(new Pen(Brushes.Black), marginLeft, yPos, 280, yPos);
+            };
+
+            PrintController printController = new StandardPrintController(); // Para evitar la ventana de progreso
+            printDocument.PrintController = printController;
+            printDocument.Print();
+        }
+
+     
+        
         private void imprimir(object sender, PrintPageEventArgs e)
         {
             Empresa empresa = new ControlEmpresa().datosEmpresa();
             Font font = new Font("Courier New", 12);
             float y = 20;
 
-            e.Graphics.DrawString($"                        {empresa.nombre}", font, Brushes.Black, 20, y);
+            e.Graphics.DrawString($"                               {empresa.nombre}", font, Brushes.Black, 20, y);
             y += 20;
             e.Graphics.DrawString($"Factura No: {new DataVenta().noFactura}", font, Brushes.Black, 20, y);
             y += 20;

@@ -112,7 +112,6 @@ C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\Cap
 C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\bin\Debug\net6.0-windows\System.Security.Cryptography.Xml.dll
 C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\obj\Debug\net6.0-windows\CapaPresentacion.FormInformes.FormRealizarNomina.resources
-C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\obj\Debug\net6.0-windows\CapaPresentacion.FormsHerramientas.FormBitacora.resources
 C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\bin\Debug\net6.0-windows\BarcodeStandard.dll
 C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\obj\Debug\net6.0-windows\CapaPresentacion.FormInformes.FormMovimientoProducto.resources
 C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\bin\Debug\net6.0-windows\Aspose.PDF.dll

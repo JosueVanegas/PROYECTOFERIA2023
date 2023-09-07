@@ -332,7 +332,7 @@ namespace CapaVista
             btnInicio.BackgroundImage = (Image)resources.GetObject("btnInicio.BackgroundImage");
             btnInicio.BackgroundImageLayout = ImageLayout.Center;
             btnInicio.BorderColor = Color.PaleVioletRed;
-            btnInicio.BorderRadius = 1;
+            btnInicio.BorderRadius = 10;
             btnInicio.BorderSize = 0;
             btnInicio.Enabled = false;
             btnInicio.FlatAppearance.BorderSize = 0;
@@ -358,7 +358,7 @@ namespace CapaVista
             btnUsuarios.BackgroundImage = (Image)resources.GetObject("btnUsuarios.BackgroundImage");
             btnUsuarios.BackgroundImageLayout = ImageLayout.Center;
             btnUsuarios.BorderColor = Color.PaleVioletRed;
-            btnUsuarios.BorderRadius = 1;
+            btnUsuarios.BorderRadius = 10;
             btnUsuarios.BorderSize = 0;
             btnUsuarios.Enabled = false;
             btnUsuarios.FlatAppearance.BorderSize = 0;
@@ -384,7 +384,7 @@ namespace CapaVista
             btnConfiguraciones.BackgroundImage = (Image)resources.GetObject("btnConfiguraciones.BackgroundImage");
             btnConfiguraciones.BackgroundImageLayout = ImageLayout.Center;
             btnConfiguraciones.BorderColor = Color.PaleVioletRed;
-            btnConfiguraciones.BorderRadius = 1;
+            btnConfiguraciones.BorderRadius = 10;
             btnConfiguraciones.BorderSize = 0;
             btnConfiguraciones.Enabled = false;
             btnConfiguraciones.FlatAppearance.BorderSize = 0;
@@ -410,7 +410,7 @@ namespace CapaVista
             btnHerramientas.BackgroundImage = (Image)resources.GetObject("btnHerramientas.BackgroundImage");
             btnHerramientas.BackgroundImageLayout = ImageLayout.Center;
             btnHerramientas.BorderColor = Color.PaleVioletRed;
-            btnHerramientas.BorderRadius = 1;
+            btnHerramientas.BorderRadius = 10;
             btnHerramientas.BorderSize = 0;
             btnHerramientas.Enabled = false;
             btnHerramientas.FlatAppearance.BorderSize = 0;
@@ -436,7 +436,7 @@ namespace CapaVista
             btnBarraVertical.BackgroundImage = (Image)resources.GetObject("btnBarraVertical.BackgroundImage");
             btnBarraVertical.BackgroundImageLayout = ImageLayout.Center;
             btnBarraVertical.BorderColor = Color.PaleVioletRed;
-            btnBarraVertical.BorderRadius = 1;
+            btnBarraVertical.BorderRadius = 10;
             btnBarraVertical.BorderSize = 0;
             btnBarraVertical.Enabled = false;
             btnBarraVertical.FlatAppearance.BorderSize = 0;
@@ -447,7 +447,6 @@ namespace CapaVista
             btnBarraVertical.Name = "btnBarraVertical";
             btnBarraVertical.Size = new Size(98, 78);
             btnBarraVertical.TabIndex = 8;
-            btnBarraVertical.Text = "Menu";
             btnBarraVertical.TextAlign = ContentAlignment.BottomCenter;
             btnBarraVertical.TextColor = Color.Black;
             btnBarraVertical.UseVisualStyleBackColor = false;
@@ -456,7 +455,6 @@ namespace CapaVista
             // panelContenedor
             // 
             panelContenedor.BackColor = Color.White;
-            panelContenedor.BorderStyle = BorderStyle.FixedSingle;
             panelContenedor.Dock = DockStyle.Fill;
             panelContenedor.ForeColor = Color.Black;
             panelContenedor.Location = new Point(110, 24);

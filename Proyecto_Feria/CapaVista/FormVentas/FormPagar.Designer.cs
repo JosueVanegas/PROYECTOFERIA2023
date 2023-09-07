@@ -680,8 +680,7 @@
             // 
             // pdImprimir
             // 
-            pdImprimir.PrintPage += imprimir;
-            // 
+                        // 
             // FormPagar
             // 
             AllowDrop = true;

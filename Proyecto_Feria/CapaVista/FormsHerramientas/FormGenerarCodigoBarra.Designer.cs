@@ -218,9 +218,10 @@
             Controls.Add(panelCodigo);
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.ActionBar_None;
             MaximizeBox = false;
-            MaximumSize = new Size(800, 450);
+            MaximumSize = new Size(331, 450);
             MdiChildrenMinimizedAnchorBottom = false;
             MinimizeBox = false;
+            MinimumSize = new Size(331, 450);
             Name = "FormGenerarCodigoBarra";
             Padding = new Padding(3, 24, 3, 3);
             StartPosition = FormStartPosition.CenterScreen;

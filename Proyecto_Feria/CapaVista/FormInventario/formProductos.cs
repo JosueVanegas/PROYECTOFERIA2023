@@ -163,28 +163,69 @@ namespace CapaVista
         private void txtPrecioDeCompra_KeyPress(object sender, KeyPressEventArgs e)
         {
             char keyPressed = e.KeyChar;
-            if (!char.IsDigit(keyPressed) && keyPressed != '.' && keyPressed != (char)Keys.Delete && keyPressed != (char)Keys.Back && !char.IsControl(keyPressed))
+            string textoActual = txtPrecioCompra.Text.Replace(" ", "");
+
+            // Permitir solo dígitos y las teclas "Backspace" y "Delete"
+            if (!char.IsDigit(keyPressed) && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
             {
-                e.Handled = true;
+                e.Handled = true; // Ignorar el carácter si no es un dígito o las teclas "Backspace" o "Delete"
             }
-            /*
-             * if ((keyPressed == '.' && (txtPrecioCompra.Text.Contains(".") || txtPrecioCompra.Text.Length == 10)))
+
+            // Verificar si la longitud del texto es mayor o igual a 9
+            if (textoActual.Length >= 9 && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
             {
-                e.Handled = true;
+                e.Handled = true; // Ignorar el carácter si se supera la longitud máxima
             }
-            if ((keyPressed == '.' && (txtPrecioVenta.Text.Contains(".") || txtPrecioVenta.Text.Length == 10)))
+
+            // Validar el punto decimal
+            if (keyPressed == '.' && textoActual.Contains("."))
             {
-                e.Handled = true;
+                e.Handled = true; // Ignorar el carácter si ya hay un punto decimal
             }
-             */
+
+            // Validar los dos decimales después del punto
+            if (textoActual.Contains("."))
+            {
+                int indexPunto = textoActual.IndexOf(".");
+                if (textoActual.Length - indexPunto > 2 && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
+                {
+                    e.Handled = true; // Ignorar el carácter si ya hay dos decimales después del punto
+                }
+            }
+
 
         }
         private void txtPrecioVenta_KeyPress(object sender, KeyPressEventArgs e)
         {
             char keyPressed = e.KeyChar;
-            if (!char.IsDigit(keyPressed) && keyPressed != '.' && keyPressed != (char)Keys.Delete && keyPressed != (char)Keys.Back && !char.IsControl(keyPressed))
+            string textoActual = txtPrecioVenta.Text.Replace(" ", "");
+
+            // Permitir solo dígitos y las teclas "Backspace" y "Delete"
+            if (!char.IsDigit(keyPressed) && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
             {
-                e.Handled = true;
+                e.Handled = true; // Ignorar el carácter si no es un dígito o las teclas "Backspace" o "Delete"
+            }
+
+            // Verificar si la longitud del texto es mayor o igual a 9
+            if (textoActual.Length >= 9 && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
+            {
+                e.Handled = true; // Ignorar el carácter si se supera la longitud máxima
+            }
+
+            // Validar el punto decimal
+            if (keyPressed == '.' && textoActual.Contains("."))
+            {
+                e.Handled = true; // Ignorar el carácter si ya hay un punto decimal
+            }
+
+            // Validar los dos decimales después del punto
+            if (textoActual.Contains("."))
+            {
+                int indexPunto = textoActual.IndexOf(".");
+                if (textoActual.Length - indexPunto > 2 && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
+                {
+                    e.Handled = true; // Ignorar el carácter si ya hay dos decimales después del punto
+                }
             }
 
         }

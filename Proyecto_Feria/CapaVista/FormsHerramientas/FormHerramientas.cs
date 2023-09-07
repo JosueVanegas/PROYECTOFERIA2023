@@ -12,7 +12,7 @@ namespace CapaVista.FormsHerramientas
         {
             InitializeComponent();
 
-            btnbitacora.Visible = true;
+        
             btnCalculadoraBasica.Visible = true;
 
             btnCalcularNomina.Visible = true;

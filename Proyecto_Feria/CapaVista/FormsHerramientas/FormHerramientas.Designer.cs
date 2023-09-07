@@ -33,7 +33,6 @@
             pictureBox1 = new PictureBox();
             tableLayoutPanel1 = new TableLayoutPanel();
             btnCalculadoraBasica = new RJCodeAdvance.RJControls.RJButton();
-            btnbitacora = new RJCodeAdvance.RJControls.RJButton();
             btnGenerarCodigoBarra = new RJCodeAdvance.RJControls.RJButton();
             btnCalcularNomina = new RJCodeAdvance.RJControls.RJButton();
             pictureBox4 = new PictureBox();
@@ -68,9 +67,8 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
             tableLayoutPanel1.Controls.Add(btnCalculadoraBasica, 0, 0);
-            tableLayoutPanel1.Controls.Add(btnbitacora, 0, 1);
-            tableLayoutPanel1.Controls.Add(btnGenerarCodigoBarra, 1, 1);
             tableLayoutPanel1.Controls.Add(btnCalcularNomina, 1, 0);
+            tableLayoutPanel1.Controls.Add(btnGenerarCodigoBarra, 0, 1);
             tableLayoutPanel1.Location = new Point(6, 14);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
@@ -105,30 +103,6 @@
             btnCalculadoraBasica.Visible = false;
             btnCalculadoraBasica.Click += btnCalculadoraBasica_Click;
             // 
-            // btnbitacora
-            // 
-            btnbitacora.BackColor = Color.FromArgb(74, 121, 121);
-            btnbitacora.BackgroundColor = Color.FromArgb(74, 121, 121);
-            btnbitacora.BackgroundImageLayout = ImageLayout.Center;
-            btnbitacora.BorderColor = Color.PaleVioletRed;
-            btnbitacora.BorderRadius = 10;
-            btnbitacora.BorderSize = 0;
-            btnbitacora.Dock = DockStyle.Fill;
-            btnbitacora.FlatAppearance.BorderSize = 0;
-            btnbitacora.FlatStyle = FlatStyle.Flat;
-            btnbitacora.ForeColor = Color.White;
-            btnbitacora.Image = (Image)resources.GetObject("btnbitacora.Image");
-            btnbitacora.Location = new Point(3, 240);
-            btnbitacora.Margin = new Padding(3, 2, 3, 2);
-            btnbitacora.Name = "btnbitacora";
-            btnbitacora.Size = new Size(293, 234);
-            btnbitacora.TabIndex = 18;
-            btnbitacora.Text = "Bitacora";
-            btnbitacora.TextAlign = ContentAlignment.BottomCenter;
-            btnbitacora.TextColor = Color.White;
-            btnbitacora.UseVisualStyleBackColor = false;
-            btnbitacora.Visible = false;
-            // 
             // btnGenerarCodigoBarra
             // 
             btnGenerarCodigoBarra.BackColor = Color.FromArgb(74, 121, 121);
@@ -142,7 +116,7 @@
             btnGenerarCodigoBarra.FlatStyle = FlatStyle.Flat;
             btnGenerarCodigoBarra.ForeColor = Color.White;
             btnGenerarCodigoBarra.Image = (Image)resources.GetObject("btnGenerarCodigoBarra.Image");
-            btnGenerarCodigoBarra.Location = new Point(302, 240);
+            btnGenerarCodigoBarra.Location = new Point(3, 240);
             btnGenerarCodigoBarra.Margin = new Padding(3, 2, 3, 2);
             btnGenerarCodigoBarra.Name = "btnGenerarCodigoBarra";
             btnGenerarCodigoBarra.Size = new Size(293, 234);
@@ -216,7 +190,6 @@
         private TableLayoutPanel tableLayoutPanel1;
         private RJCodeAdvance.RJControls.RJButton btnCalculadoraBasica;
         private RJCodeAdvance.RJControls.RJButton btnCalcularNomina;
-        private RJCodeAdvance.RJControls.RJButton btnbitacora;
         private RJCodeAdvance.RJControls.RJButton btnGenerarCodigoBarra;
         private PictureBox pictureBox4;
     }

@@ -1,5 +1,7 @@
 ﻿using CapaControlador;
 using CapaDatos;
+using Microsoft.VisualBasic.Devices;
+using NPOI.SS.Formula.Functions;
 using ReaLTaiizor.Forms;
 using System.Text.RegularExpressions;
 
@@ -51,37 +53,47 @@ namespace CapaVista.FormPrimerAcceso
         }
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            System.Windows.Forms.TextBox textBox = sender as System.Windows.Forms.TextBox;
-            if (textBox != null && textBox.Text.Length >= 50 && e.KeyChar != (char)Keys.Back)
+            // Verificar si el texto actual tiene más de 16 caracteres
+            if (txtNombreEmpresa.Text.Length >= 16 && e.KeyChar != (char)Keys.Back)
+            {
+                // Si ya tiene 16 caracteres y no es la tecla de "Eliminar", no permitir más entrada
+                e.Handled = true;
+                return;
+            }
+
+            // Permitir solo caracteres alfabéticos y la tecla de "Eliminar"
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
             }
         }
+
         private void materialTextBoxEdit1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
+            // Verificar si ya hay un '@' en el texto
+            if (txtCorreo.Text.Contains("@"))
             {
-                System.Windows.Forms.TextBox textBox = sender as System.Windows.Forms.TextBox;
-                if (textBox != null)
+                // Si ya hay un '@', no permitir otro
+                if (e.KeyChar == '@' || char.IsControl(e.KeyChar))
                 {
-                    string input = textBox.Text.Trim();
-                    if (IsValidEmail(input))
-                    {
-                        MessageBox.Show("Correo electrónico válido.");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Correo electrónico inválido.");
-                    }
+                    e.Handled = true; // Ignorar el caracter
                 }
-                bool IsValidEmail(string email)
+                else if (txtCorreo.Text.Length >= 27 && !char.IsControl(e.KeyChar))
                 {
-                    string pattern = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
-                    Regex regex = new Regex(pattern);
-                    return regex.IsMatch(email);
+                    e.Handled = true; // Ignorar el caracter si se supera la longitud máxima
+                }
+            }
+            else
+            {
+                // Permitir solo un '@', no más de 27 caracteres y la tecla de "Eliminar"
+                if (e.KeyChar == '@' || char.IsControl(e.KeyChar) || txtCorreo.Text.Length >= 27)
+                {
+                    e.Handled = true; // Ignorar el caracter
                 }
             }
         }
+
+
         private void pictureBox1_MouseHover(object sender, EventArgs e)
         {
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
@@ -95,21 +107,41 @@ namespace CapaVista.FormPrimerAcceso
         }
         private void txtDireccion_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != (char)Keys.Space && e.KeyChar != (char)Keys.Back)
+            // Permitir solo caracteres alfanuméricos y / . - espacio y la tecla de "Eliminar"
+            if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != '/' && e.KeyChar != '.' && e.KeyChar != '-' && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back)
             {
-                e.Handled = true;
+                e.Handled = true; // Ignorar el carácter si no es uno de los permitidos
+                return;
+            }
+
+            // Obtener el texto actual del cuadro de texto
+            string textoActual = ((TextBox)sender).Text;
+
+            // Verificar si la longitud del texto más el carácter presionado es igual a 41
+            if (textoActual.Length + 1 > 41 && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Ignorar el carácter si la longitud es mayor a 41 y no es la tecla de "Eliminar"
             }
         }
+
         private void txtNumeroContacto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != '-')
+            // Verificar si la tecla presionada es un número o el guión "-"
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '-')
             {
-                e.Handled = true;
+                e.Handled = true; // Ignorar el evento de tecla presionada
             }
-            System.Windows.Forms.TextBox textBox = sender as System.Windows.Forms.TextBox;
-            if (textBox != null && textBox.Text.Length >= 15 && e.KeyChar != (char)Keys.Back)
+
+            // Verificar si el guión "-" ya está presente
+            if (e.KeyChar == '-' && (sender as TextBox).Text.IndexOf('-') > -1)
             {
-                e.Handled = true;
+                e.Handled = true; // Ignorar el evento de tecla presionada
+            }
+
+            // Verificar si se han ingresado más de 9 caracteres
+            if ((sender as TextBox).Text.Length >= 9 && e.KeyChar != 8) // 8 es el código ASCII para la tecla "Backspace"
+            {
+                e.Handled = true; // Ignorar el evento de tecla presionada
             }
         }
 
@@ -160,5 +192,21 @@ namespace CapaVista.FormPrimerAcceso
                 }
             }
         }
+
+        private void txtRubro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir solo caracteres alfabéticos y la tecla de "Eliminar"
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // Ignorar el caracter si no es uno de los permitidos
+            }
+
+            // Verificar si el texto actual tiene más de 16 caracteres y permitir la tecla de "Eliminar"
+            if (txtRubro.Text.Length >= 25 && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Ignorar el caracter si se supera la longitud máxima
+            }
+        }
+
     }
 }

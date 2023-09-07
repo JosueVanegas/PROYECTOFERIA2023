@@ -339,6 +339,7 @@
             txtRubro.TextAlign = HorizontalAlignment.Center;
             txtRubro.TrailingIcon = null;
             txtRubro.UseSystemPasswordChar = false;
+            txtRubro.KeyPress += txtRubro_KeyPress;
             // 
             // pickerFecha
             // 

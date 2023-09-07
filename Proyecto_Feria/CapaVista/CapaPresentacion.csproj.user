@@ -52,9 +52,6 @@
     <Compile Update="FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormsHerramientas\FormBitacora.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="FormsHerramientas\FormCalculadoraBasica.cs">
       <SubType>Form</SubType>
     </Compile>

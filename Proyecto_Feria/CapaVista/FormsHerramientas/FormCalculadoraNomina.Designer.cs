@@ -192,7 +192,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(260, 367);
+            ClientSize = new Size(259, 359);
             Controls.Add(label1);
             Controls.Add(lblDeducciones);
             Controls.Add(txtNetoARecibir);
@@ -201,6 +201,8 @@
             Controls.Add(txtSalarioNeto);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.ActionBar_None;
+            MaximumSize = new Size(259, 359);
+            MinimumSize = new Size(259, 359);
             Name = "FormCalculadoraNomina";
             Padding = new Padding(3, 24, 3, 3);
             StartPosition = FormStartPosition.CenterScreen;

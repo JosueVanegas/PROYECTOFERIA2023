@@ -85,7 +85,7 @@ namespace CapaPresentacion.FormInformes
                 try
                 {
 
-                    FormMovimientoProducto form = new FormMovimientoProducto(hoy,hoy,excel);
+                    FormMovimientoProducto form = new FormMovimientoProducto(hoy, hoy, excel);
                     form.ShowDialog();
                     movimiento = false;
                 }
@@ -374,9 +374,9 @@ namespace CapaPresentacion.FormInformes
                 }
 
             }
-            panelVisible = !panelVisible; 
+            panelVisible = !panelVisible;
 
-            PanelRangoreport.Visible = panelVisible; 
+            PanelRangoreport.Visible = panelVisible;
 
         }
         private void FechaUltimaSemana_Click(object sender, EventArgs e)
@@ -556,14 +556,16 @@ namespace CapaPresentacion.FormInformes
                                             "2.Informe de Compras realizadas a Proveedores\n" +
                                             "3.Informe de Inventario de los Productos\n" +
                                             "4.Informe de Nomina de los Empleados\n" +
+                                            "5.Informe de Movimiento de productos\n" +
                                             "Como Generarlos: \n" +
                                             "1. Seleccione con un click el informe que sea generar.\n" +
                                             "2. Seleccione con un click el periodo deseado\n" +
+                                            "3. Seleccione con un click el tipo de informe ( Excel o PDF) \n" +
                                             "En el periodo Personalizado Seleccionar Fecha de \n" +
                                             "inicio y Fecha de finalizacion del Periodo\n");
         }
 
-     
+
 
         private void pkrFechaInicio_ValueChanged(object sender, EventArgs e)
         {

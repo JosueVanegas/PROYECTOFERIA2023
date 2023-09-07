@@ -21,7 +21,7 @@ namespace CapaVista
             this.Cursor = Cursors.WaitCursor;
             this.user = usuario;
             reloj.Start();
-           // datosDeUsuarioActual();
+            // datosDeUsuarioActual();
             validarPermisos(this.user);
             this.Cursor = Cursors.Default;
 
@@ -83,8 +83,12 @@ namespace CapaVista
                 formActivo.Close();
             }
             formActivo = form;
+            form.FormBorderStyle = FormBorderStyle.None;
             form.TopLevel = false;
             form.Dock = DockStyle.Fill;
+
+            form.MaximizeBox = false; // Desactivar la opción de cambiar el tamaño
+            form.MinimizeBox = false; // Desactivar la opción de minimizar
             panelContenedor.Controls.Add(form);
             form.Show();
         }
