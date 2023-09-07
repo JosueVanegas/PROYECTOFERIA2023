@@ -165,9 +165,8 @@ namespace CapaVista.FormVentas
                     };
                     factura = cVenta.procesoDeVenta(v, detalles);
                     MessageBox.Show(cVenta.retornarMensaje());
-
                     printdirect(v);
-                    //if (!string.IsNullOrEmpty(factura))
+                    //if (!string.IsNullOrEmpty(factura)
                     //{
                     //    if (impresora != "")
                     //    {
@@ -312,7 +311,7 @@ namespace CapaVista.FormVentas
                 e.Graphics.DrawString(encabezado, titleFont, Brushes.Black, 100, yPos);
                 yPos += (int)titleFont.GetHeight() + 5;//dar un poco mas de enter
 
-                string facturaInfo = $"Factura No: {new DataVenta().noFactura}";
+                string facturaInfo = $"Factura No: {factura}";
                 e.Graphics.DrawString(facturaInfo, contentFont, Brushes.Black, marginLeft, yPos);
                 yPos += (int)contentFont.GetHeight() + 5;
 

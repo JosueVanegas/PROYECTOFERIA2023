@@ -14,8 +14,6 @@ namespace CapaVista
         {
             InitializeComponent();
         }
-
-
         private void formUsuarios_Load(object sender, EventArgs e)
         {
             mostarEmpleados();
@@ -63,9 +61,7 @@ namespace CapaVista
         }
         private void registrarUsuario()
         {
-#pragma warning disable CS0219 // La variable está asignada pero nunca se usa su valor
             int rolU = 0;
-#pragma warning restore CS0219 // La variable está asignada pero nunca se usa su valor
             comboEmpleado emp;
             if (validarCampos() == true)
             {

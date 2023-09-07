@@ -21,8 +21,7 @@ namespace CapaVista
             this.Cursor = Cursors.WaitCursor;
             this.user = usuario;
             reloj.Start();
-            // datosDeUsuarioActual();
-            validarPermisos(this.user);
+            datosDeUsuarioActual();
             this.Cursor = Cursors.Default;
 
         }
@@ -34,7 +33,7 @@ namespace CapaVista
         }
         private void validarPermisos(Usuario u)
         {
-            switch (1)
+            switch (u.oRol.id)
             {
                 case 1:
                     permisosAdmin();
@@ -62,19 +61,20 @@ namespace CapaVista
             btnHerramientas.Enabled = true;
             btnPlanilla.Enabled = true;
             btnInventario.Enabled = true;
+            abrirFormulario(new FormInicio(user));
         }
         private void permisosVendedor()
         {
             btnVentas.Enabled = true;
-            btnInventario.Enabled = true;
             btnHerramientas.Enabled = true;
+            abrirFormulario(new formVentas(user));
         }
         private void permisosContador()
         {
             btnInformes.Enabled = true;
-            btnPlanilla.Enabled = true;
+            btnInicio.Enabled = true;
             btnHerramientas.Enabled = true;
-            btnConfiguraciones.Enabled = true;
+            abrirFormulario(new FormInicio(user));
         }
         private void abrirFormulario(Form form)
         {
