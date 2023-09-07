@@ -59,7 +59,6 @@
             Nombre = new DataGridViewTextBoxColumn();
             panel2 = new Panel();
             pictureBox2 = new PictureBox();
-            cbxImpresoras = new ReaLTaiizor.Controls.MaterialComboBox();
             pdImprimir = new System.Drawing.Printing.PrintDocument();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
@@ -629,7 +628,6 @@
             // panel2
             // 
             panel2.Controls.Add(pictureBox2);
-            panel2.Controls.Add(cbxImpresoras);
             panel2.Controls.Add(ckbClienteComun);
             panel2.Controls.Add(btnCancelar);
             panel2.Controls.Add(btnFacturar);
@@ -654,33 +652,6 @@
             pictureBox2.TabStop = false;
             pictureBox2.MouseHover += pictureBox2_MouseHover;
             // 
-            // cbxImpresoras
-            // 
-            cbxImpresoras.AutoResize = false;
-            cbxImpresoras.BackColor = Color.FromArgb(255, 255, 255);
-            cbxImpresoras.Depth = 0;
-            cbxImpresoras.DrawMode = DrawMode.OwnerDrawVariable;
-            cbxImpresoras.DropDownHeight = 174;
-            cbxImpresoras.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbxImpresoras.DropDownWidth = 121;
-            cbxImpresoras.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            cbxImpresoras.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            cbxImpresoras.FormattingEnabled = true;
-            cbxImpresoras.Hint = "Seleccione la impresora";
-            cbxImpresoras.IntegralHeight = false;
-            cbxImpresoras.ItemHeight = 43;
-            cbxImpresoras.Location = new Point(12, 235);
-            cbxImpresoras.MaxDropDownItems = 4;
-            cbxImpresoras.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            cbxImpresoras.Name = "cbxImpresoras";
-            cbxImpresoras.Size = new Size(280, 49);
-            cbxImpresoras.StartIndex = 0;
-            cbxImpresoras.TabIndex = 66;
-            cbxImpresoras.SelectedIndexChanged += cbxImpresoras_SelectedIndexChanged;
-            // 
-            // pdImprimir
-            // 
-                        // 
             // FormPagar
             // 
             AllowDrop = true;
@@ -748,7 +719,6 @@
         private Panel panel2;
         private System.Drawing.Printing.PrintDocument pdImprimir;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtTotalFinal;
-        private ReaLTaiizor.Controls.MaterialComboBox cbxImpresoras;
         private PictureBox pictureBox4;
         private PictureBox pictureBox3;
         private PictureBox pictureBox2;

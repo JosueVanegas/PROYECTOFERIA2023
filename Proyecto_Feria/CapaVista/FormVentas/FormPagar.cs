@@ -30,7 +30,7 @@ namespace CapaVista.FormVentas
             this.Cursor = Cursors.WaitCursor;
             mostrarClientes();
             realizarResumen();
-            CargarImpresorasDisponibles();
+            
             this.Cursor = Cursors.Default;
         }
         private void realizarResumen()
@@ -154,17 +154,17 @@ namespace CapaVista.FormVentas
                 if (confirmResult == DialogResult.Yes)
                 {
                     this.Cursor = Cursors.WaitCursor;
-                        infoVenta v = new infoVenta
-                        {
-                            ID_CLIENTE = cliente.id,
-                            ID_USUARIO = user.id,
-                            DESCUENTO = resumen.descuento,
-                            IVA = resumen.iva,
-                            SUBTOTAL = resumen.subtotal,
-                            TOTAL = resumen.total,
-                        };
-                        factura = cVenta.procesoDeVenta(v, detalles);
-                        MessageBox.Show(cVenta.retornarMensaje());
+                    infoVenta v = new infoVenta
+                    {
+                        ID_CLIENTE = cliente.id,
+                        ID_USUARIO = user.id,
+                        DESCUENTO = resumen.descuento,
+                        IVA = resumen.iva,
+                        SUBTOTAL = resumen.subtotal,
+                        TOTAL = resumen.total,
+                    };
+                    factura = cVenta.procesoDeVenta(v, detalles);
+                    MessageBox.Show(cVenta.retornarMensaje());
 
                     printdirect(v);
                     //if (!string.IsNullOrEmpty(factura))
@@ -224,7 +224,7 @@ namespace CapaVista.FormVentas
 
 
 
-      public void d()
+        public void d()
         {/*
             Empresa empresa = new ControlEmpresa().datosEmpresa();
             Font font = new Font("Courier New", 12);
@@ -291,11 +291,12 @@ namespace CapaVista.FormVentas
         private void printdirect(infoVenta venta)//metodo para imprimir en la impresora que esta predeterminaad en windows, hay que poner el pOS80 COMO PREDETERMINADA!
         {
             Empresa empresa = new ControlEmpresa().datosEmpresa();
-           
+
             float y = 20;
 
             PrintDocument printDocument = new PrintDocument();
-            printDocument.PrintPage += (sender, e) => {
+            printDocument.PrintPage += (sender, e) =>
+            {
                 // Configura las fuentes y los tamaños adecuados
                 Font titleFont = new Font("Arial", 8);
                 Font contentFont = new Font("Arial", 8);
@@ -309,15 +310,15 @@ namespace CapaVista.FormVentas
                 // Imprimir el encabezado
                 string encabezado = $"{empresa.nombre}";
                 e.Graphics.DrawString(encabezado, titleFont, Brushes.Black, 100, yPos);
-                yPos += (int)titleFont.GetHeight()+5;//dar un poco mas de enter
+                yPos += (int)titleFont.GetHeight() + 5;//dar un poco mas de enter
 
                 string facturaInfo = $"Factura No: {new DataVenta().noFactura}";
                 e.Graphics.DrawString(facturaInfo, contentFont, Brushes.Black, marginLeft, yPos);
-                yPos += (int)contentFont.GetHeight()+5;
+                yPos += (int)contentFont.GetHeight() + 5;
 
                 string direccion = $"Dirección: {empresa.direccion + " " + empresa.departamento}";
                 e.Graphics.DrawString(direccion, contentFont, Brushes.Black, marginLeft, yPos);
-                yPos += (int)contentFont.GetHeight()+5;
+                yPos += (int)contentFont.GetHeight() + 5;
 
                 string email = $"Email:{empresa.email}";
                 e.Graphics.DrawString(email, contentFont, Brushes.Black, marginLeft, yPos);
@@ -345,7 +346,7 @@ namespace CapaVista.FormVentas
                 e.Graphics.DrawString(detallesHeader, contentFont, Brushes.Black, marginLeft, yPos);
                 yPos += (int)contentFont.GetHeight();
                 yPos += 10;
-                e.Graphics.DrawString("Descripcion" ,contentFont, Brushes.Black, marginLeft, yPos);
+                e.Graphics.DrawString("Descripcion", contentFont, Brushes.Black, marginLeft, yPos);
                 e.Graphics.DrawString($"Subtotal", contentFont, Brushes.Black, 230, yPos);
                 e.Graphics.DrawString($"Cantidad x Precio", contentFont, Brushes.Black, 110, yPos);
                 yPos += (int)contentFont.GetHeight();
@@ -374,7 +375,7 @@ namespace CapaVista.FormVentas
                 yPos += 20;
 
                 // Resumen
-                
+
 
                 string subtotal = $"Subtotal:";
                 e.Graphics.DrawString(subtotal, contentFont, Brushes.Black, 80, yPos);
@@ -396,7 +397,7 @@ namespace CapaVista.FormVentas
                 e.Graphics.DrawString(descuento, contentFont, Brushes.Black, 80, yPos);
                 e.Graphics.DrawString($"{txtDescuento.Text}", contentFont, Brushes.Black, 240, yPos);
                 yPos += (int)contentFont.GetHeight();
-             
+
                 string totalDespuesDescuento = $"Total Despues de descuento: ";
                 e.Graphics.DrawString(totalDespuesDescuento, contentFont, Brushes.Black, 80, yPos);
                 e.Graphics.DrawString($"{txtTotalFinal.Text}", contentFont, Brushes.Black, 240, yPos);
@@ -429,8 +430,8 @@ namespace CapaVista.FormVentas
             printDocument.Print();
         }
 
-     
-        
+
+
         private void imprimir(object sender, PrintPageEventArgs e)
         {
             Empresa empresa = new ControlEmpresa().datosEmpresa();
@@ -560,16 +561,7 @@ namespace CapaVista.FormVentas
                 txtCliente.Text = "";
             }
         }
-        private void CargarImpresorasDisponibles()
-        {
-            PrinterSettings.StringCollection impresoras = PrinterSettings.InstalledPrinters;
-
-            foreach (string impresora in impresoras)
-            {
-                cbxImpresoras.Items.Add(impresora);
-            }
-            cbxImpresoras.SelectedIndex = 3;
-        }
+       
 
         private void pictureBox4_MouseHover(object sender, EventArgs e)
         {
@@ -616,10 +608,7 @@ namespace CapaVista.FormVentas
             toolTip.SetToolTip(pictureBox3, "Si deseas usar un cliente que esta registrado puede seleccionar desde la tabla");
         }
 
-        private void cbxImpresoras_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            impresora = cbxImpresoras.SelectedItem.ToString();
-        }
+       
     }
 }
 
