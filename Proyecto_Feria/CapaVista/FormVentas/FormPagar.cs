@@ -54,38 +54,30 @@ namespace CapaVista.FormVentas
                 }
             }
         }
-
-
         private void txtPagoTarjeta_KeyPress(object sender, KeyPressEventArgs e)
         {
             char keyPressed = e.KeyChar;
             string textoActual = txtPago.Text.Replace(" ", "");
-
-            // Permitir solo dígitos y las teclas "Backspace" y "Delete"
             if (!char.IsDigit(keyPressed) && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
             {
-                e.Handled = true; // Ignorar el carácter si no es un dígito o las teclas "Backspace" o "Delete"
+                e.Handled = true;
             }
 
-            // Verificar si la longitud del texto es mayor o igual a 9
             if (textoActual.Length >= 9 && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
             {
-                e.Handled = true; // Ignorar el carácter si se supera la longitud máxima
+                e.Handled = true; 
             }
-
-            // Validar el punto decimal
             if (keyPressed == '.' && textoActual.Contains("."))
             {
-                e.Handled = true; // Ignorar el carácter si ya hay un punto decimal
+                e.Handled = true; 
             }
 
-            // Validar los dos decimales después del punto
             if (textoActual.Contains("."))
             {
                 int indexPunto = textoActual.IndexOf(".");
                 if (textoActual.Length - indexPunto > 2 && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
                 {
-                    e.Handled = true; // Ignorar el carácter si ya hay dos decimales después del punto
+                    e.Handled = true; 
                 }
             }
         }
@@ -166,43 +158,7 @@ namespace CapaVista.FormVentas
                     factura = cVenta.procesoDeVenta(v, detalles);
                     MessageBox.Show(cVenta.retornarMensaje());
                     printdirect(v);
-                    //if (!string.IsNullOrEmpty(factura)
-                    //{
-                    //    if (impresora != "")
-                    //    {
-
-                    //        ////Aqui es donde me falta es lo del tamaño como lo ajusto aqui donde tambien tenia dudas  
-                    //        ///
-                    //        string carpetaDocumentos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-                    //        string nombreArchivo = Path.Combine(carpetaDocumentos, "Factura_" + factura);
-                    //       //string nombreArchivo = Path.Combine(carpetaDocumentos, "Factura_" + factura + ".pdf");
-                    //        ////////  la linea de abajo era lo que estaba probando ahora del 80mm ahora en la tarde
-                    //    //    System.Drawing.Printing.PaperSize paperSize = new System.Drawing.Printing.PaperSize("Custom", Convert.ToInt32(80 / 25.4) * 100, Convert.ToInt32(210 / 25.4) * 100);
-                    //        ///////////pero estaba probando lo del 80mm xd y ahi si no se xd
-                    //        ///no toques porfa
-                    //        ///
-                    //        pdImprimir = new PrintDocument();
-                    //        pdImprimir.PrinterSettings.PrinterName = impresora;
-                    //         // si esta linea puedo generar
-                    //        ////////////////
-                    //     //   pdImprimir.DefaultPageSettings.PaperSize = paperSize;
-                    //        ///////////////
-                    //        pdImprimir.PrinterSettings.PrintToFile = true;
-                    //        pdImprimir.PrinterSettings.PrintFileName = nombreArchivo;
-
-                    //        pdImprimir.PrintPage += imprimir;
-
-                    //        for (int i = 0; i < 1; i++)
-                    //        {
-                    //            pdImprimir.Print();
-                    //        }
-                    //        mensaje = "Factura generada e impresa con éxito se guardo en en: "+nombreArchivo;
-                    //    }
-                    //    else
-                    //    {
-                    //        mensaje = "No se ha seleccionado ninguna impresora";
-                    //    }
-                    //}
+                    
                 }
                 else
                 {
@@ -223,61 +179,7 @@ namespace CapaVista.FormVentas
 
 
 
-        public void d()
-        {/*
-            Empresa empresa = new ControlEmpresa().datosEmpresa();
-            Font font = new Font("Courier New", 12);
-            float y = 20;
-
-            e.Graphics.DrawString($"        {empresa.nombre}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"Factura No: {new DataVenta().noFactura}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"Dirección: {empresa.direccion + " " + empresa.departamento}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"Email: {empresa.email}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"Teléfono: {empresa.telefono}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"Cliente:{txtCliente.Text}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"Usuario en turno: {user.usuario}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString("------------------------------------detalles-------------------------------", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString("Descripcion", font, Brushes.Black, 20, y);
-            e.Graphics.DrawString("Subtotal", font, Brushes.Black, 700, y);
-            y += 20;
-            foreach (var d in detalles)
-            {
-                e.Graphics.DrawString($"{d.NOMBRE}", font, Brushes.Black, 20, y);
-                e.Graphics.DrawString($"{d.SUBTOTAL}", font, Brushes.Black, 700, y);
-                y += 20;
-                e.Graphics.DrawString($"{d.CANTIDAD} x {d.PRECIO}", font, Brushes.Black, 20, y);
-                y += 20;
-            }
-            e.Graphics.DrawString("------------------------------------resumen--------------------------------", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"Subtotal:{txtSubTotal.Text}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"IVA: {txtIva.Text}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"Total antes de descuento: {txtTotal.Text}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"Descuento: {txtDescuento.Text}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"Total despues de descuento y deducciones: {txtTotalFinal.Text}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"Cambio: {txtCambioDeCompra.Text}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString("                     ******NOTA: No se aceptan devoluciones*****", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString("                           Gracias por preferirnos :)", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString("----------------------------------------------------------------------------", font, Brushes.Black, 20, y);
-            y += 20;
-            e.HasMorePages = false;*/
-        }
+       
 
 
 
@@ -610,7 +512,103 @@ namespace CapaVista.FormVentas
        
     }
 }
+//codigo para crear factura en pdf en lugar de imprimir(en ausencia de impresora)
+/*
+ * if (!string.IsNullOrEmpty(factura)
+                    {
+                        if (impresora != "")
+                        {
 
+                            ////Aqui es donde me falta es lo del tamaño como lo ajusto aqui donde tambien tenia dudas  
+                            ///
+                           string carpetaDocumentos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                            string nombreArchivo = Path.Combine(carpetaDocumentos, "Factura_" + factura);
+                           //string nombreArchivo = Path.Combine(carpetaDocumentos, "Factura_" + factura + ".pdf");
+                            ////////  la linea de abajo era lo que estaba probando ahora del 80mm ahora en la tarde
+                        //    System.Drawing.Printing.PaperSize paperSize = new System.Drawing.Printing.PaperSize("Custom", Convert.ToInt32(80 / 25.4) * 100, Convert.ToInt32(210 / 25.4) * 100);
+                           ///////////pero estaba probando lo del 80mm xd y ahi si no se xd
+                            ///no toques porfa
+                            ///
+                            pdImprimir = new PrintDocument();
+                            pdImprimir.PrinterSettings.PrinterName = impresora;
+                             // si esta linea puedo generar
+                            ////////////////
+                         //   pdImprimir.DefaultPageSettings.PaperSize = paperSize;
+                            ///////////////
+                            pdImprimir.PrinterSettings.PrintToFile = true;
+                            pdImprimir.PrinterSettings.PrintFileName = nombreArchivo;
+
+                            pdImprimir.PrintPage += imprimir;
+
+                            for (int i = 0; i < 1; i++)
+                            {
+                                pdImprimir.Print();
+                            }
+                           mensaje = "Factura generada e impresa con éxito se guardo en en: "+nombreArchivo;
+                        }
+                        else
+                        {
+                            mensaje = "No se ha seleccionado ninguna impresora";
+                        }
+                    }
+
+
+//metodo de imprecion del pdf 
+ public void d()
+        {/*
+            Empresa empresa = new ControlEmpresa().datosEmpresa();
+            Font font = new Font("Courier New", 12);
+            float y = 20;
+
+            e.Graphics.DrawString($"        {empresa.nombre}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"Factura No: {new DataVenta().noFactura}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"Dirección: {empresa.direccion + " " + empresa.departamento}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"Email: {empresa.email}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"Teléfono: {empresa.telefono}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"Cliente:{txtCliente.Text}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"Usuario en turno: {user.usuario}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString("------------------------------------detalles-------------------------------", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString("Descripcion", font, Brushes.Black, 20, y);
+            e.Graphics.DrawString("Subtotal", font, Brushes.Black, 700, y);
+            y += 20;
+            foreach (var d in detalles)
+            {
+                e.Graphics.DrawString($"{d.NOMBRE}", font, Brushes.Black, 20, y);
+                e.Graphics.DrawString($"{d.SUBTOTAL}", font, Brushes.Black, 700, y);
+                y += 20;
+                e.Graphics.DrawString($"{d.CANTIDAD} x {d.PRECIO}", font, Brushes.Black, 20, y);
+                y += 20;
+            }
+            e.Graphics.DrawString("------------------------------------resumen--------------------------------", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"Subtotal:{txtSubTotal.Text}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"IVA: {txtIva.Text}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"Total antes de descuento: {txtTotal.Text}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"Descuento: {txtDescuento.Text}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"Total despues de descuento y deducciones: {txtTotalFinal.Text}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString($"Cambio: {txtCambioDeCompra.Text}", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString("                     ******NOTA: No se aceptan devoluciones*****", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString("                           Gracias por preferirnos :)", font, Brushes.Black, 20, y);
+            y += 20;
+            e.Graphics.DrawString("----------------------------------------------------------------------------", font, Brushes.Black, 20, y);
+            y += 20;
+            e.HasMorePages = false;*/
+        
 
 
 

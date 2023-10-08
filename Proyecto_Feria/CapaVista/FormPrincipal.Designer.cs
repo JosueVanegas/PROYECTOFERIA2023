@@ -765,7 +765,7 @@ namespace CapaVista
             Name = "FormPrincipal";
             Padding = new Padding(4, 24, 4, 3);
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Sistema auxiliar de ventas";
+            Text = "Sistema administrativo de negocio auxiliar";
             WindowState = FormWindowState.Maximized;
             Load += FrmPrincipal_Load;
             panelAbajo.ResumeLayout(false);
