@@ -78,7 +78,7 @@ namespace CapaPresentacion.FormInformes
                         crearReporteMovimientoProducto();
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
@@ -183,7 +183,7 @@ namespace CapaPresentacion.FormInformes
         }
         void contenidoMovimiento(QuestPDF.Infrastructure.IContainer content)
         {
-            string tituloRango = "Informe realizado desde " + fechaInicio +" hasta "+fechaFinal;
+            string tituloRango = "Informe realizado desde " + fechaInicio + " hasta " + fechaFinal;
             decimal saldoActual = 0;
             decimal totalCompras = 0;
             decimal totalVentas = 0;
@@ -236,7 +236,7 @@ namespace CapaPresentacion.FormInformes
                             {
                                 totalVentas += i.total;
                             }
-                            saldoActual +=  totalVentas - totalCompras;
+                            saldoActual += totalVentas - totalCompras;
                         }
                     });
                     column.Item().Row(row =>

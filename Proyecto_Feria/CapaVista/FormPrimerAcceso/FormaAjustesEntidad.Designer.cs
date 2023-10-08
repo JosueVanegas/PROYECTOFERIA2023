@@ -383,8 +383,10 @@
             Controls.Add(pictureEmpresa);
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.ActionBar_None;
             MaximizeBox = false;
+            MaximumSize = new Size(800, 447);
             MdiChildrenMinimizedAnchorBottom = false;
             MinimizeBox = false;
+            MinimumSize = new Size(800, 447);
             Name = "FormaAjustesEntidad";
             Padding = new Padding(3, 24, 3, 3);
             Text = "FormaAjustesEntidad";

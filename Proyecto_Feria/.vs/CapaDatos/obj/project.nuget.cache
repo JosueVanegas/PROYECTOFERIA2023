@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "R6TpYeHkR7J1qheXinJQRsqXCbWWIv2sHs0NwQi/9u81EjWzr+6S30oIymtVhOzoSwwbATWc7lUQpudRLSI9Tw==",
+  "dgSpecHash": "OYe9jqlhS9va5EG4c/1CkQ73xTBXAMXJmvVxuK+CU4b6vVl8SquuykhHwh2kffNO9zeoO70pO/Cil6s7Ej0Jmg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Personal\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaDatos\\CapaDatos.csproj",
+  "projectFilePath": "C:\\Users\\Personal\\source\\repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaDatos\\CapaDatos.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Personal\\.nuget\\packages\\azure.core\\1.34.0\\azure.core.1.34.0.nupkg.sha512",
     "C:\\Users\\Personal\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

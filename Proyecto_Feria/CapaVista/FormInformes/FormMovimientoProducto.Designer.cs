@@ -403,7 +403,9 @@
             DrawerHamburgerCursor = Cursors.Arrow;
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.ActionBar_None;
             MaximizeBox = false;
+            MaximumSize = new Size(685, 306);
             MinimizeBox = false;
+            MinimumSize = new Size(685, 306);
             Name = "FormMovimientoProducto";
             Padding = new Padding(3, 24, 3, 3);
             Text = "FormMovimientoProducto";

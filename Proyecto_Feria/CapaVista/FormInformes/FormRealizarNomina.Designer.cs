@@ -269,7 +269,7 @@
             btnCerrarBusqueda.BackColor = Color.Red;
             btnCerrarBusqueda.Dock = DockStyle.Right;
             btnCerrarBusqueda.Image = (Image)resources.GetObject("btnCerrarBusqueda.Image");
-            btnCerrarBusqueda.Location = new Point(808, 0);
+            btnCerrarBusqueda.Location = new Point(824, 0);
             btnCerrarBusqueda.Name = "btnCerrarBusqueda";
             btnCerrarBusqueda.Size = new Size(34, 35);
             btnCerrarBusqueda.TabIndex = 63;
@@ -293,7 +293,7 @@
             btnRealizarNomina.Location = new Point(323, 271);
             btnRealizarNomina.Margin = new Padding(3, 2, 3, 2);
             btnRealizarNomina.Name = "btnRealizarNomina";
-            btnRealizarNomina.Size = new Size(217, 62);
+            btnRealizarNomina.Size = new Size(233, 62);
             btnRealizarNomina.TabIndex = 64;
             btnRealizarNomina.Text = "Realizar nomina";
             btnRealizarNomina.TextAlign = ContentAlignment.BottomCenter;
@@ -344,8 +344,10 @@
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(3, 0);
+            panel1.MaximumSize = new Size(858, 35);
+            panel1.MinimumSize = new Size(858, 35);
             panel1.Name = "panel1";
-            panel1.Size = new Size(842, 35);
+            panel1.Size = new Size(858, 35);
             panel1.TabIndex = 67;
             // 
             // panel2
@@ -358,7 +360,7 @@
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(3, 35);
             panel2.Name = "panel2";
-            panel2.Size = new Size(842, 51);
+            panel2.Size = new Size(858, 51);
             panel2.TabIndex = 68;
             // 
             // panel3
@@ -369,7 +371,7 @@
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(3, 86);
             panel3.Name = "panel3";
-            panel3.Size = new Size(842, 369);
+            panel3.Size = new Size(858, 408);
             panel3.TabIndex = 69;
             // 
             // FormRealizarNomina
@@ -377,7 +379,7 @@
             AutoScaleMode = AutoScaleMode.None;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = SystemColors.GradientActiveCaption;
-            ClientSize = new Size(848, 458);
+            ClientSize = new Size(864, 497);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);

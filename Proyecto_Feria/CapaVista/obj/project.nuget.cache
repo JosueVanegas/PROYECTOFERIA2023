@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9LPMOQPzt6BivEPFhieDUJzbCoKwPeqtZKsLruwH9732rJXVBQfHV04j5ajCqi6789CMOXzXvC6BpK5GJrdrIw==",
+  "dgSpecHash": "uVQYhCsFAUQHEqerten1fDHbG/F3SZ65s9ulZEdRSq3tSqH6OzOxZru2fWUkiBMI0GnmFchzbQsTYtjrfdoKoA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Personal\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\CapaVista\\CapaPresentacion.csproj",
+  "projectFilePath": "C:\\Users\\Personal\\source\\repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\CapaVista\\CapaPresentacion.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Personal\\.nuget\\packages\\aspose.pdf\\23.8.0\\aspose.pdf.23.8.0.nupkg.sha512",
     "C:\\Users\\Personal\\.nuget\\packages\\azure.core\\1.34.0\\azure.core.1.34.0.nupkg.sha512",

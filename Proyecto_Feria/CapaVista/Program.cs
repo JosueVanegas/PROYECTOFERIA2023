@@ -1,5 +1,6 @@
 using CapaControlador;
 using CapaDatos;
+using CapaPresentacion;
 using Microcharts;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
@@ -21,7 +22,7 @@ namespace CapaVista
         {
            
             ApplicationConfiguration.Initialize();
-             // Application.Run(new FormPrincipal(null));
+              //Application.Run(new FormPrincipalOpt(null));
               Application.Run(new formLogin());
         }
 

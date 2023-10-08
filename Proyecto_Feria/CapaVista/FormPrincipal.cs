@@ -93,20 +93,7 @@ namespace CapaVista
             form.Show();
         }
 
-        private void btnUsuarios_Click(object sender, EventArgs e)
-        {
-            abrirFormulario(new formUsuarios());
-        }
 
-        private void btnHerramientas_Click(object sender, EventArgs e)
-        {
-            abrirFormulario(new FormHerramientas(user));
-        }
-
-        private void btnConfiguraciones_Click(object sender, EventArgs e)
-        {
-            abrirFormulario(new formConfiguraciones());
-        }
         private void btnBarraVertical_Button_Click(object sender, EventArgs e)
         {
 
@@ -126,7 +113,20 @@ namespace CapaVista
             }
             EstadoDeBarraVertical = !EstadoDeBarraVertical;
         }
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new formUsuarios());
+        }
 
+        private void btnHerramientas_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new FormHerramientas(user));
+        }
+
+        private void btnConfiguraciones_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new formConfiguraciones());
+        }
         private void btnInventory_Click(object sender, EventArgs e)
         {
             abrirFormulario(new formInventario(this.user));
@@ -153,6 +153,10 @@ namespace CapaVista
         private void btnCalculos_Click(object sender, EventArgs e)
         {
             abrirFormulario(new FormInformes());
+        }
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new FormClientes());
         }
         private void btnInicio_MouseEnter(object sender, EventArgs e)
         {
@@ -196,11 +200,6 @@ namespace CapaVista
         {
             DateTime dateTime = DateTime.Now;
             lblReloj.Text = dateTime.ToString("dddd dd/MM/yyyy hh:mm:ss tt");
-        }
-
-        private void btnClientes_Click(object sender, EventArgs e)
-        {
-            abrirFormulario(new FormClientes());
         }
     }
 }
