@@ -276,8 +276,8 @@ namespace CapaPresentacion.FormInformes
             if (e.ColumnIndex == 0)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-                var w = CapaPresentacion.Properties.Resources.pen_circle.Width;
-                var h = CapaPresentacion.Properties.Resources.pen_circle.Height;
+                var w = CapaPresentacion.Properties.Resources.ojo.Width;
+                var h = CapaPresentacion.Properties.Resources.ojo.Height;
                 var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
                 var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
 

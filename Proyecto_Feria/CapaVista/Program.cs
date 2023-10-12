@@ -23,7 +23,7 @@ namespace CapaVista
            
             ApplicationConfiguration.Initialize();
               //Application.Run(new FormPrincipalOpt(null));
-              Application.Run(new formLogin());
+              Application.Run(new formUsuarios());
         }
 
     }

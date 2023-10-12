@@ -11,11 +11,12 @@ namespace CapaVista
 {
     public partial class FormPrincipal : Form
     {
-        public Usuario user = null;
+        public Modelos.Usuario user = null;
         Form formActivo = null;
         bool EstadoDeBarraVertical = true;
+        bool[] permisos = new bool[6];
         public FormPrincipal() { }
-        public FormPrincipal(Usuario usuario)
+        public FormPrincipal(Modelos.Usuario usuario)
         {
             InitializeComponent();
             this.Cursor = Cursors.WaitCursor;
@@ -27,54 +28,13 @@ namespace CapaVista
         }
         private void datosDeUsuarioActual()
         {
-            lblUsuario.Text = "Usuario actual: " + this.user.usuario;
-            lblRol.Text = "Rol del usuario: " + this.user.oRol.descripcion;
+            lblUsuario.Text = "Usuario actual: " + this.user.NOMBRE;
+            lblRol.Text = "Rol del usuario: " + this.user.ROL.NOMBRE;
             validarPermisos(this.user);
         }
-        private void validarPermisos(Usuario u)
+        private void validarPermisos(Modelos.Usuario u)
         {
-            switch (u.oRol.id)
-            {
-                case 1:
-                    permisosAdmin();
-                    break;
-                case 2:
-                    permisosVendedor();
-                    break;
-                case 3:
-                    permisosContador();
-                    break;
-                default:
-                    MessageBox.Show("Error al intentar establecer los permisos de usuario");
-                    break;
-            }
-        }
-        private void permisosAdmin()
-        {
-            btnBarraVertical.Enabled = true;
-            btnClientes.Enabled = true;
-            btnConfiguraciones.Enabled = true;
-            btnVentas.Enabled = true;
-            btnUsuarios.Enabled = true;
-            btnInicio.Enabled = true;
-            btnInformes.Enabled = true;
-            btnHerramientas.Enabled = true;
-            btnPlanilla.Enabled = true;
-            btnInventario.Enabled = true;
-            abrirFormulario(new FormInicio(user));
-        }
-        private void permisosVendedor()
-        {
-            btnVentas.Enabled = true;
-            btnHerramientas.Enabled = true;
-            abrirFormulario(new formVentas(user));
-        }
-        private void permisosContador()
-        {
-            btnInformes.Enabled = true;
-            btnInicio.Enabled = true;
-            btnHerramientas.Enabled = true;
-            abrirFormulario(new FormInicio(user));
+         
         }
         private void abrirFormulario(Form form)
         {
@@ -120,7 +80,7 @@ namespace CapaVista
 
         private void btnHerramientas_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new FormHerramientas(user));
+           // abrirFormulario(new FormHerramientas(user));
         }
 
         private void btnConfiguraciones_Click(object sender, EventArgs e)
@@ -129,7 +89,7 @@ namespace CapaVista
         }
         private void btnInventory_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new formInventario(this.user));
+           //abrirFormulario(new formInventario(this.user));
         }
 
         private void btnPlanilla_Click(object sender, EventArgs e)
@@ -139,16 +99,16 @@ namespace CapaVista
 
         private void btnInicio_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new FormInicio(user));
+           // abrirFormulario(new FormInicio());
         }
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            abrirFormulario(new FormInicio(user));
+           // abrirFormulario(new FormInicio());
         }
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new formVentas(user));
+           // abrirFormulario(new formVentas(user));
         }
         private void btnCalculos_Click(object sender, EventArgs e)
         {

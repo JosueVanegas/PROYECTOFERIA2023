@@ -58,3 +58,5 @@ C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs
 C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaControlador\obj\Debug\net6.0\refint\CapaControlador.dll
 C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaControlador\obj\Debug\net6.0\CapaControlador.pdb
 C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaControlador\obj\Debug\net6.0\ref\CapaControlador.dll
+C:\Users\arqva\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaControlador\bin\Debug\net6.0\Modelos.dll
+C:\Users\arqva\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaControlador\bin\Debug\net6.0\Modelos.pdb

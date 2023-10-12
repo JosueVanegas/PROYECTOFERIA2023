@@ -300,23 +300,23 @@ namespace CapaVista
             if (e.ColumnIndex == 0)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-                var w = CapaPresentacion.Properties.Resources.pen_circle.Width;
-                var h = CapaPresentacion.Properties.Resources.pen_circle.Height;
+                var w = CapaPresentacion.Properties.Resources.pen.Width;
+                var h = CapaPresentacion.Properties.Resources.pen.Height;
                 var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
                 var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
 
-                e.Graphics.DrawImage(CapaPresentacion.Properties.Resources.pen_circle, new Rectangle(x, y, w, h));
+                e.Graphics.DrawImage(CapaPresentacion.Properties.Resources.pen, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
             if (e.ColumnIndex == 1)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-                var w = CapaPresentacion.Properties.Resources.eliminar.Width;
-                var h = CapaPresentacion.Properties.Resources.eliminar.Height;
+                var w = CapaPresentacion.Properties.Resources.delete.Width;
+                var h = CapaPresentacion.Properties.Resources.delete.Height;
                 var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
                 var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
 
-                e.Graphics.DrawImage(CapaPresentacion.Properties.Resources.eliminar, new Rectangle(x, y, w, h));
+                e.Graphics.DrawImage(CapaPresentacion.Properties.Resources.delete, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
         }

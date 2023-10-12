@@ -1,4 +1,5 @@
 ﻿using CapaDatos;
+using System.Data;
 
 namespace CapaControlador
 {
@@ -6,19 +7,19 @@ namespace CapaControlador
     {
         DataUsuarios dUser = new DataUsuarios();
 
-        public List<Usuario> listarUsuarios()
+        public List<Modelos.Usuario> listarUsuarios()
         {
             return dUser.ListaUsuarios();
         }
-        public List<Rol> listarRoles()
+        public List<Modelos.Rol> listarRoles()
         {
             return dUser.listaRoles();
         }
-        public List<comboEmpleado> listarEmpleados()
+        public List<Modelos.Empleado> listarEmpleados()
         {
             return dUser.listaEmpleados();
         }
-        public string registrar(Usuario u, bool empleadonulo)
+        public string registrar(Modelos.Usuario u, bool empleadonulo)
         {
             string mensaje = dUser.accionesUsuario(u, empleadonulo);
             return mensaje;
@@ -26,10 +27,6 @@ namespace CapaControlador
         public string eliminar(int id)
         {
             return dUser.eliminarUsuario(id);
-        }
-        public string encriptarClave(Usuario u)
-        {
-            return dUser.encriptarClave(u);
         }
         public bool validarAcceso(string usuario, string clave)
         {

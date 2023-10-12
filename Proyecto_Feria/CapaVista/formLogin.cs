@@ -45,7 +45,7 @@ namespace CapaVista
         {
             ControlUsuario cUsuarios = new ControlUsuario();
             bool acceder = cUsuarios.validarAcceso(txtUsuario.Text, txtContraseña.Text);
-            Usuario user = cUsuarios.listarUsuarios().FirstOrDefault(u => u.usuario == txtUsuario.Text);
+            Modelos.Usuario user = cUsuarios.listarUsuarios().FirstOrDefault(u => u.NOMBRE == txtUsuario.Text);
             this.Cursor = Cursors.WaitCursor;
             if (acceder)
             {

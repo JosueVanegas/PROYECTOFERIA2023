@@ -863,10 +863,16 @@
       "CapaDatos/1.0.0": {
         "dependencies": {
           "Azure.Core": "1.34.0",
-          "Microsoft.Data.SqlClient": "5.1.1"
+          "Microsoft.Data.SqlClient": "5.1.1",
+          "Modelos": "1.0.0"
         },
         "runtime": {
           "CapaDatos.dll": {}
+        }
+      },
+      "Modelos/1.0.0": {
+        "runtime": {
+          "Modelos.dll": {}
         }
       }
     }
@@ -1450,6 +1456,11 @@
       "sha512": ""
     },
     "CapaDatos/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Modelos/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

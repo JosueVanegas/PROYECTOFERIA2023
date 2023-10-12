@@ -1,5 +1,9 @@
 ﻿using Microsoft.Data.SqlClient;
+using System.Collections.Generic;
 using System.Data;
+using System.Reflection.PortableExecutable;
+using Modelos;
+using System;
 
 namespace CapaDatos
 {
@@ -7,56 +11,31 @@ namespace CapaDatos
     {
         string mensaje = "";
         public DataUsuarios() { }
-
-        public string encriptarClave(Usuario u)
-        {
-            try
-            {
-                using (SqlConnection con = new conexion().conectar())
-                {
-                    con.Open();
-                    using (SqlCommand cmd = new SqlCommand("PROC_ENCRIPTAR_CLAVE", con))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@ID", u.id);
-                        cmd.Parameters.AddWithValue("@USUARIO", u.usuario);
-                        cmd.Parameters.AddWithValue("@CLAVE", u.clave);
-                        cmd.ExecuteNonQuery();
-                        mensaje = "se encripto la clave de usuario correctamente";
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                mensaje = ex.Message;
-            }
-            return mensaje;
-        }
         public bool validarAcceso(string usuario, string clave)
         {
             bool acceder = false;
             using (SqlConnection con = new conexion().conectar())
             {
                 con.Open();
-                using (SqlCommand cmd = new SqlCommand("PROC_VALIDAR_ACCESO", con))
+                using (SqlCommand cmd = new SqlCommand("PROC_READ_ENCRYP_PASSWORD", con))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@USUARIO", usuario);
-                    cmd.Parameters.AddWithValue("@CLAVE", clave);
-                    cmd.Parameters.Add("@RESULTADO", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    cmd.Parameters.AddWithValue("@USER", usuario);
+                    cmd.Parameters.AddWithValue("@PASSWORD", clave);
+                    cmd.Parameters.Add("@ACCESS", SqlDbType.Bit).Direction = ParameterDirection.Output;
 
                     cmd.ExecuteNonQuery();
 
-                    acceder = (bool)cmd.Parameters["@RESULTADO"].Value;
+                    acceder = (bool)cmd.Parameters["@ACCESS"].Value;
                 }
             }
             return acceder;
         }
-        public List<Rol> listaRoles()
+        public List<Modelos.Rol> listaRoles()
         {
-            List<Rol> lista = new List<Rol>();
-            string query = "SELECT ID_ROL,DESCRIPCION FROM ROL_DE_USUARIO";
+            List<Modelos.Rol> lista = new List<Modelos.Rol> ();
+            string query = "SELECT ID,NAME_ROLS AS NOMBRE FROM SALES.ROLS WHERE ACTIVE = 1";
             using (var con = new conexion().conectar())
             {
                 con.Open();
@@ -67,12 +46,12 @@ namespace CapaDatos
                         cmd.CommandType = CommandType.Text;
                         using (var reader = cmd.ExecuteReader())
                         {
-                            while (reader.Read())
+                            while(reader.Read())
                             {
-                                lista.Add(new Rol
+                                lista.Add(new Modelos.Rol
                                 {
-                                    id = Convert.ToInt32(reader["ID_ROL"]),
-                                    descripcion = reader["DESCRIPCION"].ToString()
+                                    ID = Convert.ToInt32(reader["ID"]),
+                                    NOMBRE = reader["NOMBRE"].ToString(),
                                 });
                             }
                         }
@@ -80,16 +59,17 @@ namespace CapaDatos
                 }
                 catch (Exception ex)
                 {
-                    lista = new List<Rol>();
+                    lista = new List<Modelos.Rol>();
                 }
             }
             return lista;
         }
-        public List<Usuario> ListaUsuarios()
+        public List<Modelos.Usuario> ListaUsuarios()
         {
-            List<Usuario> lista = new List<Usuario>();
-            string query = "SELECT * FROM USUARIO p INNER JOIN ROL_DE_USUARIO r ON P.ROL = R.ID_ROL";
-
+            List <Modelos.Usuario> lista = new List<Modelos.Usuario> ();
+            string query = "SELECT SU.ID AS ID,SU.USERS_NAME AS NOMBRE,SR.ID AS 'ID ROL',SR.NAME_ROLS AS 'ROL',SE.ID AS 'ID EMPLEADO' ," +
+                "SE.NAMES +' '+ SE.LASTNAMES AS EMPLEADO FROM SALES.USERS SU INNER JOIN SALES.ROLS SR  ON SU.ID_ROL = SR.ID " +
+                "INNER JOIN SALES.EMPLOYEES SE ON SE.ID = SU.ID_EMPLOYEE WHERE SU.ACTIVE = 1";
             using (var con = new conexion().conectar())
             {
                 try
@@ -102,102 +82,90 @@ namespace CapaDatos
                         {
                             while (reader.Read())
                             {
-                                lista.Add(new Usuario
+                                lista.Add(new Modelos.Usuario
                                 {
-                                    id = Convert.ToInt32(reader["ID_USUARIO"]),
-                                    usuario = reader["USUARIO"].ToString(),
-                                    clave = reader["CLAVE"].ToString(),
-                                    oRol = new Rol { id = Convert.ToInt32(reader["ROL"]), descripcion = reader["DESCRIPCION"].ToString() },
-                                    fechaRegistro = reader["FECHA_REGISTRO"].ToString()
-                                });
+                                    ID = Convert.ToInt32(reader["ID"]),
+                                    NOMBRE = reader["NOMBRE"].ToString(),
+                                    ROL = new Modelos.Rol
+                                    {
+                                        ID = Convert.ToInt32(reader["ID ROL"]),
+                                        NOMBRE = reader["ROL"].ToString()
+                                    },
+                                    EMPLEADO = new Modelos.Empleado
+                                    {
+                                        ID= Convert.ToInt32(reader["ID EMPLEADO"]),
+                                        NOMBRE = reader["EMPLEADO"].ToString()
+                                    }
+                                }) ;
+
                             }
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    lista = new List<Usuario>();
+                    lista = new List<Modelos.Usuario>();
                 }
             }
             return lista;
         }
-        public List<comboEmpleado> listaEmpleados()
+        public List<Modelos.Empleado> listaEmpleados()
         {
-            List<comboEmpleado> lista = new List<comboEmpleado>();
-            string query = "SELECT ID_EMPLEADO,NOMBRE,APELLIDO,SALARIO_POR_HORA FROM EMPLEADO";
+            List<Modelos.Empleado> lista = new List<Modelos.Empleado>();
+            string query = "SELECT ID,DNI FROM SALES.EMPLOYEES WHERE ACTIVE = 1";
             using (var con = new conexion().conectar())
             {
-#pragma warning disable CS0168 // La variable está declarada pero nunca se usa
                 try
                 {
                     con.Open();
-                    using (var command = new SqlCommand(query, con))
+                    using (var cmd = new SqlCommand(query, con))
                     {
-                        command.CommandType = CommandType.Text;
-                        using (var reader = command.ExecuteReader())
+                        cmd.CommandType = CommandType.Text;
+                        using (var reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {
-#pragma warning disable CS8601 // Posible asignación de referencia nula
-#pragma warning disable CS8601 // Posible asignación de referencia nula
-                                lista.Add(new comboEmpleado
+                                lista.Add(new Modelos.Empleado
                                 {
-                                    id = Convert.ToInt32(reader["ID_EMPLEADO"]),
-                                    nombres = reader["NOMBRE"].ToString(),
-                                    apellidos = reader["APELLIDO"].ToString(),
-                                    salario = Convert.ToDecimal(reader["SALARIO_POR_HORA"])
+                                    ID = Convert.ToInt32(reader["ID"]),
+                                    DNI = reader["DNI"].ToString(),
                                 });
-#pragma warning restore CS8601 // Posible asignación de referencia nula
-#pragma warning restore CS8601 // Posible asignación de referencia nula
                             }
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    lista = new List<comboEmpleado>();
+                    lista = new List<Modelos.Empleado>();
                 }
-#pragma warning restore CS0168 // La variable está declarada pero nunca se usa
+
             }
             return lista;
         }
-        public string accionesUsuario(Usuario user, bool empleadoNulo)
+        public string accionesUsuario(Modelos.Usuario user, bool empleadoNulo)
         {
             using (SqlConnection connection = new conexion().conectar())
             {
                 try
                 {
                     connection.Open();
-                    SqlCommand comand = new SqlCommand("PROC_REGISTRAR_USUARIO", connection);
+                    SqlCommand comand = new SqlCommand("PROC_REGISTER_USER", connection);
                     comand.CommandType = CommandType.StoredProcedure;
-                    comand.Parameters.AddWithValue("@ID_USUARIO", user.id);
-                    if (empleadoNulo == true)
-                    {
-                        comand.Parameters.AddWithValue("@ID_EMPLEADO", DBNull.Value);
-                    }
-                    else
-                    {
-                        comand.Parameters.AddWithValue("@ID_EMPLEADO", user.oEmpleado.id);
-                    }
-                    comand.Parameters.AddWithValue("@USUARIO", user.usuario);
-                    comand.Parameters.AddWithValue("@CLAVE", user.clave);
-                    comand.Parameters.AddWithValue("@ID_ROL", user.oRol.id);
-                    comand.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
-
+                    comand.Parameters.AddWithValue("@ID", user.ID);
+                    comand.Parameters.AddWithValue("@ID_EMPLOYEE", user.EMPLEADO.ID);
+                    comand.Parameters.AddWithValue("@NAME", user.NOMBRE);
+                    comand.Parameters.AddWithValue("@PASSWORD", user.CLAVE);
+                    comand.Parameters.AddWithValue("@ID_ROL", user.ROL.ID);
+                    comand.Parameters.Add("MESSAGE", SqlDbType.VarChar, 200).Direction = ParameterDirection.Output;
                     comand.ExecuteNonQuery();
-
-#pragma warning disable CS8601 // Posible asignación de referencia nula
-                    mensaje = comand.Parameters["mensaje"].Value.ToString();
-#pragma warning restore CS8601 // Posible asignación de referencia nula
+                    mensaje = comand.Parameters["MESSAGE"].Value.ToString();
                 }
                 catch (Exception ex)
                 {
                     mensaje = "Lo sentimos a ocurrido un \nerror : " + ex.Message;
                 }
             }
-#pragma warning disable CS8603 // Posible tipo de valor devuelto de referencia nulo
             return mensaje;
-#pragma warning restore CS8603 // Posible tipo de valor devuelto de referencia nulo
         }
         public string eliminarUsuario(int idU)
         {
@@ -209,22 +177,17 @@ namespace CapaDatos
                     con.Open();
                     SqlCommand comand = new SqlCommand("PROC_ELIMINAR_USUARIO", con);
                     comand.CommandType = CommandType.StoredProcedure;
-                    comand.Parameters.AddWithValue("@ID_USUARIO", idU);
-                    comand.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    comand.Parameters.AddWithValue("@ID", idU);
+                    comand.Parameters.Add("MESSAGE", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     comand.ExecuteNonQuery();
-
-#pragma warning disable CS8601 // Posible asignación de referencia nula
-                    mensaje = comand.Parameters["mensaje"].Value.ToString();
-#pragma warning restore CS8601 // Posible asignación de referencia nula
+                    mensaje = comand.Parameters["MESSAGE"].Value.ToString();
                 }
                 catch (Exception ex)
                 {
                     mensaje = "no se pudo eliminar el usuario. error: " + ex.Message;
                 }
             }
-#pragma warning disable CS8603 // Posible tipo de valor devuelto de referencia nulo
             return mensaje;
-#pragma warning restore CS8603 // Posible tipo de valor devuelto de referencia nulo
         }
     }
 }

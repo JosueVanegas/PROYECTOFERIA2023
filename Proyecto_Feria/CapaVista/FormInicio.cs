@@ -10,7 +10,7 @@ namespace CapaVista
     {
         ControlDashboard cDash = new ControlDashboard();
         ControlProducto cProducto = new ControlProducto();
-        public FormInicio(Usuario Rol)
+        public FormInicio()
         {
             this.Cursor = Cursors.WaitCursor;
             InitializeComponent();
