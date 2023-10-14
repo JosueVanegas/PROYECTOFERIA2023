@@ -63,10 +63,7 @@ namespace CapaDatos
                     comand.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
                     comand.ExecuteNonQuery();
-
-#pragma warning disable CS8601 // Posible asignación de referencia nula
                     mensaje = comand.Parameters["mensaje"].Value.ToString();
-#pragma warning restore CS8601 // Posible asignación de referencia nula
                 }
                 catch (Exception ex)
                 {

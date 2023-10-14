@@ -14,5 +14,18 @@ namespace CapaControlador
         {
             return dRoles.listarRoles();
         }
+        public string registrarRol(Modelos.AccesoRol ar)
+        {
+            return dRoles.registrarRol(ar);
+        }
+
+        public string eliminarRol(int id)
+        {   
+          return dRoles.eliminarRol(id);     
+        }
+        public bool[] accesaccesoUsuarios(int id)
+        {
+            return dRoles.accesoUsuarios(id);
+        }
     }
 }

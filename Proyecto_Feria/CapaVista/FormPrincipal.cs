@@ -1,4 +1,5 @@
-﻿using CapaDatos;
+﻿using CapaControlador;
+using CapaDatos;
 using CapaPresentacion;
 using CapaPresentacion.FormInformes;
 using CapaVista.FormConfiguracion;
@@ -14,7 +15,7 @@ namespace CapaVista
         public Modelos.Usuario user = null;
         Form formActivo = null;
         bool EstadoDeBarraVertical = true;
-        bool[] permisos = new bool[6];
+        bool[] permisos = new bool[8];
         public FormPrincipal() { }
         public FormPrincipal(Modelos.Usuario usuario)
         {
@@ -22,19 +23,41 @@ namespace CapaVista
             this.Cursor = Cursors.WaitCursor;
             this.user = usuario;
             reloj.Start();
-            datosDeUsuarioActual();
+            datosDeUsuarioActual(user);
             this.Cursor = Cursors.Default;
-
+           // permisos = new bool[] { true, true, true, true, true, true, true, true };
+            //activarPermisos(permisos);
         }
-        private void datosDeUsuarioActual()
+        private void datosDeUsuarioActual(Modelos.Usuario u)
         {
-            lblUsuario.Text = "Usuario actual: " + this.user.NOMBRE;
-            lblRol.Text = "Rol del usuario: " + this.user.ROL.NOMBRE;
-            validarPermisos(this.user);
+            lblUsuario.Text = "Usuario actual: " + u.NOMBRE;
+            lblRol.Text = "Rol del usuario: " + u.ROL.NOMBRE;
+            validarPermisos(u);
         }
         private void validarPermisos(Modelos.Usuario u)
         {
-         
+            ControlRolesyAccesos cRol = new ControlRolesyAccesos();
+            permisos = cRol.accesaccesoUsuarios(u.ROL.ID);
+            activarPermisos(permisos);
+        }
+        private void activarPermisos(bool[] permisos)
+        {
+            if (permisos[0] == true)
+                btnVentas.Visible = true;
+            if (permisos[1] == true)
+                btnInventario.Visible = true;
+            if (permisos[2] == true)
+                btnHerramientas.Visible = true;
+            if (permisos[3] == true)
+                btnUsuarios.Visible = true;
+            if (permisos[4] == true)
+                btnClientes.Visible = true;
+            if (permisos[5] == true)
+                btnInformes.Visible = true;
+            if (permisos[6] == true)
+                btnPlanilla.Visible = true;
+            if (permisos[7] == true)
+                btnConfiguraciones.Visible = true;
         }
         private void abrirFormulario(Form form)
         {
@@ -80,7 +103,7 @@ namespace CapaVista
 
         private void btnHerramientas_Click(object sender, EventArgs e)
         {
-           // abrirFormulario(new FormHerramientas(user));
+            // abrirFormulario(new FormHerramientas(user));
         }
 
         private void btnConfiguraciones_Click(object sender, EventArgs e)
@@ -89,7 +112,7 @@ namespace CapaVista
         }
         private void btnInventory_Click(object sender, EventArgs e)
         {
-           //abrirFormulario(new formInventario(this.user));
+            //abrirFormulario(new formInventario(this.user));
         }
 
         private void btnPlanilla_Click(object sender, EventArgs e)
@@ -99,16 +122,16 @@ namespace CapaVista
 
         private void btnInicio_Click(object sender, EventArgs e)
         {
-           // abrirFormulario(new FormInicio());
+            // abrirFormulario(new FormInicio());
         }
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-           // abrirFormulario(new FormInicio());
+            // abrirFormulario(new FormInicio());
         }
         private void btnVentas_Click(object sender, EventArgs e)
         {
-           // abrirFormulario(new formVentas(user));
+            // abrirFormulario(new formVentas(user));
         }
         private void btnCalculos_Click(object sender, EventArgs e)
         {

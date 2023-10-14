@@ -19,6 +19,5 @@ namespace Modelos
         public bool CLIENTES { get; set; }
         public bool INFORMES { get; set; }
         public bool DASHBOARD { get; set; }
-        public bool ACTIVO { get; set; }
     }
 }

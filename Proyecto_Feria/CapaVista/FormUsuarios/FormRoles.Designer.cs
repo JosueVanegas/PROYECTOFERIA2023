@@ -28,14 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRoles));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             txtRol = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             lblTitulo = new ReaLTaiizor.Controls.BigLabel();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            btnGuardar = new RJCodeAdvance.RJControls.RJButton();
+            btnLimpiar = new RJCodeAdvance.RJControls.RJButton();
+            txtIdRol = new TextBox();
+            panel1 = new Panel();
+            btnCerrar = new ReaLTaiizor.Controls.SocialButton();
             tbRoles = new ReaLTaiizor.Controls.PoisonDataGridView();
             EDITAR = new DataGridViewButtonColumn();
             ELIMINAR = new DataGridViewButtonColumn();
+            A0 = new DataGridViewTextBoxColumn();
             A1 = new DataGridViewTextBoxColumn();
             A2 = new DataGridViewTextBoxColumn();
             A3 = new DataGridViewTextBoxColumn();
@@ -43,28 +51,20 @@
             A5 = new DataGridViewTextBoxColumn();
             A6 = new DataGridViewTextBoxColumn();
             A7 = new DataGridViewTextBoxColumn();
-            A8 = new DataGridViewTextBoxColumn();
-            A9 = new DataGridViewTextBoxColumn();
-            ID = new DataGridViewTextBoxColumn();
-            ROL = new DataGridViewTextBoxColumn();
-            tableLayoutPanel1 = new TableLayoutPanel();
-            btnGuardar = new RJCodeAdvance.RJControls.RJButton();
-            btnLimpiar = new RJCodeAdvance.RJControls.RJButton();
-            txtIdRol = new TextBox();
-            panel1 = new Panel();
-            hopeCheckBox9 = new ReaLTaiizor.Controls.HopeCheckBox();
-            hopeCheckBox8 = new ReaLTaiizor.Controls.HopeCheckBox();
-            hopeCheckBox7 = new ReaLTaiizor.Controls.HopeCheckBox();
-            hopeCheckBox6 = new ReaLTaiizor.Controls.HopeCheckBox();
-            hopeCheckBox5 = new ReaLTaiizor.Controls.HopeCheckBox();
-            hopeCheckBox4 = new ReaLTaiizor.Controls.HopeCheckBox();
-            hopeCheckBox3 = new ReaLTaiizor.Controls.HopeCheckBox();
-            hopeCheckBox2 = new ReaLTaiizor.Controls.HopeCheckBox();
-            hopeCheckBox1 = new ReaLTaiizor.Controls.HopeCheckBox();
+            ID_ROL = new DataGridViewTextBoxColumn();
+            NOMBRE = new DataGridViewTextBoxColumn();
+            ckEmpresa = new ReaLTaiizor.Controls.HopeCheckBox();
+            ckEmpleados = new ReaLTaiizor.Controls.HopeCheckBox();
+            ckInformes = new ReaLTaiizor.Controls.HopeCheckBox();
+            ckHerramientas = new ReaLTaiizor.Controls.HopeCheckBox();
+            ckClientes = new ReaLTaiizor.Controls.HopeCheckBox();
+            ckUsuarios = new ReaLTaiizor.Controls.HopeCheckBox();
+            ckInventario = new ReaLTaiizor.Controls.HopeCheckBox();
+            ckVentas = new ReaLTaiizor.Controls.HopeCheckBox();
             lbltitulo2 = new ReaLTaiizor.Controls.BigLabel();
-            ((System.ComponentModel.ISupportInitialize)tbRoles).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)tbRoles).BeginInit();
             SuspendLayout();
             // 
             // txtRol
@@ -78,7 +78,8 @@
             txtRol.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtRol.HideSelection = true;
             txtRol.LeadingIcon = null;
-            txtRol.Location = new Point(18, 97);
+            txtRol.Location = new Point(21, 129);
+            txtRol.Margin = new Padding(3, 4, 3, 4);
             txtRol.MaxLength = 32767;
             txtRol.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtRol.Name = "txtRol";
@@ -90,7 +91,7 @@
             txtRol.SelectionLength = 0;
             txtRol.SelectionStart = 0;
             txtRol.ShortcutsEnabled = true;
-            txtRol.Size = new Size(367, 48);
+            txtRol.Size = new Size(419, 48);
             txtRol.TabIndex = 1;
             txtRol.TabStop = false;
             txtRol.Text = "Ingrese el nombre del rol";
@@ -104,11 +105,122 @@
             lblTitulo.BackColor = Color.Transparent;
             lblTitulo.Font = new Font("Segoe UI", 22F, FontStyle.Regular, GraphicsUnit.Point);
             lblTitulo.ForeColor = Color.FromArgb(80, 80, 80);
-            lblTitulo.Location = new Point(17, 53);
+            lblTitulo.Location = new Point(19, 71);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(408, 41);
+            lblTitulo.Size = new Size(503, 50);
             lblTitulo.TabIndex = 3;
             lblTitulo.Text = "Creacion de roles de usuarios";
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.Anchor = AnchorStyles.Left;
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006237F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006275F));
+            tableLayoutPanel1.Controls.Add(btnGuardar, 0, 0);
+            tableLayoutPanel1.Controls.Add(btnLimpiar, 1, 0);
+            tableLayoutPanel1.Location = new Point(131, 487);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Size = new Size(210, 64);
+            tableLayoutPanel1.TabIndex = 31;
+            // 
+            // btnGuardar
+            // 
+            btnGuardar.BackColor = Color.FromArgb(74, 121, 121);
+            btnGuardar.BackgroundColor = Color.FromArgb(74, 121, 121);
+            btnGuardar.BackgroundImageLayout = ImageLayout.Center;
+            btnGuardar.BorderColor = Color.PaleVioletRed;
+            btnGuardar.BorderRadius = 10;
+            btnGuardar.BorderSize = 0;
+            btnGuardar.Dock = DockStyle.Fill;
+            btnGuardar.FlatAppearance.BorderSize = 0;
+            btnGuardar.FlatStyle = FlatStyle.Flat;
+            btnGuardar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnGuardar.ForeColor = Color.White;
+            btnGuardar.ImageAlign = ContentAlignment.MiddleRight;
+            btnGuardar.Location = new Point(3, 3);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(98, 58);
+            btnGuardar.TabIndex = 11;
+            btnGuardar.Text = "Guardar";
+            btnGuardar.TextColor = Color.White;
+            btnGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.Click += btnGuardar_Click;
+            // 
+            // btnLimpiar
+            // 
+            btnLimpiar.BackColor = Color.FromArgb(74, 121, 121);
+            btnLimpiar.BackgroundColor = Color.FromArgb(74, 121, 121);
+            btnLimpiar.BackgroundImageLayout = ImageLayout.Center;
+            btnLimpiar.BorderColor = Color.PaleVioletRed;
+            btnLimpiar.BorderRadius = 10;
+            btnLimpiar.BorderSize = 0;
+            btnLimpiar.Dock = DockStyle.Fill;
+            btnLimpiar.FlatAppearance.BorderSize = 0;
+            btnLimpiar.FlatStyle = FlatStyle.Flat;
+            btnLimpiar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnLimpiar.ForeColor = Color.White;
+            btnLimpiar.ImageAlign = ContentAlignment.MiddleRight;
+            btnLimpiar.Location = new Point(107, 3);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(100, 58);
+            btnLimpiar.TabIndex = 12;
+            btnLimpiar.Text = "Limpiar";
+            btnLimpiar.TextColor = Color.White;
+            btnLimpiar.UseVisualStyleBackColor = false;
+            btnLimpiar.Click += btnLimpiar_Click;
+            // 
+            // txtIdRol
+            // 
+            txtIdRol.Anchor = AnchorStyles.Left;
+            txtIdRol.Location = new Point(21, 389);
+            txtIdRol.Margin = new Padding(3, 4, 3, 4);
+            txtIdRol.Name = "txtIdRol";
+            txtIdRol.Size = new Size(18, 27);
+            txtIdRol.TabIndex = 32;
+            txtIdRol.Text = "0";
+            txtIdRol.Visible = false;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(btnCerrar);
+            panel1.Controls.Add(tbRoles);
+            panel1.Controls.Add(ckEmpresa);
+            panel1.Controls.Add(ckEmpleados);
+            panel1.Controls.Add(ckInformes);
+            panel1.Controls.Add(ckHerramientas);
+            panel1.Controls.Add(ckClientes);
+            panel1.Controls.Add(ckUsuarios);
+            panel1.Controls.Add(ckInventario);
+            panel1.Controls.Add(ckVentas);
+            panel1.Controls.Add(lbltitulo2);
+            panel1.Controls.Add(lblTitulo);
+            panel1.Controls.Add(tableLayoutPanel1);
+            panel1.Controls.Add(txtIdRol);
+            panel1.Controls.Add(txtRol);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(3, 0);
+            panel1.Margin = new Padding(3, 4, 3, 4);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(977, 596);
+            panel1.TabIndex = 33;
+            // 
+            // btnCerrar
+            // 
+            btnCerrar.BackColor = SystemColors.ActiveCaption;
+            btnCerrar.DownEllipseColor = Color.Blue;
+            btnCerrar.HoverEllipseColor = Color.FromArgb(32, 34, 37);
+            btnCerrar.Image = (Image)resources.GetObject("btnCerrar.Image");
+            btnCerrar.Location = new Point(3, 3);
+            btnCerrar.Name = "btnCerrar";
+            btnCerrar.NormalEllipseColor = Color.FromArgb(66, 76, 85);
+            btnCerrar.Size = new Size(54, 54);
+            btnCerrar.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            btnCerrar.TabIndex = 44;
+            btnCerrar.Text = "socialButton1";
+            btnCerrar.Click += btnCerrar_Click;
             // 
             // tbRoles
             // 
@@ -128,7 +240,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             tbRoles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             tbRoles.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tbRoles.Columns.AddRange(new DataGridViewColumn[] { EDITAR, ELIMINAR, A1, A2, A3, A4, A5, A6, A7, A8, A9, ID, ROL });
+            tbRoles.Columns.AddRange(new DataGridViewColumn[] { EDITAR, ELIMINAR, A0, A1, A2, A3, A4, A5, A6, A7, ID_ROL, NOMBRE });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 255, 255);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
@@ -141,7 +253,8 @@
             tbRoles.EnableHeadersVisualStyles = false;
             tbRoles.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbRoles.GridColor = Color.FromArgb(255, 255, 255);
-            tbRoles.Location = new Point(435, 0);
+            tbRoles.Location = new Point(589, 0);
+            tbRoles.Margin = new Padding(3, 4, 3, 4);
             tbRoles.Name = "tbRoles";
             tbRoles.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -152,369 +265,279 @@
             dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             tbRoles.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            tbRoles.RowHeadersWidth = 51;
             tbRoles.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tbRoles.RowTemplate.Height = 25;
             tbRoles.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tbRoles.Size = new Size(362, 447);
-            tbRoles.TabIndex = 19;
+            tbRoles.Size = new Size(388, 596);
+            tbRoles.TabIndex = 43;
+            tbRoles.CellContentClick += tbRoles_CellContentClick;
+            tbRoles.CellPainting += tbRoles_CellPainting;
             // 
             // EDITAR
             // 
             EDITAR.FlatStyle = FlatStyle.Popup;
             EDITAR.HeaderText = "";
+            EDITAR.MinimumWidth = 6;
             EDITAR.Name = "EDITAR";
-            EDITAR.ToolTipText = "Editar";
             EDITAR.Width = 40;
             // 
             // ELIMINAR
             // 
             ELIMINAR.FlatStyle = FlatStyle.Popup;
             ELIMINAR.HeaderText = "";
+            ELIMINAR.MinimumWidth = 6;
             ELIMINAR.Name = "ELIMINAR";
             ELIMINAR.ToolTipText = "Eliminar";
             ELIMINAR.Width = 40;
             // 
+            // A0
+            // 
+            A0.HeaderText = "";
+            A0.MinimumWidth = 6;
+            A0.Name = "A0";
+            A0.ReadOnly = true;
+            A0.Visible = false;
+            A0.Width = 10;
+            // 
             // A1
             // 
             A1.HeaderText = "";
+            A1.MinimumWidth = 6;
             A1.Name = "A1";
             A1.ReadOnly = true;
             A1.Visible = false;
+            A1.Width = 10;
             // 
             // A2
             // 
             A2.HeaderText = "";
+            A2.MinimumWidth = 6;
             A2.Name = "A2";
             A2.ReadOnly = true;
             A2.Visible = false;
+            A2.Width = 10;
             // 
             // A3
             // 
             A3.HeaderText = "";
+            A3.MinimumWidth = 6;
             A3.Name = "A3";
             A3.ReadOnly = true;
             A3.Visible = false;
+            A3.Width = 10;
             // 
             // A4
             // 
             A4.HeaderText = "";
+            A4.MinimumWidth = 6;
             A4.Name = "A4";
             A4.ReadOnly = true;
             A4.Visible = false;
+            A4.Width = 10;
             // 
             // A5
             // 
             A5.HeaderText = "";
+            A5.MinimumWidth = 6;
             A5.Name = "A5";
             A5.ReadOnly = true;
             A5.Visible = false;
+            A5.Width = 10;
             // 
             // A6
             // 
             A6.HeaderText = "";
+            A6.MinimumWidth = 6;
             A6.Name = "A6";
             A6.ReadOnly = true;
             A6.Visible = false;
+            A6.Width = 10;
             // 
             // A7
             // 
             A7.HeaderText = "";
+            A7.MinimumWidth = 6;
             A7.Name = "A7";
             A7.ReadOnly = true;
             A7.Visible = false;
+            A7.Width = 10;
             // 
-            // A8
+            // ID_ROL
             // 
-            A8.HeaderText = "";
-            A8.Name = "A8";
-            A8.ReadOnly = true;
-            A8.Visible = false;
+            ID_ROL.HeaderText = "ID";
+            ID_ROL.MinimumWidth = 6;
+            ID_ROL.Name = "ID_ROL";
+            ID_ROL.ReadOnly = true;
+            ID_ROL.Width = 50;
             // 
-            // A9
+            // NOMBRE
             // 
-            A9.HeaderText = "";
-            A9.Name = "A9";
-            A9.ReadOnly = true;
-            A9.Visible = false;
+            NOMBRE.HeaderText = "ROL";
+            NOMBRE.MinimumWidth = 6;
+            NOMBRE.Name = "NOMBRE";
+            NOMBRE.ReadOnly = true;
+            NOMBRE.Width = 200;
             // 
-            // ID
+            // ckEmpresa
             // 
-            ID.HeaderText = "ID";
-            ID.Name = "ID";
-            ID.ReadOnly = true;
-            ID.Visible = false;
+            ckEmpresa.AutoSize = true;
+            ckEmpresa.CheckedColor = Color.FromArgb(64, 158, 255);
+            ckEmpresa.DisabledColor = Color.FromArgb(196, 198, 202);
+            ckEmpresa.DisabledStringColor = Color.FromArgb(186, 187, 189);
+            ckEmpresa.Enable = true;
+            ckEmpresa.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
+            ckEmpresa.EnabledStringColor = Color.FromArgb(153, 153, 153);
+            ckEmpresa.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
+            ckEmpresa.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            ckEmpresa.ForeColor = Color.FromArgb(48, 49, 51);
+            ckEmpresa.Location = new Point(289, 348);
+            ckEmpresa.Margin = new Padding(3, 4, 3, 4);
+            ckEmpresa.Name = "ckEmpresa";
+            ckEmpresa.Size = new Size(111, 20);
+            ckEmpresa.TabIndex = 42;
+            ckEmpresa.Text = "Empresa";
+            ckEmpresa.UseVisualStyleBackColor = true;
             // 
-            // ROL
+            // ckEmpleados
             // 
-            ROL.HeaderText = "ROL";
-            ROL.Name = "ROL";
-            ROL.ReadOnly = true;
-            ROL.Width = 500;
+            ckEmpleados.AutoSize = true;
+            ckEmpleados.CheckedColor = Color.FromArgb(64, 158, 255);
+            ckEmpleados.DisabledColor = Color.FromArgb(196, 198, 202);
+            ckEmpleados.DisabledStringColor = Color.FromArgb(186, 187, 189);
+            ckEmpleados.Enable = true;
+            ckEmpleados.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
+            ckEmpleados.EnabledStringColor = Color.FromArgb(153, 153, 153);
+            ckEmpleados.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
+            ckEmpleados.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            ckEmpleados.ForeColor = Color.FromArgb(48, 49, 51);
+            ckEmpleados.Location = new Point(289, 320);
+            ckEmpleados.Margin = new Padding(3, 4, 3, 4);
+            ckEmpleados.Name = "ckEmpleados";
+            ckEmpleados.Size = new Size(133, 20);
+            ckEmpleados.TabIndex = 41;
+            ckEmpleados.Text = "Empleados";
+            ckEmpleados.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel1
+            // ckInformes
             // 
-            tableLayoutPanel1.Anchor = AnchorStyles.Left;
-            tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006237F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006275F));
-            tableLayoutPanel1.Controls.Add(btnGuardar, 0, 0);
-            tableLayoutPanel1.Controls.Add(btnLimpiar, 1, 0);
-            tableLayoutPanel1.Location = new Point(115, 365);
-            tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 1;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(184, 48);
-            tableLayoutPanel1.TabIndex = 31;
+            ckInformes.AutoSize = true;
+            ckInformes.CheckedColor = Color.FromArgb(64, 158, 255);
+            ckInformes.DisabledColor = Color.FromArgb(196, 198, 202);
+            ckInformes.DisabledStringColor = Color.FromArgb(186, 187, 189);
+            ckInformes.Enable = true;
+            ckInformes.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
+            ckInformes.EnabledStringColor = Color.FromArgb(153, 153, 153);
+            ckInformes.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
+            ckInformes.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            ckInformes.ForeColor = Color.FromArgb(48, 49, 51);
+            ckInformes.Location = new Point(21, 348);
+            ckInformes.Margin = new Padding(3, 4, 3, 4);
+            ckInformes.Name = "ckInformes";
+            ckInformes.Size = new Size(113, 20);
+            ckInformes.TabIndex = 40;
+            ckInformes.Text = "Informes";
+            ckInformes.UseVisualStyleBackColor = true;
             // 
-            // btnGuardar
+            // ckHerramientas
             // 
-            btnGuardar.BackColor = Color.FromArgb(74, 121, 121);
-            btnGuardar.BackgroundColor = Color.FromArgb(74, 121, 121);
-            btnGuardar.BackgroundImageLayout = ImageLayout.Center;
-            btnGuardar.BorderColor = Color.PaleVioletRed;
-            btnGuardar.BorderRadius = 10;
-            btnGuardar.BorderSize = 0;
-            btnGuardar.Dock = DockStyle.Fill;
-            btnGuardar.FlatAppearance.BorderSize = 0;
-            btnGuardar.FlatStyle = FlatStyle.Flat;
-            btnGuardar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnGuardar.ForeColor = Color.White;
-            btnGuardar.ImageAlign = ContentAlignment.MiddleRight;
-            btnGuardar.Location = new Point(3, 2);
-            btnGuardar.Margin = new Padding(3, 2, 3, 2);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(85, 44);
-            btnGuardar.TabIndex = 11;
-            btnGuardar.Text = "Guardar";
-            btnGuardar.TextColor = Color.White;
-            btnGuardar.UseVisualStyleBackColor = false;
+            ckHerramientas.AutoSize = true;
+            ckHerramientas.CheckedColor = Color.FromArgb(64, 158, 255);
+            ckHerramientas.DisabledColor = Color.FromArgb(196, 198, 202);
+            ckHerramientas.DisabledStringColor = Color.FromArgb(186, 187, 189);
+            ckHerramientas.Enable = true;
+            ckHerramientas.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
+            ckHerramientas.EnabledStringColor = Color.FromArgb(153, 153, 153);
+            ckHerramientas.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
+            ckHerramientas.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            ckHerramientas.ForeColor = Color.FromArgb(48, 49, 51);
+            ckHerramientas.Location = new Point(19, 320);
+            ckHerramientas.Margin = new Padding(3, 4, 3, 4);
+            ckHerramientas.Name = "ckHerramientas";
+            ckHerramientas.Size = new Size(153, 20);
+            ckHerramientas.TabIndex = 39;
+            ckHerramientas.Text = "Herramientas";
+            ckHerramientas.UseVisualStyleBackColor = true;
             // 
-            // btnLimpiar
+            // ckClientes
             // 
-            btnLimpiar.BackColor = Color.FromArgb(74, 121, 121);
-            btnLimpiar.BackgroundColor = Color.FromArgb(74, 121, 121);
-            btnLimpiar.BackgroundImageLayout = ImageLayout.Center;
-            btnLimpiar.BorderColor = Color.PaleVioletRed;
-            btnLimpiar.BorderRadius = 10;
-            btnLimpiar.BorderSize = 0;
-            btnLimpiar.Dock = DockStyle.Fill;
-            btnLimpiar.FlatAppearance.BorderSize = 0;
-            btnLimpiar.FlatStyle = FlatStyle.Flat;
-            btnLimpiar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnLimpiar.ForeColor = Color.White;
-            btnLimpiar.ImageAlign = ContentAlignment.MiddleRight;
-            btnLimpiar.Location = new Point(94, 2);
-            btnLimpiar.Margin = new Padding(3, 2, 3, 2);
-            btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(87, 44);
-            btnLimpiar.TabIndex = 12;
-            btnLimpiar.Text = "Limpiar";
-            btnLimpiar.TextColor = Color.White;
-            btnLimpiar.UseVisualStyleBackColor = false;
+            ckClientes.AutoSize = true;
+            ckClientes.CheckedColor = Color.FromArgb(64, 158, 255);
+            ckClientes.DisabledColor = Color.FromArgb(196, 198, 202);
+            ckClientes.DisabledStringColor = Color.FromArgb(186, 187, 189);
+            ckClientes.Enable = true;
+            ckClientes.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
+            ckClientes.EnabledStringColor = Color.FromArgb(153, 153, 153);
+            ckClientes.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
+            ckClientes.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            ckClientes.ForeColor = Color.FromArgb(48, 49, 51);
+            ckClientes.Location = new Point(289, 292);
+            ckClientes.Margin = new Padding(3, 4, 3, 4);
+            ckClientes.Name = "ckClientes";
+            ckClientes.Size = new Size(105, 20);
+            ckClientes.TabIndex = 38;
+            ckClientes.Text = "Clientes";
+            ckClientes.UseVisualStyleBackColor = true;
             // 
-            // txtIdRol
+            // ckUsuarios
             // 
-            txtIdRol.Anchor = AnchorStyles.Left;
-            txtIdRol.Location = new Point(18, 292);
-            txtIdRol.Name = "txtIdRol";
-            txtIdRol.Size = new Size(16, 23);
-            txtIdRol.TabIndex = 32;
-            txtIdRol.Text = "0";
-            txtIdRol.Visible = false;
+            ckUsuarios.AutoSize = true;
+            ckUsuarios.CheckedColor = Color.FromArgb(64, 158, 255);
+            ckUsuarios.DisabledColor = Color.FromArgb(196, 198, 202);
+            ckUsuarios.DisabledStringColor = Color.FromArgb(186, 187, 189);
+            ckUsuarios.Enable = true;
+            ckUsuarios.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
+            ckUsuarios.EnabledStringColor = Color.FromArgb(153, 153, 153);
+            ckUsuarios.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
+            ckUsuarios.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            ckUsuarios.ForeColor = Color.FromArgb(48, 49, 51);
+            ckUsuarios.Location = new Point(289, 264);
+            ckUsuarios.Margin = new Padding(3, 4, 3, 4);
+            ckUsuarios.Name = "ckUsuarios";
+            ckUsuarios.Size = new Size(112, 20);
+            ckUsuarios.TabIndex = 37;
+            ckUsuarios.Text = "Usuarios";
+            ckUsuarios.UseVisualStyleBackColor = true;
             // 
-            // panel1
+            // ckInventario
             // 
-            panel1.Controls.Add(hopeCheckBox9);
-            panel1.Controls.Add(hopeCheckBox8);
-            panel1.Controls.Add(hopeCheckBox7);
-            panel1.Controls.Add(hopeCheckBox6);
-            panel1.Controls.Add(hopeCheckBox5);
-            panel1.Controls.Add(hopeCheckBox4);
-            panel1.Controls.Add(hopeCheckBox3);
-            panel1.Controls.Add(hopeCheckBox2);
-            panel1.Controls.Add(hopeCheckBox1);
-            panel1.Controls.Add(lbltitulo2);
-            panel1.Controls.Add(lblTitulo);
-            panel1.Controls.Add(tableLayoutPanel1);
-            panel1.Controls.Add(txtIdRol);
-            panel1.Controls.Add(txtRol);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(3, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(794, 447);
-            panel1.TabIndex = 33;
+            ckInventario.AutoSize = true;
+            ckInventario.CheckedColor = Color.FromArgb(64, 158, 255);
+            ckInventario.DisabledColor = Color.FromArgb(196, 198, 202);
+            ckInventario.DisabledStringColor = Color.FromArgb(186, 187, 189);
+            ckInventario.Enable = true;
+            ckInventario.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
+            ckInventario.EnabledStringColor = Color.FromArgb(153, 153, 153);
+            ckInventario.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
+            ckInventario.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            ckInventario.ForeColor = Color.FromArgb(48, 49, 51);
+            ckInventario.Location = new Point(19, 292);
+            ckInventario.Margin = new Padding(3, 4, 3, 4);
+            ckInventario.Name = "ckInventario";
+            ckInventario.Size = new Size(125, 20);
+            ckInventario.TabIndex = 36;
+            ckInventario.Text = "Inventario";
+            ckInventario.UseVisualStyleBackColor = true;
             // 
-            // hopeCheckBox9
+            // ckVentas
             // 
-            hopeCheckBox9.AutoSize = true;
-            hopeCheckBox9.CheckedColor = Color.FromArgb(64, 158, 255);
-            hopeCheckBox9.DisabledColor = Color.FromArgb(196, 198, 202);
-            hopeCheckBox9.DisabledStringColor = Color.FromArgb(186, 187, 189);
-            hopeCheckBox9.Enable = true;
-            hopeCheckBox9.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
-            hopeCheckBox9.EnabledStringColor = Color.FromArgb(153, 153, 153);
-            hopeCheckBox9.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
-            hopeCheckBox9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            hopeCheckBox9.ForeColor = Color.FromArgb(48, 49, 51);
-            hopeCheckBox9.Location = new Point(274, 250);
-            hopeCheckBox9.Name = "hopeCheckBox9";
-            hopeCheckBox9.Size = new Size(111, 20);
-            hopeCheckBox9.TabIndex = 43;
-            hopeCheckBox9.Text = "Dashboard";
-            hopeCheckBox9.UseVisualStyleBackColor = true;
-            // 
-            // hopeCheckBox8
-            // 
-            hopeCheckBox8.AutoSize = true;
-            hopeCheckBox8.CheckedColor = Color.FromArgb(64, 158, 255);
-            hopeCheckBox8.DisabledColor = Color.FromArgb(196, 198, 202);
-            hopeCheckBox8.DisabledStringColor = Color.FromArgb(186, 187, 189);
-            hopeCheckBox8.Enable = true;
-            hopeCheckBox8.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
-            hopeCheckBox8.EnabledStringColor = Color.FromArgb(153, 153, 153);
-            hopeCheckBox8.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
-            hopeCheckBox8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            hopeCheckBox8.ForeColor = Color.FromArgb(48, 49, 51);
-            hopeCheckBox8.Location = new Point(274, 224);
-            hopeCheckBox8.Name = "hopeCheckBox8";
-            hopeCheckBox8.Size = new Size(95, 20);
-            hopeCheckBox8.TabIndex = 42;
-            hopeCheckBox8.Text = "Empresa";
-            hopeCheckBox8.UseVisualStyleBackColor = true;
-            // 
-            // hopeCheckBox7
-            // 
-            hopeCheckBox7.AutoSize = true;
-            hopeCheckBox7.CheckedColor = Color.FromArgb(64, 158, 255);
-            hopeCheckBox7.DisabledColor = Color.FromArgb(196, 198, 202);
-            hopeCheckBox7.DisabledStringColor = Color.FromArgb(186, 187, 189);
-            hopeCheckBox7.Enable = true;
-            hopeCheckBox7.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
-            hopeCheckBox7.EnabledStringColor = Color.FromArgb(153, 153, 153);
-            hopeCheckBox7.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
-            hopeCheckBox7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            hopeCheckBox7.ForeColor = Color.FromArgb(48, 49, 51);
-            hopeCheckBox7.Location = new Point(274, 198);
-            hopeCheckBox7.Name = "hopeCheckBox7";
-            hopeCheckBox7.Size = new Size(111, 20);
-            hopeCheckBox7.TabIndex = 41;
-            hopeCheckBox7.Text = "Empleados";
-            hopeCheckBox7.UseVisualStyleBackColor = true;
-            // 
-            // hopeCheckBox6
-            // 
-            hopeCheckBox6.AutoSize = true;
-            hopeCheckBox6.CheckedColor = Color.FromArgb(64, 158, 255);
-            hopeCheckBox6.DisabledColor = Color.FromArgb(196, 198, 202);
-            hopeCheckBox6.DisabledStringColor = Color.FromArgb(186, 187, 189);
-            hopeCheckBox6.Enable = true;
-            hopeCheckBox6.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
-            hopeCheckBox6.EnabledStringColor = Color.FromArgb(153, 153, 153);
-            hopeCheckBox6.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
-            hopeCheckBox6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            hopeCheckBox6.ForeColor = Color.FromArgb(48, 49, 51);
-            hopeCheckBox6.Location = new Point(166, 250);
-            hopeCheckBox6.Name = "hopeCheckBox6";
-            hopeCheckBox6.Size = new Size(97, 20);
-            hopeCheckBox6.TabIndex = 40;
-            hopeCheckBox6.Text = "Informes";
-            hopeCheckBox6.UseVisualStyleBackColor = true;
-            // 
-            // hopeCheckBox5
-            // 
-            hopeCheckBox5.AutoSize = true;
-            hopeCheckBox5.CheckedColor = Color.FromArgb(64, 158, 255);
-            hopeCheckBox5.DisabledColor = Color.FromArgb(196, 198, 202);
-            hopeCheckBox5.DisabledStringColor = Color.FromArgb(186, 187, 189);
-            hopeCheckBox5.Enable = true;
-            hopeCheckBox5.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
-            hopeCheckBox5.EnabledStringColor = Color.FromArgb(153, 153, 153);
-            hopeCheckBox5.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
-            hopeCheckBox5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            hopeCheckBox5.ForeColor = Color.FromArgb(48, 49, 51);
-            hopeCheckBox5.Location = new Point(17, 250);
-            hopeCheckBox5.Name = "hopeCheckBox5";
-            hopeCheckBox5.Size = new Size(129, 20);
-            hopeCheckBox5.TabIndex = 39;
-            hopeCheckBox5.Text = "Herramientas";
-            hopeCheckBox5.UseVisualStyleBackColor = true;
-            // 
-            // hopeCheckBox4
-            // 
-            hopeCheckBox4.AutoSize = true;
-            hopeCheckBox4.CheckedColor = Color.FromArgb(64, 158, 255);
-            hopeCheckBox4.DisabledColor = Color.FromArgb(196, 198, 202);
-            hopeCheckBox4.DisabledStringColor = Color.FromArgb(186, 187, 189);
-            hopeCheckBox4.Enable = true;
-            hopeCheckBox4.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
-            hopeCheckBox4.EnabledStringColor = Color.FromArgb(153, 153, 153);
-            hopeCheckBox4.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
-            hopeCheckBox4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            hopeCheckBox4.ForeColor = Color.FromArgb(48, 49, 51);
-            hopeCheckBox4.Location = new Point(166, 224);
-            hopeCheckBox4.Name = "hopeCheckBox4";
-            hopeCheckBox4.Size = new Size(90, 20);
-            hopeCheckBox4.TabIndex = 38;
-            hopeCheckBox4.Text = "Clientes";
-            hopeCheckBox4.UseVisualStyleBackColor = true;
-            // 
-            // hopeCheckBox3
-            // 
-            hopeCheckBox3.AutoSize = true;
-            hopeCheckBox3.CheckedColor = Color.FromArgb(64, 158, 255);
-            hopeCheckBox3.DisabledColor = Color.FromArgb(196, 198, 202);
-            hopeCheckBox3.DisabledStringColor = Color.FromArgb(186, 187, 189);
-            hopeCheckBox3.Enable = true;
-            hopeCheckBox3.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
-            hopeCheckBox3.EnabledStringColor = Color.FromArgb(153, 153, 153);
-            hopeCheckBox3.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
-            hopeCheckBox3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            hopeCheckBox3.ForeColor = Color.FromArgb(48, 49, 51);
-            hopeCheckBox3.Location = new Point(166, 198);
-            hopeCheckBox3.Name = "hopeCheckBox3";
-            hopeCheckBox3.Size = new Size(96, 20);
-            hopeCheckBox3.TabIndex = 37;
-            hopeCheckBox3.Text = "Usuarios";
-            hopeCheckBox3.UseVisualStyleBackColor = true;
-            // 
-            // hopeCheckBox2
-            // 
-            hopeCheckBox2.AutoSize = true;
-            hopeCheckBox2.CheckedColor = Color.FromArgb(64, 158, 255);
-            hopeCheckBox2.DisabledColor = Color.FromArgb(196, 198, 202);
-            hopeCheckBox2.DisabledStringColor = Color.FromArgb(186, 187, 189);
-            hopeCheckBox2.Enable = true;
-            hopeCheckBox2.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
-            hopeCheckBox2.EnabledStringColor = Color.FromArgb(153, 153, 153);
-            hopeCheckBox2.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
-            hopeCheckBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            hopeCheckBox2.ForeColor = Color.FromArgb(48, 49, 51);
-            hopeCheckBox2.Location = new Point(17, 224);
-            hopeCheckBox2.Name = "hopeCheckBox2";
-            hopeCheckBox2.Size = new Size(105, 20);
-            hopeCheckBox2.TabIndex = 36;
-            hopeCheckBox2.Text = "Inventario";
-            hopeCheckBox2.UseVisualStyleBackColor = true;
-            // 
-            // hopeCheckBox1
-            // 
-            hopeCheckBox1.AutoSize = true;
-            hopeCheckBox1.CheckedColor = Color.FromArgb(64, 158, 255);
-            hopeCheckBox1.DisabledColor = Color.FromArgb(196, 198, 202);
-            hopeCheckBox1.DisabledStringColor = Color.FromArgb(186, 187, 189);
-            hopeCheckBox1.Enable = true;
-            hopeCheckBox1.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
-            hopeCheckBox1.EnabledStringColor = Color.FromArgb(153, 153, 153);
-            hopeCheckBox1.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
-            hopeCheckBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            hopeCheckBox1.ForeColor = Color.FromArgb(48, 49, 51);
-            hopeCheckBox1.Location = new Point(17, 198);
-            hopeCheckBox1.Name = "hopeCheckBox1";
-            hopeCheckBox1.Size = new Size(81, 20);
-            hopeCheckBox1.TabIndex = 35;
-            hopeCheckBox1.Text = "Ventas";
-            hopeCheckBox1.UseVisualStyleBackColor = true;
+            ckVentas.AutoSize = true;
+            ckVentas.CheckedColor = Color.FromArgb(64, 158, 255);
+            ckVentas.DisabledColor = Color.FromArgb(196, 198, 202);
+            ckVentas.DisabledStringColor = Color.FromArgb(186, 187, 189);
+            ckVentas.Enable = true;
+            ckVentas.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
+            ckVentas.EnabledStringColor = Color.FromArgb(153, 153, 153);
+            ckVentas.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
+            ckVentas.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            ckVentas.ForeColor = Color.FromArgb(48, 49, 51);
+            ckVentas.Location = new Point(21, 264);
+            ckVentas.Margin = new Padding(3, 4, 3, 4);
+            ckVentas.Name = "ckVentas";
+            ckVentas.Size = new Size(94, 20);
+            ckVentas.TabIndex = 35;
+            ckVentas.Text = "Ventas";
+            ckVentas.UseVisualStyleBackColor = true;
             // 
             // lbltitulo2
             // 
@@ -522,29 +545,29 @@
             lbltitulo2.BackColor = Color.Transparent;
             lbltitulo2.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
             lbltitulo2.ForeColor = Color.FromArgb(80, 80, 80);
-            lbltitulo2.Location = new Point(18, 148);
+            lbltitulo2.Location = new Point(21, 197);
             lbltitulo2.Name = "lbltitulo2";
-            lbltitulo2.Size = new Size(367, 30);
+            lbltitulo2.Size = new Size(413, 37);
             lbltitulo2.TabIndex = 34;
-            lbltitulo2.Text = "Areas a las que tendra permiso el rol";
+            lbltitulo2.Text = "Areas a las que tiene acceso el rol";
             // 
             // FormRoles
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(tbRoles);
+            ClientSize = new Size(983, 600);
             Controls.Add(panel1);
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FormRoles";
-            Padding = new Padding(3, 0, 3, 3);
+            Padding = new Padding(3, 0, 3, 4);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormRoles";
             Load += FormRoles_Load;
-            ((System.ComponentModel.ISupportInitialize)tbRoles).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)tbRoles).EndInit();
             ResumeLayout(false);
         }
 
@@ -552,24 +575,24 @@
 
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtRol;
         private ReaLTaiizor.Controls.BigLabel lblTitulo;
-        private ReaLTaiizor.Controls.PoisonDataGridView tbRoles;
         private TableLayoutPanel tableLayoutPanel1;
         private RJCodeAdvance.RJControls.RJButton btnGuardar;
         private RJCodeAdvance.RJControls.RJButton btnLimpiar;
         private TextBox txtIdRol;
         private Panel panel1;
         private ReaLTaiizor.Controls.BigLabel lbltitulo2;
-        private ReaLTaiizor.Controls.HopeCheckBox hopeCheckBox6;
-        private ReaLTaiizor.Controls.HopeCheckBox hopeCheckBox5;
-        private ReaLTaiizor.Controls.HopeCheckBox hopeCheckBox4;
-        private ReaLTaiizor.Controls.HopeCheckBox hopeCheckBox3;
-        private ReaLTaiizor.Controls.HopeCheckBox hopeCheckBox2;
-        private ReaLTaiizor.Controls.HopeCheckBox hopeCheckBox1;
-        private ReaLTaiizor.Controls.HopeCheckBox hopeCheckBox9;
-        private ReaLTaiizor.Controls.HopeCheckBox hopeCheckBox8;
-        private ReaLTaiizor.Controls.HopeCheckBox hopeCheckBox7;
+        private ReaLTaiizor.Controls.HopeCheckBox ckInformes;
+        private ReaLTaiizor.Controls.HopeCheckBox ckHerramientas;
+        private ReaLTaiizor.Controls.HopeCheckBox ckClientes;
+        private ReaLTaiizor.Controls.HopeCheckBox ckUsuarios;
+        private ReaLTaiizor.Controls.HopeCheckBox ckInventario;
+        private ReaLTaiizor.Controls.HopeCheckBox ckVentas;
+        private ReaLTaiizor.Controls.HopeCheckBox ckEmpresa;
+        private ReaLTaiizor.Controls.HopeCheckBox ckEmpleados;
+        private ReaLTaiizor.Controls.PoisonDataGridView tbRoles;
         private DataGridViewButtonColumn EDITAR;
         private DataGridViewButtonColumn ELIMINAR;
+        private DataGridViewTextBoxColumn A0;
         private DataGridViewTextBoxColumn A1;
         private DataGridViewTextBoxColumn A2;
         private DataGridViewTextBoxColumn A3;
@@ -577,9 +600,8 @@
         private DataGridViewTextBoxColumn A5;
         private DataGridViewTextBoxColumn A6;
         private DataGridViewTextBoxColumn A7;
-        private DataGridViewTextBoxColumn A8;
-        private DataGridViewTextBoxColumn A9;
-        private DataGridViewTextBoxColumn ID;
-        private DataGridViewTextBoxColumn ROL;
+        private DataGridViewTextBoxColumn ID_ROL;
+        private DataGridViewTextBoxColumn NOMBRE;
+        private ReaLTaiizor.Controls.SocialButton btnCerrar;
     }
 }

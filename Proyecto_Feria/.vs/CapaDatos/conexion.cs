@@ -5,7 +5,7 @@ namespace CapaDatos
     public class conexion
     {
         //kerlint para que vos podas usar la base de datos nueva cambia LAPTOP-9REFC867\SQLEXPRESS por PERSONAL
-        string cadenaConexion = "Data Source=LAPTOP-9REFC867\\SQLEXPRESS;Initial Catalog=PEARSON;Integrated Security=True;Persist Security Info=False;Pooling=False;Multiple Active Result Sets=False;Encrypt=False;Trust Server Certificate=False;Command Timeout=0";
+        string cadenaConexion = "Data Source=(local)\\SQLEXPRESS;Initial Catalog=PEARSON;Integrated Security=True;Persist Security Info=False;Pooling=False;Multiple Active Result Sets=False;Encrypt=False;Trust Server Certificate=False;Command Timeout=0";
         public conexion() { }
         public string conexionExitosa()
         {

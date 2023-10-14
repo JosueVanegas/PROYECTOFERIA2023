@@ -18,7 +18,7 @@
     <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
     <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
     <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing"">Blue</data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
     <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
         <value>[base64 mime encoded serialized .NET Framework object]</value>
     </data>
@@ -117,43 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnCerrar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
+        ugAAAboB6KsBBgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANzSURBVHhe7ZtL
+        axRBEMcXPSjoWRAEP4fgwZNowJndhT1pZgZd8BTUb5CjBMkn8BKId0FykEByysGDQnIKGJyZIEQieMjB
+        bA5mrP88yGxP7e48evaR2obfJlvdXV3/Yqfn1d0IgqBWfj1cvOGbzhPfsF65pvPWNe0137Q/0989z7R/
+        A/wf29bQBm3RB305nzphjVU5aC3e8kyr6xn2JxJ4SgQlOY18WF345MaqCmssw/fHS9f8prNEwe5Q4P8U
+        ITogn9YOxsBYXAxlYI2FWF6+4hqWTQH6SsB14mNMjM3GVADWmBfPdBbiY5kLsnaisZ0FLra8sMZR/Gi/
+        uEsBbKsBTZBtxMTFOgrWOAy/Zd2niemYCWKyUEyIjYt5GKxxEJ7hPKfBzjKDTw9niJGLfRCsMUOnc5Wc
+        ryqDTTOriJnVosAa+yBHdOr5yAwy1SDmPElgjWno2HrHDTATUOycpjSsMSE+v/POZ4TweoHRlsAagdey
+        7pGDnupwBulBC6cRsMaf7ad3qOOR4miWOYImTmvGAKjDpuLgMrDJac0YXMN5xHS+FECbqrfvC24uqOGu
+        2rEwTYe3V0GPz131BqovATpmfb/TDf5+3Qv+vP/A1pcBvuATvrn6IqhnhQvxD5zrvmkfcp3yEor/tkfu
+        oqIjCfCRFPiumgRohFZypyTAtN9wHfKiik9KlSSkxSdFRxKglVz1J4Ay84VrnIdB4pNSJgmc+KRUTQK0
+        kpuLBHjtZ7ep4lxtmAuanHB8jipFkjBMfFIwZoWJ8RyayU2UANe0XjKNcpMnYJQ8SdDpaxjQTG7iX4Bp
+        bXCNiqAj8HGJj7A2yFWjcdzp3CSDlmv+KgLGKz6kB+2NQ8M2mMrSlBEyAfEh0N5wm85rrrIKRQRNSjyA
+        dhz/K1xlVfIKy1PqEB9hreDObz1boQcdSahPfMg6ErClGLVSJQk1iwdbOAT2mQqtlEnCGMQT1j5+ASfZ
+        Cv0UScJ4xIeczBMwPwTmk6D406DwCyHxl8Lib4bE3w6TT8wDch+I4GP+SEz6Q1Eg+rE4EP9iRPyrMSD6
+        5WiI9NfjQPYCiRhqLHeJDBC/SAqIXiaXoOOsMGnUWV+FNaYRvVQ2RPpi6RByRE6FLpdPIXfDRArRW2YS
+        RG+aSiN221wfdHMRXy/I2ziZRu7WWQaRm6cHMd3b54PGf8r8RSXobLDvAAAAAElFTkSuQmCC
+</value>
+  </data>
   <metadata name="EDITAR.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="ELIMINAR.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="A1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="A2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="A3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="A4.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="A5.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="A6.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="A7.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="A8.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="A9.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="ROL.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
 </root>

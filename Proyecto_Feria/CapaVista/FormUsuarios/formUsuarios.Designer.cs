@@ -76,7 +76,7 @@ namespace CapaVista
             lblEncabezado.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             lblEncabezado.Location = new Point(0, 0);
             lblEncabezado.Name = "lblEncabezado";
-            lblEncabezado.Size = new Size(197, 53);
+            lblEncabezado.Size = new Size(225, 71);
             lblEncabezado.TabIndex = 5;
             lblEncabezado.Text = "Usuarios registrados";
             lblEncabezado.TextAlign = ContentAlignment.MiddleLeft;
@@ -96,8 +96,9 @@ namespace CapaVista
             pnlRegistroUsuario.Controls.Add(txtUsuario);
             pnlRegistroUsuario.Dock = DockStyle.Fill;
             pnlRegistroUsuario.Location = new Point(0, 0);
+            pnlRegistroUsuario.Margin = new Padding(3, 4, 3, 4);
             pnlRegistroUsuario.Name = "pnlRegistroUsuario";
-            pnlRegistroUsuario.Size = new Size(291, 443);
+            pnlRegistroUsuario.Size = new Size(333, 591);
             pnlRegistroUsuario.TabIndex = 6;
             // 
             // btnUsuarios
@@ -113,12 +114,11 @@ namespace CapaVista
             btnUsuarios.FlatStyle = FlatStyle.Flat;
             btnUsuarios.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             btnUsuarios.ForeColor = Color.White;
-            btnUsuarios.Location = new Point(215, 217);
-            btnUsuarios.Margin = new Padding(3, 2, 3, 2);
+            btnUsuarios.Location = new Point(218, 291);
             btnUsuarios.Name = "btnUsuarios";
-            btnUsuarios.Size = new Size(57, 51);
+            btnUsuarios.Size = new Size(93, 49);
             btnUsuarios.TabIndex = 78;
-            btnUsuarios.Text = "Guardar";
+            btnUsuarios.Text = "Roles";
             btnUsuarios.TextColor = Color.White;
             btnUsuarios.UseVisualStyleBackColor = false;
             btnUsuarios.Click += btnUsuarios_Click;
@@ -126,9 +126,10 @@ namespace CapaVista
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(13, 3);
+            pictureBox2.Location = new Point(15, 4);
+            pictureBox2.Margin = new Padding(3, 4, 3, 4);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(37, 33);
+            pictureBox2.Size = new Size(42, 44);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 77;
             pictureBox2.TabStop = false;
@@ -150,11 +151,12 @@ namespace CapaVista
             cbxEmpleados.Hint = "Cedula del empleado";
             cbxEmpleados.IntegralHeight = false;
             cbxEmpleados.ItemHeight = 43;
-            cbxEmpleados.Location = new Point(13, 273);
+            cbxEmpleados.Location = new Point(15, 364);
+            cbxEmpleados.Margin = new Padding(3, 4, 3, 4);
             cbxEmpleados.MaxDropDownItems = 4;
             cbxEmpleados.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbxEmpleados.Name = "cbxEmpleados";
-            cbxEmpleados.Size = new Size(259, 49);
+            cbxEmpleados.Size = new Size(295, 49);
             cbxEmpleados.StartIndex = 0;
             cbxEmpleados.TabIndex = 31;
             // 
@@ -166,12 +168,11 @@ namespace CapaVista
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006275F));
             tableLayoutPanel1.Controls.Add(btnGuardar, 0, 0);
             tableLayoutPanel1.Controls.Add(rjButton2, 1, 0);
-            tableLayoutPanel1.Location = new Point(70, 348);
-            tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
+            tableLayoutPanel1.Location = new Point(80, 464);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(152, 70);
+            tableLayoutPanel1.Size = new Size(174, 93);
             tableLayoutPanel1.TabIndex = 30;
             // 
             // btnGuardar
@@ -188,10 +189,9 @@ namespace CapaVista
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.ForeColor = Color.White;
             btnGuardar.ImageAlign = ContentAlignment.MiddleRight;
-            btnGuardar.Location = new Point(3, 2);
-            btnGuardar.Margin = new Padding(3, 2, 3, 2);
+            btnGuardar.Location = new Point(3, 3);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(69, 66);
+            btnGuardar.Size = new Size(79, 87);
             btnGuardar.TabIndex = 11;
             btnGuardar.Text = "Guardar";
             btnGuardar.TextAlign = ContentAlignment.BottomCenter;
@@ -214,10 +214,9 @@ namespace CapaVista
             rjButton2.FlatStyle = FlatStyle.Flat;
             rjButton2.ForeColor = Color.White;
             rjButton2.ImageAlign = ContentAlignment.MiddleRight;
-            rjButton2.Location = new Point(78, 2);
-            rjButton2.Margin = new Padding(3, 2, 3, 2);
+            rjButton2.Location = new Point(89, 3);
             rjButton2.Name = "rjButton2";
-            rjButton2.Size = new Size(71, 66);
+            rjButton2.Size = new Size(81, 87);
             rjButton2.TabIndex = 12;
             rjButton2.Text = "Limpiar";
             rjButton2.TextAlign = ContentAlignment.BottomCenter;
@@ -239,7 +238,8 @@ namespace CapaVista
             txtConfirmarClave.HideSelection = true;
             txtConfirmarClave.Hint = "ingrese la clave nuevamente";
             txtConfirmarClave.LeadingIcon = null;
-            txtConfirmarClave.Location = new Point(13, 141);
+            txtConfirmarClave.Location = new Point(15, 188);
+            txtConfirmarClave.Margin = new Padding(3, 4, 3, 4);
             txtConfirmarClave.MaxLength = 32767;
             txtConfirmarClave.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtConfirmarClave.Name = "txtConfirmarClave";
@@ -251,7 +251,7 @@ namespace CapaVista
             txtConfirmarClave.SelectionLength = 0;
             txtConfirmarClave.SelectionStart = 0;
             txtConfirmarClave.ShortcutsEnabled = true;
-            txtConfirmarClave.Size = new Size(259, 48);
+            txtConfirmarClave.Size = new Size(296, 48);
             txtConfirmarClave.TabIndex = 14;
             txtConfirmarClave.TabStop = false;
             txtConfirmarClave.TextAlign = HorizontalAlignment.Center;
@@ -265,10 +265,11 @@ namespace CapaVista
             ckbVerContraseña.Customization = "7e3t//Ly8v/r6+v/5ubm/+vr6//f39//p6en/zw8PP8=";
             ckbVerContraseña.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             ckbVerContraseña.Image = null;
-            ckbVerContraseña.Location = new Point(13, 195);
+            ckbVerContraseña.Location = new Point(15, 260);
+            ckbVerContraseña.Margin = new Padding(3, 4, 3, 4);
             ckbVerContraseña.Name = "ckbVerContraseña";
             ckbVerContraseña.NoRounding = false;
-            ckbVerContraseña.Size = new Size(234, 17);
+            ckbVerContraseña.Size = new Size(267, 17);
             ckbVerContraseña.TabIndex = 13;
             ckbVerContraseña.Text = "ver contraseña";
             ckbVerContraseña.Transparent = false;
@@ -277,9 +278,10 @@ namespace CapaVista
             // txtIdUsuario
             // 
             txtIdUsuario.Anchor = AnchorStyles.Left;
-            txtIdUsuario.Location = new Point(256, 3);
+            txtIdUsuario.Location = new Point(293, 4);
+            txtIdUsuario.Margin = new Padding(3, 4, 3, 4);
             txtIdUsuario.Name = "txtIdUsuario";
-            txtIdUsuario.Size = new Size(16, 23);
+            txtIdUsuario.Size = new Size(18, 27);
             txtIdUsuario.TabIndex = 8;
             txtIdUsuario.Text = "0";
             txtIdUsuario.Visible = false;
@@ -300,11 +302,12 @@ namespace CapaVista
             cbxRol.Hint = "Rol de usuario";
             cbxRol.IntegralHeight = false;
             cbxRol.ItemHeight = 43;
-            cbxRol.Location = new Point(13, 218);
+            cbxRol.Location = new Point(15, 291);
+            cbxRol.Margin = new Padding(3, 4, 3, 4);
             cbxRol.MaxDropDownItems = 4;
             cbxRol.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbxRol.Name = "cbxRol";
-            cbxRol.Size = new Size(196, 49);
+            cbxRol.Size = new Size(198, 49);
             cbxRol.StartIndex = 0;
             cbxRol.TabIndex = 7;
             // 
@@ -321,7 +324,8 @@ namespace CapaVista
             txtClave.HideSelection = true;
             txtClave.Hint = "ingrese la clave de usuario";
             txtClave.LeadingIcon = null;
-            txtClave.Location = new Point(13, 87);
+            txtClave.Location = new Point(15, 116);
+            txtClave.Margin = new Padding(3, 4, 3, 4);
             txtClave.MaxLength = 32767;
             txtClave.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtClave.Name = "txtClave";
@@ -333,7 +337,7 @@ namespace CapaVista
             txtClave.SelectionLength = 0;
             txtClave.SelectionStart = 0;
             txtClave.ShortcutsEnabled = true;
-            txtClave.Size = new Size(259, 48);
+            txtClave.Size = new Size(296, 48);
             txtClave.TabIndex = 6;
             txtClave.TabStop = false;
             txtClave.TextAlign = HorizontalAlignment.Center;
@@ -354,7 +358,8 @@ namespace CapaVista
             txtUsuario.HideSelection = true;
             txtUsuario.Hint = "ingrese el nombre de usuario";
             txtUsuario.LeadingIcon = null;
-            txtUsuario.Location = new Point(13, 33);
+            txtUsuario.Location = new Point(15, 44);
+            txtUsuario.Margin = new Padding(3, 4, 3, 4);
             txtUsuario.MaxLength = 32767;
             txtUsuario.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtUsuario.Name = "txtUsuario";
@@ -366,7 +371,7 @@ namespace CapaVista
             txtUsuario.SelectionLength = 0;
             txtUsuario.SelectionStart = 0;
             txtUsuario.ShortcutsEnabled = true;
-            txtUsuario.Size = new Size(259, 48);
+            txtUsuario.Size = new Size(296, 48);
             txtUsuario.TabIndex = 5;
             txtUsuario.TabStop = false;
             txtUsuario.TextAlign = HorizontalAlignment.Center;
@@ -391,11 +396,12 @@ namespace CapaVista
             cbxBuscar.IntegralHeight = false;
             cbxBuscar.ItemHeight = 43;
             cbxBuscar.Items.AddRange(new object[] { "id", "usuario", "rol", "fecha" });
-            cbxBuscar.Location = new Point(197, 0);
+            cbxBuscar.Location = new Point(225, 0);
+            cbxBuscar.Margin = new Padding(3, 4, 3, 4);
             cbxBuscar.MaxDropDownItems = 4;
             cbxBuscar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbxBuscar.Name = "cbxBuscar";
-            cbxBuscar.Size = new Size(154, 49);
+            cbxBuscar.Size = new Size(175, 49);
             cbxBuscar.StartIndex = 0;
             cbxBuscar.TabIndex = 7;
             cbxBuscar.MouseHover += cbxBuscar_MouseHover;
@@ -413,7 +419,8 @@ namespace CapaVista
             txtBuscar.HideSelection = true;
             txtBuscar.Hint = "Buscar";
             txtBuscar.LeadingIcon = null;
-            txtBuscar.Location = new Point(351, 0);
+            txtBuscar.Location = new Point(400, 0);
+            txtBuscar.Margin = new Padding(3, 4, 3, 4);
             txtBuscar.MaxLength = 32767;
             txtBuscar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtBuscar.Name = "txtBuscar";
@@ -425,7 +432,7 @@ namespace CapaVista
             txtBuscar.SelectionLength = 0;
             txtBuscar.SelectionStart = 0;
             txtBuscar.ShortcutsEnabled = true;
-            txtBuscar.Size = new Size(216, 48);
+            txtBuscar.Size = new Size(247, 48);
             txtBuscar.TabIndex = 15;
             txtBuscar.TabStop = false;
             txtBuscar.TextAlign = HorizontalAlignment.Center;
@@ -439,8 +446,9 @@ namespace CapaVista
             pnlContenedor.Controls.Add(pnlRegistroUsuario);
             pnlContenedor.Dock = DockStyle.Left;
             pnlContenedor.Location = new Point(3, 0);
+            pnlContenedor.Margin = new Padding(3, 4, 3, 4);
             pnlContenedor.Name = "pnlContenedor";
-            pnlContenedor.Size = new Size(291, 443);
+            pnlContenedor.Size = new Size(333, 591);
             pnlContenedor.TabIndex = 16;
             // 
             // materialDrawer1
@@ -453,12 +461,13 @@ namespace CapaVista
             materialDrawer1.HighlightWithAccent = true;
             materialDrawer1.IndicatorWidth = 0;
             materialDrawer1.IsOpen = false;
-            materialDrawer1.Location = new Point(-250, 176);
+            materialDrawer1.Location = new Point(-286, 235);
+            materialDrawer1.Margin = new Padding(3, 4, 3, 4);
             materialDrawer1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialDrawer1.Name = "materialDrawer1";
             materialDrawer1.ShowIconsWhenHidden = false;
             materialDrawer1.ShowTabControl = null;
-            materialDrawer1.Size = new Size(250, 120);
+            materialDrawer1.Size = new Size(286, 160);
             materialDrawer1.TabIndex = 0;
             materialDrawer1.Text = "materialDrawer1";
             materialDrawer1.UseColors = false;
@@ -494,7 +503,8 @@ namespace CapaVista
             tbUsuarios.EnableHeadersVisualStyles = false;
             tbUsuarios.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbUsuarios.GridColor = Color.FromArgb(255, 255, 255);
-            tbUsuarios.Location = new Point(294, 53);
+            tbUsuarios.Location = new Point(336, 71);
+            tbUsuarios.Margin = new Padding(3, 4, 3, 4);
             tbUsuarios.Name = "tbUsuarios";
             tbUsuarios.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -505,10 +515,11 @@ namespace CapaVista
             dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             tbUsuarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            tbUsuarios.RowHeadersWidth = 51;
             tbUsuarios.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tbUsuarios.RowTemplate.Height = 25;
             tbUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tbUsuarios.Size = new Size(624, 390);
+            tbUsuarios.Size = new Size(714, 520);
             tbUsuarios.TabIndex = 18;
             tbUsuarios.CellContentClick += tbUsuarios_CellContentClick;
             tbUsuarios.CellPainting += tbUsuarios_CellPainting;
@@ -517,6 +528,7 @@ namespace CapaVista
             // 
             EDITAR.FlatStyle = FlatStyle.Popup;
             EDITAR.HeaderText = "";
+            EDITAR.MinimumWidth = 6;
             EDITAR.Name = "EDITAR";
             EDITAR.ToolTipText = "Editar";
             EDITAR.Width = 40;
@@ -525,6 +537,7 @@ namespace CapaVista
             // 
             ELIMINAR.FlatStyle = FlatStyle.Popup;
             ELIMINAR.HeaderText = "";
+            ELIMINAR.MinimumWidth = 6;
             ELIMINAR.Name = "ELIMINAR";
             ELIMINAR.ToolTipText = "Eliminar";
             ELIMINAR.Width = 40;
@@ -532,27 +545,34 @@ namespace CapaVista
             // ID
             // 
             ID.HeaderText = "ID";
+            ID.MinimumWidth = 6;
             ID.Name = "ID";
             ID.ReadOnly = true;
             ID.Visible = false;
+            ID.Width = 125;
             // 
             // ID_EMPLEADO
             // 
             ID_EMPLEADO.HeaderText = "ID_EMPLEADO";
+            ID_EMPLEADO.MinimumWidth = 6;
             ID_EMPLEADO.Name = "ID_EMPLEADO";
             ID_EMPLEADO.ReadOnly = true;
             ID_EMPLEADO.Visible = false;
+            ID_EMPLEADO.Width = 125;
             // 
             // ID_ROL
             // 
             ID_ROL.HeaderText = "ID_ROL";
+            ID_ROL.MinimumWidth = 6;
             ID_ROL.Name = "ID_ROL";
             ID_ROL.ReadOnly = true;
             ID_ROL.Visible = false;
+            ID_ROL.Width = 125;
             // 
             // USUARIO
             // 
             USUARIO.HeaderText = "USUARIO";
+            USUARIO.MinimumWidth = 6;
             USUARIO.Name = "USUARIO";
             USUARIO.ReadOnly = true;
             USUARIO.Width = 150;
@@ -560,6 +580,7 @@ namespace CapaVista
             // EMPLEADO
             // 
             EMPLEADO.HeaderText = "EMPLEADO ASIGNADO";
+            EMPLEADO.MinimumWidth = 6;
             EMPLEADO.Name = "EMPLEADO";
             EMPLEADO.ReadOnly = true;
             EMPLEADO.Width = 250;
@@ -567,8 +588,10 @@ namespace CapaVista
             // ROL
             // 
             ROL.HeaderText = "ROL";
+            ROL.MinimumWidth = 6;
             ROL.Name = "ROL";
             ROL.ReadOnly = true;
+            ROL.Width = 125;
             // 
             // panel1
             // 
@@ -576,25 +599,27 @@ namespace CapaVista
             panel1.Controls.Add(cbxBuscar);
             panel1.Controls.Add(lblEncabezado);
             panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(294, 0);
+            panel1.Location = new Point(336, 0);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(624, 53);
+            panel1.Size = new Size(714, 71);
             panel1.TabIndex = 19;
             // 
             // formUsuarios
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = Color.White;
-            ClientSize = new Size(921, 446);
+            ClientSize = new Size(1053, 595);
             Controls.Add(tbUsuarios);
             Controls.Add(panel1);
             Controls.Add(materialDrawer1);
             Controls.Add(pnlContenedor);
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "formUsuarios";
-            Padding = new Padding(3, 0, 3, 3);
+            Padding = new Padding(3, 0, 3, 4);
             Text = "formUsuarios";
             Load += formUsuarios_Load;
             pnlRegistroUsuario.ResumeLayout(false);

@@ -1,6 +1,7 @@
 using CapaControlador;
 using CapaDatos;
 using CapaPresentacion;
+using CapaPresentacion.FormUsuarios;
 using Microcharts;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
@@ -20,10 +21,10 @@ namespace CapaVista
         [STAThread]
         static void Main()
         {
-           
+           //recordar pedir el id del usuario que esta usando la app en el momento para que no halla conflicto
             ApplicationConfiguration.Initialize();
-              //Application.Run(new FormPrincipalOpt(null));
-              Application.Run(new formUsuarios());
+             // Application.Run(new FormPrincipal(null));
+              Application.Run(new formLogin());
         }
 
     }
