@@ -21,11 +21,9 @@ namespace CapaVista
         [STAThread]
         static void Main()
         {
-           //recordar pedir el id del usuario que esta usando la app en el momento para que no halla conflicto
             ApplicationConfiguration.Initialize();
-             // Application.Run(new FormPrincipal(null));
-              Application.Run(new formLogin());
+              Application.Run(new FormPrincipal(null));
+             // Application.Run(new formLogin());
         }
-
     }
-    }
+}

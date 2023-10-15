@@ -14,8 +14,9 @@ namespace CapaVista
     {
         public Modelos.Usuario user = null;
         Form formActivo = null;
-        bool EstadoDeBarraVertical = true;
         bool[] permisos = new bool[8];
+        Size tamInicial = new Size(204, 51);
+        Size tamExtendido = new Size(260, 51);
         public FormPrincipal() { }
         public FormPrincipal(Modelos.Usuario usuario)
         {
@@ -23,10 +24,14 @@ namespace CapaVista
             this.Cursor = Cursors.WaitCursor;
             this.user = usuario;
             reloj.Start();
-            datosDeUsuarioActual(user);
+            // datosDeUsuarioActual(user);
             this.Cursor = Cursors.Default;
-           // permisos = new bool[] { true, true, true, true, true, true, true, true };
+            // permisos = new bool[] { true, true, true, true, true, true, true, true };
             //activarPermisos(permisos);
+        }
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+            // abrirFormulario(new FormInicio());
         }
         private void datosDeUsuarioActual(Modelos.Usuario u)
         {
@@ -42,22 +47,22 @@ namespace CapaVista
         }
         private void activarPermisos(bool[] permisos)
         {
-            if (permisos[0] == true)
-                btnVentas.Visible = true;
-            if (permisos[1] == true)
-                btnInventario.Visible = true;
-            if (permisos[2] == true)
-                btnHerramientas.Visible = true;
-            if (permisos[3] == true)
-                btnUsuarios.Visible = true;
-            if (permisos[4] == true)
-                btnClientes.Visible = true;
-            if (permisos[5] == true)
-                btnInformes.Visible = true;
-            if (permisos[6] == true)
-                btnPlanilla.Visible = true;
-            if (permisos[7] == true)
-                btnConfiguraciones.Visible = true;
+            if (permisos[0] != true)
+                btnVentas.Visible = false;
+            if (permisos[1] != true)
+                btnInventario.Visible = false;
+            if (permisos[2] != true)
+                btnHerramientas.Visible = false;
+            if (permisos[3] != true)
+                btnUsuarios.Visible = false;
+            if (permisos[4] != true)
+                btnClientes.Visible = false;
+            if (permisos[5] != true)
+                btnInformes.Visible = false;
+            if (permisos[6] != true)
+                btnPlanilla.Visible = false;
+            if (permisos[7] != true)
+                btnConfiguraciones.Visible = false;
         }
         private void abrirFormulario(Form form)
         {
@@ -75,114 +80,128 @@ namespace CapaVista
             panelContenedor.Controls.Add(form);
             form.Show();
         }
-
-
-        private void btnBarraVertical_Button_Click(object sender, EventArgs e)
-        {
-
-            if (EstadoDeBarraVertical)
-            {
-                btnInicio.Visible = false;
-                btnHerramientas.Visible = false;
-                btnConfiguraciones.Visible = false;
-                btnUsuarios.Visible = false;
-            }
-            else
-            {
-                btnInicio.Visible = true;
-                btnHerramientas.Visible = true;
-                btnConfiguraciones.Visible = true;
-                btnUsuarios.Visible = true;
-            }
-            EstadoDeBarraVertical = !EstadoDeBarraVertical;
-        }
-        private void btnUsuarios_Click(object sender, EventArgs e)
-        {
-            abrirFormulario(new formUsuarios());
-        }
-
-        private void btnHerramientas_Click(object sender, EventArgs e)
-        {
-            // abrirFormulario(new FormHerramientas(user));
-        }
-
-        private void btnConfiguraciones_Click(object sender, EventArgs e)
-        {
-            abrirFormulario(new formConfiguraciones());
-        }
-        private void btnInventory_Click(object sender, EventArgs e)
-        {
-            //abrirFormulario(new formInventario(this.user));
-        }
-
-        private void btnPlanilla_Click(object sender, EventArgs e)
-        {
-            abrirFormulario(new FormContenedorEmpleados());
-        }
-
-        private void btnInicio_Click(object sender, EventArgs e)
-        {
-            // abrirFormulario(new FormInicio());
-        }
-
-        private void FrmPrincipal_Load(object sender, EventArgs e)
-        {
-            // abrirFormulario(new FormInicio());
-        }
-        private void btnVentas_Click(object sender, EventArgs e)
-        {
-            // abrirFormulario(new formVentas(user));
-        }
-        private void btnCalculos_Click(object sender, EventArgs e)
-        {
-            abrirFormulario(new FormInformes());
-        }
-        private void btnClientes_Click(object sender, EventArgs e)
-        {
-            abrirFormulario(new FormClientes());
-        }
-        private void btnInicio_MouseEnter(object sender, EventArgs e)
-        {
-            ToolTip toolTip = new ToolTip();
-            toolTip.SetToolTip(btnInicio, "Inicio");
-
-        }
-        private void btnHerramientas_MouseHover(object sender, EventArgs e)
-        {
-            ToolTip toolTip = new ToolTip();
-            toolTip.SetToolTip(btnHerramientas, "Herramientas");
-
-        }
-        private void btnConfiguraciones_MouseEnter(object sender, EventArgs e)
-        {
-            ToolTip toolTip = new ToolTip();
-            toolTip.SetToolTip(btnConfiguraciones, "Configuraciones");
-        }
-        private void btnUsuarios_MouseHover(object sender, EventArgs e)
-        {
-            ToolTip toolTip = new ToolTip();
-            toolTip.SetToolTip(btnUsuarios, "Usuarios");
-        }
-        private void btnInventory_MouseHover(object sender, EventArgs e)
-        {
-            ToolTip toolTip = new ToolTip();
-            toolTip.SetToolTip(btnInventario, "Inventario");
-        }
-        private void btnPlanilla_MouseHover(object sender, EventArgs e)
-        {
-            ToolTip toolTip = new ToolTip();
-            toolTip.SetToolTip(btnPlanilla, "Planilla");
-        }
-        private void btnCalculos_MouseHover(object sender, EventArgs e)
-        {
-            ToolTip toolTip = new ToolTip();
-            toolTip.SetToolTip(btnInformes, "Calculos");
-        }
-
         private void reloj_Tick(object sender, EventArgs e)
         {
             DateTime dateTime = DateTime.Now;
             lblReloj.Text = dateTime.ToString("dddd dd/MM/yyyy hh:mm:ss tt");
         }
+
+        private void crearToolTip(Control obj, string tip)
+        {
+            /*
+             * ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(obj, tip);
+             */
+        }
+        private void clicks(object sender, EventArgs e)
+        {
+            if (sender.Equals(btnInicio))
+                abrirFormulario(new FormInicio());
+            if (sender.Equals(btnInventario))
+                abrirFormulario(new formInventario(this.user));
+            if (sender.Equals(btnPlanilla))
+                abrirFormulario(new formEmpleados());
+            if (sender.Equals(btnHerramientas))
+                abrirFormulario(new FormHerramientas());
+            if (sender.Equals(btnInformes))
+                abrirFormulario(new FormInformes());
+            if (sender.Equals(btnUsuarios))
+                abrirFormulario(new formUsuarios());
+            if (sender.Equals(btnClientes))
+                abrirFormulario(new FormClientes());
+            if (sender.Equals(btnConfiguraciones))
+                abrirFormulario(new formConfiguraciones());
+            if (sender.Equals(btnVentas))
+                abrirFormulario(new formVentas(this.user));
+        }
+        private void MouseEnters(object sender, EventArgs e)
+        {
+            if (sender.Equals(btnInicio))
+            {
+                crearToolTip(btnInicio, "inicio");
+                btnInicio.BackColor = Color.FromArgb(67, 156, 189);
+                btnInicio.Size = tamExtendido;
+            }
+            if (sender.Equals(btnInventario))
+            {
+                crearToolTip(btnInventario, "inventario");
+                btnInventario.BackColor = Color.FromArgb(67, 156, 189);
+                btnInventario.Size = tamExtendido;
+            }
+            if (sender.Equals(btnConfiguraciones))
+            {
+                crearToolTip(btnConfiguraciones, "empresa");
+                btnConfiguraciones.BackColor = Color.FromArgb(67, 156, 189);
+                btnConfiguraciones.Size = tamExtendido;
+            }
+            if (sender.Equals(btnClientes))
+            {
+                crearToolTip(btnClientes, "clientes");
+                btnClientes.BackColor = Color.FromArgb(67, 156, 189);
+                btnClientes.Size = tamExtendido;
+            }
+            if (sender.Equals(btnPlanilla))
+            {
+                crearToolTip(btnPlanilla, "empleados");
+                btnPlanilla.BackColor = Color.FromArgb(67, 156, 189);
+                btnPlanilla.Size = tamExtendido;
+            }
+            if (sender.Equals(btnHerramientas))
+            {
+                crearToolTip(btnHerramientas, "herramientas");
+                btnHerramientas.BackColor = Color.FromArgb(67, 156, 189);
+                btnHerramientas.Size = tamExtendido;
+            }
+            if (sender.Equals(btnVentas))
+            {
+                crearToolTip(btnVentas, "venta");
+                btnVentas.BackColor = Color.FromArgb(67, 156, 189);
+                btnVentas.Size = tamExtendido;
+            }
+            if (sender.Equals(btnInformes))
+            {
+                crearToolTip(btnInformes, "informes");
+                btnInformes.BackColor = Color.FromArgb(67, 156, 189);
+                btnInformes.Size = tamExtendido;
+            }
+            if (sender.Equals(btnUsuarios))
+            {
+                crearToolTip(btnUsuarios, "usuarios");
+                btnUsuarios.BackColor = Color.FromArgb(67, 156, 189);
+                btnUsuarios.Size = tamExtendido;
+            }
+        }
+
+        private void MouseLeaves(object sender, EventArgs e)
+        {
+            if (sender.Equals(btnInicio))
+                btnInicio.BackColor = Color.Silver;
+                btnInicio.Size = tamInicial;
+            if (sender.Equals(btnInventario))
+                btnInventario.BackColor = Color.Silver;
+                btnInventario.Size = tamInicial;
+            if (sender.Equals(btnConfiguraciones))
+                btnConfiguraciones.BackColor = Color.Silver;
+                btnConfiguraciones.Size = tamInicial;
+            if (sender.Equals(btnClientes))
+                btnClientes.BackColor = Color.Silver;
+                btnClientes.Size = tamInicial;
+            if (sender.Equals(btnPlanilla))
+                btnPlanilla.BackColor = Color.Silver;
+                btnPlanilla.Size = tamInicial;
+            if (sender.Equals(btnHerramientas))
+                btnHerramientas.BackColor = Color.Silver;
+                btnHerramientas.Size = tamInicial;
+            if (sender.Equals(btnVentas))
+                btnVentas.BackColor = Color.Silver;
+                btnVentas.Size = tamInicial;
+            if (sender.Equals(btnInformes))
+                btnInformes.BackColor = Color.Silver;
+                btnInformes.Size = tamInicial;
+            if (sender.Equals(btnUsuarios))
+                btnUsuarios.BackColor = Color.Silver;
+                btnUsuarios.Size = tamInicial;
+        }
     }
 }
+

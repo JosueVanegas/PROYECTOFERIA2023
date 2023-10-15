@@ -13,12 +13,12 @@ namespace CapaVista.FormVentas
     {
         ResumenVenta resumen;
         Cliente cliente = new Cliente();
-        Usuario user = new Usuario();
+        Modelos.Usuario user;
         List<DetalleVenta> detalles;
         ControlVenta cVenta = new ControlVenta();
         string impresora = "";
         string factura = "";
-        public FormPagar(Usuario u, ResumenVenta r, List<DetalleVenta> d)
+        public FormPagar(Modelos.Usuario u, ResumenVenta r, List<DetalleVenta> d)
         {
             InitializeComponent();
             resumen = r;
@@ -30,7 +30,7 @@ namespace CapaVista.FormVentas
             this.Cursor = Cursors.WaitCursor;
             mostrarClientes();
             realizarResumen();
-            
+
             this.Cursor = Cursors.Default;
         }
         private void realizarResumen()
@@ -44,14 +44,13 @@ namespace CapaVista.FormVentas
         }
         private void mostrarClientes()
         {
-            List<Cliente> lista = new ControlCliente().listarClientes();
+            List<Modelos.Cliente> lista = new ControlCliente().listarClientes();
             tbBusqueda.Rows.Clear();
-            foreach (Cliente c in lista)
+            foreach (Modelos.Cliente c in lista)
             {
-                if (c.id != 1)
-                {
-                    tbBusqueda.Rows.Add("", c.id, c.nombre + " " + c.apellido);
-                }
+
+                tbBusqueda.Rows.Add("", c.ID, c.CEDULA, c.NOMBRES + " " + c.APELLIDOS);
+
             }
         }
         private void txtPagoTarjeta_KeyPress(object sender, KeyPressEventArgs e)
@@ -65,11 +64,11 @@ namespace CapaVista.FormVentas
 
             if (textoActual.Length >= 9 && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
             {
-                e.Handled = true; 
+                e.Handled = true;
             }
             if (keyPressed == '.' && textoActual.Contains("."))
             {
-                e.Handled = true; 
+                e.Handled = true;
             }
 
             if (textoActual.Contains("."))
@@ -77,7 +76,7 @@ namespace CapaVista.FormVentas
                 int indexPunto = textoActual.IndexOf(".");
                 if (textoActual.Length - indexPunto > 2 && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
                 {
-                    e.Handled = true; 
+                    e.Handled = true;
                 }
             }
         }
@@ -149,7 +148,7 @@ namespace CapaVista.FormVentas
                     infoVenta v = new infoVenta
                     {
                         ID_CLIENTE = cliente.id,
-                        ID_USUARIO = user.id,
+                        ID_USUARIO = user.ID,
                         DESCUENTO = resumen.descuento,
                         IVA = resumen.iva,
                         SUBTOTAL = resumen.subtotal,
@@ -158,7 +157,7 @@ namespace CapaVista.FormVentas
                     factura = cVenta.procesoDeVenta(v, detalles);
                     MessageBox.Show(cVenta.retornarMensaje());
                     printdirect(v);
-                    
+
                 }
                 else
                 {
@@ -179,7 +178,7 @@ namespace CapaVista.FormVentas
 
 
 
-       
+
 
 
 
@@ -233,7 +232,7 @@ namespace CapaVista.FormVentas
                 e.Graphics.DrawString(cliente, contentFont, Brushes.Black, marginLeft, yPos);
                 yPos += (int)contentFont.GetHeight();
 
-                string usuario = $"Usuario en turno: {user.usuario}";
+                string usuario = $"Usuario en turno: {user.NOMBRE}";
                 e.Graphics.DrawString(usuario, contentFont, Brushes.Black, marginLeft, yPos);
                 yPos += (int)contentFont.GetHeight();
 
@@ -351,7 +350,7 @@ namespace CapaVista.FormVentas
             y += 20;
             e.Graphics.DrawString($"Cliente:{txtCliente.Text}", font, Brushes.Black, 20, y);
             y += 20;
-            e.Graphics.DrawString($"Usuario en turno: {user.usuario}", font, Brushes.Black, 20, y);
+            e.Graphics.DrawString($"Usuario en turno: {user.NOMBRE}", font, Brushes.Black, 20, y);
             y += 20;
             e.Graphics.DrawString("------------------------------------detalles-------------------------------", font, Brushes.Black, 20, y);
             y += 20;
@@ -462,7 +461,7 @@ namespace CapaVista.FormVentas
                 txtCliente.Text = "";
             }
         }
-       
+
 
         private void pictureBox4_MouseHover(object sender, EventArgs e)
         {
@@ -509,7 +508,7 @@ namespace CapaVista.FormVentas
             toolTip.SetToolTip(pictureBox3, "Si deseas usar un cliente que esta registrado puede seleccionar desde la tabla");
         }
 
-       
+
     }
 }
 //codigo para crear factura en pdf en lugar de imprimir(en ausencia de impresora)
@@ -608,7 +607,7 @@ namespace CapaVista.FormVentas
             e.Graphics.DrawString("----------------------------------------------------------------------------", font, Brushes.Black, 20, y);
             y += 20;
             e.HasMorePages = false;*/
-        
+
 
 
 

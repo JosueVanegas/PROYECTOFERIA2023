@@ -117,157 +117,627 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="panelAbajo.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="panel7.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="lblReloj.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblReloj.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnClientes.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        4wAAAOMBD+bfpwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAJ8SURBVFhH7ddL
-        qE1RHMfx7S3ymNANKc+YYCCTO7qSR0IUycDQyCvGiiilJHdiJK8YyEiexe1SYur9SGSgpJD3K4/v73b+
-        +p991jp77XP20K8+nXPWXnvtvfbZa629sxIZhTU4ipt4js81+t6DHZiLSjMGB/EdfxLdwFK0neV4j9BB
-        UpzCaLSUjfiFUMNlPMEElMoqtHrwn1iJh67sKcYhKZPxCb7RMs5CGQndmFZ+Ff1RmAvwDZbVCYv+/wew
-        bZvRNF3wjZV1BvlMxVdo+ysMRTQXkW801SNorgilG1ZvgwpCmYXf8I2meolpiGU8bB65pIJQjiPfcAod
-        fAaKcgWqr5lziAp8xuIb8o0XuQX1LiW7YftpdEzBvxyGb7iIxvpeNPSkSfI3+At0IFtbKyhDJ+zH9ABs
-        wwnMV0Ek2tYLa0c3Z/baFcS8g59UZCss22HlPzAJsQyGeq+6WkWz/fDTrm6SZ7gM/W9LoEu9DFZHjsBy
-        DH7bIjSLdUbzQ10G1T5DGQEtLNpRQ8pfan1Xz7XtPoYhlpn4AtW9o4Iy0UmsQOgSaw1Rz4f3/arPRJyG
-        pvmP0MFlCxoyEOsxr+9XNTkJO6jRoqWbtyF2Q+kyaR5vN9OhYas29Xkbm6COBrMOdpaavZKW0EjUQz/s
-        NOQL0w/XYDtpwmk1B2DtXIfaTooWlrewnXcheWeiuvtg+79B3dSbEg0t/ySstV5rRlE0vZ6D7afhuQAt
-        ZTE+wBrTVdmJ0EOmhuYe+Pr6vhBtZTbuwRo1egA5Dz3EPK6VeXcxB5VE8/ch5A8So7rap9KsRuhgIapb
-        ef6fgN6WQgcLUd3KoznAv27F6EVEb9QJybK/UU2gbmxsUZ8AAAAASUVORK5CYII=
-</value>
+  <data name="lblReloj.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 14pt</value>
   </data>
-  <data name="btnInventario.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        4wAAAOMBD+bfpwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAEfSURBVFhH7ZdL
-        CsJAEESD53ArXkFPoRvBA4gHcK0XEnHpFXSpBxHUjRtR64ENYeg40fFD0IIHSae7piYf0OwJdcVKHMXl
-        BsdL0RFv1VCchS0cwrWBSFKvgL7YCRY6iYWY3uCYGtfoodfzgKjyOypiLEJNhNcbEpU3FOLthJrXGxKV
-        NfJS5W9dnroIRc3rBbweDsCzfZXw+geodoC2sBfKdO+lA2ZMyQE8AxaxmkdsvlBlDT4a4OuPIFXVD+AZ
-        cJut5hGbL1RZg48GGAnO87WWsJoHMybOkwKkqvoBvv4IPIPf+gpS9Q9QrQAHQeNa1CgkCo+NwJN/TVHN
-        haVlkPQp2OIwE1E1xVbY0KvAsyFKiV87pN8Lz+wR8GDnzuJZdgWQAVXjXKsKVAAAAABJRU5ErkJggg==
-</value>
+  <data name="lblReloj.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
-  <data name="btnPlanilla.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        4wAAAOMBD+bfpwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAI7SURBVFhHzdfL
-        6w5RHMfxx6Vs+G2ErZ3LLwvXYiELsiYbZYWVlBQp5ZINyYKNW0qytpSFhcgtuf0JWLgVJZeF+/utOTpO
-        356ZeWZ+5VOvnvnNOec7z2+emTNnBi0zE5txCQ/wtuK2+2yzT2+ZjKXYh+v4il81fuAhjmEtpmKkbMNL
-        RAdpwxpb0SrrERXTB+zBGXyrnMZe2BaN0To0znlERXQcKYsqKScQjZE1G+cUoiK6h+ko4777iMboJBpn
-        HF8QFdILbEKK2+6L+uozrNkqy3EbUcHkUSVqS6yxDCNnBY7iLj4iOkjOPvZ1jP9Er3FemAvnBu9xT73c
-        dp9t9uk106rPUdJl7N88xy0cwQYsxizkd8IMuM82+9jXMc/QORaKfusmbqBzdiMq3sQudI6n9xWiAwzz
-        BmPoJV7pPxEdKOIT0Wuh1+zEd0QHzPlw2oEJyRo8RXRgPcFqTGicaFbhEC5WDmIlep+E/rssxH7M//PX
-        v1kA2/zsPc7z15B+65uYhBS38wnrKpwVO8fC/r5e2al44poxZTvKdhewnpH8i7aKF9QFlIWTd5iNOXhf
-        7YucxUgX52FEBXOeZhcbUVvuAFrF28zZLCqWvIandwo8G1GfxAnMhU3j3EFUKHcZKVcQ9cl5kTaK3zQq
-        UNqCFKfeqE9pCWrj8jkanPPB5MWXMg9Rv5LvDbXxvS4anHuMMsOW5YnvDbX5hGhwzhfPMj4Tor45V8y1
-        8RVq2GPXNh88ZTZi2JrBceeQZTD4DaXukdmuB6JTAAAAAElFTkSuQmCC
-</value>
+  <data name="lblReloj.Size" type="System.Drawing.Size, System.Drawing">
+    <value>740, 92</value>
   </data>
-  <data name="btnInformes.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        4wAAAOMBD+bfpwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAHmSURBVFhH7Zc7
-        LwRRGIbXJXqJX4BEEAVKjZLWrXeJRPwGEkKtUyBLNESDWiXxBzQUiIpQiUsEcXve4ds9O9kzO7uxU8g+
-        yRPnO3POfN+cmZ05UrCJjzikICFG8QGXFbzjF24rSIAJ/EDlvFOHGnJHQZlxk+uvVqKkAuqwA+uDKB7h
-        5IoDiilAiZfwBW3eITZiFN7kIm4BSr6HNt71BtswH2NoyT9xCnOwk0QVoOT7aGNvcQ6PnL5rbEGXyCs3
-        7AS+AsLJr9AShY+piFYUk1gwubDJ+QqISm6ExzzjiRMr+Th6sYHhAqqxUHJDReyijTX1jolMLmxwuIBe
-        tGNRyY0anMYD1AroxdaDLt3Y9dPM4iugAY/xFAslj4MS61cgO9Vh+AqIYgT1/dgIongMo+VSO0MpBWh5
-        NUf3OC4lFZD3noHG2ry4FF2A955BIgV4J0BUAb79RWIF+PYXiRVg/bHPV/QEqBRQKeB/FfCG6tR+z6UP
-        bYLaLuuofr1wwjyhjqWDKEs/2vnUznCJ6jwLoiz6vs+j9n5quzTjKg4EUS6DqGNNQZSlFhdx4bedYQ2t
-        Mn1mE0f/YNjrU0uqzWMVJsos2irIc9QzoQepXG5h5mHUFc+grURS3mMO7biCF/iK+Sb9lVxsKv0N9+R2
-        vjN68EUAAAAASUVORK5CYII=
-</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblReloj.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
-  <data name="btnVentas.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        4wAAAOMBD+bfpwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAIRSURBVFhHvdc9
-        SFVhHMfxKykWCOILiNDSUNhiTU4WCmIouEiCo7ja4tTSIJVDi+Ao0qKFLxWCq+ISLg1RDoa0pEQQYS8S
-        ieZL39+BPzxdn+u5597nnB98hvO/z/Oc5z7n3HOemyOzOMAm7qMKmWYPp45FVCCzDOAFvsEm0Y3McxM2
-        gUkVso6W/Q9sEmnYx2t0wpst+DqGdoQ+nMkK1OAEuhlDW4NNYhsX8F+ewhrUqZBCpmHnaFHBzRjswxsq
-        pJDHsHNcV8HNMOxD7zUKkGVo/L+oVsFNF2wCIyqkkE/Q+BvRUV6uwSbwRIXAqYVucI3/TIX8XIQ1mFMh
-        cG7BvqDeO958hRqsR0dhcw82gR4VfHkDNfgcHYXNEmwCzSr48hJqcIyQr+ZWHEJjv1ehUCZgs7yiQoB0
-        YAc27hAKZhTWcBW+R2qxtOQfYOOJngPn7jf64XYIaR6XcG7cfUG5dB99wSsUvcnRjfcbGkDXTc+GzDMF
-        +xbPkflGtQnuHvEjHmAQ2kMm1YtKJEob3EmUaxyJcxkz0P8G36BJPELJqYFeJHfhW+I4eu4nvgQWvaL1
-        E6qPjopLA+5AfcuKls1ez9+hVYjLbfyA+qjvQ5QUzd5Obt4iLu/g9tEYV5E4WnZ3IPmJuPxCfr+S/urp
-        mmvZ3YEWEBf9z3T77KLkLb6uuZZd31wnb0Rc1EaTUB/1bUeB5HL/AEVzMo+jf5lIAAAAAElFTkSuQmCC
-</value>
+  <data name="lblReloj.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomRight</value>
   </data>
-  <data name="btnUsuarios.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        4wAAAOMBD+bfpwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAALVSURBVFhHtZc5
-        rA9RFIeH2KOQ2IlGNASVqG2xJcRWSBR0goRSIRERFIQQQofQEJSWwtIoJNYEhX2nscdSIHzf5H9e5l1v
-        /v/x5vklXzL33HPunblz7rkzWYmWwiV4D1/hPCyBqup0fHc4BL9LOAr6lKlufLYewvkHXITLjeuwb4Ay
-        1YrvDR9BJ5duIoQmw2ew7wP0g1R147MpoINs1JBoK0T/JA2J6sZn8yAclmlItAKiX99UdeOzsRAOJksq
-        bdE/XkOiuvG57kA4bYYhMBi2NGxyF8pUNz6bDsWMTfkJ+pSpbnyuRWCmpsHaFkMr1Y3PNQDWwAE42Lge
-        CEUNgxlgQg3SUFCV+E7LyU6ByxlP9wuOw0iorQmwB0yoL/AAhoJy8idQXNoij2AEqOHwEBzDsXZDafYr
-        K9l+8GnSgWeC8snDdh1WwVq43bCJK6FmQ9gCV20f9IJ2cnLrdtH5NZwGK1gP8J3Hsjt5Hwh5HTfhA+jb
-        E4w9A2+gOPYFaHcTJkt0voT50A2KmgPhs1JDonUQ/VM1FOQJuABeQfjshVy+81h2Jx8FHWkuRHBHN7Aa
-        on+Whg7k2HETruY4yJMjAn3yMpmAcaM3ofgK+sINsC9eQZkWQsy3U4Ol0YZ3li57qmMQwd6ETy23GjY5
-        Cc3k64icMG/azumzNlrIfe5Wi8lSnoHbr5XOgf6fbNxvNDwwqsh97lYrblev3aJVJlfbwLh7Nnxf7nO3
-        2r/I4jQN3O9RqKrKLWqi/mtcm8wVM9itKV63yp8uUX/YBG7XWP7gBfgpps9/kXX8MaQTp5ikTWt+ZzQG
-        3kFM8hy2w/IGO8AViP63MBq6RL7baxCD74K/DhPkeeIpGn5XoEvywq+YGNS/nlY6AuFv1autE+Bg1u5m
-        JTZknYhTM47mWrK6OdjVvFVNHtfGPM1bNfUdHMxKV1Xx4fItb9XUYbBmV/6iRf6KG+MHaRNl2R/wnET+
-        htrZbAAAAABJRU5ErkJggg==
-</value>
+  <data name="&gt;&gt;lblReloj.Name" xml:space="preserve">
+    <value>lblReloj</value>
   </data>
-  <data name="btnConfiguraciones.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        4wAAAOMBD+bfpwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAHZSURBVFhHvdfL
-        LgRBGIbh4RZYINi6FxFxCBbOV4GwIC4ESyKxcroEVuyFiOMCcdo4JLxfMtOpbn9XdQ/lS55kMlNVf3dX
-        9XR1pc50YBPPVVvowr9Exe/xlfEA/RY9OvNs8ZoNRI8uuVVcnhA17bAKu9Tmz6NBV/EGq6hLbdZQ13oY
-        wQG0oM6xhFFYiy5EY4xjGRd4xCFUw8wCrIFimEcqbXiH1TgG1WpFkiFYDWNSzSQ9sBr5XGMbO7ipflfG
-        MJI04xVWw6xL9KIBtTSiD1ew+mTpTklNgTILq7FLxX23l34rchCqZWYKL7A6ic48lH5YfUVjT8KbE1id
-        dWbuZc+LpiNvTWjsYPLWghZb0ezBGkNjB5N3ALsomn1YY2gKgsmbAt12uryh/GoKQotQt1oog7D6isae
-        hpkZWJ1cWoi+27ATulJWX9ePZ0ETfGfu0kHoVnOnQ58HUKS46Fmg50+SblgNfTTPWphyW/2ujNRfsW/e
-        Ykk9jPS/XGS381dUqwWpzMFqHEPus2ACx/jEGbQlG4O2V9ZAPtrGaTu3iFN84AjappVO2U3pCqLtjq2i
-        riiF3fheTLTzjR69iFrFZR3Ro7dga1HeIfrlr0XPA72I6l1QdOZ1FK9UvgGSiQjsCuzaJwAAAABJRU5E
-        rkJggg==
-</value>
+  <data name="&gt;&gt;lblReloj.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="btnHerramientas.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAT
-        qwAAE6sBnBsJ0QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAMVSURBVFhHrZdJ
-        6E1RHMefISKSSOZQhmRFMmSJwoaFZMjGjixEYUNZWNlYGDJEZGFcUJJSRBZSQpKFsUzJGDJk+HzPu9/X
-        +Z//ve/e5/nWp3fP7/zO+f3uGe+rJVoIl2FqKFVXL1gCJ+A+fIb3cBsOwxzoCk2l4D/gD/yCQzAEyqTA
-        T0HtmvEIVkFuIovAwWM+wSboCanU0U6I/X/DXTgH5+EdxPXboJPS4HvhQVQWD0F+sVR2vdrvgGFgLYBv
-        YJ84eA9ojMQFsNMBGZAcNsAHcJ24BN1AWgyyvYHpMkQqC34WloUSmgQ/QY6aSy0oaxDsB60Jd+bpUALf
-        IV2wVYLLrsXaBYJ2gRtskSHRMXB9nMD2+mNDs6FKcDMLggbAW5DxC4yAWEfAjZyAds3g+mNQb3gF9isL
-        LvZAQ2vBFXrjWHkJjMl+rflgn7jjNPhz8MtehYa6wz1QhbbTGdDBIp6AO3ACjfnLtBzss1QGlBd8HFzP
-        ys+gg+aCnYtYA3nSYrbPY1gPVyKbg0s3QLbXoZQob65iNDqrIU+nIa9NHFzyFNwKpYpaCd6ORUn0gaOg
-        ege/BqPBmgmu2ydDK6qShNQPZsDQUOoorSknME+GVlWWRLo4Y60AB9eCL70hi1SUxEjQvE4LpY7SzvgK
-        aqOTN8+nUHLWPdA/lOpKk9gKunJV1h0SBxgI8SG1GSpLHflSugl9wYqTSEmTmAgvYF0oVVQcXGjVpnO8
-        EeLA8ZumSWiXVNYUiD8odFWni2YU6NCxz0XQnbA7sn2E9LouVd6bp8H1XeCjW+iwUXBJvkrYdelINFWz
-        4PodXn8MSn317RD7tpxEOuwHwR1q7jW0Or917luTwUdrURvXKYnC6Sh78/ht9M3oTzOp7ZGo8uZNO0D/
-        PBIToK3sI7UyEvrjEm7IU5mhrEFZcKuVJHQx1V5mBZ3h7Qa30iTUV9y3/rLJrq3bKYF2g1tFSYg7mS0k
-        cDIrCFXor5XL/xrcSpNQ/w4ujkNtPGhB2Ghkaye4pT7y+teuGwtBSkJfwTq3hb7tGpX/QVrtaf/YarW/
-        aJSiPILWossAAAAASUVORK5CYII=
-</value>
+  <data name="&gt;&gt;lblReloj.Parent" xml:space="preserve">
+    <value>panel7</value>
   </data>
-  <data name="btnBarraVertical.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
-        MAAA6mAAADqYAAAXcJy6UTwAAAAHdElNRQfnCBQDFSLIDRM6AAAAmklEQVRYR+3WwQkCMRCF4elCS3E7
-        UPZsVbLah1Wo24lagFag/wse9jDXzBycBx+EJDAhEDJWqfwyYB9MNVtO+CSZYO/FRLQX7LaYiHaBrXHE
-        OZiuf4VKJT8jnvCeSU8P7NAG3oYId+QfQNeQcQgV36JSyY++Y3VF3pfZk1oA1bYZ3jOJcEV+S6bOxFuM
-        cEDLBl7r3JNqVv4+Zl9c4XNgo3IYBQAAAABJRU5ErkJggg==
-</value>
+  <data name="&gt;&gt;lblReloj.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="btnInicio.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        4wAAAOMBD+bfpwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAGdSURBVFhH7da/
-        K0VhHMfxQxYlgzIgq0WJRVImG5NBSkqyGP0BlE3JhtEmLP4HNosBAymDQuRHfpQk4f29naeOp8+599zr
-        PCw+9arb9/k+P+7tds4TVZgR7OABT9iOa1UImhqs4TOFjVlPkNi3W4XaOMkOUY3cswi1obKMXDMDtVEx
-        NieXTEFtkMU0fpQhvEMtnsUHxlFR+vEKtXA53jCAstKNZ6gFK/GCPmRKO+6gFvoJe2h1oWhacQa1QB6u
-        0QaZRhxDTczTKZrwLfXYg5oQwiEaUEgt7MWiGkPaRR2ipbjwF1YQ5B+f1T3kwG+SxVL2MYvR2BwOoHpL
-        kcU09jBJu/lYzQ7zCDU3jSwqtnAHSqUTdk1TayiyqIzBpReXcGNXGITLBJJzi5FF3xHcNcs2t9es32O1
-        Hlis9wR+jyKLvnm4XED1mHO4LED1+GTRZz+pi/r2jo25TEL1+GTRNwwXNZ7kYnPUuE8Wff8HCHqALE+u
-        UAewJ2u0lSikCXWATRTuaLdxIU2IA9ygBYXYhw3Y+1k153kA22MdzVEURV+zTtQgfHTChwAAAABJRU5E
-        rkJggg==
-</value>
+  <data name="panel7.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panel7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>468, 0</value>
+  </data>
+  <data name="panel7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>740, 92</value>
+  </data>
+  <data name="panel7.TabIndex" type="System.Int32, mscorlib">
+    <value>55</value>
+  </data>
+  <data name="&gt;&gt;panel7.Name" xml:space="preserve">
+    <value>panel7</value>
+  </data>
+  <data name="&gt;&gt;panel7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel7.Parent" xml:space="preserve">
+    <value>panelAbajo</value>
+  </data>
+  <data name="&gt;&gt;panel7.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="panel6.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="lblRol.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="lblRol.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="lblRol.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="lblRol.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 50</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblRol.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
+  </data>
+  <data name="lblRol.Size" type="System.Drawing.Size, System.Drawing">
+    <value>468, 28</value>
+  </data>
+  <data name="lblRol.TabIndex" type="System.Int32, mscorlib">
+    <value>53</value>
+  </data>
+  <data name="lblRol.Text" xml:space="preserve">
+    <value>Rol del usuario:</value>
+  </data>
+  <data name="lblRol.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;lblRol.Name" xml:space="preserve">
+    <value>lblRol</value>
+  </data>
+  <data name="&gt;&gt;lblRol.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblRol.Parent" xml:space="preserve">
+    <value>panel6</value>
+  </data>
+  <data name="&gt;&gt;lblRol.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="lblUsuario.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="lblUsuario.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="lblUsuario.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="lblUsuario.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="lblUsuario.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
+  </data>
+  <data name="lblUsuario.Size" type="System.Drawing.Size, System.Drawing">
+    <value>468, 50</value>
+  </data>
+  <data name="lblUsuario.TabIndex" type="System.Int32, mscorlib">
+    <value>52</value>
+  </data>
+  <data name="lblUsuario.Text" xml:space="preserve">
+    <value>Usuario actual:</value>
+  </data>
+  <data name="lblUsuario.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;lblUsuario.Name" xml:space="preserve">
+    <value>lblUsuario</value>
+  </data>
+  <data name="&gt;&gt;lblUsuario.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblUsuario.Parent" xml:space="preserve">
+    <value>panel6</value>
+  </data>
+  <data name="&gt;&gt;lblUsuario.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="panel6.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="panel6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panel6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>468, 92</value>
+  </data>
+  <data name="panel6.TabIndex" type="System.Int32, mscorlib">
+    <value>54</value>
+  </data>
+  <data name="&gt;&gt;panel6.Name" xml:space="preserve">
+    <value>panel6</value>
+  </data>
+  <data name="&gt;&gt;panel6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel6.Parent" xml:space="preserve">
+    <value>panelAbajo</value>
+  </data>
+  <data name="&gt;&gt;panel6.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="panelAbajo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="panelAbajo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 32</value>
+  </data>
+  <data name="panelAbajo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 3, 5, 3</value>
+  </data>
+  <data name="panelAbajo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1208, 92</value>
+  </data>
+  <data name="panelAbajo.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;panelAbajo.Name" xml:space="preserve">
+    <value>panelAbajo</value>
+  </data>
+  <data name="&gt;&gt;panelAbajo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelAbajo.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panelAbajo.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <metadata name="btnClientes.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="btnClientes.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="btnClientes.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnClientes.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 18pt</value>
+  </data>
+  <data name="btnClientes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 297</value>
+  </data>
+  <data name="btnClientes.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="btnClientes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 51</value>
+  </data>
+  <data name="btnClientes.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btnClientes.Text" xml:space="preserve">
+    <value>Clientes</value>
+  </data>
+  <data name="btnClientes.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;btnClientes.Name" xml:space="preserve">
+    <value>btnClientes</value>
+  </data>
+  <data name="&gt;&gt;btnClientes.Type" xml:space="preserve">
+    <value>RJCodeAdvance.RJControls.RJButton, RJCodeAdvance.RJControls, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnClientes.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;btnClientes.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <metadata name="btnInventario.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="btnInventario.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="btnInventario.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnInventario.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 18pt</value>
+  </data>
+  <data name="btnInventario.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 155</value>
+  </data>
+  <data name="btnInventario.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="btnInventario.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 51</value>
+  </data>
+  <data name="btnInventario.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnInventario.Text" xml:space="preserve">
+    <value>Inventario</value>
+  </data>
+  <data name="btnInventario.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;btnInventario.Name" xml:space="preserve">
+    <value>btnInventario</value>
+  </data>
+  <data name="&gt;&gt;btnInventario.Type" xml:space="preserve">
+    <value>RJCodeAdvance.RJControls.RJButton, RJCodeAdvance.RJControls, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnInventario.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;btnInventario.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <metadata name="btnPlanilla.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="btnPlanilla.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="btnPlanilla.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnPlanilla.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 18pt</value>
+  </data>
+  <data name="btnPlanilla.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnPlanilla.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 226</value>
+  </data>
+  <data name="btnPlanilla.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="btnPlanilla.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 51</value>
+  </data>
+  <data name="btnPlanilla.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="btnPlanilla.Text" xml:space="preserve">
+    <value>Empleados</value>
+  </data>
+  <data name="btnPlanilla.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;btnPlanilla.Name" xml:space="preserve">
+    <value>btnPlanilla</value>
+  </data>
+  <data name="&gt;&gt;btnPlanilla.Type" xml:space="preserve">
+    <value>RJCodeAdvance.RJControls.RJButton, RJCodeAdvance.RJControls, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnPlanilla.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;btnPlanilla.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="btnInformes.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="btnInformes.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="btnInformes.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnInformes.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 18pt</value>
+  </data>
+  <data name="btnInformes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 368</value>
+  </data>
+  <data name="btnInformes.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="btnInformes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 51</value>
+  </data>
+  <data name="btnInformes.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="btnInformes.Text" xml:space="preserve">
+    <value>Informes</value>
+  </data>
+  <data name="btnInformes.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;btnInformes.Name" xml:space="preserve">
+    <value>btnInformes</value>
+  </data>
+  <data name="&gt;&gt;btnInformes.Type" xml:space="preserve">
+    <value>RJCodeAdvance.RJControls.RJButton, RJCodeAdvance.RJControls, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnInformes.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;btnInformes.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <metadata name="btnVentas.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="btnVentas.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="btnVentas.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnVentas.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 18pt</value>
+  </data>
+  <data name="btnVentas.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 84</value>
+  </data>
+  <data name="btnVentas.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="btnVentas.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 51</value>
+  </data>
+  <data name="btnVentas.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnVentas.Text" xml:space="preserve">
+    <value>Ventas</value>
+  </data>
+  <data name="btnVentas.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;btnVentas.Name" xml:space="preserve">
+    <value>btnVentas</value>
+  </data>
+  <data name="&gt;&gt;btnVentas.Type" xml:space="preserve">
+    <value>RJCodeAdvance.RJControls.RJButton, RJCodeAdvance.RJControls, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnVentas.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;btnVentas.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <metadata name="btnUsuarios.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="btnUsuarios.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="btnUsuarios.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnUsuarios.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 18pt</value>
+  </data>
+  <data name="btnUsuarios.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 439</value>
+  </data>
+  <data name="btnUsuarios.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="btnUsuarios.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 51</value>
+  </data>
+  <data name="btnUsuarios.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="btnUsuarios.Text" xml:space="preserve">
+    <value>usuarios</value>
+  </data>
+  <data name="btnUsuarios.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;btnUsuarios.Name" xml:space="preserve">
+    <value>btnUsuarios</value>
+  </data>
+  <data name="&gt;&gt;btnUsuarios.Type" xml:space="preserve">
+    <value>RJCodeAdvance.RJControls.RJButton, RJCodeAdvance.RJControls, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnUsuarios.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;btnUsuarios.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <metadata name="btnConfiguraciones.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="btnConfiguraciones.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="btnConfiguraciones.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnConfiguraciones.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 18pt</value>
+  </data>
+  <data name="btnConfiguraciones.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 581</value>
+  </data>
+  <data name="btnConfiguraciones.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="btnConfiguraciones.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 51</value>
+  </data>
+  <data name="btnConfiguraciones.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="btnConfiguraciones.Text" xml:space="preserve">
+    <value>Empresa</value>
+  </data>
+  <data name="btnConfiguraciones.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;btnConfiguraciones.Name" xml:space="preserve">
+    <value>btnConfiguraciones</value>
+  </data>
+  <data name="&gt;&gt;btnConfiguraciones.Type" xml:space="preserve">
+    <value>RJCodeAdvance.RJControls.RJButton, RJCodeAdvance.RJControls, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnConfiguraciones.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;btnConfiguraciones.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="btnHerramientas.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="btnHerramientas.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="btnHerramientas.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnHerramientas.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 18pt</value>
+  </data>
+  <data name="btnHerramientas.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 510</value>
+  </data>
+  <data name="btnHerramientas.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="btnHerramientas.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 51</value>
+  </data>
+  <data name="btnHerramientas.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="btnHerramientas.Text" xml:space="preserve">
+    <value>Herramientas</value>
+  </data>
+  <data name="btnHerramientas.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;btnHerramientas.Name" xml:space="preserve">
+    <value>btnHerramientas</value>
+  </data>
+  <data name="&gt;&gt;btnHerramientas.Type" xml:space="preserve">
+    <value>RJCodeAdvance.RJControls.RJButton, RJCodeAdvance.RJControls, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnHerramientas.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;btnHerramientas.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <metadata name="btnInicio.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="btnInicio.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="btnInicio.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnInicio.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 18pt</value>
+  </data>
+  <data name="btnInicio.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 13</value>
+  </data>
+  <data name="btnInicio.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="btnInicio.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 51</value>
+  </data>
+  <data name="btnInicio.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btnInicio.Text" xml:space="preserve">
+    <value>Inicio</value>
+  </data>
+  <data name="btnInicio.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;btnInicio.Name" xml:space="preserve">
+    <value>btnInicio</value>
+  </data>
+  <data name="&gt;&gt;btnInicio.Type" xml:space="preserve">
+    <value>RJCodeAdvance.RJControls.RJButton, RJCodeAdvance.RJControls, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnInicio.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;btnInicio.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <metadata name="panelContenedor.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="panelContenedor.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panelContenedor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>272, 124</value>
+  </data>
+  <data name="panelContenedor.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="panelContenedor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>941, 650</value>
+  </data>
+  <data name="panelContenedor.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;panelContenedor.Name" xml:space="preserve">
+    <value>panelContenedor</value>
+  </data>
+  <data name="&gt;&gt;panelContenedor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelContenedor.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panelContenedor.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="tableLayoutPanel2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="tableLayoutPanel2.ColumnCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <metadata name="rjButton1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="rjButton1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="rjButton1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -286,6 +756,66 @@
         dQAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="rjButton1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="rjButton1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="rjButton1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 102</value>
+  </data>
+  <data name="rjButton1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="rjButton1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 16</value>
+  </data>
+  <data name="rjButton1.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="rjButton1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;rjButton1.Name" xml:space="preserve">
+    <value>rjButton1</value>
+  </data>
+  <data name="&gt;&gt;rjButton1.Type" xml:space="preserve">
+    <value>RJCodeAdvance.RJControls.RJButton, RJCodeAdvance.RJControls, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;rjButton1.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;rjButton1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tableLayoutPanel2.RowCount" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="tableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 100</value>
+  </data>
+  <data name="tableLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.Name" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="rjButton1" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Absolute,20,Absolute,20,Absolute,20,Absolute,20,Absolute,20,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <metadata name="rjButton2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="rjButton2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
   <data name="rjButton2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
@@ -297,6 +827,48 @@
         GfyvW5CKSwOja+BbDZRt214pfDToAb9Kno3CcUD4TrGIHH/Ph5IeHb+5ysSBH5hbCJedpN/iElf3RmV2
         g/92tIIvY3QQ5TH3xbPsBxCudOgbJZ4uAAAAAElFTkSuQmCC
 </value>
+  </data>
+  <data name="rjButton2.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="rjButton2.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="rjButton2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 2</value>
+  </data>
+  <data name="rjButton2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="rjButton2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 69</value>
+  </data>
+  <data name="rjButton2.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="rjButton2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;rjButton2.Name" xml:space="preserve">
+    <value>rjButton2</value>
+  </data>
+  <data name="&gt;&gt;rjButton2.Type" xml:space="preserve">
+    <value>RJCodeAdvance.RJControls.RJButton, RJCodeAdvance.RJControls, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <metadata name="tableLayoutPanel1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="tableLayoutPanel1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="tableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <metadata name="rjButton3.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="rjButton3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="rjButton3.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -313,6 +885,69 @@
         QO5+COswJIMPJVcHTjFFYv/5/Ml4gc+xCypXA0yXEnfB+BGtDqNxEY8tHtNcCGAnRnhGwe9EVfweAjgQ
         bhFijesn+FtNY6EdNo7jF/8A5z06AFEj/BkAAAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="rjButton3.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="rjButton3.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="rjButton3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>123, 2</value>
+  </data>
+  <data name="rjButton3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="rjButton3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 96</value>
+  </data>
+  <data name="rjButton3.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="rjButton3.Text" xml:space="preserve">
+    <value>Calculos</value>
+  </data>
+  <data name="rjButton3.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;rjButton3.Name" xml:space="preserve">
+    <value>rjButton3</value>
+  </data>
+  <data name="&gt;&gt;rjButton3.Type" xml:space="preserve">
+    <value>RJCodeAdvance.RJControls.RJButton, RJCodeAdvance.RJControls, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;rjButton3.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;rjButton3.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 100</value>
+  </data>
+  <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Name" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="rjButton3" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,20,Percent,20,Percent,20,Percent,20,Percent,20" /&gt;&lt;Rows Styles="Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <metadata name="rjButton4.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="rjButton4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="rjButton4.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -335,6 +970,258 @@
         yIgT8wh1xmPyt7DF5KZnqgsiZxDUz5c0QQ6+8TycTappsWbnw/2Iq27akHTHqudPGDNf8Hc7Y00LspKS
         vwfhBvRA4OMUAAAAAElFTkSuQmCC
 </value>
+  </data>
+  <data name="rjButton4.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="rjButton4.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="rjButton4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>83, 2</value>
+  </data>
+  <data name="rjButton4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="rjButton4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 96</value>
+  </data>
+  <data name="rjButton4.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="rjButton4.Text" xml:space="preserve">
+    <value>Contabilidad</value>
+  </data>
+  <data name="rjButton4.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;rjButton4.Name" xml:space="preserve">
+    <value>rjButton4</value>
+  </data>
+  <data name="&gt;&gt;rjButton4.Type" xml:space="preserve">
+    <value>RJCodeAdvance.RJControls.RJButton, RJCodeAdvance.RJControls, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <metadata name="tableLayoutPanel3.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="tableLayoutPanel3.ColumnCount" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <metadata name="lblEncabezado2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="lblEncabezado2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblEncabezado2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lblEncabezado2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 36pt</value>
+  </data>
+  <data name="lblEncabezado2.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="lblEncabezado2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 0</value>
+  </data>
+  <data name="lblEncabezado2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1, 100</value>
+  </data>
+  <data name="lblEncabezado2.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblEncabezado2.Text" xml:space="preserve">
+    <value>MODO</value>
+  </data>
+  <data name="lblEncabezado2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;lblEncabezado2.Name" xml:space="preserve">
+    <value>lblEncabezado2</value>
+  </data>
+  <data name="&gt;&gt;lblEncabezado2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblEncabezado2.Parent" xml:space="preserve">
+    <value>tableLayoutPanel3</value>
+  </data>
+  <data name="&gt;&gt;lblEncabezado2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tableLayoutPanel3.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tableLayoutPanel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 100</value>
+  </data>
+  <data name="tableLayoutPanel3.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel3.Name" xml:space="preserve">
+    <value>tableLayoutPanel3</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tableLayoutPanel3.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblEncabezado2" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Absolute,170,Absolute,270" /&gt;&lt;Rows Styles="Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <metadata name="lblEncabezado3.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="lblEncabezado3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblEncabezado3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lblEncabezado3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 36pt</value>
+  </data>
+  <data name="lblEncabezado3.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="lblEncabezado3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-67, 0</value>
+  </data>
+  <data name="lblEncabezado3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>264, 100</value>
+  </data>
+  <data name="lblEncabezado3.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblEncabezado3.Text" xml:space="preserve">
+    <value>tx</value>
+  </data>
+  <data name="lblEncabezado3.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;lblEncabezado3.Name" xml:space="preserve">
+    <value>lblEncabezado3</value>
+  </data>
+  <data name="&gt;&gt;lblEncabezado3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <metadata name="panel1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="tableLayoutPanel6.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="tableLayoutPanel6.ColumnCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <metadata name="cyberSwitch1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="cyberSwitch1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="cyberSwitch1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 11pt</value>
+  </data>
+  <data name="cyberSwitch1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="cyberSwitch1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 37</value>
+  </data>
+  <data name="cyberSwitch1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;cyberSwitch1.Name" xml:space="preserve">
+    <value>cyberSwitch1</value>
+  </data>
+  <data name="&gt;&gt;cyberSwitch1.Type" xml:space="preserve">
+    <value>ReaLTaiizor.Controls.CyberSwitch, ReaLTaiizor, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;cyberSwitch1.Parent" xml:space="preserve">
+    <value>tableLayoutPanel6</value>
+  </data>
+  <data name="&gt;&gt;cyberSwitch1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 25</value>
+  </data>
+  <data name="tableLayoutPanel6.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tableLayoutPanel6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 43</value>
+  </data>
+  <data name="tableLayoutPanel6.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel6.Name" xml:space="preserve">
+    <value>tableLayoutPanel6</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel6.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel6.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel6.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="cyberSwitch1" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50" /&gt;&lt;Rows Styles="Percent,50,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 100</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <metadata name="tableLayoutPanel7.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="tableLayoutPanel7.ColumnCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tableLayoutPanel7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tableLayoutPanel7.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tableLayoutPanel7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 100</value>
+  </data>
+  <data name="tableLayoutPanel7.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel7.Name" xml:space="preserve">
+    <value>tableLayoutPanel7</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tableLayoutPanel7.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls /&gt;&lt;Columns Styles="Percent,50" /&gt;&lt;Rows Styles="" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <metadata name="panel4.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="pictureBox1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="pictureBox1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -564,6 +1451,36 @@
         Zud8MYdf3b2bivA/j83/Et85//8XNh4td9v8P6PjbjTX+Y77kf07LjUb7N85HTYq8//uKfc1+7N8yv5c
         b7c/30v9XONMv6ZxhPo7ABjGnp/5/87opJwZYmn5AAAAAElFTkSuQmCC
 </value>
+  </data>
+  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 94</value>
+  </data>
+  <data name="pictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
+    <value>pictureBox1</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
+    <value>panel4</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="pictureBox2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="pictureBox2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -885,9 +1802,84 @@
         AAAAAAAAAAAAgKyZMeP/A53wb7e1yM11AAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="pictureBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="pictureBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 94</value>
+  </data>
+  <data name="pictureBox2.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="pictureBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="pictureBox2.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pictureBox2.Name" xml:space="preserve">
+    <value>pictureBox2</value>
+  </data>
+  <data name="&gt;&gt;pictureBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBox2.Parent" xml:space="preserve">
+    <value>panel4</value>
+  </data>
+  <data name="&gt;&gt;pictureBox2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="panel4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 94</value>
+  </data>
+  <data name="panel4.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;panel4.Name" xml:space="preserve">
+    <value>panel4</value>
+  </data>
+  <data name="&gt;&gt;panel4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <metadata name="reloj.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="panel3.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 100</value>
+  </data>
+  <data name="panel3.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;panel3.Name" xml:space="preserve">
+    <value>panel3</value>
+  </data>
+  <data name="&gt;&gt;panel3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <metadata name="tableLayoutPanel4.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="tableLayoutPanel4.ColumnCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <metadata name="rjButton5.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="rjButton5.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
   <data name="rjButton5.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
@@ -907,6 +1899,72 @@
         htrZbAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="rjButton5.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="rjButton5.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="rjButton5.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="rjButton5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 2</value>
+  </data>
+  <data name="rjButton5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 2, 4, 2</value>
+  </data>
+  <data name="rjButton5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 96</value>
+  </data>
+  <data name="rjButton5.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="rjButton5.Text" xml:space="preserve">
+    <value>usuarios</value>
+  </data>
+  <data name="rjButton5.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;rjButton5.Name" xml:space="preserve">
+    <value>rjButton5</value>
+  </data>
+  <data name="&gt;&gt;rjButton5.Type" xml:space="preserve">
+    <value>RJCodeAdvance.RJControls.RJButton, RJCodeAdvance.RJControls, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;rjButton5.Parent" xml:space="preserve">
+    <value>tableLayoutPanel4</value>
+  </data>
+  <data name="&gt;&gt;rjButton5.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tableLayoutPanel4.RowCount" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="tableLayoutPanel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 100</value>
+  </data>
+  <data name="tableLayoutPanel4.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel4.Name" xml:space="preserve">
+    <value>tableLayoutPanel4</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tableLayoutPanel4.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="rjButton5" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <metadata name="rjButton6.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="rjButton6.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
   <data name="rjButton6.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
@@ -922,9 +1980,81 @@
         rkJggg==
 </value>
   </data>
+  <data name="rjButton6.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="rjButton6.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="rjButton6.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="rjButton6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 2</value>
+  </data>
+  <data name="rjButton6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 2, 4, 2</value>
+  </data>
+  <data name="rjButton6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 78</value>
+  </data>
+  <data name="rjButton6.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="rjButton6.Text" xml:space="preserve">
+    <value>Empresa</value>
+  </data>
+  <data name="rjButton6.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;rjButton6.Name" xml:space="preserve">
+    <value>rjButton6</value>
+  </data>
+  <data name="&gt;&gt;rjButton6.Type" xml:space="preserve">
+    <value>RJCodeAdvance.RJControls.RJButton, RJCodeAdvance.RJControls, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <metadata name="panel2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="panel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 124</value>
+  </data>
+  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>267, 650</value>
+  </data>
+  <data name="panel2.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;panel2.Name" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
   </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 20</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1218, 778</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAAAAAAAEAIABMJQAAFgAAAIlQTkcNChoKAAAADUlIRFIAAAEAAAABAAgGAAAAXHKoZgAAAAFv
@@ -1088,5 +2218,32 @@
         AAQAAAAIAAAAEAAAACAAAABAAAAAgAAAAAABAAAAAgAAAAQAAAAIAAAAEAAAACAAAABAAAAAgAAAAAAB
         AAAAAgCADMb/A+9j83lKysVUAAAAAElFTkSuQmCC
 </value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 4, 5, 4</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>1201, 683</value>
+  </data>
+  <data name="$this.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 32, 5, 4</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Sistema administrativo de negocio auxiliar</value>
+  </data>
+  <data name="&gt;&gt;reloj.Name" xml:space="preserve">
+    <value>reloj</value>
+  </data>
+  <data name="&gt;&gt;reloj.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FormPrincipal</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

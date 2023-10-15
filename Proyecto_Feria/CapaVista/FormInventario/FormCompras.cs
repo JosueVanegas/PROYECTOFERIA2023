@@ -11,8 +11,8 @@ namespace CapaVista.FormInventario
 #pragma warning restore CS0169 // El campo 'FormCompras.productoBuscado' nunca se usa
         List<Producto> lista;
         ControlCompra cCompra = new ControlCompra();
-        Usuario user;
-        public FormCompras(Usuario user)
+        Modelos.Usuario user;
+        public FormCompras(Modelos.Usuario user)
         {
             InitializeComponent();
             this.user = user;
@@ -222,7 +222,7 @@ namespace CapaVista.FormInventario
             {
                 realizarCompra compra = new realizarCompra
                 {
-                    ID_USUARIO = user.id,
+                    ID_USUARIO = user.ID,
                     TOTAL = Convert.ToDecimal(txtTotal.Text)
                 };
                 MessageBox.Show(cCompra.procesoCompra(compra, obtenerDetalles()));

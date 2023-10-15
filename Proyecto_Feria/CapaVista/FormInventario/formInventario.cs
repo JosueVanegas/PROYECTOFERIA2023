@@ -8,8 +8,8 @@ namespace CapaVista
     {
         Form formActivo = null;
         Button botonActivo = null;
-        Usuario user;
-        public formInventario(Usuario user)
+        Modelos.Usuario user;
+        public formInventario(Modelos.Usuario user)
         {
             InitializeComponent();
             this.user = user;

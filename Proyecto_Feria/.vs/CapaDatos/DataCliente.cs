@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using System.Data;
+using System.Numerics;
 using System.Text;
 
 namespace CapaDatos
@@ -8,11 +9,10 @@ namespace CapaDatos
     {
         public DataCliente() { }
         string mensaje = "";
-        public List<Cliente> listarClientes()
+        public List<Modelos.Cliente> listarClientes()
         {
-            string query = "SELECT * FROM CLIENTE";
-            List<Cliente> lista = new List<Cliente>();
-#pragma warning disable CS0168 // La variable está declarada pero nunca se usa
+            string query = "SELECT ID,DNI,NAMES,LASTNAMES,PHONE,BIRTHDATE FROM SALES.CLIENTS WHERE ACTIVE = 1";
+            List<Modelos.Cliente> lista = new List<Modelos.Cliente>();
             try
             {
                 using (SqlConnection con = new conexion().conectar())
@@ -25,16 +25,15 @@ namespace CapaDatos
                         {
                             while (reader.Read())
                             {
-#pragma warning disable CS8601 // Posible asignación de referencia nula
-                                lista.Add(new Cliente
+                                lista.Add(new Modelos.Cliente
                                 {
-                                    id = reader.GetInt32("ID_CLIENTE"),
-                                    nombre = reader.GetString("NOMBRE"),
-                                    apellido = reader.GetString("APELLIDO"),
-                                    telefono = reader.GetString("TELEFONO"),
-                                    fechaRegistro = reader["FECHA_REGISTRO"].ToString()
+                                    ID = reader.GetInt32("ID"),
+                                    CEDULA = reader.GetString("DNI"),
+                                    NOMBRES = reader.GetString("NAMES"),
+                                    APELLIDOS = reader.GetString("LASTNAMES"),
+                                    TELEFONO = reader.GetString("PHONE"),
+                                    NACIMIENTO = reader.GetDateTime("BIRTHDATE")
                                 });
-#pragma warning restore CS8601 // Posible asignación de referencia nula
                             }
                         }
                     }
@@ -42,39 +41,38 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                lista = new List<Cliente>();
+                lista = new List<Modelos.Cliente>();
             }
-#pragma warning restore CS0168 // La variable está declarada pero nunca se usa
             return lista;
         }
-        public string accionesClientes(Cliente clie)
+        public string accionesClientes(Modelos.Cliente clie)
         {
             using (SqlConnection connection = new conexion().conectar())
             {
                 try
                 {
                     connection.Open();
-                    SqlCommand comand = new SqlCommand("PROC_REGISTRAR_CLIENTE", connection);
+                    SqlCommand comand = new SqlCommand("PROC_REGISTER_CLIENT", connection);
                     comand.CommandType = CommandType.StoredProcedure;
-                    comand.Parameters.AddWithValue("@ID_CLIENTE", clie.id);
-                    comand.Parameters.AddWithValue("@NOMBRE", clie.nombre);
-                    comand.Parameters.AddWithValue("@APELLIDO", clie.apellido);
-                    comand.Parameters.AddWithValue("@TELEFONO", clie.telefono);
-                    comand.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    comand.Parameters.AddWithValue("@ID", clie.ID);
+                    comand.Parameters.AddWithValue("@DNI", clie.CEDULA);
+                    comand.Parameters.AddWithValue("@NAME", clie.NOMBRES);
+                    comand.Parameters.AddWithValue("@LASTNAME", clie.APELLIDOS);
+                    comand.Parameters.AddWithValue("@PHONE", clie.TELEFONO);
+                    comand.Parameters.AddWithValue("@BIRTHDATE", clie.NACIMIENTO);
+                    comand.Parameters.Add("MESSAGE", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
                     comand.ExecuteNonQuery();
-                    mensaje = comand.Parameters["mensaje"].Value.ToString();
+                    mensaje = comand.Parameters["MESSAGE"].Value.ToString();
                 }
                 catch (Exception ex)
                 {
                     mensaje = "Lo sentimos a ocurrido un \nerror : " + ex.Message;
                 }
             }
-#pragma warning disable CS8603 // Posible tipo de valor devuelto de referencia nulo
             return mensaje;
-#pragma warning restore CS8603 // Posible tipo de valor devuelto de referencia nulo
         }
-        public string eliminarCliente(int idC)
+        public string eliminarCliente(int id)
         {
 
             using (SqlConnection con = new conexion().conectar())
@@ -82,24 +80,19 @@ namespace CapaDatos
                 try
                 {
                     con.Open();
-                    SqlCommand comand = new SqlCommand("PROC_ELIMINAR_CLIENTE", con);
+                    SqlCommand comand = new SqlCommand("PROC_DELETE_CLIENT", con);
                     comand.CommandType = CommandType.StoredProcedure;
-                    comand.Parameters.AddWithValue("@ID_CLIENTE", idC);
-                    comand.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    comand.Parameters.AddWithValue("@ID", id);
+                    comand.Parameters.Add("MESSAGE", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     comand.ExecuteNonQuery();
-
-#pragma warning disable CS8601 // Posible asignación de referencia nula
-                    mensaje = comand.Parameters["mensaje"].Value.ToString();
-#pragma warning restore CS8601 // Posible asignación de referencia nula
+                    mensaje = comand.Parameters["MESSAGE"].Value.ToString();
                 }
                 catch (Exception ex)
                 {
                     mensaje = "no se pudo eliminar el cliente. error: " + ex.Message;
                 }
             }
-#pragma warning disable CS8603 // Posible tipo de valor devuelto de referencia nulo
             return mensaje;
-#pragma warning restore CS8603 // Posible tipo de valor devuelto de referencia nulo
         }
     }
 }

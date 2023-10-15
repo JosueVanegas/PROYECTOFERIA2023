@@ -24,14 +24,13 @@ namespace CapaPresentacion
         }
         private void mostrarClientes()
         {
-            List<Cliente> lista = controlCliente.listarClientes();
+            List<Modelos.Cliente> lista = controlCliente.listarClientes();
             tbClientes.Rows.Clear();
-            foreach (Cliente c in lista)
+            foreach (Modelos.Cliente c in lista)
             {
-                if (c.id != 1)
-                {
-                    tbClientes.Rows.Add("", "", c.id, c.nombre, c.apellido, c.telefono, c.fechaRegistro);
-                }
+
+                tbClientes.Rows.Add("", "", c.ID, c.CEDULA, c.NOMBRES, c.APELLIDOS, c.TELEFONO, c.NACIMIENTO);
+
             }
         }
 
@@ -39,12 +38,14 @@ namespace CapaPresentacion
         {
             if (txtNombre.Text != "" && txtId.Text != "")
             {
-                MessageBox.Show(controlCliente.registrarCliente(new Cliente
+                MessageBox.Show(controlCliente.registrarCliente(new Modelos.Cliente
                 {
-                    id = Convert.ToInt32(txtId.Text),
-                    nombre = txtNombre.Text,
-                    apellido = txtApellido.Text,
-                    telefono = txtTelefono.Text
+                    ID = Convert.ToInt32(txtId.Text),
+                    CEDULA = txtCedula.Text,
+                    NOMBRES = txtNombre.Text,
+                    APELLIDOS = txtApellido.Text,
+                    TELEFONO = txtTelefono.Text,
+                    NACIMIENTO = dtNacimiento.Value
                 }));
                 limpiarCampos();
                 mostrarClientes();
@@ -80,9 +81,11 @@ namespace CapaPresentacion
             if (tbClientes.Columns[e.ColumnIndex].Name == "btnEditar")
             {
                 txtId.Text = tbClientes.Rows[indice].Cells["Id"].Value.ToString();
+                txtCedula.Text = tbClientes.Rows[indice].Cells["Cedula"].Value.ToString();
                 txtNombre.Text = tbClientes.Rows[indice].Cells["Nombre"].Value.ToString();
                 txtApellido.Text = tbClientes.Rows[indice].Cells["Apellido"].Value.ToString();
                 txtTelefono.Text = tbClientes.Rows[indice].Cells["Telefono"].Value.ToString();
+                dtNacimiento.Value = Convert.ToDateTime(tbClientes.Rows[indice].Cells["Fecha"].Value);
             }
         }
 
@@ -121,24 +124,18 @@ namespace CapaPresentacion
             {
                 foreach (DataGridViewRow i in tbClientes.Rows)
                 {
-#pragma warning disable CS8602 // Desreferencia de una referencia posiblemente NULL.
                     if (i.Cells[columna].Value.ToString().Trim().ToUpper().Contains(txtBuscar.Text.Trim().ToUpper()))
                         i.Visible = true;
                     else
                         i.Visible = false;
-#pragma warning restore CS8602 // Desreferencia de una referencia posiblemente NULL.
                 }
             }
         }
 
         private void pictureBox2_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
             toolTip.ToolTipIcon = ToolTipIcon.Info;
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(pictureBox2, "Area de Registro de Cliente\n" +
                                             "Si desea Registrar un Cliente:\n" +
                                             "1.Ingrese el nombre del Cliente\n" +
@@ -152,12 +149,7 @@ namespace CapaPresentacion
 
         private void cbxBuscar_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
-
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(cbxBuscar, "Para una busqueda mas efeciente se pueden realizar busqueda por filtros");
         }
 
@@ -165,7 +157,7 @@ namespace CapaPresentacion
         {
             if (!Char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Space)
             {
-                e.Handled = true; // Evita que se procese el carácter
+                e.Handled = true;
             }
         }
 
@@ -173,21 +165,18 @@ namespace CapaPresentacion
         {
             if (!Char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Space)
             {
-                e.Handled = true; // Evita que se procese el carácter
+                e.Handled = true;
             }
         }
         private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Verificar si el carácter no es un número o la tecla de retroceso (Backspace)
             if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
             {
-                e.Handled = true; // Evita que se procese el carácter
+                e.Handled = true;
             }
-
-            // Limitar la longitud del texto a 6 dígitos
-            if (txtNombre.Text.Length >= 6 && e.KeyChar != (char)Keys.Back)
+            if (txtTelefono.Text.Length >= 15 && e.KeyChar != (char)Keys.Back)
             {
-                e.Handled = true; // Evita que se procese el carácter si ya hay 6 dígitos
+                e.Handled = true;
             }
         }
     }

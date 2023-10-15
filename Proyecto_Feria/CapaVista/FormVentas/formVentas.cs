@@ -12,8 +12,8 @@ namespace CapaVista.FormVenta
 #pragma warning disable CS8625 // No se puede convertir un literal NULL en un tipo de referencia que no acepta valores NULL.
         List<Producto> lista = null;
 #pragma warning restore CS8625 // No se puede convertir un literal NULL en un tipo de referencia que no acepta valores NULL.
-        Usuario user = new Usuario();
-        public formVentas(Usuario user)
+        Modelos.Usuario user;
+        public formVentas(Modelos.Usuario user)
         {
             InitializeComponent();
             this.user = user;

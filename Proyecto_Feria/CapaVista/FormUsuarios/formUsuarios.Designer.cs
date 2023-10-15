@@ -395,7 +395,7 @@ namespace CapaVista
             cbxBuscar.Hint = "buscar por";
             cbxBuscar.IntegralHeight = false;
             cbxBuscar.ItemHeight = 43;
-            cbxBuscar.Items.AddRange(new object[] { "id", "usuario", "rol", "fecha" });
+            cbxBuscar.Items.AddRange(new object[] { "USUARIO", "EMPLEADO", "ROL" });
             cbxBuscar.Location = new Point(225, 0);
             cbxBuscar.Margin = new Padding(3, 4, 3, 4);
             cbxBuscar.MaxDropDownItems = 4;

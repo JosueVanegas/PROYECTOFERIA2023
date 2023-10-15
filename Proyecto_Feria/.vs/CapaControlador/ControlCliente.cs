@@ -7,12 +7,12 @@ namespace CapaControlador
         DataCliente dCliente = new DataCliente();
         public ControlCliente() { }
 
-        public List<Cliente> listarClientes()
+        public List<Modelos.Cliente> listarClientes()
         {
             return dCliente.listarClientes();
         }
 
-        public string registrarCliente(Cliente cliente)
+        public string registrarCliente(Modelos.Cliente cliente)
         {
             return dCliente.accionesClientes(cliente);
         }

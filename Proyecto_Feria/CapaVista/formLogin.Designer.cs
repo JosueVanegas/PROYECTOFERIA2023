@@ -54,10 +54,11 @@
             parrotGradientPanel1.Dock = DockStyle.Left;
             parrotGradientPanel1.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
             parrotGradientPanel1.Location = new Point(3, 0);
+            parrotGradientPanel1.Margin = new Padding(3, 4, 3, 4);
             parrotGradientPanel1.Name = "parrotGradientPanel1";
             parrotGradientPanel1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
             parrotGradientPanel1.PrimerColor = Color.White;
-            parrotGradientPanel1.Size = new Size(247, 302);
+            parrotGradientPanel1.Size = new Size(282, 403);
             parrotGradientPanel1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             parrotGradientPanel1.Style = ReaLTaiizor.Controls.ParrotGradientPanel.GradientStyle.Corners;
             parrotGradientPanel1.TabIndex = 0;
@@ -68,10 +69,11 @@
             // imgLogoEmpresa
             // 
             imgLogoEmpresa.BackColor = Color.FromArgb(192, 196, 204);
-            imgLogoEmpresa.Location = new Point(45, 68);
+            imgLogoEmpresa.Location = new Point(51, 91);
+            imgLogoEmpresa.Margin = new Padding(3, 4, 3, 4);
             imgLogoEmpresa.Name = "imgLogoEmpresa";
             imgLogoEmpresa.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            imgLogoEmpresa.Size = new Size(161, 157);
+            imgLogoEmpresa.Size = new Size(184, 209);
             imgLogoEmpresa.SizeMode = PictureBoxSizeMode.StretchImage;
             imgLogoEmpresa.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             imgLogoEmpresa.TabIndex = 8;
@@ -86,7 +88,7 @@
             txtNombreEmpresa.ForeColor = Color.White;
             txtNombreEmpresa.Location = new Point(0, 0);
             txtNombreEmpresa.Name = "txtNombreEmpresa";
-            txtNombreEmpresa.Size = new Size(247, 41);
+            txtNombreEmpresa.Size = new Size(282, 55);
             txtNombreEmpresa.TabIndex = 7;
             txtNombreEmpresa.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -99,13 +101,13 @@
             btnIngresar.HighEmphasis = true;
             btnIngresar.Icon = null;
             btnIngresar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnIngresar.Location = new Point(27, 202);
-            btnIngresar.Margin = new Padding(4, 6, 4, 6);
+            btnIngresar.Location = new Point(31, 269);
+            btnIngresar.Margin = new Padding(5, 8, 5, 8);
             btnIngresar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnIngresar.Name = "btnIngresar";
             btnIngresar.NoAccentTextColor = Color.Empty;
-            btnIngresar.Size = new Size(91, 36);
-            btnIngresar.TabIndex = 1;
+            btnIngresar.Size = new Size(104, 48);
+            btnIngresar.TabIndex = 4;
             btnIngresar.Text = "ingresar";
             btnIngresar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             btnIngresar.UseAccentColor = false;
@@ -121,13 +123,13 @@
             btnSalir.HighEmphasis = true;
             btnSalir.Icon = null;
             btnSalir.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnSalir.Location = new Point(152, 202);
-            btnSalir.Margin = new Padding(4, 6, 4, 6);
+            btnSalir.Location = new Point(174, 269);
+            btnSalir.Margin = new Padding(5, 8, 5, 8);
             btnSalir.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnSalir.Name = "btnSalir";
             btnSalir.NoAccentTextColor = Color.Empty;
-            btnSalir.Size = new Size(85, 36);
-            btnSalir.TabIndex = 2;
+            btnSalir.Size = new Size(97, 48);
+            btnSalir.TabIndex = 5;
             btnSalir.Text = "salir";
             btnSalir.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             btnSalir.UseAccentColor = false;
@@ -146,7 +148,8 @@
             txtContraseña.HideSelection = true;
             txtContraseña.Hint = "ingrese la contraseña";
             txtContraseña.LeadingIcon = null;
-            txtContraseña.Location = new Point(27, 122);
+            txtContraseña.Location = new Point(31, 163);
+            txtContraseña.Margin = new Padding(3, 4, 3, 4);
             txtContraseña.MaxLength = 32767;
             txtContraseña.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtContraseña.Name = "txtContraseña";
@@ -158,8 +161,8 @@
             txtContraseña.SelectionLength = 0;
             txtContraseña.SelectionStart = 0;
             txtContraseña.ShortcutsEnabled = true;
-            txtContraseña.Size = new Size(210, 48);
-            txtContraseña.TabIndex = 3;
+            txtContraseña.Size = new Size(240, 48);
+            txtContraseña.TabIndex = 2;
             txtContraseña.TabStop = false;
             txtContraseña.TextAlign = HorizontalAlignment.Center;
             txtContraseña.TrailingIcon = null;
@@ -177,7 +180,8 @@
             txtUsuario.HideSelection = true;
             txtUsuario.Hint = "ingrese el usuario";
             txtUsuario.LeadingIcon = null;
-            txtUsuario.Location = new Point(27, 68);
+            txtUsuario.Location = new Point(31, 91);
+            txtUsuario.Margin = new Padding(3, 4, 3, 4);
             txtUsuario.MaxLength = 32767;
             txtUsuario.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtUsuario.Name = "txtUsuario";
@@ -189,8 +193,8 @@
             txtUsuario.SelectionLength = 0;
             txtUsuario.SelectionStart = 0;
             txtUsuario.ShortcutsEnabled = true;
-            txtUsuario.Size = new Size(210, 48);
-            txtUsuario.TabIndex = 4;
+            txtUsuario.Size = new Size(240, 48);
+            txtUsuario.TabIndex = 1;
             txtUsuario.TabStop = false;
             txtUsuario.TextAlign = HorizontalAlignment.Center;
             txtUsuario.TrailingIcon = null;
@@ -200,11 +204,11 @@
             // 
             materialLabel1.Depth = 0;
             materialLabel1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel1.Location = new Point(27, 0);
+            materialLabel1.Location = new Point(31, 0);
             materialLabel1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel1.Name = "materialLabel1";
-            materialLabel1.Size = new Size(210, 51);
-            materialLabel1.TabIndex = 5;
+            materialLabel1.Size = new Size(240, 68);
+            materialLabel1.TabIndex = 0;
             materialLabel1.Text = "Login";
             materialLabel1.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -214,11 +218,12 @@
             ckbVerContraseña.Customization = "7e3t//Ly8v/r6+v/5ubm/+vr6//f39//p6en/zw8PP8=";
             ckbVerContraseña.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             ckbVerContraseña.Image = null;
-            ckbVerContraseña.Location = new Point(27, 176);
+            ckbVerContraseña.Location = new Point(31, 235);
+            ckbVerContraseña.Margin = new Padding(3, 4, 3, 4);
             ckbVerContraseña.Name = "ckbVerContraseña";
             ckbVerContraseña.NoRounding = false;
-            ckbVerContraseña.Size = new Size(210, 17);
-            ckbVerContraseña.TabIndex = 6;
+            ckbVerContraseña.Size = new Size(240, 17);
+            ckbVerContraseña.TabIndex = 3;
             ckbVerContraseña.Text = "ver contraseña";
             ckbVerContraseña.Transparent = false;
             ckbVerContraseña.CheckedChanged += ckbVerContraseña_CheckedChanged;
@@ -227,9 +232,9 @@
             // 
             lblConexion.Font = new Font("Microsoft Sans Serif", 6F, FontStyle.Regular, GraphicsUnit.Point);
             lblConexion.ForeColor = SystemColors.ControlDarkDark;
-            lblConexion.Location = new Point(27, 244);
+            lblConexion.Location = new Point(31, 325);
             lblConexion.Name = "lblConexion";
-            lblConexion.Size = new Size(210, 44);
+            lblConexion.Size = new Size(240, 59);
             lblConexion.TabIndex = 7;
             // 
             // panel1
@@ -242,22 +247,24 @@
             panel1.Controls.Add(txtContraseña);
             panel1.Controls.Add(txtUsuario);
             panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(246, 0);
+            panel1.Location = new Point(282, 0);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(269, 302);
+            panel1.Size = new Size(307, 403);
             panel1.TabIndex = 8;
             // 
             // formLogin
             // 
             AcceptButton = btnIngresar;
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(518, 305);
+            ClientSize = new Size(592, 407);
             Controls.Add(parrotGradientPanel1);
             Controls.Add(panel1);
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "formLogin";
-            Padding = new Padding(3, 0, 3, 3);
+            Padding = new Padding(3, 0, 3, 4);
             ShowInTaskbar = false;
             Sizable = false;
             StartPosition = FormStartPosition.CenterScreen;
