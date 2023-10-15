@@ -17,38 +17,31 @@ namespace CapaVista
         private void formCategorias_Load(object sender, EventArgs e)
         {
             mostrarCategorias();
-            mostrarEstados();
         }
         private void limpiarCampos()
         {
             txtNombre.Text = string.Empty;
             txtIdCategoria.Text = string.Empty;
-            txtIdCategoria.Text = "1";
-        }
-        private void mostrarEstados()
-        {
-            cbxEstado.DataSource = cCategoria.listarEstados();
+            txtIdCategoria.Text = "0";
         }
         private void mostrarCategorias()
         {
-            List<Categoria> list = cCategoria.listarCategorias();
+            List<Modelos.Categoria> list = cCategoria.listarCategorias();
             tbCategorias.Rows.Clear();
-            foreach (Categoria c in list)
+            foreach (Modelos.Categoria c in list)
             {
-                tbCategorias.Rows.Add("", "", c.id, c.nombre, c.oEstado.descripcion, c.fechaRegistro);
+                tbCategorias.Rows.Add("", "", c.ID, c.NOMBRE);
             }
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (txtNombre.Text != "")
             {
-                MessageBox.Show(cCategoria.registraModificar(new Categoria
+                MessageBox.Show(cCategoria.registraModificar(new Modelos.Categoria
                 {
-                    id = Convert.ToInt32(txtIdCategoria.Text),
-                    nombre = txtNombre.Text,
-                    oEstado = (Estado)cbxEstado.SelectedItem
+                    ID = Convert.ToInt32(txtIdCategoria.Text),
+                    NOMBRE = txtNombre.Text,
                 }));
-
                 limpiarCampos();
                 mostrarCategorias();
             }
@@ -80,25 +73,18 @@ namespace CapaVista
             {
                 foreach (DataGridViewRow i in tbCategorias.Rows)
                 {
-#pragma warning disable CS8602 // Desreferencia de una referencia posiblemente NULL.
                     if (i.Cells[columna].Value.ToString().Trim().ToUpper().Contains(txtBuscar.Text.Trim().ToUpper()))
                         i.Visible = true;
                     else
                         i.Visible = false;
-#pragma warning restore CS8602 // Desreferencia de una referencia posiblemente NULL.
                 }
             }
         }
         private void pictureBox1_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
-            // Establecer el icono de información (puedes cambiar el icono si lo deseas)
             toolTip.ToolTipIcon = ToolTipIcon.Info;
-
-            // Establecer el texto de la descripción
-            toolTip.SetToolTip(pictureBox1, "Area de Categoria del Producto\n" +
+            toolTip.SetToolTip(info, "Area de Categoria del Producto\n" +
                                             "Como Agregar una categoria:\n" +
                                             "1.Ingrese Nombre de la categoria\n" +
                                             "2.Seleccione el estado de la categoria\n" +
@@ -106,12 +92,11 @@ namespace CapaVista
                                             "Si desea Cancelar creacion de categaria click 'Limpiar'\n" +
                                             "Si desea Editar una categoria registrada click en 'Editar' en la tabla");
         }
-
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Space)
             {
-                e.Handled = true; // Evita que se procese el carácter
+                e.Handled = true;
             }
         }
 
@@ -119,39 +104,24 @@ namespace CapaVista
         {
             if (!Char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
             {
-                e.Handled = true; // Evita que se procese el carácter
+                e.Handled = true;
             }
         }
 
         private void btnGuardar_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
-
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(btnGuardar, "Guardar");
         }
 
         private void btnLimpiar_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
-
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(btnLimpiar, "Limpiar");
         }
         private void cbxBuscar_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
-
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(cbxBuscar, "Para una busqueda mas efeciente se pueden realizar busqueda por filtros");
         }
         private void tbCategorias_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -163,16 +133,13 @@ namespace CapaVista
                 {
                     txtIdCategoria.Text = tbCategorias.Rows[indice].Cells["id"].Value.ToString();
                     txtNombre.Text = tbCategorias.Rows[indice].Cells["nombre"].Value.ToString();
-                    cbxEstado.Text = tbCategorias.Rows[indice].Cells["estado"].Value.ToString();
                 }
             }
             if (tbCategorias.Columns[e.ColumnIndex].Name == "btnBorrar")
             {
                 if (indice >= 0)
                 {
-#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                     string valor = tbCategorias.Rows[indice].Cells["id"].Value.ToString();
-#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                     eliminarCategoria(Convert.ToInt32(valor));
                 }
             }
@@ -205,21 +172,21 @@ namespace CapaVista
                 e.Handled = true;
             }
         }
-
         private void pictureBox4_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
-            // Establecer el texto de la descripción
-            toolTip.SetToolTip(pictureBox4, "Area de Categoria del Producto\n" +
+            toolTip.SetToolTip(info, "Area de Categoria del Producto\n" +
                                             "Como Agregar una categoria:\n" +
                                             "1.Ingrese Nombre de la categoria\n" +
                                             "2.Seleccione el estado de la categoria\n" +
                                             "3.'Guardar' Categoria.\n" +
                                             "Si desea Cancelar creacion de categaria click 'Limpiar'\n" +
                                             "Si desea Editar una categoria registrada click en 'Editar' en la tabla");
+        }
 
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

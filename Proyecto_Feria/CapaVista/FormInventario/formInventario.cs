@@ -52,16 +52,6 @@ namespace CapaVista
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
             toolTip.SetToolTip(btnProductos, "Productos");
         }
-
-        private void btnCategorias_MouseHover(object sender, EventArgs e)
-        {
-            // Crear un objeto ToolTip
-            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
-            // Establecer el texto de la descripción
-            toolTip.SetToolTip(btnServicios, "Categorias");
-        }
-
         private void btnProveedores_MouseHover(object sender, EventArgs e)
         {
             // Crear un objeto ToolTip

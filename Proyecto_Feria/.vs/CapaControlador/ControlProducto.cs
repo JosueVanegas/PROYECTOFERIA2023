@@ -15,10 +15,6 @@ namespace CapaControlador
         {
             return dProd.listarProveedores();
         }
-        public List<Categoria> listarCategoria()
-        {
-            return dProd.listarCategorias();
-        }
         public List<comboProducto> listarComboProductos()
         {
             return dProd.listarComboProductos();

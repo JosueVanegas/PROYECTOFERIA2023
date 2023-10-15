@@ -36,7 +36,7 @@ namespace CapaVista
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             lblEncabezado = new Label();
             pnlRegistroUsuario = new Panel();
-            btnUsuarios = new RJCodeAdvance.RJControls.RJButton();
+            btnRoles = new RJCodeAdvance.RJControls.RJButton();
             pictureBox2 = new PictureBox();
             cbxEmpleados = new ReaLTaiizor.Controls.MaterialComboBox();
             tableLayoutPanel1 = new TableLayoutPanel();
@@ -84,7 +84,7 @@ namespace CapaVista
             // pnlRegistroUsuario
             // 
             pnlRegistroUsuario.BackColor = Color.White;
-            pnlRegistroUsuario.Controls.Add(btnUsuarios);
+            pnlRegistroUsuario.Controls.Add(btnRoles);
             pnlRegistroUsuario.Controls.Add(pictureBox2);
             pnlRegistroUsuario.Controls.Add(cbxEmpleados);
             pnlRegistroUsuario.Controls.Add(tableLayoutPanel1);
@@ -101,27 +101,27 @@ namespace CapaVista
             pnlRegistroUsuario.Size = new Size(333, 591);
             pnlRegistroUsuario.TabIndex = 6;
             // 
-            // btnUsuarios
+            // btnRoles
             // 
-            btnUsuarios.Anchor = AnchorStyles.Left;
-            btnUsuarios.BackColor = Color.DarkSlateGray;
-            btnUsuarios.BackgroundColor = Color.DarkSlateGray;
-            btnUsuarios.BackgroundImageLayout = ImageLayout.Center;
-            btnUsuarios.BorderColor = Color.PaleVioletRed;
-            btnUsuarios.BorderRadius = 10;
-            btnUsuarios.BorderSize = 0;
-            btnUsuarios.FlatAppearance.BorderSize = 0;
-            btnUsuarios.FlatStyle = FlatStyle.Flat;
-            btnUsuarios.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            btnUsuarios.ForeColor = Color.White;
-            btnUsuarios.Location = new Point(218, 291);
-            btnUsuarios.Name = "btnUsuarios";
-            btnUsuarios.Size = new Size(93, 49);
-            btnUsuarios.TabIndex = 78;
-            btnUsuarios.Text = "Roles";
-            btnUsuarios.TextColor = Color.White;
-            btnUsuarios.UseVisualStyleBackColor = false;
-            btnUsuarios.Click += btnUsuarios_Click;
+            btnRoles.Anchor = AnchorStyles.Left;
+            btnRoles.BackColor = Color.DarkSlateGray;
+            btnRoles.BackgroundColor = Color.DarkSlateGray;
+            btnRoles.BackgroundImageLayout = ImageLayout.Center;
+            btnRoles.BorderColor = Color.PaleVioletRed;
+            btnRoles.BorderRadius = 10;
+            btnRoles.BorderSize = 0;
+            btnRoles.FlatAppearance.BorderSize = 0;
+            btnRoles.FlatStyle = FlatStyle.Flat;
+            btnRoles.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnRoles.ForeColor = Color.White;
+            btnRoles.Location = new Point(218, 291);
+            btnRoles.Name = "btnRoles";
+            btnRoles.Size = new Size(93, 49);
+            btnRoles.TabIndex = 78;
+            btnRoles.Text = "Roles";
+            btnRoles.TextColor = Color.White;
+            btnRoles.UseVisualStyleBackColor = false;
+            btnRoles.Click += btnRoles_Click;
             // 
             // pictureBox2
             // 
@@ -663,6 +663,6 @@ namespace CapaVista
         private DataGridViewTextBoxColumn USUARIO;
         private DataGridViewTextBoxColumn EMPLEADO;
         private DataGridViewTextBoxColumn ROL;
-        private RJCodeAdvance.RJControls.RJButton btnUsuarios;
+        private RJCodeAdvance.RJControls.RJButton btnRoles;
     }
 }

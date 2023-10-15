@@ -6,15 +6,11 @@ namespace CapaControlador
     {
         DataCategoria dCa = new DataCategoria();
         public ControlCategoria() { }
-        public List<Categoria> listarCategorias()
+        public List<Modelos.Categoria> listarCategorias()
         {
             return dCa.listarCategorias();
         }
-        public List<Estado> listarEstados()
-        {
-            return dCa.listarEstados();
-        }
-        public string registraModificar(Categoria c)
+        public string registraModificar(Modelos.Categoria c)
         {
 
             return dCa.accionesCategoria(c);

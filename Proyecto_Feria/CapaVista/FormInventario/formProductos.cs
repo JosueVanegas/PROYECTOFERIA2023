@@ -21,7 +21,7 @@ namespace CapaVista
         }
         private void mostrarCategoria()
         {
-            cbxCategoria.DataSource = cProd.listarCategoria();
+            cbxCategoria.DataSource = new ControlCategoria().listarCategorias();
         }
         private void mostrarProveedores()
         {
@@ -164,32 +164,25 @@ namespace CapaVista
         {
             char keyPressed = e.KeyChar;
             string textoActual = txtPrecioCompra.Text.Replace(" ", "");
-
-            // Permitir solo dígitos y las teclas "Backspace" y "Delete"
             if (!char.IsDigit(keyPressed) && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
             {
-                e.Handled = true; // Ignorar el carácter si no es un dígito o las teclas "Backspace" o "Delete"
+                e.Handled = true;
             }
-
-            // Verificar si la longitud del texto es mayor o igual a 9
             if (textoActual.Length >= 9 && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
             {
-                e.Handled = true; // Ignorar el carácter si se supera la longitud máxima
+                e.Handled = true;
             }
 
-            // Validar el punto decimal
             if (keyPressed == '.' && textoActual.Contains("."))
             {
-                e.Handled = true; // Ignorar el carácter si ya hay un punto decimal
+                e.Handled = true;
             }
-
-            // Validar los dos decimales después del punto
             if (textoActual.Contains("."))
             {
                 int indexPunto = textoActual.IndexOf(".");
                 if (textoActual.Length - indexPunto > 2 && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
                 {
-                    e.Handled = true; // Ignorar el carácter si ya hay dos decimales después del punto
+                    e.Handled = true;
                 }
             }
 
@@ -199,32 +192,24 @@ namespace CapaVista
         {
             char keyPressed = e.KeyChar;
             string textoActual = txtPrecioVenta.Text.Replace(" ", "");
-
-            // Permitir solo dígitos y las teclas "Backspace" y "Delete"
             if (!char.IsDigit(keyPressed) && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
             {
-                e.Handled = true; // Ignorar el carácter si no es un dígito o las teclas "Backspace" o "Delete"
+                e.Handled = true;
             }
-
-            // Verificar si la longitud del texto es mayor o igual a 9
             if (textoActual.Length >= 9 && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
             {
-                e.Handled = true; // Ignorar el carácter si se supera la longitud máxima
+                e.Handled = true;
             }
-
-            // Validar el punto decimal
             if (keyPressed == '.' && textoActual.Contains("."))
             {
-                e.Handled = true; // Ignorar el carácter si ya hay un punto decimal
+                e.Handled = true;
             }
-
-            // Validar los dos decimales después del punto
             if (textoActual.Contains("."))
             {
                 int indexPunto = textoActual.IndexOf(".");
                 if (textoActual.Length - indexPunto > 2 && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
                 {
-                    e.Handled = true; // Ignorar el carácter si ya hay dos decimales después del punto
+                    e.Handled = true;
                 }
             }
 
@@ -280,15 +265,10 @@ namespace CapaVista
             {
                 if (indice >= 0)
                 {
-#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                     string nombre = tbProductos.Rows[indice].Cells["Nombre"].Value.ToString();
-#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
-#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                     string valor = tbProductos.Rows[indice].Cells["Id"].Value.ToString();
-#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
-#pragma warning disable CS8604 // Posible argumento de referencia nulo
+
                     eliminarProducto(Convert.ToInt32(valor), nombre);
-#pragma warning restore CS8604 // Posible argumento de referencia nulo
                 }
             }
         }
@@ -346,39 +326,31 @@ namespace CapaVista
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
             string columna = cbxBuscar.SelectedItem.ToString();
-#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
-
             if (tbProductos.Rows.Count > 0)
             {
                 foreach (DataGridViewRow i in tbProductos.Rows)
                 {
-#pragma warning disable CS8602 // Desreferencia de una referencia posiblemente NULL.
                     if (i.Cells[columna].Value.ToString().Trim().ToUpper().Contains(txtBuscar.Text.Trim().ToUpper()))
                         i.Visible = true;
                     else
                         i.Visible = false;
-#pragma warning restore CS8602 // Desreferencia de una referencia posiblemente NULL.
                 }
             }
         }
 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Verificar si el carácter no es una letra, número, guión o espacio, ni la tecla de retroceso (Backspace)
             if (!Char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != '-' && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back)
             {
-                e.Handled = true; // Evita que se procese el carácter
+                e.Handled = true;
             }
         }
 
         private void pictureBox4_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
             toolTip.ToolTipIcon = ToolTipIcon.Info;
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(pictureBox4, "Area de Creación de Productos\n" +
                                             "Como Agregar un Producto:\n" +
                                             "1. Seleccionar una imagen cualquiera del producto\n" +
@@ -402,6 +374,13 @@ namespace CapaVista
 
             // Establecer el texto de la descripción
             toolTip.SetToolTip(cbxBuscar, "Para una busqueda mas efeciente se pueden realizar busqueda por filtros");
+        }
+
+        private void btnCategorias_Click(object sender, EventArgs e)
+        {
+            formCategoria fc = new formCategoria();
+            fc.ShowDialog();
+            mostrarCategoria();
         }
     }
 

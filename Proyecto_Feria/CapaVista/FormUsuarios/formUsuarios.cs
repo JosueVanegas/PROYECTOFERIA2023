@@ -248,10 +248,11 @@ namespace CapaVista
             toolTip.SetToolTip(rjButton2, "limpiar");
         }
 
-        private void btnUsuarios_Click(object sender, EventArgs e)
+        private void btnRoles_Click(object sender, EventArgs e)
         {
             FormRoles roles = new FormRoles();
             roles.ShowDialog();
+            mostrarRoles();
         }
     }
 }

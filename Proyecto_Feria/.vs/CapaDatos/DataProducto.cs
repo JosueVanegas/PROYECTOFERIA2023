@@ -119,42 +119,7 @@ namespace CapaDatos
             }
             return lista;
         }
-        public List<Categoria> listarCategorias()
-        {
-            List<Categoria> lista = new List<Categoria>();
-            string query = "SELECT ID_CATEGORIA,NOMBRE_CATEGORIA FROM CATEGORIA";
-            using (var con = new conexion().conectar())
-            {
-                con.Open();
-#pragma warning disable CS0168 // La variable está declarada pero nunca se usa
-                try
-                {
-                    using (var cmd = new SqlCommand(query, con))
-                    {
-                        cmd.CommandType = CommandType.Text;
-                        using (var reader = cmd.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-#pragma warning disable CS8601 // Posible asignación de referencia nula
-                                lista.Add(new Categoria
-                                {
-                                    id = Convert.ToInt32(reader["ID_CATEGORIA"]),
-                                    nombre = reader["NOMBRE_CATEGORIA"].ToString()
-                                });
-#pragma warning restore CS8601 // Posible asignación de referencia nula
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    lista = new List<Categoria>();
-                }
-#pragma warning restore CS0168 // La variable está declarada pero nunca se usa
-            }
-            return lista;
-        }
+       
         public string accionesProducto(Producto p)
         {
             try
@@ -175,9 +140,7 @@ namespace CapaDatos
                         cmd.Parameters.AddWithValue("@ID_CATEGORIA", p.oCategoria.id);
                         cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                         cmd.ExecuteNonQuery();
-#pragma warning disable CS8601 // Posible asignación de referencia nula
                         mensaje = cmd.Parameters["mensaje"].Value.ToString();
-#pragma warning restore CS8601 // Posible asignación de referencia nula
                     }
                 }
             }
@@ -185,9 +148,7 @@ namespace CapaDatos
             {
                 mensaje = ex.Message;
             }
-#pragma warning disable CS8603 // Posible tipo de valor devuelto de referencia nulo
             return mensaje;
-#pragma warning restore CS8603 // Posible tipo de valor devuelto de referencia nulo
         }
         public string eliminarProducto(int id)
         {
@@ -202,9 +163,7 @@ namespace CapaDatos
                         cmd.Parameters.AddWithValue("@ID_PRODUCTO", id);
                         cmd.Parameters.Add("mensaje", System.Data.SqlDbType.VarChar, 150).Direction = ParameterDirection.Output;
                         cmd.ExecuteNonQuery();
-#pragma warning disable CS8601 // Posible asignación de referencia nula
                         mensaje = cmd.Parameters["mensaje"].Value.ToString();
-#pragma warning restore CS8601 // Posible asignación de referencia nula
                     }
                 }
             }
@@ -212,9 +171,7 @@ namespace CapaDatos
             {
                 mensaje = "No se pudo eliminar el producto.\n" + ex.Message;
             }
-#pragma warning disable CS8603 // Posible tipo de valor devuelto de referencia nulo
             return mensaje;
-#pragma warning restore CS8603 // Posible tipo de valor devuelto de referencia nulo
         }
     }
 }

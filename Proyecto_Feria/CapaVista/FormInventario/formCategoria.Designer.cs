@@ -42,10 +42,8 @@
             txtNombre = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtIdCategoria = new TextBox();
             panel1 = new Panel();
-            pictureBox4 = new PictureBox();
-            pictureBox1 = new PictureBox();
-            cbxEstado = new ReaLTaiizor.Controls.MaterialComboBox();
-            LblInf = new Label();
+            btnCerrar = new ReaLTaiizor.Controls.SocialButton();
+            info = new PictureBox();
             tableLayoutPanel1 = new TableLayoutPanel();
             btnLimpiar = new RJCodeAdvance.RJControls.RJButton();
             btnGuardar = new RJCodeAdvance.RJControls.RJButton();
@@ -84,11 +82,8 @@
             btnBorrar = new DataGridViewButtonColumn();
             id = new DataGridViewTextBoxColumn();
             nombre = new DataGridViewTextBoxColumn();
-            estado = new DataGridViewTextBoxColumn();
-            fecha = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)info).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -106,9 +101,9 @@
             // 
             lblTitulo.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             lblTitulo.ForeColor = SystemColors.ControlDarkDark;
-            lblTitulo.Location = new Point(14, 16);
+            lblTitulo.Location = new Point(6, 60);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(193, 48);
+            lblTitulo.Size = new Size(219, 43);
             lblTitulo.TabIndex = 7;
             lblTitulo.Text = "Datos de la categoria";
             lblTitulo.TextAlign = ContentAlignment.MiddleLeft;
@@ -125,7 +120,8 @@
             txtNombre.HideSelection = true;
             txtNombre.Hint = "Ingrese el nombre";
             txtNombre.LeadingIcon = null;
-            txtNombre.Location = new Point(14, 79);
+            txtNombre.Location = new Point(6, 107);
+            txtNombre.Margin = new Padding(3, 4, 3, 4);
             txtNombre.MaxLength = 32767;
             txtNombre.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtNombre.Name = "txtNombre";
@@ -137,7 +133,7 @@
             txtNombre.SelectionLength = 0;
             txtNombre.SelectionStart = 0;
             txtNombre.ShortcutsEnabled = true;
-            txtNombre.Size = new Size(287, 48);
+            txtNombre.Size = new Size(219, 48);
             txtNombre.TabIndex = 10;
             txtNombre.TabStop = false;
             txtNombre.TextAlign = HorizontalAlignment.Center;
@@ -147,85 +143,56 @@
             // 
             // txtIdCategoria
             // 
-            txtIdCategoria.Location = new Point(266, 33);
+            txtIdCategoria.Location = new Point(147, 5);
+            txtIdCategoria.Margin = new Padding(3, 4, 3, 4);
             txtIdCategoria.Name = "txtIdCategoria";
-            txtIdCategoria.Size = new Size(35, 23);
+            txtIdCategoria.Size = new Size(39, 27);
             txtIdCategoria.TabIndex = 8;
-            txtIdCategoria.Text = "1";
+            txtIdCategoria.Text = "0";
             txtIdCategoria.Visible = false;
             // 
             // panel1
             // 
             panel1.BackColor = Color.White;
-            panel1.Controls.Add(pictureBox4);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(cbxEstado);
-            panel1.Controls.Add(LblInf);
+            panel1.Controls.Add(btnCerrar);
+            panel1.Controls.Add(info);
             panel1.Controls.Add(tableLayoutPanel1);
             panel1.Controls.Add(lblTitulo);
             panel1.Controls.Add(txtNombre);
             panel1.Controls.Add(txtIdCategoria);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(3, 0);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(318, 489);
+            panel1.Size = new Size(231, 367);
             panel1.TabIndex = 18;
             // 
-            // pictureBox4
+            // btnCerrar
             // 
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(198, 24);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(47, 40);
-            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox4.TabIndex = 34;
-            pictureBox4.TabStop = false;
-            pictureBox4.MouseHover += pictureBox4_MouseHover;
+            btnCerrar.BackColor = SystemColors.ActiveCaption;
+            btnCerrar.DownEllipseColor = Color.Blue;
+            btnCerrar.HoverEllipseColor = Color.FromArgb(32, 34, 37);
+            btnCerrar.Image = (Image)resources.GetObject("btnCerrar.Image");
+            btnCerrar.Location = new Point(6, 3);
+            btnCerrar.Name = "btnCerrar";
+            btnCerrar.NormalEllipseColor = Color.FromArgb(66, 76, 85);
+            btnCerrar.Size = new Size(54, 54);
+            btnCerrar.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            btnCerrar.TabIndex = 45;
+            btnCerrar.Text = "socialButton1";
+            btnCerrar.Click += btnCerrar_Click;
             // 
-            // pictureBox1
+            // info
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(57, 289);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(188, 135);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 32;
-            pictureBox1.TabStop = false;
-            pictureBox1.MouseHover += pictureBox1_MouseHover;
-            // 
-            // cbxEstado
-            // 
-            cbxEstado.Anchor = AnchorStyles.Left;
-            cbxEstado.AutoResize = false;
-            cbxEstado.BackColor = Color.FromArgb(255, 255, 255);
-            cbxEstado.Depth = 0;
-            cbxEstado.DrawMode = DrawMode.OwnerDrawVariable;
-            cbxEstado.DropDownHeight = 174;
-            cbxEstado.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbxEstado.DropDownWidth = 121;
-            cbxEstado.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            cbxEstado.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            cbxEstado.FormattingEnabled = true;
-            cbxEstado.Hint = "seleccione el estado de la categoria";
-            cbxEstado.IntegralHeight = false;
-            cbxEstado.ItemHeight = 43;
-            cbxEstado.Location = new Point(14, 133);
-            cbxEstado.MaxDropDownItems = 4;
-            cbxEstado.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            cbxEstado.Name = "cbxEstado";
-            cbxEstado.Size = new Size(287, 49);
-            cbxEstado.StartIndex = 0;
-            cbxEstado.TabIndex = 33;
-            // 
-            // LblInf
-            // 
-            LblInf.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            LblInf.Location = new Point(105, 427);
-            LblInf.Name = "LblInf";
-            LblInf.Size = new Size(102, 48);
-            LblInf.TabIndex = 21;
-            LblInf.Text = "Categorias";
-            LblInf.TextAlign = ContentAlignment.MiddleLeft;
+            info.Image = (Image)resources.GetObject("info.Image");
+            info.Location = new Point(192, 5);
+            info.Margin = new Padding(3, 4, 3, 4);
+            info.Name = "info";
+            info.Size = new Size(36, 44);
+            info.SizeMode = PictureBoxSizeMode.Zoom;
+            info.TabIndex = 34;
+            info.TabStop = false;
+            info.MouseHover += pictureBox4_MouseHover;
             // 
             // tableLayoutPanel1
             // 
@@ -235,12 +202,11 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006275F));
             tableLayoutPanel1.Controls.Add(btnLimpiar, 1, 0);
             tableLayoutPanel1.Controls.Add(btnGuardar, 0, 0);
-            tableLayoutPanel1.Location = new Point(73, 195);
-            tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
+            tableLayoutPanel1.Location = new Point(33, 162);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(160, 80);
+            tableLayoutPanel1.Size = new Size(165, 83);
             tableLayoutPanel1.TabIndex = 31;
             // 
             // btnLimpiar
@@ -257,10 +223,9 @@
             btnLimpiar.FlatStyle = FlatStyle.Flat;
             btnLimpiar.ForeColor = Color.White;
             btnLimpiar.ImageAlign = ContentAlignment.MiddleRight;
-            btnLimpiar.Location = new Point(82, 2);
-            btnLimpiar.Margin = new Padding(3, 2, 3, 2);
+            btnLimpiar.Location = new Point(85, 3);
             btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(72, 76);
+            btnLimpiar.Size = new Size(77, 77);
             btnLimpiar.TabIndex = 12;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.TextAlign = ContentAlignment.BottomCenter;
@@ -283,10 +248,9 @@
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.ForeColor = Color.White;
             btnGuardar.ImageAlign = ContentAlignment.MiddleRight;
-            btnGuardar.Location = new Point(3, 2);
-            btnGuardar.Margin = new Padding(3, 2, 3, 2);
+            btnGuardar.Location = new Point(3, 3);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(71, 76);
+            btnGuardar.Size = new Size(76, 77);
             btnGuardar.TabIndex = 11;
             btnGuardar.Text = "Guardar";
             btnGuardar.TextAlign = ContentAlignment.BottomCenter;
@@ -308,7 +272,8 @@
             txtBuscar.HideSelection = true;
             txtBuscar.Hint = "Buscar";
             txtBuscar.LeadingIcon = null;
-            txtBuscar.Location = new Point(351, 0);
+            txtBuscar.Location = new Point(314, 0);
+            txtBuscar.Margin = new Padding(3, 4, 3, 4);
             txtBuscar.MaxLength = 32767;
             txtBuscar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtBuscar.Name = "txtBuscar";
@@ -320,7 +285,7 @@
             txtBuscar.SelectionLength = 0;
             txtBuscar.SelectionStart = 0;
             txtBuscar.ShortcutsEnabled = true;
-            txtBuscar.Size = new Size(279, 48);
+            txtBuscar.Size = new Size(259, 48);
             txtBuscar.TabIndex = 20;
             txtBuscar.TabStop = false;
             txtBuscar.TextAlign = HorizontalAlignment.Center;
@@ -332,10 +297,10 @@
             // lblEncabezado
             // 
             lblEncabezado.Dock = DockStyle.Left;
-            lblEncabezado.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblEncabezado.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             lblEncabezado.Location = new Point(0, 0);
             lblEncabezado.Name = "lblEncabezado";
-            lblEncabezado.Size = new Size(197, 56);
+            lblEncabezado.Size = new Size(139, 57);
             lblEncabezado.TabIndex = 17;
             lblEncabezado.Text = "Categorias registradas";
             lblEncabezado.TextAlign = ContentAlignment.MiddleLeft;
@@ -451,19 +416,23 @@
             // dataGridViewButtonColumn1
             // 
             dataGridViewButtonColumn1.HeaderText = "Editar";
+            dataGridViewButtonColumn1.MinimumWidth = 6;
             dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
             dataGridViewButtonColumn1.Width = 50;
             // 
             // dataGridViewTextBoxColumn1
             // 
             dataGridViewTextBoxColumn1.HeaderText = "Id";
+            dataGridViewTextBoxColumn1.MinimumWidth = 6;
             dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             dataGridViewTextBoxColumn1.ReadOnly = true;
             dataGridViewTextBoxColumn1.Visible = false;
+            dataGridViewTextBoxColumn1.Width = 125;
             // 
             // dataGridViewTextBoxColumn2
             // 
             dataGridViewTextBoxColumn2.HeaderText = "Nombre";
+            dataGridViewTextBoxColumn2.MinimumWidth = 6;
             dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             dataGridViewTextBoxColumn2.ReadOnly = true;
             dataGridViewTextBoxColumn2.Width = 250;
@@ -471,12 +440,15 @@
             // dataGridViewTextBoxColumn3
             // 
             dataGridViewTextBoxColumn3.HeaderText = "estado";
+            dataGridViewTextBoxColumn3.MinimumWidth = 6;
             dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             dataGridViewTextBoxColumn3.ReadOnly = true;
+            dataGridViewTextBoxColumn3.Width = 125;
             // 
             // dataGridViewTextBoxColumn4
             // 
             dataGridViewTextBoxColumn4.HeaderText = "fecha de registro";
+            dataGridViewTextBoxColumn4.MinimumWidth = 6;
             dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             dataGridViewTextBoxColumn4.ReadOnly = true;
             dataGridViewTextBoxColumn4.Width = 200;
@@ -654,19 +626,23 @@
             // dataGridViewButtonColumn2
             // 
             dataGridViewButtonColumn2.HeaderText = "Editar";
+            dataGridViewButtonColumn2.MinimumWidth = 6;
             dataGridViewButtonColumn2.Name = "dataGridViewButtonColumn2";
             dataGridViewButtonColumn2.Width = 50;
             // 
             // dataGridViewTextBoxColumn5
             // 
             dataGridViewTextBoxColumn5.HeaderText = "Id";
+            dataGridViewTextBoxColumn5.MinimumWidth = 6;
             dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             dataGridViewTextBoxColumn5.ReadOnly = true;
             dataGridViewTextBoxColumn5.Visible = false;
+            dataGridViewTextBoxColumn5.Width = 125;
             // 
             // dataGridViewTextBoxColumn6
             // 
             dataGridViewTextBoxColumn6.HeaderText = "Nombre";
+            dataGridViewTextBoxColumn6.MinimumWidth = 6;
             dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             dataGridViewTextBoxColumn6.ReadOnly = true;
             dataGridViewTextBoxColumn6.Width = 250;
@@ -674,12 +650,15 @@
             // dataGridViewTextBoxColumn7
             // 
             dataGridViewTextBoxColumn7.HeaderText = "estado";
+            dataGridViewTextBoxColumn7.MinimumWidth = 6;
             dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             dataGridViewTextBoxColumn7.ReadOnly = true;
+            dataGridViewTextBoxColumn7.Width = 125;
             // 
             // dataGridViewTextBoxColumn8
             // 
             dataGridViewTextBoxColumn8.HeaderText = "fecha de registro";
+            dataGridViewTextBoxColumn8.MinimumWidth = 6;
             dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             dataGridViewTextBoxColumn8.ReadOnly = true;
             dataGridViewTextBoxColumn8.Width = 200;
@@ -752,9 +731,10 @@
             panel4.Controls.Add(cbxBuscar);
             panel4.Controls.Add(lblEncabezado);
             panel4.Dock = DockStyle.Top;
-            panel4.Location = new Point(321, 0);
+            panel4.Location = new Point(234, 0);
+            panel4.Margin = new Padding(3, 4, 3, 4);
             panel4.Name = "panel4";
-            panel4.Size = new Size(629, 56);
+            panel4.Size = new Size(576, 57);
             panel4.TabIndex = 21;
             // 
             // cbxBuscar
@@ -774,11 +754,12 @@
             cbxBuscar.IntegralHeight = false;
             cbxBuscar.ItemHeight = 43;
             cbxBuscar.Items.AddRange(new object[] { "nombre", "estado", "fecha" });
-            cbxBuscar.Location = new Point(197, 0);
+            cbxBuscar.Location = new Point(139, 0);
+            cbxBuscar.Margin = new Padding(3, 4, 3, 4);
             cbxBuscar.MaxDropDownItems = 4;
             cbxBuscar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbxBuscar.Name = "cbxBuscar";
-            cbxBuscar.Size = new Size(154, 49);
+            cbxBuscar.Size = new Size(175, 49);
             cbxBuscar.StartIndex = 0;
             cbxBuscar.TabIndex = 21;
             cbxBuscar.MouseHover += cbxBuscar_MouseHover;
@@ -803,7 +784,7 @@
             dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
             tbCategorias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             tbCategorias.ColumnHeadersHeight = 35;
-            tbCategorias.Columns.AddRange(new DataGridViewColumn[] { btnEditar, btnBorrar, id, nombre, estado, fecha });
+            tbCategorias.Columns.AddRange(new DataGridViewColumn[] { btnEditar, btnBorrar, id, nombre });
             dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = Color.DarkGray;
             dataGridViewCellStyle8.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
@@ -816,7 +797,8 @@
             tbCategorias.EnableHeadersVisualStyles = false;
             tbCategorias.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbCategorias.GridColor = Color.Gray;
-            tbCategorias.Location = new Point(321, 56);
+            tbCategorias.Location = new Point(234, 57);
+            tbCategorias.Margin = new Padding(3, 4, 3, 4);
             tbCategorias.Name = "tbCategorias";
             tbCategorias.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -832,7 +814,7 @@
             tbCategorias.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tbCategorias.RowTemplate.Height = 30;
             tbCategorias.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tbCategorias.Size = new Size(629, 433);
+            tbCategorias.Size = new Size(576, 310);
             tbCategorias.TabIndex = 22;
             tbCategorias.CellContentClick += tbCategorias_CellContentClick;
             tbCategorias.CellPainting += tbCategorias_CellPainting;
@@ -840,16 +822,19 @@
             // btnEditar
             // 
             btnEditar.HeaderText = "Editar";
+            btnEditar.MinimumWidth = 6;
             btnEditar.Name = "btnEditar";
             // 
             // btnBorrar
             // 
             btnBorrar.HeaderText = "Eliminar";
+            btnBorrar.MinimumWidth = 6;
             btnBorrar.Name = "btnBorrar";
             // 
             // id
             // 
             id.HeaderText = "id";
+            id.MinimumWidth = 6;
             id.Name = "id";
             id.ReadOnly = true;
             id.Visible = false;
@@ -857,40 +842,29 @@
             // nombre
             // 
             nombre.HeaderText = "nombre de categoria";
+            nombre.MinimumWidth = 6;
             nombre.Name = "nombre";
             nombre.ReadOnly = true;
             // 
-            // estado
-            // 
-            estado.HeaderText = "estado";
-            estado.Name = "estado";
-            estado.ReadOnly = true;
-            // 
-            // fecha
-            // 
-            fecha.HeaderText = "fecha de registro";
-            fecha.Name = "fecha";
-            fecha.ReadOnly = true;
-            // 
             // formCategoria
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             BackgroundImageLayout = ImageLayout.None;
-            ClientSize = new Size(953, 492);
+            ClientSize = new Size(813, 371);
             Controls.Add(tbCategorias);
             Controls.Add(panel4);
             Controls.Add(panel1);
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "formCategoria";
-            Padding = new Padding(3, 0, 3, 3);
+            Padding = new Padding(3, 0, 3, 4);
             Text = "formCategorias";
             Load += formCategorias_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)info).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
@@ -915,9 +889,6 @@
         private TableLayoutPanel tableLayoutPanel1;
         private RJCodeAdvance.RJControls.RJButton btnGuardar;
         private RJCodeAdvance.RJControls.RJButton btnLimpiar;
-        private PictureBox pictureBox1;
-        private Label LblInf;
-        private ReaLTaiizor.Controls.MaterialComboBox cbxEstado;
         private Panel panel2;
         private ReaLTaiizor.Controls.MaterialComboBox materialComboBox1;
         private Label label1;
@@ -947,12 +918,11 @@
         private Panel panel4;
         private ReaLTaiizor.Controls.PoisonDataGridView tbCategorias;
         private ReaLTaiizor.Controls.MaterialComboBox cbxBuscar;
+        private PictureBox info;
         private DataGridViewButtonColumn btnEditar;
         private DataGridViewButtonColumn btnBorrar;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn nombre;
-        private DataGridViewTextBoxColumn estado;
-        private DataGridViewTextBoxColumn fecha;
-        private PictureBox pictureBox4;
+        private ReaLTaiizor.Controls.SocialButton btnCerrar;
     }
 }
