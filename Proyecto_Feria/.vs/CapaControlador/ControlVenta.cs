@@ -13,7 +13,7 @@ namespace CapaControlador
         {
             return dVenta.mensaje ;
         }
-        public string procesoDeVenta(infoVenta v, List<DetalleVenta> detalles)
+        public string procesoDeVenta(Modelos.Venta v, List<Modelos.DetalleVenta> detalles)
         {
             return dVenta.procesoDeVenta(v, detalles);
         }

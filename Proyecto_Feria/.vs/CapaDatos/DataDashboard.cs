@@ -26,7 +26,7 @@ namespace CapaDatos
             }
             return cantidadFilas;
         }
-        public Dictionary<string,int> datosGraficaProductosMasVendidos()
+        public Dictionary<string, int> datosGraficaProductosMasVendidos()
         {
             Dictionary<string, int> datos = new Dictionary<string, int>();
 
@@ -36,10 +36,7 @@ namespace CapaDatos
                 {
                     connection.Open();
 
-                    string query = "SELECT TOP 5 p.NOMBRE_PRODUCTO AS NombreProducto, " +
-                        "SUM(v.Cantidad) AS TotalVentas FROM DETALLE_DE_VENTA v " +
-                        "JOIN PRODUCTO p ON v.ID_PRODUCTO = p.ID_PRODUCTO " +
-                        "GROUP BY p.NOMBRE_PRODUCTO, v.ID_PRODUCTO ORDER BY TotalVentas DESC;";
+                    string query = "";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -63,9 +60,9 @@ namespace CapaDatos
 
             return datos;
         }
-        public Dictionary<DateTime,decimal> datosGraficaVentas(string fechaInicio, string fechaFinal)
+        public Dictionary<DateTime, decimal> datosGraficaVentas(string fechaInicio, string fechaFinal)
         {
-            Dictionary<DateTime, decimal> datos = new Dictionary<DateTime, decimal>();  
+            Dictionary<DateTime, decimal> datos = new Dictionary<DateTime, decimal>();
             try
             {
                 using (SqlConnection connection = new conexion().conectar())
@@ -124,6 +121,43 @@ namespace CapaDatos
             }
             valor = valorInventario;
             return valor;
+        }
+
+
+        public List<Modelos.Producto> listaStock()
+        {
+            List<Modelos.Producto> lista = new List<Modelos.Producto>();
+            try
+            {
+                string query = "SELECT BARCODE,NAMES +' '+BRAND+' '+UNIT AS PRODUCT,STOCK,STOCK_SECURITY FROM INVENTORY.PRODUCTS WHERE STOCK <= STOCK_SECURITY";
+                using (var con = new conexion().conectar())
+                {
+                    con.Open();
+                    using (var cmd = new SqlCommand(query, con))
+                    {
+                        cmd.CommandType = System.Data.CommandType.Text;
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                lista.Add(new Modelos.Producto
+                                {
+                                    CODIGO = reader["BARCODE"].ToString(),
+                                    NOMBRE = reader["PRODUCT"].ToString(),
+                                    STOCK = Convert.ToInt32(reader["STOCK"].ToString()),
+                                    STOCK_SEGURIDAD = Convert.ToInt32(reader["STOCK_SECURITY"].ToString())
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lista = new List<Modelos.Producto>();
+            }
+            return lista;
+
         }
     }
 }

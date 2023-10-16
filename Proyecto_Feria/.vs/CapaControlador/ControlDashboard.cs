@@ -29,5 +29,10 @@ namespace CapaControlador
         {
             return dash.valorInventario().ToString("0.00");
         }
+
+        public List<Modelos.Producto> stockDisponible()
+        {
+            return dash.listaStock();
+        }
     }
 }

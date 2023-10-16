@@ -46,11 +46,21 @@ namespace CapaVista
         }
         private void mostrarStockProductos()
         {
-            List<Modelos.Producto> lista = cProducto.listarProductos();
+            List<Modelos.Producto> lista = cDash.stockDisponible();
             tbStock.Rows.Clear();
             foreach (Modelos.Producto p in lista)
             {
-                tbStock.Rows.Add(p.CODIGO, p.NOMBRE, p.STOCK);
+                string mensaje = "";
+                if (p.STOCK <= p.STOCK_SEGURIDAD)
+                {
+                    mensaje = "Revisar el stock del producto";
+                }
+                else
+                {
+                    mensaje = "Todo en orden";
+                }
+                int index = tbStock.Rows.Add(p.CODIGO, p.NOMBRE, p.STOCK, p.STOCK_SEGURIDAD, mensaje);
+
             }
         }
         private void mostrarVentas(string fechaI, string fechaF)

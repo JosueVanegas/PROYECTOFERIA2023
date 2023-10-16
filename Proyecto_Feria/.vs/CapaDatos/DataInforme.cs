@@ -5,34 +5,36 @@ namespace CapaDatos
 {
     public class Datainforme
     {
-        public List<informeVentas> ObtenerDatosInformeVentas(string fechaInicio, string fechaFin)
+        public List<Modelos.Venta> ObtenerDatosInformeVentas(string fechaInicio, string fechaFin)
         {
-            List<informeVentas> lista = new List<informeVentas>();
+            List<Modelos.Venta> lista = new List<Modelos.Venta>();
             try
             {
                 using (SqlConnection connection = new conexion().conectar())
                 {
                     connection.Open();
-                    string procedure = "PROC_ORDENAR_FECHA_VENTA";
+                    string procedure = "PROC_REPORT_SALES";
                     using (SqlCommand cmd = new SqlCommand(procedure, connection))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.Add(new SqlParameter("@fechaInicio", SqlDbType.VarChar, 10)).Value = fechaInicio;
-                        cmd.Parameters.Add(new SqlParameter("@fechaFin", SqlDbType.VarChar, 10)).Value = fechaFin;
+                        cmd.Parameters.Add(new SqlParameter("@START_DATE", SqlDbType.VarChar, 10)).Value = fechaInicio;
+                        cmd.Parameters.Add(new SqlParameter("@END_DATE", SqlDbType.VarChar, 10)).Value = fechaFin;
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {
-                                lista.Add(new informeVentas
+                                lista.Add(new Modelos.Venta
                                 {
-                                    noFactura = reader[0].ToString(),
-                                    nombreCliente = reader[1].ToString(),
-                                    nombreEmpleado = reader[2].ToString(),
-                                    iva = Convert.ToDecimal(reader[3]),
-                                    subtotal = Convert.ToDecimal(reader[4]),
-                                    descuento = Convert.ToDecimal(reader[5]),
-                                    total = Convert.ToDecimal(reader[6]),
-                                    fecha = reader[7].ToString()
+                                    ID = Convert.ToInt32(reader[0].ToString()),
+                                    CLIENTE = new Modelos.Cliente
+                                    {
+                                        NOMBRES = reader[1].ToString()
+                                    },
+                                    USUARIO = new Modelos.Usuario
+                                    {
+                                        NOMBRE = reader[2].ToString()
+                                    },
+                                    SUBTOTAL = Convert.ToDecimal(reader[3].ToString())
                                 });
                             }
                         }
@@ -41,75 +43,34 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                lista = new List<informeVentas>();
+                lista = new List<Modelos.Venta>();
             }
             return lista;
         }
-
-        public List<informeInventario> ObtenerDatosInformeInventario()
+        public List<Modelos.Compra> ObtenerDatosInformeCompras(string fechaInicio, string fechaFin)
         {
-            List<informeInventario> lista = new List<informeInventario>();
+            List<Modelos.Compra> lista = new List<Modelos.Compra>();
             try
             {
                 using (SqlConnection connection = new conexion().conectar())
                 {
                     connection.Open();
-                    string query = "SELECT P.CODIGO_PRODUCTO,P.NOMBRE_PRODUCTO,C.NOMBRE_CATEGORIA,PR.NOMBRE_EMPRESA,P.PRECIO_COMPRA,P.PRECIO_VENTA,P.CANTIDAD_INVENTARIO,P.FECHA_REGISTRO FROM PRODUCTO P  INNER JOIN PROVEEDOR PR ON P.ID_PROVEEDOR = PR.ID_PROVEEDOR INNER JOIN CATEGORIA C ON C.ID_CATEGORIA = P.ID_CATEGORIA";
-
-                    using (SqlCommand cmd = new SqlCommand(query, connection))
-                    {
-                        cmd.CommandType = CommandType.Text;
-                        using (SqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                lista.Add(new informeInventario
-                                {
-                                    codigo = reader[0].ToString(),
-                                    producto = reader[1].ToString(),
-                                    categoria = reader[2].ToString(),
-                                    proveedor = reader[3].ToString(),
-                                    precioCompra = Convert.ToDecimal(reader[4]),
-                                    precioVenta = Convert.ToDecimal(reader[5]),
-                                    cantidad = Convert.ToInt32(reader[6]),
-                                    fecha = reader[7].ToString()
-                                });
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                lista = new List<informeInventario>();
-            }
-            return lista;
-        }
-        public List<informeCompras> ObtenerDatosInformeCompras(string fechaInicio, string fechaFin)
-        {
-            List<informeCompras> lista = new List<informeCompras>();
-            try
-            {
-                using (SqlConnection connection = new conexion().conectar())
-                {
-                    connection.Open();
-                    string procedure = "PROC_ORDENAR_FECHA_COMPRA";
+                    string procedure = "PROC_REPORT_PURCHASE";
                     using (SqlCommand cmd = new SqlCommand(procedure, connection))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.Add(new SqlParameter("@fechaInicio", SqlDbType.VarChar, 10)).Value = fechaInicio;
-                        cmd.Parameters.Add(new SqlParameter("@fechaFin", SqlDbType.VarChar, 10)).Value = fechaFin;
+                        cmd.Parameters.Add(new SqlParameter("@START_DATE", SqlDbType.VarChar, 10)).Value = fechaInicio;
+                        cmd.Parameters.Add(new SqlParameter("@END_DATE", SqlDbType.VarChar, 10)).Value = fechaFin;
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {
-                                lista.Add(new informeCompras
+                                lista.Add(new Modelos.Compra
                                 {
-                                    factura = reader[0].ToString(),
-                                    usuario = reader[1].ToString(),
-                                    empleado = reader[2].ToString(),
-                                    total = Convert.ToDecimal(reader[3]),
-                                    fecha = reader[4].ToString()
+                                    ID = Convert.ToInt32(reader[0]),
+                                    USUARIO = new Modelos.Usuario { NOMBRE = reader[1].ToString() },
+                                    SUBTOTAL = Convert.ToDecimal(reader[2]),
+                                    FECHA_REGISTRO = Convert.ToDateTime(reader[3])
                                 });
                             }
                         }
@@ -118,7 +79,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                lista = new List<informeCompras>();
+                lista = new List<Modelos.Compra>();
             }
             return lista;
         }

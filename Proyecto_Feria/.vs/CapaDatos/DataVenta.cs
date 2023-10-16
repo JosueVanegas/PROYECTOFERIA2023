@@ -1,25 +1,29 @@
 ﻿using Microsoft.Data.SqlClient;
+using Modelos;
 
 namespace CapaDatos
 {
     public class DataVenta
     {
         public int idCreado = 0;
-        public string noFactura = string.Empty;
+        public bool acceder;
         public string mensaje = "";
         public DataVenta() { }
 
-        public string procesoDeVenta(infoVenta v, List<DetalleVenta> detalles)
+        public string procesoDeVenta(Modelos.Venta v, List<Modelos.DetalleVenta> detalles)
         {
             mensaje = "";
             try
             {
-                int id = registrarVenta(v);
-                if (id > 0)
+                if (registrarVenta(v))
                 {
-                    foreach (DetalleVenta d in detalles)
+
+                }
+                if (idCreado > 0)
+                {
+                    foreach (Modelos.DetalleVenta d in detalles)
                     {
-                        registrarDetalleVenta(d, id);
+                        registrarDetalleVenta(d, idCreado);
                     }
                     mensaje = "Proceso de venta realizado con exito";
                 }
@@ -32,57 +36,55 @@ namespace CapaDatos
             {
                 mensaje = ex.Message;
             }
-            return noFactura;
+            idCreado = 0;
+            return mensaje;
         }
-        public int registrarVenta(infoVenta v)
+        public bool registrarVenta(Venta v)
         {
             idCreado = 0;
-            noFactura = string.Empty;
-#pragma warning disable CS0168 // La variable está declarada pero nunca se usa
             try
             {
                 using (SqlConnection con = new conexion().conectar())
                 {
-                    using (SqlCommand cmd = new SqlCommand("PROC_REGISTRAR_VENTA", con))
+                    using (SqlCommand cmd = new SqlCommand("PROC_REGISTER_SALES", con))
                     {
                         con.Open();
                         cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@ID_USUARIO", v.ID_USUARIO);
-                        cmd.Parameters.AddWithValue("@ID_CLIENTE", v.ID_CLIENTE);
-                        cmd.Parameters.AddWithValue("@DESCUENTO", v.DESCUENTO);
+                        cmd.Parameters.AddWithValue("@ID_USER", v.USUARIO.ID);
+                        cmd.Parameters.AddWithValue("@ID_CLIENT", v.CLIENTE.ID);
+                        cmd.Parameters.AddWithValue("@DISCOUNT", v.DESCUENTO);
                         cmd.Parameters.AddWithValue("@SUBTOTAL", v.SUBTOTAL);
                         cmd.Parameters.AddWithValue("@IVA", v.IVA);
-                        cmd.Parameters.AddWithValue("@TOTAL", v.TOTAL);
-                        cmd.Parameters.Add("ID_CREADO", System.Data.SqlDbType.Int).Direction = System.Data.ParameterDirection.Output;
-                        cmd.Parameters.Add("FACTURA", System.Data.SqlDbType.VarChar, 30).Direction = System.Data.ParameterDirection.Output;
+                        cmd.Parameters.Add("NEWID", System.Data.SqlDbType.Int).Direction = System.Data.ParameterDirection.Output;
+                        cmd.Parameters.Add("RESULT", System.Data.SqlDbType.Bit, 30).Direction = System.Data.ParameterDirection.Output;
                         cmd.ExecuteNonQuery();
                         idCreado = (int)cmd.Parameters["ID_CREADO"].Value;
-                        noFactura = cmd.Parameters["FACTURA"].Value.ToString();
+                        acceder = (bool)cmd.Parameters["FACTURA"].Value;
                     }
                 }
             }
             catch (Exception ex)
             {
                 idCreado = 0;
-                noFactura = string.Empty;
+                acceder = false;
             }
-            return idCreado;
+            return acceder;
         }
-        public void registrarDetalleVenta(DetalleVenta d, int id)
+        public void registrarDetalleVenta(Modelos.DetalleVenta d, int id)
         {
             try
             {
                 using (SqlConnection con = new conexion().conectar())
                 {
-                    using (SqlCommand cmd = new SqlCommand("PROC_REGISTRAR_DETALLE_VENTA", con))
+                    using (SqlCommand cmd = new SqlCommand("PROC_REGISTER_SALES_DETAILS", con))
                     {
                         con.Open();
                         cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@ID_VENTA", id);
-                        cmd.Parameters.AddWithValue("@ID_PRODUCTO", d.ID_PRODUCTO);
-                        cmd.Parameters.AddWithValue("@PRECIOVENTA", d.PRECIO);
-                        cmd.Parameters.AddWithValue("@CANTIDAD", d.CANTIDAD);
-                        cmd.Parameters.AddWithValue("@SUBTOTAL", d.SUBTOTAL);
+                        cmd.Parameters.AddWithValue("@ID_SALE", id);
+                        cmd.Parameters.AddWithValue("@ID_PRODUCT", d.PRODUCTO.ID);
+                        cmd.Parameters.AddWithValue("@LASTPRICE", d.PRECIO);
+                        cmd.Parameters.AddWithValue("@AMOUNT", d.CANTIDAD);
+                        cmd.Parameters.AddWithValue("@DISCOUNT", d.DESCUENTO);
                         cmd.ExecuteNonQuery();
                     }
                 }

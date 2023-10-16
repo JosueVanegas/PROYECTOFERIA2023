@@ -85,7 +85,9 @@
             tbStock = new ReaLTaiizor.Controls.PoisonDataGridView();
             Codigo = new DataGridViewTextBoxColumn();
             Producto = new DataGridViewTextBoxColumn();
-            Cantidad = new DataGridViewTextBoxColumn();
+            Stock = new DataGridViewTextBoxColumn();
+            StockSeguridad = new DataGridViewTextBoxColumn();
+            Mensaje = new DataGridViewTextBoxColumn();
             label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)chartTopUsuario).BeginInit();
             ((System.ComponentModel.ISupportInitialize)chartTopProductos).BeginInit();
@@ -923,7 +925,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             tbStock.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             tbStock.ColumnHeadersHeight = 35;
-            tbStock.Columns.AddRange(new DataGridViewColumn[] { Codigo, Producto, Cantidad });
+            tbStock.Columns.AddRange(new DataGridViewColumn[] { Codigo, Producto, Stock, StockSeguridad, Mensaje });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.PaleTurquoise;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
@@ -960,6 +962,7 @@
             // 
             // Codigo
             // 
+            Codigo.FillWeight = 49.77519F;
             Codigo.HeaderText = "Codigo";
             Codigo.MinimumWidth = 6;
             Codigo.Name = "Codigo";
@@ -967,16 +970,34 @@
             // 
             // Producto
             // 
+            Producto.FillWeight = 49.77519F;
             Producto.HeaderText = "Producto";
             Producto.MinimumWidth = 6;
             Producto.Name = "Producto";
             // 
-            // Cantidad
+            // Stock
             // 
-            Cantidad.HeaderText = "Unidades disponibles";
-            Cantidad.MinimumWidth = 6;
-            Cantidad.Name = "Cantidad";
-            Cantidad.ReadOnly = true;
+            Stock.FillWeight = 72.664505F;
+            Stock.HeaderText = "Unidades disponibles";
+            Stock.MinimumWidth = 6;
+            Stock.Name = "Stock";
+            Stock.ReadOnly = true;
+            // 
+            // StockSeguridad
+            // 
+            StockSeguridad.FillWeight = 60.40546F;
+            StockSeguridad.HeaderText = "Stock de seguridad";
+            StockSeguridad.MinimumWidth = 6;
+            StockSeguridad.Name = "StockSeguridad";
+            StockSeguridad.ReadOnly = true;
+            // 
+            // Mensaje
+            // 
+            Mensaje.FillWeight = 267.379669F;
+            Mensaje.HeaderText = "Mensaje";
+            Mensaje.MinimumWidth = 6;
+            Mensaje.Name = "Mensaje";
+            Mensaje.ReadOnly = true;
             // 
             // label2
             // 
@@ -1067,9 +1088,6 @@
         private RJCodeAdvance.RJControls.RJCircularPictureBox rjCircularPictureBox3;
         private RJCodeAdvance.RJControls.RJCircularPictureBox rjCircularPictureBox2;
         private ReaLTaiizor.Controls.PoisonDataGridView tbStock;
-        private DataGridViewTextBoxColumn Codigo;
-        private DataGridViewTextBoxColumn Producto;
-        private DataGridViewTextBoxColumn Cantidad;
         private Label label2;
         private Panel panel8;
         private Label lblNombreEmpresa;
@@ -1090,5 +1108,10 @@
         private RJCodeAdvance.RJControls.RJCircularPictureBox pictureLogoEmpresa;
         private Panel panel11;
         private Panel panel12;
+        private DataGridViewTextBoxColumn Codigo;
+        private DataGridViewTextBoxColumn Producto;
+        private DataGridViewTextBoxColumn Stock;
+        private DataGridViewTextBoxColumn StockSeguridad;
+        private DataGridViewTextBoxColumn Mensaje;
     }
 }

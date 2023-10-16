@@ -27,41 +27,8 @@ namespace CapaDatos
         public decimal DESCUENTO { get; set; }
         public decimal SUBTOTAL { get; set; }
         public decimal IVA { get; set; }
-        public decimal TOTAL { get; set; }
     }
-    public class graficaVentas
-    {
-        public string fecha { get; set;}
-        public decimal total { get; set;}
-    }
-    public class detalleCompra
-    {
-        public int idCompra { get; set; }
-        public int idProducto { get; set; }
-        public int cantidad { get; set; }
-        public decimal precioCompra { get; set; }
-        public decimal total { get; set; }
-    }
-    public class realizarCompra
-    {
-        public int ID_USUARIO { get; set; }
-        public decimal TOTAL { get; set; }
-    }
-    public class compra
-    {
-        public int id { get; set; }
-#pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-        public string factura { get; set; }
-#pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-        public int idUsuario { get; set; }
-#pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-        public string nombreUsuario { get; set; }
-        public decimal iva { get; set; }
-        public decimal total { get; set; }
-#pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-        public string fechaRegistro { get; set; }
-#pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-    }
+   
 
     //RELACIONADAS CON INFORMES
     public class informeVentas

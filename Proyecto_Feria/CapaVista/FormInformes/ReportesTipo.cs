@@ -74,7 +74,7 @@ namespace CapaPresentacion.FormInformes
             decimal descuento = 0;
             decimal iva = 0;
             decimal Total = 0;
-            List<informeVentas> lista = cInformes.datosDeVentas(fechaInicio, fechaFinal);
+            List<Modelos.Venta> lista = cInformes.datosDeVentas(fechaInicio, fechaFinal);
             content.PaddingVertical(25).Column(column =>
             {
                 column.Item().AlignCenter().Text("Reporte de Ventas").FontSize(25);
@@ -94,9 +94,7 @@ namespace CapaPresentacion.FormInformes
                     }
                 });
                 column.Spacing(30);
-
                 column.Item().LineHorizontal(0.5f);
-                //configuracion del grafico
                 if (grafica == true)
                 {
                     var entries = new List<ChartEntry>();
@@ -104,19 +102,15 @@ namespace CapaPresentacion.FormInformes
                     if (anual == true)
                     {
                         Dictionary<int, decimal> totalsByMonth = new Dictionary<int, decimal>();
-
-                        // Inicializar el diccionario con todos los meses del año.
                         for (int month = 1; month <= 12; month++)
                         {
                             totalsByMonth[month] = 0.0m;
                         }
                         foreach (var venta in lista)
                         {
-                            DateTime fechaVenta = DateTime.Parse(venta.fecha);
+                            DateTime fechaVenta = venta.FECHA_REGISTRO;
                             int month = fechaVenta.Month;
-
-                            // Sumar el monto total de la venta al mes correspondiente en el diccionario.
-                            totalsByMonth[month] += venta.total;
+                            totalsByMonth[month] += venta.SUBTOTAL;
                         }
                         foreach (var kvp in totalsByMonth)
                         {
@@ -144,11 +138,9 @@ namespace CapaPresentacion.FormInformes
 
                         foreach (var i in lista)
                         {
-                            DateTime date = DateTime.Parse(i.fecha);
+                            DateTime date = i.FECHA_REGISTRO;
                             DayOfWeek dayOfWeek = date.DayOfWeek;
-
-                            // Sumar el monto total de la venta al día correspondiente en el diccionario.
-                            totalesPorDiaSemana[dayOfWeek] += i.total;
+                            totalesPorDiaSemana[dayOfWeek] += i.SUBTOTAL;
                         }
                         foreach (var td in totalesPorDiaSemana)
                         {
@@ -160,8 +152,6 @@ namespace CapaPresentacion.FormInformes
                             });
                         }
                     }
-
-                    //dibujando el grafico en el pdf
                     column.Item().Column(column =>
                     {
                         var titleStyle = TextStyle
@@ -200,10 +190,7 @@ namespace CapaPresentacion.FormInformes
                     });
                     column.Spacing(10);
                 }
-
                 column.Item().AlignCenter().Text("Detalles de las Ventas").FontSize(15);
-
-                //tabla
                 column.Item().Background(Colors.Grey.Lighten3).Table(tab =>
                 {
                     tab.ColumnsDefinition(columns =>
@@ -217,7 +204,6 @@ namespace CapaPresentacion.FormInformes
                         columns.RelativeColumn(2);
                         columns.RelativeColumn(3);
                     });
-
                     tab.Header(het =>
                     {
                         het.Cell().Border(1).Background(transparentBlue).Padding(1).Text("No.Factura").FontSize(10);
@@ -230,21 +216,22 @@ namespace CapaPresentacion.FormInformes
                         het.Cell().Border(1).Background(transparentBlue).Padding(1).Text("Fecha").FontSize(10);
 
                     });
-                    foreach (informeVentas i in lista)
+                    foreach (Modelos.Venta i in lista)
                     {
-
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.noFactura).FontSize(10);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.nombreCliente).FontSize(11);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.nombreEmpleado).FontSize(11);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.iva).FontSize(12);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.subtotal).FontSize(12);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.descuento).FontSize(12);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.total).FontSize(12);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.fecha).FontSize(10);
-                        subTotal += i.subtotal;
-                        iva += i.iva;
-                        descuento += i.descuento;
-                        Total += i.total;
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.ID).FontSize(10);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.CLIENTE.NOMBRES).FontSize(11);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.USUARIO.NOMBRE).FontSize(11);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.IVA).FontSize(12);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.SUBTOTAL).FontSize(12);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.DESCUENTO).FontSize(12);
+                        decimal subtotal_descuento = i.SUBTOTAL - i.DESCUENTO;
+                        decimal total = subtotal_descuento - i.IVA;
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(total).FontSize(12);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.FECHA_REGISTRO).FontSize(10);
+                        subTotal += i.SUBTOTAL;
+                        iva += i.IVA;
+                        descuento += i.DESCUENTO;
+                        Total += total;
                     }
                 });
                 column.Item().Row(row =>
@@ -267,22 +254,17 @@ namespace CapaPresentacion.FormInformes
             decimal valorRealInventario = 0;
             decimal valorDeseadoInventario = 0;
             decimal utilidadEsperada = 0;
-            List<informeInventario> lista = cInformes.datosInventario();
+            List<Modelos.Producto> lista = new ControlProducto().listarProductos();
             content.PaddingVertical(25).Column(column =>
             {
                 column.Item().AlignCenter().Text("Reporte de inventario").FontSize(25);
                 column.Item().AlignCenter().Text(txt =>
                 {
-
                     txt.Span(tituloRango).FontSize(15);
-
                 });
                 column.Spacing(30);
-
                 column.Item().LineHorizontal(0.5f);
                 column.Item().AlignCenter().Text("Detalles del inventario").FontSize(15);
-
-                //tabla
                 column.Item().Background(Colors.Grey.Lighten3).Table(tab =>
                 {
                     tab.ColumnsDefinition(columns =>
@@ -296,7 +278,6 @@ namespace CapaPresentacion.FormInformes
                         columns.RelativeColumn(2);
                         columns.RelativeColumn(2);
                     });
-
                     tab.Header(het =>
                     {
                         het.Cell().Border(1).Background(colorFondoInventario).Padding(1).Text("Codigo").FontSize(10);
@@ -306,22 +287,22 @@ namespace CapaPresentacion.FormInformes
                         het.Cell().Border(1).Background(colorFondoInventario).Padding(1).Text("Precio de compra").FontSize(10);
                         het.Cell().Border(1).Background(colorFondoInventario).Padding(1).Text("Precio de    venta").FontSize(10);
                         het.Cell().Border(1).Background(colorFondoInventario).Padding(1).Text("Stock").FontSize(10);
-                        het.Cell().Border(1).Background(colorFondoInventario).Padding(1).Text("Fecha de registro").FontSize(10);
+                        het.Cell().Border(1).Background(colorFondoInventario).Padding(1).Text("Fecha de vencimiento").FontSize(10);
 
                     });
-                    foreach (informeInventario i in lista)
+                    foreach (Modelos.Producto i in lista)
                     {
 
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.codigo).FontSize(10);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.producto).FontSize(11);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.categoria).FontSize(11);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.proveedor).FontSize(12);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.precioCompra).FontSize(12);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.precioVenta).FontSize(12);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.cantidad).FontSize(12);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.fecha).FontSize(10);
-                        valorRealInventario += i.precioCompra * Convert.ToDecimal(i.cantidad);
-                        valorDeseadoInventario += i.precioVenta * Convert.ToDecimal(i.cantidad);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.CODIGO).FontSize(10);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.NOMBRE).FontSize(11);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.CATEGORIA.NOMBRE).FontSize(11);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.PROVEEDOR.EMPRESA).FontSize(12);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.PRECIO_COMPRA).FontSize(12);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.PRECIO_VENTA).FontSize(12);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.STOCK).FontSize(12);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.VENCIMIENTO).FontSize(10);
+                        valorRealInventario += i.PRECIO_COMPRA * Convert.ToDecimal(i.STOCK);
+                        valorDeseadoInventario += i.PRECIO_VENTA * Convert.ToDecimal(i.STOCK);
                     }
                 });
                 utilidadEsperada = valorDeseadoInventario - valorRealInventario;
@@ -341,7 +322,7 @@ namespace CapaPresentacion.FormInformes
         }
         void contenidoCompras(IContainer content)
         {
-            List<informeCompras> lista = cInformes.datosCompras(fechaInicio, fechaFinal);
+            List<Modelos.Compra> lista = cInformes.datosCompras(fechaInicio, fechaFinal);
             decimal Total = 0;
             content.PaddingVertical(25).Column(column =>
             {
@@ -379,11 +360,11 @@ namespace CapaPresentacion.FormInformes
                         }
                         foreach (var compra in lista)
                         {
-                            DateTime fechaCompra = DateTime.Parse(compra.fecha);
+                            DateTime fechaCompra = compra.FECHA_REGISTRO;
                             int month = fechaCompra.Month;
 
                             // Sumar el monto total de la venta al mes correspondiente en el diccionario.
-                            totalsByMonth[month] += compra.total;
+                            totalsByMonth[month] += compra.SUBTOTAL;
                         }
                         foreach (var kvp in totalsByMonth)
                         {
@@ -411,11 +392,11 @@ namespace CapaPresentacion.FormInformes
 
                         foreach (var i in lista)
                         {
-                            DateTime date = DateTime.Parse(i.fecha);
+                            DateTime date = i.FECHA_REGISTRO;
                             DayOfWeek dayOfWeek = date.DayOfWeek;
 
                             // Sumar el monto total de la venta al día correspondiente en el diccionario.
-                            totalesPorDiaSemana[dayOfWeek] += i.total;
+                            totalesPorDiaSemana[dayOfWeek] += i.SUBTOTAL;
                         }
                         foreach (var td in totalesPorDiaSemana)
                         {
@@ -486,20 +467,18 @@ namespace CapaPresentacion.FormInformes
                     {
                         het.Cell().Border(1).Background(transparentBlue).Padding(1).Text("No.Factura").FontSize(10);
                         het.Cell().Border(1).Background(transparentBlue).Padding(1).Text("Usuario en turno").FontSize(10);
-                        het.Cell().Border(1).Background(transparentBlue).Padding(1).Text("Nombre del usuario").FontSize(10);
                         het.Cell().Border(1).Background(transparentBlue).Padding(1).Text("Total").FontSize(10);
                         het.Cell().Border(1).Background(transparentBlue).Padding(1).Text("Fecha").FontSize(10);
 
                     });
-                    foreach (informeCompras i in lista)
+                    foreach (Modelos.Compra i in lista)
                     {
 
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.factura).FontSize(11);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.usuario).FontSize(11);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.empleado).FontSize(11);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.total).FontSize(11);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.fecha).FontSize(11);
-                        Total += i.total;
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.ID).FontSize(11);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.USUARIO.NOMBRE).FontSize(11);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.SUBTOTAL).FontSize(11);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.FECHA_REGISTRO).FontSize(11);
+                        Total += i.SUBTOTAL;
                     }
                 });
                 column.Item().Row(row =>
@@ -595,7 +574,7 @@ namespace CapaPresentacion.FormInformes
 
         public void exportarAExcelInventario()
         {
-            List<informeInventario> lista = cInformes.datosInventario();
+            List<Modelos.Producto> lista = new ControlProducto().listarProductos();
             IWorkbook workbook = new XSSFWorkbook();
             ISheet hoja = workbook.CreateSheet("inventario " + DateTime.Now.ToString("dd_MM_yyyy"));
             IRow filaEncabezados = hoja.CreateRow(0);
@@ -606,18 +585,18 @@ namespace CapaPresentacion.FormInformes
             filaEncabezados.CreateCell(4).SetCellValue("Precio de compra");
             filaEncabezados.CreateCell(5).SetCellValue("Precio de venta");
             filaEncabezados.CreateCell(6).SetCellValue("cantidad en inventario");
-            filaEncabezados.CreateCell(7).SetCellValue("Fecha de registro");
+            filaEncabezados.CreateCell(7).SetCellValue("Fecha de vencimiento");
             for (int i = 0; i < lista.Count; i++)
             {
                 IRow fila = hoja.CreateRow(i + 1);
-                fila.CreateCell(0).SetCellValue(lista[i].codigo);
-                fila.CreateCell(1).SetCellValue(lista[i].producto);
-                fila.CreateCell(2).SetCellValue(lista[i].categoria);
-                fila.CreateCell(3).SetCellValue(lista[i].proveedor);
-                fila.CreateCell(4).SetCellValue((double)lista[i].precioCompra);
-                fila.CreateCell(5).SetCellValue((double)lista[i].precioVenta);
-                fila.CreateCell(6).SetCellValue((double)lista[i].cantidad);
-                fila.CreateCell(7).SetCellValue(lista[i].fecha);
+                fila.CreateCell(0).SetCellValue(lista[i].CODIGO);
+                fila.CreateCell(1).SetCellValue(lista[i].NOMBRE);
+                fila.CreateCell(2).SetCellValue(lista[i].CATEGORIA.NOMBRE);
+                fila.CreateCell(3).SetCellValue(lista[i].PROVEEDOR.EMPRESA);
+                fila.CreateCell(4).SetCellValue((double)lista[i].PRECIO_COMPRA);
+                fila.CreateCell(5).SetCellValue((double)lista[i].PRECIO_VENTA);
+                fila.CreateCell(6).SetCellValue((double)lista[i].STOCK);
+                fila.CreateCell(7).SetCellValue(lista[i].VENCIMIENTO);
             }
             for (int i = 0; i < 3; i++)
             {
@@ -638,23 +617,21 @@ namespace CapaPresentacion.FormInformes
         }
         public void exportarAExcelCompras(string fechaInicio, string fechaFinal)
         {
-            List<informeCompras> lista = cInformes.datosCompras(fechaInicio, fechaFinal);
+            List<Modelos.Compra> lista = cInformes.datosCompras(fechaInicio, fechaFinal);
             IWorkbook workbook = new XSSFWorkbook();
             ISheet hoja = workbook.CreateSheet("Compras");
             IRow filaEncabezados = hoja.CreateRow(0);
             filaEncabezados.CreateCell(0).SetCellValue("No.factura");
             filaEncabezados.CreateCell(1).SetCellValue("Usuario en turno");
-            filaEncabezados.CreateCell(2).SetCellValue("Nombre del usuario");
             filaEncabezados.CreateCell(3).SetCellValue("Total (C$)");
             filaEncabezados.CreateCell(7).SetCellValue("fecha");
             for (int i = 0; i < lista.Count; i++)
             {
                 IRow fila = hoja.CreateRow(i + 1);
-                fila.CreateCell(0).SetCellValue(lista[i].factura);
-                fila.CreateCell(1).SetCellValue(lista[i].usuario);
-                fila.CreateCell(2).SetCellValue(lista[i].empleado);
-                fila.CreateCell(3).SetCellValue((double)lista[i].total);
-                fila.CreateCell(7).SetCellValue(lista[i].fecha);
+                fila.CreateCell(0).SetCellValue(lista[i].ID);
+                fila.CreateCell(1).SetCellValue(lista[i].USUARIO.NOMBRE);
+                fila.CreateCell(3).SetCellValue((double)lista[i].SUBTOTAL);
+                fila.CreateCell(7).SetCellValue(lista[i].FECHA_REGISTRO);
             }
             for (int i = 0; i < 3; i++)
             {
@@ -675,7 +652,7 @@ namespace CapaPresentacion.FormInformes
         }
         public void exportarAExcelVentas(string fechaInicio,string fechaFinal)
         {
-            List<informeVentas> lista = cInformes.datosDeVentas(fechaInicio, fechaFinal);
+            List<Modelos.Venta> lista = cInformes.datosDeVentas(fechaInicio, fechaFinal);
             IWorkbook workbook = new XSSFWorkbook();
             ISheet hoja = workbook.CreateSheet("Ventas");
             IRow filaEncabezados = hoja.CreateRow(0);
@@ -690,14 +667,14 @@ namespace CapaPresentacion.FormInformes
             for (int i = 0; i < lista.Count; i++)
             {
                 IRow fila = hoja.CreateRow(i + 1);
-                fila.CreateCell(0).SetCellValue(lista[i].noFactura);
-                fila.CreateCell(1).SetCellValue(lista[i].nombreCliente);
-                fila.CreateCell(2).SetCellValue(lista[i].nombreEmpleado);
-                fila.CreateCell(3).SetCellValue((int)lista[i].iva);
-                fila.CreateCell(4).SetCellValue((double)lista[i].subtotal);
-                fila.CreateCell(5).SetCellValue((double)lista[i].descuento);
-                fila.CreateCell(6).SetCellValue((double)lista[i].total);
-                fila.CreateCell(7).SetCellValue(lista[i].fecha);
+                fila.CreateCell(0).SetCellValue(lista[i].ID);
+                fila.CreateCell(1).SetCellValue(lista[i].CLIENTE.NOMBRES);
+                fila.CreateCell(2).SetCellValue(lista[i].USUARIO.NOMBRE);
+                fila.CreateCell(3).SetCellValue((int)lista[i].IVA);
+                fila.CreateCell(4).SetCellValue((double)lista[i].SUBTOTAL);
+                fila.CreateCell(5).SetCellValue((double)lista[i].DESCUENTO);
+                fila.CreateCell(6).SetCellValue((double)(lista[i].SUBTOTAL * lista[i].DESCUENTO));
+                fila.CreateCell(7).SetCellValue(lista[i].FECHA_REGISTRO);
             }
             for (int i = 0; i < 3; i++)
             {

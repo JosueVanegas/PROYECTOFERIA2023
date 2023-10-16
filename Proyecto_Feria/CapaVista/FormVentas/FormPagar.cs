@@ -11,14 +11,14 @@ namespace CapaVista.FormVentas
 {
     public partial class FormPagar : MaterialForm
     {
-        ResumenVenta resumen;
+        Modelos.Venta resumen;
         Modelos.Cliente cliente = new Modelos.Cliente();
         Modelos.Usuario user;
-        List<DetalleVenta> detalles;
+        List<Modelos.DetalleVenta> detalles;
         ControlVenta cVenta = new ControlVenta();
         string impresora = "";
         string factura = "";
-        public FormPagar(Modelos.Usuario u, ResumenVenta r, List<DetalleVenta> d)
+        public FormPagar(Modelos.Usuario u, Modelos.Venta r, List<Modelos.DetalleVenta> d)
         {
             InitializeComponent();
             resumen = r;
@@ -35,10 +35,12 @@ namespace CapaVista.FormVentas
         }
         private void realizarResumen()
         {
-            txtDescuento.Text = resumen.descuento.ToString();
-            txtSubTotal.Text = resumen.subtotal.ToString();
-            txtIva.Text = resumen.iva.ToString();
-            txtTotal.Text = resumen.total.ToString();
+            txtDescuento.Text = resumen.DESCUENTO.ToString();
+            txtSubTotal.Text = resumen.SUBTOTAL.ToString();
+            txtIva.Text = resumen.IVA.ToString();
+            decimal sub_descuento = resumen.SUBTOTAL - resumen.DESCUENTO;
+            decimal total = sub_descuento - resumen.IVA;
+            txtTotal.Text = total.ToString();
             decimal totalFinal = Convert.ToDecimal(txtTotal.Text) - Convert.ToDecimal(txtDescuento.Text);
             txtTotalFinal.Text = totalFinal.ToString("0.00");
         }
@@ -145,14 +147,19 @@ namespace CapaVista.FormVentas
                 if (confirmResult == DialogResult.Yes)
                 {
                     this.Cursor = Cursors.WaitCursor;
-                    infoVenta v = new infoVenta
+                    Modelos.Venta v = new Modelos.Venta
                     {
-                        ID_CLIENTE = cliente.ID,
-                        ID_USUARIO = user.ID,
-                        DESCUENTO = resumen.descuento,
-                        IVA = resumen.iva,
-                        SUBTOTAL = resumen.subtotal,
-                        TOTAL = resumen.total,
+                        CLIENTE = new Modelos.Cliente
+                        {
+                            ID = cliente.ID,
+                        },
+                        USUARIO = new Modelos.Usuario
+                        {
+                            ID =user.ID,
+                        } ,
+                        DESCUENTO = resumen.DESCUENTO,
+                        IVA = resumen.IVA,
+                        SUBTOTAL = resumen.SUBTOTAL
                     };
                     factura = cVenta.procesoDeVenta(v, detalles);
                     MessageBox.Show(cVenta.retornarMensaje());
@@ -175,7 +182,7 @@ namespace CapaVista.FormVentas
 
             return mensaje;
         }
-        private void printdirect(infoVenta venta)//metodo para imprimir en la impresora que esta predeterminaad en windows, hay que poner el pOS80 COMO PREDETERMINADA!
+        private void printdirect(Modelos.Venta venta)//metodo para imprimir en la impresora que esta predeterminaad en windows, hay que poner el pOS80 COMO PREDETERMINADA!
         {
             Modelos.Empresa empresa = new ControlEmpresa().datosEmpresa();
 
@@ -247,15 +254,9 @@ namespace CapaVista.FormVentas
                 yPos += (int)contentFont.GetHeight();
                 foreach (var d in detalles)
                 {
-
-                    e.Graphics.DrawString($"{d.NOMBRE}", contentFont, Brushes.Black, marginLeft, yPos);
-                    e.Graphics.DrawString($"{d.SUBTOTAL}", contentFont, Brushes.Black, 240, yPos);
+                    e.Graphics.DrawString($"{d.PRODUCTO.NOMBRE + d.PRODUCTO.MARCA + d.PRODUCTO.UNIDAD}", contentFont, Brushes.Black, marginLeft, yPos);
+                    e.Graphics.DrawString($"{d.CANTIDAD * d.PRECIO}", contentFont, Brushes.Black, 240, yPos);
                     e.Graphics.DrawString($"{d.CANTIDAD} x {d.PRECIO}", contentFont, Brushes.Black, 130, yPos);
-
-                    /*    e.Graphics.DrawString($"{d.NOMBRE}", font, Brushes.Black, 20, y);
-                        e.Graphics.DrawString($"{d.SUBTOTAL}", font, Brushes.Black, 700, y);
-                        y += 20;
-                        e.Graphics.DrawString($"{d.CANTIDAD} x {d.PRECIO}", font, Brushes.Black, 20, y);*/
                     yPos += (int)contentFont.GetHeight();
                 }
 
@@ -304,13 +305,9 @@ namespace CapaVista.FormVentas
                 string nota = "         ******NOTA: No se aceptan devoluciones******";
                 e.Graphics.DrawString(nota, contentFont, Brushes.Black, marginLeft, yPos);
                 yPos += (int)contentFont.GetHeight();
-
-                // Mensaje de agradecimiento
                 string agradecimiento = "                     Gracias por preferirnos :)";
                 e.Graphics.DrawString(agradecimiento, contentFont, Brushes.Black, marginLeft, yPos);
                 yPos += (int)contentFont.GetHeight();
-
-                // Línea divisoria final
                 yPos += 10;
                 e.Graphics.DrawLine(new Pen(Brushes.Black), marginLeft, yPos, 280, yPos);
             };
