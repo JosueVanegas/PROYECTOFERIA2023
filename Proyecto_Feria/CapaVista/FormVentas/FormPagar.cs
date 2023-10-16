@@ -12,7 +12,7 @@ namespace CapaVista.FormVentas
     public partial class FormPagar : MaterialForm
     {
         ResumenVenta resumen;
-        Cliente cliente = new Cliente();
+        Modelos.Cliente cliente = new Modelos.Cliente();
         Modelos.Usuario user;
         List<DetalleVenta> detalles;
         ControlVenta cVenta = new ControlVenta();
@@ -147,7 +147,7 @@ namespace CapaVista.FormVentas
                     this.Cursor = Cursors.WaitCursor;
                     infoVenta v = new infoVenta
                     {
-                        ID_CLIENTE = cliente.id,
+                        ID_CLIENTE = cliente.ID,
                         ID_USUARIO = user.ID,
                         DESCUENTO = resumen.descuento,
                         IVA = resumen.iva,
@@ -175,22 +175,9 @@ namespace CapaVista.FormVentas
 
             return mensaje;
         }
-
-
-
-
-
-
-
-        //TODO
-        //el select de las impresoras ya no seria necesario supongo PORQUE SE ESTA IMPRIMIENDO POR DEFECTO LA PREDETERMINADA
-        //AJUSTAR EL TEXTO PARA QUE SE AJUSTE AL VOUCHER DE LA HOJA (ESTO VAS A TENER QUE HACERLO A MANO NO HAY DE OTRA, A MENOS QUE SE CAMBIE A CRYSTAL REPORT PERO NO HAY TIEMPO)
-        //EN ESTA LINEA PODES DARLE MAS ESPACIO PARA QUE SE SEPAREN UNA ABAJO DE LA LINEA ANTERIOR yPos += (int) titleFont.GetHeight()+5;//dar un poco mas de enter SUMANDOLE +5 O +10 ETC
-        //NOTA LAS CLASES SE DEBEN NOMBRAR EN MAYUSCULA infoVenta ->InfoVenta
-
         private void printdirect(infoVenta venta)//metodo para imprimir en la impresora que esta predeterminaad en windows, hay que poner el pOS80 COMO PREDETERMINADA!
         {
-            Empresa empresa = new ControlEmpresa().datosEmpresa();
+            Modelos.Empresa empresa = new ControlEmpresa().datosEmpresa();
 
             float y = 20;
 
@@ -208,23 +195,26 @@ namespace CapaVista.FormVentas
                 int yPos = marginTop;
 
                 // Imprimir el encabezado
-                string encabezado = $"{empresa.nombre}";
+                string encabezado = $"{empresa.NOMBRE}";
                 e.Graphics.DrawString(encabezado, titleFont, Brushes.Black, 100, yPos);
                 yPos += (int)titleFont.GetHeight() + 5;//dar un poco mas de enter
 
                 string facturaInfo = $"Factura No: {factura}";
                 e.Graphics.DrawString(facturaInfo, contentFont, Brushes.Black, marginLeft, yPos);
                 yPos += (int)contentFont.GetHeight() + 5;
+                string fecha = $"Fecha de facturación: {DateTime.Now}";
+                e.Graphics.DrawString(facturaInfo, contentFont, Brushes.Black, marginLeft, yPos);
+                yPos += (int)contentFont.GetHeight() + 5;
 
-                string direccion = $"Dirección: {empresa.direccion + " " + empresa.departamento}";
+                string direccion = $"Dirección: {empresa.DIRECCION}";
                 e.Graphics.DrawString(direccion, contentFont, Brushes.Black, marginLeft, yPos);
                 yPos += (int)contentFont.GetHeight() + 5;
 
-                string email = $"Email:{empresa.email}";
+                string email = $"Email:{empresa.CORREO}";
                 e.Graphics.DrawString(email, contentFont, Brushes.Black, marginLeft, yPos);
                 yPos += (int)contentFont.GetHeight();
 
-                string telefono = $"Teléfono: {empresa.telefono}";
+                string telefono = $"Teléfono: {empresa.TELEFONO}";
                 e.Graphics.DrawString(telefono, contentFont, Brushes.Black, marginLeft, yPos);
                 yPos += (int)contentFont.GetHeight();
 
@@ -329,76 +319,6 @@ namespace CapaVista.FormVentas
             printDocument.PrintController = printController;
             printDocument.Print();
         }
-
-
-
-        private void imprimir(object sender, PrintPageEventArgs e)
-        {
-            Empresa empresa = new ControlEmpresa().datosEmpresa();
-            Font font = new Font("Courier New", 12);
-            float y = 20;
-
-            e.Graphics.DrawString($"                               {empresa.nombre}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"Factura No: {new DataVenta().noFactura}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"Dirección: {empresa.direccion + " " + empresa.departamento}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"Email: {empresa.email}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"Teléfono: {empresa.telefono}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"Cliente:{txtCliente.Text}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"Usuario en turno: {user.NOMBRE}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString("------------------------------------detalles-------------------------------", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString("Descripcion", font, Brushes.Black, 20, y);
-            e.Graphics.DrawString("Subtotal", font, Brushes.Black, 700, y);
-            y += 20;
-            foreach (var d in detalles)
-            {
-                e.Graphics.DrawString($"{d.NOMBRE}", font, Brushes.Black, 20, y);
-                e.Graphics.DrawString($"{d.SUBTOTAL}", font, Brushes.Black, 700, y);
-                y += 20;
-                e.Graphics.DrawString($"{d.CANTIDAD} x {d.PRECIO}", font, Brushes.Black, 20, y);
-                y += 20;
-            }
-            e.Graphics.DrawString("------------------------------------resumen--------------------------------", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"Subtotal:{txtSubTotal.Text}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"IVA: {txtIva.Text}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"Total antes de descuento: {txtTotal.Text}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"Descuento: {txtDescuento.Text}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"Total despues de descuento y deducciones: {txtTotalFinal.Text}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"Cambio: {txtCambioDeCompra.Text}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString("                     ******NOTA: No se aceptan devoluciones*****", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString("                           Gracias por preferirnos :)", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString("----------------------------------------------------------------------------", font, Brushes.Black, 20, y);
-            y += 20;
-            e.HasMorePages = false;
-        }
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-        private void txtBusquedaCliente_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back)
-            {
-                e.Handled = true;
-            }
-        }
-
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             string columna = cbxBuscar.SelectedItem.ToString();
@@ -439,10 +359,10 @@ namespace CapaVista.FormVentas
                 {
                     int idObtenido = (int)tbBusqueda.Rows[indice].Cells["Id"].Value;
                     string nombreObtenido = tbBusqueda.Rows[indice].Cells["Nombre"].Value.ToString();
-                    cliente = new Cliente
+                    cliente = new Modelos.Cliente
                     {
-                        id = idObtenido,
-                        nombre = nombreObtenido
+                        ID = idObtenido,
+                        NOMBRES = nombreObtenido
                     };
                     txtCliente.Text = nombreObtenido;
                 }
@@ -453,7 +373,7 @@ namespace CapaVista.FormVentas
         {
             if (ckbClienteComun.Checked == true)
             {
-                cliente.id = 1;
+                cliente.ID = 0;
                 txtCliente.Text = "CLIENTE COMUN";
             }
             else
@@ -508,7 +428,10 @@ namespace CapaVista.FormVentas
             toolTip.SetToolTip(pictureBox3, "Si deseas usar un cliente que esta registrado puede seleccionar desde la tabla");
         }
 
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
 //codigo para crear factura en pdf en lugar de imprimir(en ausencia de impresora)

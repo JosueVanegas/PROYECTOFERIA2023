@@ -9,11 +9,11 @@ namespace CapaControlador
         {
             return dash.cantidadDeObjetosEnTabla(tabla);
         }
-        public List<graficaProductos> datosGraficaProductos()
+        public Dictionary<string,int> datosGraficaProductos()
         {
             return dash.datosGraficaProductosMasVendidos();
         }
-        public List<graficaVentas> datosGraficaVentas(string fechaInicio,string fechaFin)
+        public Dictionary<DateTime, decimal> datosGraficaVentas(string fechaInicio,string fechaFin)
         {
         
              if(fechaFin != null && fechaInicio != null)
@@ -22,7 +22,7 @@ namespace CapaControlador
              }
              else
              {
-                 return new List<graficaVentas>();
+                 return new Dictionary<DateTime, decimal>();
              }
         }
         public string valorInventario()

@@ -5,11 +5,11 @@ namespace CapaControlador
     public class ControlCompra
     {
         DataCompra dCompra = new DataCompra();
-        public string procesoCompra(realizarCompra v, List<detalleCompra> detalles)
+        public string procesoCompra(Modelos.Compra v, List<Modelos.DetalleCompra> detalles)
         {
             return dCompra.procesoDeCompra(v, detalles);
         }
-        public List<compra> listarCompra()
+        public List<Modelos.Compra> listarCompra()
         {
             return dCompra.listarCompras();
         }

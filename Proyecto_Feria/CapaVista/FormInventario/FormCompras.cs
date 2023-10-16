@@ -6,7 +6,6 @@ namespace CapaVista.FormInventario
 {
     public partial class FormCompras : MaterialForm
     {
-        Producto productoBuscado;
         List<Modelos.Producto> lista;
         ControlCompra cCompra = new ControlCompra();
         Modelos.Usuario user;
@@ -29,11 +28,11 @@ namespace CapaVista.FormInventario
         }
         private void mostrarCompras()
         {
-            List<compra> lista = cCompra.listarCompra();
+            List<Modelos.Compra> lista = cCompra.listarCompra();
             tbCompras.Rows.Clear();
-            foreach (compra c in lista)
+            foreach (Modelos.Compra c in lista)
             {
-                tbCompras.Rows.Add(c.id, c.factura, c.idUsuario, c.nombreUsuario, c.total);
+                tbCompras.Rows.Add(c.ID, c.USUARIO.NOMBRE, c.SUBTOTAL, c.FECHA_REGISTRO);
             }
         }
         private void mostrarProductosDisponible()
@@ -139,7 +138,7 @@ namespace CapaVista.FormInventario
                 if (rowIndex >= 0)
                 {
                     int nuevaCantidad = 1 + Convert.ToInt32(tbDetalles.Rows[rowIndex].Cells["Cantidad"].Value);
-                    decimal nuevoSubTotal = nuevaCantidad * producto.PRECIO_VENTA;
+                    decimal nuevoSubTotal = nuevaCantidad * producto.PRECIO_COMPRA;
                     tbDetalles.Rows[rowIndex].Cells["Cantidad"].Value = nuevaCantidad;
                     tbDetalles.Rows[rowIndex].Cells["SubTotal"].Value = nuevoSubTotal;
                 }
@@ -218,10 +217,13 @@ namespace CapaVista.FormInventario
         {
             if (txtTotal.Text != "")
             {
-                realizarCompra compra = new realizarCompra
+                Modelos.Compra compra = new Modelos.Compra
                 {
-                    ID_USUARIO = user.ID,
-                    TOTAL = Convert.ToDecimal(txtTotal.Text)
+                    USUARIO = new Modelos.Usuario
+                    {
+                        ID = this.user.ID
+                    },
+                    SUBTOTAL = Convert.ToDecimal(txtTotal.Text)
                 };
                 MessageBox.Show(cCompra.procesoCompra(compra, obtenerDetalles()));
                 mostrarCompras();
@@ -233,21 +235,23 @@ namespace CapaVista.FormInventario
                 MessageBox.Show("No se ha comprado nada");
             }
         }
-        private List<detalleCompra> obtenerDetalles()
+        private List<Modelos.DetalleCompra> obtenerDetalles()
         {
-            List<detalleCompra> lista = new List<detalleCompra>();
+            List<Modelos.DetalleCompra> lista = new List<Modelos.DetalleCompra>();
 
             foreach (DataGridViewRow row in tbDetalles.Rows)
             {
                 if (!row.IsNewRow)
                 {
-                    detalleCompra detalle = new detalleCompra
+                    Modelos.DetalleCompra detalle = new Modelos.DetalleCompra
                     {
-                        idCompra = 0,
-                        idProducto = (int)row.Cells["Id"].Value,
-                        cantidad = (int)row.Cells["Cantidad"].Value,
-                        precioCompra = (decimal)row.Cells["PrecioCompra"].Value,
-                        total = (decimal)row.Cells["Subtotal"].Value,
+                        ID = 0,
+                        PRODUCTO = new Modelos.Producto
+                        {
+                            ID = (int)row.Cells["Id"].Value
+                        },
+                        CANTIDAD = (int)row.Cells["Cantidad"].Value,
+                        ULTIMO_PRECIO = (decimal)row.Cells["PrecioCompra"].Value,
                     };
                     lista.Add(detalle);
                 }
@@ -256,100 +260,48 @@ namespace CapaVista.FormInventario
         }
         private void btnGuardar_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
-
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(btnGuardar, "Guardar");
         }
-
         private void btnLimpiar_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
-
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(btnLimpiar, "Limpiar");
         }
-
         private void lblEncabezado_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
-
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(lblEncabezado, "Registro de cada una de las compras realizadas a proveeedores");
         }
-
         private void cbxBuscarCompra_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
-
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(cbxBuscarCompra, "Para una busqueda mas efeciente se pueden realizar busqueda por filtros");
         }
-
         private void cbxBuscarProducto_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
-
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(cbxBuscarProducto, "Para una busqueda mas efeciente se pueden realizar busqueda por filtros");
         }
-
         private void btnCerrarBusqueda_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
-
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(btnCerrarBusqueda, "Cerrar Busqueda de Productos");
         }
-
         private void btnAgregarProducto_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
-
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(btnAgregarProducto, "Agregar un producto en la compra ");
         }
-
         private void btnBuscarProducto_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
-
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(btnBuscarProducto, "Busqueda de Productos");
         }
-
         private void lblTitulo_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
             toolTip.ToolTipIcon = ToolTipIcon.Info;
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(pictureBox4, "Bienvenido al area de Compras a Proveedores:\n" +
                                           "Para Agregar un nuevo Producto :\n" +
                                           "1.Debemos haber creado el registro de un producto en el area de productos.\n" +
@@ -364,22 +316,18 @@ namespace CapaVista.FormInventario
         }
         private void txtCodigoDeProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Verificar si el carácter no es un número o la tecla de retroceso (Backspace)
             if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
             {
-                e.Handled = true; // Evita que se procese el carácter
+                e.Handled = true;
             }
         }
-
         private void txtBuscarProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Verificar si el carácter no es una letra, número, guión o espacio, ni la tecla de retroceso (Backspace)
             if (!Char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != '-' && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back)
             {
-                e.Handled = true; // Evita que se procese el carácter
+                e.Handled = true;
             }
         }
-
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             limpiarCampos();

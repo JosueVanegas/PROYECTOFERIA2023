@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPagar));
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panel1 = new Panel();
             pictureBox4 = new PictureBox();
             txtTotalFinal = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
@@ -54,13 +54,13 @@
             txtBuscar = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             cbxBuscar = new ReaLTaiizor.Controls.MaterialComboBox();
             tbBusqueda = new ReaLTaiizor.Controls.PoisonDataGridView();
-            panel2 = new Panel();
-            pictureBox2 = new PictureBox();
-            pdImprimir = new System.Drawing.Printing.PrintDocument();
             Seleccionar = new DataGridViewButtonColumn();
             Id = new DataGridViewTextBoxColumn();
             Cedula = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
+            panel2 = new Panel();
+            pictureBox2 = new PictureBox();
+            pdImprimir = new System.Drawing.Printing.PrintDocument();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -354,7 +354,6 @@
             txtCliente.TextAlign = HorizontalAlignment.Center;
             txtCliente.TrailingIcon = null;
             txtCliente.UseSystemPasswordChar = false;
-            txtCliente.KeyPress += txtBusquedaCliente_KeyPress;
             // 
             // ckbClienteComun
             // 
@@ -576,24 +575,24 @@
             tbBusqueda.BorderStyle = BorderStyle.None;
             tbBusqueda.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             tbBusqueda.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            tbBusqueda.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            tbBusqueda.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             tbBusqueda.ColumnHeadersHeight = 35;
             tbBusqueda.Columns.AddRange(new DataGridViewColumn[] { Seleccionar, Id, Cedula, Nombre });
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.DarkGray;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = Color.LightSkyBlue;
-            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            tbBusqueda.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.DarkGray;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.LightSkyBlue;
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            tbBusqueda.DefaultCellStyle = dataGridViewCellStyle2;
             tbBusqueda.Dock = DockStyle.Bottom;
             tbBusqueda.EnableHeadersVisualStyles = false;
             tbBusqueda.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
@@ -602,14 +601,14 @@
             tbBusqueda.Margin = new Padding(3, 4, 3, 4);
             tbBusqueda.Name = "tbBusqueda";
             tbBusqueda.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.Silver;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            tbBusqueda.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.Silver;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            tbBusqueda.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             tbBusqueda.RowHeadersVisible = false;
             tbBusqueda.RowHeadersWidth = 40;
             tbBusqueda.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -619,6 +618,38 @@
             tbBusqueda.TabIndex = 55;
             tbBusqueda.CellContentClick += tbBusqueda_CellContentClick;
             tbBusqueda.CellPainting += tbBusqueda_CellPainting;
+            // 
+            // Seleccionar
+            // 
+            Seleccionar.HeaderText = "Seleccionar";
+            Seleccionar.MinimumWidth = 6;
+            Seleccionar.Name = "Seleccionar";
+            Seleccionar.Width = 125;
+            // 
+            // Id
+            // 
+            Id.HeaderText = "Id";
+            Id.MinimumWidth = 6;
+            Id.Name = "Id";
+            Id.ReadOnly = true;
+            Id.Visible = false;
+            Id.Width = 10;
+            // 
+            // Cedula
+            // 
+            Cedula.HeaderText = "Cedula";
+            Cedula.MinimumWidth = 6;
+            Cedula.Name = "Cedula";
+            Cedula.ReadOnly = true;
+            Cedula.Width = 125;
+            // 
+            // Nombre
+            // 
+            Nombre.HeaderText = "Cliente";
+            Nombre.MinimumWidth = 6;
+            Nombre.Name = "Nombre";
+            Nombre.ReadOnly = true;
+            Nombre.Width = 200;
             // 
             // panel2
             // 
@@ -648,37 +679,6 @@
             pictureBox2.TabIndex = 75;
             pictureBox2.TabStop = false;
             pictureBox2.MouseHover += pictureBox2_MouseHover;
-            // 
-            // Seleccionar
-            // 
-            Seleccionar.HeaderText = "Seleccionar";
-            Seleccionar.MinimumWidth = 6;
-            Seleccionar.Name = "Seleccionar";
-            Seleccionar.Width = 125;
-            // 
-            // Id
-            // 
-            Id.HeaderText = "Id";
-            Id.MinimumWidth = 6;
-            Id.Name = "Id";
-            Id.ReadOnly = true;
-            Id.Visible = false;
-            Id.Width = 10;
-            // 
-            // Cedula
-            // 
-            Cedula.HeaderText = "Cedula";
-            Cedula.MinimumWidth = 6;
-            Cedula.Name = "Cedula";
-            Cedula.ReadOnly = true;
-            // 
-            // Nombre
-            // 
-            Nombre.HeaderText = "Cliente";
-            Nombre.MinimumWidth = 6;
-            Nombre.Name = "Nombre";
-            Nombre.ReadOnly = true;
-            Nombre.Width = 200;
             // 
             // FormPagar
             // 

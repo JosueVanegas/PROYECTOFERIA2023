@@ -6,28 +6,37 @@ namespace CapaDatos
     public class DataCompra
     {
         public int idCreado = 0;
-        public string noFactura = string.Empty;
+        public bool acceder;
         string mensaje = string.Empty;
         public DataCompra() { }
 
-        public string procesoDeCompra(realizarCompra rc, List<detalleCompra> detalles)
+        public string procesoDeCompra(Modelos.Compra compra, List<Modelos.DetalleCompra> detalles)
         {
             string mensaje = "";
             try
             {
-                int id = registrarCompra(rc);
-                if (id > 0)
+                if (registrarCompra(compra) == true)
                 {
-                    foreach (detalleCompra d in detalles)
+                    
+                    if (idCreado > 0)
                     {
-                        registrarDetalleCompra(d, id);
+                        foreach (Modelos.DetalleCompra d in detalles)
+                        {
+                            registrarDetalleCompra(d, idCreado);
+                        }
+                        idCreado = 0;
+                        mensaje = "Proceso de compra realizado con exito";
                     }
-                    mensaje = "Proceso de compra realizado con exito";
+                    else
+                    {
+                        mensaje = "No se ha podido generar el id de compra";
+                    }
                 }
                 else
                 {
-                    mensaje = "No se ha podido realizar el registro de la compra";
+                    mensaje = "No se pudo registrar la compra";
                 }
+                
             }
             catch (Exception ex)
             {
@@ -35,9 +44,9 @@ namespace CapaDatos
             }
             return mensaje;
         }
-        public List<compra> listarCompras()
+        public List<Modelos.Compra> listarCompras()
         {
-            List<compra> lista = new List<compra>();
+            List<Modelos.Compra> lista = new List<Modelos.Compra>();
             string query = "SELECT P.ID,U.USERS_NAME,P.SUBTOTAL,P.CREATED_AT FROM INVENTORY.PURCHASES P INNER JOIN SALES.USERS U ON U.ID = P.ID_USER\r\n";
             using (var con = new conexion().conectar())
             {
@@ -51,14 +60,12 @@ namespace CapaDatos
                         {
                             while (reader.Read())
                             {
-                                lista.Add(new compra
+                                lista.Add(new Modelos.Compra
                                 {
-                                    id = Convert.ToInt32(reader[0]),
-                                    factura = reader[1].ToString(),
-                                    idUsuario = Convert.ToInt32(reader[2]),
-                                    nombreUsuario = reader[3].ToString(),
-                                    total = Convert.ToDecimal(reader[4]),
-                                    fechaRegistro = reader[5].ToString()
+                                    ID = Convert.ToInt32(reader[0]),
+                                    USUARIO = new Modelos.Usuario { NOMBRE = reader[1].ToString()},
+                                    SUBTOTAL = Convert.ToDecimal(reader[2]),
+                                    FECHA_REGISTRO = Convert.ToDateTime(reader[3]),
                                 });
                             }
                         }
@@ -67,12 +74,12 @@ namespace CapaDatos
                 }
                 catch (Exception ex)
                 {
-                    lista = new List<compra>();
+                    lista = new List<Modelos.Compra>();
                 }
             }
             return lista;
         }
-        public int registrarCompra(realizarCompra c)
+        public bool registrarCompra(Modelos.Compra c)
         {
             idCreado = 0;
             using (SqlConnection con = new conexion().conectar())
@@ -80,42 +87,39 @@ namespace CapaDatos
                 try
                 {
                     con.Open();
-                    using (SqlCommand cmd = new SqlCommand("PROC_REGISTRAR_COMPRA", con))
+                    using (SqlCommand cmd = new SqlCommand("PROC_REGISTER_PURCHASE", con))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@ID_USUARIO", c.ID_USUARIO);
-                        cmd.Parameters.AddWithValue("@TOTAL_COMPRA", c.TOTAL);
-                        cmd.Parameters.Add("ID_CREADO", System.Data.SqlDbType.Int).Direction = System.Data.ParameterDirection.Output;
-                        cmd.Parameters.Add("NO_FACTURA", System.Data.SqlDbType.VarChar, 30).Direction = System.Data.ParameterDirection.Output;
+                        cmd.Parameters.AddWithValue("@ID_USER", c.USUARIO.ID);
+                        cmd.Parameters.AddWithValue("@SUBTOTAL", c.SUBTOTAL);
+                        cmd.Parameters.Add("NEWID", System.Data.SqlDbType.Int).Direction = System.Data.ParameterDirection.Output;
+                        cmd.Parameters.Add("RESULT", System.Data.SqlDbType.Bit, 30).Direction = System.Data.ParameterDirection.Output;
                         cmd.ExecuteNonQuery();
-                        idCreado = (int)cmd.Parameters["ID_CREADO"].Value;
-                        noFactura = cmd.Parameters["NO_FACTURA"].Value.ToString();
+                        idCreado = (int)cmd.Parameters["NEWID"].Value;
+                        acceder = (bool)cmd.Parameters["RESULT"].Value;
                     }
                 }
                 catch (Exception ex)
                 {
                     idCreado = 0;
                 }
-#pragma warning restore CS0168 // La variable está declarada pero nunca se usa
             }
-            return idCreado;
+            return acceder;
         }
-        public void registrarDetalleCompra(detalleCompra d, int id)
+        public void registrarDetalleCompra(Modelos.DetalleCompra d, int id)
         {
-#pragma warning disable CS0168 // La variable está declarada pero nunca se usa
             try
             {
                 using (SqlConnection con = new conexion().conectar())
                 {
-                    using (SqlCommand cmd = new SqlCommand("PROC_REGISTRAR_DETALLE_COMPRA", con))
+                    using (SqlCommand cmd = new SqlCommand("PROC_REGISTER_PURCHASE_DETAILS", con))
                     {
                         con.Open();
                         cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@ID_COMPRA", id);
-                        cmd.Parameters.AddWithValue("@ID_PRODUCTO", d.idProducto);
-                        cmd.Parameters.AddWithValue("@CANTIDAD", d.cantidad);
-                        cmd.Parameters.AddWithValue("@PRECIOCOMPRA", d.precioCompra);
-                        cmd.Parameters.AddWithValue("@SUBTOTAL", d.total);
+                        cmd.Parameters.AddWithValue("@ID_PURCHASE", id);
+                        cmd.Parameters.AddWithValue("@ID_PRODUCT", d.PRODUCTO.ID);
+                        cmd.Parameters.AddWithValue("@AMOUNT", d.CANTIDAD);
+                        cmd.Parameters.AddWithValue("@LASTPRICE", d.ULTIMO_PRECIO);
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -123,7 +127,6 @@ namespace CapaDatos
             catch (Exception ex)
             {
             }
-#pragma warning restore CS0168 // La variable está declarada pero nunca se usa
         }
     }
 }

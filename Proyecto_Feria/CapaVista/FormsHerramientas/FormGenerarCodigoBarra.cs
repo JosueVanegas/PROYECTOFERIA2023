@@ -19,9 +19,9 @@ namespace CapaVista.FormsHerramientas
         }
         private void cbxProductos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            comboProducto combo = cbxProductos.SelectedItem as comboProducto;
-            txtCodigo.Text = combo.codigo;
-            txtTitulo.Text = combo.nombre;
+            Modelos.Producto combo = cbxProductos.SelectedItem as Modelos.Producto;
+            txtCodigo.Text = combo.CODIGO;
+            txtTitulo.Text = combo.NOMBRE;
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {

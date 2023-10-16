@@ -23,12 +23,12 @@ namespace CapaVista
             this.Cursor = Cursors.WaitCursor;
             this.user = usuario;
             reloj.Start();
-             datosDeUsuarioActual(user);
+            //datosDeUsuarioActual(user);
             this.Cursor = Cursors.Default;
         }
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            // abrirFormulario(new FormInicio());
+            abrirFormulario(new FormInicio());
         }
         private void datosDeUsuarioActual(Modelos.Usuario u)
         {
@@ -72,8 +72,8 @@ namespace CapaVista
             form.TopLevel = false;
             form.Dock = DockStyle.Fill;
 
-            form.MaximizeBox = false; // Desactivar la opción de cambiar el tamaño
-            form.MinimizeBox = false; // Desactivar la opción de minimizar
+            form.MaximizeBox = false;
+            form.MinimizeBox = false;
             panelContenedor.Controls.Add(form);
             form.Show();
         }

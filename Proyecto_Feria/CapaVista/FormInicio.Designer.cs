@@ -121,7 +121,7 @@
             lblNombreEmpresa.ForeColor = Color.Black;
             lblNombreEmpresa.Location = new Point(0, 0);
             lblNombreEmpresa.Name = "lblNombreEmpresa";
-            lblNombreEmpresa.Size = new Size(398, 64);
+            lblNombreEmpresa.Size = new Size(455, 85);
             lblNombreEmpresa.TabIndex = 40;
             lblNombreEmpresa.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -134,7 +134,8 @@
             legend1.BackColor = Color.White;
             legend1.Name = "Legend1";
             chartTopUsuario.Legends.Add(legend1);
-            chartTopUsuario.Location = new Point(0, 38);
+            chartTopUsuario.Location = new Point(0, 51);
+            chartTopUsuario.Margin = new Padding(3, 4, 3, 4);
             chartTopUsuario.Name = "chartTopUsuario";
             chartTopUsuario.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
             series1.ChartArea = "ChartArea1";
@@ -152,7 +153,7 @@
             series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
             series1.YValuesPerPoint = 6;
             chartTopUsuario.Series.Add(series1);
-            chartTopUsuario.Size = new Size(736, 158);
+            chartTopUsuario.Size = new Size(842, 210);
             chartTopUsuario.TabIndex = 49;
             chartTopUsuario.Text = "chart1";
             // 
@@ -179,6 +180,7 @@
             legend2.TitleFont = new Font("Microsoft Tai Le", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
             chartTopProductos.Legends.Add(legend2);
             chartTopProductos.Location = new Point(0, 0);
+            chartTopProductos.Margin = new Padding(3, 4, 3, 4);
             chartTopProductos.Name = "chartTopProductos";
             chartTopProductos.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             chartTopProductos.PaletteCustomColors = new Color[] { Color.DarkSlateBlue, Color.SteelBlue, Color.MidnightBlue, Color.DarkCyan, Color.Navy, Color.SeaGreen };
@@ -195,7 +197,7 @@
             series2.SmartLabelStyle.IsOverlappedHidden = false;
             series2.YValuesPerPoint = 4;
             chartTopProductos.Series.Add(series2);
-            chartTopProductos.Size = new Size(397, 382);
+            chartTopProductos.Size = new Size(454, 510);
             chartTopProductos.TabIndex = 0;
             chartTopProductos.Text = "chart1";
             title1.Alignment = ContentAlignment.TopLeft;
@@ -211,9 +213,10 @@
             panelGraficosBarra.Controls.Add(chartTopProductos);
             panelGraficosBarra.Dock = DockStyle.Right;
             panelGraficosBarra.Enabled = false;
-            panelGraficosBarra.Location = new Point(739, 130);
+            panelGraficosBarra.Location = new Point(845, 173);
+            panelGraficosBarra.Margin = new Padding(3, 4, 3, 4);
             panelGraficosBarra.Name = "panelGraficosBarra";
-            panelGraficosBarra.Size = new Size(397, 382);
+            panelGraficosBarra.Size = new Size(454, 510);
             panelGraficosBarra.TabIndex = 47;
             // 
             // pictureLogoEmpresa
@@ -226,8 +229,9 @@
             pictureLogoEmpresa.Dock = DockStyle.Left;
             pictureLogoEmpresa.GradientAngle = 50F;
             pictureLogoEmpresa.Location = new Point(0, 0);
+            pictureLogoEmpresa.Margin = new Padding(3, 4, 3, 4);
             pictureLogoEmpresa.Name = "pictureLogoEmpresa";
-            pictureLogoEmpresa.Size = new Size(127, 127);
+            pictureLogoEmpresa.Size = new Size(145, 145);
             pictureLogoEmpresa.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureLogoEmpresa.TabIndex = 45;
             pictureLogoEmpresa.TabStop = false;
@@ -240,8 +244,9 @@
             panel1.Controls.Add(panel12);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(3, 0);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1133, 130);
+            panel1.Size = new Size(1296, 173);
             panel1.TabIndex = 50;
             // 
             // panel6
@@ -250,9 +255,10 @@
             panel6.Controls.Add(panel9);
             panel6.Controls.Add(panel8);
             panel6.Dock = DockStyle.Top;
-            panel6.Location = new Point(140, 64);
+            panel6.Location = new Point(160, 85);
+            panel6.Margin = new Padding(3, 4, 3, 4);
             panel6.Name = "panel6";
-            panel6.Size = new Size(993, 57);
+            panel6.Size = new Size(1136, 76);
             panel6.TabIndex = 44;
             // 
             // panel10
@@ -261,9 +267,10 @@
             panel10.Controls.Add(label8);
             panel10.Controls.Add(rjCircularPictureBox9);
             panel10.Dock = DockStyle.Left;
-            panel10.Location = new Point(577, 0);
+            panel10.Location = new Point(659, 0);
+            panel10.Margin = new Padding(3, 4, 3, 4);
             panel10.Name = "panel10";
-            panel10.Size = new Size(298, 57);
+            panel10.Size = new Size(341, 76);
             panel10.TabIndex = 2;
             // 
             // lblValorInvetario
@@ -271,9 +278,9 @@
             lblValorInvetario.Dock = DockStyle.Top;
             lblValorInvetario.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             lblValorInvetario.ForeColor = Color.Black;
-            lblValorInvetario.Location = new Point(60, 30);
+            lblValorInvetario.Location = new Point(68, 40);
             lblValorInvetario.Name = "lblValorInvetario";
-            lblValorInvetario.Size = new Size(238, 27);
+            lblValorInvetario.Size = new Size(273, 36);
             lblValorInvetario.TabIndex = 47;
             lblValorInvetario.Text = "0";
             lblValorInvetario.TextAlign = ContentAlignment.MiddleCenter;
@@ -283,9 +290,9 @@
             label8.Dock = DockStyle.Top;
             label8.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label8.ForeColor = Color.Black;
-            label8.Location = new Point(60, 0);
+            label8.Location = new Point(68, 0);
             label8.Name = "label8";
-            label8.Size = new Size(238, 30);
+            label8.Size = new Size(273, 40);
             label8.TabIndex = 46;
             label8.Text = "Valor del invetario actual:";
             label8.TextAlign = ContentAlignment.MiddleLeft;
@@ -302,8 +309,9 @@
             rjCircularPictureBox9.GradientAngle = 100F;
             rjCircularPictureBox9.Image = (Image)resources.GetObject("rjCircularPictureBox9.Image");
             rjCircularPictureBox9.Location = new Point(0, 0);
+            rjCircularPictureBox9.Margin = new Padding(3, 4, 3, 4);
             rjCircularPictureBox9.Name = "rjCircularPictureBox9";
-            rjCircularPictureBox9.Size = new Size(60, 60);
+            rjCircularPictureBox9.Size = new Size(68, 68);
             rjCircularPictureBox9.SizeMode = PictureBoxSizeMode.CenterImage;
             rjCircularPictureBox9.TabIndex = 45;
             rjCircularPictureBox9.TabStop = false;
@@ -314,9 +322,10 @@
             panel9.Controls.Add(label6);
             panel9.Controls.Add(rjCircularPictureBox8);
             panel9.Dock = DockStyle.Left;
-            panel9.Location = new Point(309, 0);
+            panel9.Location = new Point(353, 0);
+            panel9.Margin = new Padding(3, 4, 3, 4);
             panel9.Name = "panel9";
-            panel9.Size = new Size(268, 57);
+            panel9.Size = new Size(306, 76);
             panel9.TabIndex = 1;
             // 
             // lblTotalVentas
@@ -324,9 +333,9 @@
             lblTotalVentas.Dock = DockStyle.Top;
             lblTotalVentas.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             lblTotalVentas.ForeColor = Color.Black;
-            lblTotalVentas.Location = new Point(60, 30);
+            lblTotalVentas.Location = new Point(68, 40);
             lblTotalVentas.Name = "lblTotalVentas";
-            lblTotalVentas.Size = new Size(208, 27);
+            lblTotalVentas.Size = new Size(238, 36);
             lblTotalVentas.TabIndex = 47;
             lblTotalVentas.Text = "0";
             lblTotalVentas.TextAlign = ContentAlignment.MiddleCenter;
@@ -336,9 +345,9 @@
             label6.Dock = DockStyle.Top;
             label6.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label6.ForeColor = Color.Black;
-            label6.Location = new Point(60, 0);
+            label6.Location = new Point(68, 0);
             label6.Name = "label6";
-            label6.Size = new Size(208, 30);
+            label6.Size = new Size(238, 40);
             label6.TabIndex = 46;
             label6.Text = "Total en ventas:";
             label6.TextAlign = ContentAlignment.MiddleLeft;
@@ -355,8 +364,9 @@
             rjCircularPictureBox8.GradientAngle = 100F;
             rjCircularPictureBox8.Image = (Image)resources.GetObject("rjCircularPictureBox8.Image");
             rjCircularPictureBox8.Location = new Point(0, 0);
+            rjCircularPictureBox8.Margin = new Padding(3, 4, 3, 4);
             rjCircularPictureBox8.Name = "rjCircularPictureBox8";
-            rjCircularPictureBox8.Size = new Size(60, 60);
+            rjCircularPictureBox8.Size = new Size(68, 68);
             rjCircularPictureBox8.SizeMode = PictureBoxSizeMode.CenterImage;
             rjCircularPictureBox8.TabIndex = 45;
             rjCircularPictureBox8.TabStop = false;
@@ -368,8 +378,9 @@
             panel8.Controls.Add(rjCircularPictureBox7);
             panel8.Dock = DockStyle.Left;
             panel8.Location = new Point(0, 0);
+            panel8.Margin = new Padding(3, 4, 3, 4);
             panel8.Name = "panel8";
-            panel8.Size = new Size(309, 57);
+            panel8.Size = new Size(353, 76);
             panel8.TabIndex = 0;
             // 
             // lblCantidadVentas
@@ -377,9 +388,9 @@
             lblCantidadVentas.Dock = DockStyle.Top;
             lblCantidadVentas.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             lblCantidadVentas.ForeColor = Color.Black;
-            lblCantidadVentas.Location = new Point(60, 30);
+            lblCantidadVentas.Location = new Point(68, 40);
             lblCantidadVentas.Name = "lblCantidadVentas";
-            lblCantidadVentas.Size = new Size(249, 27);
+            lblCantidadVentas.Size = new Size(285, 36);
             lblCantidadVentas.TabIndex = 47;
             lblCantidadVentas.Text = "0";
             lblCantidadVentas.TextAlign = ContentAlignment.MiddleCenter;
@@ -389,9 +400,9 @@
             label3.Dock = DockStyle.Top;
             label3.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(60, 0);
+            label3.Location = new Point(68, 0);
             label3.Name = "label3";
-            label3.Size = new Size(249, 30);
+            label3.Size = new Size(285, 40);
             label3.TabIndex = 46;
             label3.Text = "Cantidad de ventas:";
             label3.TextAlign = ContentAlignment.MiddleLeft;
@@ -408,8 +419,9 @@
             rjCircularPictureBox7.GradientAngle = 100F;
             rjCircularPictureBox7.Image = (Image)resources.GetObject("rjCircularPictureBox7.Image");
             rjCircularPictureBox7.Location = new Point(0, 0);
+            rjCircularPictureBox7.Margin = new Padding(3, 4, 3, 4);
             rjCircularPictureBox7.Name = "rjCircularPictureBox7";
-            rjCircularPictureBox7.Size = new Size(60, 60);
+            rjCircularPictureBox7.Size = new Size(68, 68);
             rjCircularPictureBox7.SizeMode = PictureBoxSizeMode.CenterImage;
             rjCircularPictureBox7.TabIndex = 45;
             rjCircularPictureBox7.TabStop = false;
@@ -421,16 +433,18 @@
             panel5.Controls.Add(panel7);
             panel5.Controls.Add(lblNombreEmpresa);
             panel5.Dock = DockStyle.Top;
-            panel5.Location = new Point(140, 0);
+            panel5.Location = new Point(160, 0);
+            panel5.Margin = new Padding(3, 4, 3, 4);
             panel5.Name = "panel5";
-            panel5.Size = new Size(993, 64);
+            panel5.Size = new Size(1136, 85);
             panel5.TabIndex = 43;
             // 
             // panel11
             // 
-            panel11.Location = new Point(997, 3);
+            panel11.Location = new Point(1139, 4);
+            panel11.Margin = new Padding(3, 4, 3, 4);
             panel11.Name = "panel11";
-            panel11.Size = new Size(119, 121);
+            panel11.Size = new Size(136, 161);
             panel11.TabIndex = 45;
             // 
             // btnSeleccionarRango
@@ -444,11 +458,12 @@
             btnSeleccionarRango.HotTrackColor = Color.FromArgb(221, 221, 221);
             btnSeleccionarRango.Image = null;
             btnSeleccionarRango.LayoutFlags = ReaLTaiizor.Util.RoyalLayoutFlags.ImageBeforeText;
-            btnSeleccionarRango.Location = new Point(742, 3);
+            btnSeleccionarRango.Location = new Point(848, 4);
+            btnSeleccionarRango.Margin = new Padding(3, 4, 3, 4);
             btnSeleccionarRango.Name = "btnSeleccionarRango";
             btnSeleccionarRango.PressedColor = Color.FromArgb(51, 102, 255);
             btnSeleccionarRango.PressedForeColor = Color.White;
-            btnSeleccionarRango.Size = new Size(108, 55);
+            btnSeleccionarRango.Size = new Size(123, 73);
             btnSeleccionarRango.TabIndex = 44;
             btnSeleccionarRango.Text = "Seleccionar rango";
             btnSeleccionarRango.Click += btnSeleccionarRango_Click;
@@ -458,19 +473,21 @@
             panel7.Controls.Add(dtFechaFinal);
             panel7.Controls.Add(dpFechaInicio);
             panel7.Dock = DockStyle.Left;
-            panel7.Location = new Point(398, 0);
+            panel7.Location = new Point(455, 0);
+            panel7.Margin = new Padding(3, 4, 3, 4);
             panel7.Name = "panel7";
-            panel7.Size = new Size(338, 64);
+            panel7.Size = new Size(386, 85);
             panel7.TabIndex = 43;
             // 
             // dtFechaFinal
             // 
             dtFechaFinal.CustomFormat = "yyyy-MM-dd";
             dtFechaFinal.Dock = DockStyle.Bottom;
-            dtFechaFinal.Location = new Point(0, 35);
-            dtFechaFinal.MinimumSize = new Size(0, 29);
+            dtFechaFinal.Location = new Point(0, 55);
+            dtFechaFinal.Margin = new Padding(3, 4, 3, 4);
+            dtFechaFinal.MinimumSize = new Size(0, 30);
             dtFechaFinal.Name = "dtFechaFinal";
-            dtFechaFinal.Size = new Size(338, 29);
+            dtFechaFinal.Size = new Size(386, 30);
             dtFechaFinal.TabIndex = 41;
             dtFechaFinal.Value = new DateTime(2023, 9, 1, 7, 50, 9, 0);
             dtFechaFinal.ValueChanged += dtFechaFinal_ValueChanged;
@@ -480,9 +497,10 @@
             dpFechaInicio.CustomFormat = "yyyy-MM-dd";
             dpFechaInicio.Dock = DockStyle.Top;
             dpFechaInicio.Location = new Point(0, 0);
-            dpFechaInicio.MinimumSize = new Size(0, 29);
+            dpFechaInicio.Margin = new Padding(3, 4, 3, 4);
+            dpFechaInicio.MinimumSize = new Size(0, 30);
             dpFechaInicio.Name = "dpFechaInicio";
-            dpFechaInicio.Size = new Size(338, 29);
+            dpFechaInicio.Size = new Size(386, 30);
             dpFechaInicio.TabIndex = 42;
             dpFechaInicio.Value = new DateTime(2023, 9, 1, 7, 50, 9, 0);
             dpFechaInicio.ValueChanged += dpFechaInicio_ValueChanged;
@@ -492,8 +510,9 @@
             panel12.Controls.Add(pictureLogoEmpresa);
             panel12.Dock = DockStyle.Left;
             panel12.Location = new Point(0, 0);
+            panel12.Margin = new Padding(3, 4, 3, 4);
             panel12.Name = "panel12";
-            panel12.Size = new Size(140, 130);
+            panel12.Size = new Size(160, 173);
             panel12.TabIndex = 45;
             // 
             // panel2
@@ -501,9 +520,10 @@
             panel2.Controls.Add(chartTopUsuario);
             panel2.Controls.Add(lblTituloGraficaVentas);
             panel2.Dock = DockStyle.Top;
-            panel2.Location = new Point(3, 130);
+            panel2.Location = new Point(3, 173);
+            panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(736, 196);
+            panel2.Size = new Size(842, 261);
             panel2.TabIndex = 51;
             // 
             // lblTituloGraficaVentas
@@ -514,7 +534,7 @@
             lblTituloGraficaVentas.ForeColor = Color.Black;
             lblTituloGraficaVentas.Location = new Point(0, 0);
             lblTituloGraficaVentas.Name = "lblTituloGraficaVentas";
-            lblTituloGraficaVentas.Size = new Size(736, 38);
+            lblTituloGraficaVentas.Size = new Size(842, 51);
             lblTituloGraficaVentas.TabIndex = 50;
             lblTituloGraficaVentas.Text = "Ventas ordenadas por fecha";
             lblTituloGraficaVentas.TextAlign = ContentAlignment.MiddleLeft;
@@ -535,9 +555,10 @@
             panel3.Controls.Add(txtClientes);
             panel3.Controls.Add(label1);
             panel3.Dock = DockStyle.Left;
-            panel3.Location = new Point(3, 326);
+            panel3.Location = new Point(3, 434);
+            panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(398, 186);
+            panel3.Size = new Size(455, 249);
             panel3.TabIndex = 52;
             // 
             // txtEmpleados
@@ -554,7 +575,8 @@
             txtEmpleados.HideSelection = true;
             txtEmpleados.Hint = "Empleados: ";
             txtEmpleados.LeadingIcon = null;
-            txtEmpleados.Location = new Point(256, 135);
+            txtEmpleados.Location = new Point(293, 180);
+            txtEmpleados.Margin = new Padding(3, 4, 3, 4);
             txtEmpleados.MaxLength = 10;
             txtEmpleados.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtEmpleados.Name = "txtEmpleados";
@@ -566,7 +588,7 @@
             txtEmpleados.SelectionLength = 0;
             txtEmpleados.SelectionStart = 0;
             txtEmpleados.ShortcutsEnabled = true;
-            txtEmpleados.Size = new Size(134, 48);
+            txtEmpleados.Size = new Size(153, 48);
             txtEmpleados.TabIndex = 53;
             txtEmpleados.TabStop = false;
             txtEmpleados.Text = "0";
@@ -588,7 +610,8 @@
             txtCategorias.HideSelection = true;
             txtCategorias.Hint = "Categorias: ";
             txtCategorias.LeadingIcon = null;
-            txtCategorias.Location = new Point(256, 84);
+            txtCategorias.Location = new Point(293, 112);
+            txtCategorias.Margin = new Padding(3, 4, 3, 4);
             txtCategorias.MaxLength = 10;
             txtCategorias.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtCategorias.Name = "txtCategorias";
@@ -600,7 +623,7 @@
             txtCategorias.SelectionLength = 0;
             txtCategorias.SelectionStart = 0;
             txtCategorias.ShortcutsEnabled = true;
-            txtCategorias.Size = new Size(134, 48);
+            txtCategorias.Size = new Size(153, 48);
             txtCategorias.TabIndex = 52;
             txtCategorias.TabStop = false;
             txtCategorias.Text = "0";
@@ -622,7 +645,8 @@
             txtProveedores.HideSelection = true;
             txtProveedores.Hint = "Proveedores:";
             txtProveedores.LeadingIcon = null;
-            txtProveedores.Location = new Point(256, 33);
+            txtProveedores.Location = new Point(293, 44);
+            txtProveedores.Margin = new Padding(3, 4, 3, 4);
             txtProveedores.MaxLength = 10;
             txtProveedores.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtProveedores.Name = "txtProveedores";
@@ -634,7 +658,7 @@
             txtProveedores.SelectionLength = 0;
             txtProveedores.SelectionStart = 0;
             txtProveedores.ShortcutsEnabled = true;
-            txtProveedores.Size = new Size(134, 48);
+            txtProveedores.Size = new Size(153, 48);
             txtProveedores.TabIndex = 51;
             txtProveedores.TabStop = false;
             txtProveedores.Text = "0";
@@ -656,7 +680,8 @@
             txtUsuarios.HideSelection = true;
             txtUsuarios.Hint = "Usuarios: ";
             txtUsuarios.LeadingIcon = null;
-            txtUsuarios.Location = new Point(64, 135);
+            txtUsuarios.Location = new Point(73, 180);
+            txtUsuarios.Margin = new Padding(3, 4, 3, 4);
             txtUsuarios.MaxLength = 10;
             txtUsuarios.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtUsuarios.Name = "txtUsuarios";
@@ -668,7 +693,7 @@
             txtUsuarios.SelectionLength = 0;
             txtUsuarios.SelectionStart = 0;
             txtUsuarios.ShortcutsEnabled = true;
-            txtUsuarios.Size = new Size(134, 48);
+            txtUsuarios.Size = new Size(153, 48);
             txtUsuarios.TabIndex = 50;
             txtUsuarios.TabStop = false;
             txtUsuarios.Text = "0";
@@ -690,7 +715,8 @@
             txtProductos.HideSelection = true;
             txtProductos.Hint = "Productos:";
             txtProductos.LeadingIcon = null;
-            txtProductos.Location = new Point(64, 84);
+            txtProductos.Location = new Point(73, 112);
+            txtProductos.Margin = new Padding(3, 4, 3, 4);
             txtProductos.MaxLength = 10;
             txtProductos.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtProductos.Name = "txtProductos";
@@ -702,7 +728,7 @@
             txtProductos.SelectionLength = 0;
             txtProductos.SelectionStart = 0;
             txtProductos.ShortcutsEnabled = true;
-            txtProductos.Size = new Size(134, 48);
+            txtProductos.Size = new Size(153, 48);
             txtProductos.TabIndex = 49;
             txtProductos.TabStop = false;
             txtProductos.Text = "0";
@@ -720,9 +746,10 @@
             rjCircularPictureBox6.BorderSize = 2;
             rjCircularPictureBox6.GradientAngle = 50F;
             rjCircularPictureBox6.Image = (Image)resources.GetObject("rjCircularPictureBox6.Image");
-            rjCircularPictureBox6.Location = new Point(207, 135);
+            rjCircularPictureBox6.Location = new Point(237, 180);
+            rjCircularPictureBox6.Margin = new Padding(3, 4, 3, 4);
             rjCircularPictureBox6.Name = "rjCircularPictureBox6";
-            rjCircularPictureBox6.Size = new Size(45, 45);
+            rjCircularPictureBox6.Size = new Size(51, 51);
             rjCircularPictureBox6.SizeMode = PictureBoxSizeMode.CenterImage;
             rjCircularPictureBox6.TabIndex = 48;
             rjCircularPictureBox6.TabStop = false;
@@ -737,9 +764,10 @@
             rjCircularPictureBox5.BorderSize = 2;
             rjCircularPictureBox5.GradientAngle = 50F;
             rjCircularPictureBox5.Image = (Image)resources.GetObject("rjCircularPictureBox5.Image");
-            rjCircularPictureBox5.Location = new Point(207, 84);
+            rjCircularPictureBox5.Location = new Point(237, 112);
+            rjCircularPictureBox5.Margin = new Padding(3, 4, 3, 4);
             rjCircularPictureBox5.Name = "rjCircularPictureBox5";
-            rjCircularPictureBox5.Size = new Size(45, 45);
+            rjCircularPictureBox5.Size = new Size(51, 51);
             rjCircularPictureBox5.SizeMode = PictureBoxSizeMode.CenterImage;
             rjCircularPictureBox5.TabIndex = 47;
             rjCircularPictureBox5.TabStop = false;
@@ -754,9 +782,10 @@
             rjCircularPictureBox4.BorderSize = 2;
             rjCircularPictureBox4.GradientAngle = 50F;
             rjCircularPictureBox4.Image = (Image)resources.GetObject("rjCircularPictureBox4.Image");
-            rjCircularPictureBox4.Location = new Point(207, 36);
+            rjCircularPictureBox4.Location = new Point(237, 48);
+            rjCircularPictureBox4.Margin = new Padding(3, 4, 3, 4);
             rjCircularPictureBox4.Name = "rjCircularPictureBox4";
-            rjCircularPictureBox4.Size = new Size(45, 45);
+            rjCircularPictureBox4.Size = new Size(51, 51);
             rjCircularPictureBox4.SizeMode = PictureBoxSizeMode.CenterImage;
             rjCircularPictureBox4.TabIndex = 46;
             rjCircularPictureBox4.TabStop = false;
@@ -771,9 +800,10 @@
             rjCircularPictureBox3.BorderSize = 2;
             rjCircularPictureBox3.GradientAngle = 50F;
             rjCircularPictureBox3.Image = (Image)resources.GetObject("rjCircularPictureBox3.Image");
-            rjCircularPictureBox3.Location = new Point(13, 135);
+            rjCircularPictureBox3.Location = new Point(15, 180);
+            rjCircularPictureBox3.Margin = new Padding(3, 4, 3, 4);
             rjCircularPictureBox3.Name = "rjCircularPictureBox3";
-            rjCircularPictureBox3.Size = new Size(45, 45);
+            rjCircularPictureBox3.Size = new Size(51, 51);
             rjCircularPictureBox3.SizeMode = PictureBoxSizeMode.CenterImage;
             rjCircularPictureBox3.TabIndex = 45;
             rjCircularPictureBox3.TabStop = false;
@@ -788,9 +818,10 @@
             rjCircularPictureBox2.BorderSize = 2;
             rjCircularPictureBox2.GradientAngle = 50F;
             rjCircularPictureBox2.Image = (Image)resources.GetObject("rjCircularPictureBox2.Image");
-            rjCircularPictureBox2.Location = new Point(13, 84);
+            rjCircularPictureBox2.Location = new Point(15, 112);
+            rjCircularPictureBox2.Margin = new Padding(3, 4, 3, 4);
             rjCircularPictureBox2.Name = "rjCircularPictureBox2";
-            rjCircularPictureBox2.Size = new Size(45, 45);
+            rjCircularPictureBox2.Size = new Size(51, 51);
             rjCircularPictureBox2.SizeMode = PictureBoxSizeMode.CenterImage;
             rjCircularPictureBox2.TabIndex = 44;
             rjCircularPictureBox2.TabStop = false;
@@ -805,9 +836,10 @@
             rjCircularPictureBox1.BorderSize = 2;
             rjCircularPictureBox1.GradientAngle = 50F;
             rjCircularPictureBox1.Image = (Image)resources.GetObject("rjCircularPictureBox1.Image");
-            rjCircularPictureBox1.Location = new Point(13, 33);
+            rjCircularPictureBox1.Location = new Point(15, 44);
+            rjCircularPictureBox1.Margin = new Padding(3, 4, 3, 4);
             rjCircularPictureBox1.Name = "rjCircularPictureBox1";
-            rjCircularPictureBox1.Size = new Size(45, 45);
+            rjCircularPictureBox1.Size = new Size(51, 51);
             rjCircularPictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             rjCircularPictureBox1.TabIndex = 43;
             rjCircularPictureBox1.TabStop = false;
@@ -826,7 +858,8 @@
             txtClientes.HideSelection = true;
             txtClientes.Hint = "Clientes: ";
             txtClientes.LeadingIcon = null;
-            txtClientes.Location = new Point(64, 33);
+            txtClientes.Location = new Point(73, 44);
+            txtClientes.Margin = new Padding(3, 4, 3, 4);
             txtClientes.MaxLength = 10;
             txtClientes.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtClientes.Name = "txtClientes";
@@ -838,7 +871,7 @@
             txtClientes.SelectionLength = 0;
             txtClientes.SelectionStart = 0;
             txtClientes.ShortcutsEnabled = true;
-            txtClientes.Size = new Size(134, 48);
+            txtClientes.Size = new Size(153, 48);
             txtClientes.TabIndex = 42;
             txtClientes.TabStop = false;
             txtClientes.Text = "0";
@@ -854,7 +887,7 @@
             label1.ForeColor = Color.Black;
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(398, 30);
+            label1.Size = new Size(455, 40);
             label1.TabIndex = 41;
             label1.Text = "Registros";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -864,9 +897,10 @@
             panel4.Controls.Add(tbStock);
             panel4.Controls.Add(label2);
             panel4.Dock = DockStyle.Fill;
-            panel4.Location = new Point(401, 326);
+            panel4.Location = new Point(458, 434);
+            panel4.Margin = new Padding(3, 4, 3, 4);
             panel4.Name = "panel4";
-            panel4.Size = new Size(338, 186);
+            panel4.Size = new Size(387, 249);
             panel4.TabIndex = 53;
             // 
             // tbStock
@@ -904,7 +938,8 @@
             tbStock.EnableHeadersVisualStyles = false;
             tbStock.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbStock.GridColor = Color.FromArgb(255, 255, 255);
-            tbStock.Location = new Point(0, 30);
+            tbStock.Location = new Point(0, 40);
+            tbStock.Margin = new Padding(3, 4, 3, 4);
             tbStock.Name = "tbStock";
             tbStock.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -920,23 +955,26 @@
             tbStock.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tbStock.RowTemplate.Height = 30;
             tbStock.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tbStock.Size = new Size(338, 156);
+            tbStock.Size = new Size(387, 209);
             tbStock.TabIndex = 5;
             // 
             // Codigo
             // 
             Codigo.HeaderText = "Codigo";
+            Codigo.MinimumWidth = 6;
             Codigo.Name = "Codigo";
             Codigo.ReadOnly = true;
             // 
             // Producto
             // 
             Producto.HeaderText = "Producto";
+            Producto.MinimumWidth = 6;
             Producto.Name = "Producto";
             // 
             // Cantidad
             // 
             Cantidad.HeaderText = "Unidades disponibles";
+            Cantidad.MinimumWidth = 6;
             Cantidad.Name = "Cantidad";
             Cantidad.ReadOnly = true;
             // 
@@ -948,25 +986,26 @@
             label2.ForeColor = Color.Black;
             label2.Location = new Point(0, 0);
             label2.Name = "label2";
-            label2.Size = new Size(338, 30);
+            label2.Size = new Size(387, 40);
             label2.TabIndex = 42;
             label2.Text = "Stock de productos";
             label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // FormInicio
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1139, 515);
+            ClientSize = new Size(1302, 687);
             Controls.Add(panel4);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panelGraficosBarra);
             Controls.Add(panel1);
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FormInicio";
-            Padding = new Padding(3, 0, 3, 3);
+            Padding = new Padding(3, 0, 3, 4);
             Text = "Inicio";
             ((System.ComponentModel.ISupportInitialize)chartTopUsuario).EndInit();
             ((System.ComponentModel.ISupportInitialize)chartTopProductos).EndInit();

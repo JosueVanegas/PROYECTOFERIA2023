@@ -9,6 +9,7 @@ namespace Modelos
     public class Compra
     {
         public int ID { get; set; }
+        public Modelos.Usuario USUARIO { get; set; }
         public decimal SUBTOTAL { get; set; }
         public DateTime FECHA_REGISTRO { get; set; }
     }

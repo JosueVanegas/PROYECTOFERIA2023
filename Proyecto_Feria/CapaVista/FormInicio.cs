@@ -25,20 +25,20 @@ namespace CapaVista
         }
         private void mostrarCantidades()
         {
-            txtEmpleados.Text = cDash.cantidadCategorias("EMPLEADO").ToString();
-            txtCategorias.Text = cDash.cantidadCategorias("CATEGORIA").ToString();
-            txtProveedores.Text = cDash.cantidadCategorias("PROVEEDOR").ToString();
-            txtProductos.Text = cDash.cantidadCategorias("PRODUCTO").ToString();
-            txtClientes.Text = cDash.cantidadCategorias("CLIENTE").ToString();
-            txtUsuarios.Text = cDash.cantidadCategorias("USUARIO").ToString();
+            txtEmpleados.Text = cDash.cantidadCategorias("SALES.EMPLOYEES").ToString();
+            txtCategorias.Text = cDash.cantidadCategorias("INVENTORY.CATEGORYS").ToString();
+            txtProveedores.Text = cDash.cantidadCategorias("INVENTORY.SUPPLIERS").ToString();
+            txtProductos.Text = cDash.cantidadCategorias("INVENTORY.PRODUCTS").ToString();
+            txtClientes.Text = cDash.cantidadCategorias("SALES.CLIENTS").ToString();
+            txtUsuarios.Text = cDash.cantidadCategorias("SALES.USERS").ToString();
         }
         private void mostrarTopProductos()
         {
-            List<graficaProductos> productosVendidos = cDash.datosGraficaProductos();
+            Dictionary<string, int> productosVendidos = cDash.datosGraficaProductos();
 
             foreach (var productoVendido in productosVendidos)
             {
-                chartTopProductos.Series["Ventas"].Points.AddXY(productoVendido.nombre, productoVendido.cantidad);
+                chartTopProductos.Series["Ventas"].Points.AddXY(productoVendido.Key, productoVendido.Value);
             }
             chartTopProductos.Series["Ventas"]["PieLabelStyle"] = "Disabled";
             chartTopProductos.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
@@ -57,26 +57,26 @@ namespace CapaVista
         {
             int cantidadVentas = 0;
             decimal totalVentas = 0;
-            List<graficaVentas> ventas = cDash.datosGraficaVentas(fechaI, fechaF);
+            Dictionary<DateTime, decimal> ventas = cDash.datosGraficaVentas(fechaI, fechaF);
             lblTituloGraficaVentas.Text = "Ventas ordenadas por fecha";
             lblTituloGraficaVentas.Text += " Del: " + fechaI + " al " + fechaF;
             chartTopUsuario.Series["Ventas"].Points.Clear();
-            foreach (graficaVentas v in ventas)
+            foreach (KeyValuePair<DateTime, decimal> v in ventas)
             {
                 cantidadVentas++;
-                totalVentas += v.total;
-                DateTime date = DateTime.ParseExact(v.fecha, "dd/MM/yyyy", null);
-                string nombreMes = date.ToString("MMM");
-                string dia = date.ToString("ddd");
-                string fecha = nombreMes + "-" + dia;
-                chartTopUsuario.Series["Ventas"].Points.AddXY(fecha, v.total);
+                totalVentas += v.Value;
+                chartTopUsuario.Series["Ventas"].Points.AddXY(v.Key, v.Value);
             }
 
             lblCantidadVentas.Text = cantidadVentas.ToString();
             lblTotalVentas.Text = totalVentas.ToString("0.00");
             if (cantidadVentas == 0 && totalVentas == 0)
             {
-                MessageBox.Show("No se realizaron ventas en el periodo seleccionado");
+                lblTituloGraficaVentas.Text = "No se realizaron ventas en el periodo seleccionado";
+            }
+            else
+            {
+                lblTituloGraficaVentas.Text = "Ventas ordenadas por fecha";
             }
         }
         private void mostrarValorInventario()
@@ -108,13 +108,13 @@ namespace CapaVista
         }
         private void mostrarDatosEmpresa()
         {
-            Empresa emp = new ControlEmpresa().datosEmpresa();
+            Modelos.Empresa emp = new ControlEmpresa().datosEmpresa();
             if (emp != null)
             {
-                if (emp.imagen != null)
+                if (emp.IMAGEN != null)
                 {
-                    lblNombreEmpresa.Text = emp.nombre;
-                    using (MemoryStream memoryStream = new MemoryStream(emp.imagen))
+                    lblNombreEmpresa.Text = emp.NOMBRE;
+                    using (MemoryStream memoryStream = new MemoryStream(emp.IMAGEN))
                     {
                         Image imagen = Image.FromStream(memoryStream);
                         pictureLogoEmpresa.Image = imagen;

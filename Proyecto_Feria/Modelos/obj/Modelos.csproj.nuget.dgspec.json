@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\josue\\source\\repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\Modelos\\Modelos.csproj": {}
+    "C:\\Users\\josue\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\Modelos\\Modelos.csproj": {}
   },
   "projects": {
-    "C:\\Users\\josue\\source\\repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\Modelos\\Modelos.csproj": {
+    "C:\\Users\\josue\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\Modelos\\Modelos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\josue\\source\\repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\Modelos\\Modelos.csproj",
+        "projectUniqueName": "C:\\Users\\josue\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\Modelos\\Modelos.csproj",
         "projectName": "Modelos",
-        "projectPath": "C:\\Users\\josue\\source\\repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\Modelos\\Modelos.csproj",
+        "projectPath": "C:\\Users\\josue\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\Modelos\\Modelos.csproj",
         "packagesPath": "C:\\Users\\josue\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\josue\\source\\repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\Modelos\\obj\\",
+        "outputPath": "C:\\Users\\josue\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\Modelos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

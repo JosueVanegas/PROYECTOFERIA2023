@@ -19,13 +19,13 @@ namespace CapaVista
         }
         private void cargarLogoEmpresa()
         {
-            Empresa empresa = new ControlEmpresa().datosEmpresa();
+            Modelos.Empresa empresa = new ControlEmpresa().datosEmpresa();
             if (empresa != null)
             {
-                if (empresa.imagen != null)
+                if (empresa.IMAGEN != null)
                 {
-                    txtNombreEmpresa.Text = empresa.nombre;
-                    using (MemoryStream ms = new MemoryStream(empresa.imagen))
+                    txtNombreEmpresa.Text = empresa.NOMBRE;
+                    using (MemoryStream ms = new MemoryStream(empresa.IMAGEN))
                     {
                         Image imagen = Image.FromStream(ms);
                         imgLogoEmpresa.Image = imagen;

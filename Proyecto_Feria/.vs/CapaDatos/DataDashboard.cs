@@ -26,9 +26,9 @@ namespace CapaDatos
             }
             return cantidadFilas;
         }
-        public List<graficaProductos> datosGraficaProductosMasVendidos()
+        public Dictionary<string,int> datosGraficaProductosMasVendidos()
         {
-            List<graficaProductos> productosVendidos = new List<graficaProductos>();
+            Dictionary<string, int> datos = new Dictionary<string, int>();
 
             try
             {
@@ -49,13 +49,7 @@ namespace CapaDatos
                         {
                             string nombreProducto = reader["NombreProducto"].ToString();
                             int totalVentas = Convert.ToInt32(reader["TotalVentas"]);
-                            graficaProductos productoVendido = new graficaProductos
-                            {
-                                nombre = nombreProducto,
-                                cantidad = totalVentas
-                            };
-
-                            productosVendidos.Add(productoVendido);
+                            datos.Add(nombreProducto, totalVentas);
                         }
 
                         reader.Close();
@@ -64,14 +58,14 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                productosVendidos = new List<graficaProductos>();
+                datos = new Dictionary<string, int>();
             }
 
-            return productosVendidos;
+            return datos;
         }
-        public List<graficaVentas> datosGraficaVentas(string fechaInicio, string fechaFinal)
+        public Dictionary<DateTime,decimal> datosGraficaVentas(string fechaInicio, string fechaFinal)
         {
-            List<graficaVentas> lista = new List<graficaVentas>();
+            Dictionary<DateTime, decimal> datos = new Dictionary<DateTime, decimal>();  
             try
             {
                 using (SqlConnection connection = new conexion().conectar())
@@ -87,15 +81,9 @@ namespace CapaDatos
 
                         while (reader.Read())
                         {
-                            string fechaRegistro = reader[0].ToString();
+                            DateTime fechaRegistro = Convert.ToDateTime(reader[0]);
                             int totalVentas = Convert.ToInt32(reader[1]);
-                            graficaVentas valor = new graficaVentas
-                            {
-                                fecha = fechaRegistro,
-                                total = totalVentas
-                            };
-
-                            lista.Add(valor);
+                            datos.Add(fechaRegistro, totalVentas);
                         }
 
                         reader.Close();
@@ -104,28 +92,35 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                lista = new List<graficaVentas>();
+                datos = new Dictionary<DateTime, decimal>();
             }
-            return lista;
+            return datos;
         }
         public decimal valorInventario()
         {
             decimal valor = 0;
             decimal valorInventario = 0;
-            string query = "SELECT SUM(CANTIDAD_INVENTARIO*PRECIO_COMPRA) AS VALOR_INVETARIO FROM PRODUCTO";
-            using (SqlConnection connection = new conexion().conectar())
+            try
             {
-                connection.Open();
-                using (SqlCommand command = new SqlCommand(query, connection))
+                string query = "SELECT SUM(STOCK*PURCHASE_PRICE) AS TOTAL FROM INVENTORY.PRODUCTS ";
+                using (SqlConnection connection = new conexion().conectar())
                 {
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        if (reader.Read())
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                        valorInventario = reader.GetDecimal(0);
+                            if (reader.Read())
+                            {
+                                valorInventario = reader.GetDecimal(0);
+                            }
                         }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+
             }
             valor = valorInventario;
             return valor;

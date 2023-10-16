@@ -278,7 +278,7 @@ namespace CapaVista
             // 
             // panelContenedor
             // 
-            panelContenedor.BackColor = Color.White;
+            panelContenedor.BackColor = SystemColors.Window;
             resources.ApplyResources(panelContenedor, "panelContenedor");
             panelContenedor.ForeColor = Color.Black;
             panelContenedor.Name = "panelContenedor";
@@ -505,9 +505,9 @@ namespace CapaVista
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
+            Controls.Add(panelAbajo);
             Controls.Add(panelContenedor);
             Controls.Add(panel2);
-            Controls.Add(panelAbajo);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "FormPrincipal";
             WindowState = FormWindowState.Maximized;

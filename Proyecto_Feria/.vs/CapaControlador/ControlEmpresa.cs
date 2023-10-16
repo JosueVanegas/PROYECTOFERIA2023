@@ -10,11 +10,11 @@ namespace CapaControlador
     public class ControlEmpresa
     {
         DataEmpresa dEmp = new DataEmpresa();
-        public Empresa datosEmpresa()
+        public Modelos.Empresa datosEmpresa()
         {
             return dEmp.datosDeEmpresa();
         }
-        public string actualizarDatosEmpresa(Empresa emp)
+        public string actualizarDatosEmpresa(Modelos.Empresa emp)
         {
             return dEmp.editarInformacionEmpresa(emp);
         }

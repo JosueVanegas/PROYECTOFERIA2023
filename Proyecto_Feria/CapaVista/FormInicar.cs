@@ -45,7 +45,7 @@ namespace CapaVista.FormPrimerAcceso
                 /// Josue para saber si es primer acceso
                 if (true)
                 {
-                    FormaAjustesEntidad forms = new FormaAjustesEntidad(true);
+                    FormaAjustesEntidad forms = new FormaAjustesEntidad();
 
                     forms.ShowDialog();
                 }

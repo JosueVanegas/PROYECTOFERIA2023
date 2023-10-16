@@ -36,7 +36,7 @@ namespace CapaPresentacion.FormInformes
 {
     public partial class FormMovimientoProducto : MaterialForm
     {
-        Empresa empresa = new ControlEmpresa().datosEmpresa();
+        Modelos.Empresa empresa = new ControlEmpresa().datosEmpresa();
         string colorFondoMovimiento = "#97C2BF";
         int idProducto = 0;
         string fechaInicio = "";
@@ -157,15 +157,15 @@ namespace CapaPresentacion.FormInformes
                     col.Spacing(10);
                     col
                         .Item()
-                        .Image(empresa.imagen).FitArea()
+                        .Image(empresa.IMAGEN).FitArea()
                         .WithCompressionQuality(ImageCompressionQuality.VeryLow);
                 });
                 row.RelativeItem().Border(0).Background(Colors.Transparent).Height(80).Column(col =>
                 {
-                    col.Item().ScaleToFit().AlignCenter().Text(empresa.nombre).FontSize(15).Bold();
-                    col.Item().AlignCenter().Text("Teléfono: " + empresa.telefono).FontSize(7);
-                    col.Item().AlignCenter().Text("Correo electronico: " + empresa.email).FontSize(7);
-                    col.Item().AlignCenter().Text("Direccion: " + empresa.direccion + "/" + empresa.departamento).FontSize(7);
+                    col.Item().ScaleToFit().AlignCenter().Text(empresa.NOMBRE).FontSize(15).Bold();
+                    col.Item().AlignCenter().Text("Teléfono: " + empresa.TELEFONO).FontSize(7);
+                    col.Item().AlignCenter().Text("Correo electronico: " + empresa.CORREO).FontSize(7);
+                    col.Item().AlignCenter().Text("Direccion: " + empresa.DIRECCION).FontSize(7);
                 });
                 row.RelativeItem().Border(0).Background(Colors.Transparent).Height(80);
             });

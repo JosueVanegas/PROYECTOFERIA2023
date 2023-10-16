@@ -14,7 +14,7 @@ namespace CapaVista.FormConfiguracion
 
         private void btnEntidadEmpresa_Click(object sender, EventArgs e)
         {
-            FormaAjustesEntidad form = new FormaAjustesEntidad(false);
+            FormaAjustesEntidad form = new FormaAjustesEntidad();
             form.ShowDialog();
         }
     }
