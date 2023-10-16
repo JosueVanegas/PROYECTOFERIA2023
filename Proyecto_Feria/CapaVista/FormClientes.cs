@@ -14,6 +14,10 @@ namespace CapaPresentacion
         private void FormClientes_Load(object sender, EventArgs e)
         {
             mostrarClientes();
+            DateTime fechaNacimientoMaxima = DateTime.Today.AddYears(-10);
+            DateTime fechaNacimientomin = DateTime.Today.AddYears(-10);
+            dtNacimiento.MaxDate = fechaNacimientoMaxima;
+            dtNacimiento.MinDate = fechaNacimientomin;
         }
         private void limpiarCampos()
         {

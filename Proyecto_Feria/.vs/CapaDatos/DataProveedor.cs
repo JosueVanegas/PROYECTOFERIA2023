@@ -1,5 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using System.Data;
+using System.Diagnostics.Metrics;
+using System.Numerics;
 
 namespace CapaDatos
 {
@@ -7,11 +9,11 @@ namespace CapaDatos
     {
         string mensaje = "";
         public DataProveedor() { }
-        public List<Proveedor> listarProveedores()
+        public List<Modelos.Proveedor> listarProveedores()
         {
-            string query = "SELECT * FROM PROVEEDOR";
-            List<Proveedor> lista = new List<Proveedor>();
-#pragma warning disable CS0168 // La variable está declarada pero nunca se usa
+            string query = "SELECT ID,COMPANY,NAMES_CONTACT,PHONE_CONTACT,COUNTRY,CITY FROM INVENTORY.SUPPLIERS WHERE ACTIVE = 1";
+            List<Modelos.Proveedor> lista = new List<Modelos.Proveedor>();
+
             try
             {
                 using (SqlConnection con = new conexion().conectar())
@@ -24,28 +26,16 @@ namespace CapaDatos
                         {
                             while (reader.Read())
                             {
-#pragma warning disable CS8601 // Posible asignación de referencia nula
-#pragma warning disable CS8601 // Posible asignación de referencia nula
-#pragma warning disable CS8601 // Posible asignación de referencia nula
-#pragma warning disable CS8601 // Posible asignación de referencia nula
-#pragma warning disable CS8601 // Posible asignación de referencia nula
-#pragma warning disable CS8601 // Posible asignación de referencia nula
-                                lista.Add(new Proveedor
+
+                                lista.Add(new Modelos.Proveedor
                                 {
-                                    id = reader.GetInt32("ID_PROVEEDOR"),
-                                    nombreProveedor = reader["NOMBRE_EMPRESA"].ToString(),
-                                    nombreContacto = reader["NOMBRE_CONTACTO"].ToString(),
-                                    numeroContacto = reader["NUMERO_CONTACTO"].ToString(),
-                                    pais = reader["PAIS"].ToString(),
-                                    ciudad = reader["CIUDAD"].ToString(),
-                                    fechaRegistro = reader["FECHA_REGISTRO"].ToString()
+                                    ID = reader.GetInt32("ID"),
+                                    EMPRESA = reader["COMPANY"].ToString(),
+                                    CONTACTO = reader["NAMES_CONTACT"].ToString(),
+                                    TELEFONO = reader["PHONE_CONTACT"].ToString(),
+                                    PAIS = reader["COUNTRY"].ToString(),
+                                    CIUDAD = reader["CITY"].ToString(),
                                 });
-#pragma warning restore CS8601 // Posible asignación de referencia nula
-#pragma warning restore CS8601 // Posible asignación de referencia nula
-#pragma warning restore CS8601 // Posible asignación de referencia nula
-#pragma warning restore CS8601 // Posible asignación de referencia nula
-#pragma warning restore CS8601 // Posible asignación de referencia nula
-#pragma warning restore CS8601 // Posible asignación de referencia nula
                             }
                         }
                     }
@@ -53,44 +43,37 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                lista = new List<Proveedor>();
+                lista = new List<Modelos.Proveedor>();
             }
-#pragma warning restore CS0168 // La variable está declarada pero nunca se usa
             return lista;
         }
-        public string accionesProveedor(Proveedor prov)
+        public string accionesProveedor(Modelos.Proveedor prov)
         {
             using (SqlConnection connection = new conexion().conectar())
             {
                 try
                 {
                     connection.Open();
-                    SqlCommand comand = new SqlCommand("PROC_REGISTRAR_PROVEEDOR", connection);
+                    SqlCommand comand = new SqlCommand("PROC_REGISTER_SUPPLIER", connection);
                     comand.CommandType = CommandType.StoredProcedure;
-                    comand.Parameters.AddWithValue("@ID_PROVEEDOR", prov.id);
-                    comand.Parameters.AddWithValue("@NOMBRE_EMPRESA", prov.nombreProveedor);
-                    comand.Parameters.AddWithValue("@NOMBRE_CONTACTO", prov.nombreContacto);
-                    comand.Parameters.AddWithValue("@NUMERO_CONTACTO", prov.numeroContacto);
-                    comand.Parameters.AddWithValue("@PAIS", prov.pais);
-                    comand.Parameters.AddWithValue("@CIUDAD", prov.ciudad);
-                    comand.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
-
+                    comand.Parameters.AddWithValue("@ID", prov.ID);
+                    comand.Parameters.AddWithValue("@COMPANY", prov.EMPRESA);
+                    comand.Parameters.AddWithValue("@CONTACT", prov.CONTACTO);
+                    comand.Parameters.AddWithValue("@PHONE", prov.TELEFONO);
+                    comand.Parameters.AddWithValue("@COUNTRY", prov.PAIS);
+                    comand.Parameters.AddWithValue("@CITY", prov.CIUDAD);
+                    comand.Parameters.Add("MESSAGE", SqlDbType.VarChar, 200).Direction = ParameterDirection.Output;
                     comand.ExecuteNonQuery();
-
-#pragma warning disable CS8601 // Posible asignación de referencia nula
-                    mensaje = comand.Parameters["mensaje"].Value.ToString();
-#pragma warning restore CS8601 // Posible asignación de referencia nula
+                    mensaje = comand.Parameters["MESSAGE"].Value.ToString();
                 }
                 catch (Exception ex)
                 {
                     mensaje = "Lo sentimos a ocurrido un \nerror : " + ex.Message;
                 }
             }
-#pragma warning disable CS8603 // Posible tipo de valor devuelto de referencia nulo
             return mensaje;
-#pragma warning restore CS8603 // Posible tipo de valor devuelto de referencia nulo
         }
-        public string eliminarProveedor(int idP)
+        public string eliminarProveedor(int id)
         {
 
             using (SqlConnection con = new conexion().conectar())
@@ -98,24 +81,19 @@ namespace CapaDatos
                 try
                 {
                     con.Open();
-                    SqlCommand comand = new SqlCommand("PROC_ELIMINAR_PROVEEDOR", con);
+                    SqlCommand comand = new SqlCommand("[PROC_DELETE_SUPPLIER]", con);
                     comand.CommandType = CommandType.StoredProcedure;
-                    comand.Parameters.AddWithValue("@ID_PROVEEDOR", idP);
-                    comand.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    comand.Parameters.AddWithValue("@ID", id);
+                    comand.Parameters.Add("MESSAGE", SqlDbType.VarChar, 200).Direction = ParameterDirection.Output;
                     comand.ExecuteNonQuery();
-
-#pragma warning disable CS8601 // Posible asignación de referencia nula
-                    mensaje = comand.Parameters["mensaje"].Value.ToString();
-#pragma warning restore CS8601 // Posible asignación de referencia nula
+                    mensaje = comand.Parameters["MESSAGE"].Value.ToString();
                 }
                 catch (Exception ex)
                 {
                     mensaje = "no se pudo eliminar el usuario. error: " + ex.Message;
                 }
             }
-#pragma warning disable CS8603 // Posible tipo de valor devuelto de referencia nulo
             return mensaje;
-#pragma warning restore CS8603 // Posible tipo de valor devuelto de referencia nulo
         }
     }
 }

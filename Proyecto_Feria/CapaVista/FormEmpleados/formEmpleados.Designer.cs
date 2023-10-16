@@ -33,14 +33,14 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panel1 = new Panel();
+            label1 = new Label();
+            dtNacimiento = new DateTimePicker();
             pictureBox4 = new PictureBox();
-            FechaNacimientoCalendario = new MonthCalendar();
             txtCargo = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             tableLayoutPanel2 = new TableLayoutPanel();
-            btnGuardar = new RJCodeAdvance.RJControls.RJButton();
             btnLimpiar = new RJCodeAdvance.RJControls.RJButton();
+            btnGuardar = new RJCodeAdvance.RJControls.RJButton();
             txtSalario = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            txtFechadeNacimiento = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtDireccion = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtCorreo = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             cbxSexo = new ReaLTaiizor.Controls.MaterialComboBox();
@@ -70,7 +70,6 @@
             Correo = new DataGridViewTextBoxColumn();
             Cargo = new DataGridViewTextBoxColumn();
             Salario = new DataGridViewTextBoxColumn();
-            Fecha = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             tableLayoutPanel2.SuspendLayout();
@@ -82,12 +81,12 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(dtNacimiento);
             panel1.Controls.Add(pictureBox4);
-            panel1.Controls.Add(FechaNacimientoCalendario);
             panel1.Controls.Add(txtCargo);
             panel1.Controls.Add(tableLayoutPanel2);
             panel1.Controls.Add(txtSalario);
-            panel1.Controls.Add(txtFechadeNacimiento);
             panel1.Controls.Add(txtDireccion);
             panel1.Controls.Add(txtCorreo);
             panel1.Controls.Add(cbxSexo);
@@ -104,27 +103,36 @@
             panel1.Size = new Size(402, 496);
             panel1.TabIndex = 20;
             // 
+            // label1
+            // 
+            label1.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = SystemColors.ControlDarkDark;
+            label1.Location = new Point(5, 344);
+            label1.Name = "label1";
+            label1.Size = new Size(149, 20);
+            label1.TabIndex = 48;
+            label1.Text = "Fecha de Nacimiento";
+            label1.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // dtNacimiento
+            // 
+            dtNacimiento.CalendarFont = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            dtNacimiento.Location = new Point(169, 341);
+            dtNacimiento.Margin = new Padding(3, 2, 3, 2);
+            dtNacimiento.Name = "dtNacimiento";
+            dtNacimiento.Size = new Size(219, 23);
+            dtNacimiento.TabIndex = 47;
+            // 
             // pictureBox4
             // 
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(199, 13);
+            pictureBox4.Location = new Point(340, 9);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(47, 40);
+            pictureBox4.Size = new Size(46, 40);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 46;
             pictureBox4.TabStop = false;
             pictureBox4.MouseHover += pictureBox1_MouseHover;
-            // 
-            // FechaNacimientoCalendario
-            // 
-            FechaNacimientoCalendario.FirstDayOfWeek = Day.Monday;
-            FechaNacimientoCalendario.Location = new Point(154, 334);
-            FechaNacimientoCalendario.Name = "FechaNacimientoCalendario";
-            FechaNacimientoCalendario.ShowTodayCircle = false;
-            FechaNacimientoCalendario.TabIndex = 21;
-            FechaNacimientoCalendario.Visible = false;
-            FechaNacimientoCalendario.DateSelected += MonthCalendar1_DateSelected;
-            FechaNacimientoCalendario.MouseLeave += FechaNacimientoCalendario_MouseLeave;
             // 
             // txtCargo
             // 
@@ -138,7 +146,7 @@
             txtCargo.HideSelection = true;
             txtCargo.Hint = "Cargo del empleado";
             txtCargo.LeadingIcon = null;
-            txtCargo.Location = new Point(3, 239);
+            txtCargo.Location = new Point(5, 239);
             txtCargo.MaxLength = 32767;
             txtCargo.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtCargo.Name = "txtCargo";
@@ -163,41 +171,15 @@
             tableLayoutPanel2.ColumnCount = 2;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Controls.Add(btnGuardar, 0, 0);
             tableLayoutPanel2.Controls.Add(btnLimpiar, 1, 0);
-            tableLayoutPanel2.Location = new Point(3, 367);
+            tableLayoutPanel2.Controls.Add(btnGuardar, 0, 0);
+            tableLayoutPanel2.Location = new Point(108, 385);
             tableLayoutPanel2.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.Size = new Size(155, 70);
             tableLayoutPanel2.TabIndex = 41;
-            // 
-            // btnGuardar
-            // 
-            btnGuardar.Anchor = AnchorStyles.Left;
-            btnGuardar.BackColor = Color.FromArgb(74, 121, 121);
-            btnGuardar.BackgroundColor = Color.FromArgb(74, 121, 121);
-            btnGuardar.BackgroundImage = (Image)resources.GetObject("btnGuardar.BackgroundImage");
-            btnGuardar.BackgroundImageLayout = ImageLayout.Center;
-            btnGuardar.BorderColor = Color.PaleVioletRed;
-            btnGuardar.BorderRadius = 10;
-            btnGuardar.BorderSize = 0;
-            btnGuardar.FlatAppearance.BorderSize = 0;
-            btnGuardar.FlatStyle = FlatStyle.Flat;
-            btnGuardar.ForeColor = Color.White;
-            btnGuardar.ImageAlign = ContentAlignment.MiddleRight;
-            btnGuardar.Location = new Point(3, 2);
-            btnGuardar.Margin = new Padding(3, 2, 3, 2);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(71, 66);
-            btnGuardar.TabIndex = 11;
-            btnGuardar.Text = "Guardar";
-            btnGuardar.TextAlign = ContentAlignment.BottomCenter;
-            btnGuardar.TextColor = Color.White;
-            btnGuardar.UseVisualStyleBackColor = false;
-            btnGuardar.Click += btnGuardar_Click;
-            btnGuardar.MouseHover += btnGuardar_MouseHover;
             // 
             // btnLimpiar
             // 
@@ -216,7 +198,7 @@
             btnLimpiar.Location = new Point(80, 2);
             btnLimpiar.Margin = new Padding(3, 2, 3, 2);
             btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(72, 66);
+            btnLimpiar.Size = new Size(72, 65);
             btnLimpiar.TabIndex = 12;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.TextAlign = ContentAlignment.BottomCenter;
@@ -224,6 +206,32 @@
             btnLimpiar.UseVisualStyleBackColor = false;
             btnLimpiar.Click += btnLimpiar_Click;
             btnLimpiar.MouseHover += btnLimpiar_MouseHover;
+            // 
+            // btnGuardar
+            // 
+            btnGuardar.Anchor = AnchorStyles.Left;
+            btnGuardar.BackColor = Color.FromArgb(74, 121, 121);
+            btnGuardar.BackgroundColor = Color.FromArgb(74, 121, 121);
+            btnGuardar.BackgroundImage = (Image)resources.GetObject("btnGuardar.BackgroundImage");
+            btnGuardar.BackgroundImageLayout = ImageLayout.Center;
+            btnGuardar.BorderColor = Color.PaleVioletRed;
+            btnGuardar.BorderRadius = 10;
+            btnGuardar.BorderSize = 0;
+            btnGuardar.FlatAppearance.BorderSize = 0;
+            btnGuardar.FlatStyle = FlatStyle.Flat;
+            btnGuardar.ForeColor = Color.White;
+            btnGuardar.ImageAlign = ContentAlignment.MiddleRight;
+            btnGuardar.Location = new Point(3, 2);
+            btnGuardar.Margin = new Padding(3, 2, 3, 2);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(71, 65);
+            btnGuardar.TabIndex = 11;
+            btnGuardar.Text = "Guardar";
+            btnGuardar.TextAlign = ContentAlignment.BottomCenter;
+            btnGuardar.TextColor = Color.White;
+            btnGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.Click += btnGuardar_Click;
+            btnGuardar.MouseHover += btnGuardar_MouseHover;
             // 
             // txtSalario
             // 
@@ -235,9 +243,9 @@
             txtSalario.Depth = 0;
             txtSalario.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             txtSalario.HideSelection = true;
-            txtSalario.Hint = "Salario";
+            txtSalario.Hint = "Salario por hora";
             txtSalario.LeadingIcon = null;
-            txtSalario.Location = new Point(3, 293);
+            txtSalario.Location = new Point(188, 239);
             txtSalario.MaxLength = 32767;
             txtSalario.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtSalario.Name = "txtSalario";
@@ -249,46 +257,13 @@
             txtSalario.SelectionLength = 0;
             txtSalario.SelectionStart = 0;
             txtSalario.ShortcutsEnabled = true;
-            txtSalario.Size = new Size(177, 48);
+            txtSalario.Size = new Size(199, 48);
             txtSalario.TabIndex = 44;
             txtSalario.TabStop = false;
             txtSalario.TextAlign = HorizontalAlignment.Center;
             txtSalario.TrailingIcon = null;
             txtSalario.UseSystemPasswordChar = false;
             txtSalario.KeyPress += txtSalario_KeyPress;
-            // 
-            // txtFechadeNacimiento
-            // 
-            txtFechadeNacimiento.AnimateReadOnly = true;
-            txtFechadeNacimiento.AutoCompleteMode = AutoCompleteMode.None;
-            txtFechadeNacimiento.AutoCompleteSource = AutoCompleteSource.None;
-            txtFechadeNacimiento.BackgroundImageLayout = ImageLayout.None;
-            txtFechadeNacimiento.CharacterCasing = CharacterCasing.Normal;
-            txtFechadeNacimiento.Depth = 0;
-            txtFechadeNacimiento.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtFechadeNacimiento.HideSelection = true;
-            txtFechadeNacimiento.Hint = "Fecha de Nacimiento";
-            txtFechadeNacimiento.LeadingIcon = null;
-            txtFechadeNacimiento.Location = new Point(186, 293);
-            txtFechadeNacimiento.MaxLength = 32767;
-            txtFechadeNacimiento.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            txtFechadeNacimiento.Name = "txtFechadeNacimiento";
-            txtFechadeNacimiento.PasswordChar = '\0';
-            txtFechadeNacimiento.PrefixSuffixText = null;
-            txtFechadeNacimiento.ReadOnly = false;
-            txtFechadeNacimiento.RightToLeft = RightToLeft.No;
-            txtFechadeNacimiento.SelectedText = "";
-            txtFechadeNacimiento.SelectionLength = 0;
-            txtFechadeNacimiento.SelectionStart = 0;
-            txtFechadeNacimiento.ShortcutsEnabled = true;
-            txtFechadeNacimiento.Size = new Size(200, 48);
-            txtFechadeNacimiento.TabIndex = 43;
-            txtFechadeNacimiento.TabStop = false;
-            txtFechadeNacimiento.TextAlign = HorizontalAlignment.Center;
-            txtFechadeNacimiento.TrailingIcon = null;
-            txtFechadeNacimiento.UseSystemPasswordChar = false;
-            txtFechadeNacimiento.KeyPress += txtFecha_KeyPress;
-            txtFechadeNacimiento.MouseHover += txtFechadeNacimiento_MouseHover;
             // 
             // txtDireccion
             // 
@@ -302,7 +277,7 @@
             txtDireccion.HideSelection = true;
             txtDireccion.Hint = "direccion de vivienda";
             txtDireccion.LeadingIcon = null;
-            txtDireccion.Location = new Point(186, 238);
+            txtDireccion.Location = new Point(5, 293);
             txtDireccion.MaxLength = 32767;
             txtDireccion.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtDireccion.Name = "txtDireccion";
@@ -314,7 +289,7 @@
             txtDireccion.SelectionLength = 0;
             txtDireccion.SelectionStart = 0;
             txtDireccion.ShortcutsEnabled = true;
-            txtDireccion.Size = new Size(200, 48);
+            txtDireccion.Size = new Size(380, 48);
             txtDireccion.TabIndex = 40;
             txtDireccion.TabStop = false;
             txtDireccion.TextAlign = HorizontalAlignment.Center;
@@ -334,7 +309,7 @@
             txtCorreo.HideSelection = true;
             txtCorreo.Hint = "Correo Electronico";
             txtCorreo.LeadingIcon = null;
-            txtCorreo.Location = new Point(186, 185);
+            txtCorreo.Location = new Point(188, 185);
             txtCorreo.MaxLength = 32767;
             txtCorreo.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtCorreo.Name = "txtCorreo";
@@ -369,7 +344,7 @@
             cbxSexo.IntegralHeight = false;
             cbxSexo.ItemHeight = 43;
             cbxSexo.Items.AddRange(new object[] { "Hombre", "Mujer" });
-            cbxSexo.Location = new Point(186, 130);
+            cbxSexo.Location = new Point(188, 128);
             cbxSexo.MaxDropDownItems = 4;
             cbxSexo.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbxSexo.Name = "cbxSexo";
@@ -387,9 +362,9 @@
             txtApellido.Depth = 0;
             txtApellido.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             txtApellido.HideSelection = true;
-            txtApellido.Hint = "Apellido";
+            txtApellido.Hint = "Apellidos";
             txtApellido.LeadingIcon = null;
-            txtApellido.Location = new Point(186, 76);
+            txtApellido.Location = new Point(188, 75);
             txtApellido.MaxLength = 32767;
             txtApellido.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtApellido.Name = "txtApellido";
@@ -421,7 +396,7 @@
             txtNumeroCedula.HideSelection = true;
             txtNumeroCedula.Hint = "No.Cedula";
             txtNumeroCedula.LeadingIcon = null;
-            txtNumeroCedula.Location = new Point(3, 129);
+            txtNumeroCedula.Location = new Point(3, 128);
             txtNumeroCedula.MaxLength = 32767;
             txtNumeroCedula.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtNumeroCedula.Name = "txtNumeroCedula";
@@ -452,7 +427,7 @@
             txtTelefono.HideSelection = true;
             txtTelefono.Hint = "# Telefonico";
             txtTelefono.LeadingIcon = null;
-            txtTelefono.Location = new Point(3, 185);
+            txtTelefono.Location = new Point(5, 185);
             txtTelefono.MaxLength = 32767;
             txtTelefono.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtTelefono.Name = "txtTelefono";
@@ -489,11 +464,11 @@
             // 
             // lblTitulo
             // 
-            lblTitulo.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTitulo.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Point);
             lblTitulo.ForeColor = SystemColors.ControlDarkDark;
-            lblTitulo.Location = new Point(0, 23);
+            lblTitulo.Location = new Point(5, 29);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(193, 30);
+            lblTitulo.Size = new Size(245, 30);
             lblTitulo.TabIndex = 7;
             lblTitulo.Text = "Datos del Empleado";
             lblTitulo.TextAlign = ContentAlignment.MiddleLeft;
@@ -508,7 +483,7 @@
             txtNombre.Depth = 0;
             txtNombre.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             txtNombre.HideSelection = true;
-            txtNombre.Hint = "Nombre";
+            txtNombre.Hint = "Nombres";
             txtNombre.LeadingIcon = null;
             txtNombre.Location = new Point(3, 75);
             txtNombre.MaxLength = 32767;
@@ -532,11 +507,11 @@
             // 
             // txtId
             // 
-            txtId.Location = new Point(351, 16);
+            txtId.Location = new Point(280, 16);
             txtId.Name = "txtId";
             txtId.Size = new Size(35, 23);
             txtId.TabIndex = 8;
-            txtId.Text = "1";
+            txtId.Text = "0";
             txtId.Visible = false;
             // 
             // pictureBox1
@@ -652,7 +627,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             tbEmpleados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             tbEmpleados.ColumnHeadersHeight = 35;
-            tbEmpleados.Columns.AddRange(new DataGridViewColumn[] { btnEditar, btnBorrar, Id, Cedula, Nombre, Apellido, Sexo, Nacimiento, Telefono, Direccion, Correo, Cargo, Salario, Fecha });
+            tbEmpleados.Columns.AddRange(new DataGridViewColumn[] { btnEditar, btnBorrar, Id, Cedula, Nombre, Apellido, Sexo, Nacimiento, Telefono, Direccion, Correo, Cargo, Salario });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.DarkGray;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
@@ -689,16 +664,19 @@
             // btnEditar
             // 
             btnEditar.HeaderText = "Editar";
+            btnEditar.MinimumWidth = 6;
             btnEditar.Name = "btnEditar";
             // 
             // btnBorrar
             // 
             btnBorrar.HeaderText = "Eliminar";
+            btnBorrar.MinimumWidth = 6;
             btnBorrar.Name = "btnBorrar";
             // 
             // Id
             // 
             Id.HeaderText = "Id";
+            Id.MinimumWidth = 6;
             Id.Name = "Id";
             Id.ReadOnly = true;
             Id.Visible = false;
@@ -706,67 +684,71 @@
             // Cedula
             // 
             Cedula.HeaderText = "Cedula";
+            Cedula.MinimumWidth = 6;
             Cedula.Name = "Cedula";
             Cedula.ReadOnly = true;
             // 
             // Nombre
             // 
             Nombre.HeaderText = "Nombre";
+            Nombre.MinimumWidth = 6;
             Nombre.Name = "Nombre";
             Nombre.ReadOnly = true;
             // 
             // Apellido
             // 
             Apellido.HeaderText = "Apellido";
+            Apellido.MinimumWidth = 6;
             Apellido.Name = "Apellido";
             Apellido.ReadOnly = true;
             // 
             // Sexo
             // 
             Sexo.HeaderText = "Sexo";
+            Sexo.MinimumWidth = 6;
             Sexo.Name = "Sexo";
             Sexo.ReadOnly = true;
             // 
             // Nacimiento
             // 
             Nacimiento.HeaderText = "Fecha de nacimiento";
+            Nacimiento.MinimumWidth = 6;
             Nacimiento.Name = "Nacimiento";
             Nacimiento.ReadOnly = true;
             // 
             // Telefono
             // 
             Telefono.HeaderText = "Telefono";
+            Telefono.MinimumWidth = 6;
             Telefono.Name = "Telefono";
             // 
             // Direccion
             // 
             Direccion.HeaderText = "Direccion";
+            Direccion.MinimumWidth = 6;
             Direccion.Name = "Direccion";
             Direccion.ReadOnly = true;
             // 
             // Correo
             // 
             Correo.HeaderText = "Correo";
+            Correo.MinimumWidth = 6;
             Correo.Name = "Correo";
             Correo.ReadOnly = true;
             // 
             // Cargo
             // 
             Cargo.HeaderText = "Cargo";
+            Cargo.MinimumWidth = 6;
             Cargo.Name = "Cargo";
             Cargo.ReadOnly = true;
             // 
             // Salario
             // 
-            Salario.HeaderText = "Salario";
+            Salario.HeaderText = "Salario por hora";
+            Salario.MinimumWidth = 6;
             Salario.Name = "Salario";
             Salario.ReadOnly = true;
-            // 
-            // Fecha
-            // 
-            Fecha.HeaderText = "fecha de registro";
-            Fecha.Name = "Fecha";
-            Fecha.ReadOnly = true;
             // 
             // formEmpleados
             // 
@@ -803,7 +785,6 @@
         private TextBox txtId;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtApellido;
         private ReaLTaiizor.Controls.MaterialComboBox cbxSexo;
-        private MonthCalendar FechaNacimientoCalendario;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCorreo;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtDireccion;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtBuscar;
@@ -811,12 +792,14 @@
         private TableLayoutPanel tableLayoutPanel2;
         private RJCodeAdvance.RJControls.RJButton btnGuardar;
         private RJCodeAdvance.RJControls.RJButton btnLimpiar;
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtFechadeNacimiento;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtSalario;
         private Panel panel2;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCargo;
         private PictureBox pictureBox4;
         private ReaLTaiizor.Controls.PoisonDataGridView tbEmpleados;
+        private ReaLTaiizor.Controls.MaterialComboBox cbxBuscar;
+        private Label label1;
+        private DateTimePicker dtNacimiento;
         private DataGridViewButtonColumn btnEditar;
         private DataGridViewButtonColumn btnBorrar;
         private DataGridViewTextBoxColumn Id;
@@ -830,7 +813,5 @@
         private DataGridViewTextBoxColumn Correo;
         private DataGridViewTextBoxColumn Cargo;
         private DataGridViewTextBoxColumn Salario;
-        private DataGridViewTextBoxColumn Fecha;
-        private ReaLTaiizor.Controls.MaterialComboBox cbxBuscar;
     }
 }

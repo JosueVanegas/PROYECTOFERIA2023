@@ -1,5 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Data;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace CapaDatos
 {
@@ -7,10 +9,10 @@ namespace CapaDatos
     {
         string mensaje = "";
         public DataProducto() { }
-        public List<Producto> listarProductos()
+        public List<Modelos.Producto> listarProductos()
         {
-            List<Producto> lista = new List<Producto>();
-            string query = "SELECT P.ID_PRODUCTO, P.CODIGO_PRODUCTO, P.NOMBRE_PRODUCTO, P.IMAGEN_PRODUCTO, P.PRECIO_COMPRA, P.PRECIO_VENTA, P.CANTIDAD_INVENTARIO, C.ID_CATEGORIA, C.NOMBRE_CATEGORIA, PP.ID_PROVEEDOR, PP.NOMBRE_EMPRESA FROM PRODUCTO P INNER JOIN CATEGORIA C ON P.ID_CATEGORIA = C.ID_CATEGORIA INNER JOIN PROVEEDOR PP ON P.ID_PROVEEDOR = PP.ID_PROVEEDOR";
+            List<Modelos.Producto> lista = new List<Modelos.Producto>();
+            string query = "SELECT P.ID AS ID,P.BARCODE AS BARCODE,P.NAMES AS NAME,P.BRAND AS BRAND,P.IMAGES AS IMAGES,P.UNIT AS UNIT,\r\nP.PURCHASE_PRICE AS P1,P.SALE_PRICE AS P2,P.DUE_DATE AS DUE,P.STOCK AS STOCK,P.STOCK_SECURITY AS STOCK_SECURITY,\r\nP.ID_SUPPLIERS AS IDS,P.ID_CATEGORYS AS IDC,C.NAMES AS CATEGORY,S.COMPANY AS SUPPLIER\r\nFROM INVENTORY.PRODUCTS P \r\nINNER JOIN INVENTORY.CATEGORYS C ON C.ID = P.ID_CATEGORYS \r\nINNER JOIN INVENTORY.SUPPLIERS S ON S.ID = P.ID_SUPPLIERS\r\nWHERE P.ACTIVE = 1";
             try
             {
                 using (var con = new conexion().conectar())
@@ -22,24 +24,28 @@ namespace CapaDatos
                         {
                             while (reader.Read())
                             {
-                                Producto producto = new Producto
+                                Modelos.Producto producto = new Modelos.Producto
                                 {
-                                    id = Convert.ToInt32(reader["ID_PRODUCTO"]),
-                                    codigo = reader["CODIGO_PRODUCTO"].ToString(),
-                                    nombre = reader["NOMBRE_PRODUCTO"].ToString(),
-                                    imagen = (byte[])reader["IMAGEN_PRODUCTO"],
-                                    PrecioCompra = Convert.ToDecimal(reader["PRECIO_COMPRA"]),
-                                    PrecioVenta = Convert.ToDecimal(reader["PRECIO_VENTA"]),
-                                    cantidad = Convert.ToInt32(reader["CANTIDAD_INVENTARIO"]),
-                                    oCategoria = new Categoria
+                                    ID = Convert.ToInt32(reader["ID"]),
+                                    CODIGO = reader["BARCODE"].ToString(),
+                                    NOMBRE = reader["NAME"].ToString(),
+                                    MARCA = reader["BRAND"].ToString(),
+                                    UNIDAD = reader["UNIT"].ToString(),
+                                    IMAGEN = (byte[])reader["IMAGES"],
+                                    PRECIO_COMPRA = Convert.ToDecimal(reader["P1"]),
+                                    PRECIO_VENTA = Convert.ToDecimal(reader["P2"]),
+                                    STOCK_SEGURIDAD = Convert.ToInt32(reader["STOCK_SECURITY"]),
+                                    STOCK = Convert.ToInt32(reader["STOCK"]),
+                                    VENCIMIENTO = Convert.ToDateTime(reader["DUE"]),
+                                    CATEGORIA = new Modelos.Categoria
                                     {
-                                        id = Convert.ToInt32(reader["ID_CATEGORIA"]),
-                                        nombre = reader["NOMBRE_CATEGORIA"].ToString()
+                                        ID = Convert.ToInt32(reader["IDC"]),
+                                        NOMBRE = reader["CATEGORY"].ToString()
                                     },
-                                    oProveedor = new Proveedor
+                                    PROVEEDOR = new Modelos.Proveedor
                                     {
-                                        id = Convert.ToInt32(reader["ID_PROVEEDOR"]),
-                                        nombreProveedor = reader["NOMBRE_EMPRESA"].ToString()
+                                        ID = Convert.ToInt32(reader["IDS"]),
+                                        EMPRESA = reader["SUPPLIER"].ToString()
                                     }
                                 };
                                 lista.Add(producto);
@@ -50,97 +56,35 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                lista = new List<Producto>();
+                lista = new List<Modelos.Producto>();
             }
             return lista;
         }
-        public List<comboProducto> listarComboProductos()
-        {
-            List<comboProducto> lista = new List<comboProducto>();
-            string query = "SELECT CODIGO_PRODUCTO,NOMBRE_PRODUCTO FROM PRODUCTO";
-            try
-            {
-                using (var con = new conexion().conectar())
-                {
-                    con.Open();
-                    using (var cmd = new SqlCommand(query, con))
-                    {
-                        using (var reader = cmd.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                comboProducto producto = new comboProducto
-                                {
-                                    codigo = reader[0].ToString(),
-                                    nombre = reader[1].ToString(),
-                                };
-                                lista.Add(producto);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                lista = new List<comboProducto>();
-            }
-            return lista;
-        }
-        public List<Proveedor> listarProveedores()
-        {
-            List<Proveedor> lista = new List<Proveedor>();
-            string query = "SELECT ID_PROVEEDOR,NOMBRE_EMPRESA FROM PROVEEDOR";
-            using (var con = new conexion().conectar())
-            {
-                con.Open();
-                try
-                {
-                    using (var cmd = new SqlCommand(query, con))
-                    {
-                        cmd.CommandType = CommandType.Text;
-                        using (var reader = cmd.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                lista.Add(new Proveedor
-                                {
-                                    id = Convert.ToInt32(reader["ID_PROVEEDOR"]),
-                                    nombreProveedor = reader["NOMBRE_EMPRESA"].ToString()
-                                });
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    lista = new List<Proveedor>();
-                }
-#pragma warning restore CS0168 // La variable está declarada pero nunca se usa
-            }
-            return lista;
-        }
-       
-        public string accionesProducto(Producto p)
+        public string accionesProducto(Modelos.Producto p)
         {
             try
             {
                 using (SqlConnection con = new conexion().conectar())
                 {
                     con.Open();
-                    using (SqlCommand cmd = new SqlCommand("PROC_REGISTRAR_PRODUCTO", con))
+                    using (SqlCommand cmd = new SqlCommand("PROC_REGISTER_PRODUCT", con))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@ID_PRODUCTO", p.id);
-                        cmd.Parameters.AddWithValue("@CODIGO", p.codigo);
-                        cmd.Parameters.AddWithValue("@NOMBRE", p.nombre);
-                        cmd.Parameters.AddWithValue("@IMAGEN", p.imagen);
-                        cmd.Parameters.AddWithValue("@PRECIOCOMPRA", p.PrecioCompra);
-                        cmd.Parameters.AddWithValue("@PRECIOVENTA", p.PrecioVenta);
-                        cmd.Parameters.AddWithValue("@ID_PROVEEDOR", p.oProveedor.id);
-                        cmd.Parameters.AddWithValue("@ID_CATEGORIA", p.oCategoria.id);
-                        cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                        cmd.Parameters.AddWithValue("@ID", p.ID);
+                        cmd.Parameters.AddWithValue("@BARCODE", p.CODIGO);
+                        cmd.Parameters.AddWithValue("@NAME", p.NOMBRE);
+                        cmd.Parameters.AddWithValue("@BRAND", p.MARCA);
+                        cmd.Parameters.AddWithValue("@UNIT", p.UNIDAD);
+                        cmd.Parameters.AddWithValue("@IMAGE", p.IMAGEN);
+                        cmd.Parameters.AddWithValue("@STOCK_SECURITY", p.STOCK_SEGURIDAD);
+                        cmd.Parameters.AddWithValue("@P1", p.PRECIO_COMPRA);
+                        cmd.Parameters.AddWithValue("@P2", p.PRECIO_VENTA);
+                        cmd.Parameters.AddWithValue("@ID_SUPPLIER", p.PROVEEDOR.ID);
+                        cmd.Parameters.AddWithValue("@ID_CATEGORY", p.CATEGORIA.ID);
+                        cmd.Parameters.AddWithValue("@DUE", p.VENCIMIENTO);
+                        cmd.Parameters.Add("MESSAGE", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                         cmd.ExecuteNonQuery();
-                        mensaje = cmd.Parameters["mensaje"].Value.ToString();
+                        mensaje = cmd.Parameters["MESSAGE"].Value.ToString();
                     }
                 }
             }
@@ -157,13 +101,13 @@ namespace CapaDatos
                 using (var con = new conexion().conectar())
                 {
                     con.Open();
-                    using (var cmd = new SqlCommand("PROC_ELIMINAR_PRODUCTO", con))
+                    using (var cmd = new SqlCommand("PROC_DELETE_PRODUCT", con))
                     {
                         cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@ID_PRODUCTO", id);
-                        cmd.Parameters.Add("mensaje", System.Data.SqlDbType.VarChar, 150).Direction = ParameterDirection.Output;
+                        cmd.Parameters.AddWithValue("@ID", id);
+                        cmd.Parameters.Add("MESSAGE", System.Data.SqlDbType.VarChar, 150).Direction = ParameterDirection.Output;
                         cmd.ExecuteNonQuery();
-                        mensaje = cmd.Parameters["mensaje"].Value.ToString();
+                        mensaje = cmd.Parameters["MESSAGE"].Value.ToString();
                     }
                 }
             }

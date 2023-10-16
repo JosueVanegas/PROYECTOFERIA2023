@@ -5,11 +5,11 @@ namespace CapaControlador
     public class ControlProveedor
     {
         DataProveedor dProv = new DataProveedor();
-        public List<Proveedor> listarProveedores()
+        public List<Modelos.Proveedor> listarProveedores()
         {
             return dProv.listarProveedores();
         }
-        public string accionProveedor(Proveedor p)
+        public string accionProveedor(Modelos.Proveedor p)
         {
             return dProv.accionesProveedor(p);
         }

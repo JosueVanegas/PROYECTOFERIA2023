@@ -22,7 +22,7 @@ namespace CapaControlador
         {
             return dInforme.ObtenerDatosInformeMovimientoProducto(idProducto,fechaInicio,fechaFin);
         }
-        public nomina calcularnomina(Empleado empleado,int horasTrabajadas,int horasExtras)
+        public nomina calcularnomina(Modelos.Empleado empleado,int horasTrabajadas,int horasExtras)
         {
             return dInforme.calcularnomina(empleado, horasTrabajadas, horasExtras);
         }

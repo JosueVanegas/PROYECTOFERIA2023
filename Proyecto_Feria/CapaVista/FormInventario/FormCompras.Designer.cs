@@ -56,18 +56,14 @@ namespace CapaVista.FormInventario
             Subtotal = new DataGridViewTextBoxColumn();
             IdProveedor = new DataGridViewTextBoxColumn();
             panel3 = new Panel();
+            btnGuardar = new RJCodeAdvance.RJControls.RJButton();
             pictureBox4 = new PictureBox();
             btnLimpiar = new RJCodeAdvance.RJControls.RJButton();
-            btnGuardarCompra = new RJCodeAdvance.RJControls.RJButton();
             label2 = new Label();
             txtIdFactura = new TextBox();
             txtTotal = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtNofactura = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             lblTitulo = new Label();
-            ckbEmpleadoNulo = new ReaLTaiizor.Controls.AirCheckBox();
-            tableLayoutPanel1 = new TableLayoutPanel();
-            rjButton2 = new RJCodeAdvance.RJControls.RJButton();
-            btnGuardar = new RJCodeAdvance.RJControls.RJButton();
             txtIdUsuario = new TextBox();
             panelBusqueda = new Panel();
             btnCerrarBusqueda = new Button();
@@ -99,7 +95,6 @@ namespace CapaVista.FormInventario
             ((System.ComponentModel.ISupportInitialize)tbDetalles).BeginInit();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            tableLayoutPanel1.SuspendLayout();
             panelBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tbBusqueda).BeginInit();
             panelCompras.SuspendLayout();
@@ -114,7 +109,7 @@ namespace CapaVista.FormInventario
             pnlContenedor.Dock = DockStyle.Fill;
             pnlContenedor.Location = new Point(3, 0);
             pnlContenedor.Name = "pnlContenedor";
-            pnlContenedor.Size = new Size(594, 447);
+            pnlContenedor.Size = new Size(594, 606);
             pnlContenedor.TabIndex = 22;
             // 
             // pnlRegistroUsuario
@@ -124,13 +119,11 @@ namespace CapaVista.FormInventario
             pnlRegistroUsuario.Controls.Add(tbDetalles);
             pnlRegistroUsuario.Controls.Add(panel3);
             pnlRegistroUsuario.Controls.Add(lblTitulo);
-            pnlRegistroUsuario.Controls.Add(ckbEmpleadoNulo);
-            pnlRegistroUsuario.Controls.Add(tableLayoutPanel1);
             pnlRegistroUsuario.Controls.Add(txtIdUsuario);
             pnlRegistroUsuario.Dock = DockStyle.Fill;
             pnlRegistroUsuario.Location = new Point(0, 0);
             pnlRegistroUsuario.Name = "pnlRegistroUsuario";
-            pnlRegistroUsuario.Size = new Size(594, 447);
+            pnlRegistroUsuario.Size = new Size(594, 606);
             pnlRegistroUsuario.TabIndex = 6;
             // 
             // panel5
@@ -338,9 +331,9 @@ namespace CapaVista.FormInventario
             // 
             // panel3
             // 
+            panel3.Controls.Add(btnGuardar);
             panel3.Controls.Add(pictureBox4);
             panel3.Controls.Add(btnLimpiar);
-            panel3.Controls.Add(btnGuardarCompra);
             panel3.Controls.Add(label2);
             panel3.Controls.Add(txtIdFactura);
             panel3.Controls.Add(txtTotal);
@@ -351,12 +344,36 @@ namespace CapaVista.FormInventario
             panel3.Size = new Size(594, 156);
             panel3.TabIndex = 42;
             // 
+            // btnGuardar
+            // 
+            btnGuardar.BackColor = Color.FromArgb(74, 121, 121);
+            btnGuardar.BackgroundColor = Color.FromArgb(74, 121, 121);
+            btnGuardar.BackgroundImageLayout = ImageLayout.Center;
+            btnGuardar.BorderColor = Color.PaleVioletRed;
+            btnGuardar.BorderRadius = 10;
+            btnGuardar.BorderSize = 0;
+            btnGuardar.FlatAppearance.BorderSize = 0;
+            btnGuardar.FlatStyle = FlatStyle.Flat;
+            btnGuardar.ForeColor = Color.White;
+            btnGuardar.ImageAlign = ContentAlignment.MiddleRight;
+            btnGuardar.Location = new Point(207, 35);
+            btnGuardar.Margin = new Padding(3, 2, 3, 2);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(134, 53);
+            btnGuardar.TabIndex = 47;
+            btnGuardar.Text = "Guardar";
+            btnGuardar.TextAlign = ContentAlignment.BottomCenter;
+            btnGuardar.TextColor = Color.White;
+            btnGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.Click += btnGuardarCompra_Click;
+            btnGuardar.MouseHover += btnGuardar_MouseHover;
+            // 
             // pictureBox4
             // 
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
             pictureBox4.Location = new Point(545, 3);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(43, 48);
+            pictureBox4.Size = new Size(43, 41);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 46;
             pictureBox4.TabStop = false;
@@ -364,10 +381,8 @@ namespace CapaVista.FormInventario
             // 
             // btnLimpiar
             // 
-            btnLimpiar.Anchor = AnchorStyles.Left;
             btnLimpiar.BackColor = Color.FromArgb(74, 121, 121);
             btnLimpiar.BackgroundColor = Color.FromArgb(74, 121, 121);
-            btnLimpiar.BackgroundImage = (Image)resources.GetObject("btnLimpiar.BackgroundImage");
             btnLimpiar.BackgroundImageLayout = ImageLayout.Center;
             btnLimpiar.BorderColor = Color.PaleVioletRed;
             btnLimpiar.BorderRadius = 10;
@@ -388,35 +403,8 @@ namespace CapaVista.FormInventario
             btnLimpiar.Click += btnLimpiar_Click;
             btnLimpiar.MouseHover += btnLimpiar_MouseHover;
             // 
-            // btnGuardarCompra
-            // 
-            btnGuardarCompra.Anchor = AnchorStyles.Left;
-            btnGuardarCompra.BackColor = Color.FromArgb(74, 121, 121);
-            btnGuardarCompra.BackgroundColor = Color.FromArgb(74, 121, 121);
-            btnGuardarCompra.BackgroundImage = (Image)resources.GetObject("btnGuardarCompra.BackgroundImage");
-            btnGuardarCompra.BackgroundImageLayout = ImageLayout.Center;
-            btnGuardarCompra.BorderColor = Color.PaleVioletRed;
-            btnGuardarCompra.BorderRadius = 10;
-            btnGuardarCompra.BorderSize = 0;
-            btnGuardarCompra.FlatAppearance.BorderSize = 0;
-            btnGuardarCompra.FlatStyle = FlatStyle.Flat;
-            btnGuardarCompra.ForeColor = Color.White;
-            btnGuardarCompra.ImageAlign = ContentAlignment.MiddleRight;
-            btnGuardarCompra.Location = new Point(207, 30);
-            btnGuardarCompra.Margin = new Padding(3, 2, 3, 2);
-            btnGuardarCompra.Name = "btnGuardarCompra";
-            btnGuardarCompra.Size = new Size(134, 59);
-            btnGuardarCompra.TabIndex = 39;
-            btnGuardarCompra.Text = "Guardar";
-            btnGuardarCompra.TextAlign = ContentAlignment.BottomCenter;
-            btnGuardarCompra.TextColor = Color.White;
-            btnGuardarCompra.UseVisualStyleBackColor = false;
-            btnGuardarCompra.Click += btnGuardarCompra_Click;
-            btnGuardarCompra.MouseHover += btnGuardar_MouseHover;
-            // 
             // label2
             // 
-            label2.Anchor = AnchorStyles.Left;
             label2.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(5, 0);
             label2.Name = "label2";
@@ -431,12 +419,11 @@ namespace CapaVista.FormInventario
             txtIdFactura.Name = "txtIdFactura";
             txtIdFactura.Size = new Size(28, 23);
             txtIdFactura.TabIndex = 42;
-            txtIdFactura.Text = "1";
+            txtIdFactura.Text = "0";
             txtIdFactura.Visible = false;
             // 
             // txtTotal
             // 
-            txtTotal.Anchor = AnchorStyles.Left;
             txtTotal.AnimateReadOnly = true;
             txtTotal.AutoCompleteMode = AutoCompleteMode.None;
             txtTotal.AutoCompleteSource = AutoCompleteSource.None;
@@ -469,7 +456,6 @@ namespace CapaVista.FormInventario
             // 
             // txtNofactura
             // 
-            txtNofactura.Anchor = AnchorStyles.Left;
             txtNofactura.AnimateReadOnly = true;
             txtNofactura.AutoCompleteMode = AutoCompleteMode.None;
             txtNofactura.AutoCompleteSource = AutoCompleteSource.None;
@@ -511,89 +497,10 @@ namespace CapaVista.FormInventario
             lblTitulo.Text = "Registrar compras";
             lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // ckbEmpleadoNulo
-            // 
-            ckbEmpleadoNulo.Anchor = AnchorStyles.Left;
-            ckbEmpleadoNulo.Checked = false;
-            ckbEmpleadoNulo.Customization = "7e3t//Ly8v/r6+v/5ubm/+vr6//f39//p6en/zw8PP8=";
-            ckbEmpleadoNulo.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            ckbEmpleadoNulo.Image = null;
-            ckbEmpleadoNulo.Location = new Point(13, 474);
-            ckbEmpleadoNulo.Name = "ckbEmpleadoNulo";
-            ckbEmpleadoNulo.NoRounding = false;
-            ckbEmpleadoNulo.Size = new Size(234, 17);
-            ckbEmpleadoNulo.TabIndex = 32;
-            ckbEmpleadoNulo.Text = "Desactivar empleados";
-            ckbEmpleadoNulo.Transparent = false;
-            // 
-            // tableLayoutPanel1
-            // 
-            tableLayoutPanel1.Anchor = AnchorStyles.Left;
-            tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006237F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006275F));
-            tableLayoutPanel1.Controls.Add(rjButton2, 1, 0);
-            tableLayoutPanel1.Controls.Add(btnGuardar, 0, 0);
-            tableLayoutPanel1.Location = new Point(49, 494);
-            tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 1;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(152, 70);
-            tableLayoutPanel1.TabIndex = 30;
-            // 
-            // rjButton2
-            // 
-            rjButton2.Anchor = AnchorStyles.Left;
-            rjButton2.BackColor = Color.FromArgb(63, 63, 70);
-            rjButton2.BackgroundColor = Color.FromArgb(63, 63, 70);
-            rjButton2.BackgroundImage = (Image)resources.GetObject("rjButton2.BackgroundImage");
-            rjButton2.BackgroundImageLayout = ImageLayout.Center;
-            rjButton2.BorderColor = Color.PaleVioletRed;
-            rjButton2.BorderRadius = 10;
-            rjButton2.BorderSize = 0;
-            rjButton2.FlatAppearance.BorderSize = 0;
-            rjButton2.FlatStyle = FlatStyle.Flat;
-            rjButton2.ForeColor = Color.White;
-            rjButton2.ImageAlign = ContentAlignment.MiddleRight;
-            rjButton2.Location = new Point(78, 2);
-            rjButton2.Margin = new Padding(3, 2, 3, 2);
-            rjButton2.Name = "rjButton2";
-            rjButton2.Size = new Size(71, 66);
-            rjButton2.TabIndex = 12;
-            rjButton2.Text = "Limpiar";
-            rjButton2.TextAlign = ContentAlignment.BottomCenter;
-            rjButton2.TextColor = Color.White;
-            rjButton2.UseVisualStyleBackColor = false;
-            // 
-            // btnGuardar
-            // 
-            btnGuardar.Anchor = AnchorStyles.Left;
-            btnGuardar.BackColor = Color.FromArgb(63, 63, 70);
-            btnGuardar.BackgroundColor = Color.FromArgb(63, 63, 70);
-            btnGuardar.BackgroundImage = (Image)resources.GetObject("btnGuardar.BackgroundImage");
-            btnGuardar.BackgroundImageLayout = ImageLayout.Center;
-            btnGuardar.BorderColor = Color.PaleVioletRed;
-            btnGuardar.BorderRadius = 10;
-            btnGuardar.BorderSize = 0;
-            btnGuardar.FlatAppearance.BorderSize = 0;
-            btnGuardar.FlatStyle = FlatStyle.Flat;
-            btnGuardar.ForeColor = Color.White;
-            btnGuardar.ImageAlign = ContentAlignment.MiddleRight;
-            btnGuardar.Location = new Point(3, 2);
-            btnGuardar.Margin = new Padding(3, 2, 3, 2);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(69, 66);
-            btnGuardar.TabIndex = 11;
-            btnGuardar.Text = "Guardar";
-            btnGuardar.TextAlign = ContentAlignment.BottomCenter;
-            btnGuardar.TextColor = Color.White;
-            btnGuardar.UseVisualStyleBackColor = false;
-            // 
             // txtIdUsuario
             // 
             txtIdUsuario.Anchor = AnchorStyles.Left;
-            txtIdUsuario.Location = new Point(265, 532);
+            txtIdUsuario.Location = new Point(265, 612);
             txtIdUsuario.Name = "txtIdUsuario";
             txtIdUsuario.Size = new Size(16, 23);
             txtIdUsuario.TabIndex = 8;
@@ -609,7 +516,7 @@ namespace CapaVista.FormInventario
             panelBusqueda.Dock = DockStyle.Fill;
             panelBusqueda.Location = new Point(0, 0);
             panelBusqueda.Name = "panelBusqueda";
-            panelBusqueda.Size = new Size(429, 447);
+            panelBusqueda.Size = new Size(429, 606);
             panelBusqueda.TabIndex = 56;
             // 
             // btnCerrarBusqueda
@@ -631,7 +538,7 @@ namespace CapaVista.FormInventario
             lblBuscar.Dock = DockStyle.Bottom;
             lblBuscar.Font = new Font("Microsoft Sans Serif", 27.75F, FontStyle.Regular, GraphicsUnit.Point);
             lblBuscar.ForeColor = Color.FromArgb(63, 63, 70);
-            lblBuscar.Location = new Point(0, 70);
+            lblBuscar.Location = new Point(0, 229);
             lblBuscar.Name = "lblBuscar";
             lblBuscar.Size = new Size(429, 59);
             lblBuscar.TabIndex = 42;
@@ -651,7 +558,7 @@ namespace CapaVista.FormInventario
             txtBuscarProducto.HideSelection = true;
             txtBuscarProducto.Hint = "Buscar";
             txtBuscarProducto.LeadingIcon = null;
-            txtBuscarProducto.Location = new Point(0, 129);
+            txtBuscarProducto.Location = new Point(0, 288);
             txtBuscarProducto.MaxLength = 32767;
             txtBuscarProducto.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtBuscarProducto.Name = "txtBuscarProducto";
@@ -689,7 +596,7 @@ namespace CapaVista.FormInventario
             cbxBuscarProducto.IntegralHeight = false;
             cbxBuscarProducto.ItemHeight = 43;
             cbxBuscarProducto.Items.AddRange(new object[] { "Codigo", "Nombre" });
-            cbxBuscarProducto.Location = new Point(0, 177);
+            cbxBuscarProducto.Location = new Point(0, 336);
             cbxBuscarProducto.MaxDropDownItems = 4;
             cbxBuscarProducto.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbxBuscarProducto.Name = "cbxBuscarProducto";
@@ -730,7 +637,7 @@ namespace CapaVista.FormInventario
             tbBusqueda.EnableHeadersVisualStyles = false;
             tbBusqueda.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbBusqueda.GridColor = Color.Gray;
-            tbBusqueda.Location = new Point(0, 226);
+            tbBusqueda.Location = new Point(0, 385);
             tbBusqueda.Name = "tbBusqueda";
             tbBusqueda.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -781,7 +688,7 @@ namespace CapaVista.FormInventario
             // 
             // PrecioP
             // 
-            PrecioP.HeaderText = "Precio";
+            PrecioP.HeaderText = "Precio de compra";
             PrecioP.Name = "PrecioP";
             PrecioP.ReadOnly = true;
             PrecioP.Width = 80;
@@ -803,7 +710,7 @@ namespace CapaVista.FormInventario
             panelCompras.Dock = DockStyle.Fill;
             panelCompras.Location = new Point(0, 0);
             panelCompras.Name = "panelCompras";
-            panelCompras.Size = new Size(429, 447);
+            panelCompras.Size = new Size(429, 606);
             panelCompras.TabIndex = 23;
             // 
             // lblEncabezado
@@ -823,7 +730,7 @@ namespace CapaVista.FormInventario
             panel2.Controls.Add(cbxBuscarCompra);
             panel2.Controls.Add(txtBuscarCompra);
             panel2.Dock = DockStyle.Bottom;
-            panel2.Location = new Point(0, 62);
+            panel2.Location = new Point(0, 221);
             panel2.Name = "panel2";
             panel2.Size = new Size(429, 62);
             panel2.TabIndex = 26;
@@ -919,7 +826,7 @@ namespace CapaVista.FormInventario
             tbCompras.EnableHeadersVisualStyles = false;
             tbCompras.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbCompras.GridColor = Color.Gray;
-            tbCompras.Location = new Point(0, 124);
+            tbCompras.Location = new Point(0, 283);
             tbCompras.Name = "tbCompras";
             tbCompras.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -984,14 +891,14 @@ namespace CapaVista.FormInventario
             panel1.Dock = DockStyle.Right;
             panel1.Location = new Point(597, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(429, 447);
+            panel1.Size = new Size(429, 606);
             panel1.TabIndex = 24;
             // 
             // FormCompras
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1029, 450);
+            ClientSize = new Size(1029, 609);
             Controls.Add(pnlContenedor);
             Controls.Add(panel1);
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
@@ -1007,7 +914,6 @@ namespace CapaVista.FormInventario
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            tableLayoutPanel1.ResumeLayout(false);
             panelBusqueda.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)tbBusqueda).EndInit();
             panelCompras.ResumeLayout(false);
@@ -1027,7 +933,6 @@ namespace CapaVista.FormInventario
         private ReaLTaiizor.Controls.AirCheckBox ckbEmpleadoNulo;
         private TableLayoutPanel tableLayoutPanel1;
         private RJCodeAdvance.RJControls.RJButton rjButton2;
-        private RJCodeAdvance.RJControls.RJButton btnGuardar;
         private TextBox txtIdUsuario;
         private Label lblTitulo;
         private ReaLTaiizor.Controls.PoisonDataGridView tbDetalles;
@@ -1047,15 +952,8 @@ namespace CapaVista.FormInventario
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCodigoDeProducto;
         private RJCodeAdvance.RJControls.RJButton btnBuscarProducto;
         private Panel panel2;
-        private DataGridViewButtonColumn Añadir;
-        private DataGridViewTextBoxColumn IdP;
-        private DataGridViewTextBoxColumn CodigoP;
-        private DataGridViewTextBoxColumn NombreP;
-        private DataGridViewTextBoxColumn PrecioP;
-        private DataGridViewTextBoxColumn CantidadP;
         private Panel panel3;
         private RJCodeAdvance.RJControls.RJButton btnLimpiar;
-        private RJCodeAdvance.RJControls.RJButton btnGuardarCompra;
         private Label label2;
         private TextBox txtIdFactura;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtTotal;
@@ -1076,5 +974,12 @@ namespace CapaVista.FormInventario
         private DataGridViewTextBoxColumn IdUsuario;
         private DataGridViewTextBoxColumn NombreUsuario;
         private DataGridViewTextBoxColumn Total;
+        private DataGridViewButtonColumn Añadir;
+        private DataGridViewTextBoxColumn IdP;
+        private DataGridViewTextBoxColumn CodigoP;
+        private DataGridViewTextBoxColumn NombreP;
+        private DataGridViewTextBoxColumn PrecioP;
+        private DataGridViewTextBoxColumn CantidadP;
+        private RJCodeAdvance.RJControls.RJButton btnGuardar;
     }
 }

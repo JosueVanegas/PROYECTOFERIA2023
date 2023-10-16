@@ -15,7 +15,7 @@ namespace CapaVista.FormsHerramientas
         }
         private void FormGenerarCodigoBarra_Load(object sender, EventArgs e)
         {
-            cbxProductos.DataSource = cP.listarComboProductos();
+            cbxProductos.DataSource = cP.listarProductos();
         }
         private void cbxProductos_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -96,9 +96,3 @@ namespace CapaVista.FormsHerramientas
         }
     }
 }
-
-/*
- * con libreria zen no tiene muchas opciones
- * Zen.Barcode.Code128BarcodeDraw d = Zen.Barcode.BarcodeDrawFactory.Code128WithChecksum;
-imagenCodigo.Image = d.Draw(txtCodigo.Text, 70);
- */

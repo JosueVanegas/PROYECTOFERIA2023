@@ -12,64 +12,54 @@ namespace CapaVista
         {
             InitializeComponent();
             DateTime fechaNacimientoMaxima = DateTime.Today.AddYears(-18);
-            FechaNacimientoCalendario.MaxDate = fechaNacimientoMaxima;
+            DateTime fechaNacimientoMinima = DateTime.Today.AddYears(-60);
+            dtNacimiento.MaxDate = fechaNacimientoMaxima;
+            dtNacimiento.MinDate = fechaNacimientoMinima;
         }
-
-
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Space)
             {
-                e.Handled = true; // Evita que se procese el carácter
+                e.Handled = true;
             }
         }
-
         private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Space)
             {
-                e.Handled = true; // Evita que se procese el carácter
+                e.Handled = true;
             }
         }
-
         private void txtCorreo_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != '-')
             {
-                e.Handled = true; // Evita que se procese el carácter
+                e.Handled = true;
             }
 
             if (txtTelefono != null && txtTelefono.Text.Length >= 8 && e.KeyChar != (char)Keys.Back)
             {
-                e.Handled = true; // Evita que se procese el carácter
+                e.Handled = true;
             }
         }
-
         private void txtDireccion_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Space)
             {
-                e.Handled = true; // Evita que se procese el carácter
+                e.Handled = true;
             }
         }
-
         private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
             {
-                e.Handled = true; // Evita que se procese el carácter
+                e.Handled = true;
             }
         }
-
         private void pictureBox1_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
-            // Establecer el icono de información (puedes cambiar el icono si lo deseas)
             toolTip.ToolTipIcon = ToolTipIcon.Info;
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(pictureBox4, "Area de Regsitro de Empleados\n" +
                                             "Como Agregar un Empleado:\n" +
                                             "1. Ingresar el Nombre.\n" +
@@ -89,48 +79,14 @@ namespace CapaVista
         }
         private void btnGuardar_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
-
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(btnGuardar, "Guardar");
         }
-
         private void btnLimpiar_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(btnLimpiar, "Limpiar");
         }
-
-
-
-        private void MonthCalendar1_DateSelected(object sender, DateRangeEventArgs e)
-        {
-            // Ocultar el MonthCalendar cuando se selecciona una fecha
-            FechaNacimientoCalendario.Visible = false;
-            DateTime selectedDate = e.Start;
-            // Pasar la fecha seleccionada al TextBox
-            txtFechadeNacimiento.Text = selectedDate.ToString("dd/MM/yyyy");
-        }
-
-        private void FechaNacimientoCalendario_MouseLeave(object sender, EventArgs e)
-        {
-            FechaNacimientoCalendario.Visible = false;
-        }
-        private void txtFechadeNacimiento_MouseHover(object sender, EventArgs e)
-        {
-            FechaNacimientoCalendario.Visible = true;
-        }
-
-        private void txtFecha_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = true;
-        }
-
         private void txtSalario_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (txtTelefono != null && txtTelefono.Text.Length >= 8 && !char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
@@ -141,39 +97,37 @@ namespace CapaVista
             {
                 e.Handled = true;
             }
-
         }
-
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (validarEntradas() == true)
             {
-                string sex = "";
+                char sex = '?';
                 if (cbxSexo.SelectedIndex == 0)
                 {
-                    sex = "M";
+                    sex = 'M';
                 }
                 else if (cbxSexo.SelectedIndex == 1)
                 {
-                    sex = "F";
+                    sex = 'F';
                 }
-                Empleado emp = new Empleado
+                Modelos.Empleado emp = new Modelos.Empleado
                 {
-                    id = Convert.ToInt32(txtId.Text),
-                    cedula = txtNumeroCedula.Text,
-                    nombres = txtNombre.Text,
-                    apellidos = txtApellido.Text,
-                    sexo = sex,
-                    nacimiento = txtFechadeNacimiento.Text,
-                    correo = txtCorreo.Text,
-                    direccion = txtDireccion.Text,
-                    cargo = txtCargo.Text,
-                    salarioHora = Convert.ToDecimal(txtSalario.Text),
-                    telefono = txtTelefono.Text
-
+                    ID = Convert.ToInt32(txtId.Text),
+                    DNI = txtNumeroCedula.Text,
+                    NOMBRE = txtNombre.Text,
+                    APELLIDO = txtApellido.Text,
+                    SEXO = sex,
+                    NACIMIENTO = dtNacimiento.Value,
+                    CORREO = txtCorreo.Text,
+                    DIRECCION = txtDireccion.Text,
+                    CARGO = txtCargo.Text,
+                    SALARIOPH = Convert.ToDecimal(txtSalario.Text),
+                    TELEFONO = txtTelefono.Text
                 };
                 MessageBox.Show(cEmp.registrarEmpleados(emp));
                 mostrarEmpleado();
+                limpiarCampos();
             }
         }
         private bool validarEntradas()
@@ -195,12 +149,12 @@ namespace CapaVista
         }
         private void mostrarEmpleado()
         {
-            List<Empleado> lista = cEmp.listarEmpleados();
+            List<Modelos.Empleado> lista = cEmp.listarEmpleados();
             tbEmpleados.Rows.Clear();
-            foreach (Empleado e in lista)
+            foreach (Modelos.Empleado e in lista)
             {
-                tbEmpleados.Rows.Add("", "", e.id, e.cedula, e.nombres, e.apellidos, e.sexo, e.nacimiento, e.telefono
-                    , e.direccion, e.correo, e.cargo, e.salarioHora, e.fechaRegistro);
+                tbEmpleados.Rows.Add("", "", e.ID, e.DNI, e.NOMBRE, e.APELLIDO, e.SEXO, e.NACIMIENTO, e.TELEFONO
+                    , e.DIRECCION, e.CORREO, e.CARGO, e.SALARIOPH);
             }
         }
         private void eliminarEmpleado(int id)
@@ -217,31 +171,30 @@ namespace CapaVista
             int indice = e.RowIndex;
             if (tbEmpleados.Columns[e.ColumnIndex].Name == "btnBorrar")
             {
-                int id = (int)tbEmpleados.Rows[indice].Cells[3].Value;
+                int id = (int)tbEmpleados.Rows[indice].Cells["Id"].Value;
                 eliminarEmpleado(id);
             }
             if (tbEmpleados.Columns[e.ColumnIndex].Name == "btnEditar")
             {
-                txtId.Text = tbEmpleados.Rows[indice].Cells[2].Value.ToString();
-                txtNumeroCedula.Text = tbEmpleados.Rows[indice].Cells[3].Value.ToString();
-                txtNombre.Text = tbEmpleados.Rows[indice].Cells[4].Value.ToString();
-                txtApellido.Text = tbEmpleados.Rows[indice].Cells[5].Value.ToString();
-                string sexo = tbEmpleados.Rows[indice].Cells[6].Value.ToString();
-                if (sexo == "M")
+                txtId.Text = tbEmpleados.Rows[indice].Cells["Id"].Value.ToString();
+                txtNumeroCedula.Text = tbEmpleados.Rows[indice].Cells["Cedula"].Value.ToString();
+                txtNombre.Text = tbEmpleados.Rows[indice].Cells["Nombre"].Value.ToString();
+                txtApellido.Text = tbEmpleados.Rows[indice].Cells["Apellido"].Value.ToString();
+                char sexo = Convert.ToChar(tbEmpleados.Rows[indice].Cells["Sexo"].Value);
+                if (sexo == 'M')
                 {
                     cbxSexo.SelectedIndex = 0;
                 }
-                else if (sexo == "F")
+                else if (sexo == 'F')
                 {
                     cbxSexo.SelectedIndex = 1;
                 }
-                txtFechadeNacimiento.Text = tbEmpleados.Rows[indice].Cells[7].Value.ToString();
-                txtTelefono.Text = tbEmpleados.Rows[indice].Cells[8].Value.ToString();
-                txtDireccion.Text = tbEmpleados.Rows[indice].Cells[9].Value.ToString();
-                txtCorreo.Text = tbEmpleados.Rows[indice].Cells[10].Value.ToString();
-                txtCargo.Text = tbEmpleados.Rows[indice].Cells[11].Value.ToString();
-                txtSalario.Text = tbEmpleados.Rows[indice].Cells[12].Value.ToString();
-                txtFechadeNacimiento.Text = tbEmpleados.Rows[indice].Cells[13].Value.ToString();
+                txtTelefono.Text = tbEmpleados.Rows[indice].Cells["Telefono"].Value.ToString();
+                txtDireccion.Text = tbEmpleados.Rows[indice].Cells["Direccion"].Value.ToString();
+                txtCorreo.Text = tbEmpleados.Rows[indice].Cells["Correo"].Value.ToString();
+                txtCargo.Text = tbEmpleados.Rows[indice].Cells["Cargo"].Value.ToString();
+                txtSalario.Text = tbEmpleados.Rows[indice].Cells["Salario"].Value.ToString();
+                dtNacimiento.Value = Convert.ToDateTime(tbEmpleados.Rows[indice].Cells["Nacimiento"].Value);
             }
         }
 
@@ -284,11 +237,15 @@ namespace CapaVista
             txtApellido.Text = "";
             txtSalario.Text = "0.00";
             txtTelefono.Text = "";
-            txtId.Text = "1";
+            txtId.Text = "0";
             txtCorreo.Text = "";
             txtCargo.Text = "";
             txtDireccion.Text = "";
-            txtFechadeNacimiento.Text = "";
+        }
+
+        private void dtNacimiento_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

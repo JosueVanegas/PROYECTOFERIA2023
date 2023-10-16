@@ -16,11 +16,11 @@ namespace CapaVista
         }
         private void mostrarProveedores()
         {
-            List<Proveedor> lista = cProv.listarProveedores();
+            List<Modelos.Proveedor> lista = cProv.listarProveedores();
             tbProveedores.Rows.Clear();
-            foreach (Proveedor p in lista)
+            foreach (Modelos.Proveedor p in lista)
             {
-                tbProveedores.Rows.Add("", "", p.id, p.nombreProveedor, p.nombreContacto, p.numeroContacto, p.pais, p.ciudad);
+                tbProveedores.Rows.Add("", "", p.ID, p.EMPRESA, p.CONTACTO, p.TELEFONO, p.PAIS, p.CIUDAD);
             }
         }
         private bool validarCampos()
@@ -34,6 +34,7 @@ namespace CapaVista
         }
         private void limpiarCampos()
         {
+            txtId.Text = "0";
             txtNombreEmpresa.Text = "";
             txtNombreContacto.Text = "";
             txtNumeroContacto.Text = "";
@@ -42,23 +43,17 @@ namespace CapaVista
         }
         private void registrarProveedor()
         {
-            /*
-             * int id = 1;
-            if(txtId.Text != "")
-            {
-                id = Convert.ToInt32(txtId.Text);
-            }
-             */
+
             if (validarCampos() == true)
             {
-                MessageBox.Show(cProv.accionProveedor(new Proveedor
+                MessageBox.Show(cProv.accionProveedor(new Modelos.Proveedor
                 {
-                    id = Convert.ToInt32(txtId.Text),
-                    nombreProveedor = txtNombreEmpresa.Text,
-                    nombreContacto = txtNombreContacto.Text,
-                    numeroContacto = txtNumeroContacto.Text,
-                    pais = txtPais.Text,
-                    ciudad = txtCiudad.Text
+                    ID = Convert.ToInt32(txtId.Text),
+                    EMPRESA = txtNombreEmpresa.Text,
+                    CONTACTO = txtNombreContacto.Text,
+                    TELEFONO = txtNumeroContacto.Text,
+                    PAIS = txtPais.Text,
+                    CIUDAD = txtCiudad.Text
                 }));
                 limpiarCampos();
                 mostrarProveedores();
@@ -70,7 +65,7 @@ namespace CapaVista
         }
         private void eliminarProveedor(int id)
         {
-            if (MessageBox.Show("Desea eliminar al proveedor seleccionado? ", "Consulta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Desea eliminar al proveedor seleccionado? ", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 MessageBox.Show(cProv.eliminarProveedor(id));
                 mostrarProveedores();
@@ -96,9 +91,7 @@ namespace CapaVista
             {
                 if (indice >= 0)
                 {
-#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                     string valor = tbProveedores.Rows[indice].Cells["Id"].Value.ToString();
-#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                     eliminarProveedor(Convert.ToInt32(valor));
                 }
             }
@@ -135,7 +128,6 @@ namespace CapaVista
         {
             registrarProveedor();
         }
-
         private void txtNumeroContacto_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != '-')
@@ -148,7 +140,6 @@ namespace CapaVista
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
             toolTip.SetToolTip(btnGuardar, "Guardar");
         }
-
         private void btnLimpiar_MouseHover(object sender, EventArgs e)
         {
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
@@ -156,10 +147,8 @@ namespace CapaVista
         }
         private void pictureBox4_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
             toolTip.ToolTipIcon = ToolTipIcon.Info;
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(pictureBox4, "Area de Creación de Proveedores\n" +
                                             "Como Agregar un Proveedor:\n" +
                                             "1. Ingresar el nombre de la Empresa.\n" +
@@ -171,18 +160,11 @@ namespace CapaVista
                                             "Si desea editar un producto creado click 'Editar'\n" +
                                             "Si desea eliminar un producto creado click 'Eliminar'");
         }
-
         private void cbxBuscar_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
-
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(cbxBuscar, "Para una busqueda mas efeciente se pueden realizar busqueda por filtros");
         }
-
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             limpiarCampos();

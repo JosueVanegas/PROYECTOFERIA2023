@@ -6,10 +6,10 @@ namespace CapaDatos
     public class DataEmpleados
     {
         string mensaje = "";
-        public List<Empleado> listaEmpleados()
+        public List<Modelos.Empleado> listaEmpleados()
         {
-            List<Empleado> lista = new List<Empleado>();
-            string query = "SELECT * FROM EMPLEADO";
+            List <Modelos.Empleado> lista = new List<Modelos.Empleado>();
+            string query = "SELECT ID,DNI,NAMES,LASTNAMES,SEX,BIRTHDATE,PHONE,ADDRESS_,EMAIL,JOB_TITLE,HOURLY_RATE FROM SALES.EMPLOYEES WHERE ACTIVE = 1";
             using (var con = new conexion().conectar())
             {
                 try
@@ -22,20 +22,19 @@ namespace CapaDatos
                         {
                             while (reader.Read())
                             {
-                                lista.Add(new Empleado
+                                lista.Add(new Modelos.Empleado
                                 {
-                                    id = Convert.ToInt32(reader[0]),
-                                    cedula = reader[1].ToString(),
-                                    nombres = reader[2].ToString(),
-                                    apellidos = reader[3].ToString(),
-                                    sexo = reader[4].ToString(),
-                                    nacimiento = reader[5].ToString(),
-                                    telefono = reader[6].ToString(),
-                                    direccion = reader[7].ToString(),
-                                    correo = reader[8].ToString(),
-                                    cargo = reader[9].ToString(),
-                                    salarioHora = Convert.ToDecimal(reader[10]),
-                                    fechaRegistro = reader[11].ToString()
+                                    ID = Convert.ToInt32(reader["ID"].ToString()),
+                                    DNI = reader["DNI"].ToString(),
+                                    NOMBRE = reader["NAMES"].ToString(),
+                                    APELLIDO = reader["LASTNAMES"].ToString(),
+                                    SEXO = Convert.ToChar(reader["SEX"]),
+                                    NACIMIENTO = Convert.ToDateTime(reader["BIRTHDATE"]),
+                                    TELEFONO = reader["PHONE"].ToString(),
+                                    DIRECCION = reader["ADDRESS_"].ToString(),
+                                    CORREO = reader["EMAIL"].ToString(),
+                                    CARGO = reader["JOB_TITLE"].ToString(),
+                                    SALARIOPH = Convert.ToDecimal(reader["HOURLY_RATE"])
                                 });
                             }
                         }
@@ -43,34 +42,34 @@ namespace CapaDatos
                 }
                 catch (Exception ex)
                 {
-                    lista = new List<Empleado>();
+                    lista = new List<Modelos.Empleado>();
                 }
             }
             return lista;
         }
-        public string accionesEmpleados(Empleado emp)
+        public string accionesEmpleados(Modelos.Empleado emp)
         {
             using (SqlConnection connection = new conexion().conectar())
             {
                 try
                 {
                     connection.Open();
-                    SqlCommand comand = new SqlCommand("PROC_REGISTRAR_EMPLEADO", connection);
+                    SqlCommand comand = new SqlCommand("PROC_REGISTER_EMPLOYEE", connection);
                     comand.CommandType = CommandType.StoredProcedure;
-                    comand.Parameters.AddWithValue("@ID_EMPLEADO", emp.id);
-                    comand.Parameters.AddWithValue("@CEDULA", emp.cedula);
-                    comand.Parameters.AddWithValue("@NOMBRE", emp.nombres);
-                    comand.Parameters.AddWithValue("@APELLIDO", emp.apellidos);
-                    comand.Parameters.AddWithValue("@SEXO", emp.sexo);
-                    comand.Parameters.AddWithValue("@FECHA_NACIMIENTO", emp.nacimiento);
-                    comand.Parameters.AddWithValue("@TELEFONO", emp.telefono);
-                    comand.Parameters.AddWithValue("@DIRECCION", emp.direccion);
-                    comand.Parameters.AddWithValue("@CORREO", emp.correo);
-                    comand.Parameters.AddWithValue("@CARGO ", emp.cargo);
-                    comand.Parameters.AddWithValue("@SALARIO", emp.salarioHora);
-                    comand.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    comand.Parameters.AddWithValue("@ID", emp.ID);
+                    comand.Parameters.AddWithValue("@DNI", emp.DNI);
+                    comand.Parameters.AddWithValue("@NAME", emp.NOMBRE);
+                    comand.Parameters.AddWithValue("@LASTNAME", emp.APELLIDO);
+                    comand.Parameters.AddWithValue("@SEX", emp.SEXO);
+                    comand.Parameters.AddWithValue("@BIRTHDATE", emp.NACIMIENTO);
+                    comand.Parameters.AddWithValue("@PHONE", emp.TELEFONO);
+                    comand.Parameters.AddWithValue("@ADDRESS", emp.DIRECCION);
+                    comand.Parameters.AddWithValue("@EMAIL", emp.CORREO);
+                    comand.Parameters.AddWithValue("@JODTITLE ", emp.CARGO);
+                    comand.Parameters.AddWithValue("@HOURLYRATE", emp.SALARIOPH);
+                    comand.Parameters.Add("MESSAGE", SqlDbType.VarChar, 200).Direction = ParameterDirection.Output;
                     comand.ExecuteNonQuery();
-                    mensaje = comand.Parameters["mensaje"].Value.ToString();
+                    mensaje = comand.Parameters["MESSAGE"].Value.ToString();
                 }
                 catch (Exception ex)
                 {
@@ -87,12 +86,12 @@ namespace CapaDatos
                 try
                 {
                     con.Open();
-                    SqlCommand comand = new SqlCommand("PROC_ELIMINAR_EMPLEADO", con);
+                    SqlCommand comand = new SqlCommand("PROC_DELETE_EMPLOYEE", con);
                     comand.CommandType = CommandType.StoredProcedure;
-                    comand.Parameters.AddWithValue("@ID_EMPLEADO", id);
-                    comand.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    comand.Parameters.AddWithValue("@ID", id);
+                    comand.Parameters.Add("MESSAGE", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     comand.ExecuteNonQuery();
-                    mensaje = comand.Parameters["mensaje"].Value.ToString();
+                    mensaje = comand.Parameters["MESSAGE"].Value.ToString();
                 }
                 catch (Exception ex)
                 {

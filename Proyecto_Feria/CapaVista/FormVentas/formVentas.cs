@@ -10,7 +10,7 @@ namespace CapaVista.FormVenta
         ControlProducto controlProducto = new ControlProducto();
         ControlVenta controlVenta = new ControlVenta();
 #pragma warning disable CS8625 // No se puede convertir un literal NULL en un tipo de referencia que no acepta valores NULL.
-        List<Producto> lista = null;
+        List<Modelos.Producto> lista = null;
 #pragma warning restore CS8625 // No se puede convertir un literal NULL en un tipo de referencia que no acepta valores NULL.
         Modelos.Usuario user;
         public formVentas(Modelos.Usuario user)
@@ -40,18 +40,16 @@ namespace CapaVista.FormVenta
         {
             lista = controlProducto.listarProductos();
             tbBusqueda.Rows.Clear();
-            foreach (Producto p in lista)
+            foreach (Modelos.Producto p in lista)
             {
-#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                 Image img = null;
-#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
-                using (MemoryStream memoryStream = new MemoryStream(p.imagen))
+                using (MemoryStream memoryStream = new MemoryStream(p.IMAGEN))
                 {
                     Image imagen = Image.FromStream(memoryStream);
                     img = imagen;
 
                 }
-                tbBusqueda.Rows.Add("", img, p.id, p.codigo, p.nombre, p.PrecioVenta, p.cantidad);
+                tbBusqueda.Rows.Add("", img, p.ID, p.CODIGO, p.NOMBRE, p.PRECIO_VENTA,p.STOCK);
             }
         }
         private void checkDescuento_CheckedChanged(object sender, EventArgs e)
@@ -201,8 +199,8 @@ namespace CapaVista.FormVenta
         }
         private void agregarProducto(string codigo)
         {
-            var producto = lista.FirstOrDefault(p => p.codigo == codigo);
-            if (producto.cantidad != 0)
+            var producto = lista.FirstOrDefault(p => p.CODIGO == codigo);
+            if (producto.STOCK != 0)
             {
                 int rowIndex = -1;
                 for (int i = 0; i < tbResumen.Rows.Count; i++)
@@ -218,9 +216,9 @@ namespace CapaVista.FormVenta
                 {
                     int nuevaCantidad = 1 + Convert.ToInt32(tbResumen.Rows[rowIndex].Cells["Cantidad"].Value);
 
-                    if (producto.cantidad >= nuevaCantidad)
+                    if (producto.STOCK >= nuevaCantidad)
                     {
-                        decimal nuevoSubTotal = nuevaCantidad * producto.PrecioVenta;
+                        decimal nuevoSubTotal = nuevaCantidad * producto.PRECIO_VENTA;
                         tbResumen.Rows[rowIndex].Cells["Cantidad"].Value = nuevaCantidad;
                         tbResumen.Rows[rowIndex].Cells["SubTotal"].Value = nuevoSubTotal;
                         lblCantidad.Text = nuevaCantidad.ToString();
@@ -230,27 +228,27 @@ namespace CapaVista.FormVenta
                     }
                     else
                     {
-                        MessageBox.Show("El producto '" + producto.nombre + "' no dispone de la cantidad requerida\n" +
-                                    "Cantidad del producto en inventario: " + producto.cantidad + " cantidad requeridad: " + nuevaCantidad);
+                        MessageBox.Show("El producto '" + producto.NOMBRE + "' no dispone de la cantidad requerida\n" +
+                                    "Cantidad del producto en inventario: " + producto.STOCK + " cantidad requeridad: " + nuevaCantidad);
                         limpiarEtiquetas();
                         lblCantidad.Text = "Cantidad ordenada: " + (nuevaCantidad - 1).ToString();
-                        lblSubTotal.Text = "SubTotal: " + (producto.PrecioVenta * (nuevaCantidad - 1));
+                        lblSubTotal.Text = "SubTotal: " + (producto.PRECIO_VENTA * (nuevaCantidad - 1));
                     }
                 }
                 else
                 {
-                    tbResumen.Rows.Add("", "", producto.imagen, producto.id, producto.codigo, producto.nombre
-                    , producto.PrecioVenta, 1, producto.PrecioVenta, producto.cantidad);
+                    tbResumen.Rows.Add("", "", producto.IMAGEN, producto.ID, producto.CODIGO, producto.NOMBRE
+                    , producto.PRECIO_VENTA, 1, producto.PRECIO_VENTA, producto.STOCK);
                     limpiarEtiquetas();
                     lblCantidad.Text = lblCantidad.Text + " " + 1;
-                    lblSubTotal.Text = lblSubTotal.Text + " " + producto.PrecioVenta;
+                    lblSubTotal.Text = lblSubTotal.Text + " " + producto.PRECIO_VENTA;
                 }
-                lblCodigo.Text = lblCodigo.Text + " " + producto.codigo;
-                lblNombre.Text = lblNombre.Text + " " + producto.nombre;
-                lblPrecio.Text = lblPrecio.Text + " " + producto.PrecioVenta;
-                lblStock.Text = lblStock.Text + " " + producto.cantidad;
+                lblCodigo.Text = lblCodigo.Text + " " + producto.CODIGO;
+                lblNombre.Text = lblNombre.Text + " " + producto.NOMBRE;
+                lblPrecio.Text = lblPrecio.Text + " " + producto.PRECIO_VENTA;
+                lblStock.Text = lblStock.Text + " " + producto.STOCK;
                 txtSubTotal.Visible = true;
-                using (MemoryStream memoryStream = new MemoryStream(producto.imagen))
+                using (MemoryStream memoryStream = new MemoryStream(producto.IMAGEN))
                 {
                     Image imagen = Image.FromStream(memoryStream);
                     pktProducto.Image = imagen;

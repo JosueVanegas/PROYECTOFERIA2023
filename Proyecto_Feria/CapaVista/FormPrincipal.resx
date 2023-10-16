@@ -117,15 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="panelAbajo.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="panel7.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="lblReloj.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lblReloj.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -138,7 +129,7 @@
     <value>0, 0</value>
   </data>
   <data name="lblReloj.Size" type="System.Drawing.Size, System.Drawing">
-    <value>740, 92</value>
+    <value>648, 69</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lblReloj.TabIndex" type="System.Int32, mscorlib">
@@ -163,10 +154,14 @@
     <value>Fill</value>
   </data>
   <data name="panel7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>468, 0</value>
+    <value>410, 0</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="panel7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="panel7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>740, 92</value>
+    <value>648, 69</value>
   </data>
   <data name="panel7.TabIndex" type="System.Int32, mscorlib">
     <value>55</value>
@@ -183,12 +178,6 @@
   <data name="&gt;&gt;panel7.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="panel6.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="lblRol.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="lblRol.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
@@ -196,14 +185,13 @@
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
   <data name="lblRol.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 50</value>
+    <value>0, 38</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lblRol.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 0, 5, 0</value>
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="lblRol.Size" type="System.Drawing.Size, System.Drawing">
-    <value>468, 28</value>
+    <value>410, 21</value>
   </data>
   <data name="lblRol.TabIndex" type="System.Int32, mscorlib">
     <value>53</value>
@@ -226,9 +214,6 @@
   <data name="&gt;&gt;lblRol.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="lblUsuario.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="lblUsuario.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
@@ -239,10 +224,10 @@
     <value>0, 0</value>
   </data>
   <data name="lblUsuario.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 0, 5, 0</value>
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="lblUsuario.Size" type="System.Drawing.Size, System.Drawing">
-    <value>468, 50</value>
+    <value>410, 38</value>
   </data>
   <data name="lblUsuario.TabIndex" type="System.Int32, mscorlib">
     <value>52</value>
@@ -271,8 +256,11 @@
   <data name="panel6.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
+  <data name="panel6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
   <data name="panel6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>468, 92</value>
+    <value>410, 69</value>
   </data>
   <data name="panel6.TabIndex" type="System.Int32, mscorlib">
     <value>54</value>
@@ -293,13 +281,13 @@
     <value>Top</value>
   </data>
   <data name="panelAbajo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 32</value>
+    <value>4, 24</value>
   </data>
   <data name="panelAbajo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 3, 5, 3</value>
+    <value>4, 2, 4, 2</value>
   </data>
   <data name="panelAbajo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1208, 92</value>
+    <value>1058, 69</value>
   </data>
   <data name="panelAbajo.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -316,11 +304,11 @@
   <data name="&gt;&gt;panelAbajo.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <metadata name="btnClientes.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="btnClientes.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Center</value>
+  </data>
+  <data name="btnClientes.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
   </data>
   <data name="btnClientes.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -329,13 +317,13 @@
     <value>Segoe UI, 18pt</value>
   </data>
   <data name="btnClientes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 297</value>
+    <value>0, 190</value>
   </data>
   <data name="btnClientes.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
+    <value>9, 8, 9, 8</value>
   </data>
   <data name="btnClientes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>204, 51</value>
+    <value>234, 38</value>
   </data>
   <data name="btnClientes.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -358,11 +346,11 @@
   <data name="&gt;&gt;btnClientes.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <metadata name="btnInventario.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="btnInventario.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Center</value>
+  </data>
+  <data name="btnInventario.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
   </data>
   <data name="btnInventario.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -371,13 +359,13 @@
     <value>Segoe UI, 18pt</value>
   </data>
   <data name="btnInventario.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 155</value>
+    <value>0, 76</value>
   </data>
   <data name="btnInventario.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
+    <value>9, 8, 9, 8</value>
   </data>
   <data name="btnInventario.Size" type="System.Drawing.Size, System.Drawing">
-    <value>204, 51</value>
+    <value>234, 38</value>
   </data>
   <data name="btnInventario.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -400,11 +388,11 @@
   <data name="&gt;&gt;btnInventario.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <metadata name="btnPlanilla.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="btnPlanilla.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Center</value>
+  </data>
+  <data name="btnPlanilla.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
   </data>
   <data name="btnPlanilla.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -416,13 +404,13 @@
     <value>MiddleLeft</value>
   </data>
   <data name="btnPlanilla.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 226</value>
+    <value>0, 266</value>
   </data>
   <data name="btnPlanilla.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
+    <value>9, 8, 9, 8</value>
   </data>
   <data name="btnPlanilla.Size" type="System.Drawing.Size, System.Drawing">
-    <value>204, 51</value>
+    <value>234, 38</value>
   </data>
   <data name="btnPlanilla.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -445,11 +433,11 @@
   <data name="&gt;&gt;btnPlanilla.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <metadata name="btnInformes.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="btnInformes.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Center</value>
+  </data>
+  <data name="btnInformes.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
   </data>
   <data name="btnInformes.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -458,13 +446,13 @@
     <value>Segoe UI, 18pt</value>
   </data>
   <data name="btnInformes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 368</value>
+    <value>0, 114</value>
   </data>
   <data name="btnInformes.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
+    <value>9, 8, 9, 8</value>
   </data>
   <data name="btnInformes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>204, 51</value>
+    <value>234, 38</value>
   </data>
   <data name="btnInformes.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -487,11 +475,11 @@
   <data name="&gt;&gt;btnInformes.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <metadata name="btnVentas.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="btnVentas.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Center</value>
+  </data>
+  <data name="btnVentas.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
   </data>
   <data name="btnVentas.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -500,13 +488,13 @@
     <value>Segoe UI, 18pt</value>
   </data>
   <data name="btnVentas.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 84</value>
+    <value>0, 38</value>
   </data>
   <data name="btnVentas.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
+    <value>9, 8, 9, 8</value>
   </data>
   <data name="btnVentas.Size" type="System.Drawing.Size, System.Drawing">
-    <value>204, 51</value>
+    <value>234, 38</value>
   </data>
   <data name="btnVentas.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -529,11 +517,11 @@
   <data name="&gt;&gt;btnVentas.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <metadata name="btnUsuarios.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="btnUsuarios.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Center</value>
+  </data>
+  <data name="btnUsuarios.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
   </data>
   <data name="btnUsuarios.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -542,13 +530,13 @@
     <value>Segoe UI, 18pt</value>
   </data>
   <data name="btnUsuarios.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 439</value>
+    <value>0, 152</value>
   </data>
   <data name="btnUsuarios.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
+    <value>9, 8, 9, 8</value>
   </data>
   <data name="btnUsuarios.Size" type="System.Drawing.Size, System.Drawing">
-    <value>204, 51</value>
+    <value>234, 38</value>
   </data>
   <data name="btnUsuarios.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -571,11 +559,11 @@
   <data name="&gt;&gt;btnUsuarios.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <metadata name="btnConfiguraciones.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="btnConfiguraciones.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Center</value>
+  </data>
+  <data name="btnConfiguraciones.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
   </data>
   <data name="btnConfiguraciones.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -584,13 +572,13 @@
     <value>Segoe UI, 18pt</value>
   </data>
   <data name="btnConfiguraciones.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 581</value>
+    <value>0, 304</value>
   </data>
   <data name="btnConfiguraciones.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
+    <value>9, 8, 9, 8</value>
   </data>
   <data name="btnConfiguraciones.Size" type="System.Drawing.Size, System.Drawing">
-    <value>204, 51</value>
+    <value>234, 38</value>
   </data>
   <data name="btnConfiguraciones.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -613,11 +601,11 @@
   <data name="&gt;&gt;btnConfiguraciones.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="btnHerramientas.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="btnHerramientas.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Center</value>
+  </data>
+  <data name="btnHerramientas.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
   </data>
   <data name="btnHerramientas.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -626,13 +614,13 @@
     <value>Segoe UI, 18pt</value>
   </data>
   <data name="btnHerramientas.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 510</value>
+    <value>0, 228</value>
   </data>
   <data name="btnHerramientas.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
+    <value>9, 8, 9, 8</value>
   </data>
   <data name="btnHerramientas.Size" type="System.Drawing.Size, System.Drawing">
-    <value>204, 51</value>
+    <value>234, 38</value>
   </data>
   <data name="btnHerramientas.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -655,11 +643,11 @@
   <data name="&gt;&gt;btnHerramientas.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <metadata name="btnInicio.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="btnInicio.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Center</value>
+  </data>
+  <data name="btnInicio.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
   </data>
   <data name="btnInicio.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -668,13 +656,13 @@
     <value>Segoe UI, 18pt</value>
   </data>
   <data name="btnInicio.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 13</value>
+    <value>0, 0</value>
   </data>
   <data name="btnInicio.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
+    <value>9, 8, 9, 8</value>
   </data>
   <data name="btnInicio.Size" type="System.Drawing.Size, System.Drawing">
-    <value>204, 51</value>
+    <value>234, 38</value>
   </data>
   <data name="btnInicio.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -697,20 +685,17 @@
   <data name="&gt;&gt;btnInicio.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <metadata name="panelContenedor.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="panelContenedor.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
   <data name="panelContenedor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>272, 124</value>
+    <value>238, 93</value>
   </data>
   <data name="panelContenedor.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
   <data name="panelContenedor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>941, 650</value>
+    <value>824, 488</value>
   </data>
   <data name="panelContenedor.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -727,15 +712,9 @@
   <data name="&gt;&gt;panelContenedor.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="tableLayoutPanel2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="tableLayoutPanel2.ColumnCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <metadata name="rjButton1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="rjButton1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
@@ -810,9 +789,6 @@
   <data name="tableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="rjButton1" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Absolute,20,Absolute,20,Absolute,20,Absolute,20,Absolute,20,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
-  <metadata name="rjButton2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="rjButton2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
@@ -855,18 +831,12 @@
   <data name="&gt;&gt;rjButton2.Type" xml:space="preserve">
     <value>RJCodeAdvance.RJControls.RJButton, RJCodeAdvance.RJControls, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <metadata name="tableLayoutPanel1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="tableLayoutPanel1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom</value>
   </data>
   <data name="tableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <metadata name="rjButton3.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="rjButton3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
@@ -943,9 +913,6 @@
   <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="rjButton3" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,20,Percent,20,Percent,20,Percent,20,Percent,20" /&gt;&lt;Rows Styles="Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
-  <metadata name="rjButton4.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="rjButton4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
@@ -1001,15 +968,9 @@
   <data name="&gt;&gt;rjButton4.Type" xml:space="preserve">
     <value>RJCodeAdvance.RJControls.RJButton, RJCodeAdvance.RJControls, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <metadata name="tableLayoutPanel3.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="tableLayoutPanel3.ColumnCount" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <metadata name="lblEncabezado2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="lblEncabezado2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -1070,9 +1031,6 @@
   <data name="tableLayoutPanel3.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblEncabezado2" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Absolute,170,Absolute,270" /&gt;&lt;Rows Styles="Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
-  <metadata name="lblEncabezado3.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="lblEncabezado3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -1106,18 +1064,9 @@
   <data name="&gt;&gt;lblEncabezado3.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <metadata name="panel1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="tableLayoutPanel6.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="tableLayoutPanel6.ColumnCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <metadata name="cyberSwitch1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="cyberSwitch1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -1187,9 +1136,6 @@
   <data name="&gt;&gt;panel1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <metadata name="tableLayoutPanel7.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="tableLayoutPanel7.ColumnCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
@@ -1214,12 +1160,6 @@
   <data name="tableLayoutPanel7.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls /&gt;&lt;Columns Styles="Percent,50" /&gt;&lt;Rows Styles="" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
-  <metadata name="panel4.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="pictureBox1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="pictureBox1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -1476,9 +1416,6 @@
   <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="pictureBox2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="pictureBox2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -1850,9 +1787,6 @@
   <metadata name="reloj.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="panel3.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 8</value>
   </data>
@@ -1868,15 +1802,9 @@
   <data name="&gt;&gt;panel3.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <metadata name="tableLayoutPanel4.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="tableLayoutPanel4.ColumnCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <metadata name="rjButton5.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="rjButton5.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
@@ -1959,9 +1887,6 @@
   <data name="tableLayoutPanel4.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="rjButton5" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
-  <metadata name="rjButton6.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="rjButton6.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
@@ -2013,17 +1938,17 @@
   <data name="&gt;&gt;rjButton6.Type" xml:space="preserve">
     <value>RJCodeAdvance.RJControls.RJButton, RJCodeAdvance.RJControls, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <metadata name="panel2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="panel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
   </data>
   <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 124</value>
+    <value>4, 93</value>
+  </data>
+  <data name="panel2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>267, 650</value>
+    <value>234, 488</value>
   </data>
   <data name="panel2.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -2043,17 +1968,14 @@
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 20</value>
+    <value>7, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1218, 778</value>
+    <value>1066, 584</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2220,13 +2142,13 @@
 </value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 4, 5, 4</value>
+    <value>4, 3, 4, 3</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>1201, 683</value>
+    <value>1053, 522</value>
   </data>
   <data name="$this.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 32, 5, 4</value>
+    <value>4, 24, 4, 3</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>

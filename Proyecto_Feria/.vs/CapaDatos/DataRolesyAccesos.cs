@@ -50,7 +50,7 @@ namespace CapaDatos
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lista = new List<Modelos.AccesoRol>();
             }
@@ -63,27 +63,28 @@ namespace CapaDatos
                 using (var con = new conexion().conectar())
                 {
                     con.Open();
-                    using(var cmd = new SqlCommand("PROC_REGISTER_ROL",con))
+                    using (var cmd = new SqlCommand("PROC_REGISTER_ROL", con))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@ID ",ar.ROL.ID);
+                        cmd.Parameters.AddWithValue("@ID ", ar.ROL.ID);
                         cmd.Parameters.AddWithValue("@NAME", ar.ROL.NOMBRE);
-                        cmd.Parameters.AddWithValue("@SALE",ar.VENTAS);
-                        cmd.Parameters.AddWithValue("@INVENTORY ",ar.INVENTARIO);
-                        cmd.Parameters.AddWithValue("@TOOL",ar.HERRAMIENTAS);
-                        cmd.Parameters.AddWithValue("@USER",ar.USUARIOS);
-                        cmd.Parameters.AddWithValue("@CLIENT",ar.CLIENTES);
-                        cmd.Parameters.AddWithValue("@INFORM",ar.INFORMES);
-                        cmd.Parameters.AddWithValue("@EMPLOYEE",ar.EMPLEADOS);
-                        cmd.Parameters.AddWithValue("@SETTING",ar.CONFIGURACIONES);
+                        cmd.Parameters.AddWithValue("@SALE", ar.VENTAS);
+                        cmd.Parameters.AddWithValue("@INVENTORY ", ar.INVENTARIO);
+                        cmd.Parameters.AddWithValue("@TOOL", ar.HERRAMIENTAS);
+                        cmd.Parameters.AddWithValue("@USER", ar.USUARIOS);
+                        cmd.Parameters.AddWithValue("@CLIENT", ar.CLIENTES);
+                        cmd.Parameters.AddWithValue("@INFORM", ar.INFORMES);
+                        cmd.Parameters.AddWithValue("@EMPLOYEE", ar.EMPLEADOS);
+                        cmd.Parameters.AddWithValue("@SETTING", ar.CONFIGURACIONES);
                         cmd.Parameters.Add("MESSAGE", SqlDbType.VarChar, 200).Direction = ParameterDirection.Output;
                         cmd.ExecuteNonQuery();
                         mensaje = cmd.Parameters["MESSAGE"].Value.ToString();
                     }
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
-                mensaje = "Error: "+ex.Message;
+                mensaje = "Error: " + ex.Message;
             }
             return mensaje;
         }
@@ -94,18 +95,19 @@ namespace CapaDatos
                 using (var con = new conexion().conectar())
                 {
                     con.Open();
-                    using (var cmd = new SqlCommand("PROC_DELETE_ROL",con))
+                    using (var cmd = new SqlCommand("PROC_DELETE_ROL", con))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("ID", id);
-                        cmd.Parameters.Add("MESSAGE",SqlDbType.VarChar, 200).Direction = ParameterDirection.Output;
+                        cmd.Parameters.Add("MESSAGE", SqlDbType.VarChar, 200).Direction = ParameterDirection.Output;
                         cmd.ExecuteNonQuery();
                         mensaje = cmd.Parameters["MESSAGE"].Value.ToString();
                     }
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
-                mensaje = "Error: "+ex.Message;
+                mensaje = "Error: " + ex.Message;
             }
             return mensaje;
         }
@@ -113,11 +115,12 @@ namespace CapaDatos
         public bool[] accesoUsuarios(int id)
         {
             bool[] accesos = new bool[8];
-            string query =  "SELECT "+
+            string query = "SELECT " +
                 "AC_SALE,AC_INVENTORY,AC_TOOL," +
-                "AC_USER,AC_CLIENT,AC_INFORM,"+
-                "AC_EMPLOYEE,AC_SETTING "+ 
-                $"FROM SALES.ROL_ACCESS WHERE ID_ROL = {id}";
+                "AC_USER,AC_CLIENT,AC_INFORM," +
+                "AC_EMPLOYEE,AC_SETTING " +
+                "FROM SALES.ROL_ACCESS WHERE ID = @id";  // Usamos un parámetro parametrizado aquí
+
             try
             {
                 using (var con = new conexion().conectar())
@@ -126,18 +129,16 @@ namespace CapaDatos
                     using (var cmd = new SqlCommand(query, con))
                     {
                         cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@id", id);  
+
                         using (var reader = cmd.ExecuteReader())
                         {
-                            while (reader.Read())
+                            if (reader.Read())  
                             {
-                                accesos[0] = Convert.ToBoolean(0);
-                                accesos[1] = Convert.ToBoolean(1);
-                                accesos[2] = Convert.ToBoolean(2);
-                                accesos[3] = Convert.ToBoolean(3);
-                                accesos[4] = Convert.ToBoolean(4);
-                                accesos[5] = Convert.ToBoolean(5);
-                                accesos[6] = Convert.ToBoolean(6);
-                                accesos[7] = Convert.ToBoolean(7);
+                                for (int i = 0; i < 8; i++)
+                                {
+                                    accesos[i] = reader.GetBoolean(i); 
+                                }
                             }
                         }
                     }
@@ -145,7 +146,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                mensaje = "Error: " + ex.Message;
+                mensaje = "Error: " + ex.Message;   
             }
             return accesos;
         }

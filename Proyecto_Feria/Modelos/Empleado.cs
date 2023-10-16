@@ -19,8 +19,6 @@ namespace Modelos
         public string CORREO { get; set; }
         public string CARGO { get; set; }
         public decimal SALARIOPH { get; set; }
-        public bool ESTADO { get; set; }
-        public DateTime FECHA_REGISTRO { get; set; }
 
         public override string ToString()
         {

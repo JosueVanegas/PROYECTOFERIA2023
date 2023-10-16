@@ -56,11 +56,11 @@ namespace CapaPresentacion.FormInformes
         }
         private void mostrarProductosDisponible()
         {
-            List<Producto> lista = new ControlProducto().listarProductos();
+            List<Modelos.Producto> lista = new ControlProducto().listarProductos();
             tbBusqueda.Rows.Clear();
-            foreach (Producto p in lista)
+            foreach (Modelos.Producto p in lista)
             {
-                tbBusqueda.Rows.Add("", p.id, p.codigo, p.nombre);
+                tbBusqueda.Rows.Add("", p.ID, p.CODIGO, p.NOMBRE);
             }
         }
         private void btnRealizarInforme_Click(object sender, EventArgs e)

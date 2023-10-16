@@ -42,11 +42,11 @@ namespace CapaPresentacion.FormInformes
         }
         private void mostrarEmpleado()
         {
-            List<Empleado> lista = cEmp.listarEmpleados();
+            List<Modelos.Empleado> lista = cEmp.listarEmpleados();
             tbEmpleados.Rows.Clear();
-            foreach (Empleado e in lista)
+            foreach (Modelos.Empleado e in lista)
             {
-                tbEmpleados.Rows.Add("", e.id, e.nombres + " " + e.apellidos, e.salarioHora, "", "");
+                tbEmpleados.Rows.Add("", e.ID, e.NOMBRE + " " + e.APELLIDO, e.SALARIOPH, "", "");
             }
         }
 
@@ -69,8 +69,8 @@ namespace CapaPresentacion.FormInformes
                     int id = Convert.ToInt32(fila.Cells[1].Value);
                     int cantidadHoras = Convert.ToInt32(fila.Cells[4].Value);
                     int cantidadHorasExtras = Convert.ToInt32(fila.Cells[5].Value);
-                    List<Empleado> empleados = cEmp.listarEmpleados();
-                    Empleado empleadoEncontrado = empleados.Find(empleado => empleado.id == id);
+                    List<Modelos.Empleado> empleados = cEmp.listarEmpleados();
+                    Modelos.Empleado empleadoEncontrado = empleados.Find(empleado => empleado.ID == id);
 
                     if (empleadoEncontrado != null)
                     {

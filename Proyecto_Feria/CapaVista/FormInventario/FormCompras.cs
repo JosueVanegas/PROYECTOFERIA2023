@@ -6,10 +6,8 @@ namespace CapaVista.FormInventario
 {
     public partial class FormCompras : MaterialForm
     {
-#pragma warning disable CS0169 // El campo 'FormCompras.productoBuscado' nunca se usa
         Producto productoBuscado;
-#pragma warning restore CS0169 // El campo 'FormCompras.productoBuscado' nunca se usa
-        List<Producto> lista;
+        List<Modelos.Producto> lista;
         ControlCompra cCompra = new ControlCompra();
         Modelos.Usuario user;
         public FormCompras(Modelos.Usuario user)
@@ -42,9 +40,9 @@ namespace CapaVista.FormInventario
         {
             lista = new ControlProducto().listarProductos();
             tbBusqueda.Rows.Clear();
-            foreach (Producto p in lista)
+            foreach (Modelos.Producto p in lista)
             {
-                tbBusqueda.Rows.Add("", p.id, p.codigo, p.nombre, p.PrecioVenta, p.cantidad);
+                tbBusqueda.Rows.Add("", p.ID, p.CODIGO, p.NOMBRE, p.PRECIO_COMPRA, p.STOCK);
             }
         }
         private void tbBusqueda_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -125,7 +123,7 @@ namespace CapaVista.FormInventario
         }
         private void agregarProducto(string codigo)
         {
-            var producto = lista.FirstOrDefault(p => p.codigo == codigo);
+            var producto = lista.FirstOrDefault(p => p.CODIGO == codigo);
             if (producto != null)
             {
                 int rowIndex = -1;
@@ -141,15 +139,15 @@ namespace CapaVista.FormInventario
                 if (rowIndex >= 0)
                 {
                     int nuevaCantidad = 1 + Convert.ToInt32(tbDetalles.Rows[rowIndex].Cells["Cantidad"].Value);
-                    decimal nuevoSubTotal = nuevaCantidad * producto.PrecioVenta;
+                    decimal nuevoSubTotal = nuevaCantidad * producto.PRECIO_VENTA;
                     tbDetalles.Rows[rowIndex].Cells["Cantidad"].Value = nuevaCantidad;
                     tbDetalles.Rows[rowIndex].Cells["SubTotal"].Value = nuevoSubTotal;
                 }
                 else
                 {
-                    decimal total = producto.PrecioCompra * 1;
-                    tbDetalles.Rows.Add("", producto.id, producto.codigo, producto.oProveedor.nombreProveedor, producto.nombre, 1
-                    , producto.PrecioCompra, total, producto.oProveedor.id);
+                    decimal total = producto.PRECIO_COMPRA * 1;
+                    tbDetalles.Rows.Add("", producto.ID, producto.CODIGO, producto.PROVEEDOR.EMPRESA, producto.NOMBRE, 1
+                    , producto.PRECIO_COMPRA, total, producto.PROVEEDOR.ID);
                 }
             }
             else

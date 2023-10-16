@@ -34,9 +34,6 @@
     <Compile Update="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormEmpleados\FormContenedorEmpleados.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="FormInventario\FormProveedor.cs">
       <SubType>Form</SubType>
     </Compile>

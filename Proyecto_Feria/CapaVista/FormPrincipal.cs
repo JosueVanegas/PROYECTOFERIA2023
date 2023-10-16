@@ -3,7 +3,6 @@ using CapaDatos;
 using CapaPresentacion;
 using CapaPresentacion.FormInformes;
 using CapaVista.FormConfiguracion;
-using CapaVista.FormPlanilla;
 using CapaVista.FormsHerramientas;
 using CapaVista.FormVenta;
 using ToolTip = System.Windows.Forms.ToolTip;
@@ -14,7 +13,7 @@ namespace CapaVista
     {
         public Modelos.Usuario user = null;
         Form formActivo = null;
-        bool[] permisos = new bool[8];
+        bool[] permisos;
         Size tamInicial = new Size(204, 51);
         Size tamExtendido = new Size(260, 51);
         public FormPrincipal() { }
@@ -24,10 +23,8 @@ namespace CapaVista
             this.Cursor = Cursors.WaitCursor;
             this.user = usuario;
             reloj.Start();
-            // datosDeUsuarioActual(user);
+             datosDeUsuarioActual(user);
             this.Cursor = Cursors.Default;
-            // permisos = new bool[] { true, true, true, true, true, true, true, true };
-            //activarPermisos(permisos);
         }
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
@@ -116,7 +113,8 @@ namespace CapaVista
         }
         private void MouseEnters(object sender, EventArgs e)
         {
-            if (sender.Equals(btnInicio))
+            /*
+             * if (sender.Equals(btnInicio))
             {
                 crearToolTip(btnInicio, "inicio");
                 btnInicio.BackColor = Color.FromArgb(67, 156, 189);
@@ -170,37 +168,40 @@ namespace CapaVista
                 btnUsuarios.BackColor = Color.FromArgb(67, 156, 189);
                 btnUsuarios.Size = tamExtendido;
             }
+             */
         }
 
         private void MouseLeaves(object sender, EventArgs e)
         {
-            if (sender.Equals(btnInicio))
+            /*
+             * if (sender.Equals(btnInicio))
                 btnInicio.BackColor = Color.Silver;
-                btnInicio.Size = tamInicial;
+            btnInicio.Size = tamInicial;
             if (sender.Equals(btnInventario))
                 btnInventario.BackColor = Color.Silver;
-                btnInventario.Size = tamInicial;
+            btnInventario.Size = tamInicial;
             if (sender.Equals(btnConfiguraciones))
                 btnConfiguraciones.BackColor = Color.Silver;
-                btnConfiguraciones.Size = tamInicial;
+            btnConfiguraciones.Size = tamInicial;
             if (sender.Equals(btnClientes))
                 btnClientes.BackColor = Color.Silver;
-                btnClientes.Size = tamInicial;
+            btnClientes.Size = tamInicial;
             if (sender.Equals(btnPlanilla))
                 btnPlanilla.BackColor = Color.Silver;
-                btnPlanilla.Size = tamInicial;
+            btnPlanilla.Size = tamInicial;
             if (sender.Equals(btnHerramientas))
                 btnHerramientas.BackColor = Color.Silver;
-                btnHerramientas.Size = tamInicial;
+            btnHerramientas.Size = tamInicial;
             if (sender.Equals(btnVentas))
                 btnVentas.BackColor = Color.Silver;
-                btnVentas.Size = tamInicial;
+            btnVentas.Size = tamInicial;
             if (sender.Equals(btnInformes))
                 btnInformes.BackColor = Color.Silver;
-                btnInformes.Size = tamInicial;
+            btnInformes.Size = tamInicial;
             if (sender.Equals(btnUsuarios))
                 btnUsuarios.BackColor = Color.Silver;
-                btnUsuarios.Size = tamInicial;
+            btnUsuarios.Size = tamInicial;
+             */
         }
     }
 }

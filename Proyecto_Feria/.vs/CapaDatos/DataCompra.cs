@@ -38,7 +38,7 @@ namespace CapaDatos
         public List<compra> listarCompras()
         {
             List<compra> lista = new List<compra>();
-            string query = "SELECT C.ID_COMPRA,C.NO_FACTURA,C.ID_USUARIO,U.USUARIO,C.TOTAL_COMPRA,C.FECHA_REGISTRO FROM COMPRA C INNER JOIN USUARIO U ON C.ID_USUARIO = U.ID_USUARIO ";
+            string query = "SELECT P.ID,U.USERS_NAME,P.SUBTOTAL,P.CREATED_AT FROM INVENTORY.PURCHASES P INNER JOIN SALES.USERS U ON U.ID = P.ID_USER\r\n";
             using (var con = new conexion().conectar())
             {
                 try
@@ -77,7 +77,6 @@ namespace CapaDatos
             idCreado = 0;
             using (SqlConnection con = new conexion().conectar())
             {
-#pragma warning disable CS0168 // La variable está declarada pero nunca se usa
                 try
                 {
                     con.Open();
@@ -90,9 +89,7 @@ namespace CapaDatos
                         cmd.Parameters.Add("NO_FACTURA", System.Data.SqlDbType.VarChar, 30).Direction = System.Data.ParameterDirection.Output;
                         cmd.ExecuteNonQuery();
                         idCreado = (int)cmd.Parameters["ID_CREADO"].Value;
-#pragma warning disable CS8601 // Posible asignación de referencia nula
                         noFactura = cmd.Parameters["NO_FACTURA"].Value.ToString();
-#pragma warning restore CS8601 // Posible asignación de referencia nula
                     }
                 }
                 catch (Exception ex)

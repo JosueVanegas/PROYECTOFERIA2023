@@ -25,17 +25,18 @@ namespace CapaVista
         }
         private void mostrarProveedores()
         {
-            cbxProveedor.DataSource = cProd.listarProveedores();
+            cbxProveedor.DataSource = new ControlProveedor().listarProveedores();
         }
         private void mostrarProductos()
         {
-            List<Producto> lista = cProd.listarProductos();
+            List<Modelos.Producto> lista = cProd.listarProductos();
             tbProductos.Rows.Clear();
-            foreach (Producto p in lista)
+            foreach (Modelos.Producto p in lista)
             {
-                tbProductos.Rows.Add("", "", p.id, p.codigo, p.nombre, p.PrecioCompra,
-                    p.PrecioVenta, p.cantidad, p.oProveedor.id, p.oCategoria.id,
-                    p.oProveedor.nombreProveedor, p.oCategoria.nombre, p.imagen);
+                tbProductos.Rows.Add("", "", p.ID, p.CODIGO, p.MARCA, p.NOMBRE, p.UNIDAD,
+                    p.PRECIO_COMPRA, p.PRECIO_VENTA, p.STOCK_SEGURIDAD, p.VENCIMIENTO,
+                    p.PROVEEDOR.ID, p.PROVEEDOR.EMPRESA, p.CATEGORIA.ID, p.CATEGORIA.NOMBRE,
+                      p.IMAGEN);
             }
         }
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -84,11 +85,11 @@ namespace CapaVista
         {
             if (validarCampos())
             {
-                if (cbxProveedor.SelectedItem is Proveedor prov && cbxCategoria.SelectedItem is Categoria cat)
+                if (cbxProveedor.SelectedItem is Modelos.Proveedor prov && cbxCategoria.SelectedItem is Modelos.Categoria cat)
                 {
                     try
                     {
-                        if (urlImagen != "")
+                        if (imagenProducto.Image != null)
                         {
                             if (txtCodigoBarra.Text != "")
                             {
@@ -97,17 +98,21 @@ namespace CapaVista
                                 byte[] imageBytes = memoryStream.ToArray();
                                 decimal pc = Convert.ToDecimal(txtPrecioCompra.Text);
                                 decimal pv = Convert.ToDecimal(txtPrecioVenta.Text);
-                                Producto prod = new Producto
+                                Modelos.Producto prod = new Modelos.Producto
                                 {
 
-                                    imagen = imageBytes,
-                                    id = Convert.ToInt32(txtIdProducto.Text),
-                                    codigo = txtCodigoBarra.Text,
-                                    nombre = txtNombre.Text,
-                                    PrecioCompra = pc,
-                                    PrecioVenta = pv,
-                                    oProveedor = prov,
-                                    oCategoria = cat
+                                    IMAGEN = imageBytes,
+                                    ID = Convert.ToInt32(txtIdProducto.Text),
+                                    CODIGO = txtCodigoBarra.Text,
+                                    NOMBRE = txtNombre.Text,
+                                    MARCA = txtMarca.Text,
+                                    UNIDAD = txtUnidad.Text,
+                                    STOCK_SEGURIDAD = Convert.ToInt32(txtStockSeguridad.Text),
+                                    PRECIO_COMPRA = pc,
+                                    PRECIO_VENTA = pv,
+                                    VENCIMIENTO = dtVencimiento.Value,
+                                    PROVEEDOR = prov,
+                                    CATEGORIA = cat
                                 };
 
                                 MessageBox.Show(cProd.accionesProducto(prod));
@@ -163,56 +168,74 @@ namespace CapaVista
         private void txtPrecioDeCompra_KeyPress(object sender, KeyPressEventArgs e)
         {
             char keyPressed = e.KeyChar;
-            string textoActual = txtPrecioCompra.Text.Replace(" ", "");
-            if (!char.IsDigit(keyPressed) && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
+            string textoActual = txtPrecioCompra.Text;
+
+            if (!char.IsDigit(keyPressed) && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete && keyPressed != '.')
             {
                 e.Handled = true;
+                return;
             }
+
             if (textoActual.Length >= 9 && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
             {
                 e.Handled = true;
+                return;
             }
-
+            if (keyPressed == '.' && string.IsNullOrEmpty(textoActual))
+            {
+                e.Handled = true;
+                return;
+            }
             if (keyPressed == '.' && textoActual.Contains("."))
             {
                 e.Handled = true;
+                return;
             }
-            if (textoActual.Contains("."))
+            if (textoActual.Contains(".") && textoActual.IndexOf(".") <= textoActual.Length - 3 && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
             {
-                int indexPunto = textoActual.IndexOf(".");
-                if (textoActual.Length - indexPunto > 2 && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
-                {
-                    e.Handled = true;
-                }
+                e.Handled = true;
+                return;
             }
-
-
+            if (keyPressed == '.' && textoActual.Length >= 8)
+            {
+                e.Handled = true;
+            }
         }
         private void txtPrecioVenta_KeyPress(object sender, KeyPressEventArgs e)
         {
             char keyPressed = e.KeyChar;
-            string textoActual = txtPrecioVenta.Text.Replace(" ", "");
-            if (!char.IsDigit(keyPressed) && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
+            string textoActual = txtPrecioVenta.Text;
+
+            if (!char.IsDigit(keyPressed) && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete && keyPressed != '.')
             {
                 e.Handled = true;
+                return;
             }
+
             if (textoActual.Length >= 9 && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
             {
                 e.Handled = true;
+                return;
+            }
+            if (keyPressed == '.' && string.IsNullOrEmpty(textoActual))
+            {
+                e.Handled = true;
+                return;
             }
             if (keyPressed == '.' && textoActual.Contains("."))
             {
                 e.Handled = true;
+                return;
             }
-            if (textoActual.Contains("."))
+            if (textoActual.Contains(".") && textoActual.IndexOf(".") <= textoActual.Length - 3 && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
             {
-                int indexPunto = textoActual.IndexOf(".");
-                if (textoActual.Length - indexPunto > 2 && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
-                {
-                    e.Handled = true;
-                }
+                e.Handled = true;
+                return;
             }
-
+            if (keyPressed == '.' && textoActual.Length >= 8)
+            {
+                e.Handled = true;
+            }
         }
         private void tbProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -221,6 +244,10 @@ namespace CapaVista
             {
                 if (indice >= 0)
                 {
+                    txtUnidad.Text = tbProductos.Rows[indice].Cells["Unidad"].Value.ToString();
+                    txtMarca.Text = tbProductos.Rows[indice].Cells["Marca"].Value.ToString();
+                    txtStockSeguridad.Text = tbProductos.Rows[indice].Cells["StockSeguridad"].Value.ToString();
+                    dtVencimiento.Value = Convert.ToDateTime(tbProductos.Rows[indice].Cells["Vencimiento"].Value);
                     txtCodigoBarra.Text = tbProductos.Rows[indice].Cells["Codigo"].Value.ToString();
                     txtNombre.Text = tbProductos.Rows[indice].Cells["Nombre"].Value.ToString();
                     txtIdProducto.Text = tbProductos.Rows[indice].Cells["Id"].Value.ToString();
@@ -228,13 +255,12 @@ namespace CapaVista
                     txtPrecioVenta.Text = tbProductos.Rows[indice].Cells["PrecioVenta"].Value.ToString();
                     byte[] imagenBytes = (byte[])tbProductos.Rows[indice].Cells["Imagen"].Value;
                     leerImage(imagenBytes);
-                    urlImagen = "--";
                     int categoriaID = (int)tbProductos.Rows[indice].Cells["CategoriaID"].Value;
                     int categoriaIndex = -1;
                     for (int i = 0; i < cbxCategoria.Items.Count; i++)
                     {
-                        Categoria categoria = (Categoria)cbxCategoria.Items[i];
-                        if (categoria.id == categoriaID)
+                        Modelos.Categoria categoria = (Modelos.Categoria)cbxCategoria.Items[i];
+                        if (categoria.ID == categoriaID)
                         {
                             categoriaIndex = i;
                             break;
@@ -248,8 +274,8 @@ namespace CapaVista
                     int provIndex = -1;
                     for (int i = 0; i < cbxProveedor.Items.Count; i++)
                     {
-                        Proveedor proveedor = (Proveedor)cbxProveedor.Items[i];
-                        if (proveedor.id == proveedorID)
+                        Modelos.Proveedor proveedor = (Modelos.Proveedor)cbxProveedor.Items[i];
+                        if (proveedor.ID == proveedorID)
                         {
                             provIndex = i;
                             break;
@@ -367,12 +393,7 @@ namespace CapaVista
 
         private void cbxBuscar_MouseHover(object sender, EventArgs e)
         {
-            // Crear un objeto ToolTip
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
-
-
-            // Establecer el texto de la descripción
             toolTip.SetToolTip(cbxBuscar, "Para una busqueda mas efeciente se pueden realizar busqueda por filtros");
         }
 
@@ -381,6 +402,22 @@ namespace CapaVista
             formCategoria fc = new formCategoria();
             fc.ShowDialog();
             mostrarCategoria();
+        }
+
+        private void txtStockSeguridad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char keyPressed = e.KeyChar;
+            string textoActual = txtStockSeguridad.Text;
+            if (!char.IsDigit(keyPressed))
+            {
+                e.Handled = true;
+                return;
+            }
+            if (textoActual.Length >= 5)
+            {
+                e.Handled = true;
+            }
+
         }
     }
 

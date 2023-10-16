@@ -122,13 +122,13 @@ namespace CapaDatos
             }
             return lista;
         }
-        public nomina calcularnomina(Empleado e, int horasTrabajadas, int horasExtras)
+        public nomina calcularnomina(Modelos.Empleado e, int horasTrabajadas, int horasExtras)
         {
             nomina no = new nomina();
-            decimal valorhoras = e.salarioHora;
+            decimal valorhoras = e.SALARIOPH;
             decimal valorHorasExtras = valorhoras * 2;
-            no.trabajador = e.nombres + " " + e.apellidos;
-            no.cargo = e.cargo;
+            no.trabajador = e.NOMBRE + " " + e.APELLIDO;
+            no.cargo = e.CARGO;
             no.salarioHora = valorhoras;
             no.horastrabajadas = horasTrabajadas;
             no.montoHorasTrabajadas = Convert.ToDecimal(horasTrabajadas) *valorhoras;

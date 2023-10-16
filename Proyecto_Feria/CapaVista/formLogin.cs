@@ -56,6 +56,7 @@ namespace CapaVista
                 txtContraseña.Text = "";
                 txtUsuario.Text = "";
                 ckbVerContraseña.Checked = false;
+                user = null;
             }
             else
             {

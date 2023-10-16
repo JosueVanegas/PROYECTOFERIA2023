@@ -6,11 +6,11 @@ namespace CapaControlador
     {
         DataEmpleados dEmp = new DataEmpleados();
         public ControlEmpleados() { }
-        public List<Empleado> listarEmpleados()
+        public List<Modelos.Empleado> listarEmpleados()
         {
             return dEmp.listaEmpleados();
         }
-        public string registrarEmpleados(Empleado e)
+        public string registrarEmpleados(Modelos.Empleado e)
         {
             return dEmp.accionesEmpleados(e);
         }

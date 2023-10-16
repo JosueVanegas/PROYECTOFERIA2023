@@ -46,11 +46,11 @@ namespace CapaVista
         }
         private void mostrarStockProductos()
         {
-            List<Producto> lista = cProducto.listarProductos();
+            List<Modelos.Producto> lista = cProducto.listarProductos();
             tbStock.Rows.Clear();
-            foreach (Producto p in lista)
+            foreach (Modelos.Producto p in lista)
             {
-                tbStock.Rows.Add(p.codigo, p.nombre, p.cantidad);
+                tbStock.Rows.Add(p.CODIGO, p.NOMBRE, p.STOCK);
             }
         }
         private void mostrarVentas(string fechaI, string fechaF)

@@ -2,6 +2,7 @@ using CapaControlador;
 using CapaDatos;
 using CapaPresentacion;
 using CapaPresentacion.FormUsuarios;
+using CapaVista.FormInventario;
 using Microcharts;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
@@ -22,8 +23,8 @@ namespace CapaVista
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-              Application.Run(new FormPrincipal(null));
-             // Application.Run(new formLogin());
+              //Application.Run(new FormPrincipal(null));
+              Application.Run(new FormCompras(null));
         }
     }
 }
