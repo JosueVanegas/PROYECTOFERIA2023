@@ -9,14 +9,14 @@ namespace CapaVista.FormVenta
     {
         ControlProducto controlProducto = new ControlProducto();
         ControlVenta controlVenta = new ControlVenta();
-#pragma warning disable CS8625 // No se puede convertir un literal NULL en un tipo de referencia que no acepta valores NULL.
         List<Modelos.Producto> lista = null;
-#pragma warning restore CS8625 // No se puede convertir un literal NULL en un tipo de referencia que no acepta valores NULL.
         Modelos.Usuario user;
         public formVentas(Modelos.Usuario user)
         {
             InitializeComponent();
             this.user = user;
+            panelBusqueda.SendToBack();
+            timerEscanner.Interval = 300;
         }
         private void limpiarTodo()
         {
@@ -49,32 +49,18 @@ namespace CapaVista.FormVenta
                     img = imagen;
 
                 }
-                tbBusqueda.Rows.Add("", img, p.ID, p.CODIGO, p.NOMBRE, p.PRECIO_VENTA,p.STOCK);
+                tbBusqueda.Rows.Add("", img, p.ID, p.CODIGO, p.NOMBRE + " " + p.MARCA + " " + p.UNIDAD, p.PRECIO_VENTA, p.STOCK, p.STOCK_SEGURIDAD,0);
             }
         }
-        private void checkDescuento_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkDescuento.Checked)
-            {
-                nbrDescuento.Enabled = true;
-            }
-            if (!checkDescuento.Checked)
-            {
-                nbrDescuento.Enabled = false;
-                nbrDescuento.Value = 0;
-            }
-        }
-
         private void btnCash_Click(object sender, EventArgs e)
         {
             if (txtTotal.Text != "")
             {
-                ResumenVenta resumen = new ResumenVenta
+                Modelos.Venta resumen = new Modelos.Venta
                 {
-                    descuento = Convert.ToDecimal(txtDescuento.Text),
-                    subtotal = Convert.ToDecimal(txtSubTotal.Text),
-                    iva = Convert.ToDecimal(txtIva.Text),
-                    total = Convert.ToDecimal(txtTotal.Text)
+                    DESCUENTO = Convert.ToDecimal(txtDescuento.Text),
+                    SUBTOTAL = Convert.ToDecimal(txtSubTotal.Text),
+                    IVA = Convert.ToDecimal(txtIva.Text),
                 };
                 FormPagar form = new FormPagar(user, resumen, obtenerDetalleDeVenta());
                 form.ShowDialog();
@@ -85,25 +71,25 @@ namespace CapaVista.FormVenta
                 MessageBox.Show("No se puede facturar porque aun no se ha vendido nada");
             }
         }
-        private List<DetalleVenta> obtenerDetalleDeVenta()
+        private List<Modelos.DetalleVenta> obtenerDetalleDeVenta()
         {
-            List<DetalleVenta> lista = new List<DetalleVenta>();
+            List<Modelos.DetalleVenta> lista = new List<Modelos.DetalleVenta>();
 
             foreach (DataGridViewRow row in tbResumen.Rows)
             {
                 if (!row.IsNewRow)
                 {
-#pragma warning disable CS8601 // Posible asignación de referencia nula
-                    DetalleVenta detalle = new DetalleVenta
+                    Modelos.DetalleVenta detalle = new Modelos.DetalleVenta
                     {
-                        ID_VENTA = 0,
-                        ID_PRODUCTO = (int)row.Cells["Id"].Value,
-                        NOMBRE = row.Cells["Nombre"].Value.ToString(),
-                        CANTIDAD = (int)row.Cells["Cantidad"].Value,
-                        PRECIO = (decimal)row.Cells["PrecioVenta"].Value,
-                        SUBTOTAL = Convert.ToDecimal(row.Cells["SubTotal"].Value),
+                        PRODUCTO = new Modelos.Producto
+                        {
+                            ID = Convert.ToInt32(row.Cells["Id"].Value),
+                            NOMBRE = row.Cells["Nombre"].Value.ToString(),
+                        },
+                        CANTIDAD = Convert.ToInt32(row.Cells["Cantidad"].Value),
+                        PRECIO = Convert.ToDecimal(row.Cells["PrecioVenta"].Value),
+                        DESCUENTO = Convert.ToDecimal(row.Cells["Descuento"].Value)
                     };
-#pragma warning restore CS8601 // Posible asignación de referencia nula
                     lista.Add(detalle);
                 }
             }
@@ -121,9 +107,7 @@ namespace CapaVista.FormVenta
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
             string nombre = cbxBuscar.SelectedItem.ToString();
-#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
             string columna = "";
             if (nombre == "Nombre")
             {
@@ -142,12 +126,10 @@ namespace CapaVista.FormVenta
             {
                 foreach (DataGridViewRow i in tbBusqueda.Rows)
                 {
-#pragma warning disable CS8602 // Desreferencia de una referencia posiblemente NULL.
                     if (i.Cells[columna].Value.ToString().Trim().ToUpper().Contains(txtBuscar.Text.Trim().ToUpper()))
                         i.Visible = true;
                     else
                         i.Visible = false;
-#pragma warning restore CS8602 // Desreferencia de una referencia posiblemente NULL.
                 }
             }
         }
@@ -200,7 +182,7 @@ namespace CapaVista.FormVenta
         private void agregarProducto(string codigo)
         {
             var producto = lista.FirstOrDefault(p => p.CODIGO == codigo);
-            if (producto.STOCK != 0)
+            if (producto != null)
             {
                 int rowIndex = -1;
                 for (int i = 0; i < tbResumen.Rows.Count; i++)
@@ -254,12 +236,9 @@ namespace CapaVista.FormVenta
                     pktProducto.Image = imagen;
                 }
             }
-            else
-            {
-                MessageBox.Show("El producto no dispone de stock suficiente");
-            }
             recuentoTotal();
         }
+
         private void recuentoTotal()
         {
             decimal subTotal = 0;
@@ -274,7 +253,7 @@ namespace CapaVista.FormVenta
                     {
                         decimal valorCelda = Convert.ToDecimal(row.Cells["SubTotal"].Value);
                         subTotal += valorCelda;
-                        descuento = (nbrDescuento.Value * Convert.ToDecimal(0.01)) * subTotal;
+                        // descuento = (nbrDescuento.Value * Convert.ToDecimal(0.01)) * subTotal;
                         subTotal = subTotal;
                         iva = Convert.ToDecimal(subTotal) * Convert.ToDecimal(0.15);
                         total = subTotal + iva;
@@ -362,11 +341,6 @@ namespace CapaVista.FormVenta
                 e.Handled = true;
             }
         }
-        private void nbrDescuento_ValueChanged(object sender, EventArgs e)
-        {
-            recuentoTotal();
-        }
-
         private void txtCodigoProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Verificar si el carácter no es un número ni la tecla de retroceso (Backspace)
@@ -429,19 +403,6 @@ namespace CapaVista.FormVenta
             // Establecer el texto de la descripción
             toolTip.SetToolTip(btnBuscar, "Busqueda de Productos");
         }
-
-        private void checkDescuento_MouseHover(object sender, EventArgs e)
-        {
-            // Crear un objeto ToolTip
-            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-
-
-
-            // Establecer el texto de la descripción
-            toolTip.SetToolTip(checkDescuento, "Si desea aplicar descuento a esta factura has\n" +
-                                               "click y pon el cuanto sera el descuento");
-        }
-
         private void pictureBox4_MouseHover(object sender, EventArgs e)
         {
             // Crear un objeto ToolTip
@@ -469,6 +430,22 @@ namespace CapaVista.FormVenta
 
             // Establecer el texto de la descripción
             toolTip.SetToolTip(btnFacturar, "Se desea finalizar la venta y desea pagar click 'Facturar'");
+        }
+
+        private void timerEscanner_Tick(object sender, EventArgs e)
+        {
+            timerEscanner.Stop();
+            if (txtCodigoProducto.Text != "")
+            {
+                panelBusqueda.SendToBack();
+                agregarProducto(txtCodigoProducto.Text);
+            }
+        }
+
+        private void txtCodigoProducto_TextChanged(object sender, EventArgs e)
+        {
+            timerEscanner.Stop();
+            timerEscanner.Start();
         }
     }
 }

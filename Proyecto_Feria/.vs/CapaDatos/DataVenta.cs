@@ -17,19 +17,18 @@ namespace CapaDatos
             {
                 if (registrarVenta(v))
                 {
-
-                }
-                if (idCreado > 0)
-                {
-                    foreach (Modelos.DetalleVenta d in detalles)
+                    if (idCreado > 0)
                     {
-                        registrarDetalleVenta(d, idCreado);
+                        foreach (Modelos.DetalleVenta d in detalles)
+                        {
+                            registrarDetalleVenta(d, idCreado);
+                        }
+                        mensaje = "Proceso de venta realizado con exito";
                     }
-                    mensaje = "Proceso de venta realizado con exito";
-                }
-                else
-                {
-                    mensaje = "No se ha podido realizar el registro de la venta";
+                    else
+                    {
+                        mensaje = "No se ha podido realizar el registro de la venta";
+                    }
                 }
             }
             catch (Exception ex)
@@ -38,7 +37,9 @@ namespace CapaDatos
             }
             idCreado = 0;
             return mensaje;
-        }
+        } 
+            
+        
         public bool registrarVenta(Venta v)
         {
             idCreado = 0;
@@ -50,7 +51,7 @@ namespace CapaDatos
                     {
                         con.Open();
                         cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@ID_USER", v.USUARIO.ID);
+                        cmd.Parameters.AddWithValue("@ID_USER", v.USUARIO.ID );
                         cmd.Parameters.AddWithValue("@ID_CLIENT", v.CLIENTE.ID);
                         cmd.Parameters.AddWithValue("@DISCOUNT", v.DESCUENTO);
                         cmd.Parameters.AddWithValue("@SUBTOTAL", v.SUBTOTAL);
@@ -58,8 +59,8 @@ namespace CapaDatos
                         cmd.Parameters.Add("NEWID", System.Data.SqlDbType.Int).Direction = System.Data.ParameterDirection.Output;
                         cmd.Parameters.Add("RESULT", System.Data.SqlDbType.Bit, 30).Direction = System.Data.ParameterDirection.Output;
                         cmd.ExecuteNonQuery();
-                        idCreado = (int)cmd.Parameters["ID_CREADO"].Value;
-                        acceder = (bool)cmd.Parameters["FACTURA"].Value;
+                        idCreado = (int)cmd.Parameters["NEWID"].Value;
+                        acceder = (bool)cmd.Parameters["RESULT"].Value;
                     }
                 }
             }
@@ -91,6 +92,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
+                mensaje = "Error: " + ex.Message;
             }
         }
     }

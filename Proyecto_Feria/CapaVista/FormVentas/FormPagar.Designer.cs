@@ -43,10 +43,8 @@
             txtIva = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtSubTotal = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtCliente = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            ckbClienteComun = new ReaLTaiizor.Controls.MaterialCheckBox();
             btnFacturar = new RJCodeAdvance.RJControls.RJButton();
             btnCancelar = new RJCodeAdvance.RJControls.RJButton();
-            lblTitulo = new Label();
             txtPago = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             panelBusqueda = new Panel();
             pictureBox3 = new PictureBox();
@@ -355,27 +353,6 @@
             txtCliente.TrailingIcon = null;
             txtCliente.UseSystemPasswordChar = false;
             // 
-            // ckbClienteComun
-            // 
-            ckbClienteComun.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            ckbClienteComun.Depth = 0;
-            ckbClienteComun.ImageAlign = ContentAlignment.BottomCenter;
-            ckbClienteComun.Location = new Point(14, 184);
-            ckbClienteComun.Margin = new Padding(0);
-            ckbClienteComun.MouseLocation = new Point(-1, -1);
-            ckbClienteComun.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            ckbClienteComun.Name = "ckbClienteComun";
-            ckbClienteComun.ReadOnly = false;
-            ckbClienteComun.Ripple = true;
-            ckbClienteComun.Size = new Size(321, 45);
-            ckbClienteComun.TabIndex = 51;
-            ckbClienteComun.Text = "Cliente comun";
-            ckbClienteComun.TextAlign = ContentAlignment.MiddleCenter;
-            ckbClienteComun.UseAccentColor = false;
-            ckbClienteComun.UseVisualStyleBackColor = true;
-            ckbClienteComun.CheckedChanged += ckbClienteComun_CheckedChanged;
-            ckbClienteComun.MouseHover += ckbClienteComun_MouseHover;
-            // 
             // btnFacturar
             // 
             btnFacturar.BackColor = Color.FromArgb(74, 121, 121);
@@ -420,17 +397,6 @@
             btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click;
             // 
-            // lblTitulo
-            // 
-            lblTitulo.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblTitulo.ForeColor = SystemColors.ControlDarkDark;
-            lblTitulo.Location = new Point(106, 56);
-            lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(149, 32);
-            lblTitulo.TabIndex = 58;
-            lblTitulo.Text = "Pago en proceso";
-            lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // txtPago
             // 
             txtPago.AnimateReadOnly = true;
@@ -443,7 +409,7 @@
             txtPago.HideSelection = true;
             txtPago.Hint = "Pago del cliente";
             txtPago.LeadingIcon = null;
-            txtPago.Location = new Point(14, 241);
+            txtPago.Location = new Point(14, 165);
             txtPago.Margin = new Padding(3, 4, 3, 4);
             txtPago.MaxLength = 32767;
             txtPago.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -463,6 +429,7 @@
             txtPago.TrailingIcon = null;
             txtPago.UseSystemPasswordChar = false;
             txtPago.KeyPress += txtPagoTarjeta_KeyPress;
+            txtPago.TextChanged += txtPago_TextChanged;
             // 
             // panelBusqueda
             // 
@@ -654,12 +621,10 @@
             // panel2
             // 
             panel2.Controls.Add(pictureBox2);
-            panel2.Controls.Add(ckbClienteComun);
             panel2.Controls.Add(btnCancelar);
             panel2.Controls.Add(btnFacturar);
             panel2.Controls.Add(txtCliente);
             panel2.Controls.Add(panelBusqueda);
-            panel2.Controls.Add(lblTitulo);
             panel2.Controls.Add(txtPago);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(310, 0);
@@ -671,7 +636,7 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(14, 35);
+            pictureBox2.Location = new Point(14, 48);
             pictureBox2.Margin = new Padding(3, 4, 3, 4);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(54, 53);
@@ -726,7 +691,6 @@
         private RJCodeAdvance.RJControls.RJButton rjButton14;
 #pragma warning restore CS0169 // El campo 'FormPagar.rjButton14' nunca se usa
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCambioDeCompra;
-        private Label lblTitulo;
         private PictureBox pictureBox1;
         private Label label2;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtTotal;
@@ -737,7 +701,6 @@
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtBuscar;
         private ReaLTaiizor.Controls.MaterialComboBox cbxBuscar;
         private ReaLTaiizor.Controls.PoisonDataGridView tbBusqueda;
-        private ReaLTaiizor.Controls.MaterialCheckBox ckbClienteComun;
         private RJCodeAdvance.RJControls.RJButton btnFacturar;
         private RJCodeAdvance.RJControls.RJButton btnCancelar;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtPago;

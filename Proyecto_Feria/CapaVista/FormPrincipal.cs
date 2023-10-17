@@ -23,7 +23,7 @@ namespace CapaVista
             this.Cursor = Cursors.WaitCursor;
             this.user = usuario;
             reloj.Start();
-            //datosDeUsuarioActual(user);
+            datosDeUsuarioActual(user);
             this.Cursor = Cursors.Default;
         }
         private void FrmPrincipal_Load(object sender, EventArgs e)

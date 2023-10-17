@@ -14,16 +14,15 @@ namespace CapaVista.FormVentas
         Modelos.Venta resumen;
         Modelos.Cliente cliente = new Modelos.Cliente();
         Modelos.Usuario user;
-        List<Modelos.DetalleVenta> detalles;
+        List<Modelos.DetalleVenta> detalles = new List<Modelos.DetalleVenta>();
         ControlVenta cVenta = new ControlVenta();
-        string impresora = "";
-        string factura = "";
-        public FormPagar(Modelos.Usuario u, Modelos.Venta r, List<Modelos.DetalleVenta> d)
+        int factura;
+        public FormPagar(Modelos.Usuario usuario, Modelos.Venta venta, List<Modelos.DetalleVenta> d)
         {
             InitializeComponent();
-            resumen = r;
+            resumen = venta;
             detalles = d;
-            user = u;
+            user = usuario;
         }
         private void FormPagar_Load(object sender, EventArgs e)
         {
@@ -38,8 +37,8 @@ namespace CapaVista.FormVentas
             txtDescuento.Text = resumen.DESCUENTO.ToString();
             txtSubTotal.Text = resumen.SUBTOTAL.ToString();
             txtIva.Text = resumen.IVA.ToString();
-            decimal sub_descuento = resumen.SUBTOTAL - resumen.DESCUENTO;
-            decimal total = sub_descuento - resumen.IVA;
+            decimal sub_antes_descuento = resumen.SUBTOTAL + resumen.IVA;
+            decimal total = sub_antes_descuento - resumen.DESCUENTO;
             txtTotal.Text = total.ToString();
             decimal totalFinal = Convert.ToDecimal(txtTotal.Text) - Convert.ToDecimal(txtDescuento.Text);
             txtTotalFinal.Text = totalFinal.ToString("0.00");
@@ -137,7 +136,6 @@ namespace CapaVista.FormVentas
         private string imprimirFactura()
         {
             string mensaje = "Factura generada e impresa con éxito";
-            factura = "";
             try
             {
                 PrintDialog printDialog = new PrintDialog();
@@ -147,23 +145,39 @@ namespace CapaVista.FormVentas
                 if (confirmResult == DialogResult.Yes)
                 {
                     this.Cursor = Cursors.WaitCursor;
-                    Modelos.Venta v = new Modelos.Venta
+                    Modelos.Venta venta = new Modelos.Venta
                     {
-                        CLIENTE = new Modelos.Cliente
-                        {
-                            ID = cliente.ID,
-                        },
                         USUARIO = new Modelos.Usuario
                         {
-                            ID =user.ID,
-                        } ,
-                        DESCUENTO = resumen.DESCUENTO,
-                        IVA = resumen.IVA,
-                        SUBTOTAL = resumen.SUBTOTAL
+                            ID = user.ID
+                        },
+                        CLIENTE = new Modelos.Cliente
+                        {
+                            ID = cliente.ID
+                        },
+                        DESCUENTO = Convert.ToDecimal(txtDescuento.Text),
+                        IVA = Convert.ToDecimal(txtIva.Text),
+                        SUBTOTAL = Convert.ToDecimal(txtSubTotal.Text)
                     };
-                    factura = cVenta.procesoDeVenta(v, detalles);
+                    List<Modelos.DetalleVenta> detalleVenta = new List<Modelos.DetalleVenta>();
+                    foreach (Modelos.DetalleVenta d in detalles)
+                    {
+                        detalleVenta.Add(new Modelos.DetalleVenta
+                        {
+                            ID_VENTA = venta.ID,
+                            PRODUCTO = new Modelos.Producto
+                            {
+                                ID = d.PRODUCTO.ID,
+                                NOMBRE = d.PRODUCTO.NOMBRE
+                            },
+                            DESCUENTO = d.DESCUENTO,
+                            CANTIDAD = d.CANTIDAD,
+                            PRECIO = d.PRECIO
+                        });
+                    }
+                    cVenta.procesoDeVenta(venta, detalleVenta);
                     MessageBox.Show(cVenta.retornarMensaje());
-                    printdirect(v);
+                    printdirect(resumen);
 
                 }
                 else
@@ -206,7 +220,7 @@ namespace CapaVista.FormVentas
                 e.Graphics.DrawString(encabezado, titleFont, Brushes.Black, 100, yPos);
                 yPos += (int)titleFont.GetHeight() + 5;//dar un poco mas de enter
 
-                string facturaInfo = $"Factura No: {factura}";
+                string facturaInfo = $"Factura No : {factura}";
                 e.Graphics.DrawString(facturaInfo, contentFont, Brushes.Black, marginLeft, yPos);
                 yPos += (int)contentFont.GetHeight() + 5;
                 string fecha = $"Fecha de facturación: {DateTime.Now}";
@@ -244,8 +258,7 @@ namespace CapaVista.FormVentas
                 yPos += (int)contentFont.GetHeight();
                 yPos += 10;
                 e.Graphics.DrawString("Descripcion", contentFont, Brushes.Black, marginLeft, yPos);
-                e.Graphics.DrawString($"Subtotal", contentFont, Brushes.Black, 230, yPos);
-                e.Graphics.DrawString($"Cantidad x Precio", contentFont, Brushes.Black, 110, yPos);
+                e.Graphics.DrawString($"Subtotal", contentFont, Brushes.Black, 240, yPos);
                 yPos += (int)contentFont.GetHeight();
                 yPos += 20;
                 e.Graphics.DrawLine(new Pen(Brushes.Black), marginLeft, yPos, 380, yPos);
@@ -256,7 +269,8 @@ namespace CapaVista.FormVentas
                 {
                     e.Graphics.DrawString($"{d.PRODUCTO.NOMBRE + d.PRODUCTO.MARCA + d.PRODUCTO.UNIDAD}", contentFont, Brushes.Black, marginLeft, yPos);
                     e.Graphics.DrawString($"{d.CANTIDAD * d.PRECIO}", contentFont, Brushes.Black, 240, yPos);
-                    e.Graphics.DrawString($"{d.CANTIDAD} x {d.PRECIO}", contentFont, Brushes.Black, 130, yPos);
+                    yPos += (int)contentFont.GetHeight();
+                    e.Graphics.DrawString($"{d.CANTIDAD} x {d.PRECIO}", contentFont, Brushes.Black, 10, yPos);
                     yPos += (int)contentFont.GetHeight();
                 }
 
@@ -365,21 +379,6 @@ namespace CapaVista.FormVentas
                 }
             }
         }
-
-        private void ckbClienteComun_CheckedChanged(object sender, EventArgs e)
-        {
-            if (ckbClienteComun.Checked == true)
-            {
-                cliente.ID = 0;
-                txtCliente.Text = "CLIENTE COMUN";
-            }
-            else
-            {
-                txtCliente.Text = "";
-            }
-        }
-
-
         private void pictureBox4_MouseHover(object sender, EventArgs e)
         {
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
@@ -396,14 +395,6 @@ namespace CapaVista.FormVentas
                                             "-Ingrese una cantidad mayor o igual al total de la factura\n" +
                                             " y asi poder cancelar la deuda\n");
         }
-
-        private void ckbClienteComun_MouseHover(object sender, EventArgs e)
-        {
-            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
-            toolTip.ToolTipIcon = ToolTipIcon.Info;
-            toolTip.SetToolTip(ckbClienteComun, "Es una Cliente Anomino o comun cuando no se quiere poner el nombre del Cliente");
-        }
-
         private void cbxBuscar_MouseHover(object sender, EventArgs e)
         {
             System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
@@ -427,108 +418,12 @@ namespace CapaVista.FormVentas
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
 
+        private void txtPago_TextChanged(object sender, EventArgs e)
+        {
+            calcularCambio();
         }
     }
 }
-//codigo para crear factura en pdf en lugar de imprimir(en ausencia de impresora)
-/*
- * if (!string.IsNullOrEmpty(factura)
-                    {
-                        if (impresora != "")
-                        {
-
-                            ////Aqui es donde me falta es lo del tamaño como lo ajusto aqui donde tambien tenia dudas  
-                            ///
-                           string carpetaDocumentos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-                            string nombreArchivo = Path.Combine(carpetaDocumentos, "Factura_" + factura);
-                           //string nombreArchivo = Path.Combine(carpetaDocumentos, "Factura_" + factura + ".pdf");
-                            ////////  la linea de abajo era lo que estaba probando ahora del 80mm ahora en la tarde
-                        //    System.Drawing.Printing.PaperSize paperSize = new System.Drawing.Printing.PaperSize("Custom", Convert.ToInt32(80 / 25.4) * 100, Convert.ToInt32(210 / 25.4) * 100);
-                           ///////////pero estaba probando lo del 80mm xd y ahi si no se xd
-                            ///no toques porfa
-                            ///
-                            pdImprimir = new PrintDocument();
-                            pdImprimir.PrinterSettings.PrinterName = impresora;
-                             // si esta linea puedo generar
-                            ////////////////
-                         //   pdImprimir.DefaultPageSettings.PaperSize = paperSize;
-                            ///////////////
-                            pdImprimir.PrinterSettings.PrintToFile = true;
-                            pdImprimir.PrinterSettings.PrintFileName = nombreArchivo;
-
-                            pdImprimir.PrintPage += imprimir;
-
-                            for (int i = 0; i < 1; i++)
-                            {
-                                pdImprimir.Print();
-                            }
-                           mensaje = "Factura generada e impresa con éxito se guardo en en: "+nombreArchivo;
-                        }
-                        else
-                        {
-                            mensaje = "No se ha seleccionado ninguna impresora";
-                        }
-                    }
-
-
-//metodo de imprecion del pdf 
- public void d()
-        {/*
-            Empresa empresa = new ControlEmpresa().datosEmpresa();
-            Font font = new Font("Courier New", 12);
-            float y = 20;
-
-            e.Graphics.DrawString($"        {empresa.nombre}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"Factura No: {new DataVenta().noFactura}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"Dirección: {empresa.direccion + " " + empresa.departamento}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"Email: {empresa.email}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"Teléfono: {empresa.telefono}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"Cliente:{txtCliente.Text}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"Usuario en turno: {user.usuario}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString("------------------------------------detalles-------------------------------", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString("Descripcion", font, Brushes.Black, 20, y);
-            e.Graphics.DrawString("Subtotal", font, Brushes.Black, 700, y);
-            y += 20;
-            foreach (var d in detalles)
-            {
-                e.Graphics.DrawString($"{d.NOMBRE}", font, Brushes.Black, 20, y);
-                e.Graphics.DrawString($"{d.SUBTOTAL}", font, Brushes.Black, 700, y);
-                y += 20;
-                e.Graphics.DrawString($"{d.CANTIDAD} x {d.PRECIO}", font, Brushes.Black, 20, y);
-                y += 20;
-            }
-            e.Graphics.DrawString("------------------------------------resumen--------------------------------", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"Subtotal:{txtSubTotal.Text}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"IVA: {txtIva.Text}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"Total antes de descuento: {txtTotal.Text}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"Descuento: {txtDescuento.Text}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"Total despues de descuento y deducciones: {txtTotalFinal.Text}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString($"Cambio: {txtCambioDeCompra.Text}", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString("                     ******NOTA: No se aceptan devoluciones*****", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString("                           Gracias por preferirnos :)", font, Brushes.Black, 20, y);
-            y += 20;
-            e.Graphics.DrawString("----------------------------------------------------------------------------", font, Brushes.Black, 20, y);
-            y += 20;
-            e.HasMorePages = false;*/
-
-
-
-
-
