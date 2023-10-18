@@ -64,3 +64,6 @@ C:\Users\josue\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\Ca
 C:\Users\josue\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaDatos\obj\Debug\net6.0\refint\CapaDatos.dll
 C:\Users\josue\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaDatos\obj\Debug\net6.0\CapaDatos.pdb
 C:\Users\josue\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaDatos\obj\Debug\net6.0\ref\CapaDatos.dll
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaDatos\bin\Debug\net6.0\Modelos.dll
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaDatos\bin\Debug\net6.0\Modelos.pdb
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\.vs\CapaDatos\obj\Debug\net6.0\CapaDatos.csproj.CopyComplete

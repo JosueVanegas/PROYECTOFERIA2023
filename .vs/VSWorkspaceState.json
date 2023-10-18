@@ -3,10 +3,8 @@
     "",
     "\\Proyecto_Feria",
     "\\Proyecto_Feria\\CapaVista",
-    "\\Proyecto_Feria\\CapaVista\\FormInventario",
-    "\\Proyecto_Feria\\CapaVista\\FormUsuarios",
     "\\Proyecto_Feria\\CapaVista\\FormVentas"
   ],
-  "SelectedNode": "\\Proyecto_Feria\\CapaVista\\FormInventario\\FormOfertas.cs",
+  "SelectedNode": "\\Proyecto_Feria\\CapaVista\\FormVentas\\formVentas.cs",
   "PreviewInSolutionExplorer": false
 }

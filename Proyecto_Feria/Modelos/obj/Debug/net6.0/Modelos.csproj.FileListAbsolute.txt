@@ -21,3 +21,15 @@ C:\Users\josue\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\Modelo
 C:\Users\josue\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\Modelos\obj\Debug\net6.0\refint\Modelos.dll
 C:\Users\josue\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\Modelos\obj\Debug\net6.0\Modelos.pdb
 C:\Users\josue\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\Modelos\obj\Debug\net6.0\ref\Modelos.dll
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\Modelos\bin\Debug\net6.0\Modelos.deps.json
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\Modelos\bin\Debug\net6.0\Modelos.dll
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\Modelos\bin\Debug\net6.0\Modelos.pdb
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\Modelos\obj\Debug\net6.0\Modelos.csproj.AssemblyReference.cache
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\Modelos\obj\Debug\net6.0\Modelos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\Modelos\obj\Debug\net6.0\Modelos.AssemblyInfoInputs.cache
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\Modelos\obj\Debug\net6.0\Modelos.AssemblyInfo.cs
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\Modelos\obj\Debug\net6.0\Modelos.csproj.CoreCompileInputs.cache
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\Modelos\obj\Debug\net6.0\Modelos.dll
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\Modelos\obj\Debug\net6.0\refint\Modelos.dll
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\Modelos\obj\Debug\net6.0\Modelos.pdb
+C:\Users\Personal\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\Modelos\obj\Debug\net6.0\ref\Modelos.dll
