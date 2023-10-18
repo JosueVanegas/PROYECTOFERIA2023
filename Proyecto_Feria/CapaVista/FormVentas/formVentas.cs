@@ -9,7 +9,8 @@ namespace CapaVista.FormVenta
     {
         ControlProducto controlProducto = new ControlProducto();
         ControlVenta controlVenta = new ControlVenta();
-        List<Modelos.Producto> lista = null;
+        List<Modelos.Producto> listaProductos = null;
+        List<Modelos.Ofertas> listaOfertas = null;
         Modelos.Usuario user;
         public formVentas(Modelos.Usuario user)
         {
@@ -35,12 +36,17 @@ namespace CapaVista.FormVenta
         private void formVentas_Load(object sender, EventArgs e)
         {
             mostrarProductosDisponible();
+            cargarOfertas();
+        }
+        private void cargarOfertas()
+        {
+            listaOfertas = new ControlOferta().listarOfertas();
         }
         private void mostrarProductosDisponible()
         {
-            lista = controlProducto.listarProductos();
+            listaProductos = controlProducto.listarProductos();
             tbBusqueda.Rows.Clear();
-            foreach (Modelos.Producto p in lista)
+            foreach (Modelos.Producto p in listaProductos)
             {
                 Image img = null;
                 using (MemoryStream memoryStream = new MemoryStream(p.IMAGEN))
@@ -49,7 +55,7 @@ namespace CapaVista.FormVenta
                     img = imagen;
 
                 }
-                tbBusqueda.Rows.Add("", img, p.ID, p.CODIGO, p.NOMBRE + " " + p.MARCA + " " + p.UNIDAD, p.PRECIO_VENTA, p.STOCK, p.STOCK_SEGURIDAD,0);
+                tbBusqueda.Rows.Add("", img, p.ID, p.CODIGO, p.NOMBRE + " " + p.MARCA + " " + p.UNIDAD, p.PRECIO_VENTA, p.STOCK, p.STOCK_SEGURIDAD, 0,0);
             }
         }
         private void btnCash_Click(object sender, EventArgs e)
@@ -88,7 +94,8 @@ namespace CapaVista.FormVenta
                         },
                         CANTIDAD = Convert.ToInt32(row.Cells["Cantidad"].Value),
                         PRECIO = Convert.ToDecimal(row.Cells["PrecioVenta"].Value),
-                        DESCUENTO = Convert.ToDecimal(row.Cells["Descuento"].Value)
+                        DESCUENTO = Convert.ToDecimal(row.Cells["Descuento"].Value),
+                        ID_OFERTA = Convert.ToInt32(row.Cells["IdOferta"].Value)
                     };
                     lista.Add(detalle);
                 }
@@ -179,11 +186,15 @@ namespace CapaVista.FormVenta
                 MessageBox.Show("ingrese el codigo del producto primero");
             }
         }
+
         private void agregarProducto(string codigo)
         {
-            var producto = lista.FirstOrDefault(p => p.CODIGO == codigo);
+            var producto = listaProductos.FirstOrDefault(p => p.CODIGO == codigo);
             if (producto != null)
             {
+                // Revisar si el producto tiene oferta
+                var oferta = listaOfertas.FirstOrDefault(of => of.PRODUCTO.ID == producto.ID);
+
                 int rowIndex = -1;
                 for (int i = 0; i < tbResumen.Rows.Count; i++)
                 {
@@ -197,74 +208,64 @@ namespace CapaVista.FormVenta
                 if (rowIndex >= 0)
                 {
                     int nuevaCantidad = 1 + Convert.ToInt32(tbResumen.Rows[rowIndex].Cells["Cantidad"].Value);
+                    decimal descuentoPorProducto = 0;
+                    if (oferta != null)
+                    {
+                        descuentoPorProducto = (producto.PRECIO_VENTA * oferta.CANTIDAD) * (oferta.PORCENTAJE_DESCUENTO / 100m) * (nuevaCantidad / oferta.CANTIDAD);
+                        tbResumen.Rows[rowIndex].Cells["IdOferta"].Value = oferta.ID;
+                    }
 
                     if (producto.STOCK >= nuevaCantidad)
                     {
                         decimal nuevoSubTotal = nuevaCantidad * producto.PRECIO_VENTA;
                         tbResumen.Rows[rowIndex].Cells["Cantidad"].Value = nuevaCantidad;
+                        tbResumen.Rows[rowIndex].Cells["Descuento"].Value = descuentoPorProducto;  
                         tbResumen.Rows[rowIndex].Cells["SubTotal"].Value = nuevoSubTotal;
-                        lblCantidad.Text = nuevaCantidad.ToString();
-                        limpiarEtiquetas();
-                        lblCantidad.Text = lblCantidad.Text + " " + nuevaCantidad;
-                        lblSubTotal.Text = lblSubTotal.Text + " " + nuevoSubTotal;
                     }
                     else
                     {
                         MessageBox.Show("El producto '" + producto.NOMBRE + "' no dispone de la cantidad requerida\n" +
-                                    "Cantidad del producto en inventario: " + producto.STOCK + " cantidad requeridad: " + nuevaCantidad);
-                        limpiarEtiquetas();
-                        lblCantidad.Text = "Cantidad ordenada: " + (nuevaCantidad - 1).ToString();
-                        lblSubTotal.Text = "SubTotal: " + (producto.PRECIO_VENTA * (nuevaCantidad - 1));
+                                        "Cantidad del producto en inventario: " + producto.STOCK + " cantidad requeridad: " + nuevaCantidad);
                     }
                 }
                 else
                 {
-                    tbResumen.Rows.Add("", "", producto.IMAGEN, producto.ID, producto.CODIGO, producto.NOMBRE
-                    , producto.PRECIO_VENTA, 1, producto.PRECIO_VENTA, producto.STOCK);
-                    limpiarEtiquetas();
-                    lblCantidad.Text = lblCantidad.Text + " " + 1;
-                    lblSubTotal.Text = lblSubTotal.Text + " " + producto.PRECIO_VENTA;
-                }
-                lblCodigo.Text = lblCodigo.Text + " " + producto.CODIGO;
-                lblNombre.Text = lblNombre.Text + " " + producto.NOMBRE;
-                lblPrecio.Text = lblPrecio.Text + " " + producto.PRECIO_VENTA;
-                lblStock.Text = lblStock.Text + " " + producto.STOCK;
-                txtSubTotal.Visible = true;
-                using (MemoryStream memoryStream = new MemoryStream(producto.IMAGEN))
-                {
-                    Image imagen = Image.FromStream(memoryStream);
-                    pktProducto.Image = imagen;
+                    decimal descuentoPorProducto = 0;
+                    if (oferta != null)
+                    {
+                        descuentoPorProducto = (producto.PRECIO_VENTA * oferta.CANTIDAD) * (oferta.PORCENTAJE_DESCUENTO / 100m);
+                    }
+                    tbResumen.Rows.Add("", "", producto.IMAGEN, producto.ID, producto.CODIGO, producto.NOMBRE, producto.PRECIO_VENTA, 1, producto.PRECIO_VENTA - descuentoPorProducto, descuentoPorProducto, producto.STOCK);
                 }
             }
             recuentoTotal();
         }
-
         private void recuentoTotal()
         {
             decimal subTotal = 0;
             decimal iva = 0;
-            decimal descuento = 0;
+            decimal descuentoTotal = 0;
             decimal total = 0;
             if (tbResumen.RowCount > 0)
             {
                 foreach (DataGridViewRow row in tbResumen.Rows)
                 {
-                    if (row.Cells["SubTotal"].Value != null)
+                    if (row.Cells["SubTotal"].Value != null && row.Cells["Descuento"].Value != null)
                     {
                         decimal valorCelda = Convert.ToDecimal(row.Cells["SubTotal"].Value);
+                        decimal valorDescuento = Convert.ToDecimal(row.Cells["Descuento"].Value);
                         subTotal += valorCelda;
-                        // descuento = (nbrDescuento.Value * Convert.ToDecimal(0.01)) * subTotal;
-                        subTotal = subTotal;
-                        iva = Convert.ToDecimal(subTotal) * Convert.ToDecimal(0.15);
-                        total = subTotal + iva;
+                        descuentoTotal += valorDescuento;
                     }
                 }
             }
-            txtDescuento.Text = descuento.ToString("0.00");
+            iva = subTotal * 0.15m;
+            total = subTotal + iva;
+            txtDescuento.Text = descuentoTotal.ToString("0.00");
             txtSubTotal.Text = subTotal.ToString("0.00");
             txtIva.Text = iva.ToString("0.00");
             txtTotal.Text = total.ToString("0.00");
-            txtTotalFinal.Text = (total - descuento).ToString("0.00");
+            txtTotalFinal.Text = (total - descuentoTotal).ToString("0.00");
         }
         private void limpiarEtiquetas()
         {
@@ -444,8 +445,11 @@ namespace CapaVista.FormVenta
 
         private void txtCodigoProducto_TextChanged(object sender, EventArgs e)
         {
-            timerEscanner.Stop();
-            timerEscanner.Start();
+            if(ckEscanner.Checked)
+            {
+                timerEscanner.Stop();
+                timerEscanner.Start();
+            }
         }
     }
 }

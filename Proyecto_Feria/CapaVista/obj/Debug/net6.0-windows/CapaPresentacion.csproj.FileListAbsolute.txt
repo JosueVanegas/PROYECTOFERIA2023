@@ -372,3 +372,4 @@ C:\Users\josue\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVi
 C:\Users\josue\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\obj\Debug\net6.0-windows\CapaPresentacion.pdb
 C:\Users\josue\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\obj\Debug\net6.0-windows\CapaPresentacion.genruntimeconfig.cache
 C:\Users\josue\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\obj\Debug\net6.0-windows\ref\CapaPresentacion.dll
+C:\Users\josue\Source\Repos\JosueVanegas\PROYECTOFERIA2023\Proyecto_Feria\CapaVista\obj\Debug\net6.0-windows\CapaPresentacion.FormInventario.FormOfertas.resources

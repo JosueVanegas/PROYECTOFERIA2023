@@ -1,4 +1,5 @@
 ﻿using CapaDatos;
+using CapaPresentacion.FormInventario;
 using CapaVista.FormInventario;
 using ReaLTaiizor.Forms;
 
@@ -72,6 +73,11 @@ namespace CapaVista
         private void formInventario_Load(object sender, EventArgs e)
         {
             abrirFormulario(new formProductos());
+        }
+
+        private void btnOfertas_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new FormOfertas());
         }
     }
 }

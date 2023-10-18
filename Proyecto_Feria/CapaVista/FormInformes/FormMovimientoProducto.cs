@@ -90,7 +90,7 @@ namespace CapaPresentacion.FormInformes
         }
         private void exportarExcel()
         {
-            List<movimientoProducto> lista = new ControlInforme().datosMovientoInventario(idProducto, fechaInicio, fechaFinal);
+            List<Modelos.Movimiento> lista = new ControlInforme().datosMovientoInventario(idProducto, fechaInicio, fechaFinal);
             IWorkbook workbook = new XSSFWorkbook();
             ISheet hoja = workbook.CreateSheet("movimiento_producto");
             IRow filaEncabezados = hoja.CreateRow(0);
@@ -103,11 +103,12 @@ namespace CapaPresentacion.FormInformes
             for (int i = 0; i < lista.Count; i++)
             {
                 IRow fila = hoja.CreateRow(i + 1);
-                fila.CreateCell(0).SetCellValue(lista[i].fecha);
-                fila.CreateCell(1).SetCellValue(lista[i].tipo);
-                fila.CreateCell(2).SetCellValue(lista[i].cantidad);
-                fila.CreateCell(3).SetCellValue((double)lista[i].precio);
-                fila.CreateCell(4).SetCellValue((double)lista[i].total);
+                fila.CreateCell(0).SetCellValue(lista[i].FECHA);
+                fila.CreateCell(1).SetCellValue(lista[i].TIPO);
+                fila.CreateCell(2).SetCellValue(lista[i].CANTIDAD);
+                fila.CreateCell(3).SetCellValue((double)lista[i].PRECIO);
+                double total = lista[i].CANTIDAD * (double)lista[i].PRECIO;
+                fila.CreateCell(4).SetCellValue(total);
             }
             for (int i = 0; i < 3; i++)
             {
@@ -129,24 +130,31 @@ namespace CapaPresentacion.FormInformes
         private void crearReporteMovimientoProducto()
         {
 
-            var doc = QuestPDF.Fluent.Document.Create(doc =>
+            try
             {
-                doc.Page(page =>
+                var doc = QuestPDF.Fluent.Document.Create(doc =>
                 {
-                    page.Size(PageSizes.Letter);
-                    page.Margin(10);
-                    page.DefaultTextStyle(TextStyle.Default.FontSize(12));
-                    page.PageColor(Colors.White);
-                    page.Background().AlignTop().ExtendHorizontal().Height(100).Background(colorFondoMovimiento);
-                    page.Header().Element(Encabezado);
-                    page.Footer().Element(piePagina);
-                    page.Content().Element(contenidoMovimiento);
+                    doc.Page(page =>
+                    {
+                        page.Size(PageSizes.Letter);
+                        page.Margin(10);
+                        page.DefaultTextStyle(TextStyle.Default.FontSize(12));
+                        page.PageColor(Colors.White);
+                        page.Background().AlignTop().ExtendHorizontal().Height(100).Background(colorFondoMovimiento);
+                        page.Header().Element(Encabezado);
+                        page.Footer().Element(piePagina);
+                        page.Content().Element(contenidoMovimiento);
+                    });
                 });
-            });
-            QuestPDF.Settings.License = LicenseType.Community;
-            var filePath = "invoice.pdf";
-            doc.GeneratePdf(filePath);
-            Process.Start("explorer.exe", filePath);
+                QuestPDF.Settings.License = LicenseType.Community;
+                var filePath = "invoice.pdf";
+                doc.GeneratePdf(filePath);
+                Process.Start("explorer.exe", filePath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         void Encabezado(QuestPDF.Infrastructure.IContainer content)
         {
@@ -187,7 +195,7 @@ namespace CapaPresentacion.FormInformes
             decimal saldoActual = 0;
             decimal totalCompras = 0;
             decimal totalVentas = 0;
-            List<movimientoProducto> lista = new ControlInforme().datosMovientoInventario(Convert.ToInt32(txtId.Text), fechaInicio, fechaFinal);
+            List<Modelos.Movimiento> lista = new ControlInforme().datosMovientoInventario(Convert.ToInt32(txtId.Text), fechaInicio, fechaFinal);
             content.PaddingVertical(25).Column(column =>
             {
                 column.Item().AlignCenter().Text("Informe de movimientos de producto").FontSize(18);
@@ -220,21 +228,22 @@ namespace CapaPresentacion.FormInformes
                         het.Cell().Border(1).Background(colorFondoMovimiento).Padding(1).Text("Cantidad").FontSize(14);
                         het.Cell().Border(1).Background(colorFondoMovimiento).Padding(1).Text("Precio unitario").FontSize(14);
                         het.Cell().Border(1).Background(colorFondoMovimiento).Padding(1).Text("Total").FontSize(14);
-                        foreach (movimientoProducto i in lista)
+                        foreach (Modelos.Movimiento i in lista)
                         {
 
-                            tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.fecha).FontSize(12);
-                            tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.tipo).FontSize(12);
-                            tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.cantidad).FontSize(12);
-                            tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.precio.ToString("0.00")).FontSize(12);
-                            tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.total.ToString("0.00")).FontSize(12);
-                            if (i.tipo.ToUpper() == "COMPRA")
+                            tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.FECHA).FontSize(12);
+                            tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.TIPO).FontSize(12);
+                            tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.CANTIDAD).FontSize(12);
+                            tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.PRECIO.ToString("0.00")).FontSize(12);
+                            decimal total = i.PRECIO * i.CANTIDAD;
+                            tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(total.ToString("0.00")).FontSize(12);
+                            if (i.TIPO.ToUpper() == "COMPRA")
                             {
-                                totalCompras += i.total;
+                                totalCompras += total;
                             }
-                            else if (i.tipo.ToUpper() == "VENTA")
+                            else if (i.TIPO.ToUpper() == "VENTA")
                             {
-                                totalVentas += i.total;
+                                totalVentas += total;
                             }
                             saldoActual += totalVentas - totalCompras;
                         }

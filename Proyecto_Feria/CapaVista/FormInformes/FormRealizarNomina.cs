@@ -26,7 +26,7 @@ namespace CapaPresentacion.FormInformes
         ControlEmpleados cEmp = new ControlEmpleados();
         ControlInforme cInformes = new ControlInforme();
         Modelos.Empresa empresa = new ControlEmpresa().datosEmpresa();
-        List<nomina> nominas;
+        List<Modelos.Nomina> nominas;
         string tituloRango = "Nómina realizada el " + DateTime.Now.ToString($"dddd dd MMMM año yyyy");
         string colorFondoNomina = "#CCCAFE ";
         bool excel;
@@ -63,7 +63,7 @@ namespace CapaPresentacion.FormInformes
         {
             if (validarEntradas() != true)
             {
-                nominas = new List<nomina>();
+                nominas = new List<Modelos.Nomina>();
                 foreach (DataGridViewRow fila in tbEmpleados.Rows)
                 {
                     int id = Convert.ToInt32(fila.Cells[1].Value);
@@ -74,7 +74,7 @@ namespace CapaPresentacion.FormInformes
 
                     if (empleadoEncontrado != null)
                     {
-                        nomina n = cInformes.calcularnomina(empleadoEncontrado, cantidadHoras, cantidadHorasExtras);
+                        Modelos.Nomina n = cInformes.calcularnomina(empleadoEncontrado, cantidadHoras, cantidadHorasExtras);
                         nominas.Add(n);
                     }
                 }
@@ -119,25 +119,32 @@ namespace CapaPresentacion.FormInformes
         private void crearPdf()
         {
 
-            var dox = QuestPDF.Fluent.Document.Create(doc =>
+            try
             {
-                doc.Page(page =>
+                var dox = QuestPDF.Fluent.Document.Create(doc =>
                 {
-                    page.Size(PageSizes.Letter);
-                    page.Margin(10);
-                    page.DefaultTextStyle(TextStyle.Default.FontSize(16));
-                    page.PageColor(Colors.White);
-                    page.Background().AlignTop().ExtendHorizontal().Height(100).Background(colorFondoNomina);
-                    page.Foreground().AlignBottom().ExtendHorizontal().Height(50).Background(colorFondoNomina);
-                    //estructura ordenada el heater y footer se repite en todos los reportes
-                    page.Header().Element(Encabezado);
-                    page.Footer().Element(piePagina);
-                    page.Content().Element(contenidoNomina);
+                    doc.Page(page =>
+                    {
+                        page.Size(PageSizes.Letter);
+                        page.Margin(10);
+                        page.DefaultTextStyle(TextStyle.Default.FontSize(16));
+                        page.PageColor(Colors.White);
+                        page.Background().AlignTop().ExtendHorizontal().Height(100).Background(colorFondoNomina);
+                        page.Foreground().AlignBottom().ExtendHorizontal().Height(50).Background(colorFondoNomina);
+                        //estructura ordenada el heater y footer se repite en todos los reportes
+                        page.Header().Element(Encabezado);
+                        page.Footer().Element(piePagina);
+                        page.Content().Element(contenidoNomina);
+                    });
                 });
-            });
-            var filePath = "invoice.pdf";
-            dox.GeneratePdf(filePath);
-            Process.Start("explorer.exe", filePath);
+                var filePath = "invoice.pdf";
+                dox.GeneratePdf(filePath);
+                Process.Start("explorer.exe", filePath);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         void Encabezado(QuestPDF.Infrastructure.IContainer content)
         {
@@ -149,14 +156,14 @@ namespace CapaPresentacion.FormInformes
                     col
                         .Item()
                         .Image(empresa.IMAGEN).FitArea()
-                        .WithCompressionQuality(ImageCompressionQuality.VeryLow);
+                       .WithCompressionQuality(ImageCompressionQuality.VeryLow);
                 });
                 row.RelativeItem().Border(0).Background(Colors.Transparent).Height(80).Column(col =>
                 {
-                    col.Item().AlignCenter().Text(empresa.NOMBRE).FontSize(15).Bold();
+                    col.Item().AlignCenter().Text(empresa.NOMBRE).FontSize(7).Bold();
                     col.Item().AlignCenter().Text("Teléfono: " + empresa.TELEFONO).FontSize(7);
                     col.Item().AlignCenter().Text("Correo electronico: " + empresa.CORREO).FontSize(7);
-                    col.Item().AlignCenter().Text("Direccion: " + empresa.DIRECCION);
+                    col.Item().AlignCenter().Text("Direccion: " + empresa.DIRECCION).FontSize(7);
                 });
                 row.RelativeItem().Border(0).Background(Colors.Transparent).Height(80);
             });
@@ -174,7 +181,7 @@ namespace CapaPresentacion.FormInformes
         }
         void contenidoNomina(IContainer content)
         {
-            decimal totalPagarNomina = 0;
+            decimal totalPagarNomina = 0,totalINSS = 0,totalIR=0;
             content.PaddingVertical(25).Column(column =>
             {
                 column.Item().AlignCenter().Text("Nómina de pago al personal").FontSize(15);
@@ -223,31 +230,42 @@ namespace CapaPresentacion.FormInformes
                         het.Cell().Border(1).Background(colorFondoNomina).Padding(1).Text("Neto a recibir").FontSize(10);
                     });
 
-                    foreach (nomina i in nominas)
+                    foreach (Modelos.Nomina i in nominas)
                     {
 
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.trabajador).FontSize(9);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.cargo).FontSize(9);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.salarioHora.ToString("0.00")).FontSize(9);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.horastrabajadas).FontSize(9);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.montoHorasTrabajadas.ToString("0.00")).FontSize(9);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.horasExtras).FontSize(9);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.montoHorasExtras.ToString("0.00")).FontSize(9);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.salarioDevengado.ToString("0.00")).FontSize(9);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.inss.ToString("0.00")).FontSize(9);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.ir.ToString("0.00")).FontSize(9);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.totalDeducciones.ToString("0.00")).FontSize(9);
-                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.salarioNeto.ToString("0.00")).FontSize(9);
-                        totalPagarNomina += i.salarioNeto;
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.TRABAJADOR).FontSize(9);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.CARGO).FontSize(9);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.SALARIOPH.ToString("0.00")).FontSize(9);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.HORAS_TRABAJADAS).FontSize(9);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.MONTO_HORAS_TRABAJASDAS.ToString("0.00")).FontSize(9);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.HORAS_EXTRAS).FontSize(9);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.MONTO_HORAS_EXTRAS.ToString("0.00")).FontSize(9);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.SALARIO_DEVENGADO.ToString("0.00")).FontSize(9);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.INSS.ToString("0.00")).FontSize(9);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.IR.ToString("0.00")).FontSize(9);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.TOTAL_DEDUCCIONES.ToString("0.00")).FontSize(9);
+                        tab.Cell().BorderHorizontal(0.5f).AlignCenter().Text(i.SALARIO_NETO.ToString("0.00")).FontSize(9);
+                        totalPagarNomina += i.SALARIO_NETO;
+                        totalINSS += i.INSS;
+                        totalIR += i.IR;
                     }
                 });
                 column.Item().Row(row =>
                 {
                     row.RelativeItem().Column(col =>
                     {
+                        
                         col.Item().AlignCenter().Text(txt =>
                         {
-                            txt.Span("Total a pagar en nómina: " + totalPagarNomina.ToString("0.00") + " C$").FontSize(15);
+                            txt.Span("Total en INSS: " + totalINSS.ToString("0.00") + " C$").FontSize(13);
+                        });
+                        col.Item().AlignCenter().Text(txt =>
+                        {
+                            txt.Span("Total en IR: " + totalIR.ToString("0.00") + " C$").FontSize(13);
+                        });
+                        col.Item().AlignCenter().Text(txt =>
+                        {
+                            txt.Span("Total a pagar en nómina: " + totalPagarNomina.ToString("0.00") + " C$").FontSize(13);
                         });
                     });
                 });
@@ -273,18 +291,18 @@ namespace CapaPresentacion.FormInformes
             for (int i = 0; i < nominas.Count; i++)
             {
                 IRow fila = hoja.CreateRow(i + 1);
-                fila.CreateCell(0).SetCellValue(nominas[i].trabajador);
-                fila.CreateCell(1).SetCellValue(nominas[i].cargo);
-                fila.CreateCell(2).SetCellValue((double)nominas[i].salarioHora);
-                fila.CreateCell(3).SetCellValue((int)nominas[i].horastrabajadas);
-                fila.CreateCell(4).SetCellValue((double)nominas[i].montoHorasTrabajadas);
-                fila.CreateCell(5).SetCellValue((int)nominas[i].horasExtras);
-                fila.CreateCell(6).SetCellValue((double)nominas[i].montoHorasExtras);
-                fila.CreateCell(7).SetCellValue((double)nominas[i].salarioDevengado);
-                fila.CreateCell(8).SetCellValue((double)nominas[i].inss);
-                fila.CreateCell(9).SetCellValue((double)nominas[i].ir);
-                fila.CreateCell(10).SetCellValue((double)nominas[i].totalDeducciones);
-                fila.CreateCell(11).SetCellValue((double)nominas[i].salarioNeto);
+                fila.CreateCell(0).SetCellValue(nominas[i].TRABAJADOR);
+                fila.CreateCell(1).SetCellValue(nominas[i].CARGO);
+                fila.CreateCell(2).SetCellValue((double)nominas[i].SALARIOPH);
+                fila.CreateCell(3).SetCellValue((int)nominas[i].HORAS_TRABAJADAS);
+                fila.CreateCell(4).SetCellValue((double)nominas[i].MONTO_HORAS_TRABAJASDAS);
+                fila.CreateCell(5).SetCellValue((int)nominas[i].HORAS_EXTRAS);
+                fila.CreateCell(6).SetCellValue((double)nominas[i].MONTO_HORAS_EXTRAS);
+                fila.CreateCell(7).SetCellValue((double)nominas[i].SALARIO_DEVENGADO);
+                fila.CreateCell(8).SetCellValue((double)nominas[i].INSS);
+                fila.CreateCell(9).SetCellValue((double)nominas[i].IR);
+                fila.CreateCell(10).SetCellValue((double)nominas[i].TOTAL_DEDUCCIONES);
+                fila.CreateCell(11).SetCellValue((double)nominas[i].SALARIO_NETO);
             }
             for (int i = 0; i < 3; i++)
             {

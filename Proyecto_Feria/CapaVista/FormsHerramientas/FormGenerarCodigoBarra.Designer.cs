@@ -44,18 +44,20 @@
             // 
             panelCodigo.BackColor = Color.White;
             panelCodigo.Controls.Add(imagenCodigo);
-            panelCodigo.Location = new Point(12, 270);
+            panelCodigo.Location = new Point(14, 360);
+            panelCodigo.Margin = new Padding(3, 4, 3, 4);
             panelCodigo.Name = "panelCodigo";
-            panelCodigo.Size = new Size(310, 131);
+            panelCodigo.Size = new Size(354, 175);
             panelCodigo.TabIndex = 3;
             // 
             // imagenCodigo
             // 
             imagenCodigo.Dock = DockStyle.Fill;
             imagenCodigo.Location = new Point(0, 0);
+            imagenCodigo.Margin = new Padding(3, 4, 3, 4);
             imagenCodigo.Name = "imagenCodigo";
-            imagenCodigo.Size = new Size(310, 131);
-            imagenCodigo.SizeMode = PictureBoxSizeMode.StretchImage;
+            imagenCodigo.Size = new Size(354, 175);
+            imagenCodigo.SizeMode = PictureBoxSizeMode.Zoom;
             imagenCodigo.TabIndex = 0;
             imagenCodigo.TabStop = false;
             // 
@@ -71,7 +73,8 @@
             txtCodigo.HideSelection = true;
             txtCodigo.Hint = "Ingrese el codigo de barra";
             txtCodigo.LeadingIcon = null;
-            txtCodigo.Location = new Point(16, 174);
+            txtCodigo.Location = new Point(18, 232);
+            txtCodigo.Margin = new Padding(3, 4, 3, 4);
             txtCodigo.MaxLength = 32767;
             txtCodigo.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtCodigo.Name = "txtCodigo";
@@ -83,7 +86,7 @@
             txtCodigo.SelectionLength = 0;
             txtCodigo.SelectionStart = 0;
             txtCodigo.ShortcutsEnabled = true;
-            txtCodigo.Size = new Size(303, 48);
+            txtCodigo.Size = new Size(346, 48);
             txtCodigo.TabIndex = 4;
             txtCodigo.TabStop = false;
             txtCodigo.TextAlign = HorizontalAlignment.Center;
@@ -103,10 +106,9 @@
             rjButton1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             rjButton1.ForeColor = Color.White;
             rjButton1.ImageAlign = ContentAlignment.MiddleRight;
-            rjButton1.Location = new Point(60, 406);
-            rjButton1.Margin = new Padding(3, 2, 3, 2);
+            rjButton1.Location = new Point(69, 541);
             rjButton1.Name = "rjButton1";
-            rjButton1.Size = new Size(213, 39);
+            rjButton1.Size = new Size(243, 52);
             rjButton1.TabIndex = 66;
             rjButton1.Text = "Guardar codigo";
             rjButton1.TextAlign = ContentAlignment.BottomCenter;
@@ -118,9 +120,9 @@
             // 
             label1.Dock = DockStyle.Top;
             label1.Font = new Font("Microsoft Tai Le", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(3, 24);
+            label1.Location = new Point(3, 32);
             label1.Name = "label1";
-            label1.Size = new Size(325, 38);
+            label1.Size = new Size(372, 51);
             label1.TabIndex = 67;
             label1.Text = "Generador de codigo de barra";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -137,7 +139,8 @@
             txtTitulo.HideSelection = true;
             txtTitulo.Hint = "ingrese el titulo del codigo de barra";
             txtTitulo.LeadingIcon = null;
-            txtTitulo.Location = new Point(16, 120);
+            txtTitulo.Location = new Point(18, 160);
+            txtTitulo.Margin = new Padding(3, 4, 3, 4);
             txtTitulo.MaxLength = 32767;
             txtTitulo.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtTitulo.Name = "txtTitulo";
@@ -149,7 +152,7 @@
             txtTitulo.SelectionLength = 0;
             txtTitulo.SelectionStart = 0;
             txtTitulo.ShortcutsEnabled = true;
-            txtTitulo.Size = new Size(303, 48);
+            txtTitulo.Size = new Size(346, 48);
             txtTitulo.TabIndex = 68;
             txtTitulo.TabStop = false;
             txtTitulo.TextAlign = HorizontalAlignment.Center;
@@ -169,10 +172,9 @@
             btnGenerarCodigo.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnGenerarCodigo.ForeColor = Color.White;
             btnGenerarCodigo.ImageAlign = ContentAlignment.MiddleRight;
-            btnGenerarCodigo.Location = new Point(60, 227);
-            btnGenerarCodigo.Margin = new Padding(3, 2, 3, 2);
+            btnGenerarCodigo.Location = new Point(69, 303);
             btnGenerarCodigo.Name = "btnGenerarCodigo";
-            btnGenerarCodigo.Size = new Size(213, 38);
+            btnGenerarCodigo.Size = new Size(243, 51);
             btnGenerarCodigo.TabIndex = 69;
             btnGenerarCodigo.Text = "Generar codigo";
             btnGenerarCodigo.TextAlign = ContentAlignment.BottomCenter;
@@ -195,20 +197,21 @@
             cbxProductos.Hint = "Seleccione el codigo de un producto";
             cbxProductos.IntegralHeight = false;
             cbxProductos.ItemHeight = 43;
-            cbxProductos.Location = new Point(16, 65);
+            cbxProductos.Location = new Point(18, 87);
+            cbxProductos.Margin = new Padding(3, 4, 3, 4);
             cbxProductos.MaxDropDownItems = 4;
             cbxProductos.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbxProductos.Name = "cbxProductos";
-            cbxProductos.Size = new Size(303, 49);
+            cbxProductos.Size = new Size(346, 49);
             cbxProductos.StartIndex = 1;
             cbxProductos.TabIndex = 70;
             cbxProductos.SelectedIndexChanged += cbxProductos_SelectedIndexChanged;
             // 
             // FormGenerarCodigoBarra
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(331, 450);
+            ClientSize = new Size(378, 600);
             Controls.Add(cbxProductos);
             Controls.Add(btnGenerarCodigo);
             Controls.Add(txtTitulo);
@@ -217,13 +220,14 @@
             Controls.Add(txtCodigo);
             Controls.Add(panelCodigo);
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.ActionBar_None;
+            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
-            MaximumSize = new Size(331, 450);
+            MaximumSize = new Size(378, 600);
             MdiChildrenMinimizedAnchorBottom = false;
             MinimizeBox = false;
-            MinimumSize = new Size(331, 450);
+            MinimumSize = new Size(378, 600);
             Name = "FormGenerarCodigoBarra";
-            Padding = new Padding(3, 24, 3, 3);
+            Padding = new Padding(3, 32, 3, 4);
             StartPosition = FormStartPosition.CenterScreen;
             Load += FormGenerarCodigoBarra_Load;
             panelCodigo.ResumeLayout(false);

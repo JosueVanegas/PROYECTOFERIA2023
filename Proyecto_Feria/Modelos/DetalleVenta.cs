@@ -13,5 +13,6 @@ namespace Modelos
         public decimal PRECIO {  get; set; }
         public int CANTIDAD { get; set; }
         public decimal DESCUENTO { get; set; }
+        public int ID_OFERTA { get; set; }
     }
 }

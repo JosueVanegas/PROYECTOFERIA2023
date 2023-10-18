@@ -25,11 +25,36 @@ namespace CapaPresentacion.FormsHerramientas
         }
         private void txtSalarioNeto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (txtSalarioNeto != null && txtSalarioNeto.Text.Length >= 8 && !char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            char keyPressed = e.KeyChar;
+            string textoActual = txtSalarioNeto.Text;
+
+            if (!char.IsDigit(keyPressed) && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete && keyPressed != '.')
             {
                 e.Handled = true;
+                return;
             }
-            if (e.KeyChar == '.' && (sender as TextBox).Text.Contains('.'))
+
+            if (textoActual.Length >= 9 && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
+            {
+                e.Handled = true;
+                return;
+            }
+            if (keyPressed == '.' && string.IsNullOrEmpty(textoActual))
+            {
+                e.Handled = true;
+                return;
+            }
+            if (keyPressed == '.' && textoActual.Contains("."))
+            {
+                e.Handled = true;
+                return;
+            }
+            if (textoActual.Contains(".") && textoActual.IndexOf(".") <= textoActual.Length - 3 && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
+            {
+                e.Handled = true;
+                return;
+            }
+            if (keyPressed == '.' && textoActual.Length >= 8)
             {
                 e.Handled = true;
             }
@@ -37,7 +62,14 @@ namespace CapaPresentacion.FormsHerramientas
 
         private void txtSalarioNeto_TextChanged(object sender, EventArgs e)
         {
-            calcularDeducciones();
+            try
+            {
+                calcularDeducciones();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void calcularDeducciones()
         {

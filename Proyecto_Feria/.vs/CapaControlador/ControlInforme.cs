@@ -14,11 +14,11 @@ namespace CapaControlador
         {
             return dInforme.ObtenerDatosInformeCompras(fechaInicio, fechaFin);
         }
-        public List<movimientoProducto> datosMovientoInventario(int idProducto,string fechaInicio, string fechaFin)
+        public List<Modelos.Movimiento> datosMovientoInventario(int idProducto,string fechaInicio, string fechaFin)
         {
             return dInforme.ObtenerDatosInformeMovimientoProducto(idProducto,fechaInicio,fechaFin);
         }
-        public nomina calcularnomina(Modelos.Empleado empleado,int horasTrabajadas,int horasExtras)
+        public Modelos.Nomina calcularnomina(Modelos.Empleado empleado,int horasTrabajadas,int horasExtras)
         {
             return dInforme.calcularnomina(empleado, horasTrabajadas, horasExtras);
         }

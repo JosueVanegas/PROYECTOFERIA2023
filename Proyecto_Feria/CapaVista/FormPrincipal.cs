@@ -23,12 +23,12 @@ namespace CapaVista
             this.Cursor = Cursors.WaitCursor;
             this.user = usuario;
             reloj.Start();
-            datosDeUsuarioActual(user);
+           // datosDeUsuarioActual(user);
             this.Cursor = Cursors.Default;
         }
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            abrirFormulario(new FormInicio());
+            abrir(new FormInicio());
         }
         private void datosDeUsuarioActual(Modelos.Usuario u)
         {
@@ -61,21 +61,18 @@ namespace CapaVista
             if (permisos[7] != true)
                 btnConfiguraciones.Visible = false;
         }
-        private void abrirFormulario(Form form)
+        private void abrir(Form childForm)
         {
-            if (formActivo != null)
-            {
-                formActivo.Close();
-            }
-            formActivo = form;
-            form.FormBorderStyle = FormBorderStyle.None;
-            form.TopLevel = false;
-            form.Dock = DockStyle.Fill;
+            panelContenedor.Controls.Clear();
 
-            form.MaximizeBox = false;
-            form.MinimizeBox = false;
-            panelContenedor.Controls.Add(form);
-            form.Show();
+            // Establece las propiedades del formulario hijo
+            childForm.TopLevel = false;  // Importante para que el formulario actúe como un control
+            childForm.FormBorderStyle = FormBorderStyle.None;  // Sin bordes
+            childForm.Dock = DockStyle.Fill;  // Ocupa todo el espacio del panel
+
+            // Agrega el formulario al panel y muestra el formulario
+            panelContenedor.Controls.Add(childForm);
+            childForm.Show();
         }
         private void reloj_Tick(object sender, EventArgs e)
         {
@@ -93,23 +90,23 @@ namespace CapaVista
         private void clicks(object sender, EventArgs e)
         {
             if (sender.Equals(btnInicio))
-                abrirFormulario(new FormInicio());
+                abrir(new FormInicio());
             if (sender.Equals(btnInventario))
-                abrirFormulario(new formInventario(this.user));
+                abrir(new formInventario(this.user));
             if (sender.Equals(btnPlanilla))
-                abrirFormulario(new formEmpleados());
+                abrir(new formEmpleados());
             if (sender.Equals(btnHerramientas))
-                abrirFormulario(new FormHerramientas());
+                abrir(new FormHerramientas());
             if (sender.Equals(btnInformes))
-                abrirFormulario(new FormInformes());
+                abrir(new FormInformes());
             if (sender.Equals(btnUsuarios))
-                abrirFormulario(new formUsuarios());
+                abrir(new formUsuarios());
             if (sender.Equals(btnClientes))
-                abrirFormulario(new FormClientes());
+                abrir(new FormClientes());
             if (sender.Equals(btnConfiguraciones))
-                abrirFormulario(new formConfiguraciones());
+                abrir(new formConfiguraciones());
             if (sender.Equals(btnVentas))
-                abrirFormulario(new formVentas(this.user));
+                abrir(new formVentas(this.user));
         }
         private void MouseEnters(object sender, EventArgs e)
         {

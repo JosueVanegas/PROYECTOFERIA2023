@@ -83,51 +83,54 @@ namespace CapaDatos
             }
             return lista;
         }
-        public nomina calcularnomina(Modelos.Empleado e, int horasTrabajadas, int horasExtras)
+        public Modelos.Nomina calcularnomina(Modelos.Empleado e, int horasTrabajadas, int horasExtras)
         {
-            nomina no = new nomina();
+            Modelos.Nomina no = new Modelos.Nomina();
             decimal valorhoras = e.SALARIOPH;
             decimal valorHorasExtras = valorhoras * 2;
-            no.trabajador = e.NOMBRE + " " + e.APELLIDO;
-            no.cargo = e.CARGO;
-            no.salarioHora = valorhoras;
-            no.horastrabajadas = horasTrabajadas;
-            no.montoHorasTrabajadas = Convert.ToDecimal(horasTrabajadas) *valorhoras;
-            no.horasExtras = horasExtras;
-            no.montoHorasExtras = Convert.ToDecimal(horasExtras) * valorHorasExtras;
-            no.salarioDevengado = no.montoHorasTrabajadas + no.montoHorasExtras;
-            no.inss = no.salarioDevengado * Convert.ToDecimal(0.07);
-            no.ir = calcularIR(no.salarioDevengado);
-            no.totalDeducciones = no.inss + no.ir;
-            no.salarioNeto = no.salarioDevengado - no.totalDeducciones;
+            no.TRABAJADOR = e.NOMBRE + " " + e.APELLIDO;
+            no.CARGO = e.CARGO;
+            no.SALARIOPH = valorhoras;
+            no.HORAS_TRABAJADAS = horasTrabajadas;
+            no.MONTO_HORAS_TRABAJASDAS = Convert.ToDecimal(horasTrabajadas) *valorhoras;
+            no.HORAS_EXTRAS = horasExtras;
+            no.MONTO_HORAS_EXTRAS = Convert.ToDecimal(horasExtras) * valorHorasExtras;
+            no.SALARIO_DEVENGADO = no.MONTO_HORAS_TRABAJASDAS + no.MONTO_HORAS_EXTRAS;
+            no.INSS = no.SALARIO_DEVENGADO * Convert.ToDecimal(0.07);
+            no.IR = calcularIR(no.SALARIO_DEVENGADO);
+            no.TOTAL_DEDUCCIONES = no.INSS + no.IR;
+            no.SALARIO_NETO = no.SALARIO_DEVENGADO - no.TOTAL_DEDUCCIONES;
             return no;
         }
-        public List<movimientoProducto> ObtenerDatosInformeMovimientoProducto(int id,string fechaInicio, string fechaFin)
+        public List<Modelos.Movimiento> ObtenerDatosInformeMovimientoProducto(int id,string fechaInicio, string fechaFin)
         {
-            List<movimientoProducto> lista = new List<movimientoProducto>();
+            List<Modelos.Movimiento> lista = new List<Modelos.Movimiento>();
             try
             {
                 using (SqlConnection connection = new conexion().conectar())
                 {
                     connection.Open();
-                    string procedure = "PROC_ORDENAR_FECHA_MOVIMIENTO_INVENTARIO";
+                    string procedure = "PROC_REPORT_PRODUCT_MOVEMENT";
                     using (SqlCommand cmd = new SqlCommand(procedure, connection))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.Add(new SqlParameter("@ID_PRODUCTO", SqlDbType.VarChar, 10)).Value = id;
-                        cmd.Parameters.Add(new SqlParameter("@fechaInicio", SqlDbType.VarChar, 10)).Value = fechaInicio;
-                        cmd.Parameters.Add(new SqlParameter("@fechaFin", SqlDbType.VarChar, 10)).Value = fechaFin;
+                        cmd.Parameters.Add(new SqlParameter("@ID_PRODUCT", SqlDbType.VarChar, 10)).Value = id;
+                        cmd.Parameters.Add(new SqlParameter("@STARTDATE", SqlDbType.VarChar, 10)).Value = fechaInicio;
+                        cmd.Parameters.Add(new SqlParameter("@ENDDATE", SqlDbType.VarChar, 10)).Value = fechaFin;
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {
-                                lista.Add(new movimientoProducto
+                                lista.Add(new Modelos.Movimiento
                                 {
-                                    fecha = reader[0].ToString(),
-                                    tipo = reader[1].ToString(),
-                                    cantidad = Convert.ToInt32(reader[2]),
-                                    precio = Convert.ToDecimal(reader[3]),
-                                    total = Convert.ToDecimal(reader[4]),
+                                    FECHA = Convert.ToDateTime(reader[0]),
+                                    TIPO = reader[1].ToString(),
+                                    PRODUCTO = new Modelos.Producto
+                                    {
+                                        ID = Convert.ToInt32(reader[2])
+                                    },
+                                    CANTIDAD = Convert.ToInt32(reader[3]),
+                                    PRECIO = Convert.ToDecimal(reader[4]),
                                 });
                             }
                         }
@@ -136,7 +139,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                lista = new List<movimientoProducto>();
+                lista = new List<Modelos.Movimiento>();
             }
             return lista;
         }

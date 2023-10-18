@@ -30,6 +30,7 @@
         {
             panelMenu = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
+            btnOfertas = new RJCodeAdvance.RJControls.RJButton();
             btnCompras = new RJCodeAdvance.RJControls.RJButton();
             btnProveedores = new RJCodeAdvance.RJControls.RJButton();
             btnProductos = new RJCodeAdvance.RJControls.RJButton();
@@ -52,10 +53,12 @@
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.BackColor = Color.White;
-            tableLayoutPanel1.ColumnCount = 3;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6666679F));
+            tableLayoutPanel1.ColumnCount = 4;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel1.Controls.Add(btnOfertas, 0, 0);
             tableLayoutPanel1.Controls.Add(btnCompras, 0, 0);
             tableLayoutPanel1.Controls.Add(btnProveedores, 2, 0);
             tableLayoutPanel1.Controls.Add(btnProductos, 0, 0);
@@ -67,6 +70,29 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Size = new Size(1064, 69);
             tableLayoutPanel1.TabIndex = 0;
+            // 
+            // btnOfertas
+            // 
+            btnOfertas.BackColor = Color.Silver;
+            btnOfertas.BackgroundColor = Color.Silver;
+            btnOfertas.BackgroundImageLayout = ImageLayout.Center;
+            btnOfertas.BorderColor = Color.PaleVioletRed;
+            btnOfertas.BorderRadius = 10;
+            btnOfertas.BorderSize = 0;
+            btnOfertas.Dock = DockStyle.Fill;
+            btnOfertas.FlatAppearance.BorderSize = 0;
+            btnOfertas.FlatStyle = FlatStyle.Flat;
+            btnOfertas.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            btnOfertas.ForeColor = Color.Black;
+            btnOfertas.ImageAlign = ContentAlignment.MiddleLeft;
+            btnOfertas.Location = new Point(535, 3);
+            btnOfertas.Name = "btnOfertas";
+            btnOfertas.Size = new Size(260, 63);
+            btnOfertas.TabIndex = 14;
+            btnOfertas.Text = "Ofertas";
+            btnOfertas.TextColor = Color.Black;
+            btnOfertas.UseVisualStyleBackColor = false;
+            btnOfertas.Click += btnOfertas_Click;
             // 
             // btnCompras
             // 
@@ -82,9 +108,9 @@
             btnCompras.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
             btnCompras.ForeColor = Color.Black;
             btnCompras.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCompras.Location = new Point(357, 3);
+            btnCompras.Location = new Point(269, 3);
             btnCompras.Name = "btnCompras";
-            btnCompras.Size = new Size(348, 63);
+            btnCompras.Size = new Size(260, 63);
             btnCompras.TabIndex = 12;
             btnCompras.Text = "Compras";
             btnCompras.TextColor = Color.Black;
@@ -106,9 +132,9 @@
             btnProveedores.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
             btnProveedores.ForeColor = Color.Black;
             btnProveedores.ImageAlign = ContentAlignment.MiddleLeft;
-            btnProveedores.Location = new Point(711, 3);
+            btnProveedores.Location = new Point(801, 3);
             btnProveedores.Name = "btnProveedores";
-            btnProveedores.Size = new Size(350, 63);
+            btnProveedores.Size = new Size(260, 63);
             btnProveedores.TabIndex = 11;
             btnProveedores.Text = "Proveedores";
             btnProveedores.TextColor = Color.Black;
@@ -132,7 +158,7 @@
             btnProductos.ImageAlign = ContentAlignment.MiddleLeft;
             btnProductos.Location = new Point(3, 3);
             btnProductos.Name = "btnProductos";
-            btnProductos.Size = new Size(348, 63);
+            btnProductos.Size = new Size(260, 63);
             btnProductos.TabIndex = 9;
             btnProductos.Text = "Productos";
             btnProductos.TextColor = Color.Black;
@@ -157,6 +183,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1070, 692);
+            ControlBox = false;
             Controls.Add(panelContenedor);
             Controls.Add(panelMenu);
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
@@ -178,5 +205,6 @@
         private RJCodeAdvance.RJControls.RJButton btnProveedores;
         public Panel panelContenedor;
         private RJCodeAdvance.RJControls.RJButton btnCompras;
+        private RJCodeAdvance.RJControls.RJButton btnOfertas;
     }
 }

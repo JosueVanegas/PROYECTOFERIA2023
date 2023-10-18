@@ -101,6 +101,7 @@
             Stock = new DataGridViewTextBoxColumn();
             StockSeguridad = new DataGridViewTextBoxColumn();
             Descuento = new DataGridViewTextBoxColumn();
+            IdOferta = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
@@ -928,7 +929,7 @@
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
             tbResumen.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             tbResumen.ColumnHeadersHeight = 35;
-            tbResumen.Columns.AddRange(new DataGridViewColumn[] { btnVer, btnQuitar, Imagen, Id, Codigo, Nombre, PrecioVenta, Cantidad, SubTotal, Stock, StockSeguridad, Descuento });
+            tbResumen.Columns.AddRange(new DataGridViewColumn[] { btnVer, btnQuitar, Imagen, Id, Codigo, Nombre, PrecioVenta, Cantidad, SubTotal, Stock, StockSeguridad, Descuento, IdOferta });
             dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = Color.DarkGray;
             dataGridViewCellStyle5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
@@ -1141,6 +1142,7 @@
             StockSeguridad.MinimumWidth = 6;
             StockSeguridad.Name = "StockSeguridad";
             StockSeguridad.ReadOnly = true;
+            StockSeguridad.Visible = false;
             StockSeguridad.Width = 125;
             // 
             // Descuento
@@ -1150,6 +1152,15 @@
             Descuento.Name = "Descuento";
             Descuento.ReadOnly = true;
             Descuento.Width = 125;
+            // 
+            // IdOferta
+            // 
+            IdOferta.HeaderText = "Oferta";
+            IdOferta.MinimumWidth = 6;
+            IdOferta.Name = "IdOferta";
+            IdOferta.ReadOnly = true;
+            IdOferta.Visible = false;
+            IdOferta.Width = 125;
             // 
             // formVentas
             // 
@@ -1256,5 +1267,6 @@
         private DataGridViewTextBoxColumn Stock;
         private DataGridViewTextBoxColumn StockSeguridad;
         private DataGridViewTextBoxColumn Descuento;
+        private DataGridViewTextBoxColumn IdOferta;
     }
 }

@@ -549,7 +549,7 @@ namespace CapaPresentacion.FormInformes
             dox.GeneratePdf(filePath);
             Process.Start("explorer.exe", filePath);
         }
-        //para compras
+       //para compras
        public void crearReporteInventario()
         {
             var dox = QuestPDF.Fluent.Document.Create(doc =>

@@ -14,6 +14,7 @@ namespace CapaVista.FormVentas
         Modelos.Venta resumen;
         Modelos.Cliente cliente = new Modelos.Cliente();
         Modelos.Usuario user;
+        List<Modelos.Ofertas> listaOfertas;
         List<Modelos.DetalleVenta> detalles = new List<Modelos.DetalleVenta>();
         ControlVenta cVenta = new ControlVenta();
         int factura;
@@ -29,8 +30,12 @@ namespace CapaVista.FormVentas
             this.Cursor = Cursors.WaitCursor;
             mostrarClientes();
             realizarResumen();
-
+            cargarOfertas();
             this.Cursor = Cursors.Default;
+        }
+        private void cargarOfertas()
+        {
+            listaOfertas = new ControlOferta().listarOfertas();
         }
         private void realizarResumen()
         {
@@ -38,8 +43,7 @@ namespace CapaVista.FormVentas
             txtSubTotal.Text = resumen.SUBTOTAL.ToString();
             txtIva.Text = resumen.IVA.ToString();
             decimal sub_antes_descuento = resumen.SUBTOTAL + resumen.IVA;
-            decimal total = sub_antes_descuento - resumen.DESCUENTO;
-            txtTotal.Text = total.ToString();
+            txtTotal.Text = sub_antes_descuento.ToString();
             decimal totalFinal = Convert.ToDecimal(txtTotal.Text) - Convert.ToDecimal(txtDescuento.Text);
             txtTotalFinal.Text = totalFinal.ToString("0.00");
         }
@@ -57,28 +61,37 @@ namespace CapaVista.FormVentas
         private void txtPagoTarjeta_KeyPress(object sender, KeyPressEventArgs e)
         {
             char keyPressed = e.KeyChar;
-            string textoActual = txtPago.Text.Replace(" ", "");
-            if (!char.IsDigit(keyPressed) && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
+            string textoActual = txtPago.Text;
+
+            if (!char.IsDigit(keyPressed) && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete && keyPressed != '.')
             {
                 e.Handled = true;
+                return;
             }
 
             if (textoActual.Length >= 9 && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
             {
                 e.Handled = true;
+                return;
+            }
+            if (keyPressed == '.' && string.IsNullOrEmpty(textoActual))
+            {
+                e.Handled = true;
+                return;
             }
             if (keyPressed == '.' && textoActual.Contains("."))
             {
                 e.Handled = true;
+                return;
             }
-
-            if (textoActual.Contains("."))
+            if (textoActual.Contains(".") && textoActual.IndexOf(".") <= textoActual.Length - 3 && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
             {
-                int indexPunto = textoActual.IndexOf(".");
-                if (textoActual.Length - indexPunto > 2 && keyPressed != (char)Keys.Back && keyPressed != (char)Keys.Delete)
-                {
-                    e.Handled = true;
-                }
+                e.Handled = true;
+                return;
+            }
+            if (keyPressed == '.' && textoActual.Length >= 8)
+            {
+                e.Handled = true;
             }
         }
 
@@ -267,11 +280,18 @@ namespace CapaVista.FormVentas
                 yPos += (int)contentFont.GetHeight();
                 foreach (var d in detalles)
                 {
+                    var oferta = listaOfertas.FirstOrDefault(of =>of.PRODUCTO.ID == d.PRODUCTO.ID);
                     e.Graphics.DrawString($"{d.PRODUCTO.NOMBRE + d.PRODUCTO.MARCA + d.PRODUCTO.UNIDAD}", contentFont, Brushes.Black, marginLeft, yPos);
                     e.Graphics.DrawString($"{d.CANTIDAD * d.PRECIO}", contentFont, Brushes.Black, 240, yPos);
                     yPos += (int)contentFont.GetHeight();
                     e.Graphics.DrawString($"{d.CANTIDAD} x {d.PRECIO}", contentFont, Brushes.Black, 10, yPos);
                     yPos += (int)contentFont.GetHeight();
+                    if(oferta != null)
+                    {
+                        e.Graphics.DrawString($"Oferta aplicada: {oferta.DESCRIPCION}", contentFont, Brushes.Black, 10, yPos);
+                        yPos += (int)contentFont.GetHeight();
+                    }
+                    
                 }
 
                 // Separador

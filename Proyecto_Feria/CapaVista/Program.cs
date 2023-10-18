@@ -1,6 +1,7 @@
 using CapaControlador;
 using CapaDatos;
 using CapaPresentacion;
+using CapaPresentacion.FormInventario;
 using CapaPresentacion.FormUsuarios;
 using CapaVista.FormInventario;
 using CapaVista.FormPrimerAcceso;
@@ -25,7 +26,7 @@ namespace CapaVista
         {
             ApplicationConfiguration.Initialize();
               //Application.Run(new FormPrincipal(null));
-              Application.Run(new formLogin());
+              Application.Run(new FormPrincipal(null));
         }
     }
 }
