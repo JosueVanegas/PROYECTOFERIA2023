@@ -14,14 +14,19 @@ namespace CapaVista
         {
             this.Cursor = Cursors.WaitCursor;
             InitializeComponent();
+            ajustarFechas();
             mostrarCantidades();
-            mostrarTopProductos();
             mostrarVentasSemanaActual();
             mostrarDatosEmpresa();
             mostrarStockProductos();
             mostrarValorInventario();
             dtFechaFinal.Enabled = true;
             this.Cursor = Cursors.Default;
+        }
+        private void ajustarFechas()
+        {
+            dpFechaInicio.Value = DateTime.Now;
+            dtFechaFinal.MinDate = dpFechaInicio.Value;
         }
         private void mostrarCantidades()
         {
@@ -32,17 +37,21 @@ namespace CapaVista
             txtClientes.Text = cDash.cantidadCategorias("SALES.CLIENTS").ToString();
             txtUsuarios.Text = cDash.cantidadCategorias("SALES.USERS").ToString();
         }
-        private void mostrarTopProductos()
+        private void mostrarTopProductos(DateTime fechaInicio, DateTime fechafinal)
         {
-            Dictionary<string, int> productosVendidos = cDash.datosGraficaProductos();
+            Dictionary<string, int> productosVendidos = cDash.datosGraficaProductos(fechaInicio, fechafinal);
 
-            foreach (var productoVendido in productosVendidos)
+            if (productosVendidos.Count != 0)
             {
-                chartTopProductos.Series["Ventas"].Points.AddXY(productoVendido.Key, productoVendido.Value);
+                chartTopProductos.Visible = true;
+                foreach (var productoVendido in productosVendidos)
+                {
+                    chartTopProductos.Series["Ventas"].Points.AddXY(productoVendido.Key, productoVendido.Value);
+                }
+                chartTopProductos.Series["Ventas"]["PieLabelStyle"] = "Disabled";
+                chartTopProductos.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
+                chartTopProductos.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
             }
-            chartTopProductos.Series["Ventas"]["PieLabelStyle"] = "Disabled";
-            chartTopProductos.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
-            chartTopProductos.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
         }
         private void mostrarStockProductos()
         {
@@ -63,7 +72,7 @@ namespace CapaVista
 
             }
         }
-        private void mostrarVentas(string fechaI, string fechaF)
+        private void mostrarVentas(DateTime fechaI, DateTime fechaF)
         {
             int cantidadVentas = 0;
             decimal totalVentas = 0;
@@ -96,24 +105,19 @@ namespace CapaVista
         private void mostrarVentasSemanaActual()
         {
             DateTime dateTime = DateTime.Now;
-            DateTime ultimoDiaSemanaAnterior = dateTime.AddDays(-7);
-            string fechaInicio = ultimoDiaSemanaAnterior.ToString("yyyy-MM-dd");
-            string fechaFinal = dateTime.ToString("yyyy-MM-dd");
+            DateTime fechaInicio = dateTime.AddDays(-7);
+            DateTime fechaFinal = dateTime;
             mostrarVentas(fechaInicio, fechaFinal);
+            mostrarTopProductos(fechaInicio, fechaFinal);
         }
         private void dpFechaInicio_ValueChanged(object sender, EventArgs e)
         {
             dtFechaFinal.MinDate = dpFechaInicio.Value;
         }
-        private void dtFechaFinal_ValueChanged(object sender, EventArgs e)
-        {
-
-
-        }
         private void btnSeleccionarRango_Click(object sender, EventArgs e)
         {
-            string fechaInicio = dpFechaInicio.Value.ToString("yyyy-MM-dd");
-            string fechaFinal = dtFechaFinal.Value.ToString("yyyy-MM-dd");
+            DateTime fechaInicio = dpFechaInicio.Value;
+            DateTime fechaFinal = dtFechaFinal.Value;
             mostrarVentas(fechaInicio, fechaFinal);
         }
         private void mostrarDatosEmpresa()

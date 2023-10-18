@@ -2,6 +2,7 @@
 using CapaDatos;
 using CapaVista.FormVentas;
 using ReaLTaiizor.Forms;
+using System.Diagnostics.Eventing.Reader;
 
 namespace CapaVista.FormVenta
 {
@@ -148,12 +149,20 @@ namespace CapaVista.FormVenta
                 if (indice >= 0)
                 {
                     limpiarEtiquetas();
-                    txtCodigoProducto.Text = tbBusqueda.Rows[indice].Cells["CodigoP"].Value.ToString();
-                    lblCodigo.Text = lblCodigo.Text + " " + tbBusqueda.Rows[indice].Cells["CodigoP"].Value.ToString();
-                    lblNombre.Text = lblNombre.Text + " " + tbBusqueda.Rows[indice].Cells["NombreP"].Value.ToString();
-                    lblPrecio.Text = lblPrecio.Text + " " + tbBusqueda.Rows[indice].Cells["PrecioP"].Value.ToString();
-                    lblStock.Text = lblStock.Text + " " + tbBusqueda.Rows[indice].Cells["CantidadP"].Value.ToString();
-                    pktProducto.Image = (Image)tbBusqueda.Rows[indice].Cells["Img"].Value;
+                    int stock = Convert.ToInt32(tbBusqueda.Rows[indice].Cells["CantidadP"].Value);
+                   if(stock > 0)
+                    {
+                        txtCodigoProducto.Text = tbBusqueda.Rows[indice].Cells["CodigoP"].Value.ToString();
+                        lblCodigo.Text = lblCodigo.Text + " " + tbBusqueda.Rows[indice].Cells["CodigoP"].Value.ToString();
+                        lblNombre.Text = lblNombre.Text + " " + tbBusqueda.Rows[indice].Cells["NombreP"].Value.ToString();
+                        lblPrecio.Text = lblPrecio.Text + " " + tbBusqueda.Rows[indice].Cells["PrecioP"].Value.ToString();
+                        lblStock.Text = lblStock.Text + " " + tbBusqueda.Rows[indice].Cells["CantidadP"].Value.ToString();
+                        pktProducto.Image = (Image)tbBusqueda.Rows[indice].Cells["Img"].Value;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No hay stock disponible del producto seleccionado");
+                    }
                 }
             }
         }
@@ -192,51 +201,50 @@ namespace CapaVista.FormVenta
             var producto = listaProductos.FirstOrDefault(p => p.CODIGO == codigo);
             if (producto != null)
             {
-                // Revisar si el producto tiene oferta
-                var oferta = listaOfertas.FirstOrDefault(of => of.PRODUCTO.ID == producto.ID);
+                    var oferta = listaOfertas.FirstOrDefault(of => of.PRODUCTO.ID == producto.ID);
 
-                int rowIndex = -1;
-                for (int i = 0; i < tbResumen.Rows.Count; i++)
-                {
-                    if (tbResumen.Rows[i].Cells["Codigo"].Value != null &&
-                        tbResumen.Rows[i].Cells["Codigo"].Value.ToString() == codigo)
+                    int rowIndex = -1;
+                    for (int i = 0; i < tbResumen.Rows.Count; i++)
                     {
-                        rowIndex = i;
-                        break;
+                        if (tbResumen.Rows[i].Cells["Codigo"].Value != null &&
+                            tbResumen.Rows[i].Cells["Codigo"].Value.ToString() == codigo)
+                        {
+                            rowIndex = i;
+                            break;
+                        }
                     }
-                }
-                if (rowIndex >= 0)
-                {
-                    int nuevaCantidad = 1 + Convert.ToInt32(tbResumen.Rows[rowIndex].Cells["Cantidad"].Value);
-                    decimal descuentoPorProducto = 0;
-                    if (oferta != null)
+                    if (rowIndex >= 0)
                     {
-                        descuentoPorProducto = (producto.PRECIO_VENTA * oferta.CANTIDAD) * (oferta.PORCENTAJE_DESCUENTO / 100m) * (nuevaCantidad / oferta.CANTIDAD);
-                        tbResumen.Rows[rowIndex].Cells["IdOferta"].Value = oferta.ID;
-                    }
+                        int nuevaCantidad = 1 + Convert.ToInt32(tbResumen.Rows[rowIndex].Cells["Cantidad"].Value);
+                        decimal descuentoPorProducto = 0;
+                        if (oferta != null)
+                        {
+                            descuentoPorProducto = (producto.PRECIO_VENTA * oferta.CANTIDAD) * (oferta.PORCENTAJE_DESCUENTO / 100m) * (nuevaCantidad / oferta.CANTIDAD);
+                            tbResumen.Rows[rowIndex].Cells["IdOferta"].Value = oferta.ID;
+                        }
 
-                    if (producto.STOCK >= nuevaCantidad)
-                    {
-                        decimal nuevoSubTotal = nuevaCantidad * producto.PRECIO_VENTA;
-                        tbResumen.Rows[rowIndex].Cells["Cantidad"].Value = nuevaCantidad;
-                        tbResumen.Rows[rowIndex].Cells["Descuento"].Value = descuentoPorProducto;  
-                        tbResumen.Rows[rowIndex].Cells["SubTotal"].Value = nuevoSubTotal;
+                        if (producto.STOCK >= nuevaCantidad)
+                        {
+                            decimal nuevoSubTotal = nuevaCantidad * producto.PRECIO_VENTA;
+                            tbResumen.Rows[rowIndex].Cells["Cantidad"].Value = nuevaCantidad;
+                            tbResumen.Rows[rowIndex].Cells["Descuento"].Value = descuentoPorProducto;
+                            tbResumen.Rows[rowIndex].Cells["SubTotal"].Value = nuevoSubTotal;
+                        }
+                        else
+                        {
+                            MessageBox.Show("El producto '" + producto.NOMBRE + "' no dispone de la cantidad requerida\n" +
+                                            "Cantidad del producto en inventario: " + producto.STOCK + " cantidad requeridad: " + nuevaCantidad);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("El producto '" + producto.NOMBRE + "' no dispone de la cantidad requerida\n" +
-                                        "Cantidad del producto en inventario: " + producto.STOCK + " cantidad requeridad: " + nuevaCantidad);
+                        decimal descuentoPorProducto = 0;
+                        if (oferta != null)
+                        {
+                            descuentoPorProducto = (producto.PRECIO_VENTA * oferta.CANTIDAD) * (oferta.PORCENTAJE_DESCUENTO / 100m);
+                        }
+                        tbResumen.Rows.Add("", "", producto.IMAGEN, producto.ID, producto.CODIGO, producto.NOMBRE, producto.PRECIO_VENTA, 1, producto.PRECIO_VENTA, producto.STOCK, descuentoPorProducto);
                     }
-                }
-                else
-                {
-                    decimal descuentoPorProducto = 0;
-                    if (oferta != null)
-                    {
-                        descuentoPorProducto = (producto.PRECIO_VENTA * oferta.CANTIDAD) * (oferta.PORCENTAJE_DESCUENTO / 100m);
-                    }
-                    tbResumen.Rows.Add("", "", producto.IMAGEN, producto.ID, producto.CODIGO, producto.NOMBRE, producto.PRECIO_VENTA, 1, producto.PRECIO_VENTA - descuentoPorProducto, descuentoPorProducto, producto.STOCK);
-                }
             }
             recuentoTotal();
         }
@@ -246,11 +254,11 @@ namespace CapaVista.FormVenta
             decimal iva = 0;
             decimal descuentoTotal = 0;
             decimal total = 0;
-            if (tbResumen.RowCount > 0)
+            if (tbResumen.RowCount >= 0)
             {
                 foreach (DataGridViewRow row in tbResumen.Rows)
                 {
-                    if (row.Cells["SubTotal"].Value != null && row.Cells["Descuento"].Value != null)
+                    if (row.Cells["SubTotal"].Value != null || row.Cells["Descuento"].Value != null)
                     {
                         decimal valorCelda = Convert.ToDecimal(row.Cells["SubTotal"].Value);
                         decimal valorDescuento = Convert.ToDecimal(row.Cells["Descuento"].Value);
@@ -288,7 +296,6 @@ namespace CapaVista.FormVenta
                     limpiarEtiquetas();
                 }
             }
-            recuentoTotal();
             if (tbResumen.Columns[e.ColumnIndex].Name == "btnVer")
             {
                 limpiarEtiquetas();
@@ -298,6 +305,7 @@ namespace CapaVista.FormVenta
                     rellenarEtiquetas(indice);
                 }
             }
+            recuentoTotal();
         }
         private void rellenarEtiquetas(int indice)
         {
@@ -440,6 +448,7 @@ namespace CapaVista.FormVenta
             {
                 panelBusqueda.SendToBack();
                 agregarProducto(txtCodigoProducto.Text);
+                recuentoTotal();
             }
         }
 

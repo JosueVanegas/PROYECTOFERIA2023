@@ -9,11 +9,11 @@ namespace CapaControlador
         {
             return dash.cantidadDeObjetosEnTabla(tabla);
         }
-        public Dictionary<string,int> datosGraficaProductos()
+        public Dictionary<string,int> datosGraficaProductos(DateTime fechaInicio,DateTime fechaFinal)
         {
-            return dash.datosGraficaProductosMasVendidos();
+            return dash.datosGraficaProductosMasVendidos(fechaInicio,fechaFinal);
         }
-        public Dictionary<DateTime, decimal> datosGraficaVentas(string fechaInicio,string fechaFin)
+        public Dictionary<DateTime, decimal> datosGraficaVentas(DateTime fechaInicio,DateTime fechaFin)
         {
         
              if(fechaFin != null && fechaInicio != null)

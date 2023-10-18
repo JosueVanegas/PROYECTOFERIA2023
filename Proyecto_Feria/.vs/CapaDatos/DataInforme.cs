@@ -5,7 +5,7 @@ namespace CapaDatos
 {
     public class Datainforme
     {
-        public List<Modelos.Venta> ObtenerDatosInformeVentas(string fechaInicio, string fechaFin)
+        public List<Modelos.Venta> ObtenerDatosInformeVentas(DateTime fechaInicio, DateTime fechaFin)
         {
             List<Modelos.Venta> lista = new List<Modelos.Venta>();
             try
@@ -17,8 +17,8 @@ namespace CapaDatos
                     using (SqlCommand cmd = new SqlCommand(procedure, connection))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.Add(new SqlParameter("@START_DATE", SqlDbType.VarChar, 10)).Value = fechaInicio;
-                        cmd.Parameters.Add(new SqlParameter("@END_DATE", SqlDbType.VarChar, 10)).Value = fechaFin;
+                        cmd.Parameters.Add(new SqlParameter("@START_DATE", SqlDbType.DateTime)).Value = fechaInicio;
+                        cmd.Parameters.Add(new SqlParameter("@END_DATE", SqlDbType.DateTime)).Value = fechaFin;
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
@@ -26,15 +26,18 @@ namespace CapaDatos
                                 lista.Add(new Modelos.Venta
                                 {
                                     ID = Convert.ToInt32(reader[0].ToString()),
-                                    CLIENTE = new Modelos.Cliente
-                                    {
-                                        NOMBRES = reader[1].ToString()
-                                    },
                                     USUARIO = new Modelos.Usuario
                                     {
-                                        NOMBRE = reader[2].ToString()
+                                        NOMBRE = reader[1].ToString()
                                     },
-                                    SUBTOTAL = Convert.ToDecimal(reader[3].ToString())
+                                    CLIENTE = new Modelos.Cliente
+                                    {
+                                        NOMBRES = reader[2].ToString()
+                                    },
+                                   
+                                    SUBTOTAL = Convert.ToDecimal(reader[3].ToString()),
+                                    IVA = Convert.ToDecimal(reader[4].ToString()),
+                                    DESCUENTO = Convert.ToDecimal(reader[5].ToString())
                                 });
                             }
                         }
@@ -47,7 +50,7 @@ namespace CapaDatos
             }
             return lista;
         }
-        public List<Modelos.Compra> ObtenerDatosInformeCompras(string fechaInicio, string fechaFin)
+        public List<Modelos.Compra> ObtenerDatosInformeCompras(DateTime fechaInicio, DateTime fechaFin)
         {
             List<Modelos.Compra> lista = new List<Modelos.Compra>();
             try
@@ -59,8 +62,8 @@ namespace CapaDatos
                     using (SqlCommand cmd = new SqlCommand(procedure, connection))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.Add(new SqlParameter("@START_DATE", SqlDbType.VarChar, 10)).Value = fechaInicio;
-                        cmd.Parameters.Add(new SqlParameter("@END_DATE", SqlDbType.VarChar, 10)).Value = fechaFin;
+                        cmd.Parameters.Add(new SqlParameter("@START_DATE", SqlDbType.DateTime)).Value = fechaInicio;
+                        cmd.Parameters.Add(new SqlParameter("@END_DATE", SqlDbType.DateTime)).Value = fechaFin;
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
@@ -70,7 +73,7 @@ namespace CapaDatos
                                     ID = Convert.ToInt32(reader[0]),
                                     USUARIO = new Modelos.Usuario { NOMBRE = reader[1].ToString() },
                                     SUBTOTAL = Convert.ToDecimal(reader[2]),
-                                    FECHA_REGISTRO = Convert.ToDateTime(reader[3])
+                                    FECHA_REGISTRO = Convert.ToDateTime(reader[3].ToString())
                                 });
                             }
                         }
@@ -102,7 +105,7 @@ namespace CapaDatos
             no.SALARIO_NETO = no.SALARIO_DEVENGADO - no.TOTAL_DEDUCCIONES;
             return no;
         }
-        public List<Modelos.Movimiento> ObtenerDatosInformeMovimientoProducto(int id,string fechaInicio, string fechaFin)
+        public List<Modelos.Movimiento> ObtenerDatosInformeMovimientoProducto(int id, DateTime fechaInicio, DateTime fechaFin)
         {
             List<Modelos.Movimiento> lista = new List<Modelos.Movimiento>();
             try
@@ -114,9 +117,9 @@ namespace CapaDatos
                     using (SqlCommand cmd = new SqlCommand(procedure, connection))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.Add(new SqlParameter("@ID_PRODUCT", SqlDbType.VarChar, 10)).Value = id;
-                        cmd.Parameters.Add(new SqlParameter("@STARTDATE", SqlDbType.VarChar, 10)).Value = fechaInicio;
-                        cmd.Parameters.Add(new SqlParameter("@ENDDATE", SqlDbType.VarChar, 10)).Value = fechaFin;
+                        cmd.Parameters.Add(new SqlParameter("@ID_PRODUCT", SqlDbType.Int)).Value = id;
+                        cmd.Parameters.Add(new SqlParameter("@STAR_TDATE", SqlDbType.DateTime)).Value = fechaInicio;
+                        cmd.Parameters.Add(new SqlParameter("@END_DATE", SqlDbType.DateTime)).Value = fechaFin;
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())

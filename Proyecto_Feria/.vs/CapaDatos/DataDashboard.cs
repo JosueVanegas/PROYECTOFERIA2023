@@ -26,7 +26,7 @@ namespace CapaDatos
             }
             return cantidadFilas;
         }
-        public Dictionary<string, int> datosGraficaProductosMasVendidos()
+        public Dictionary<string, int> datosGraficaProductosMasVendidos(DateTime fechaInicio,DateTime fechaFinal)
         {
             Dictionary<string, int> datos = new Dictionary<string, int>();
 
@@ -36,16 +36,20 @@ namespace CapaDatos
                 {
                     connection.Open();
 
-                    string query = "";
+                    string query = "SELECT TOP 5 P.NAMES AS PRODUCT,S.AMOUNT AS AMOUNT FROM SALES.SALES_DETAILS S INNER JOIN INVENTORY.PRODUCTS P ON S.ID_PRODUCT = P.ID INNER JOIN SALES.SALES SS ON SS.ID = S.ID_SALE WHERE SS.CREATED_AT BETWEEN @STARTDATE AND @ENDDATE GROUP BY P.NAMES,S.AMOUNT ORDER BY S.AMOUNT ASC";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
+                        command.CommandType = System.Data.CommandType.Text;
+                        command.Parameters.AddWithValue("@STARTDATE", fechaInicio);
+                        command.Parameters.AddWithValue("@ENDATE", fechaFinal);
+                        command.ExecuteNonQuery();
                         SqlDataReader reader = command.ExecuteReader();
 
                         while (reader.Read())
                         {
-                            string nombreProducto = reader["NombreProducto"].ToString();
-                            int totalVentas = Convert.ToInt32(reader["TotalVentas"]);
+                            string nombreProducto = reader["PRODUCT"].ToString();
+                            int totalVentas = Convert.ToInt32(reader["AMOUNT"]);
                             datos.Add(nombreProducto, totalVentas);
                         }
 
@@ -60,7 +64,7 @@ namespace CapaDatos
 
             return datos;
         }
-        public Dictionary<DateTime, decimal> datosGraficaVentas(string fechaInicio, string fechaFinal)
+        public Dictionary<DateTime, decimal> datosGraficaVentas(DateTime fechaInicio, DateTime fechaFinal)
         {
             Dictionary<DateTime, decimal> datos = new Dictionary<DateTime, decimal>();
             try
@@ -69,11 +73,14 @@ namespace CapaDatos
                 {
                     connection.Open();
 
-                    string query = "SELECT FECHA_REGISTRO,TOTAL FROM VENTA where CONVERT(DATE, FECHA_REGISTRO, 103) " +
-                        "BETWEEN '" + fechaInicio + "' AND '" + fechaFinal + "' order by ID_VENTA asc";
+                    string query = "SELECT CREATED_AT AS FECHA,SUM(SUBTOTAL-DISCOUNT) AS TOTAL FROM SALES.SALES WHERE CREATED_AT BETWEEN @STARTDATE AND @ENDDATE GROUP BY CREATED_AT";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
+                        command.CommandType = System.Data.CommandType.Text;
+                        command.Parameters.AddWithValue("@STARTDATE", fechaInicio);
+                        command.Parameters.AddWithValue("@ENDDATE", fechaFinal);
+                        command.ExecuteNonQuery();
                         SqlDataReader reader = command.ExecuteReader();
 
                         while (reader.Read())

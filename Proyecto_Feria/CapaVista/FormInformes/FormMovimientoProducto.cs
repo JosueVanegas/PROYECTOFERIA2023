@@ -39,10 +39,10 @@ namespace CapaPresentacion.FormInformes
         Modelos.Empresa empresa = new ControlEmpresa().datosEmpresa();
         string colorFondoMovimiento = "#97C2BF";
         int idProducto = 0;
-        string fechaInicio = "";
-        string fechaFinal = "";
+        DateTime fechaInicio;
+        DateTime fechaFinal;
         bool excel = false;
-        public FormMovimientoProducto(string fechaInicio, string fechaFinal, bool excel)
+        public FormMovimientoProducto(DateTime fechaInicio, DateTime fechaFinal, bool excel)
         {
             InitializeComponent();
             this.Cursor = Cursors.WaitCursor;
@@ -51,8 +51,8 @@ namespace CapaPresentacion.FormInformes
             this.excel = excel;
             mostrarProductosDisponible();
             this.Cursor = Cursors.Default;
-            txtFechaInicio.Text = fechaInicio;
-            txtFechaFin.Text = fechaFinal;
+            txtFechaInicio.Text = fechaInicio.ToString();
+            txtFechaFin.Text = fechaFinal.ToString();
         }
         private void mostrarProductosDisponible()
         {

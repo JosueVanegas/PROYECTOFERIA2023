@@ -36,8 +36,7 @@ namespace CapaPresentacion.FormInformes
 
         private void ReporteHoy_Click(object sender, EventArgs e)
         {
-            DateTime now = DateTime.Now;
-            string hoy = now.ToString("yyyy-MM-dd");
+            DateTime hoy = DateTime.Now;
             if (Ventas)
             {
                 try
@@ -49,7 +48,7 @@ namespace CapaPresentacion.FormInformes
                     else
                     {
                         QuestPDF.Settings.License = LicenseType.Community;
-                        reportes.crearReporteVentas(hoy, hoy, "Informe de ventas del dia de hoy " + now.ToString($"dddd dd MMMM año yyyy"), false, false);
+                        reportes.crearReporteVentas(hoy, hoy, "Informe de ventas del dia de hoy " + hoy, false, false);
                     }
                     Ventas = false;
                 }
@@ -69,7 +68,7 @@ namespace CapaPresentacion.FormInformes
                     else
                     {
                         QuestPDF.Settings.License = LicenseType.Community;
-                        reportes.crearReporteCompras(hoy, hoy, "Informe de ventas del dia de hoy " + now.ToString($"dddd dd MMMM año yyyy"), false, false);
+                        reportes.crearReporteCompras(hoy, hoy, "Informe de ventas del dia de hoy " + hoy, false, false);
                     }
                     Compras = false;
                 }
@@ -107,7 +106,7 @@ namespace CapaPresentacion.FormInformes
         {
             DateTime now = DateTime.Now;
             DateTime date = now.Date.AddDays(-1);
-            string ayer = date.ToString("yyyy-MM-dd");
+            DateTime ayer = date;
 
             if (Ventas)
             {
@@ -173,8 +172,8 @@ namespace CapaPresentacion.FormInformes
         {
             DateTime now = DateTime.Now;
             DateTime firstDayOfMonth = new DateTime(now.Year, now.Month, 1);
-            string inicio = firstDayOfMonth.ToString("yyyy-MM-dd");
-            string fin = now.ToString("yyyy-MM-dd");
+            DateTime inicio = firstDayOfMonth;
+            DateTime fin = now;
             CultureInfo cultureInfo = new CultureInfo("es-ES");
             if (Ventas)
             {
@@ -247,8 +246,8 @@ namespace CapaPresentacion.FormInformes
             DateTime now = DateTime.Now;
             DateTime firstDayOfYear = new DateTime(now.Year, 1, 1);
             DateTime lastDayOfYear = new DateTime(now.Year, 12, 31).Date.AddHours(23).AddMinutes(59).AddSeconds(59);
-            string inicio = firstDayOfYear.ToString("yyyy-MM-dd");
-            string final = lastDayOfYear.ToString("yyyy-MM-dd");
+            DateTime inicio = firstDayOfYear;
+            DateTime final = lastDayOfYear;
             if (Ventas)
             {
 
@@ -315,8 +314,8 @@ namespace CapaPresentacion.FormInformes
         {
             DateTime FechaInicio = pkrFechaInicio.Value;
             DateTime FechaFinal = pkrFechaFin.Value;
-            string fi = FechaInicio.ToString("yyyy-MM-dd");
-            string ff = FechaFinal.ToString("yyyy-MM-dd");
+            DateTime fi = FechaInicio;
+            DateTime ff = FechaFinal;
             if (Ventas)
             {
                 try
@@ -384,8 +383,8 @@ namespace CapaPresentacion.FormInformes
             DateTime today = DateTime.Today;
             DateTime startOfLastWeek = today.AddDays(-7);
             DateTime endOfLastWeek = today.AddDays(0);
-            string fInicio = startOfLastWeek.ToString("yyyy-MM-dd");
-            string ffin = endOfLastWeek.ToString("yyyy-MM-dd");
+            DateTime fInicio = startOfLastWeek;
+            DateTime ffin = endOfLastWeek;
             if (Ventas)
             {
                 try
@@ -452,8 +451,8 @@ namespace CapaPresentacion.FormInformes
         {
             DateTime now = DateTime.Now;
             DateTime last15Days = now.AddDays(-15);
-            string inicio = last15Days.ToString("yyyy-MM-dd");
-            string final = now.ToString("yyyy-MM-dd");
+            DateTime inicio = last15Days;
+            DateTime final = now;
             if (Ventas)
             {
                 try

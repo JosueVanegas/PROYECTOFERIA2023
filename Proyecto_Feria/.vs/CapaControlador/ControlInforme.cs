@@ -6,15 +6,15 @@ namespace CapaControlador
     {
         Datainforme dInforme = new Datainforme();
 
-        public List<Modelos.Venta> datosDeVentas(string fechaInicio, string fechaFin)
+        public List<Modelos.Venta> datosDeVentas(DateTime fechaInicio, DateTime fechaFin)
         {
             return dInforme.ObtenerDatosInformeVentas(fechaInicio, fechaFin);
         }
-        public List<Modelos.Compra> datosCompras(string fechaInicio, string fechaFin)
+        public List<Modelos.Compra> datosCompras(DateTime fechaInicio, DateTime fechaFin)
         {
             return dInforme.ObtenerDatosInformeCompras(fechaInicio, fechaFin);
         }
-        public List<Modelos.Movimiento> datosMovientoInventario(int idProducto,string fechaInicio, string fechaFin)
+        public List<Modelos.Movimiento> datosMovientoInventario(int idProducto, DateTime fechaInicio, DateTime fechaFin)
         {
             return dInforme.ObtenerDatosInformeMovimientoProducto(idProducto,fechaInicio,fechaFin);
         }

@@ -30,8 +30,8 @@ namespace CapaPresentacion.FormInformes
         const string transparentBlue = "#662196f3";
         bool grafica = false;
         bool anual = false;
-        string fechaInicio = "";
-        string fechaFinal = "";
+        DateTime fechaInicio;
+        DateTime fechaFinal;
         string tituloRango = "";
 
         //kerlint el pie de pagina y el encabezado es igual en todos los reportes asi que es mejor hacerlos en metodos para solo llamarlos enves de copiar todo
@@ -88,9 +88,9 @@ namespace CapaPresentacion.FormInformes
                     else
                     {
                         txt.Span("Desde: ").FontSize(15);
-                        txt.Span(fechaInicio).FontSize(15);
+                        txt.Span(fechaInicio.ToString()).FontSize(15);
                         txt.Span(" hasta: ").FontSize(15);
-                        txt.Span(fechaFinal).FontSize(15);
+                        txt.Span(fechaFinal.ToString()).FontSize(15);
                     }
                 });
                 column.Spacing(30);
@@ -336,9 +336,9 @@ namespace CapaPresentacion.FormInformes
                     else
                     {
                         txt.Span("Desde: ").FontSize(15);
-                        txt.Span(fechaInicio).FontSize(15);
+                        txt.Span(fechaInicio.ToString()).FontSize(15);
                         txt.Span(" hasta: ").FontSize(15);
-                        txt.Span(fechaFinal).FontSize(15);
+                        txt.Span(fechaFinal.ToString()).FontSize(15);
                     }
                 });
                 column.Spacing(30);
@@ -493,7 +493,7 @@ namespace CapaPresentacion.FormInformes
                 });
             });
         }
-        public void crearReporteCompras(string desde, string hasta, string tituloRango, bool conGrafica, bool anualreporteAnual)
+        public void crearReporteCompras(DateTime desde, DateTime hasta, string tituloRango, bool conGrafica, bool anualreporteAnual)
         {
             this.fechaInicio = desde;
             fechaFinal = hasta;
@@ -522,7 +522,7 @@ namespace CapaPresentacion.FormInformes
         }
 
         //para reportes de ventas
-        public void crearReporteVentas(string desde, string hasta, string tituloRango, bool conGrafica, bool anualreporteAnual)
+        public void crearReporteVentas(DateTime desde, DateTime hasta, string tituloRango, bool conGrafica, bool anualreporteAnual)
         {
             this.fechaInicio = desde;
             fechaFinal = hasta;
@@ -615,7 +615,7 @@ namespace CapaPresentacion.FormInformes
                 MessageBox.Show("Los datos se han exportado exitosamente a Excel.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-        public void exportarAExcelCompras(string fechaInicio, string fechaFinal)
+        public void exportarAExcelCompras(DateTime fechaInicio, DateTime fechaFinal)
         {
             List<Modelos.Compra> lista = cInformes.datosCompras(fechaInicio, fechaFinal);
             IWorkbook workbook = new XSSFWorkbook();
@@ -650,7 +650,7 @@ namespace CapaPresentacion.FormInformes
                 MessageBox.Show("Los datos se han exportado exitosamente a Excel.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-        public void exportarAExcelVentas(string fechaInicio,string fechaFinal)
+        public void exportarAExcelVentas(DateTime fechaInicio, DateTime fechaFinal)
         {
             List<Modelos.Venta> lista = cInformes.datosDeVentas(fechaInicio, fechaFinal);
             IWorkbook workbook = new XSSFWorkbook();

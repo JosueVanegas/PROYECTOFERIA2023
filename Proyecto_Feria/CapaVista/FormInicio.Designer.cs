@@ -492,7 +492,6 @@
             dtFechaFinal.Size = new Size(386, 30);
             dtFechaFinal.TabIndex = 41;
             dtFechaFinal.Value = new DateTime(2023, 9, 1, 7, 50, 9, 0);
-            dtFechaFinal.ValueChanged += dtFechaFinal_ValueChanged;
             // 
             // dpFechaInicio
             // 
