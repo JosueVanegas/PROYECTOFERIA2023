@@ -175,7 +175,7 @@ namespace CapaDatos
                 try
                 {
                     con.Open();
-                    SqlCommand comand = new SqlCommand("PROC_ELIMINAR_USUARIO", con);
+                    SqlCommand comand = new SqlCommand("PROC_DELETE_USER", con);
                     comand.CommandType = CommandType.StoredProcedure;
                     comand.Parameters.AddWithValue("@ID", idU);
                     comand.Parameters.Add("MESSAGE", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
