@@ -5,7 +5,7 @@ namespace CapaDatos
 {
     public class DataVenta
     {
-        public int idCreado = 0;
+        public int idCreado;
         public bool acceder;
         public string mensaje = "";
         public DataVenta() { }
@@ -35,9 +35,12 @@ namespace CapaDatos
             {
                 mensaje = ex.Message;
             }
-            idCreado = 0;
             return mensaje;
         } 
+        public int retornarId()
+        {
+            return idCreado;
+        }
             
         
         public bool registrarVenta(Venta v)

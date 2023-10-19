@@ -188,10 +188,10 @@ namespace CapaVista.FormVentas
                             PRECIO = d.PRECIO
                         });
                     }
-                    cVenta.procesoDeVenta(venta, detalleVenta);
-                    MessageBox.Show(cVenta.retornarMensaje());
+                     MessageBox.Show(cVenta.procesoDeVenta(venta, detalleVenta));
+                    factura = cVenta.retornarId();
                     printdirect(resumen);
-
+                    mensaje = "Factura generada";
                 }
                 else
                 {
@@ -233,11 +233,11 @@ namespace CapaVista.FormVentas
                 e.Graphics.DrawString(encabezado, titleFont, Brushes.Black, 100, yPos);
                 yPos += (int)titleFont.GetHeight() + 5;//dar un poco mas de enter
 
-                string facturaInfo = $"Factura No : {factura}";
+                string facturaInfo = $"Factura No : 00000{factura}";
                 e.Graphics.DrawString(facturaInfo, contentFont, Brushes.Black, marginLeft, yPos);
                 yPos += (int)contentFont.GetHeight() + 5;
                 string fecha = $"Fecha de facturación: {DateTime.Now}";
-                e.Graphics.DrawString(facturaInfo, contentFont, Brushes.Black, marginLeft, yPos);
+                e.Graphics.DrawString(fecha, contentFont, Brushes.Black, marginLeft, yPos);
                 yPos += (int)contentFont.GetHeight() + 5;
 
                 string direccion = $"Dirección: {empresa.DIRECCION}";
