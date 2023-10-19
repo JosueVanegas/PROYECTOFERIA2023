@@ -32,7 +32,7 @@ namespace CapaVista
             //datosDeUsuarioActual(user);
             this.Cursor = Cursors.Default;
             cargarLogoEmpresa();
-
+            datosDeUsuarioActual(usuario);
             currentBtn = btnInicio;
             currentBtn.BackColor = Color.FromArgb(37, 36, 81);
             currentBtn.ForeColor = RGBColors.Color1;
@@ -128,6 +128,7 @@ namespace CapaVista
         }
         private void activarPermisos(bool[] permisos)
         {
+            
             if (permisos[0] != true)
                 btnVentas.Visible = false;
             if (permisos[1] != true)
@@ -174,6 +175,7 @@ namespace CapaVista
 
         private void clicks(object sender, EventArgs e)
         {
+            cargarLogoEmpresa();
             if (sender.Equals(btnInicio))
 
                 abrir(new FormInicio());

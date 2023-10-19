@@ -101,9 +101,9 @@
             // 
             lblTitulo.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             lblTitulo.ForeColor = SystemColors.ControlDarkDark;
-            lblTitulo.Location = new Point(6, 60);
+            lblTitulo.Location = new Point(7, 60);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(219, 43);
+            lblTitulo.Size = new Size(192, 32);
             lblTitulo.TabIndex = 7;
             lblTitulo.Text = "Datos de la categoria";
             lblTitulo.TextAlign = ContentAlignment.MiddleLeft;
@@ -120,8 +120,7 @@
             txtNombre.HideSelection = true;
             txtNombre.Hint = "Ingrese el nombre";
             txtNombre.LeadingIcon = null;
-            txtNombre.Location = new Point(6, 107);
-            txtNombre.Margin = new Padding(3, 4, 3, 4);
+            txtNombre.Location = new Point(5, 112);
             txtNombre.MaxLength = 32767;
             txtNombre.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtNombre.Name = "txtNombre";
@@ -133,7 +132,7 @@
             txtNombre.SelectionLength = 0;
             txtNombre.SelectionStart = 0;
             txtNombre.ShortcutsEnabled = true;
-            txtNombre.Size = new Size(219, 48);
+            txtNombre.Size = new Size(192, 48);
             txtNombre.TabIndex = 10;
             txtNombre.TabStop = false;
             txtNombre.TextAlign = HorizontalAlignment.Center;
@@ -143,10 +142,9 @@
             // 
             // txtIdCategoria
             // 
-            txtIdCategoria.Location = new Point(147, 5);
-            txtIdCategoria.Margin = new Padding(3, 4, 3, 4);
+            txtIdCategoria.Location = new Point(106, 10);
             txtIdCategoria.Name = "txtIdCategoria";
-            txtIdCategoria.Size = new Size(39, 27);
+            txtIdCategoria.Size = new Size(35, 23);
             txtIdCategoria.TabIndex = 8;
             txtIdCategoria.Text = "0";
             txtIdCategoria.Visible = false;
@@ -162,10 +160,10 @@
             panel1.Controls.Add(txtIdCategoria);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(3, 0);
-            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(231, 367);
+            panel1.Size = new Size(202, 275);
             panel1.TabIndex = 18;
+            panel1.Paint += panel1_Paint;
             // 
             // btnCerrar
             // 
@@ -173,7 +171,8 @@
             btnCerrar.DownEllipseColor = Color.Blue;
             btnCerrar.HoverEllipseColor = Color.FromArgb(32, 34, 37);
             btnCerrar.Image = (Image)resources.GetObject("btnCerrar.Image");
-            btnCerrar.Location = new Point(6, 3);
+            btnCerrar.Location = new Point(7, 4);
+            btnCerrar.Margin = new Padding(3, 2, 3, 2);
             btnCerrar.Name = "btnCerrar";
             btnCerrar.NormalEllipseColor = Color.FromArgb(66, 76, 85);
             btnCerrar.Size = new Size(54, 54);
@@ -185,10 +184,9 @@
             // info
             // 
             info.Image = (Image)resources.GetObject("info.Image");
-            info.Location = new Point(192, 5);
-            info.Margin = new Padding(3, 4, 3, 4);
+            info.Location = new Point(164, 10);
             info.Name = "info";
-            info.Size = new Size(36, 44);
+            info.Size = new Size(32, 33);
             info.SizeMode = PictureBoxSizeMode.Zoom;
             info.TabIndex = 34;
             info.TabStop = false;
@@ -202,11 +200,12 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006275F));
             tableLayoutPanel1.Controls.Add(btnLimpiar, 1, 0);
             tableLayoutPanel1.Controls.Add(btnGuardar, 0, 0);
-            tableLayoutPanel1.Location = new Point(33, 162);
+            tableLayoutPanel1.Location = new Point(32, 174);
+            tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(165, 83);
+            tableLayoutPanel1.Size = new Size(144, 62);
             tableLayoutPanel1.TabIndex = 31;
             // 
             // btnLimpiar
@@ -223,9 +222,10 @@
             btnLimpiar.FlatStyle = FlatStyle.Flat;
             btnLimpiar.ForeColor = Color.White;
             btnLimpiar.ImageAlign = ContentAlignment.MiddleRight;
-            btnLimpiar.Location = new Point(85, 3);
+            btnLimpiar.Location = new Point(74, 2);
+            btnLimpiar.Margin = new Padding(3, 2, 3, 2);
             btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(77, 77);
+            btnLimpiar.Size = new Size(67, 58);
             btnLimpiar.TabIndex = 12;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.TextAlign = ContentAlignment.BottomCenter;
@@ -248,9 +248,10 @@
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.ForeColor = Color.White;
             btnGuardar.ImageAlign = ContentAlignment.MiddleRight;
-            btnGuardar.Location = new Point(3, 3);
+            btnGuardar.Location = new Point(3, 2);
+            btnGuardar.Margin = new Padding(3, 2, 3, 2);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(76, 77);
+            btnGuardar.Size = new Size(65, 58);
             btnGuardar.TabIndex = 11;
             btnGuardar.Text = "Guardar";
             btnGuardar.TextAlign = ContentAlignment.BottomCenter;
@@ -272,8 +273,7 @@
             txtBuscar.HideSelection = true;
             txtBuscar.Hint = "Buscar";
             txtBuscar.LeadingIcon = null;
-            txtBuscar.Location = new Point(314, 0);
-            txtBuscar.Margin = new Padding(3, 4, 3, 4);
+            txtBuscar.Location = new Point(276, 0);
             txtBuscar.MaxLength = 32767;
             txtBuscar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtBuscar.Name = "txtBuscar";
@@ -285,7 +285,7 @@
             txtBuscar.SelectionLength = 0;
             txtBuscar.SelectionStart = 0;
             txtBuscar.ShortcutsEnabled = true;
-            txtBuscar.Size = new Size(259, 48);
+            txtBuscar.Size = new Size(227, 48);
             txtBuscar.TabIndex = 20;
             txtBuscar.TabStop = false;
             txtBuscar.TextAlign = HorizontalAlignment.Center;
@@ -300,7 +300,7 @@
             lblEncabezado.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             lblEncabezado.Location = new Point(0, 0);
             lblEncabezado.Name = "lblEncabezado";
-            lblEncabezado.Size = new Size(139, 57);
+            lblEncabezado.Size = new Size(122, 43);
             lblEncabezado.TabIndex = 17;
             lblEncabezado.Text = "Categorias registradas";
             lblEncabezado.TextAlign = ContentAlignment.MiddleLeft;
@@ -731,10 +731,9 @@
             panel4.Controls.Add(cbxBuscar);
             panel4.Controls.Add(lblEncabezado);
             panel4.Dock = DockStyle.Top;
-            panel4.Location = new Point(234, 0);
-            panel4.Margin = new Padding(3, 4, 3, 4);
+            panel4.Location = new Point(205, 0);
             panel4.Name = "panel4";
-            panel4.Size = new Size(576, 57);
+            panel4.Size = new Size(503, 43);
             panel4.TabIndex = 21;
             // 
             // cbxBuscar
@@ -754,12 +753,11 @@
             cbxBuscar.IntegralHeight = false;
             cbxBuscar.ItemHeight = 43;
             cbxBuscar.Items.AddRange(new object[] { "nombre", "estado", "fecha" });
-            cbxBuscar.Location = new Point(139, 0);
-            cbxBuscar.Margin = new Padding(3, 4, 3, 4);
+            cbxBuscar.Location = new Point(122, 0);
             cbxBuscar.MaxDropDownItems = 4;
             cbxBuscar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbxBuscar.Name = "cbxBuscar";
-            cbxBuscar.Size = new Size(175, 49);
+            cbxBuscar.Size = new Size(154, 49);
             cbxBuscar.StartIndex = 0;
             cbxBuscar.TabIndex = 21;
             cbxBuscar.MouseHover += cbxBuscar_MouseHover;
@@ -797,8 +795,7 @@
             tbCategorias.EnableHeadersVisualStyles = false;
             tbCategorias.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbCategorias.GridColor = Color.Gray;
-            tbCategorias.Location = new Point(234, 57);
-            tbCategorias.Margin = new Padding(3, 4, 3, 4);
+            tbCategorias.Location = new Point(205, 43);
             tbCategorias.Name = "tbCategorias";
             tbCategorias.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -814,7 +811,7 @@
             tbCategorias.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tbCategorias.RowTemplate.Height = 30;
             tbCategorias.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tbCategorias.Size = new Size(576, 310);
+            tbCategorias.Size = new Size(503, 232);
             tbCategorias.TabIndex = 22;
             tbCategorias.CellContentClick += tbCategorias_CellContentClick;
             tbCategorias.CellPainting += tbCategorias_CellPainting;
@@ -848,18 +845,17 @@
             // 
             // formCategoria
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             BackgroundImageLayout = ImageLayout.None;
-            ClientSize = new Size(813, 371);
+            ClientSize = new Size(711, 278);
             Controls.Add(tbCategorias);
             Controls.Add(panel4);
             Controls.Add(panel1);
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
-            Margin = new Padding(3, 4, 3, 4);
             Name = "formCategoria";
-            Padding = new Padding(3, 0, 3, 4);
+            Padding = new Padding(3, 0, 3, 3);
             Text = "formCategorias";
             Load += formCategorias_Load;
             panel1.ResumeLayout(false);

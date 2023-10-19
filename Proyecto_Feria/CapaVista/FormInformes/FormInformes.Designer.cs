@@ -56,15 +56,11 @@
             btnSemanaActual = new RJCodeAdvance.RJControls.RJButton();
             btninfoCompras = new RJCodeAdvance.RJControls.RJButton();
             btnInventario = new RJCodeAdvance.RJControls.RJButton();
-            pictureBox1 = new PictureBox();
-            pictureBox3 = new PictureBox();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)hopePictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)hopePictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             PanelRangoreport.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // pkrFechaInicio
@@ -140,9 +136,9 @@
             panel2.Controls.Add(btninfoCompras);
             panel2.Controls.Add(btnInventario);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(232, 0);
+            panel2.Location = new Point(3, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(567, 590);
+            panel2.Size = new Size(1033, 590);
             panel2.TabIndex = 12;
             // 
             // btnMovimientoProductos
@@ -267,7 +263,7 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(517, 3);
+            pictureBox2.Location = new Point(20, 246);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(47, 40);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -281,7 +277,7 @@
             lblEncabezado.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             lblEncabezado.Location = new Point(0, 0);
             lblEncabezado.Name = "lblEncabezado";
-            lblEncabezado.Size = new Size(567, 43);
+            lblEncabezado.Size = new Size(1033, 43);
             lblEncabezado.TabIndex = 18;
             lblEncabezado.Text = "Generacion de Informe";
             lblEncabezado.TextAlign = ContentAlignment.MiddleCenter;
@@ -514,28 +510,6 @@
             btnInventario.UseVisualStyleBackColor = false;
             btnInventario.Click += btnInventario_Click;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Dock = DockStyle.Right;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(799, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(237, 590);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 13;
-            pictureBox1.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.Dock = DockStyle.Left;
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(3, 0);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(229, 590);
-            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox3.TabIndex = 14;
-            pictureBox3.TabStop = false;
-            // 
             // FormInformes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -543,8 +517,6 @@
             BackColor = Color.White;
             ClientSize = new Size(1039, 593);
             Controls.Add(panel2);
-            Controls.Add(pictureBox3);
-            Controls.Add(pictureBox1);
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
             Name = "FormInformes";
             Padding = new Padding(3, 0, 3, 3);
@@ -557,8 +529,6 @@
             ((System.ComponentModel.ISupportInitialize)hopePictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             PanelRangoreport.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
         }
 
@@ -578,10 +548,8 @@
         private RJCodeAdvance.RJControls.RJButton btnHoy;
         private RJCodeAdvance.RJControls.RJButton btnAyer;
         private RJCodeAdvance.RJControls.RJButton btnSemanaActual;
-        private PictureBox pictureBox1;
         private Label lblEncabezado;
         private PictureBox pictureBox2;
-        private PictureBox pictureBox3;
         private Label label1;
         private Label label5;
         private ReaLTaiizor.Controls.HopePictureBox hopePictureBox2;

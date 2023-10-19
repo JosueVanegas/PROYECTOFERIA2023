@@ -41,7 +41,7 @@ namespace CapaVista.FormPrimerAcceso
         {
             bool permitir = false;
             if (txtNombreEmpresa.Text != "" && txtDireccion.Text != "" &&
-                txtTelefono.Text != "" && txtCorreo.Text != "")
+                txtTelefono.Text != "" && txtCorreo.Text != "" && pictureEmpresa.Image != null)
             {
                 permitir = true;
             }
@@ -61,7 +61,7 @@ namespace CapaVista.FormPrimerAcceso
         private void btnCambiar_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*";
+            openFileDialog.Filter = "Archivos de imagen|*.jpg;*.png;";
             openFileDialog.Title = "Selecciona una imagen";
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
