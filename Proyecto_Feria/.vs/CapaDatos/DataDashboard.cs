@@ -26,9 +26,9 @@ namespace CapaDatos
             }
             return cantidadFilas;
         }
-        public Dictionary<string, int> datosGraficaProductosMasVendidos(DateTime fechaInicio,DateTime fechaFinal)
+        public List<Modelos.Top> datosGraficaProductosMasVendidos()
         {
-            Dictionary<string, int> datos = new Dictionary<string, int>();
+            List<Modelos.Top> datos = new List<Modelos.Top>();
 
             try
             {
@@ -41,16 +41,16 @@ namespace CapaDatos
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.CommandType = System.Data.CommandType.Text;
-                        command.Parameters.AddWithValue("@STARTDATE", fechaInicio);
-                        command.Parameters.AddWithValue("@ENDATE", fechaFinal);
                         command.ExecuteNonQuery();
                         SqlDataReader reader = command.ExecuteReader();
 
                         while (reader.Read())
                         {
-                            string nombreProducto = reader["PRODUCT"].ToString();
-                            int totalVentas = Convert.ToInt32(reader["AMOUNT"]);
-                            datos.Add(nombreProducto, totalVentas);
+                            datos.Add(new Modelos.Top
+                            {
+                                PRODUCTO = reader["PRODUCT"].ToString(),
+                                CANTIDAD = Convert.ToInt32(reader["AMOUNT"])
+                            });
                         }
 
                         reader.Close();
@@ -59,15 +59,14 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                datos = new Dictionary<string, int>();
+                datos = new List<Modelos.Top>();
             }
 
             return datos;
         }
-        public Dictionary<string, decimal> datosGraficaVentas(DateTime fechaInicio, DateTime fechaFinal)
+        public List<Modelos.Dash> datosGraficaVentas(DateTime fechaInicio, DateTime fechaFinal)
         {
-            Dictionary<string, decimal> datos = new Dictionary<string, decimal>();
-            try
+            List<Modelos.Dash> lista = new List<Modelos.Dash>();
             {
                 using (SqlConnection connection = new conexion().conectar())
                 {
@@ -86,20 +85,21 @@ namespace CapaDatos
                         while (reader.Read())
                         {
                             DateTime fechaRegistro = Convert.ToDateTime(reader[0]);
-                            decimal totalVentas = Convert.ToDecimal(reader[1]);
-                            datos.Add(fechaRegistro.ToShortDateString(), totalVentas);
+                            lista.Add(new Modelos.Dash
+                            {
+                                FECHA = fechaRegistro.ToShortDateString(),
+                                TOTAL = Convert.ToDecimal(reader[1])
+                            });
                         }
 
-                        reader.Close();
+
+
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                datos = new Dictionary<string, decimal>();
-            }
-            return datos;
-        }
+            } 
+           
+            return lista;
+        } 
         public decimal valorInventario()
         {
             decimal valor = 0;

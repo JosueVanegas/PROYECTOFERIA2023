@@ -80,18 +80,17 @@
             panel1.Controls.Add(txtId);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(363, 679);
+            panel1.Size = new Size(318, 509);
             panel1.TabIndex = 19;
             // 
             // label1
             // 
             label1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = SystemColors.ControlDarkDark;
-            label1.Location = new Point(18, 323);
+            label1.Location = new Point(16, 242);
             label1.Name = "label1";
-            label1.Size = new Size(284, 35);
+            label1.Size = new Size(248, 26);
             label1.TabIndex = 77;
             label1.Text = "Fecha de nacimiento";
             label1.TextAlign = ContentAlignment.MiddleLeft;
@@ -99,12 +98,14 @@
             // dtNacimiento
             // 
             dtNacimiento.FontWeight = ReaLTaiizor.Extension.Poison.PoisonDateTimeWeight.Bold;
-            dtNacimiento.Location = new Point(18, 361);
+            dtNacimiento.Location = new Point(16, 271);
+            dtNacimiento.Margin = new Padding(3, 2, 3, 2);
             dtNacimiento.MinDate = new DateTime(1809, 12, 30, 0, 0, 0, 0);
-            dtNacimiento.MinimumSize = new Size(0, 30);
+            dtNacimiento.MinimumSize = new Size(0, 29);
             dtNacimiento.Name = "dtNacimiento";
-            dtNacimiento.Size = new Size(284, 30);
+            dtNacimiento.Size = new Size(249, 29);
             dtNacimiento.TabIndex = 5;
+            dtNacimiento.Value = new DateTime(2023, 10, 19, 10, 55, 53, 0);
             // 
             // txtCedula
             // 
@@ -118,8 +119,7 @@
             txtCedula.HideSelection = true;
             txtCedula.Hint = "Ingrese la cedula";
             txtCedula.LeadingIcon = null;
-            txtCedula.Location = new Point(18, 92);
-            txtCedula.Margin = new Padding(3, 4, 3, 4);
+            txtCedula.Location = new Point(16, 69);
             txtCedula.MaxLength = 32767;
             txtCedula.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtCedula.Name = "txtCedula";
@@ -131,7 +131,7 @@
             txtCedula.SelectionLength = 0;
             txtCedula.SelectionStart = 0;
             txtCedula.ShortcutsEnabled = true;
-            txtCedula.Size = new Size(328, 48);
+            txtCedula.Size = new Size(287, 48);
             txtCedula.TabIndex = 1;
             txtCedula.TabStop = false;
             txtCedula.TextAlign = HorizontalAlignment.Center;
@@ -141,10 +141,9 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(217, 24);
-            pictureBox2.Margin = new Padding(3, 4, 3, 4);
+            pictureBox2.Location = new Point(190, 18);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(54, 53);
+            pictureBox2.Size = new Size(47, 40);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 76;
             pictureBox2.TabStop = false;
@@ -162,8 +161,7 @@
             txtApellido.HideSelection = true;
             txtApellido.Hint = "Ingrese el apellido";
             txtApellido.LeadingIcon = null;
-            txtApellido.Location = new Point(18, 204);
-            txtApellido.Margin = new Padding(3, 4, 3, 4);
+            txtApellido.Location = new Point(16, 153);
             txtApellido.MaxLength = 32767;
             txtApellido.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtApellido.Name = "txtApellido";
@@ -175,7 +173,7 @@
             txtApellido.SelectionLength = 0;
             txtApellido.SelectionStart = 0;
             txtApellido.ShortcutsEnabled = true;
-            txtApellido.Size = new Size(328, 48);
+            txtApellido.Size = new Size(287, 48);
             txtApellido.TabIndex = 3;
             txtApellido.TabStop = false;
             txtApellido.TextAlign = HorizontalAlignment.Center;
@@ -195,8 +193,7 @@
             txtTelefono.HideSelection = true;
             txtTelefono.Hint = "Ingrese el teléfono";
             txtTelefono.LeadingIcon = null;
-            txtTelefono.Location = new Point(18, 260);
-            txtTelefono.Margin = new Padding(3, 4, 3, 4);
+            txtTelefono.Location = new Point(16, 195);
             txtTelefono.MaxLength = 32767;
             txtTelefono.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtTelefono.Name = "txtTelefono";
@@ -208,7 +205,7 @@
             txtTelefono.SelectionLength = 0;
             txtTelefono.SelectionStart = 0;
             txtTelefono.ShortcutsEnabled = true;
-            txtTelefono.Size = new Size(328, 48);
+            txtTelefono.Size = new Size(287, 48);
             txtTelefono.TabIndex = 4;
             txtTelefono.TabStop = false;
             txtTelefono.TextAlign = HorizontalAlignment.Center;
@@ -224,11 +221,12 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006275F));
             tableLayoutPanel1.Controls.Add(btnLimpiar, 1, 0);
             tableLayoutPanel1.Controls.Add(btnGuardar, 0, 0);
-            tableLayoutPanel1.Location = new Point(88, 467);
+            tableLayoutPanel1.Location = new Point(77, 350);
+            tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(183, 107);
+            tableLayoutPanel1.Size = new Size(160, 80);
             tableLayoutPanel1.TabIndex = 31;
             // 
             // btnLimpiar
@@ -245,9 +243,10 @@
             btnLimpiar.FlatStyle = FlatStyle.Flat;
             btnLimpiar.ForeColor = Color.White;
             btnLimpiar.ImageAlign = ContentAlignment.MiddleRight;
-            btnLimpiar.Location = new Point(94, 3);
+            btnLimpiar.Location = new Point(82, 2);
+            btnLimpiar.Margin = new Padding(3, 2, 3, 2);
             btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(82, 101);
+            btnLimpiar.Size = new Size(72, 76);
             btnLimpiar.TabIndex = 7;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.TextAlign = ContentAlignment.BottomCenter;
@@ -269,9 +268,10 @@
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.ForeColor = Color.White;
             btnGuardar.ImageAlign = ContentAlignment.MiddleRight;
-            btnGuardar.Location = new Point(3, 3);
+            btnGuardar.Location = new Point(3, 2);
+            btnGuardar.Margin = new Padding(3, 2, 3, 2);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(81, 101);
+            btnGuardar.Size = new Size(71, 76);
             btnGuardar.TabIndex = 6;
             btnGuardar.Text = "Guardar";
             btnGuardar.TextAlign = ContentAlignment.BottomCenter;
@@ -283,9 +283,9 @@
             // 
             lblTitulo.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             lblTitulo.ForeColor = SystemColors.ControlDarkDark;
-            lblTitulo.Location = new Point(18, 24);
+            lblTitulo.Location = new Point(16, 18);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(221, 64);
+            lblTitulo.Size = new Size(193, 48);
             lblTitulo.TabIndex = 7;
             lblTitulo.Text = "Datos de Clientes";
             lblTitulo.TextAlign = ContentAlignment.MiddleLeft;
@@ -302,8 +302,7 @@
             txtNombre.HideSelection = true;
             txtNombre.Hint = "Ingrese los nombre";
             txtNombre.LeadingIcon = null;
-            txtNombre.Location = new Point(18, 148);
-            txtNombre.Margin = new Padding(3, 4, 3, 4);
+            txtNombre.Location = new Point(16, 111);
             txtNombre.MaxLength = 32767;
             txtNombre.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtNombre.Name = "txtNombre";
@@ -315,7 +314,7 @@
             txtNombre.SelectionLength = 0;
             txtNombre.SelectionStart = 0;
             txtNombre.ShortcutsEnabled = true;
-            txtNombre.Size = new Size(328, 48);
+            txtNombre.Size = new Size(287, 48);
             txtNombre.TabIndex = 2;
             txtNombre.TabStop = false;
             txtNombre.TextAlign = HorizontalAlignment.Center;
@@ -325,10 +324,9 @@
             // 
             // txtId
             // 
-            txtId.Location = new Point(304, 44);
-            txtId.Margin = new Padding(3, 4, 3, 4);
+            txtId.Location = new Point(266, 33);
             txtId.Name = "txtId";
-            txtId.Size = new Size(39, 27);
+            txtId.Size = new Size(35, 23);
             txtId.TabIndex = 8;
             txtId.Text = "0";
             txtId.Visible = false;
@@ -339,10 +337,9 @@
             panel4.Controls.Add(cbxBuscar);
             panel4.Controls.Add(lblEncabezado);
             panel4.Dock = DockStyle.Top;
-            panel4.Location = new Point(363, 0);
-            panel4.Margin = new Padding(3, 4, 3, 4);
+            panel4.Location = new Point(318, 0);
             panel4.Name = "panel4";
-            panel4.Size = new Size(678, 75);
+            panel4.Size = new Size(593, 56);
             panel4.TabIndex = 22;
             // 
             // txtBuscar
@@ -358,8 +355,7 @@
             txtBuscar.HideSelection = true;
             txtBuscar.Hint = "Buscar";
             txtBuscar.LeadingIcon = null;
-            txtBuscar.Location = new Point(400, 0);
-            txtBuscar.Margin = new Padding(3, 4, 3, 4);
+            txtBuscar.Location = new Point(351, 0);
             txtBuscar.MaxLength = 32767;
             txtBuscar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtBuscar.Name = "txtBuscar";
@@ -371,7 +367,7 @@
             txtBuscar.SelectionLength = 0;
             txtBuscar.SelectionStart = 0;
             txtBuscar.ShortcutsEnabled = true;
-            txtBuscar.Size = new Size(319, 48);
+            txtBuscar.Size = new Size(279, 48);
             txtBuscar.TabIndex = 9;
             txtBuscar.TabStop = false;
             txtBuscar.TextAlign = HorizontalAlignment.Center;
@@ -396,12 +392,11 @@
             cbxBuscar.IntegralHeight = false;
             cbxBuscar.ItemHeight = 43;
             cbxBuscar.Items.AddRange(new object[] { "Nombre", "Apellido", "Telefono" });
-            cbxBuscar.Location = new Point(225, 0);
-            cbxBuscar.Margin = new Padding(3, 4, 3, 4);
+            cbxBuscar.Location = new Point(197, 0);
             cbxBuscar.MaxDropDownItems = 4;
             cbxBuscar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbxBuscar.Name = "cbxBuscar";
-            cbxBuscar.Size = new Size(175, 49);
+            cbxBuscar.Size = new Size(154, 49);
             cbxBuscar.StartIndex = 0;
             cbxBuscar.TabIndex = 8;
             cbxBuscar.MouseHover += cbxBuscar_MouseHover;
@@ -412,7 +407,7 @@
             lblEncabezado.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             lblEncabezado.Location = new Point(0, 0);
             lblEncabezado.Name = "lblEncabezado";
-            lblEncabezado.Size = new Size(225, 75);
+            lblEncabezado.Size = new Size(197, 56);
             lblEncabezado.TabIndex = 17;
             lblEncabezado.Text = "Clientes registrados";
             lblEncabezado.TextAlign = ContentAlignment.MiddleLeft;
@@ -450,8 +445,7 @@
             tbClientes.EnableHeadersVisualStyles = false;
             tbClientes.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbClientes.GridColor = Color.Gray;
-            tbClientes.Location = new Point(363, 75);
-            tbClientes.Margin = new Padding(3, 4, 3, 4);
+            tbClientes.Location = new Point(318, 56);
             tbClientes.Name = "tbClientes";
             tbClientes.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -467,7 +461,7 @@
             tbClientes.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tbClientes.RowTemplate.Height = 30;
             tbClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tbClientes.Size = new Size(678, 604);
+            tbClientes.Size = new Size(593, 453);
             tbClientes.TabIndex = 23;
             tbClientes.CellContentClick += tbClientes_CellContentClick;
             tbClientes.CellPainting += tbClientes_CellPainting;
@@ -528,14 +522,13 @@
             // 
             // FormClientes
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1041, 679);
+            ClientSize = new Size(911, 509);
             Controls.Add(tbClientes);
             Controls.Add(panel4);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 4, 3, 4);
             Name = "FormClientes";
             Text = "FormClientes";
             Load += FormClientes_Load;

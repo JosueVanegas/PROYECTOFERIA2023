@@ -238,6 +238,7 @@ namespace CapaVista.FormVenta
                     }
                     if (rowIndex >= 0)
                     {
+                    int indice = rowIndex;
                         int nuevaCantidad = 1 + Convert.ToInt32(tbResumen.Rows[rowIndex].Cells["Cantidad"].Value);
                         decimal descuentoPorProducto = 0;
                         if (oferta != null)
@@ -258,7 +259,9 @@ namespace CapaVista.FormVenta
                             MessageBox.Show("El producto '" + producto.NOMBRE + "' no dispone de la cantidad requerida\n" +
                                             "Cantidad del producto en inventario: " + producto.STOCK + " cantidad requeridad: " + nuevaCantidad);
                         }
-                    }
+                    limpiarEtiquetas();
+                    rellenarEtiquetas(indice);
+                }
                     else
                     {
                         decimal descuentoPorProducto = 0;
@@ -266,8 +269,11 @@ namespace CapaVista.FormVenta
                         {
                             descuentoPorProducto = (producto.PRECIO_VENTA * oferta.CANTIDAD) * (oferta.PORCENTAJE_DESCUENTO / 100m);
                         }
-                        tbResumen.Rows.Add("", "", producto.IMAGEN, producto.ID, producto.CODIGO, producto.NOMBRE, producto.PRECIO_VENTA, 1, producto.PRECIO_VENTA, producto.STOCK, descuentoPorProducto);
-                    }
+                        int index = tbResumen.Rows.Add("", "", producto.IMAGEN, producto.ID, producto.CODIGO, producto.NOMBRE, producto.PRECIO_VENTA, 1, producto.PRECIO_VENTA, producto.STOCK, descuentoPorProducto);
+                    limpiarEtiquetas();
+                    rellenarEtiquetas(index);
+                }
+                
             }
             recuentoTotal();
         }
@@ -472,6 +478,7 @@ namespace CapaVista.FormVenta
                 panelBusqueda.SendToBack();
                 agregarProducto(txtCodigoProducto.Text);
                 recuentoTotal();
+                txtCodigoProducto.Text = "";
             }
         }
 
@@ -482,6 +489,7 @@ namespace CapaVista.FormVenta
                 timerEscanner.Stop();
                 timerEscanner.Start();
             }
+           
         }
     }
 }

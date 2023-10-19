@@ -15,6 +15,7 @@ namespace CapaVista
             this.Cursor = Cursors.WaitCursor;
             InitializeComponent();
             ajustarFechas();
+            mostrarTopProductos();
             mostrarCantidades();
             mostrarVentasSemanaActual();
             mostrarDatosEmpresa();
@@ -37,16 +38,16 @@ namespace CapaVista
             txtClientes.Text = cDash.cantidadCategorias("SALES.CLIENTS").ToString();
             txtUsuarios.Text = cDash.cantidadCategorias("SALES.USERS").ToString();
         }
-        private void mostrarTopProductos(DateTime fechaInicio, DateTime fechafinal)
+        private void mostrarTopProductos()
         {
-            Dictionary<string, int> productosVendidos = cDash.datosGraficaProductos(fechaInicio, fechafinal);
+            List<Modelos.Top> productosVendidos = cDash.datosGraficaProductos();
 
             if (productosVendidos.Count != 0)
             {
                 chartTopProductos.Visible = true;
                 foreach (var productoVendido in productosVendidos)
                 {
-                    chartTopProductos.Series["Ventas"].Points.AddXY(productoVendido.Key, productoVendido.Value);
+                    chartTopProductos.Series["Ventas"].Points.AddXY(productoVendido.PRODUCTO, productoVendido.CANTIDAD);
                 }
                 chartTopProductos.Series["Ventas"]["PieLabelStyle"] = "Disabled";
                 chartTopProductos.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
@@ -108,15 +109,15 @@ namespace CapaVista
         {
             int cantidadVentas = 0;
             decimal totalVentas = 0;
-            Dictionary<string, decimal> ventas = cDash.datosGraficaVentas(fechaI, fechaF);
+            List<Modelos.Dash> ventas = cDash.datosGraficaVentas(fechaI, fechaF);
             lblTituloGraficaVentas.Text = "Ventas ordenadas por fecha";
             lblTituloGraficaVentas.Text += " Del: " + fechaI + " al " + fechaF;
             chartTopUsuario.Series["Ventas"].Points.Clear();
-            foreach (KeyValuePair<string, decimal> v in ventas)
+            foreach (Modelos.Dash v in ventas)
             {
                 cantidadVentas++;
-                totalVentas += v.Value;
-                chartTopUsuario.Series["Ventas"].Points.AddXY(v.Key, v.Value);
+                totalVentas += v.TOTAL;
+                chartTopUsuario.Series["Ventas"].Points.AddXY(v.FECHA, v.TOTAL);
             }
 
             lblCantidadVentas.Text = cantidadVentas.ToString();
@@ -140,7 +141,6 @@ namespace CapaVista
             DateTime fechaInicio = dateTime.AddDays(-7);
             DateTime fechaFinal = dateTime;
             mostrarVentas(fechaInicio, fechaFinal);
-            mostrarTopProductos(fechaInicio, fechaFinal);
         }
         private void dpFechaInicio_ValueChanged(object sender, EventArgs e)
         {
