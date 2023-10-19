@@ -118,7 +118,7 @@ namespace CapaDatos
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.Add(new SqlParameter("@ID_PRODUCT", SqlDbType.Int)).Value = id;
-                        cmd.Parameters.Add(new SqlParameter("@STAR_TDATE", SqlDbType.DateTime)).Value = fechaInicio;
+                        cmd.Parameters.Add(new SqlParameter("@START_DATE", SqlDbType.DateTime)).Value = fechaInicio;
                         cmd.Parameters.Add(new SqlParameter("@END_DATE", SqlDbType.DateTime)).Value = fechaFin;
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {

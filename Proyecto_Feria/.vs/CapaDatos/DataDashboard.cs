@@ -36,7 +36,7 @@ namespace CapaDatos
                 {
                     connection.Open();
 
-                    string query = "SELECT TOP 5 P.NAMES AS PRODUCT,S.AMOUNT AS AMOUNT FROM SALES.SALES_DETAILS S INNER JOIN INVENTORY.PRODUCTS P ON S.ID_PRODUCT = P.ID INNER JOIN SALES.SALES SS ON SS.ID = S.ID_SALE WHERE SS.CREATED_AT BETWEEN @STARTDATE AND @ENDDATE GROUP BY P.NAMES,S.AMOUNT ORDER BY S.AMOUNT ASC";
+                    string query = "SELECT TOP 5 P.NAMES AS PRODUCT,S.AMOUNT AS AMOUNT FROM SALES.SALES_DETAILS S INNER JOIN INVENTORY.PRODUCTS P ON S.ID_PRODUCT = P.ID INNER JOIN SALES.SALES SS ON SS.ID = S.ID_SALE GROUP BY P.NAMES,S.AMOUNT ORDER BY S.AMOUNT ASC";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -64,30 +64,30 @@ namespace CapaDatos
 
             return datos;
         }
-        public Dictionary<DateTime, decimal> datosGraficaVentas(DateTime fechaInicio, DateTime fechaFinal)
+        public Dictionary<string, decimal> datosGraficaVentas(DateTime fechaInicio, DateTime fechaFinal)
         {
-            Dictionary<DateTime, decimal> datos = new Dictionary<DateTime, decimal>();
+            Dictionary<string, decimal> datos = new Dictionary<string, decimal>();
             try
             {
                 using (SqlConnection connection = new conexion().conectar())
                 {
                     connection.Open();
 
-                    string query = "SELECT CREATED_AT AS FECHA,SUM(SUBTOTAL-DISCOUNT) AS TOTAL FROM SALES.SALES WHERE CREATED_AT BETWEEN @STARTDATE AND @ENDDATE GROUP BY CREATED_AT";
+                    string query = "SELECT CONVERT(DATE,CREATED_AT) AS FECHA,SUBTOTAL-DISCOUNT AS TOTAL FROM SALES.SALES WHERE CONVERT(DATE,CREATED_AT) BETWEEN CONVERT(DATE,@START_DATE) AND CONVERT(DATE,@END_DATE) GROUP BY CREATED_AT,SUBTOTAL,DISCOUNT";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.CommandType = System.Data.CommandType.Text;
-                        command.Parameters.AddWithValue("@STARTDATE", fechaInicio);
-                        command.Parameters.AddWithValue("@ENDDATE", fechaFinal);
+                        command.Parameters.AddWithValue("@START_DATE", fechaInicio);
+                        command.Parameters.AddWithValue("@END_DATE", fechaFinal);
                         command.ExecuteNonQuery();
                         SqlDataReader reader = command.ExecuteReader();
 
                         while (reader.Read())
                         {
                             DateTime fechaRegistro = Convert.ToDateTime(reader[0]);
-                            int totalVentas = Convert.ToInt32(reader[1]);
-                            datos.Add(fechaRegistro, totalVentas);
+                            decimal totalVentas = Convert.ToDecimal(reader[1]);
+                            datos.Add(fechaRegistro.ToShortDateString(), totalVentas);
                         }
 
                         reader.Close();
@@ -96,7 +96,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                datos = new Dictionary<DateTime, decimal>();
+                datos = new Dictionary<string, decimal>();
             }
             return datos;
         }

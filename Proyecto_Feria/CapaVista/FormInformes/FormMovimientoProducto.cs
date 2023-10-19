@@ -245,7 +245,7 @@ namespace CapaPresentacion.FormInformes
                             {
                                 totalVentas += total;
                             }
-                            saldoActual += totalVentas - totalCompras;
+                            saldoActual += totalCompras - totalVentas  ;
                         }
                     });
                     column.Item().Row(row =>

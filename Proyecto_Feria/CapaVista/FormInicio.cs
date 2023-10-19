@@ -76,11 +76,11 @@ namespace CapaVista
         {
             int cantidadVentas = 0;
             decimal totalVentas = 0;
-            Dictionary<DateTime, decimal> ventas = cDash.datosGraficaVentas(fechaI, fechaF);
+            Dictionary<string, decimal> ventas = cDash.datosGraficaVentas(fechaI, fechaF);
             lblTituloGraficaVentas.Text = "Ventas ordenadas por fecha";
             lblTituloGraficaVentas.Text += " Del: " + fechaI + " al " + fechaF;
             chartTopUsuario.Series["Ventas"].Points.Clear();
-            foreach (KeyValuePair<DateTime, decimal> v in ventas)
+            foreach (KeyValuePair<string, decimal> v in ventas)
             {
                 cantidadVentas++;
                 totalVentas += v.Value;

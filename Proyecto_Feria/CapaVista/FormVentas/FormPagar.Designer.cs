@@ -429,7 +429,6 @@
             txtPago.TrailingIcon = null;
             txtPago.UseSystemPasswordChar = false;
             txtPago.KeyPress += txtPagoTarjeta_KeyPress;
-            txtPago.TextChanged += txtPago_TextChanged;
             // 
             // panelBusqueda
             // 

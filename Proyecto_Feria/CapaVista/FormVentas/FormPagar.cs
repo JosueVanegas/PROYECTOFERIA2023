@@ -440,10 +440,5 @@ namespace CapaVista.FormVentas
         {
             this.Close();
         }
-
-        private void txtPago_TextChanged(object sender, EventArgs e)
-        {
-            calcularCambio();
-        }
     }
 }

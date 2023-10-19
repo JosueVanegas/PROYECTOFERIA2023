@@ -13,7 +13,7 @@ namespace CapaControlador
         {
             return dash.datosGraficaProductosMasVendidos(fechaInicio,fechaFinal);
         }
-        public Dictionary<DateTime, decimal> datosGraficaVentas(DateTime fechaInicio,DateTime fechaFin)
+        public Dictionary<string, decimal> datosGraficaVentas(DateTime fechaInicio,DateTime fechaFin)
         {
         
              if(fechaFin != null && fechaInicio != null)
@@ -22,7 +22,7 @@ namespace CapaControlador
              }
              else
              {
-                 return new Dictionary<DateTime, decimal>();
+                 return new Dictionary<string, decimal>();
              }
         }
         public string valorInventario()
