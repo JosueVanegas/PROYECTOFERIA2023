@@ -136,7 +136,7 @@ namespace CapaDatos
             List<Modelos.Producto> lista = new List<Modelos.Producto>();
             try
             {
-                string query = "SELECT BARCODE,NAMES +' '+BRAND+' '+UNIT AS PRODUCT,STOCK,STOCK_SECURITY FROM INVENTORY.PRODUCTS WHERE STOCK <= STOCK_SECURITY";
+                string query = "SELECT BARCODE,NAMES +' '+BRAND+' '+UNIT AS PRODUCT,STOCK,STOCK_SECURITY, FROM INVENTORY.PRODUCTS WHERE ACTIVE = 1";
                 using (var con = new conexion().conectar())
                 {
                     con.Open();

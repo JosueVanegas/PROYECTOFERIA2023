@@ -1,6 +1,7 @@
 ﻿using CapaControlador;
 using CapaDatos;
 using CapaVista.FormVentas;
+using Modelos;
 using ReaLTaiizor.Forms;
 using System.Diagnostics.Eventing.Reader;
 
@@ -11,7 +12,7 @@ namespace CapaVista.FormVenta
         ControlProducto controlProducto = new ControlProducto();
         ControlVenta controlVenta = new ControlVenta();
         List<Modelos.Producto> listaProductos = null;
-        List<Modelos.Ofertas> listaOfertas = null;
+        List<Modelos.Ofertas> listaOfertas = new List<Ofertas>();
         Modelos.Usuario user;
         public formVentas(Modelos.Usuario user)
         {
@@ -41,7 +42,26 @@ namespace CapaVista.FormVenta
         }
         private void cargarOfertas()
         {
-            listaOfertas = new ControlOferta().listarOfertas();
+            var lista = new ControlOferta().listarOfertas();
+            foreach (Modelos.Ofertas i in lista)
+            {
+                if (i.FECHA_FIN.Date > DateTime.Now.Date)
+                {
+                    listaOfertas.Add(new Modelos.Ofertas
+                    {
+                        ID = i.ID,
+                        DESCRIPCION = i.DESCRIPCION,
+                        CANTIDAD = i.CANTIDAD,
+                        PRODUCTO = i.PRODUCTO,
+                        ESTADO = i.ESTADO,
+                        PORCENTAJE_DESCUENTO = i.PORCENTAJE_DESCUENTO
+                    });
+                }
+                else
+                {
+                    
+                }
+            }
         }
         private void mostrarProductosDisponible()
         {
@@ -49,14 +69,17 @@ namespace CapaVista.FormVenta
             tbBusqueda.Rows.Clear();
             foreach (Modelos.Producto p in listaProductos)
             {
-                Image img = null;
-                using (MemoryStream memoryStream = new MemoryStream(p.IMAGEN))
+                if(p.VENCIMIENTO.Date > DateTime.Now.Date)
                 {
-                    Image imagen = Image.FromStream(memoryStream);
-                    img = imagen;
+                    Image img = null;
+                    using (MemoryStream memoryStream = new MemoryStream(p.IMAGEN))
+                    {
+                        Image imagen = Image.FromStream(memoryStream);
+                        img = imagen;
 
+                    }
+                    tbBusqueda.Rows.Add("", img, p.ID, p.CODIGO, p.NOMBRE + " " + p.MARCA + " " + p.UNIDAD, p.PRECIO_VENTA, p.STOCK, p.STOCK_SEGURIDAD, 0, 0);
                 }
-                tbBusqueda.Rows.Add("", img, p.ID, p.CODIGO, p.NOMBRE + " " + p.MARCA + " " + p.UNIDAD, p.PRECIO_VENTA, p.STOCK, p.STOCK_SEGURIDAD, 0,0);
             }
         }
         private void btnCash_Click(object sender, EventArgs e)

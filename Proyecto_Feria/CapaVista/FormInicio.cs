@@ -55,21 +55,53 @@ namespace CapaVista
         }
         private void mostrarStockProductos()
         {
-            List<Modelos.Producto> lista = cDash.stockDisponible();
+            List<Modelos.Producto> lista = new ControlProducto().listarProductos();
             tbStock.Rows.Clear();
             foreach (Modelos.Producto p in lista)
             {
-                string mensaje = "";
-                if (p.STOCK <= p.STOCK_SEGURIDAD)
+                string error1 = "", error2 = "";
+                bool e1 = false, e2 = false;
+                DateTime hoy = DateTime.Now.Date;
+
+                if (p.STOCK <= p.STOCK_SEGURIDAD || p.STOCK == 0)
                 {
-                    mensaje = "Revisar el stock del producto";
+                    error1 = "Revisar el stock del producto ";
+                    e1 = true;
                 }
                 else
                 {
-                    mensaje = "Todo en orden";
+                    error1 = "Todo en orden";
+                    e1 = false;
                 }
-                int index = tbStock.Rows.Add(p.CODIGO, p.NOMBRE, p.STOCK, p.STOCK_SEGURIDAD, mensaje);
 
+                // Calcular la diferencia entre la fecha de vencimiento y la fecha actual
+                TimeSpan diferencia = p.VENCIMIENTO.Date - hoy;
+
+                if (diferencia.Days > 0)
+                {
+                    error2 = $"El producto vence en {diferencia.Days} días";
+                    e2 = false;
+                }
+                else if (diferencia.Days == 0)
+                {
+                    error2 = "El producto vence hoy";
+                    e2 = true;
+                }
+                else
+                {
+                    error2 = "El producto ya venció";
+                    e2 = true;
+                }
+
+                int index = tbStock.Rows.Add(p.CODIGO, p.NOMBRE, p.STOCK, p.STOCK_SEGURIDAD, error1 + " " + error2);
+                if (e1 == true || e2 == true)
+                {
+                    tbStock.Rows[index].DefaultCellStyle.BackColor = Color.Red;
+                }
+                else if (e1 == false || e2 == false)
+                {
+                    tbStock.Rows[index].DefaultCellStyle.BackColor = Color.White;
+                }
             }
         }
         private void mostrarVentas(DateTime fechaI, DateTime fechaF)

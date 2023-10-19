@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Personal\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\CapaVista\\CapaPresentacion.csproj": {}
+    "C:\\Users\\josue\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\CapaVista\\CapaPresentacion.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Personal\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaControlador\\CapaControlador.csproj": {
+    "C:\\Users\\josue\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaControlador\\CapaControlador.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Personal\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaControlador\\CapaControlador.csproj",
+        "projectUniqueName": "C:\\Users\\josue\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaControlador\\CapaControlador.csproj",
         "projectName": "CapaControlador",
-        "projectPath": "C:\\Users\\Personal\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaControlador\\CapaControlador.csproj",
-        "packagesPath": "C:\\Users\\Personal\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Personal\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaControlador\\obj\\",
+        "projectPath": "C:\\Users\\josue\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaControlador\\CapaControlador.csproj",
+        "packagesPath": "C:\\Users\\josue\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\josue\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaControlador\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Personal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\josue\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -32,8 +32,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Personal\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaDatos\\CapaDatos.csproj": {
-                "projectPath": "C:\\Users\\Personal\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaDatos\\CapaDatos.csproj"
+              "C:\\Users\\josue\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaDatos\\CapaDatos.csproj": {
+                "projectPath": "C:\\Users\\josue\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaDatos\\CapaDatos.csproj"
               }
             }
           }
@@ -77,20 +77,20 @@
         }
       }
     },
-    "C:\\Users\\Personal\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaDatos\\CapaDatos.csproj": {
+    "C:\\Users\\josue\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaDatos\\CapaDatos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Personal\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaDatos\\CapaDatos.csproj",
+        "projectUniqueName": "C:\\Users\\josue\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaDatos\\CapaDatos.csproj",
         "projectName": "CapaDatos",
-        "projectPath": "C:\\Users\\Personal\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaDatos\\CapaDatos.csproj",
-        "packagesPath": "C:\\Users\\Personal\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Personal\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaDatos\\obj\\",
+        "projectPath": "C:\\Users\\josue\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaDatos\\CapaDatos.csproj",
+        "packagesPath": "C:\\Users\\josue\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\josue\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaDatos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Personal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\josue\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -105,8 +105,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Personal\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\Modelos\\Modelos.csproj": {
-                "projectPath": "C:\\Users\\Personal\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\Modelos\\Modelos.csproj"
+              "C:\\Users\\josue\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\Modelos\\Modelos.csproj": {
+                "projectPath": "C:\\Users\\josue\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\Modelos\\Modelos.csproj"
               }
             }
           }
@@ -150,20 +150,20 @@
         }
       }
     },
-    "C:\\Users\\Personal\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\CapaVista\\CapaPresentacion.csproj": {
+    "C:\\Users\\josue\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\CapaVista\\CapaPresentacion.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Personal\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\CapaVista\\CapaPresentacion.csproj",
+        "projectUniqueName": "C:\\Users\\josue\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\CapaVista\\CapaPresentacion.csproj",
         "projectName": "CapaPresentacion",
-        "projectPath": "C:\\Users\\Personal\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\CapaVista\\CapaPresentacion.csproj",
-        "packagesPath": "C:\\Users\\Personal\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Personal\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\CapaVista\\obj\\",
+        "projectPath": "C:\\Users\\josue\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\CapaVista\\CapaPresentacion.csproj",
+        "packagesPath": "C:\\Users\\josue\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\josue\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\CapaVista\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Personal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\josue\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -178,11 +178,11 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "C:\\Users\\Personal\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaControlador\\CapaControlador.csproj": {
-                "projectPath": "C:\\Users\\Personal\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaControlador\\CapaControlador.csproj"
+              "C:\\Users\\josue\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaControlador\\CapaControlador.csproj": {
+                "projectPath": "C:\\Users\\josue\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaControlador\\CapaControlador.csproj"
               },
-              "C:\\Users\\Personal\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaDatos\\CapaDatos.csproj": {
-                "projectPath": "C:\\Users\\Personal\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaDatos\\CapaDatos.csproj"
+              "C:\\Users\\josue\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaDatos\\CapaDatos.csproj": {
+                "projectPath": "C:\\Users\\josue\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\.vs\\CapaDatos\\CapaDatos.csproj"
               }
             }
           }
@@ -277,20 +277,20 @@
         }
       }
     },
-    "C:\\Users\\Personal\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\Modelos\\Modelos.csproj": {
+    "C:\\Users\\josue\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\Modelos\\Modelos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Personal\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\Modelos\\Modelos.csproj",
+        "projectUniqueName": "C:\\Users\\josue\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\Modelos\\Modelos.csproj",
         "projectName": "Modelos",
-        "projectPath": "C:\\Users\\Personal\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\Modelos\\Modelos.csproj",
-        "packagesPath": "C:\\Users\\Personal\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Personal\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\Modelos\\obj\\",
+        "projectPath": "C:\\Users\\josue\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\Modelos\\Modelos.csproj",
+        "packagesPath": "C:\\Users\\josue\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\josue\\Source\\Repos\\JosueVanegas\\PROYECTOFERIA2023\\Proyecto_Feria\\Modelos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Personal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\josue\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

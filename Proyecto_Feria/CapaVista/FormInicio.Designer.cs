@@ -83,12 +83,12 @@
             label1 = new Label();
             panel4 = new Panel();
             tbStock = new ReaLTaiizor.Controls.PoisonDataGridView();
+            label2 = new Label();
             Codigo = new DataGridViewTextBoxColumn();
             Producto = new DataGridViewTextBoxColumn();
             Stock = new DataGridViewTextBoxColumn();
             StockSeguridad = new DataGridViewTextBoxColumn();
             Mensaje = new DataGridViewTextBoxColumn();
-            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)chartTopUsuario).BeginInit();
             ((System.ComponentModel.ISupportInitialize)chartTopProductos).BeginInit();
             panelGraficosBarra.SuspendLayout();
@@ -559,7 +559,7 @@
             panel3.Location = new Point(3, 434);
             panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(455, 249);
+            panel3.Size = new Size(465, 249);
             panel3.TabIndex = 52;
             // 
             // txtEmpleados
@@ -888,7 +888,7 @@
             label1.ForeColor = Color.Black;
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(455, 40);
+            label1.Size = new Size(465, 40);
             label1.TabIndex = 41;
             label1.Text = "Registros";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -898,10 +898,10 @@
             panel4.Controls.Add(tbStock);
             panel4.Controls.Add(label2);
             panel4.Dock = DockStyle.Fill;
-            panel4.Location = new Point(458, 434);
+            panel4.Location = new Point(468, 434);
             panel4.Margin = new Padding(3, 4, 3, 4);
             panel4.Name = "panel4";
-            panel4.Size = new Size(387, 249);
+            panel4.Size = new Size(377, 249);
             panel4.TabIndex = 53;
             // 
             // tbStock
@@ -918,7 +918,7 @@
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.DarkCyan;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 198, 247);
             dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
@@ -939,16 +939,16 @@
             tbStock.EnableHeadersVisualStyles = false;
             tbStock.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbStock.GridColor = Color.FromArgb(255, 255, 255);
-            tbStock.Location = new Point(0, 40);
+            tbStock.Location = new Point(0, 36);
             tbStock.Margin = new Padding(3, 4, 3, 4);
             tbStock.Name = "tbStock";
             tbStock.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.FromArgb(0, 174, 219);
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = Color.Teal;
+            dataGridViewCellStyle3.SelectionForeColor = Color.White;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             tbStock.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             tbStock.RowHeadersVisible = false;
@@ -956,47 +956,8 @@
             tbStock.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tbStock.RowTemplate.Height = 30;
             tbStock.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tbStock.Size = new Size(387, 209);
+            tbStock.Size = new Size(377, 213);
             tbStock.TabIndex = 5;
-            // 
-            // Codigo
-            // 
-            Codigo.FillWeight = 49.77519F;
-            Codigo.HeaderText = "Codigo";
-            Codigo.MinimumWidth = 6;
-            Codigo.Name = "Codigo";
-            Codigo.ReadOnly = true;
-            // 
-            // Producto
-            // 
-            Producto.FillWeight = 49.77519F;
-            Producto.HeaderText = "Producto";
-            Producto.MinimumWidth = 6;
-            Producto.Name = "Producto";
-            // 
-            // Stock
-            // 
-            Stock.FillWeight = 72.664505F;
-            Stock.HeaderText = "Unidades disponibles";
-            Stock.MinimumWidth = 6;
-            Stock.Name = "Stock";
-            Stock.ReadOnly = true;
-            // 
-            // StockSeguridad
-            // 
-            StockSeguridad.FillWeight = 60.40546F;
-            StockSeguridad.HeaderText = "Stock de seguridad";
-            StockSeguridad.MinimumWidth = 6;
-            StockSeguridad.Name = "StockSeguridad";
-            StockSeguridad.ReadOnly = true;
-            // 
-            // Mensaje
-            // 
-            Mensaje.FillWeight = 267.379669F;
-            Mensaje.HeaderText = "Mensaje";
-            Mensaje.MinimumWidth = 6;
-            Mensaje.Name = "Mensaje";
-            Mensaje.ReadOnly = true;
             // 
             // label2
             // 
@@ -1006,10 +967,49 @@
             label2.ForeColor = Color.Black;
             label2.Location = new Point(0, 0);
             label2.Name = "label2";
-            label2.Size = new Size(387, 40);
+            label2.Size = new Size(377, 36);
             label2.TabIndex = 42;
             label2.Text = "Stock de productos";
             label2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // Codigo
+            // 
+            Codigo.FillWeight = 41.147377F;
+            Codigo.HeaderText = "Codigo";
+            Codigo.MinimumWidth = 6;
+            Codigo.Name = "Codigo";
+            Codigo.ReadOnly = true;
+            // 
+            // Producto
+            // 
+            Producto.FillWeight = 63.5600357F;
+            Producto.HeaderText = "Producto";
+            Producto.MinimumWidth = 6;
+            Producto.Name = "Producto";
+            // 
+            // Stock
+            // 
+            Stock.FillWeight = 133.68985F;
+            Stock.HeaderText = "Unidades disponibles";
+            Stock.MinimumWidth = 6;
+            Stock.Name = "Stock";
+            Stock.ReadOnly = true;
+            // 
+            // StockSeguridad
+            // 
+            StockSeguridad.FillWeight = 122.463394F;
+            StockSeguridad.HeaderText = "Stock de seguridad";
+            StockSeguridad.MinimumWidth = 6;
+            StockSeguridad.Name = "StockSeguridad";
+            StockSeguridad.ReadOnly = true;
+            // 
+            // Mensaje
+            // 
+            Mensaje.FillWeight = 139.139374F;
+            Mensaje.HeaderText = "Mensaje";
+            Mensaje.MinimumWidth = 6;
+            Mensaje.Name = "Mensaje";
+            Mensaje.ReadOnly = true;
             // 
             // FormInicio
             // 
