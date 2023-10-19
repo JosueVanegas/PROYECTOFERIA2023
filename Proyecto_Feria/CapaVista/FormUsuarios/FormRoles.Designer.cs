@@ -39,6 +39,7 @@
             btnLimpiar = new RJCodeAdvance.RJControls.RJButton();
             txtIdRol = new TextBox();
             panel1 = new Panel();
+            pictureBox2 = new PictureBox();
             btnCerrar = new ReaLTaiizor.Controls.SocialButton();
             tbRoles = new ReaLTaiizor.Controls.PoisonDataGridView();
             EDITAR = new DataGridViewButtonColumn();
@@ -64,6 +65,7 @@
             lbltitulo2 = new ReaLTaiizor.Controls.BigLabel();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)tbRoles).BeginInit();
             SuspendLayout();
             // 
@@ -78,8 +80,7 @@
             txtRol.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtRol.HideSelection = true;
             txtRol.LeadingIcon = null;
-            txtRol.Location = new Point(21, 129);
-            txtRol.Margin = new Padding(3, 4, 3, 4);
+            txtRol.Location = new Point(18, 97);
             txtRol.MaxLength = 32767;
             txtRol.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtRol.Name = "txtRol";
@@ -91,7 +92,7 @@
             txtRol.SelectionLength = 0;
             txtRol.SelectionStart = 0;
             txtRol.ShortcutsEnabled = true;
-            txtRol.Size = new Size(419, 48);
+            txtRol.Size = new Size(367, 48);
             txtRol.TabIndex = 1;
             txtRol.TabStop = false;
             txtRol.Text = "Ingrese el nombre del rol";
@@ -105,9 +106,9 @@
             lblTitulo.BackColor = Color.Transparent;
             lblTitulo.Font = new Font("Segoe UI", 22F, FontStyle.Regular, GraphicsUnit.Point);
             lblTitulo.ForeColor = Color.FromArgb(80, 80, 80);
-            lblTitulo.Location = new Point(19, 71);
+            lblTitulo.Location = new Point(17, 53);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(503, 50);
+            lblTitulo.Size = new Size(408, 41);
             lblTitulo.TabIndex = 3;
             lblTitulo.Text = "Creacion de roles de usuarios";
             // 
@@ -119,11 +120,12 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0006275F));
             tableLayoutPanel1.Controls.Add(btnGuardar, 0, 0);
             tableLayoutPanel1.Controls.Add(btnLimpiar, 1, 0);
-            tableLayoutPanel1.Location = new Point(131, 487);
+            tableLayoutPanel1.Location = new Point(115, 365);
+            tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(210, 64);
+            tableLayoutPanel1.Size = new Size(184, 48);
             tableLayoutPanel1.TabIndex = 31;
             // 
             // btnGuardar
@@ -140,9 +142,10 @@
             btnGuardar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnGuardar.ForeColor = Color.White;
             btnGuardar.ImageAlign = ContentAlignment.MiddleRight;
-            btnGuardar.Location = new Point(3, 3);
+            btnGuardar.Location = new Point(3, 2);
+            btnGuardar.Margin = new Padding(3, 2, 3, 2);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(98, 58);
+            btnGuardar.Size = new Size(85, 44);
             btnGuardar.TabIndex = 11;
             btnGuardar.Text = "Guardar";
             btnGuardar.TextColor = Color.White;
@@ -163,9 +166,10 @@
             btnLimpiar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnLimpiar.ForeColor = Color.White;
             btnLimpiar.ImageAlign = ContentAlignment.MiddleRight;
-            btnLimpiar.Location = new Point(107, 3);
+            btnLimpiar.Location = new Point(94, 2);
+            btnLimpiar.Margin = new Padding(3, 2, 3, 2);
             btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(100, 58);
+            btnLimpiar.Size = new Size(87, 44);
             btnLimpiar.TabIndex = 12;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.TextColor = Color.White;
@@ -175,16 +179,16 @@
             // txtIdRol
             // 
             txtIdRol.Anchor = AnchorStyles.Left;
-            txtIdRol.Location = new Point(21, 389);
-            txtIdRol.Margin = new Padding(3, 4, 3, 4);
+            txtIdRol.Location = new Point(18, 292);
             txtIdRol.Name = "txtIdRol";
-            txtIdRol.Size = new Size(18, 27);
+            txtIdRol.Size = new Size(16, 23);
             txtIdRol.TabIndex = 32;
             txtIdRol.Text = "0";
             txtIdRol.Visible = false;
             // 
             // panel1
             // 
+            panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(btnCerrar);
             panel1.Controls.Add(tbRoles);
             panel1.Controls.Add(ckEmpresa);
@@ -202,10 +206,20 @@
             panel1.Controls.Add(txtRol);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(3, 0);
-            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(977, 596);
+            panel1.Size = new Size(854, 447);
             panel1.TabIndex = 33;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(458, 17);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(37, 33);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 78;
+            pictureBox2.TabStop = false;
+            pictureBox2.MouseHover += pictureBox2_MouseHover;
             // 
             // btnCerrar
             // 
@@ -213,7 +227,8 @@
             btnCerrar.DownEllipseColor = Color.Blue;
             btnCerrar.HoverEllipseColor = Color.FromArgb(32, 34, 37);
             btnCerrar.Image = (Image)resources.GetObject("btnCerrar.Image");
-            btnCerrar.Location = new Point(3, 3);
+            btnCerrar.Location = new Point(3, 2);
+            btnCerrar.Margin = new Padding(3, 2, 3, 2);
             btnCerrar.Name = "btnCerrar";
             btnCerrar.NormalEllipseColor = Color.FromArgb(66, 76, 85);
             btnCerrar.Size = new Size(54, 54);
@@ -253,8 +268,7 @@
             tbRoles.EnableHeadersVisualStyles = false;
             tbRoles.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbRoles.GridColor = Color.FromArgb(255, 255, 255);
-            tbRoles.Location = new Point(589, 0);
-            tbRoles.Margin = new Padding(3, 4, 3, 4);
+            tbRoles.Location = new Point(514, 0);
             tbRoles.Name = "tbRoles";
             tbRoles.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -269,7 +283,7 @@
             tbRoles.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tbRoles.RowTemplate.Height = 25;
             tbRoles.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tbRoles.Size = new Size(388, 596);
+            tbRoles.Size = new Size(340, 447);
             tbRoles.TabIndex = 43;
             tbRoles.CellContentClick += tbRoles_CellContentClick;
             tbRoles.CellPainting += tbRoles_CellPainting;
@@ -391,10 +405,9 @@
             ckEmpresa.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
             ckEmpresa.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             ckEmpresa.ForeColor = Color.FromArgb(48, 49, 51);
-            ckEmpresa.Location = new Point(289, 348);
-            ckEmpresa.Margin = new Padding(3, 4, 3, 4);
+            ckEmpresa.Location = new Point(253, 261);
             ckEmpresa.Name = "ckEmpresa";
-            ckEmpresa.Size = new Size(111, 20);
+            ckEmpresa.Size = new Size(95, 20);
             ckEmpresa.TabIndex = 42;
             ckEmpresa.Text = "Empresa";
             ckEmpresa.UseVisualStyleBackColor = true;
@@ -411,10 +424,9 @@
             ckEmpleados.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
             ckEmpleados.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             ckEmpleados.ForeColor = Color.FromArgb(48, 49, 51);
-            ckEmpleados.Location = new Point(289, 320);
-            ckEmpleados.Margin = new Padding(3, 4, 3, 4);
+            ckEmpleados.Location = new Point(253, 240);
             ckEmpleados.Name = "ckEmpleados";
-            ckEmpleados.Size = new Size(133, 20);
+            ckEmpleados.Size = new Size(111, 20);
             ckEmpleados.TabIndex = 41;
             ckEmpleados.Text = "Empleados";
             ckEmpleados.UseVisualStyleBackColor = true;
@@ -431,10 +443,9 @@
             ckInformes.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
             ckInformes.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             ckInformes.ForeColor = Color.FromArgb(48, 49, 51);
-            ckInformes.Location = new Point(21, 348);
-            ckInformes.Margin = new Padding(3, 4, 3, 4);
+            ckInformes.Location = new Point(18, 261);
             ckInformes.Name = "ckInformes";
-            ckInformes.Size = new Size(113, 20);
+            ckInformes.Size = new Size(97, 20);
             ckInformes.TabIndex = 40;
             ckInformes.Text = "Informes";
             ckInformes.UseVisualStyleBackColor = true;
@@ -451,10 +462,9 @@
             ckHerramientas.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
             ckHerramientas.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             ckHerramientas.ForeColor = Color.FromArgb(48, 49, 51);
-            ckHerramientas.Location = new Point(19, 320);
-            ckHerramientas.Margin = new Padding(3, 4, 3, 4);
+            ckHerramientas.Location = new Point(17, 240);
             ckHerramientas.Name = "ckHerramientas";
-            ckHerramientas.Size = new Size(153, 20);
+            ckHerramientas.Size = new Size(129, 20);
             ckHerramientas.TabIndex = 39;
             ckHerramientas.Text = "Herramientas";
             ckHerramientas.UseVisualStyleBackColor = true;
@@ -471,10 +481,9 @@
             ckClientes.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
             ckClientes.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             ckClientes.ForeColor = Color.FromArgb(48, 49, 51);
-            ckClientes.Location = new Point(289, 292);
-            ckClientes.Margin = new Padding(3, 4, 3, 4);
+            ckClientes.Location = new Point(253, 219);
             ckClientes.Name = "ckClientes";
-            ckClientes.Size = new Size(105, 20);
+            ckClientes.Size = new Size(90, 20);
             ckClientes.TabIndex = 38;
             ckClientes.Text = "Clientes";
             ckClientes.UseVisualStyleBackColor = true;
@@ -491,10 +500,9 @@
             ckUsuarios.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
             ckUsuarios.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             ckUsuarios.ForeColor = Color.FromArgb(48, 49, 51);
-            ckUsuarios.Location = new Point(289, 264);
-            ckUsuarios.Margin = new Padding(3, 4, 3, 4);
+            ckUsuarios.Location = new Point(253, 198);
             ckUsuarios.Name = "ckUsuarios";
-            ckUsuarios.Size = new Size(112, 20);
+            ckUsuarios.Size = new Size(96, 20);
             ckUsuarios.TabIndex = 37;
             ckUsuarios.Text = "Usuarios";
             ckUsuarios.UseVisualStyleBackColor = true;
@@ -511,10 +519,9 @@
             ckInventario.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
             ckInventario.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             ckInventario.ForeColor = Color.FromArgb(48, 49, 51);
-            ckInventario.Location = new Point(19, 292);
-            ckInventario.Margin = new Padding(3, 4, 3, 4);
+            ckInventario.Location = new Point(17, 219);
             ckInventario.Name = "ckInventario";
-            ckInventario.Size = new Size(125, 20);
+            ckInventario.Size = new Size(105, 20);
             ckInventario.TabIndex = 36;
             ckInventario.Text = "Inventario";
             ckInventario.UseVisualStyleBackColor = true;
@@ -531,10 +538,9 @@
             ckVentas.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
             ckVentas.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             ckVentas.ForeColor = Color.FromArgb(48, 49, 51);
-            ckVentas.Location = new Point(21, 264);
-            ckVentas.Margin = new Padding(3, 4, 3, 4);
+            ckVentas.Location = new Point(18, 198);
             ckVentas.Name = "ckVentas";
-            ckVentas.Size = new Size(94, 20);
+            ckVentas.Size = new Size(81, 20);
             ckVentas.TabIndex = 35;
             ckVentas.Text = "Ventas";
             ckVentas.UseVisualStyleBackColor = true;
@@ -545,28 +551,28 @@
             lbltitulo2.BackColor = Color.Transparent;
             lbltitulo2.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
             lbltitulo2.ForeColor = Color.FromArgb(80, 80, 80);
-            lbltitulo2.Location = new Point(21, 197);
+            lbltitulo2.Location = new Point(18, 148);
             lbltitulo2.Name = "lbltitulo2";
-            lbltitulo2.Size = new Size(413, 37);
+            lbltitulo2.Size = new Size(338, 30);
             lbltitulo2.TabIndex = 34;
             lbltitulo2.Text = "Areas a las que tiene acceso el rol";
             // 
             // FormRoles
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(983, 600);
+            ClientSize = new Size(860, 450);
             Controls.Add(panel1);
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.StatusAndActionBar_None;
-            Margin = new Padding(3, 4, 3, 4);
             Name = "FormRoles";
-            Padding = new Padding(3, 0, 3, 4);
+            Padding = new Padding(3, 0, 3, 3);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormRoles";
             Load += FormRoles_Load;
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)tbRoles).EndInit();
             ResumeLayout(false);
         }
@@ -603,5 +609,6 @@
         private DataGridViewTextBoxColumn ID_ROL;
         private DataGridViewTextBoxColumn NOMBRE;
         private ReaLTaiizor.Controls.SocialButton btnCerrar;
+        private PictureBox pictureBox2;
     }
 }

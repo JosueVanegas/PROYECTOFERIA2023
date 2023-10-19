@@ -167,5 +167,15 @@ namespace CapaPresentacion.FormUsuarios
         {
             this.Close();
         }
+        private void pictureBox2_MouseHover(object sender, EventArgs e)
+        {
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+            toolTip.ToolTipIcon = ToolTipIcon.Info;
+            toolTip.SetToolTip(pictureBox2, "Bienvenido al area de creación de roles:\n" +
+                                          "Para crear un roles :\n" +
+                                          "Seleccione (haga click) en cada uno de los funciones que desea permitir al rol\n" +
+                                          "'Guardar' para guardar el rol\n" +
+                                          "Si desea limpiar la creacion de un roles click en 'Limpiar'\n");
+        }
     }
 }

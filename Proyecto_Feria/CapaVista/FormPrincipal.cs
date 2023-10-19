@@ -5,6 +5,8 @@ using CapaPresentacion.FormInformes;
 using CapaVista.FormConfiguracion;
 using CapaVista.FormsHerramientas;
 using CapaVista.FormVenta;
+using FontAwesome.Sharp;
+using ReaLTaiizor.Forms;
 using ToolTip = System.Windows.Forms.ToolTip;
 
 namespace CapaVista
@@ -16,6 +18,10 @@ namespace CapaVista
         bool[] permisos;
         Size tamInicial = new Size(204, 51);
         Size tamExtendido = new Size(260, 51);
+        //
+        private IconButton currentBtn;
+
+
         public FormPrincipal() { }
         public FormPrincipal(Modelos.Usuario usuario)
         {
@@ -25,7 +31,85 @@ namespace CapaVista
             reloj.Start();
             //datosDeUsuarioActual(user);
             this.Cursor = Cursors.Default;
+            cargarLogoEmpresa();
+
+            currentBtn = btnInicio;
+            currentBtn.BackColor = Color.FromArgb(37, 36, 81);
+            currentBtn.ForeColor = RGBColors.Color1;
+            currentBtn.TextAlign = ContentAlignment.MiddleCenter;
+            currentBtn.IconColor = RGBColors.Color1;
+            currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
+            currentBtn.ImageAlign = ContentAlignment.MiddleRight;
+            label1.Text = currentBtn.Text;
+            iconform.IconChar = currentBtn.IconChar;
+            iconform.IconColor = RGBColors.Color1;
+
+            leftBorderBtn.BackColor = Color.FromArgb(172, 126, 241);
+            leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
+            leftBorderBtn.Visible = true;
+            leftBorderBtn.BringToFront();
+
         }
+        private struct RGBColors
+        {
+            public static Color Color1 = Color.FromArgb(172, 126, 241);
+
+        }
+        private void ActivarBotones(object sender, Color color)
+        {
+            if (sender != null)
+            {
+                DesactivarBotones();
+                currentBtn = (IconButton)sender;
+                currentBtn.BackColor = Color.FromArgb(37, 36, 81);
+                currentBtn.ForeColor = color;
+                currentBtn.TextAlign = ContentAlignment.MiddleCenter;
+                currentBtn.IconColor = color;
+                currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
+                currentBtn.ImageAlign = ContentAlignment.MiddleRight;
+                iconform.IconChar = currentBtn.IconChar;
+                iconform.IconColor = color;
+                label1.Text = currentBtn.Text;
+
+                leftBorderBtn.BackColor = color;
+                leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
+                leftBorderBtn.Visible = true;
+                leftBorderBtn.BringToFront();
+            }
+
+        }
+        private void DesactivarBotones()
+        {
+            if (currentBtn != null)
+            {
+                currentBtn.BackColor = Color.FromArgb(31, 30, 68);
+                currentBtn.ForeColor = Color.Gainsboro;
+                currentBtn.TextAlign = ContentAlignment.MiddleCenter;
+                currentBtn.IconColor = Color.Gainsboro;
+                currentBtn.TextImageRelation = TextImageRelation.Overlay;
+                currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            }
+
+        }
+
+        private void cargarLogoEmpresa()
+        {
+            Modelos.Empresa empresa = new ControlEmpresa().datosEmpresa();
+            if (empresa != null)
+            {
+                if (empresa.IMAGEN != null)
+                {
+
+                    using (MemoryStream ms = new MemoryStream(empresa.IMAGEN))
+                    {
+                        Image imagen = Image.FromStream(ms);
+                        imgLogoEmpresa.Image = imagen;
+                    }
+                }
+            }
+        }
+        //
+
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
             abrir(new FormInicio());
@@ -87,26 +171,37 @@ namespace CapaVista
             toolTip.SetToolTip(obj, tip);
              */
         }
+
         private void clicks(object sender, EventArgs e)
         {
             if (sender.Equals(btnInicio))
+
                 abrir(new FormInicio());
+            ActivarBotones(sender, RGBColors.Color1);
             if (sender.Equals(btnInventario))
                 abrir(new formInventario(this.user));
+            ActivarBotones(sender, RGBColors.Color1);
             if (sender.Equals(btnPlanilla))
                 abrir(new formEmpleados());
+            ActivarBotones(sender, RGBColors.Color1);
             if (sender.Equals(btnHerramientas))
                 abrir(new FormHerramientas());
+            ActivarBotones(sender, RGBColors.Color1);
             if (sender.Equals(btnInformes))
                 abrir(new FormInformes());
+            ActivarBotones(sender, RGBColors.Color1);
             if (sender.Equals(btnUsuarios))
                 abrir(new formUsuarios());
+            ActivarBotones(sender, RGBColors.Color1);
             if (sender.Equals(btnClientes))
                 abrir(new FormClientes());
+            ActivarBotones(sender, RGBColors.Color1);
             if (sender.Equals(btnConfiguraciones))
                 abrir(new formConfiguraciones());
+            ActivarBotones(sender, RGBColors.Color1);
             if (sender.Equals(btnVentas))
                 abrir(new formVentas(this.user));
+            ActivarBotones(sender, RGBColors.Color1);
         }
         private void MouseEnters(object sender, EventArgs e)
         {

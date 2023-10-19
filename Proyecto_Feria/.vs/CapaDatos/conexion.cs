@@ -4,7 +4,7 @@ namespace CapaDatos
 {
     public class conexion
     {
-        string cadenaConexion = "Data Source=LAPTOP-L5B7AIOU\\SQLEXPRESS;Initial Catalog=PEARSON;Integrated Security=True;Persist Security Info=False;Pooling=False;Multiple Active Result Sets=False;Encrypt=False;Trust Server Certificate=False;Command Timeout=0";
+        string cadenaConexion = "Data Source=PERSONAL;Initial Catalog=PEARSON;Integrated Security=True;Persist Security Info=False;Pooling=False;Multiple Active Result Sets=False;Encrypt=False;Trust Server Certificate=False;Command Timeout=0";
         public conexion() { }
         public string conexionExitosa()
         {

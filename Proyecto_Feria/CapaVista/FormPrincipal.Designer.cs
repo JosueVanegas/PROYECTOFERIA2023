@@ -32,21 +32,14 @@ namespace CapaVista
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
-            panelAbajo = new Panel();
-            panel7 = new Panel();
+            PanelSuperior = new Panel();
             lblReloj = new Label();
-            panel6 = new Panel();
+            panel5 = new Panel();
             lblRol = new Label();
             lblUsuario = new Label();
-            btnClientes = new RJCodeAdvance.RJControls.RJButton();
-            btnInventario = new RJCodeAdvance.RJControls.RJButton();
-            btnPlanilla = new RJCodeAdvance.RJControls.RJButton();
-            btnInformes = new RJCodeAdvance.RJControls.RJButton();
-            btnVentas = new RJCodeAdvance.RJControls.RJButton();
-            btnUsuarios = new RJCodeAdvance.RJControls.RJButton();
-            btnConfiguraciones = new RJCodeAdvance.RJControls.RJButton();
-            btnHerramientas = new RJCodeAdvance.RJControls.RJButton();
-            btnInicio = new RJCodeAdvance.RJControls.RJButton();
+            PanelNombreFormHijo = new Panel();
+            iconform = new FontAwesome.Sharp.IconPictureBox();
+            label1 = new Label();
             panelContenedor = new Panel();
             tableLayoutPanel2 = new TableLayoutPanel();
             rjButton1 = new RJCodeAdvance.RJControls.RJButton();
@@ -69,10 +62,23 @@ namespace CapaVista
             tableLayoutPanel4 = new TableLayoutPanel();
             rjButton5 = new RJCodeAdvance.RJControls.RJButton();
             rjButton6 = new RJCodeAdvance.RJControls.RJButton();
-            panel2 = new Panel();
-            panelAbajo.SuspendLayout();
-            panel7.SuspendLayout();
-            panel6.SuspendLayout();
+            panelMenu = new Panel();
+            leftBorderBtn = new Panel();
+            btnConfiguraciones = new FontAwesome.Sharp.IconButton();
+            btnPlanilla = new FontAwesome.Sharp.IconButton();
+            btnHerramientas = new FontAwesome.Sharp.IconButton();
+            btnClientes = new FontAwesome.Sharp.IconButton();
+            btnUsuarios = new FontAwesome.Sharp.IconButton();
+            btnInformes = new FontAwesome.Sharp.IconButton();
+            btnInventario = new FontAwesome.Sharp.IconButton();
+            btnVentas = new FontAwesome.Sharp.IconButton();
+            btnInicio = new FontAwesome.Sharp.IconButton();
+            PanelLogo = new Panel();
+            imgLogoEmpresa = new ReaLTaiizor.Controls.HopePictureBox();
+            PanelSuperior.SuspendLayout();
+            panel5.SuspendLayout();
+            PanelNombreFormHijo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)iconform).BeginInit();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
@@ -82,199 +88,70 @@ namespace CapaVista
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             tableLayoutPanel4.SuspendLayout();
-            panel2.SuspendLayout();
+            panelMenu.SuspendLayout();
+            PanelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)imgLogoEmpresa).BeginInit();
             SuspendLayout();
             // 
-            // panelAbajo
+            // PanelSuperior
             // 
-            panelAbajo.BackColor = Color.Silver;
-            panelAbajo.Controls.Add(panel7);
-            panelAbajo.Controls.Add(panel6);
-            resources.ApplyResources(panelAbajo, "panelAbajo");
-            panelAbajo.Name = "panelAbajo";
-            // 
-            // panel7
-            // 
-            panel7.Controls.Add(lblReloj);
-            resources.ApplyResources(panel7, "panel7");
-            panel7.Name = "panel7";
+            PanelSuperior.BackColor = Color.FromArgb(31, 30, 68);
+            PanelSuperior.Controls.Add(lblReloj);
+            PanelSuperior.Controls.Add(panel5);
+            PanelSuperior.Controls.Add(PanelNombreFormHijo);
+            resources.ApplyResources(PanelSuperior, "PanelSuperior");
+            PanelSuperior.Name = "PanelSuperior";
             // 
             // lblReloj
             // 
+            lblReloj.BackColor = Color.FromArgb(31, 30, 68);
             resources.ApplyResources(lblReloj, "lblReloj");
+            lblReloj.ForeColor = SystemColors.Control;
             lblReloj.Name = "lblReloj";
             // 
-            // panel6
+            // panel5
             // 
-            panel6.Controls.Add(lblRol);
-            panel6.Controls.Add(lblUsuario);
-            resources.ApplyResources(panel6, "panel6");
-            panel6.Name = "panel6";
+            panel5.BackColor = Color.FromArgb(31, 30, 68);
+            panel5.Controls.Add(lblRol);
+            panel5.Controls.Add(lblUsuario);
+            resources.ApplyResources(panel5, "panel5");
+            panel5.Name = "panel5";
             // 
             // lblRol
             // 
             resources.ApplyResources(lblRol, "lblRol");
-            lblRol.ForeColor = Color.Black;
+            lblRol.ForeColor = SystemColors.Control;
             lblRol.Name = "lblRol";
             // 
             // lblUsuario
             // 
             resources.ApplyResources(lblUsuario, "lblUsuario");
-            lblUsuario.ForeColor = Color.Black;
+            lblUsuario.ForeColor = SystemColors.Control;
             lblUsuario.Name = "lblUsuario";
             // 
-            // btnClientes
+            // PanelNombreFormHijo
             // 
-            btnClientes.BackColor = Color.Silver;
-            btnClientes.BackgroundColor = Color.Silver;
-            resources.ApplyResources(btnClientes, "btnClientes");
-            btnClientes.BorderColor = Color.PaleVioletRed;
-            btnClientes.BorderRadius = 11;
-            btnClientes.BorderSize = 0;
-            btnClientes.FlatAppearance.BorderSize = 0;
-            btnClientes.ForeColor = Color.Black;
-            btnClientes.Name = "btnClientes";
-            btnClientes.TextColor = Color.Black;
-            btnClientes.UseVisualStyleBackColor = false;
-            btnClientes.Click += clicks;
-            btnClientes.MouseEnter += MouseEnters;
-            btnClientes.MouseLeave += MouseLeaves;
+            PanelNombreFormHijo.Controls.Add(iconform);
+            PanelNombreFormHijo.Controls.Add(label1);
+            resources.ApplyResources(PanelNombreFormHijo, "PanelNombreFormHijo");
+            PanelNombreFormHijo.Name = "PanelNombreFormHijo";
             // 
-            // btnInventario
+            // iconform
             // 
-            btnInventario.BackColor = Color.Silver;
-            btnInventario.BackgroundColor = Color.Silver;
-            resources.ApplyResources(btnInventario, "btnInventario");
-            btnInventario.BorderColor = Color.PaleVioletRed;
-            btnInventario.BorderRadius = 11;
-            btnInventario.BorderSize = 0;
-            btnInventario.FlatAppearance.BorderSize = 0;
-            btnInventario.ForeColor = Color.Black;
-            btnInventario.Name = "btnInventario";
-            btnInventario.TextColor = Color.Black;
-            btnInventario.UseVisualStyleBackColor = false;
-            btnInventario.Click += clicks;
-            btnInventario.MouseEnter += MouseEnters;
-            btnInventario.MouseLeave += MouseLeaves;
+            iconform.BackColor = Color.FromArgb(31, 30, 68);
+            iconform.ForeColor = SystemColors.ControlText;
+            iconform.IconChar = FontAwesome.Sharp.IconChar.None;
+            iconform.IconColor = SystemColors.ControlText;
+            iconform.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            resources.ApplyResources(iconform, "iconform");
+            iconform.Name = "iconform";
+            iconform.TabStop = false;
             // 
-            // btnPlanilla
+            // label1
             // 
-            btnPlanilla.BackColor = Color.Silver;
-            btnPlanilla.BackgroundColor = Color.Silver;
-            resources.ApplyResources(btnPlanilla, "btnPlanilla");
-            btnPlanilla.BorderColor = Color.PaleVioletRed;
-            btnPlanilla.BorderRadius = 11;
-            btnPlanilla.BorderSize = 0;
-            btnPlanilla.FlatAppearance.BorderSize = 0;
-            btnPlanilla.ForeColor = Color.Black;
-            btnPlanilla.Name = "btnPlanilla";
-            btnPlanilla.TextColor = Color.Black;
-            btnPlanilla.UseVisualStyleBackColor = false;
-            btnPlanilla.Click += clicks;
-            btnPlanilla.MouseEnter += MouseEnters;
-            btnPlanilla.MouseLeave += MouseLeaves;
-            // 
-            // btnInformes
-            // 
-            btnInformes.BackColor = Color.Silver;
-            btnInformes.BackgroundColor = Color.Silver;
-            resources.ApplyResources(btnInformes, "btnInformes");
-            btnInformes.BorderColor = Color.PaleVioletRed;
-            btnInformes.BorderRadius = 11;
-            btnInformes.BorderSize = 0;
-            btnInformes.FlatAppearance.BorderSize = 0;
-            btnInformes.ForeColor = Color.Black;
-            btnInformes.Name = "btnInformes";
-            btnInformes.TextColor = Color.Black;
-            btnInformes.UseVisualStyleBackColor = false;
-            btnInformes.Click += clicks;
-            btnInformes.MouseEnter += MouseEnters;
-            btnInformes.MouseLeave += MouseLeaves;
-            // 
-            // btnVentas
-            // 
-            btnVentas.BackColor = Color.Silver;
-            btnVentas.BackgroundColor = Color.Silver;
-            resources.ApplyResources(btnVentas, "btnVentas");
-            btnVentas.BorderColor = Color.PaleVioletRed;
-            btnVentas.BorderRadius = 11;
-            btnVentas.BorderSize = 0;
-            btnVentas.FlatAppearance.BorderSize = 0;
-            btnVentas.ForeColor = Color.Black;
-            btnVentas.Name = "btnVentas";
-            btnVentas.TextColor = Color.Black;
-            btnVentas.UseVisualStyleBackColor = false;
-            btnVentas.Click += clicks;
-            btnVentas.MouseEnter += MouseEnters;
-            btnVentas.MouseLeave += MouseLeaves;
-            // 
-            // btnUsuarios
-            // 
-            btnUsuarios.BackColor = Color.Silver;
-            btnUsuarios.BackgroundColor = Color.Silver;
-            resources.ApplyResources(btnUsuarios, "btnUsuarios");
-            btnUsuarios.BorderColor = Color.PaleVioletRed;
-            btnUsuarios.BorderRadius = 11;
-            btnUsuarios.BorderSize = 0;
-            btnUsuarios.FlatAppearance.BorderSize = 0;
-            btnUsuarios.ForeColor = Color.Black;
-            btnUsuarios.Name = "btnUsuarios";
-            btnUsuarios.TextColor = Color.Black;
-            btnUsuarios.UseVisualStyleBackColor = false;
-            btnUsuarios.Click += clicks;
-            btnUsuarios.MouseEnter += MouseEnters;
-            btnUsuarios.MouseLeave += MouseLeaves;
-            // 
-            // btnConfiguraciones
-            // 
-            btnConfiguraciones.BackColor = Color.Silver;
-            btnConfiguraciones.BackgroundColor = Color.Silver;
-            resources.ApplyResources(btnConfiguraciones, "btnConfiguraciones");
-            btnConfiguraciones.BorderColor = Color.PaleVioletRed;
-            btnConfiguraciones.BorderRadius = 11;
-            btnConfiguraciones.BorderSize = 0;
-            btnConfiguraciones.FlatAppearance.BorderSize = 0;
-            btnConfiguraciones.ForeColor = Color.Black;
-            btnConfiguraciones.Name = "btnConfiguraciones";
-            btnConfiguraciones.TextColor = Color.Black;
-            btnConfiguraciones.UseVisualStyleBackColor = false;
-            btnConfiguraciones.Click += clicks;
-            btnConfiguraciones.MouseEnter += MouseEnters;
-            btnConfiguraciones.MouseLeave += MouseLeaves;
-            // 
-            // btnHerramientas
-            // 
-            btnHerramientas.BackColor = Color.Silver;
-            btnHerramientas.BackgroundColor = Color.Silver;
-            resources.ApplyResources(btnHerramientas, "btnHerramientas");
-            btnHerramientas.BorderColor = Color.PaleVioletRed;
-            btnHerramientas.BorderRadius = 11;
-            btnHerramientas.BorderSize = 0;
-            btnHerramientas.FlatAppearance.BorderSize = 0;
-            btnHerramientas.ForeColor = Color.Black;
-            btnHerramientas.Name = "btnHerramientas";
-            btnHerramientas.TextColor = Color.Black;
-            btnHerramientas.UseVisualStyleBackColor = false;
-            btnHerramientas.Click += clicks;
-            btnHerramientas.MouseEnter += MouseEnters;
-            btnHerramientas.MouseLeave += MouseLeaves;
-            // 
-            // btnInicio
-            // 
-            btnInicio.BackColor = Color.Silver;
-            btnInicio.BackgroundColor = Color.Silver;
-            resources.ApplyResources(btnInicio, "btnInicio");
-            btnInicio.BorderColor = Color.PaleVioletRed;
-            btnInicio.BorderRadius = 11;
-            btnInicio.BorderSize = 0;
-            btnInicio.FlatAppearance.BorderSize = 0;
-            btnInicio.ForeColor = Color.Black;
-            btnInicio.Name = "btnInicio";
-            btnInicio.TextColor = Color.Black;
-            btnInicio.UseVisualStyleBackColor = false;
-            btnInicio.Click += clicks;
-            btnInicio.MouseEnter += MouseEnters;
-            btnInicio.MouseLeave += MouseLeaves;
+            resources.ApplyResources(label1, "label1");
+            label1.ForeColor = SystemColors.Control;
+            label1.Name = "label1";
             // 
             // panelContenedor
             // 
@@ -486,35 +363,169 @@ namespace CapaVista
             rjButton6.TextColor = Color.Black;
             rjButton6.UseVisualStyleBackColor = false;
             // 
-            // panel2
+            // panelMenu
             // 
-            panel2.Controls.Add(btnConfiguraciones);
-            panel2.Controls.Add(btnPlanilla);
-            panel2.Controls.Add(btnHerramientas);
-            panel2.Controls.Add(btnClientes);
-            panel2.Controls.Add(btnUsuarios);
-            panel2.Controls.Add(btnInformes);
-            panel2.Controls.Add(btnInventario);
-            panel2.Controls.Add(btnVentas);
-            panel2.Controls.Add(btnInicio);
-            resources.ApplyResources(panel2, "panel2");
-            panel2.Name = "panel2";
+            panelMenu.BackColor = Color.FromArgb(31, 30, 68);
+            panelMenu.Controls.Add(leftBorderBtn);
+            panelMenu.Controls.Add(btnConfiguraciones);
+            panelMenu.Controls.Add(btnPlanilla);
+            panelMenu.Controls.Add(btnHerramientas);
+            panelMenu.Controls.Add(btnClientes);
+            panelMenu.Controls.Add(btnUsuarios);
+            panelMenu.Controls.Add(btnInformes);
+            panelMenu.Controls.Add(btnInventario);
+            panelMenu.Controls.Add(btnVentas);
+            panelMenu.Controls.Add(btnInicio);
+            panelMenu.Controls.Add(PanelLogo);
+            resources.ApplyResources(panelMenu, "panelMenu");
+            panelMenu.Name = "panelMenu";
+            // 
+            // leftBorderBtn
+            // 
+            resources.ApplyResources(leftBorderBtn, "leftBorderBtn");
+            leftBorderBtn.Name = "leftBorderBtn";
+            // 
+            // btnConfiguraciones
+            // 
+            resources.ApplyResources(btnConfiguraciones, "btnConfiguraciones");
+            btnConfiguraciones.ForeColor = Color.White;
+            btnConfiguraciones.IconChar = FontAwesome.Sharp.IconChar.BuildingWheat;
+            btnConfiguraciones.IconColor = Color.White;
+            btnConfiguraciones.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnConfiguraciones.IconSize = 30;
+            btnConfiguraciones.Name = "btnConfiguraciones";
+            btnConfiguraciones.UseVisualStyleBackColor = true;
+            btnConfiguraciones.Click += clicks;
+            // 
+            // btnPlanilla
+            // 
+            resources.ApplyResources(btnPlanilla, "btnPlanilla");
+            btnPlanilla.ForeColor = Color.White;
+            btnPlanilla.IconChar = FontAwesome.Sharp.IconChar.UserTie;
+            btnPlanilla.IconColor = Color.White;
+            btnPlanilla.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnPlanilla.IconSize = 30;
+            btnPlanilla.Name = "btnPlanilla";
+            btnPlanilla.UseVisualStyleBackColor = true;
+            btnPlanilla.Click += clicks;
+            // 
+            // btnHerramientas
+            // 
+            resources.ApplyResources(btnHerramientas, "btnHerramientas");
+            btnHerramientas.ForeColor = Color.White;
+            btnHerramientas.IconChar = FontAwesome.Sharp.IconChar.Tools;
+            btnHerramientas.IconColor = Color.White;
+            btnHerramientas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnHerramientas.IconSize = 30;
+            btnHerramientas.Name = "btnHerramientas";
+            btnHerramientas.UseVisualStyleBackColor = true;
+            btnHerramientas.Click += clicks;
+            // 
+            // btnClientes
+            // 
+            resources.ApplyResources(btnClientes, "btnClientes");
+            btnClientes.ForeColor = Color.White;
+            btnClientes.IconChar = FontAwesome.Sharp.IconChar.PersonCircleCheck;
+            btnClientes.IconColor = Color.White;
+            btnClientes.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnClientes.IconSize = 30;
+            btnClientes.Name = "btnClientes";
+            btnClientes.UseVisualStyleBackColor = true;
+            btnClientes.Click += clicks;
+            // 
+            // btnUsuarios
+            // 
+            resources.ApplyResources(btnUsuarios, "btnUsuarios");
+            btnUsuarios.ForeColor = Color.White;
+            btnUsuarios.IconChar = FontAwesome.Sharp.IconChar.User;
+            btnUsuarios.IconColor = Color.White;
+            btnUsuarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnUsuarios.IconSize = 30;
+            btnUsuarios.Name = "btnUsuarios";
+            btnUsuarios.UseVisualStyleBackColor = true;
+            btnUsuarios.Click += clicks;
+            // 
+            // btnInformes
+            // 
+            resources.ApplyResources(btnInformes, "btnInformes");
+            btnInformes.ForeColor = Color.White;
+            btnInformes.IconChar = FontAwesome.Sharp.IconChar.File;
+            btnInformes.IconColor = Color.White;
+            btnInformes.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnInformes.IconSize = 30;
+            btnInformes.Name = "btnInformes";
+            btnInformes.UseVisualStyleBackColor = true;
+            btnInformes.Click += clicks;
+            // 
+            // btnInventario
+            // 
+            resources.ApplyResources(btnInventario, "btnInventario");
+            btnInventario.ForeColor = Color.White;
+            btnInventario.IconChar = FontAwesome.Sharp.IconChar.Warehouse;
+            btnInventario.IconColor = Color.White;
+            btnInventario.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnInventario.IconSize = 30;
+            btnInventario.Name = "btnInventario";
+            btnInventario.UseVisualStyleBackColor = true;
+            btnInventario.Click += clicks;
+            // 
+            // btnVentas
+            // 
+            resources.ApplyResources(btnVentas, "btnVentas");
+            btnVentas.ForeColor = Color.White;
+            btnVentas.IconChar = FontAwesome.Sharp.IconChar.CartArrowDown;
+            btnVentas.IconColor = Color.White;
+            btnVentas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnVentas.IconSize = 30;
+            btnVentas.Name = "btnVentas";
+            btnVentas.UseVisualStyleBackColor = true;
+            btnVentas.Click += clicks;
+            // 
+            // btnInicio
+            // 
+            resources.ApplyResources(btnInicio, "btnInicio");
+            btnInicio.ForeColor = Color.White;
+            btnInicio.IconChar = FontAwesome.Sharp.IconChar.House;
+            btnInicio.IconColor = Color.White;
+            btnInicio.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnInicio.IconSize = 30;
+            btnInicio.Name = "btnInicio";
+            btnInicio.UseVisualStyleBackColor = true;
+            btnInicio.Click += clicks;
+            // 
+            // PanelLogo
+            // 
+            PanelLogo.Controls.Add(imgLogoEmpresa);
+            resources.ApplyResources(PanelLogo, "PanelLogo");
+            PanelLogo.Name = "PanelLogo";
+            // 
+            // imgLogoEmpresa
+            // 
+            imgLogoEmpresa.BackColor = Color.FromArgb(192, 196, 204);
+            resources.ApplyResources(imgLogoEmpresa, "imgLogoEmpresa");
+            imgLogoEmpresa.Name = "imgLogoEmpresa";
+            imgLogoEmpresa.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            imgLogoEmpresa.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            imgLogoEmpresa.TabStop = false;
+            imgLogoEmpresa.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
             // FormPrincipal
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            Controls.Add(panelAbajo);
             Controls.Add(panelContenedor);
-            Controls.Add(panel2);
+            Controls.Add(PanelSuperior);
+            Controls.Add(panelMenu);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "FormPrincipal";
             WindowState = FormWindowState.Maximized;
             Load += FrmPrincipal_Load;
-            panelAbajo.ResumeLayout(false);
-            panel7.ResumeLayout(false);
-            panel6.ResumeLayout(false);
+            PanelSuperior.ResumeLayout(false);
+            panel5.ResumeLayout(false);
+            PanelNombreFormHijo.ResumeLayout(false);
+            PanelNombreFormHijo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)iconform).EndInit();
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel3.ResumeLayout(false);
@@ -525,22 +536,15 @@ namespace CapaVista
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             tableLayoutPanel4.ResumeLayout(false);
-            panel2.ResumeLayout(false);
+            panelMenu.ResumeLayout(false);
+            PanelLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)imgLogoEmpresa).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panelAbajo;
-        private RJCodeAdvance.RJControls.RJButton btnInformes;
-        private RJCodeAdvance.RJControls.RJButton btnInventario;
-        private RJCodeAdvance.RJControls.RJButton btnPlanilla;
-#pragma warning restore CS0169 // El campo 'FormPrincipal.rjButton8' nunca se usa
-        private RJCodeAdvance.RJControls.RJButton btnInicio;
-        private RJCodeAdvance.RJControls.RJButton btnHerramientas;
-        private RJCodeAdvance.RJControls.RJButton btnUsuarios;
-        private RJCodeAdvance.RJControls.RJButton btnConfiguraciones;
-        private RJCodeAdvance.RJControls.RJButton btnVentas;
+        private Panel PanelSuperior;
         private Label lblUsuario;
         public Panel panelContenedor;
         private TableLayoutPanel tableLayoutPanel2;
@@ -561,14 +565,27 @@ namespace CapaVista
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private System.Windows.Forms.Timer reloj;
-        private RJCodeAdvance.RJControls.RJButton btnClientes;
         private Panel panel3;
         private TableLayoutPanel tableLayoutPanel4;
         private RJCodeAdvance.RJControls.RJButton rjButton5;
         private RJCodeAdvance.RJControls.RJButton rjButton6;
-        private Panel panel2;
-        private Panel panel6;
-        private Panel panel7;
+        private Panel panelMenu;
         private Label lblReloj;
+        private Panel panel5;
+        private Panel PanelNombreFormHijo;
+        private Panel PanelLogo;
+        private FontAwesome.Sharp.IconButton btnConfiguraciones;
+        private FontAwesome.Sharp.IconButton btnPlanilla;
+        private FontAwesome.Sharp.IconButton btnHerramientas;
+        private FontAwesome.Sharp.IconButton btnClientes;
+        private FontAwesome.Sharp.IconButton btnUsuarios;
+        private FontAwesome.Sharp.IconButton btnInformes;
+        private FontAwesome.Sharp.IconButton btnInventario;
+        private FontAwesome.Sharp.IconButton btnVentas;
+        private FontAwesome.Sharp.IconButton btnInicio;
+        private Panel leftBorderBtn;
+        private ReaLTaiizor.Controls.HopePictureBox imgLogoEmpresa;
+        private FontAwesome.Sharp.IconPictureBox iconform;
+        private Label label1;
     }
 }
